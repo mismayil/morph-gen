@@ -1,38 +1,30 @@
 import argparse
-import openai
 import time
-from openai.error import OpenAIError
+from openai import OpenAI, APITimeoutError, APIConnectionError, RateLimitError, InternalServerError, Timeout
 import os
 from tqdm import tqdm
-import json
-import numpy as np
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 import pathlib
-import uuid
 import sys
-import re
 
 sys.path.append("..")
 
 from utils import read_json, write_json, generate_unique_id, MODEL_COSTS
 
-#openai.api_key = args.os.getenv("OPENAI_API_KEY")
-
 CHAT_COMPLETION_MODELS = ["gpt-3.5-turbo", "gpt-4"]
 TEXT_COMPLETION_MODELS = ["text-davinci-003"]
 
-def chat_completion(messages, model="gpt-3.5-turbo", return_text=True, return_usage=True, model_args=None):
+def chat_completion(client, messages, model="gpt-3.5-turbo", return_text=True, return_usage=True, model_args=None):
     if model_args is None:
         model_args = {}
 
     while True:
         try:
-            response = openai.ChatCompletion.create(model=model, messages=messages, **model_args)
-            text = response["choices"][0]["message"]["content"].strip()
-            usage = response["usage"]
+            response = client.chat.completions.create(model=model, messages=messages, **model_args)
+            text = response.choices[0].message.content.strip()
+            usage = response.usage
             
             if return_text and return_usage:
-                return text, usage
+                return text, dict(usage)
             
             if return_text:
                 return text
@@ -41,23 +33,23 @@ def chat_completion(messages, model="gpt-3.5-turbo", return_text=True, return_us
                 return usage
 
             return response
-        except OpenAIError as e:
-            print("OpenAI error. Waiting for 1 minute.")
+        except (APITimeoutError, APIConnectionError, RateLimitError, InternalServerError) as e:
+            print(f"OpenAI error: {str(e)}. Waiting for 1 minute.")
             time.sleep(60)
             continue
 
-def text_completion(prompt, model="text-davinci-003", return_text=True, return_usage=True, model_args=None):
+def text_completion(client, prompt, model="text-davinci-003", return_text=True, return_usage=True, model_args=None):
     if model_args is None:
         model_args = {}
 
     while True:
         try:
-            response = openai.Completion.create(model=model, prompt=prompt, **model_args)
-            text = response["choices"][0]["text"].strip()
-            usage = response["usage"]
+            response = client.completion.create(model=model, prompt=prompt, **model_args)
+            text = response.choices[0].text.strip()
+            usage = response.usage
 
             if return_text and return_usage:
-                return text, usage
+                return text, dict(usage)
             
             if return_text:
                 return text
@@ -66,15 +58,15 @@ def text_completion(prompt, model="text-davinci-003", return_text=True, return_u
                 return usage
 
             return response
-        except OpenAIError as e:
-            print("OpenAI error. Waiting for 1 minute.")
+        except (APITimeoutError, APIConnectionError, RateLimitError, InternalServerError) as e:
+            print(f"OpenAI error: {str(e)}. Waiting for 1 minute.")
             time.sleep(60)
             continue
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--datapath", type=str, help="Path to evaluation data in json", required=True)
-    parser.add_argument("--openai-key", type=str, help="OpenAI API Key", required=True)
+    parser.add_argument("--openai-key", type=str, help="OpenAI API Key")
     parser.add_argument("--model", type=str, help="Model to use for evaluation", default="gpt-3.5-turbo")
     parser.add_argument("--temperature", type=float, help="Temperature for generation", default=0.3)
     parser.add_argument("--max-tokens", type=int, help="Max tokens for generation", default=40)
@@ -86,7 +78,9 @@ def main():
     parser.add_argument("--ignore-path", type=str, help="Path to already evaluated data", default=None)
     
     args = parser.parse_args()
-    openai.api_key = args.openai_key 
+    
+    client = OpenAI(api_key=args.openai_key if args.openai_key is not None else os.getenv("OPENAI_API_KEY"))
+
     data = read_json(args.datapath)
     
     ignore_map = {}
@@ -100,9 +94,6 @@ def main():
     if args.num_samples > 0:
         data = data[:int(args.num_samples)]
 
-    predictions = []
-    references = []
-
     outputs = {
         "metadata": {
             "datapath": args.datapath,
@@ -114,10 +105,6 @@ def main():
             "presence_penalty": args.presence_penalty
         },
         "metrics": {
-            "accuracy": 0,
-            "precision": 0,
-            "recall": 0,
-            "f1": 0,
             "usage": {
                 "prompt_tokens": 0,
                 "completion_tokens": 0,
@@ -149,7 +136,7 @@ def main():
             continue
 
         if args.model in CHAT_COMPLETION_MODELS:
-            response, usage = chat_completion([{"role": "user", "content": sample["prompt"].strip()}], model=args.model, return_text=True, return_usage=True, model_args={
+            response, usage = chat_completion(client, [{"role": "user", "content": sample["prompt"].strip()}], model=args.model, return_text=True, return_usage=True, model_args={
                 "temperature": args.temperature,
                 "max_tokens": args.max_tokens,
                 "top_p": args.top_p,
@@ -157,7 +144,7 @@ def main():
                 "presence_penalty": args.presence_penalty
             })
         elif args.model in TEXT_COMPLETION_MODELS:
-            response, usage = text_completion(sample["prompt"].strip(), model=args.model, return_text=True, return_usage=True, model_args={
+            response, usage = text_completion(client, sample["prompt"].strip(), model=args.model, return_text=True, return_usage=True, model_args={
                 "temperature": args.temperature,
                 "max_tokens": args.max_tokens,
                 "top_p": args.top_p,
@@ -172,28 +159,8 @@ def main():
         outputs["metrics"]["usage"]["prompt_tokens"] += usage["prompt_tokens"]
         outputs["metrics"]["usage"]["completion_tokens"] += usage["completion_tokens"]
         outputs["metrics"]["usage"]["total_tokens"] += usage["total_tokens"]
-
-        if sample["template"] in ["bfill"]:
-            ref = 1
-            pred = 1 if sample["gold_answer"] == response.strip("[]").split(",") else 0
-            references.append(ref)
-            predictions.append(pred)
-            sample["correct"] = ref == pred
-        else:
-            raise ValueError(f"Template {sample['template']} not supported for evaluation.")
         
         write_json(outputs, output_path)
-
-    if predictions:
-        outputs["metrics"]["accuracy"] = accuracy_score(references, predictions)
-        outputs["metrics"]["precision"] = precision_score(references, predictions, average="macro")
-        outputs["metrics"]["recall"] = recall_score(references, predictions, average="macro")
-        outputs["metrics"]["f1"] = f1_score(references, predictions, average="macro")
-    else:
-        outputs["metrics"]["accuracy"] = np.mean([sample["accuracy"] for sample in data if "accuracy" in sample])
-        outputs["metrics"]["precision"] = np.mean([sample["precision"] for sample in data if "precision" in sample])
-        outputs["metrics"]["recall"] = np.mean([sample["recall"] for sample in data if "recall" in sample])
-        outputs["metrics"]["f1"] = np.mean([sample["f1"] for sample in data if "f1" in sample])
 
     outputs["metrics"]["cost"]["input"] = outputs["metrics"]["usage"]["prompt_tokens"] * MODEL_COSTS[args.model]["input"]
     outputs["metrics"]["cost"]["output"] = outputs["metrics"]["usage"]["completion_tokens"] * MODEL_COSTS[args.model]["output"]

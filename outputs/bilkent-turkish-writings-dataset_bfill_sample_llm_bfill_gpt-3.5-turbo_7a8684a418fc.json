@@ -1,0 +1,431 @@
+{
+    "metadata": {
+        "datapath": "data/bilkent-turkish-writings-dataset_bfill_sample_llm_bfill.json",
+        "model": "gpt-3.5-turbo",
+        "temperature": 0.3,
+        "max_tokens": 40,
+        "top_p": 1,
+        "frequency_penalty": 0,
+        "presence_penalty": 0
+    },
+    "metrics": {
+        "usage": {
+            "prompt_tokens": 4684,
+            "completion_tokens": 63,
+            "total_tokens": 4747
+        },
+        "cost": {
+            "input": 0.007026,
+            "output": 0.000126,
+            "total": 0.007152
+        },
+        "macro_f1": 0.23076923076923075,
+        "accuracy": 0.3,
+        "precision": 0.5,
+        "recall": 0.15
+    },
+    "data": [
+        {
+            "id": "bilkent-turkish-writings-1701",
+            "sentence": "Durum sand\u0131\u011f\u0131m kadar k\u00f6t\u00fc olmasa da en az\u0131ndan son d\u00f6nemde belirli bir hedefimin ___ bu duruma sebep oldu\u011funu anlam\u0131\u015f oldum",
+            "words": [
+                "ol"
+            ],
+            "suffixes": [
+                "nin",
+                "n\u00fcn",
+                "m",
+                "m",
+                "si",
+                "me",
+                "\u0131n",
+                "ma",
+                "ma",
+                "nn",
+                "s\u0131",
+                "nun",
+                "s",
+                "me",
+                "\u00fcn",
+                "n",
+                "su",
+                "in",
+                "un",
+                "s\u00fc",
+                "n\u0131n"
+            ],
+            "prompt": "You are given a sentence in Turkish with missing words and your task is to fill in the blanks with the words constructed from the given word roots and suffixes. You are allowed to use only the given words and suffixes. Output only the missing words inside square brackets separated by commas according to their order in the given sentence.\n\nExample 1:\nSentence: \"Marilyn Monroe ___ hep g\u00fczel sar\u0131\u015f\u0131n olarak kald\u0131\"\nWords: ['ak\u0131l']\nSuffixes: ['de', 'lar', 'da', 'ler']\nMissing words: ['ak\u0131llarda']\n\n\nExample 2:\nSentence: \"Kitap, dizi kadar hatta belki diziden de ___\"\nWords: ['s\u00fcr\u00fckle']\nSuffixes: ['d\u0131', 'ydi', 'yd\u0131', 'di', 'yici', 'ici', '\u0131c\u0131', 'y\u0131c\u0131']\nMissing words: ['s\u00fcr\u00fckleyiciydi']\n\n\nExample 3:\nSentence: \"Babacan diyorum \u00e7\u00fcnk\u00fc \u00e7ocuklu\u011fumuzda bizi hep kucaklard\u0131, ___ ses \u00e7\u0131karmayan ya\u015fl\u0131 bir dede edas\u0131 ile kavuklar\u0131n\u0131n aras\u0131nda z\u0131play\u0131p oyunlar uydurmam\u0131za izin verirdi\"\nWords: ['yaramaz']\nSuffixes: ['\u0131m\u0131z', 'a', 'lik', 'imiz', 'lar', 'na', 'ler', '\u00fcm\u00fcz', 'l\u0131k', 'e', 'ne', 'luk', 'l\u00fck', 'umuz']\nMissing words: ['yaramazl\u0131klar\u0131m\u0131za']\n\n\nExample 4:\nSentence: \"Durum sand\u0131\u011f\u0131m kadar k\u00f6t\u00fc olmasa da en az\u0131ndan son d\u00f6nemde belirli bir hedefimin ___ bu duruma sebep oldu\u011funu anlam\u0131\u015f oldum\"\nWords: ['ol']\nSuffixes: ['nin', 'n\u00fcn', 'm', 'm', 'si', 'me', '\u0131n', 'ma', 'ma', 'nn', 's\u0131', 'nun', 's', 'me', '\u00fcn', 'n', 'su', 'in', 'un', 's\u00fc', 'n\u0131n']\nMissing words: \n",
+            "gold_answer": [
+                "olmamas\u0131n\u0131n"
+            ],
+            "template": "bfill",
+            "model_response": "['olmad\u0131\u011f\u0131n\u0131']",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 476,
+                "total_tokens": 482
+            },
+            "correct": false
+        },
+        {
+            "id": "bilkent-turkish-writings-1239",
+            "sentence": "Bir s\u00fcre ayr\u0131 kalan \u00e7ift, ac\u0131ya art\u0131k ___ ve her \u015feyi yok sayarak bir araya gelir",
+            "words": [
+                "dayan"
+            ],
+            "suffixes": [
+                "m",
+                "me",
+                "",
+                "e",
+                "ma",
+                "ya",
+                "y",
+                "ye",
+                "z",
+                "a"
+            ],
+            "prompt": "You are given a sentence in Turkish with missing words and your task is to fill in the blanks with the words constructed from the given word roots and suffixes. You are allowed to use only the given words and suffixes. Output only the missing words inside square brackets separated by commas according to their order in the given sentence.\n\nExample 1:\nSentence: \"Marilyn Monroe ___ hep g\u00fczel sar\u0131\u015f\u0131n olarak kald\u0131\"\nWords: ['ak\u0131l']\nSuffixes: ['de', 'lar', 'da', 'ler']\nMissing words: ['ak\u0131llarda']\n\n\nExample 2:\nSentence: \"Kitap, dizi kadar hatta belki diziden de ___\"\nWords: ['s\u00fcr\u00fckle']\nSuffixes: ['d\u0131', 'ydi', 'yd\u0131', 'di', 'yici', 'ici', '\u0131c\u0131', 'y\u0131c\u0131']\nMissing words: ['s\u00fcr\u00fckleyiciydi']\n\n\nExample 3:\nSentence: \"Babacan diyorum \u00e7\u00fcnk\u00fc \u00e7ocuklu\u011fumuzda bizi hep kucaklard\u0131, ___ ses \u00e7\u0131karmayan ya\u015fl\u0131 bir dede edas\u0131 ile kavuklar\u0131n\u0131n aras\u0131nda z\u0131play\u0131p oyunlar uydurmam\u0131za izin verirdi\"\nWords: ['yaramaz']\nSuffixes: ['\u0131m\u0131z', 'a', 'lik', 'imiz', 'lar', 'na', 'ler', '\u00fcm\u00fcz', 'l\u0131k', 'e', 'ne', 'luk', 'l\u00fck', 'umuz']\nMissing words: ['yaramazl\u0131klar\u0131m\u0131za']\n\n\nExample 4:\nSentence: \"Bir s\u00fcre ayr\u0131 kalan \u00e7ift, ac\u0131ya art\u0131k ___ ve her \u015feyi yok sayarak bir araya gelir\"\nWords: ['dayan']\nSuffixes: ['m', 'me', '', 'e', 'ma', 'ya', 'y', 'ye', 'z', 'a']\nMissing words: \n",
+            "gold_answer": [
+                "dayanamaz"
+            ],
+            "template": "bfill",
+            "model_response": "['dayanamaz']",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 426,
+                "total_tokens": 432
+            },
+            "correct": true
+        },
+        {
+            "id": "bilkent-turkish-writings-6740",
+            "sentence": "Yaz\u0131y\u0131 bir ___ alet etmenin \u00f6tesinde, onu de\u011fi\u015ftirdik, yeri geldi hakaret ettik",
+            "words": [
+                "\u015fey"
+            ],
+            "suffixes": [
+                "e",
+                "lr",
+                "lar",
+                "",
+                "ler",
+                "ye",
+                "y",
+                "a",
+                "ya"
+            ],
+            "prompt": "You are given a sentence in Turkish with missing words and your task is to fill in the blanks with the words constructed from the given word roots and suffixes. You are allowed to use only the given words and suffixes. Output only the missing words inside square brackets separated by commas according to their order in the given sentence.\n\nExample 1:\nSentence: \"Marilyn Monroe ___ hep g\u00fczel sar\u0131\u015f\u0131n olarak kald\u0131\"\nWords: ['ak\u0131l']\nSuffixes: ['de', 'lar', 'da', 'ler']\nMissing words: ['ak\u0131llarda']\n\n\nExample 2:\nSentence: \"Kitap, dizi kadar hatta belki diziden de ___\"\nWords: ['s\u00fcr\u00fckle']\nSuffixes: ['d\u0131', 'ydi', 'yd\u0131', 'di', 'yici', 'ici', '\u0131c\u0131', 'y\u0131c\u0131']\nMissing words: ['s\u00fcr\u00fckleyiciydi']\n\n\nExample 3:\nSentence: \"Babacan diyorum \u00e7\u00fcnk\u00fc \u00e7ocuklu\u011fumuzda bizi hep kucaklard\u0131, ___ ses \u00e7\u0131karmayan ya\u015fl\u0131 bir dede edas\u0131 ile kavuklar\u0131n\u0131n aras\u0131nda z\u0131play\u0131p oyunlar uydurmam\u0131za izin verirdi\"\nWords: ['yaramaz']\nSuffixes: ['\u0131m\u0131z', 'a', 'lik', 'imiz', 'lar', 'na', 'ler', '\u00fcm\u00fcz', 'l\u0131k', 'e', 'ne', 'luk', 'l\u00fck', 'umuz']\nMissing words: ['yaramazl\u0131klar\u0131m\u0131za']\n\n\nExample 4:\nSentence: \"Yaz\u0131y\u0131 bir ___ alet etmenin \u00f6tesinde, onu de\u011fi\u015ftirdik, yeri geldi hakaret ettik\"\nWords: ['\u015fey']\nSuffixes: ['e', 'lr', 'lar', '', 'ler', 'ye', 'y', 'a', 'ya']\nMissing words: \n",
+            "gold_answer": [
+                "\u015feylere"
+            ],
+            "template": "bfill",
+            "model_response": "['\u015feye']",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 424,
+                "total_tokens": 428
+            },
+            "correct": false
+        },
+        {
+            "id": "bilkent-turkish-writings-6389",
+            "sentence": "E\u011fer o insanlar sisteme kar\u015f\u0131 isyan etmeyip o ak\u0131nt\u0131ya ___ kendilerini, g\u00fcn\u00fcm\u00fczdeki imkanlar\u0131m\u0131z daha k\u0131s\u0131tl\u0131 olacakt\u0131",
+            "words": [
+                "b\u0131rak"
+            ],
+            "suffixes": [
+                "ydu",
+                "tu",
+                "t\u0131",
+                "t\u00fc",
+                "t",
+                "yd\u0131",
+                "ytu",
+                "d\u00fc",
+                "lar",
+                "ler",
+                "yt\u00fc",
+                "yti",
+                "lr",
+                "ydi",
+                "yd",
+                "yd\u00fc",
+                "ti",
+                "yt",
+                "yt\u0131",
+                "d",
+                "du",
+                "se",
+                "d\u0131",
+                "sa",
+                "s",
+                "di"
+            ],
+            "prompt": "You are given a sentence in Turkish with missing words and your task is to fill in the blanks with the words constructed from the given word roots and suffixes. You are allowed to use only the given words and suffixes. Output only the missing words inside square brackets separated by commas according to their order in the given sentence.\n\nExample 1:\nSentence: \"Marilyn Monroe ___ hep g\u00fczel sar\u0131\u015f\u0131n olarak kald\u0131\"\nWords: ['ak\u0131l']\nSuffixes: ['de', 'lar', 'da', 'ler']\nMissing words: ['ak\u0131llarda']\n\n\nExample 2:\nSentence: \"Kitap, dizi kadar hatta belki diziden de ___\"\nWords: ['s\u00fcr\u00fckle']\nSuffixes: ['d\u0131', 'ydi', 'yd\u0131', 'di', 'yici', 'ici', '\u0131c\u0131', 'y\u0131c\u0131']\nMissing words: ['s\u00fcr\u00fckleyiciydi']\n\n\nExample 3:\nSentence: \"Babacan diyorum \u00e7\u00fcnk\u00fc \u00e7ocuklu\u011fumuzda bizi hep kucaklard\u0131, ___ ses \u00e7\u0131karmayan ya\u015fl\u0131 bir dede edas\u0131 ile kavuklar\u0131n\u0131n aras\u0131nda z\u0131play\u0131p oyunlar uydurmam\u0131za izin verirdi\"\nWords: ['yaramaz']\nSuffixes: ['\u0131m\u0131z', 'a', 'lik', 'imiz', 'lar', 'na', 'ler', '\u00fcm\u00fcz', 'l\u0131k', 'e', 'ne', 'luk', 'l\u00fck', 'umuz']\nMissing words: ['yaramazl\u0131klar\u0131m\u0131za']\n\n\nExample 4:\nSentence: \"E\u011fer o insanlar sisteme kar\u015f\u0131 isyan etmeyip o ak\u0131nt\u0131ya ___ kendilerini, g\u00fcn\u00fcm\u00fczdeki imkanlar\u0131m\u0131z daha k\u0131s\u0131tl\u0131 olacakt\u0131\"\nWords: ['b\u0131rak']\nSuffixes: ['ydu', 'tu', 't\u0131', 't\u00fc', 't', 'yd\u0131', 'ytu', 'd\u00fc', 'lar', 'ler', 'yt\u00fc', 'yti', 'lr', 'ydi', 'yd', 'yd\u00fc', 'ti', 'yt', 'yt\u0131', 'd', 'du', 'se', 'd\u0131', 'sa', 's', 'di']\nMissing words: \n",
+            "gold_answer": [
+                "b\u0131raksalard\u0131"
+            ],
+            "template": "bfill",
+            "model_response": "['b\u0131raksalard\u0131']",
+            "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 503,
+                "total_tokens": 511
+            },
+            "correct": true
+        },
+        {
+            "id": "bilkent-turkish-writings-368",
+            "sentence": "Anlatmaya nereden ba\u015flayaca\u011f\u0131n\u0131 bilmemek, neler d\u00fc\u015f\u00fcnd\u00fc\u011f\u00fcn\u00fc ___",
+            "words": [
+                "a\u00e7\u0131k"
+            ],
+            "suffixes": [
+                "y",
+                "mk",
+                "me",
+                "a",
+                "le",
+                "mek",
+                "ma",
+                "la",
+                "ye",
+                "e",
+                "mak",
+                "l",
+                "ya",
+                "",
+                "m"
+            ],
+            "prompt": "You are given a sentence in Turkish with missing words and your task is to fill in the blanks with the words constructed from the given word roots and suffixes. You are allowed to use only the given words and suffixes. Output only the missing words inside square brackets separated by commas according to their order in the given sentence.\n\nExample 1:\nSentence: \"Marilyn Monroe ___ hep g\u00fczel sar\u0131\u015f\u0131n olarak kald\u0131\"\nWords: ['ak\u0131l']\nSuffixes: ['de', 'lar', 'da', 'ler']\nMissing words: ['ak\u0131llarda']\n\n\nExample 2:\nSentence: \"Kitap, dizi kadar hatta belki diziden de ___\"\nWords: ['s\u00fcr\u00fckle']\nSuffixes: ['d\u0131', 'ydi', 'yd\u0131', 'di', 'yici', 'ici', '\u0131c\u0131', 'y\u0131c\u0131']\nMissing words: ['s\u00fcr\u00fckleyiciydi']\n\n\nExample 3:\nSentence: \"Babacan diyorum \u00e7\u00fcnk\u00fc \u00e7ocuklu\u011fumuzda bizi hep kucaklard\u0131, ___ ses \u00e7\u0131karmayan ya\u015fl\u0131 bir dede edas\u0131 ile kavuklar\u0131n\u0131n aras\u0131nda z\u0131play\u0131p oyunlar uydurmam\u0131za izin verirdi\"\nWords: ['yaramaz']\nSuffixes: ['\u0131m\u0131z', 'a', 'lik', 'imiz', 'lar', 'na', 'ler', '\u00fcm\u00fcz', 'l\u0131k', 'e', 'ne', 'luk', 'l\u00fck', 'umuz']\nMissing words: ['yaramazl\u0131klar\u0131m\u0131za']\n\n\nExample 4:\nSentence: \"Anlatmaya nereden ba\u015flayaca\u011f\u0131n\u0131 bilmemek, neler d\u00fc\u015f\u00fcnd\u00fc\u011f\u00fcn\u00fc ___\"\nWords: ['a\u00e7\u0131k']\nSuffixes: ['y', 'mk', 'me', 'a', 'le', 'mek', 'ma', 'la', 'ye', 'e', 'mak', 'l', 'ya', '', 'm']\nMissing words: \n",
+            "gold_answer": [
+                "a\u00e7\u0131klayamamak"
+            ],
+            "template": "bfill",
+            "model_response": "['a\u00e7\u0131k\u00e7a']",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 438,
+                "total_tokens": 444
+            },
+            "correct": false
+        },
+        {
+            "id": "bilkent-turkish-writings-398",
+            "sentence": "Bizi ___ bir \u015fey kalmam\u0131\u015ft\u0131r art\u0131k hayat\u0131m\u0131zda",
+            "words": [
+                "merak"
+            ],
+            "suffixes": [
+                "lan",
+                "",
+                "d\u00fcr",
+                "ln",
+                "ya",
+                "t\u0131r",
+                "t\u00fcr",
+                "dur",
+                "y",
+                "dir",
+                "ye",
+                "tur",
+                "tir",
+                "n",
+                "e",
+                "tr",
+                "dr",
+                "a",
+                "d\u0131r",
+                "len"
+            ],
+            "prompt": "You are given a sentence in Turkish with missing words and your task is to fill in the blanks with the words constructed from the given word roots and suffixes. You are allowed to use only the given words and suffixes. Output only the missing words inside square brackets separated by commas according to their order in the given sentence.\n\nExample 1:\nSentence: \"Marilyn Monroe ___ hep g\u00fczel sar\u0131\u015f\u0131n olarak kald\u0131\"\nWords: ['ak\u0131l']\nSuffixes: ['de', 'lar', 'da', 'ler']\nMissing words: ['ak\u0131llarda']\n\n\nExample 2:\nSentence: \"Kitap, dizi kadar hatta belki diziden de ___\"\nWords: ['s\u00fcr\u00fckle']\nSuffixes: ['d\u0131', 'ydi', 'yd\u0131', 'di', 'yici', 'ici', '\u0131c\u0131', 'y\u0131c\u0131']\nMissing words: ['s\u00fcr\u00fckleyiciydi']\n\n\nExample 3:\nSentence: \"Babacan diyorum \u00e7\u00fcnk\u00fc \u00e7ocuklu\u011fumuzda bizi hep kucaklard\u0131, ___ ses \u00e7\u0131karmayan ya\u015fl\u0131 bir dede edas\u0131 ile kavuklar\u0131n\u0131n aras\u0131nda z\u0131play\u0131p oyunlar uydurmam\u0131za izin verirdi\"\nWords: ['yaramaz']\nSuffixes: ['\u0131m\u0131z', 'a', 'lik', 'imiz', 'lar', 'na', 'ler', '\u00fcm\u00fcz', 'l\u0131k', 'e', 'ne', 'luk', 'l\u00fck', 'umuz']\nMissing words: ['yaramazl\u0131klar\u0131m\u0131za']\n\n\nExample 4:\nSentence: \"Bizi ___ bir \u015fey kalmam\u0131\u015ft\u0131r art\u0131k hayat\u0131m\u0131zda\"\nWords: ['merak']\nSuffixes: ['lan', '', 'd\u00fcr', 'ln', 'ya', 't\u0131r', 't\u00fcr', 'dur', 'y', 'dir', 'ye', 'tur', 'tir', 'n', 'e', 'tr', 'dr', 'a', 'd\u0131r', 'len']\nMissing words: \n",
+            "gold_answer": [
+                "merakland\u0131ran"
+            ],
+            "template": "bfill",
+            "model_response": "['meraklanacak']",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 449,
+                "total_tokens": 455
+            },
+            "correct": false
+        },
+        {
+            "id": "bilkent-turkish-writings-4599",
+            "sentence": "\u00c7o\u011fumuz kelimelere kendi hayat\u0131m\u0131z\u0131 ___ fark\u0131nda bile olmay\u0131z",
+            "words": [
+                "yans\u0131"
+            ],
+            "suffixes": [
+                "t\u00fck",
+                "\u00fcmuz",
+                "dk",
+                "mz",
+                "\u0131mz",
+                "m\u0131z",
+                "tk",
+                "umuz",
+                "n\u00fcn",
+                "\u0131m\u0131z",
+                "umiz",
+                "d\u0131k",
+                "n\u0131n",
+                "\u00fcm\u00fcz",
+                "dik",
+                "nn",
+                "imiz",
+                "im\u0131z",
+                "\u0131miz",
+                "n",
+                "imuz",
+                "m\u00fcz",
+                "um\u0131z",
+                "\u0131muz",
+                "t\u0131k",
+                "nin",
+                "\u00fcmz",
+                "\u00fcmiz",
+                "\u0131m\u00fcz",
+                "un",
+                "tik",
+                "d\u00fck",
+                "imz",
+                "in",
+                "\u00fcm\u0131z",
+                "im\u00fcz",
+                "nun",
+                "um\u00fcz",
+                "miz",
+                "t",
+                "\u0131n",
+                "\u00fcn",
+                "tuk",
+                "duk",
+                "umz",
+                "muz"
+            ],
+            "prompt": "You are given a sentence in Turkish with missing words and your task is to fill in the blanks with the words constructed from the given word roots and suffixes. You are allowed to use only the given words and suffixes. Output only the missing words inside square brackets separated by commas according to their order in the given sentence.\n\nExample 1:\nSentence: \"Marilyn Monroe ___ hep g\u00fczel sar\u0131\u015f\u0131n olarak kald\u0131\"\nWords: ['ak\u0131l']\nSuffixes: ['de', 'lar', 'da', 'ler']\nMissing words: ['ak\u0131llarda']\n\n\nExample 2:\nSentence: \"Kitap, dizi kadar hatta belki diziden de ___\"\nWords: ['s\u00fcr\u00fckle']\nSuffixes: ['d\u0131', 'ydi', 'yd\u0131', 'di', 'yici', 'ici', '\u0131c\u0131', 'y\u0131c\u0131']\nMissing words: ['s\u00fcr\u00fckleyiciydi']\n\n\nExample 3:\nSentence: \"Babacan diyorum \u00e7\u00fcnk\u00fc \u00e7ocuklu\u011fumuzda bizi hep kucaklard\u0131, ___ ses \u00e7\u0131karmayan ya\u015fl\u0131 bir dede edas\u0131 ile kavuklar\u0131n\u0131n aras\u0131nda z\u0131play\u0131p oyunlar uydurmam\u0131za izin verirdi\"\nWords: ['yaramaz']\nSuffixes: ['\u0131m\u0131z', 'a', 'lik', 'imiz', 'lar', 'na', 'ler', '\u00fcm\u00fcz', 'l\u0131k', 'e', 'ne', 'luk', 'l\u00fck', 'umuz']\nMissing words: ['yaramazl\u0131klar\u0131m\u0131za']\n\n\nExample 4:\nSentence: \"\u00c7o\u011fumuz kelimelere kendi hayat\u0131m\u0131z\u0131 ___ fark\u0131nda bile olmay\u0131z\"\nWords: ['yans\u0131']\nSuffixes: ['t\u00fck', '\u00fcmuz', 'dk', 'mz', '\u0131mz', 'm\u0131z', 'tk', 'umuz', 'n\u00fcn', '\u0131m\u0131z', 'umiz', 'd\u0131k', 'n\u0131n', '\u00fcm\u00fcz', 'dik', 'nn', 'imiz', 'im\u0131z', '\u0131miz', 'n', 'imuz', 'm\u00fcz', 'um\u0131z', '\u0131muz', 't\u0131k', 'nin', '\u00fcmz', '\u00fcmiz', '\u0131m\u00fcz', 'un', 'tik', 'd\u00fck', 'imz', 'in', '\u00fcm\u0131z', 'im\u00fcz', 'nun', 'um\u00fcz', 'miz', 't', '\u0131n', '\u00fcn', 'tuk', 'duk', 'umz', 'muz']\nMissing words: \n",
+            "gold_answer": [
+                "yans\u0131tt\u0131\u011f\u0131m\u0131z\u0131n"
+            ],
+            "template": "bfill",
+            "model_response": "['yans\u0131tmadan']",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 565,
+                "total_tokens": 572
+            },
+            "correct": false
+        },
+        {
+            "id": "bilkent-turkish-writings-5084",
+            "sentence": "___ g\u00fc\u00e7 problemler \u00e7o\u011fu kez \u00f6\u011fretmenimize sormay\u0131 ve cevab\u0131n\u0131 \u00f6\u011frenmeyi gerektirir",
+            "words": [
+                "\u00e7\u00f6z"
+            ],
+            "suffixes": [
+                "l",
+                "me",
+                "s\u00fc",
+                "si",
+                "\u0131l",
+                "s\u0131",
+                "il",
+                "ul",
+                "m",
+                "ma",
+                "\u00fcl",
+                "s",
+                "su"
+            ],
+            "prompt": "You are given a sentence in Turkish with missing words and your task is to fill in the blanks with the words constructed from the given word roots and suffixes. You are allowed to use only the given words and suffixes. Output only the missing words inside square brackets separated by commas according to their order in the given sentence.\n\nExample 1:\nSentence: \"Marilyn Monroe ___ hep g\u00fczel sar\u0131\u015f\u0131n olarak kald\u0131\"\nWords: ['ak\u0131l']\nSuffixes: ['de', 'lar', 'da', 'ler']\nMissing words: ['ak\u0131llarda']\n\n\nExample 2:\nSentence: \"Kitap, dizi kadar hatta belki diziden de ___\"\nWords: ['s\u00fcr\u00fckle']\nSuffixes: ['d\u0131', 'ydi', 'yd\u0131', 'di', 'yici', 'ici', '\u0131c\u0131', 'y\u0131c\u0131']\nMissing words: ['s\u00fcr\u00fckleyiciydi']\n\n\nExample 3:\nSentence: \"Babacan diyorum \u00e7\u00fcnk\u00fc \u00e7ocuklu\u011fumuzda bizi hep kucaklard\u0131, ___ ses \u00e7\u0131karmayan ya\u015fl\u0131 bir dede edas\u0131 ile kavuklar\u0131n\u0131n aras\u0131nda z\u0131play\u0131p oyunlar uydurmam\u0131za izin verirdi\"\nWords: ['yaramaz']\nSuffixes: ['\u0131m\u0131z', 'a', 'lik', 'imiz', 'lar', 'na', 'ler', '\u00fcm\u00fcz', 'l\u0131k', 'e', 'ne', 'luk', 'l\u00fck', 'umuz']\nMissing words: ['yaramazl\u0131klar\u0131m\u0131za']\n\n\nExample 4:\nSentence: \"___ g\u00fc\u00e7 problemler \u00e7o\u011fu kez \u00f6\u011fretmenimize sormay\u0131 ve cevab\u0131n\u0131 \u00f6\u011frenmeyi gerektirir\"\nWords: ['\u00e7\u00f6z']\nSuffixes: ['l', 'me', 's\u00fc', 'si', '\u0131l', 's\u0131', 'il', 'ul', 'm', 'ma', '\u00fcl', 's', 'su']\nMissing words: \n",
+            "gold_answer": [
+                "\u00c7\u00f6z\u00fclmesi"
+            ],
+            "template": "bfill",
+            "model_response": "['\u00e7\u00f6zme']",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 445,
+                "total_tokens": 451
+            },
+            "correct": false
+        },
+        {
+            "id": "bilkent-turkish-writings-3754",
+            "sentence": "\u0130nsanlar bu d\u00fc\u015f\u00fcnce ___ hayatlar\u0131 boyunca \u00f6ylesine maruz kal\u0131yorlar ki art\u0131k b\u00f6ylesi yakla\u015f\u0131mlar kemikle\u015fiyor",
+            "words": [
+                "yap\u0131"
+            ],
+            "suffixes": [
+                "e",
+                "y",
+                "sin",
+                "sn",
+                "ya",
+                "sun",
+                "ye",
+                "s\u0131n",
+                "",
+                "a",
+                "s\u00fcn"
+            ],
+            "prompt": "You are given a sentence in Turkish with missing words and your task is to fill in the blanks with the words constructed from the given word roots and suffixes. You are allowed to use only the given words and suffixes. Output only the missing words inside square brackets separated by commas according to their order in the given sentence.\n\nExample 1:\nSentence: \"Marilyn Monroe ___ hep g\u00fczel sar\u0131\u015f\u0131n olarak kald\u0131\"\nWords: ['ak\u0131l']\nSuffixes: ['de', 'lar', 'da', 'ler']\nMissing words: ['ak\u0131llarda']\n\n\nExample 2:\nSentence: \"Kitap, dizi kadar hatta belki diziden de ___\"\nWords: ['s\u00fcr\u00fckle']\nSuffixes: ['d\u0131', 'ydi', 'yd\u0131', 'di', 'yici', 'ici', '\u0131c\u0131', 'y\u0131c\u0131']\nMissing words: ['s\u00fcr\u00fckleyiciydi']\n\n\nExample 3:\nSentence: \"Babacan diyorum \u00e7\u00fcnk\u00fc \u00e7ocuklu\u011fumuzda bizi hep kucaklard\u0131, ___ ses \u00e7\u0131karmayan ya\u015fl\u0131 bir dede edas\u0131 ile kavuklar\u0131n\u0131n aras\u0131nda z\u0131play\u0131p oyunlar uydurmam\u0131za izin verirdi\"\nWords: ['yaramaz']\nSuffixes: ['\u0131m\u0131z', 'a', 'lik', 'imiz', 'lar', 'na', 'ler', '\u00fcm\u00fcz', 'l\u0131k', 'e', 'ne', 'luk', 'l\u00fck', 'umuz']\nMissing words: ['yaramazl\u0131klar\u0131m\u0131za']\n\n\nExample 4:\nSentence: \"\u0130nsanlar bu d\u00fc\u015f\u00fcnce ___ hayatlar\u0131 boyunca \u00f6ylesine maruz kal\u0131yorlar ki art\u0131k b\u00f6ylesi yakla\u015f\u0131mlar kemikle\u015fiyor\"\nWords: ['yap\u0131']\nSuffixes: ['e', 'y', 'sin', 'sn', 'ya', 'sun', 'ye', 's\u0131n', '', 'a', 's\u00fcn']\nMissing words: \n",
+            "gold_answer": [
+                "yap\u0131s\u0131na"
+            ],
+            "template": "bfill",
+            "model_response": "['yap\u0131s\u0131na']",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 442,
+                "total_tokens": 448
+            },
+            "correct": true
+        },
+        {
+            "id": "bilkent-turkish-writings-5268",
+            "sentence": "Peki, ne kazanmak, neyi kazanmak\u2026 B\u00fcy\u00fcklerimiz taraf\u0131ndan ___ kaz\u0131nan; Gelecekte iyi bir meslek sahibi olup, rahat bir ya\u015fam s\u00fcrd\u00fcrebilmek ad\u0131na, \u00e7al\u0131\u015fmak, \u00e7ok \u00e7al\u0131\u015fmak, daha \u00e7ok \u00e7al\u0131\u015fmak zorunda kald\u0131\u011f\u0131m\u0131z s\u0131navlar\u0131 kazanmak",
+            "words": [
+                "beyin"
+            ],
+            "suffixes": [
+                "y",
+                "e",
+                "ya",
+                "uz",
+                "\u00fcz",
+                "um",
+                "ye",
+                "yz",
+                "im",
+                "iz",
+                "y\u00fcz",
+                "\u00fcm",
+                "a",
+                "\u0131m",
+                "yuz",
+                "z",
+                "\u0131z",
+                "y\u0131z",
+                "m",
+                "",
+                "yiz"
+            ],
+            "prompt": "You are given a sentence in Turkish with missing words and your task is to fill in the blanks with the words constructed from the given word roots and suffixes. You are allowed to use only the given words and suffixes. Output only the missing words inside square brackets separated by commas according to their order in the given sentence.\n\nExample 1:\nSentence: \"Marilyn Monroe ___ hep g\u00fczel sar\u0131\u015f\u0131n olarak kald\u0131\"\nWords: ['ak\u0131l']\nSuffixes: ['de', 'lar', 'da', 'ler']\nMissing words: ['ak\u0131llarda']\n\n\nExample 2:\nSentence: \"Kitap, dizi kadar hatta belki diziden de ___\"\nWords: ['s\u00fcr\u00fckle']\nSuffixes: ['d\u0131', 'ydi', 'yd\u0131', 'di', 'yici', 'ici', '\u0131c\u0131', 'y\u0131c\u0131']\nMissing words: ['s\u00fcr\u00fckleyiciydi']\n\n\nExample 3:\nSentence: \"Babacan diyorum \u00e7\u00fcnk\u00fc \u00e7ocuklu\u011fumuzda bizi hep kucaklard\u0131, ___ ses \u00e7\u0131karmayan ya\u015fl\u0131 bir dede edas\u0131 ile kavuklar\u0131n\u0131n aras\u0131nda z\u0131play\u0131p oyunlar uydurmam\u0131za izin verirdi\"\nWords: ['yaramaz']\nSuffixes: ['\u0131m\u0131z', 'a', 'lik', 'imiz', 'lar', 'na', 'ler', '\u00fcm\u00fcz', 'l\u0131k', 'e', 'ne', 'luk', 'l\u00fck', 'umuz']\nMissing words: ['yaramazl\u0131klar\u0131m\u0131za']\n\n\nExample 4:\nSentence: \"Peki, ne kazanmak, neyi kazanmak\u2026 B\u00fcy\u00fcklerimiz taraf\u0131ndan ___ kaz\u0131nan; Gelecekte iyi bir meslek sahibi olup, rahat bir ya\u015fam s\u00fcrd\u00fcrebilmek ad\u0131na, \u00e7al\u0131\u015fmak, \u00e7ok \u00e7al\u0131\u015fmak, daha \u00e7ok \u00e7al\u0131\u015fmak zorunda kald\u0131\u011f\u0131m\u0131z s\u0131navlar\u0131 kazanmak\"\nWords: ['beyin']\nSuffixes: ['y', 'e', 'ya', 'uz', '\u00fcz', 'um', 'ye', 'yz', 'im', 'iz', 'y\u00fcz', '\u00fcm', 'a', '\u0131m', 'yuz', 'z', '\u0131z', 'y\u0131z', 'm', '', 'yiz']\nMissing words: \n",
+            "gold_answer": [
+                "beynimize"
+            ],
+            "template": "bfill",
+            "model_response": "['beyinlerimiz']",
+            "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 516,
+                "total_tokens": 524
+            },
+            "correct": false
+        }
+    ]
+}
