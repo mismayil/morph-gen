@@ -64,7 +64,7 @@ def main():
     bfill_data_path_stem = datapath.parent / f"{datapath.stem}_bfill{args.suffix}"
 
     write_json(bfill_data, bfill_data_path_stem.with_suffix(".json"), ensure_ascii=False)
-    pd.DataFrame(bfill_data).to_csv(bfill_data_path_stem.with_suffix(".csv"), index=False)
+    # pd.DataFrame(bfill_data).to_csv(bfill_data_path_stem.with_suffix(".csv"), index=False)
 
 if __name__ == "__main__":
     main()

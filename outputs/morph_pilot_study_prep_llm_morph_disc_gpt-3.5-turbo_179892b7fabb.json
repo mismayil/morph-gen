@@ -1,0 +1,471 @@
+{
+    "metadata": {
+        "datapath": "data/morph_pilot_study_prep_llm_morph_disc.json",
+        "model": "gpt-3.5-turbo",
+        "temperature": 0.3,
+        "max_tokens": 40,
+        "top_p": 1,
+        "frequency_penalty": 0,
+        "presence_penalty": 0
+    },
+    "metrics": {
+        "usage": {
+            "prompt_tokens": 5232,
+            "completion_tokens": 38,
+            "total_tokens": 5270
+        },
+        "cost": {
+            "input": 0.007848,
+            "output": 7.599999999999999e-05,
+            "total": 0.007924
+        },
+        "macro_f1": 0.3684210526315789,
+        "accuracy": 0.5833333333333334,
+        "precision": 0.5,
+        "recall": 0.2916666666666667
+    },
+    "data": [
+        {
+            "root": "kaya",
+            "suffixes": [
+                "dan",
+                "l\u0131k",
+                "lar"
+            ],
+            "prompt": "You are given a word root, a list of suffixes and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option.\n\nExample 1:\nWord root: kaya (noun)\nSuffixes: ['dan', 'l\u0131k', 'lar']\nOptions:\n1. kayadanlarl\u0131k\n2. kayal\u0131klardan\n3. kayal\u0131kdanlar\n4. kayalarl\u0131kdan\n5. kayadanl\u0131klar\n6. kayalardanl\u0131k\nAnswer: 2\n\nExample 2:\nWord root: kaya (noun)\nSuffixes: ['dan', 'l\u0131k', 'lar']\nOptions:\n1. kayadanlarl\u0131k\n2. kayadanl\u0131klar\n3. kayal\u0131klardan\n4. kayalardanl\u0131k\n5. kayal\u0131kdanlar\n6. kayalarl\u0131kdan\nAnswer: ",
+            "reference": 3,
+            "template": "morph_disc",
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 208,
+                "total_tokens": 209
+            },
+            "correct": true
+        },
+        {
+            "root": "tagasa",
+            "suffixes": [
+                "dan",
+                "l\u0131k",
+                "lar"
+            ],
+            "prompt": "You are given a word root, a list of suffixes and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option.\n\nExample 1:\nWord root: kaya (noun)\nSuffixes: ['dan', 'l\u0131k', 'lar']\nOptions:\n1. kayalardanl\u0131k\n2. kayal\u0131kdanlar\n3. kayadanlarl\u0131k\n4. kayadanl\u0131klar\n5. kayal\u0131klardan\n6. kayalarl\u0131kdan\nAnswer: 5\n\nExample 2:\nWord root: tagasa (noun)\nSuffixes: ['dan', 'l\u0131k', 'lar']\nOptions:\n1. tagasalardanl\u0131k\n2. tagasadanlarl\u0131k\n3. tagasalarl\u0131kdan\n4. tagasal\u0131kdanlar\n5. tagasal\u0131klardan\n6. tagasadanl\u0131klar\nAnswer: ",
+            "reference": 5,
+            "template": "morph_disc",
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 214,
+                "total_tokens": 215
+            },
+            "correct": false
+        },
+        {
+            "root": "nokta",
+            "suffixes": [
+                "s\u0131",
+                "ndan"
+            ],
+            "prompt": "You are given a word root, a list of suffixes and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option.\n\nExample 1:\nWord root: kaya (noun)\nSuffixes: ['dan', 'l\u0131k', 'lar']\nOptions:\n1. kayadanl\u0131klar\n2. kayalardanl\u0131k\n3. kayadanlarl\u0131k\n4. kayal\u0131klardan\n5. kayal\u0131kdanlar\n6. kayalarl\u0131kdan\nAnswer: 4\n\nExample 2:\nWord root: nokta (noun)\nSuffixes: ['s\u0131', 'ndan']\nOptions:\n1. noktandans\u0131\n2. noktas\u0131ndan\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 175,
+                "total_tokens": 176
+            },
+            "correct": true
+        },
+        {
+            "root": "motta",
+            "suffixes": [
+                "s\u0131",
+                "ndan"
+            ],
+            "prompt": "You are given a word root, a list of suffixes and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option.\n\nExample 1:\nWord root: kaya (noun)\nSuffixes: ['dan', 'l\u0131k', 'lar']\nOptions:\n1. kayadanl\u0131klar\n2. kayal\u0131kdanlar\n3. kayadanlarl\u0131k\n4. kayalardanl\u0131k\n5. kayal\u0131klardan\n6. kayalarl\u0131kdan\nAnswer: 5\n\nExample 2:\nWord root: motta (noun)\nSuffixes: ['s\u0131', 'ndan']\nOptions:\n1. mottandans\u0131\n2. mottas\u0131ndan\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 176,
+                "total_tokens": 177
+            },
+            "correct": true
+        },
+        {
+            "root": "a\u00e7\u0131k",
+            "suffixes": [
+                "ma",
+                "la",
+                "mak",
+                "ya"
+            ],
+            "prompt": "You are given a word root, a list of suffixes and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option.\n\nExample 1:\nWord root: kaya (noun)\nSuffixes: ['dan', 'l\u0131k', 'lar']\nOptions:\n1. kayal\u0131klardan\n2. kayadanlarl\u0131k\n3. kayalarl\u0131kdan\n4. kayalardanl\u0131k\n5. kayal\u0131kdanlar\n6. kayadanl\u0131klar\nAnswer: 1\n\nExample 2:\nWord root: a\u00e7\u0131k (adjective)\nSuffixes: ['ma', 'la', 'mak', 'ya']\nOptions:\n1. a\u00e7\u0131kmakmalaya\n2. a\u00e7\u0131kyalamamak\n3. a\u00e7\u0131kyamaklama\n4. a\u00e7\u0131kmayalamak\n5. a\u00e7\u0131klamakyama\n6. a\u00e7\u0131klayamamak\nAnswer: ",
+            "reference": 6,
+            "template": "morph_disc",
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 219,
+                "total_tokens": 220
+            },
+            "correct": false
+        },
+        {
+            "root": "potac\u0131k",
+            "suffixes": [
+                "ma",
+                "la",
+                "mak",
+                "ya"
+            ],
+            "prompt": "You are given a word root, a list of suffixes and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option.\n\nExample 1:\nWord root: kaya (noun)\nSuffixes: ['dan', 'l\u0131k', 'lar']\nOptions:\n1. kayal\u0131klardan\n2. kayal\u0131kdanlar\n3. kayadanlarl\u0131k\n4. kayadanl\u0131klar\n5. kayalarl\u0131kdan\n6. kayalardanl\u0131k\nAnswer: 1\n\nExample 2:\nWord root: potac\u0131k (adjective)\nSuffixes: ['ma', 'la', 'mak', 'ya']\nOptions:\n1. potac\u0131klayamamak\n2. potac\u0131klamakmaya\n3. potac\u0131kmayalamak\n4. potac\u0131kyamakmala\n5. potac\u0131kyamamakla\n6. potac\u0131kmakyamala\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc",
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 229,
+                "total_tokens": 230
+            },
+            "correct": false
+        },
+        {
+            "root": "yans\u0131",
+            "suffixes": [
+                "t\u0131\u011f",
+                "t",
+                "\u0131m\u0131z",
+                "\u0131n"
+            ],
+            "prompt": "You are given a word root, a list of suffixes and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option.\n\nExample 1:\nWord root: kaya (noun)\nSuffixes: ['dan', 'l\u0131k', 'lar']\nOptions:\n1. kayalarl\u0131kdan\n2. kayadanlarl\u0131k\n3. kayal\u0131klardan\n4. kayadanl\u0131klar\n5. kayal\u0131kdanlar\n6. kayalardanl\u0131k\nAnswer: 3\n\nExample 2:\nWord root: yans\u0131 (verb)\nSuffixes: ['t\u0131\u011f', 't', '\u0131m\u0131z', '\u0131n']\nOptions:\n1. yans\u0131\u0131nt\u0131\u011ft\u0131m\u0131z\n2. yans\u0131\u0131n\u0131m\u0131zt\u0131\u011ft\n3. yans\u0131t\u0131\u011ft\u0131m\u0131z\u0131n\n4. yans\u0131tt\u0131\u011f\u0131m\u0131z\u0131n\n5. yans\u0131t\u0131\u011ft\u0131n\u0131m\u0131z\n6. yans\u0131\u0131ntt\u0131\u011f\u0131m\u0131z\nAnswer: ",
+            "reference": 4,
+            "template": "morph_disc",
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 239,
+                "total_tokens": 240
+            },
+            "correct": true
+        },
+        {
+            "root": "famz\u0131",
+            "suffixes": [
+                "t\u0131\u011f",
+                "t",
+                "\u0131m\u0131z",
+                "\u0131n"
+            ],
+            "prompt": "You are given a word root, a list of suffixes and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option.\n\nExample 1:\nWord root: kaya (noun)\nSuffixes: ['dan', 'l\u0131k', 'lar']\nOptions:\n1. kayal\u0131kdanlar\n2. kayal\u0131klardan\n3. kayadanlarl\u0131k\n4. kayalarl\u0131kdan\n5. kayadanl\u0131klar\n6. kayalardanl\u0131k\nAnswer: 2\n\nExample 2:\nWord root: famz\u0131 (verb)\nSuffixes: ['t\u0131\u011f', 't', '\u0131m\u0131z', '\u0131n']\nOptions:\n1. famz\u0131\u0131ntt\u0131\u011f\u0131m\u0131z\n2. famz\u0131tt\u0131\u011f\u0131m\u0131z\u0131n\n3. famz\u0131t\u0131m\u0131z\u0131nt\u0131\u011f\n4. famz\u0131\u0131n\u0131m\u0131zt\u0131\u011ft\n5. famz\u0131\u0131n\u0131m\u0131ztt\u0131\u011f\n6. famz\u0131\u0131m\u0131z\u0131ntt\u0131\u011f\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 238,
+                "total_tokens": 239
+            },
+            "correct": true
+        },
+        {
+            "root": "\u00e7evre",
+            "suffixes": [
+                "ki",
+                "de",
+                "miz"
+            ],
+            "prompt": "You are given a word root, a list of suffixes and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option.\n\nExample 1:\nWord root: kaya (noun)\nSuffixes: ['dan', 'l\u0131k', 'lar']\nOptions:\n1. kayadanl\u0131klar\n2. kayalarl\u0131kdan\n3. kayal\u0131kdanlar\n4. kayal\u0131klardan\n5. kayadanlarl\u0131k\n6. kayalardanl\u0131k\nAnswer: 4\n\nExample 2:\nWord root: \u00e7evre (noun)\nSuffixes: ['ki', 'de', 'miz']\nOptions:\n1. \u00e7evremizdeki\n2. \u00e7evredemizki\n3. \u00e7evredekimiz\n4. \u00e7evrekidemiz\n5. \u00e7evremizkide\n6. \u00e7evrekimizde\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 217,
+                "total_tokens": 218
+            },
+            "correct": true
+        },
+        {
+            "root": "tefre",
+            "suffixes": [
+                "ki",
+                "de",
+                "miz"
+            ],
+            "prompt": "You are given a word root, a list of suffixes and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option.\n\nExample 1:\nWord root: kaya (noun)\nSuffixes: ['dan', 'l\u0131k', 'lar']\nOptions:\n1. kayalarl\u0131kdan\n2. kayalardanl\u0131k\n3. kayadanlarl\u0131k\n4. kayadanl\u0131klar\n5. kayal\u0131kdanlar\n6. kayal\u0131klardan\nAnswer: 6\n\nExample 2:\nWord root: tefre (noun)\nSuffixes: ['ki', 'de', 'miz']\nOptions:\n1. tefremizkide\n2. tefredekimiz\n3. tefremizdeki\n4. tefredemizki\n5. tefrekidemiz\n6. tefrekimizde\nAnswer: ",
+            "reference": 3,
+            "template": "morph_disc",
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 217,
+                "total_tokens": 218
+            },
+            "correct": true
+        },
+        {
+            "root": "uzak",
+            "suffixes": [
+                "sa",
+                "\u0131r",
+                "la\u015f"
+            ],
+            "prompt": "You are given a word root, a list of suffixes and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option.\n\nExample 1:\nWord root: kaya (noun)\nSuffixes: ['dan', 'l\u0131k', 'lar']\nOptions:\n1. kayalardanl\u0131k\n2. kayal\u0131kdanlar\n3. kayadanl\u0131klar\n4. kayalarl\u0131kdan\n5. kayal\u0131klardan\n6. kayadanlarl\u0131k\nAnswer: 5\n\nExample 2:\nWord root: uzak (adjective)\nSuffixes: ['sa', '\u0131r', 'la\u015f']\nOptions:\n1. uzakla\u015f\u0131rsa\n2. uzak\u0131rsala\u015f\n3. uzaksala\u015f\u0131r\n4. uzak\u0131rla\u015fsa\n5. uzaksa\u0131rla\u015f\n6. uzakla\u015fsa\u0131r\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc",
+            "model_output": "1. uzakla\u015f\u0131rsa",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 218,
+                "total_tokens": 225
+            },
+            "correct": false
+        },
+        {
+            "root": "lubak",
+            "suffixes": [
+                "sa",
+                "\u0131r",
+                "la\u015f"
+            ],
+            "prompt": "You are given a word root, a list of suffixes and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option.\n\nExample 1:\nWord root: kaya (noun)\nSuffixes: ['dan', 'l\u0131k', 'lar']\nOptions:\n1. kayalarl\u0131kdan\n2. kayalardanl\u0131k\n3. kayadanlarl\u0131k\n4. kayal\u0131klardan\n5. kayal\u0131kdanlar\n6. kayadanl\u0131klar\nAnswer: 4\n\nExample 2:\nWord root: lubak (adjective)\nSuffixes: ['sa', '\u0131r', 'la\u015f']\nOptions:\n1. lubaksala\u015f\u0131r\n2. lubakla\u015fsa\u0131r\n3. lubaksa\u0131rla\u015f\n4. lubakla\u015f\u0131rsa\n5. lubak\u0131rsala\u015f\n6. lubak\u0131rla\u015fsa\nAnswer: ",
+            "reference": 4,
+            "template": "morph_disc",
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 218,
+                "total_tokens": 219
+            },
+            "correct": false
+        },
+        {
+            "root": "sinir",
+            "suffixes": [
+                "ebil",
+                "len",
+                "iyor",
+                "um"
+            ],
+            "prompt": "You are given a word root, a list of suffixes and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option.\n\nExample 1:\nWord root: kaya (noun)\nSuffixes: ['dan', 'l\u0131k', 'lar']\nOptions:\n1. kayal\u0131klardan\n2. kayalardanl\u0131k\n3. kayadanlarl\u0131k\n4. kayadanl\u0131klar\n5. kayalarl\u0131kdan\n6. kayal\u0131kdanlar\nAnswer: 1\n\nExample 2:\nWord root: sinir (noun)\nSuffixes: ['ebil', 'len', 'iyor', 'um']\nOptions:\n1. sinirumebiliyorlen\n2. sinirumlenebiliyor\n3. sinirlenebiliyorum\n4. sinirlenumebiliyor\n5. sinirumleniyorebil\n6. sinirlenebilumiyor\nAnswer: ",
+            "reference": 3,
+            "template": "morph_disc",
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 224,
+                "total_tokens": 225
+            },
+            "correct": true
+        },
+        {
+            "root": "dimir",
+            "suffixes": [
+                "ebil",
+                "len",
+                "iyor",
+                "um"
+            ],
+            "prompt": "You are given a word root, a list of suffixes and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option.\n\nExample 1:\nWord root: kaya (noun)\nSuffixes: ['dan', 'l\u0131k', 'lar']\nOptions:\n1. kayal\u0131kdanlar\n2. kayalarl\u0131kdan\n3. kayadanl\u0131klar\n4. kayal\u0131klardan\n5. kayadanlarl\u0131k\n6. kayalardanl\u0131k\nAnswer: 4\n\nExample 2:\nWord root: dimir (noun)\nSuffixes: ['ebil', 'len', 'iyor', 'um']\nOptions:\n1. dimirlenebiliyorum\n2. dimirlenumiyorebil\n3. dimiriyorebilumlen\n4. dimiriyorumebillen\n5. dimirebillenumiyor\n6. dimirlenebilumiyor\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc",
+            "model_output": "1. dimirlenebiliyorum",
+            "usage": {
+                "completion_tokens": 9,
+                "prompt_tokens": 222,
+                "total_tokens": 231
+            },
+            "correct": false
+        },
+        {
+            "root": "ya\u015fa",
+            "suffixes": [
+                "m\u0131\u015f",
+                "n",
+                "l\u0131k"
+            ],
+            "prompt": "You are given a word root, a list of suffixes and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option.\n\nExample 1:\nWord root: kaya (noun)\nSuffixes: ['dan', 'l\u0131k', 'lar']\nOptions:\n1. kayalarl\u0131kdan\n2. kayal\u0131klardan\n3. kayalardanl\u0131k\n4. kayal\u0131kdanlar\n5. kayadanl\u0131klar\n6. kayadanlarl\u0131k\nAnswer: 2\n\nExample 2:\nWord root: ya\u015fa (verb)\nSuffixes: ['m\u0131\u015f', 'n', 'l\u0131k']\nOptions:\n1. ya\u015fal\u0131km\u0131\u015fn\n2. ya\u015fam\u0131\u015fnl\u0131k\n3. ya\u015fanl\u0131km\u0131\u015f\n4. ya\u015fal\u0131knm\u0131\u015f\n5. ya\u015fam\u0131\u015fl\u0131kn\n6. ya\u015fanm\u0131\u015fl\u0131k\nAnswer: ",
+            "reference": 6,
+            "template": "morph_disc",
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 213,
+                "total_tokens": 214
+            },
+            "correct": true
+        },
+        {
+            "root": "pasa",
+            "suffixes": [
+                "m\u0131\u015f",
+                "n",
+                "l\u0131k"
+            ],
+            "prompt": "You are given a word root, a list of suffixes and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option.\n\nExample 1:\nWord root: kaya (noun)\nSuffixes: ['dan', 'l\u0131k', 'lar']\nOptions:\n1. kayal\u0131klardan\n2. kayal\u0131kdanlar\n3. kayalardanl\u0131k\n4. kayadanlarl\u0131k\n5. kayadanl\u0131klar\n6. kayalarl\u0131kdan\nAnswer: 1\n\nExample 2:\nWord root: pasa (verb)\nSuffixes: ['m\u0131\u015f', 'n', 'l\u0131k']\nOptions:\n1. pasal\u0131knm\u0131\u015f\n2. pasanm\u0131\u015fl\u0131k\n3. pasal\u0131km\u0131\u015fn\n4. pasam\u0131\u015fl\u0131kn\n5. pasanl\u0131km\u0131\u015f\n6. pasam\u0131\u015fnl\u0131k\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc",
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 212,
+                "total_tokens": 213
+            },
+            "correct": false
+        },
+        {
+            "root": "h\u00fcz\u00fcn",
+            "suffixes": [
+                "dir",
+                "len",
+                "mi\u015f",
+                "ti"
+            ],
+            "prompt": "You are given a word root, a list of suffixes and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option.\n\nExample 1:\nWord root: kaya (noun)\nSuffixes: ['dan', 'l\u0131k', 'lar']\nOptions:\n1. kayalarl\u0131kdan\n2. kayal\u0131kdanlar\n3. kayalardanl\u0131k\n4. kayadanl\u0131klar\n5. kayadanlarl\u0131k\n6. kayal\u0131klardan\nAnswer: 6\n\nExample 2:\nWord root: h\u00fcz\u00fcn (noun)\nSuffixes: ['dir', 'len', 'mi\u015f', 'ti']\nOptions:\n1. h\u00fcz\u00fcntidirmi\u015flen\n2. h\u00fcz\u00fcnmi\u015flendirti\n3. h\u00fcz\u00fcndirtilenmi\u015f\n4. h\u00fcz\u00fcnmi\u015fdirlenti\n5. h\u00fcz\u00fcndirlenmi\u015fti\n6. h\u00fcz\u00fcnlendirmi\u015fti\nAnswer: ",
+            "reference": 6,
+            "template": "morph_disc",
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 234,
+                "total_tokens": 235
+            },
+            "correct": true
+        },
+        {
+            "root": "v\u00fcr\u00fcn",
+            "suffixes": [
+                "dir",
+                "len",
+                "mi\u015f",
+                "ti"
+            ],
+            "prompt": "You are given a word root, a list of suffixes and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option.\n\nExample 1:\nWord root: kaya (noun)\nSuffixes: ['dan', 'l\u0131k', 'lar']\nOptions:\n1. kayadanlarl\u0131k\n2. kayal\u0131klardan\n3. kayalarl\u0131kdan\n4. kayal\u0131kdanlar\n5. kayalardanl\u0131k\n6. kayadanl\u0131klar\nAnswer: 2\n\nExample 2:\nWord root: v\u00fcr\u00fcn (noun)\nSuffixes: ['dir', 'len', 'mi\u015f', 'ti']\nOptions:\n1. v\u00fcr\u00fcnlentimi\u015fdir\n2. v\u00fcr\u00fcntidirmi\u015flen\n3. v\u00fcr\u00fcndirmi\u015flenti\n4. v\u00fcr\u00fcnlenmi\u015fdirti\n5. v\u00fcr\u00fcnlendirmi\u015fti\n6. v\u00fcr\u00fcntilenmi\u015fdir\nAnswer: ",
+            "reference": 5,
+            "template": "morph_disc",
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 233,
+                "total_tokens": 234
+            },
+            "correct": true
+        },
+        {
+            "root": "olas\u0131",
+            "suffixes": [
+                "s\u0131z",
+                "l\u0131k",
+                "la",
+                "l\u0131k"
+            ],
+            "prompt": "You are given a word root, a list of suffixes and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option.\n\nExample 1:\nWord root: kaya (noun)\nSuffixes: ['dan', 'l\u0131k', 'lar']\nOptions:\n1. kayalarl\u0131kdan\n2. kayal\u0131kdanlar\n3. kayadanl\u0131klar\n4. kayal\u0131klardan\n5. kayadanlarl\u0131k\n6. kayalardanl\u0131k\nAnswer: 4\n\nExample 2:\nWord root: olas\u0131 (adjective)\nSuffixes: ['s\u0131z', 'l\u0131k', 'la', 'l\u0131k']\nOptions:\n1. olas\u0131l\u0131kl\u0131ks\u0131zla\n2. olas\u0131s\u0131zlal\u0131kl\u0131k\n3. olas\u0131l\u0131ks\u0131zl\u0131kla\n4. olas\u0131s\u0131zl\u0131kl\u0131kla\n5. olas\u0131l\u0131klal\u0131ks\u0131z\n6. olas\u0131l\u0131klas\u0131zl\u0131k\nAnswer: ",
+            "reference": 3,
+            "template": "morph_disc",
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 231,
+                "total_tokens": 232
+            },
+            "correct": true
+        },
+        {
+            "root": "borak\u0131",
+            "suffixes": [
+                "s\u0131z",
+                "l\u0131k",
+                "la",
+                "l\u0131k"
+            ],
+            "prompt": "You are given a word root, a list of suffixes and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option.\n\nExample 1:\nWord root: kaya (noun)\nSuffixes: ['dan', 'l\u0131k', 'lar']\nOptions:\n1. kayal\u0131klardan\n2. kayalardanl\u0131k\n3. kayal\u0131kdanlar\n4. kayadanl\u0131klar\n5. kayalarl\u0131kdan\n6. kayadanlarl\u0131k\nAnswer: 1\n\nExample 2:\nWord root: borak\u0131 (adjective)\nSuffixes: ['s\u0131z', 'l\u0131k', 'la', 'l\u0131k']\nOptions:\n1. borak\u0131l\u0131klal\u0131ks\u0131z\n2. borak\u0131l\u0131klas\u0131zl\u0131k\n3. borak\u0131l\u0131ks\u0131zlal\u0131k\n4. borak\u0131l\u0131kl\u0131klas\u0131z\n5. borak\u0131l\u0131ks\u0131zl\u0131kla\n6. borak\u0131s\u0131zl\u0131kl\u0131kla\nAnswer: ",
+            "reference": 5,
+            "template": "morph_disc",
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 231,
+                "total_tokens": 232
+            },
+            "correct": true
+        },
+        {
+            "root": "oku",
+            "suffixes": [
+                "da",
+                "yu\u015f",
+                "um"
+            ],
+            "prompt": "You are given a word root, a list of suffixes and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option.\n\nExample 1:\nWord root: kaya (noun)\nSuffixes: ['dan', 'l\u0131k', 'lar']\nOptions:\n1. kayalarl\u0131kdan\n2. kayadanlarl\u0131k\n3. kayal\u0131klardan\n4. kayadanl\u0131klar\n5. kayalardanl\u0131k\n6. kayal\u0131kdanlar\nAnswer: 3\n\nExample 2:\nWord root: oku (verb)\nSuffixes: ['da', 'yu\u015f', 'um']\nOptions:\n1. okudayu\u015fum\n2. okuyu\u015fdaum\n3. okuumyu\u015fda\n4. okuumdayu\u015f\n5. okudaumyu\u015f\n6. okuyu\u015fumda\nAnswer: ",
+            "reference": 6,
+            "template": "morph_disc",
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 210,
+                "total_tokens": 211
+            },
+            "correct": true
+        },
+        {
+            "root": "lodu",
+            "suffixes": [
+                "da",
+                "yu\u015f",
+                "um"
+            ],
+            "prompt": "You are given a word root, a list of suffixes and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option.\n\nExample 1:\nWord root: kaya (noun)\nSuffixes: ['dan', 'l\u0131k', 'lar']\nOptions:\n1. kayal\u0131klardan\n2. kayadanl\u0131klar\n3. kayalarl\u0131kdan\n4. kayal\u0131kdanlar\n5. kayadanlarl\u0131k\n6. kayalardanl\u0131k\nAnswer: 1\n\nExample 2:\nWord root: lodu (verb)\nSuffixes: ['da', 'yu\u015f', 'um']\nOptions:\n1. lodudaumyu\u015f\n2. loduyu\u015fumda\n3. loduumyu\u015fda\n4. loduyu\u015fdaum\n5. lodudayu\u015fum\n6. loduumdayu\u015f\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc",
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 210,
+                "total_tokens": 211
+            },
+            "correct": false
+        },
+        {
+            "root": "heykel",
+            "suffixes": [
+                "cik",
+                "nin",
+                "ler",
+                "i"
+            ],
+            "prompt": "You are given a word root, a list of suffixes and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option.\n\nExample 1:\nWord root: kaya (noun)\nSuffixes: ['dan', 'l\u0131k', 'lar']\nOptions:\n1. kayalardanl\u0131k\n2. kayal\u0131klardan\n3. kayalarl\u0131kdan\n4. kayadanlarl\u0131k\n5. kayadanl\u0131klar\n6. kayal\u0131kdanlar\nAnswer: 2\n\nExample 2:\nWord root: heykel (noun)\nSuffixes: ['cik', 'nin', 'ler', 'i']\nOptions:\n1. heykelninlerciki\n2. heykelcikninleri\n3. heykelnincikiler\n4. heykelciklerinin\n5. heykelninlericik\n6. heykellerinincik\nAnswer: ",
+            "reference": 4,
+            "template": "morph_disc",
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 222,
+                "total_tokens": 223
+            },
+            "correct": false
+        },
+        {
+            "root": "melger",
+            "suffixes": [
+                "cik",
+                "nin",
+                "ler",
+                "i"
+            ],
+            "prompt": "You are given a word root, a list of suffixes and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option.\n\nExample 1:\nWord root: kaya (noun)\nSuffixes: ['dan', 'l\u0131k', 'lar']\nOptions:\n1. kayadanl\u0131klar\n2. kayal\u0131klardan\n3. kayal\u0131kdanlar\n4. kayalarl\u0131kdan\n5. kayalardanl\u0131k\n6. kayadanlarl\u0131k\nAnswer: 2\n\nExample 2:\nWord root: melger (noun)\nSuffixes: ['cik', 'nin', 'ler', 'i']\nOptions:\n1. melgerlerinincik\n2. melgerninilercik\n3. melgernincikleri\n4. melgerilernincik\n5. melgercikilernin\n6. melgerciklerinin\nAnswer: ",
+            "reference": 6,
+            "template": "morph_disc",
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 222,
+                "total_tokens": 223
+            },
+            "correct": false
+        }
+    ]
+}

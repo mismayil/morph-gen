@@ -28,6 +28,17 @@ MODEL_ENCODINGS = {
     "text-davinci-003": "p50k_base"
 }
 
+POS_MAP = {
+    "N": "noun",
+    "V": "verb",
+    "Adj": "adjective",
+    "Adv": "adverb",
+    "Conj": "conjunction",
+    "Pron": "pronoun",
+    "Postp": "postposition",
+    "Det": "determiner"
+}
+
 def num_tokens_from_string(text, model):
     encoding_name = MODEL_ENCODINGS[model]
     encoding = tiktoken.get_encoding(encoding_name)

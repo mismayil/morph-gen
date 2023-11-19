@@ -1,6 +1,6 @@
 import argparse
 import time
-from openai import OpenAI, APITimeoutError, APIConnectionError, RateLimitError, InternalServerError, Timeout
+from openai import OpenAI, APITimeoutError, APIConnectionError, RateLimitError, InternalServerError
 import os
 from tqdm import tqdm
 import pathlib
@@ -89,7 +89,7 @@ def main():
         ignore_data = read_json(args.ignore_path)
         
         for sample in ignore_data["data"]:
-            ignore_map[sample["instance_id"]] = sample
+            ignore_map[sample["id"]] = sample
 
     if args.num_samples > 0:
         data = data[:int(args.num_samples)]
@@ -127,12 +127,12 @@ def main():
     
     for sample in tqdm(data, total=len(data)):
         if "id" in sample and sample["id"] in ignore_map:
-            ignore_instance = ignore_map[sample["instance_id"]]
-            if "model_response" in ignore_instance:
+            ignore_instance = ignore_map[sample["id"]]
+            if "model_output" in ignore_instance:
                 sample.update(ignore_instance)
                 continue
     
-        if "model_response" in sample:
+        if "model_output" in sample:
             continue
 
         if args.model in CHAT_COMPLETION_MODELS:
@@ -154,7 +154,7 @@ def main():
         else:
             raise ValueError(f"Model {args.model} not supported for evaluation.")
 
-        sample["model_response"] = response
+        sample["model_output"] = response
         sample["usage"] = usage
         outputs["metrics"]["usage"]["prompt_tokens"] += usage["prompt_tokens"]
         outputs["metrics"]["usage"]["completion_tokens"] += usage["completion_tokens"]
