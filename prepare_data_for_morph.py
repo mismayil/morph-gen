@@ -5,9 +5,11 @@ from tqdm import tqdm
 import pandas as pd
 import random
 import numpy as np
-from itertools import product, permutations
+from itertools import permutations
+from collections import defaultdict
 
-from utils import read_json, write_json, get_morphemes_from_sentence, TURKISH_MORPH_MAP
+from utils import read_json, write_json
+from morphology import decompose_tr
 
 def prepare_pilot_data_for_morph(datapath, num_samples=None):
     data = read_json(datapath)
@@ -61,8 +63,36 @@ def prepare_pilot_data_for_morph(datapath, num_samples=None):
     
     return morph_data
 
+def prepare_btwd_for_morph(datapath, num_samples=None):
+    data = read_json(datapath)
+
+    if num_samples is not None:
+        data = random.sample(data, num_samples)
+    
+    seen_words = set()
+    morph_data = defaultdict(list)
+
+    for sample in tqdm(data, total=len(data), desc="Preparing BTWD data for Morph tasks", leave=False, position=0):
+        for sentence in tqdm(sample["sentences"], total=len(sample["sentences"]), desc="Processing sentences", leave=False, position=1):
+            for word in sentence.split():
+                word = word.strip()
+
+                if word in seen_words:
+                    continue
+
+                seen_words.add(word)
+                decompositions = decompose_tr(word.strip())
+                for decomposition in decompositions:
+                    morph_data[decomposition.root].append({
+                        "derivation": word,
+                        "decompositions": [decomposition.to_json() for decomposition in decompositions]
+                    })
+
+    return morph_data
+
 DATASET_PROCESSOR_MAP = {
-    "pilot": prepare_pilot_data_for_morph
+    "pilot": prepare_pilot_data_for_morph,
+    "btwd": prepare_btwd_for_morph
 }
 
 def main():

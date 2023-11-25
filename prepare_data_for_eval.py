@@ -5,10 +5,21 @@ from tqdm import tqdm
 import pandas as pd
 import random
 
-from utils import read_json, write_json, POS_MAP
+from utils import read_json, write_json
 
 LANGUAGE_MAP = {
     "tr": "Turkish",
+}
+
+POS_MAP = {
+    "N": "noun",
+    "V": "verb",
+    "Adj": "adjective",
+    "Adv": "adverb",
+    "Conj": "conjunction",
+    "Pron": "pronoun",
+    "Postp": "postposition",
+    "Det": "determiner"
 }
 
 BLANK_FILLING_INSTRUCTION_TEMPLATE = "You are given a sentence in {language} with missing words and your task is to fill in the blanks with the words constructed from the given word roots and suffixes. You are allowed to use only the given words and suffixes. Output only the missing words inside square brackets separated by commas according to their order in the given sentence."
