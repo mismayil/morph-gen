@@ -75,7 +75,7 @@ def prepare_btwd_for_morph(datapath, num_samples=None):
     for sample in tqdm(data, total=len(data), desc="Preparing BTWD data for Morph tasks", leave=False, position=0):
         for sentence in tqdm(sample["sentences"], total=len(sample["sentences"]), desc="Processing sentences", leave=False, position=1):
             for word in sentence.split():
-                word = word.strip()
+                word = word.strip().lower()
 
                 if word in seen_words:
                     continue
