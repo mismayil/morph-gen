@@ -70,7 +70,7 @@ def prepare_btwd_for_morph(datapath, num_samples=None):
         data = random.sample(data, num_samples)
     
     seen_words = set()
-    morph_data = defaultdict(list)
+    morph_data = defaultdict(dict)
 
     for sample in tqdm(data, total=len(data), desc="Preparing BTWD data for Morph tasks", leave=False, position=0):
         for sentence in tqdm(sample["sentences"], total=len(sample["sentences"]), desc="Processing sentences", leave=False, position=1):
@@ -83,10 +83,9 @@ def prepare_btwd_for_morph(datapath, num_samples=None):
                 seen_words.add(word)
                 decompositions = decompose_tr(word.strip())
                 for decomposition in decompositions:
-                    morph_data[decomposition.root].append({
-                        "derivation": word,
-                        "decompositions": [decomposition.to_json() for decomposition in decompositions]
-                    })
+                    if decomposition.root not in morph_data or word not in morph_data[decomposition.root]:
+                        morph_data[decomposition.root][word] = []
+                    morph_data[decomposition.root][word].append(decomposition.to_json())
 
     return morph_data
 
