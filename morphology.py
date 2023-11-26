@@ -111,6 +111,5 @@ def decompose_tr(word):
             if surface_form == word:
                 decomposition.morphemes = list(surface_combination[1:])
                 valid_decompositions.append(decomposition)
-                break
 
     return valid_decompositions
