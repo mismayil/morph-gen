@@ -172,7 +172,8 @@ def preprocess_btwd_data(datapath, num_samples=None):
     return morph_data
 
 DATASET_PROCESSOR_MAP = {
-    "pilot": prepare_pilot_data_for_morph
+    "pilot": prepare_pilot_data_for_morph,
+    "btwd": preprocess_btwd_data
 }
 
 def main():
