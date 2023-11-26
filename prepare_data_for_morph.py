@@ -7,10 +7,21 @@ import random
 import numpy as np
 from itertools import permutations
 from collections import defaultdict
-import re
+import re, json
 
 from utils import read_json, write_json
-from morphology import decompose_tr
+from morphology import decompose_tr, generate_nonce_word_tr
+
+TURKISH_DICTIONARY_PATH = "../data/gts.json"
+
+def _read_turkish_dictionary():
+    dictionary = []
+    with open(TURKISH_DICTIONARY_PATH, "r") as f:
+        lines = f.readlines()
+        for line in lines:
+            json_line = json.loads(line)
+            dictionary.append(json_line["madde"])
+    return dictionary
 
 def prepare_pilot_data_for_morph(datapath, num_samples=None):
     data = read_json(datapath)
@@ -64,8 +75,12 @@ def prepare_pilot_data_for_morph(datapath, num_samples=None):
     
     return morph_data
 
-def prepare_btwd_json_data(datapath):
+def prepare_btwd_json_data(datapath, num_samples=None):
     data = pd.read_csv(datapath)
+
+    if num_samples is not None:
+        data = data.sample(num_samples)
+
     essays = []
 
     for i, row in data.iterrows():
@@ -87,15 +102,18 @@ def prepare_btwd_json_data(datapath):
 
     return essays
 
-def post_morph_process(datapath):
+def postprocess_btwd_data(datapath, num_samples=None):
     def _is_noun_pronoun(pos):
         return pos in ["NN", "NNP", "ADD", "VN", "PRD", "PRF", "PRI", "PRP", "PRP$", "PRR", "WP"]
-    
+
     data = read_json(datapath)
+
+    if num_samples is not None:
+        data = dict(random.sample(list(data.items()), num_samples))
 
     resolved_data = defaultdict(dict)
 
-    for root, word_map in tqdm(data.items(), total=len(data.items()), desc="Post-processing morph data"):
+    for root, word_map in tqdm(data.items(), total=len(data.items()), desc="Post-processing btwd data"):
         new_word_map = {}
 
         for word, decompositions in word_map.items():
@@ -171,24 +189,96 @@ def preprocess_btwd_data(datapath, num_samples=None):
 
     return morph_data
 
-DATASET_PROCESSOR_MAP = {
-    "pilot": prepare_pilot_data_for_morph,
-    "btwd": preprocess_btwd_data
+def prepare_btwd_for_morph(datapath, num_samples=None):
+    data = read_json(datapath)
+    
+    morph_data = []
+
+    for root, word_map in tqdm(data.items(), desc="Preparing BTWD data for Morph tasks"):
+        for word, decompositions in word_map.items():
+            decomposition = decompositions[0]
+            suffixes = decomposition["morphemes"]
+
+            if len(suffixes) > 1:
+                suffix_perms = list(permutations(suffixes))
+                options = set()
+
+                for suffix_perm in suffix_perms:
+                    derivation = root + ''.join(suffix_perm)
+
+                    if derivation != word:
+                        options.add(derivation)
+
+                options = random.sample(list(options), min(len(options), 5))
+
+                morph_data.append({
+                    "root": root,
+                    "pos": decomposition["pos"],
+                    "suffixes": suffixes,
+                    "derivation": word,
+                    "options": [word] + list(options),
+                    "answer": 0
+                })
+    
+    if num_samples is not None:
+        morph_data = random.sample(morph_data, num_samples)
+
+    return morph_data
+
+def prepare_btwd_nonce_data(datapath, num_samples=None):
+    dictionary = _read_turkish_dictionary()
+    data = read_json(datapath)
+    nonce_data = []
+
+    for sample in tqdm(data, total=len(data), desc="Preparing BTWD nonce data for Morph tasks"):
+        root = sample["root"]
+        pos = sample["pos"]
+        suffixes = sample["suffixes"]
+        derivation = sample["derivation"]
+        options = sample["options"]
+
+        while True:
+            nonce_word = generate_nonce_word_tr(root)
+            if nonce_word not in dictionary:
+                break
+
+        nonce_data.append({
+            "original_root": root,
+            "root": nonce_word,
+            "pos": pos,
+            "suffixes": suffixes,
+            "derivation": derivation.replace(root, nonce_word, 1),
+            "options": [option.replace(root, nonce_word, 1) for option in options],
+            "answer": 0
+        })
+    
+    if num_samples is not None:
+        nonce_data = random.sample(nonce_data, num_samples)
+    
+    return nonce_data
+
+DATA_PROCESSOR_MAP = {
+    "pilot_morph": (prepare_pilot_data_for_morph, "_morph"),
+    "btwd_json": (prepare_btwd_json_data, ""), 
+    "btwd_prep": (preprocess_btwd_data, "_prep"),
+    "btwd_post": (postprocess_btwd_data, "_post"),
+    "btwd_morph": (prepare_btwd_for_morph, "_morph"),
+    "btwd_nonce": (prepare_btwd_nonce_data, "_nonce")
 }
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--datapath", type=str, help="Path to eval data in json", required=True)
-    parser.add_argument("--dataset", type=str, default="pilot", help="Dataset name")
-    parser.add_argument("--num-samples", type=int, default=None, help="Number of samples to process")
-    parser.add_argument("--suffix", type=str, default="", help="Custom suffix for output file path.")
+    parser.add_argument("-d", "--datapath", type=str, help="Path to data", required=True)
+    parser.add_argument("-p", "--processor", type=str, default="pilot_morph", help="Data processor name")
+    parser.add_argument("-n", "--num-samples", type=int, default=None, help="Number of samples to process")
+    parser.add_argument("-s", "--suffix", type=str, default="", help="Custom suffix for output file path.")
 
     args = parser.parse_args()
 
-    morph_data = DATASET_PROCESSOR_MAP[args.dataset](args.datapath, args.num_samples)
+    morph_data = DATA_PROCESSOR_MAP[args.processor][0](args.datapath, args.num_samples)
 
     datapath = pathlib.Path(args.datapath)
-    morph_data_path_stem = datapath.parent / f"{datapath.stem}_prep{args.suffix}"
+    morph_data_path_stem = datapath.parent / f"{datapath.stem}{DATA_PROCESSOR_MAP[args.processor][1]}{args.suffix}"
 
     write_json(morph_data, morph_data_path_stem.with_suffix(".json"), ensure_ascii=False)
     # pd.DataFrame(morph_data).to_csv(morph_data_path_stem.with_suffix(".csv"), index=False)

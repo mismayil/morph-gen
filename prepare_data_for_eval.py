@@ -22,40 +22,40 @@ POS_MAP = {
     "Det": "determiner"
 }
 
-BLANK_FILLING_INSTRUCTION_TEMPLATE = "You are given a sentence in {language} with missing words and your task is to fill in the blanks with the words constructed from the given word roots and suffixes. You are allowed to use only the given words and suffixes. Output only the missing words inside square brackets separated by commas according to their order in the given sentence."
+BLANK_FILLING_EN_INSTRUCTION_TEMPLATE = "You are given a sentence in {language} with missing words and your task is to fill in the blanks with the words constructed from the given word roots and suffixes. You are allowed to use only the given words and suffixes. Output only the missing words inside square brackets separated by commas according to their order in the given sentence."
 
-BLANK_FILLING_SHOT_TEMPLATE = """Example {index}:
+BLANK_FILLING_EN_SHOT_TEMPLATE = """Example {index}:
 Sentence: "{sentence}"
 Words: {words}
 Suffixes: {suffixes}
 Missing words: {missing_words}"""
 
-MORPH_GEN_INSTRUCTION_TEMPLATE = "You are given a word root and a list of suffixes in {language} and your task is to generate the longest word from the given word root and suffixes. Output only the generated word."
+MORPH_GEN_EN_INSTRUCTION_TEMPLATE = "You are given a word root and a list of suffixes in {language} and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word."
 
-MORPH_GEN_SHOT_TEMPLATE = """Example {index}:
-Word root: {root} ({pos})
+MORPH_GEN_EN_SHOT_TEMPLATE = """Example {index}:
+Word root: {root}
 Suffixes: {suffixes}
 Answer: {answer}"""
 
-MORPH_DISC_INSTRUCTION_TEMPLATE = "You are given a word root, a list of suffixes and a list of words in {language} that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option."
+MORPH_DISC_EN_INSTRUCTION_TEMPLATE = "You are given a word root, a list of suffixes and a list of words in {language} that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number."
 
-MORPH_DISC_SHOT_TEMPLATE = """Example {index}:
-Word root: {root} ({pos})
+MORPH_DISC_EN_SHOT_TEMPLATE = """Example {index}:
+Word root: {root}
 Suffixes: {suffixes}
 Options:
 {options}
 Answer: {answer}"""
 
 INSTRUCTION_TEMPLATES = {
-    "bfill": BLANK_FILLING_INSTRUCTION_TEMPLATE,
-    "morph_gen": MORPH_GEN_INSTRUCTION_TEMPLATE,
-    "morph_disc": MORPH_DISC_INSTRUCTION_TEMPLATE,
+    "bfill_en": BLANK_FILLING_EN_INSTRUCTION_TEMPLATE,
+    "morph_gen_en": MORPH_GEN_EN_INSTRUCTION_TEMPLATE,
+    "morph_disc_en": MORPH_DISC_EN_INSTRUCTION_TEMPLATE,
 }
 
 SHOT_TEMPLATES = {
-    "bfill": BLANK_FILLING_SHOT_TEMPLATE,
-    "morph_gen": MORPH_GEN_SHOT_TEMPLATE,
-    "morph_disc": MORPH_DISC_SHOT_TEMPLATE,
+    "bfill_en": BLANK_FILLING_EN_SHOT_TEMPLATE,
+    "morph_gen_en": MORPH_GEN_EN_SHOT_TEMPLATE,
+    "morph_disc_en": MORPH_DISC_EN_SHOT_TEMPLATE,
 }
 
 SHOT_SAMPLES = [
@@ -128,9 +128,9 @@ def prepare_sample_for_morph_gen(sample, shot_samples, template, language):
         shot = SHOT_TEMPLATES[template].format(
             index=idx+1,
             root=shot_sample["root"],
-            suffixes=str(shot_sample["suffixes"]),
+            suffixes=",".join(shot_sample["suffixes"]),
             answer=shot_sample["derivation"],
-            pos=POS_MAP[shot_sample["pos"]],
+            # pos=POS_MAP[shot_sample["pos"]],
         )
         shots.append(shot)
 
@@ -141,8 +141,8 @@ def prepare_sample_for_morph_gen(sample, shot_samples, template, language):
     final_shot = SHOT_TEMPLATES[template].format(
         index=len(shot_samples)+1,
         root=sample["root"],
-        suffixes=str(sample["suffixes"]),
-        pos=POS_MAP[sample["pos"]],
+        suffixes=",".join(sample["suffixes"]),
+        # pos=POS_MAP[sample["pos"]],
         answer="",
     )
     
@@ -167,8 +167,8 @@ def prepare_sample_for_morph_disc(sample, shot_samples, template, language):
         shot = SHOT_TEMPLATES[template].format(
             index=idx+1,
             root=shot_sample["root"],
-            suffixes=str(shot_sample["suffixes"]),
-            pos=POS_MAP[shot_sample["pos"]],
+            suffixes=",".join(shot_sample["suffixes"]),
+            # pos=POS_MAP[shot_sample["pos"]],
             options="\n".join([f"{o_index+1}. {option}" for o_index, option in enumerate(options)]),
             answer=options.index(shot_sample["derivation"])+1,
         )
@@ -183,8 +183,8 @@ def prepare_sample_for_morph_disc(sample, shot_samples, template, language):
     final_shot = SHOT_TEMPLATES[template].format(
         index=len(shot_samples)+1,
         root=sample["root"],
-        suffixes=str(sample["suffixes"]),
-        pos=POS_MAP[sample["pos"]],
+        suffixes=",".join(sample["suffixes"]),
+        # pos=POS_MAP[sample["pos"]],
         options="\n".join([f"{o_index+1}. {option}" for o_index, option in enumerate(options)]),
         answer="",
     )
@@ -201,10 +201,16 @@ def prepare_sample_for_morph_disc(sample, shot_samples, template, language):
 
     return eval_data
 
+TEMPLATE_PROCESSOR_MAP = {
+    "bfill_en": prepare_sample_for_bfill,
+    "morph_gen_en": prepare_sample_for_morph_gen,
+    "morph_disc_en": prepare_sample_for_morph_disc,
+}
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--datapath", type=str, help="Path to eval data in json", required=True)
-    parser.add_argument("--template", type=str, default="morph_gen", help="Template name")
+    parser.add_argument("--template", type=str, default="morph_gen_en", help="Template name")
     parser.add_argument("--num-shots", type=int, default=1)
     parser.add_argument("--language", type=str, default="tr")
     parser.add_argument("--suffix", type=str, default="", help="Custom suffix for output file path.")
@@ -219,18 +225,11 @@ def main():
     if not shot_samples:
         shot_samples = results[:args.num_shots]
 
-    for result in tqdm(results, desc="Preparing results for LLM evaluation"):
-        if args.template == "bfill":
-            eval_data.extend(prepare_sample_for_bfill(result, shot_samples, args.template, args.language))
-        elif args.template == "morph_gen":
-            eval_data.extend(prepare_sample_for_morph_gen(result, shot_samples, args.template, args.language))
-        elif args.template == "morph_disc":
-            eval_data.extend(prepare_sample_for_morph_disc(result, shot_samples, args.template, args.language))
-        else:
-            raise NotImplementedError(f"Template {args.template} is not implemented.")
+    for result in tqdm(results, desc="Preparing results for evaluation"):
+        eval_data.extend(TEMPLATE_PROCESSOR_MAP[args.template](result, shot_samples, args.template, args.language))
 
     datapath = pathlib.Path(args.datapath)
-    eval_data_path_stem = datapath.parent / f"{datapath.stem}_llm_{args.template}{args.suffix}"
+    eval_data_path_stem = datapath.parent / f"{datapath.stem}_eval_{args.template}{args.suffix}"
 
     write_json(eval_data, eval_data_path_stem.with_suffix(".json"), ensure_ascii=False)
     # pd.DataFrame(eval_data).to_csv(eval_data_path_stem.with_suffix(".csv"), index=False)

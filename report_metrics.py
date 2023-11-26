@@ -9,7 +9,7 @@ def get_prediction(ref_response, model_response, template):
     if template in ["bfill"]:
         model_response = [word.strip().strip("'").strip('"').strip() for word in model_response.strip("[]").split(",")]
         pred = 1 if str(ref_response) == str(model_response) else 0
-    elif template in ["morph_gen", "morph_disc"]:
+    elif template in ["morph_gen_en", "morph_disc_en"]:
         pred = 1 if str(ref_response) == str(model_response).strip() else 0
     else:
         raise ValueError(f"Template {template} not supported for evaluation.")
