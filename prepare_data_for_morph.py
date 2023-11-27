@@ -153,6 +153,10 @@ def postprocess_btwd_data(datapath, num_samples=None):
                     if alt_la:
                         continue
                 
+                for decomp in valid_decompositions:
+                    if decomp["root"] == decomposition["root"] and decomp["pos"] == decomposition["pos"] and decomp["morphemes"] == decomposition["morphemes"] and decomp["meta_morphemes"] == decomposition["meta_morphemes"]:
+                        continue
+
                 valid_decompositions.append(decomposition)
             
             if valid_decompositions:
