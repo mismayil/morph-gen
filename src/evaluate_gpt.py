@@ -8,7 +8,7 @@ import sys
 
 sys.path.append("..")
 
-from utils import read_json, write_json, generate_unique_id, MODEL_COSTS
+from src.utils import read_json, write_json, generate_unique_id, MODEL_COSTS
 
 CHAT_COMPLETION_MODELS = ["gpt-3.5-turbo", "gpt-4"]
 TEXT_COMPLETION_MODELS = ["text-davinci-003"]

@@ -14,6 +14,17 @@ TURKISH_MORPH_MAP = {
     "E": ["e", "i"],
 }
 
+POS_MAP = {
+    "N": "noun",
+    "V": "verb",
+    "Adj": "adjective",
+    "Adv": "adverb",
+    "Conj": "conjunction",
+    "Pron": "pronoun",
+    "Postp": "postposition",
+    "Det": "determiner"
+}
+
 class Decomposition:
     def __init__(self, root, pos, meta_morphemes, morphemes=None):
         self.root = root

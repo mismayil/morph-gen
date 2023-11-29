@@ -3,7 +3,7 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 from tqdm import tqdm
 import pathlib
 
-from utils import read_json, write_json, find_json_files, MODEL_COSTS, num_tokens_from_string
+from src.utils import read_json, write_json, find_json_files, MODEL_COSTS, num_tokens_from_string
 
 def get_prediction(ref_response, model_response, template):
     if template in ["bfill"]:
