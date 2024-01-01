@@ -11,7 +11,7 @@ import re
 from utils import read_json, write_json
 from morphology import decompose_tr
 
-LANGUAGES = ["tr"]
+LANGUAGES = ["tr", "en"]
 
 def prepare_tr_btwd_json_data(datapath, num_samples=None):
     data = pd.read_csv(datapath)
@@ -62,7 +62,7 @@ def postprocess_tr_btwd_data(datapath, num_samples=None):
                     postprocessed_data.append({
                         "root": root,
                         "pos": decompositions[0]["pos"],
-                        "derivations": word,
+                        "derivation": word,
                         "morphemes": decompositions[0]["morphemes"],
                         "meta_morphemes": decompositions[0]["meta_morphemes"]
                     })
@@ -106,7 +106,7 @@ def postprocess_tr_btwd_data(datapath, num_samples=None):
                 postprocessed_data.append({
                     "root": root,
                     "pos": valid_decompositions[0]["pos"],
-                    "derivations": word,
+                    "derivation": word,
                     "morphemes": valid_decompositions[0]["morphemes"],
                     "meta_morphemes": valid_decompositions[0]["meta_morphemes"]
                 })
@@ -140,10 +140,37 @@ def preprocess_tr_btwd_data(datapath, num_samples=None):
 
     return preprocessed_data
 
+def preprocess_en_morpholex_data(datapath, num_samples=None):
+    data1 = pd.read_excel(datapath, sheet_name="0-1-2")
+    data2 = pd.read_excel(datapath, sheet_name="0-1-3")
+    data3 = pd.read_excel(datapath, sheet_name="0-1-4")
+    data = pd.concat([data1, data2, data3])
+
+    if num_samples is not None:
+        data = data.sample(num_samples)
+
+    words = []
+
+    for i, row in data.iterrows():
+        word = row["Word"]
+        segmentation = row["MorphoLexSegm"]
+        morphemes = re.findall(r"[A-Za-z]+", segmentation)
+        if word == "".join(morphemes):
+            words.append({
+                "root": morphemes[0],
+                "pos": row["POS"],
+                "derivation": word,
+                "morphemes": morphemes[1:],
+                "meta_morphemes": None
+            })
+
+    return words
+
 DATA_PROCESSOR_MAP = {
     "tr_btwd_json": (prepare_tr_btwd_json_data, ""), 
     "tr_btwd_prep": (preprocess_tr_btwd_data, "_prep"),
-    "tr_btwd_post": (postprocess_tr_btwd_data, "_post")
+    "tr_btwd_post": (postprocess_tr_btwd_data, "_post"),
+    "en_morpholex_prep": (preprocess_en_morpholex_data, "_prep")
 }
 
 def main():

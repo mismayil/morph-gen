@@ -3,7 +3,7 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 from tqdm import tqdm
 import pathlib
 
-from src.utils import read_json, write_json, find_json_files, MODEL_COSTS, num_tokens_from_string
+from utils import read_json, write_json, find_json_files, MODEL_COSTS, num_tokens_from_string
 
 def get_prediction(ref_response, model_response, template):
     if template in ["bfill"]:
@@ -106,7 +106,7 @@ def report_metrics(results_files, compute_usage=False):
             if "data" in results:
                 metrics = compute_metrics(results, compute_usage=compute_usage)
                 results["metrics"].update(metrics)
-                write_json(results, results_file)
+                write_json(results, results_file, ensure_ascii=False)
         except Exception as e:
             print(results_file)
             raise e

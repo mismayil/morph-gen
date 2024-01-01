@@ -138,10 +138,45 @@ def prepare_tr_nonce_data_for_morph(input_data, num_samples=None):
     
     return nonce_data
 
+def prepare_en_data_for_morph(input_data, num_samples=None):
+    data = input_data["data"]
+    
+    morph_data = []
+
+    for sample in tqdm(data, desc="Preparing data for Morph tasks"):
+        suffixes = sample["morphemes"]
+
+        if len(suffixes) > 1:
+            suffix_perms = list(permutations(suffixes))
+            options = set()
+
+            for suffix_perm in suffix_perms:
+                derivation = sample["root"] + ''.join(suffix_perm)
+
+                if derivation != sample["derivation"]:
+                    options.add(derivation)
+
+            options = random.sample(list(options), min(len(options), 5))
+
+            morph_data.append({
+                "root": sample["root"],
+                "pos": sample["pos"],
+                "suffixes": suffixes,
+                "derivation": sample["derivation"],
+                "options": [sample["derivation"]] + list(options),
+                "answer": 0
+            })
+    
+    if num_samples is not None:
+        morph_data = random.sample(morph_data, num_samples)
+
+    return morph_data
+
 DATA_PROCESSOR_MAP = {
     "tr_pilot_morph": (prepare_tr_pilot_data_for_morph, "_morph"),
     "tr_morph": (prepare_tr_data_for_morph, "_morph"),
-    "tr_morph_nonce": (prepare_tr_nonce_data_for_morph, "_nonce")
+    "tr_morph_nonce": (prepare_tr_nonce_data_for_morph, "_nonce"),
+    "en_morph": (prepare_en_data_for_morph, "_morph")
 }
 
 def main():
@@ -154,7 +189,7 @@ def main():
 
     args = parser.parse_args()
     input_data = read_json(args.datapath)
-    morph_data = DATA_PROCESSOR_MAP[args.processor][0](args.datapath, args.num_samples)
+    morph_data = DATA_PROCESSOR_MAP[args.processor][0](input_data, args.num_samples)
 
     datapath = pathlib.Path(args.datapath)
     output_dir = pathlib.Path(args.output_dir) if args.output_dir is not None else datapath.parent

@@ -4,11 +4,8 @@ from openai import OpenAI, APITimeoutError, APIConnectionError, RateLimitError, 
 import os
 from tqdm import tqdm
 import pathlib
-import sys
 
-sys.path.append("..")
-
-from src.utils import read_json, write_json, generate_unique_id, MODEL_COSTS
+from utils import read_json, write_json, generate_unique_id, MODEL_COSTS
 
 CHAT_COMPLETION_MODELS = ["gpt-3.5-turbo", "gpt-4"]
 TEXT_COMPLETION_MODELS = ["text-davinci-003"]
@@ -81,7 +78,8 @@ def main():
     
     client = OpenAI(api_key=args.openai_key if args.openai_key is not None else os.getenv("OPENAI_API_KEY"))
 
-    data = read_json(args.datapath)
+    input_data = read_json(args.datapath)
+    data = input_data["data"]
     
     ignore_map = {}
 
@@ -160,13 +158,13 @@ def main():
         outputs["metrics"]["usage"]["completion_tokens"] += usage["completion_tokens"]
         outputs["metrics"]["usage"]["total_tokens"] += usage["total_tokens"]
         
-        write_json(outputs, output_path)
+        write_json(outputs, output_path, ensure_ascii=False)
 
     outputs["metrics"]["cost"]["input"] = outputs["metrics"]["usage"]["prompt_tokens"] * MODEL_COSTS[args.model]["input"]
     outputs["metrics"]["cost"]["output"] = outputs["metrics"]["usage"]["completion_tokens"] * MODEL_COSTS[args.model]["output"]
     outputs["metrics"]["cost"]["total"] = outputs["metrics"]["cost"]["input"] + outputs["metrics"]["cost"]["output"]
 
-    write_json(outputs, output_path)
+    write_json(outputs, output_path, ensure_ascii=False)
 
 if __name__ == "__main__":
     main()

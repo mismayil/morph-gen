@@ -9,6 +9,7 @@ from prompts import MORPH_GEN_EN_INSTRUCTION_TEMPLATE, MORPH_GEN_EN_SHOT_TEMPLAT
 
 LANGUAGE_MAP = {
     "tr": "Turkish",
+    "en": "English",
 }
 
 INSTRUCTION_TEMPLATES = {
