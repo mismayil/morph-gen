@@ -1,0 +1,1937 @@
+{
+    "metadata": {
+        "datapath": "../data/tr/btwd/temp_tr/v2/btwd_prep_post_sample_morph_eval_morph_disc_tr_s3.json",
+        "model": "gpt-3.5-turbo",
+        "temperature": 0.3,
+        "max_tokens": 40,
+        "top_p": 1,
+        "frequency_penalty": 0,
+        "presence_penalty": 0
+    },
+    "metrics": {
+        "usage": {
+            "prompt_tokens": 35150,
+            "completion_tokens": 100,
+            "total_tokens": 35250
+        },
+        "cost": {
+            "input": 0.052725,
+            "output": 0.00019999999999999998,
+            "total": 0.052925
+        },
+        "macro_f1": 0.41860465116279066,
+        "accuracy": 0.72,
+        "precision": 0.5,
+        "recall": 0.36
+    },
+    "data": [
+        {
+            "root": "dol",
+            "suffixes": [
+                "an",
+                "mış"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nSeçenekler:\n1. kaldırtirmekabil\n2. kaldırtirabilmek\n3. kaldırmektirabil\n4. kaldırabilmektir\n5. kaldırabiltirmek\n6. kaldırmekabiltir\nCevap: 4\n\nÖrnek 4:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 326,
+                "total_tokens": 327
+            },
+            "correct": true
+        },
+        {
+            "root": "omuz",
+            "suffixes": [
+                "lar",
+                "ı"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldırtirmekabil\n2. kaldırabiltirmek\n3. kaldırabilmektir\n4. kaldırtirabilmek\n5. kaldırmektirabil\n6. kaldırmekabiltir\nCevap: 3\n\nÖrnek 4:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 324,
+                "total_tokens": 325
+            },
+            "correct": false
+        },
+        {
+            "root": "kaldır",
+            "suffixes": [
+                "abil",
+                "mek",
+                "tir"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldırmektirabil\n2. kaldırmekabiltir\n3. kaldırtirabilmek\n4. kaldırtirmekabil\n5. kaldırabiltirmek\n6. kaldırabilmektir\nCevap: 6\n\nÖrnek 4:\nKök: kaldır\nEkler: abil,mek,tir\nSeçenekler:\n1. kaldırabiltirmek\n2. kaldırtirabilmek\n3. kaldırabilmektir\n4. kaldırmekabiltir\n5. kaldırtirmekabil\n6. kaldırmektirabil\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 377,
+                "total_tokens": 378
+            },
+            "correct": false
+        },
+        {
+            "root": "enerji",
+            "suffixes": [
+                "m",
+                "e"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nSeçenekler:\n1. kaldırmektirabil\n2. kaldırabilmektir\n3. kaldırmekabiltir\n4. kaldırabiltirmek\n5. kaldırtirmekabil\n6. kaldırtirabilmek\nCevap: 2\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerjiem\n2. enerjime\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 321,
+                "total_tokens": 322
+            },
+            "correct": true
+        },
+        {
+            "root": "iş",
+            "suffixes": [
+                "le",
+                "me",
+                "ci",
+                "liğ",
+                "i"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldırabilmektir\n2. kaldırabiltirmek\n3. kaldırtirabilmek\n4. kaldırmekabiltir\n5. kaldırtirmekabil\n6. kaldırmektirabil\nCevap: 1\n\nÖrnek 4:\nKök: iş\nEkler: le,ci,me,i,liğ\nSeçenekler:\n1. işiciliğmele\n2. işlemeciliği\n3. işleiliğmeci\n4. işicimeliğle\n5. işliğmecilei\n6. işliğcimeile\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 369,
+                "total_tokens": 370
+            },
+            "correct": true
+        },
+        {
+            "root": "il",
+            "suffixes": [
+                "ki",
+                "ne"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nSeçenekler:\n1. kaldırtirmekabil\n2. kaldırabilmektir\n3. kaldırtirabilmek\n4. kaldırabiltirmek\n5. kaldırmekabiltir\n6. kaldırmektirabil\nCevap: 2\n\nÖrnek 4:\nKök: il\nEkler: ne,ki\nSeçenekler:\n1. ilneki\n2. ilkine\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 320,
+                "total_tokens": 321
+            },
+            "correct": true
+        },
+        {
+            "root": "tut",
+            "suffixes": [
+                "umuz",
+                "u"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nSeçenekler:\n1. kaldırtirabilmek\n2. kaldırmekabiltir\n3. kaldırabilmektir\n4. kaldırtirmekabil\n5. kaldırmektirabil\n6. kaldırabiltirmek\nCevap: 3\n\nÖrnek 4:\nKök: tut\nEkler: umuz,u\nSeçenekler:\n1. tutuumuz\n2. tutumuzu\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 323,
+                "total_tokens": 324
+            },
+            "correct": true
+        },
+        {
+            "root": "ver",
+            "suffixes": [
+                "me",
+                "miş"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nSeçenekler:\n1. kaldırmekabiltir\n2. kaldırtirabilmek\n3. kaldırabilmektir\n4. kaldırtirmekabil\n5. kaldırabiltirmek\n6. kaldırmektirabil\nCevap: 3\n\nÖrnek 4:\nKök: ver\nEkler: miş,me\nSeçenekler:\n1. vermemiş\n2. vermişme\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 324,
+                "total_tokens": 325
+            },
+            "correct": true
+        },
+        {
+            "root": "koş",
+            "suffixes": [
+                "tur",
+                "ur",
+                "um"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nSeçenekler:\n1. kaldırabiltirmek\n2. kaldırtirmekabil\n3. kaldırabilmektir\n4. kaldırmektirabil\n5. kaldırmekabiltir\n6. kaldırtirabilmek\nCevap: 3\n\nÖrnek 4:\nKök: koş\nEkler: ur,tur,um\nSeçenekler:\n1. koşurumtur\n2. koşumurtur\n3. koşurturum\n4. koşumturur\n5. koştururum\n6. koşturumur\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 361,
+                "total_tokens": 362
+            },
+            "correct": true
+        },
+        {
+            "root": "at",
+            "suffixes": [
+                "ıl",
+                "ma",
+                "yacağ",
+                "ı",
+                "nı"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nSeçenekler:\n1. kaldırabilmektir\n2. kaldırtirabilmek\n3. kaldırmektirabil\n4. kaldırtirmekabil\n5. kaldırabiltirmek\n6. kaldırmekabiltir\nCevap: 1\n\nÖrnek 4:\nKök: at\nEkler: nı,yacağ,ıl,ma,ı\nSeçenekler:\n1. atnımaılıyacağ\n2. atılmayacağını\n3. atyacağmanıııl\n4. atyacağılnımaı\n5. atıyacağnımaıl\n6. atnııılyacağma\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 386,
+                "total_tokens": 387
+            },
+            "correct": false
+        },
+        {
+            "root": "ağabey",
+            "suffixes": [
+                "ler",
+                "imiz",
+                "i"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nSeçenekler:\n1. kaldırabiltirmek\n2. kaldırtirabilmek\n3. kaldırtirmekabil\n4. kaldırmektirabil\n5. kaldırmekabiltir\n6. kaldırabilmektir\nCevap: 6\n\nÖrnek 4:\nKök: ağabey\nEkler: ler,i,imiz\nSeçenekler:\n1. ağabeyimizleri\n2. ağabeyiimizler\n3. ağabeyleriimiz\n4. ağabeyimiziler\n5. ağabeyilerimiz\n6. ağabeylerimizi\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 375,
+                "total_tokens": 376
+            },
+            "correct": true
+        },
+        {
+            "root": "karşı",
+            "suffixes": [
+                "ya",
+                "dır"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldırtirabilmek\n2. kaldırabilmektir\n3. kaldırtirmekabil\n4. kaldırabiltirmek\n5. kaldırmektirabil\n6. kaldırmekabiltir\nCevap: 2\n\nÖrnek 4:\nKök: karşı\nEkler: ya,dır\nSeçenekler:\n1. karşıyadır\n2. karşıdırya\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 327,
+                "total_tokens": 328
+            },
+            "correct": true
+        },
+        {
+            "root": "gel",
+            "suffixes": [
+                "iş",
+                "tir",
+                "diğ",
+                "im",
+                "i"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldırtirabilmek\n2. kaldırabilmektir\n3. kaldırabiltirmek\n4. kaldırmektirabil\n5. kaldırmekabiltir\n6. kaldırtirmekabil\nCevap: 2\n\nÖrnek 4:\nKök: gel\nEkler: im,i,diğ,tir,iş\nSeçenekler:\n1. gelişdiğiimtir\n2. geltirişimidiğ\n3. geliştirdiğimi\n4. geltirimişidiğ\n5. gelimitirişdiğ\n6. geltirimidiğiş\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 375,
+                "total_tokens": 376
+            },
+            "correct": true
+        },
+        {
+            "root": "sahil",
+            "suffixes": [
+                "ler",
+                "i",
+                "ni"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nSeçenekler:\n1. kaldırmekabiltir\n2. kaldırabiltirmek\n3. kaldırmektirabil\n4. kaldırtirabilmek\n5. kaldırtirmekabil\n6. kaldırabilmektir\nCevap: 6\n\nÖrnek 4:\nKök: sahil\nEkler: ni,ler,i\nSeçenekler:\n1. sahililerni\n2. sahillernii\n3. sahiliniler\n4. sahilniiler\n5. sahillerini\n6. sahilnileri\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 355,
+                "total_tokens": 356
+            },
+            "correct": true
+        },
+        {
+            "root": "soru",
+            "suffixes": [
+                "m",
+                "suz",
+                "luk",
+                "lar",
+                "ı"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldırmekabiltir\n2. kaldırabiltirmek\n3. kaldırabilmektir\n4. kaldırtirabilmek\n5. kaldırmektirabil\n6. kaldırtirmekabil\nCevap: 3\n\nÖrnek 4:\nKök: soru\nEkler: m,luk,lar,ı,suz\nSeçenekler:\n1. sorusuzmlukları\n2. sorusuzlarmlukı\n3. sorusuzılarmluk\n4. sorusuzlarımluk\n5. sorumluklarısuz\n6. sorumsuzlukları\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 373,
+                "total_tokens": 374
+            },
+            "correct": false
+        },
+        {
+            "root": "gurur",
+            "suffixes": [
+                "un",
+                "un"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldırmektirabil\n2. kaldırtirabilmek\n3. kaldırmekabiltir\n4. kaldırtirmekabil\n5. kaldırabilmektir\n6. kaldırabiltirmek\nCevap: 5\n\nÖrnek 4:\nKök: gurur\nEkler: un,un\nSeçenekler:\n1. gururunun\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 320,
+                "total_tokens": 321
+            },
+            "correct": true
+        },
+        {
+            "root": "iste",
+            "suffixes": [
+                "me",
+                "dik",
+                "ler",
+                "i",
+                "ni"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nSeçenekler:\n1. kaldırtirmekabil\n2. kaldırmekabiltir\n3. kaldırmektirabil\n4. kaldırabilmektir\n5. kaldırabiltirmek\n6. kaldırtirabilmek\nCevap: 4\n\nÖrnek 4:\nKök: iste\nEkler: dik,ler,me,i,ni\nSeçenekler:\n1. istenilermeidik\n2. isteniilermedik\n3. isteinimelerdik\n4. isteimediklerni\n5. istemediklerini\n6. isteidikmeniler\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 368,
+                "total_tokens": 369
+            },
+            "correct": true
+        },
+        {
+            "root": "yarım",
+            "suffixes": [
+                "lar",
+                "ımız"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldırabilmektir\n2. kaldırabiltirmek\n3. kaldırtirabilmek\n4. kaldırmekabiltir\n5. kaldırmektirabil\n6. kaldırtirmekabil\nCevap: 1\n\nÖrnek 4:\nKök: yarım\nEkler: lar,ımız\nSeçenekler:\n1. yarımlarımız\n2. yarımımızlar\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 330,
+                "total_tokens": 331
+            },
+            "correct": true
+        },
+        {
+            "root": "kukla",
+            "suffixes": [
+                "lar",
+                "ı",
+                "ydı"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldırtirmekabil\n2. kaldırmekabiltir\n3. kaldırtirabilmek\n4. kaldırmektirabil\n5. kaldırabiltirmek\n6. kaldırabilmektir\nCevap: 6\n\nÖrnek 4:\nKök: kukla\nEkler: lar,ı,ydı\nSeçenekler:\n1. kuklaydıılar\n2. kuklaydıları\n3. kuklaılarydı\n4. kuklalarydıı\n5. kuklaıydılar\n6. kuklalarıydı\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 367,
+                "total_tokens": 368
+            },
+            "correct": false
+        },
+        {
+            "root": "kendi",
+            "suffixes": [
+                "ler",
+                "i",
+                "dir"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldırtirabilmek\n2. kaldırtirmekabil\n3. kaldırmektirabil\n4. kaldırabiltirmek\n5. kaldırabilmektir\n6. kaldırmekabiltir\nCevap: 5\n\nÖrnek 4:\nKök: kendi\nEkler: dir,ler,i\nSeçenekler:\n1. kendidiriler\n2. kendilerdiri\n3. kendidirleri\n4. kendiilerdir\n5. kendileridir\n6. kendiidirler\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 354,
+                "total_tokens": 355
+            },
+            "correct": false
+        },
+        {
+            "root": "eş",
+            "suffixes": [
+                "in",
+                "in"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldırmekabiltir\n2. kaldırtirmekabil\n3. kaldırtirabilmek\n4. kaldırmektirabil\n5. kaldırabiltirmek\n6. kaldırabilmektir\nCevap: 6\n\nÖrnek 4:\nKök: eş\nEkler: in,in\nSeçenekler:\n1. eşinin\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 315,
+                "total_tokens": 316
+            },
+            "correct": true
+        },
+        {
+            "root": "yaz",
+            "suffixes": [
+                "mış",
+                "tı",
+                "m"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldırabiltirmek\n2. kaldırmektirabil\n3. kaldırtirabilmek\n4. kaldırtirmekabil\n5. kaldırmekabiltir\n6. kaldırabilmektir\nCevap: 6\n\nÖrnek 4:\nKök: yaz\nEkler: tı,m,mış\nSeçenekler:\n1. yazmışmtı\n2. yazmmıştı\n3. yazmıştım\n4. yazmtımış\n5. yaztımışm\n6. yaztımmış\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 357,
+                "total_tokens": 358
+            },
+            "correct": true
+        },
+        {
+            "root": "hücre",
+            "suffixes": [
+                "miz",
+                "de"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldırtirmekabil\n2. kaldırabilmektir\n3. kaldırmektirabil\n4. kaldırtirabilmek\n5. kaldırmekabiltir\n6. kaldırabiltirmek\nCevap: 2\n\nÖrnek 4:\nKök: hücre\nEkler: de,miz\nSeçenekler:\n1. hücredemiz\n2. hücremizde\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 328,
+                "total_tokens": 329
+            },
+            "correct": true
+        },
+        {
+            "root": "düzel",
+            "suffixes": [
+                "t",
+                "mek",
+                "te"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nSeçenekler:\n1. kaldırmektirabil\n2. kaldırtirmekabil\n3. kaldırabiltirmek\n4. kaldırmekabiltir\n5. kaldırtirabilmek\n6. kaldırabilmektir\nCevap: 6\n\nÖrnek 4:\nKök: düzel\nEkler: t,te,mek\nSeçenekler:\n1. düzeltemekt\n2. düzelttemek\n3. düzelmektte\n4. düzeltetmek\n5. düzelmektet\n6. düzeltmekte\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 361,
+                "total_tokens": 362
+            },
+            "correct": false
+        },
+        {
+            "root": "tuğla",
+            "suffixes": [
+                "lar",
+                "ın",
+                "ı"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldırmekabiltir\n2. kaldırtirabilmek\n3. kaldırabilmektir\n4. kaldırtirmekabil\n5. kaldırmektirabil\n6. kaldırabiltirmek\nCevap: 3\n\nÖrnek 4:\nKök: tuğla\nEkler: ı,ın,lar\nSeçenekler:\n1. tuğlaınılar\n2. tuğlaıların\n3. tuğlalarını\n4. tuğlaıınlar\n5. tuğlalarıın\n6. tuğlaınları\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 366,
+                "total_tokens": 367
+            },
+            "correct": true
+        },
+        {
+            "root": "bas",
+            "suffixes": [
+                "tır",
+                "dığ",
+                "ı",
+                "nda"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldırtirmekabil\n2. kaldırabilmektir\n3. kaldırabiltirmek\n4. kaldırmektirabil\n5. kaldırtirabilmek\n6. kaldırmekabiltir\nCevap: 2\n\nÖrnek 4:\nKök: bas\nEkler: tır,dığ,nda,ı\nSeçenekler:\n1. basdığtırında\n2. bastırdığında\n3. basıdığndatır\n4. basıtırndadığ\n5. basdığndatırı\n6. basndaıtırdığ\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 371,
+                "total_tokens": 372
+            },
+            "correct": true
+        },
+        {
+            "root": "ferah",
+            "suffixes": [
+                "la",
+                "t",
+                "abil",
+                "eceğ",
+                "im",
+                "i"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nSeçenekler:\n1. kaldırabilmektir\n2. kaldırtirabilmek\n3. kaldırmektirabil\n4. kaldırmekabiltir\n5. kaldırabiltirmek\n6. kaldırtirmekabil\nCevap: 1\n\nÖrnek 4:\nKök: ferah\nEkler: eceğ,t,i,la,im,abil\nSeçenekler:\n1. feraheceğimlaiabilt\n2. ferahlatabileceğimi\n3. feraheceğtabilimlai\n4. ferahitabileceğlaim\n5. ferahimeceğlaiabilt\n6. feraheceğlaabilimit\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 389,
+                "total_tokens": 390
+            },
+            "correct": true
+        },
+        {
+            "root": "unut",
+            "suffixes": [
+                "ma",
+                "sınlar"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldırtirmekabil\n2. kaldırmektirabil\n3. kaldırtirabilmek\n4. kaldırmekabiltir\n5. kaldırabiltirmek\n6. kaldırabilmektir\nCevap: 6\n\nÖrnek 4:\nKök: unut\nEkler: sınlar,ma\nSeçenekler:\n1. unutsınlarma\n2. unutmasınlar\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 328,
+                "total_tokens": 329
+            },
+            "correct": true
+        },
+        {
+            "root": "bark",
+            "suffixes": [
+                "ın",
+                "dan"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nSeçenekler:\n1. kaldırmekabiltir\n2. kaldırmektirabil\n3. kaldırabiltirmek\n4. kaldırtirabilmek\n5. kaldırtirmekabil\n6. kaldırabilmektir\nCevap: 6\n\nÖrnek 4:\nKök: bark\nEkler: dan,ın\nSeçenekler:\n1. barkından\n2. barkdanın\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 320,
+                "total_tokens": 321
+            },
+            "correct": true
+        },
+        {
+            "root": "yaz",
+            "suffixes": [
+                "ma",
+                "l",
+                "ım"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldırmekabiltir\n2. kaldırabilmektir\n3. kaldırmektirabil\n4. kaldırabiltirmek\n5. kaldırtirabilmek\n6. kaldırtirmekabil\nCevap: 2\n\nÖrnek 4:\nKök: yaz\nEkler: ım,ma,l\nSeçenekler:\n1. yazlmaım\n2. yazımlma\n3. yazmaıml\n4. yazlımma\n5. yazmalım\n6. yazımmal\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 352,
+                "total_tokens": 353
+            },
+            "correct": true
+        },
+        {
+            "root": "kazan",
+            "suffixes": [
+                "dır",
+                "m",
+                "ıyor",
+                "du"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldırtirabilmek\n2. kaldırabilmektir\n3. kaldırabiltirmek\n4. kaldırmektirabil\n5. kaldırtirmekabil\n6. kaldırmekabiltir\nCevap: 2\n\nÖrnek 4:\nKök: kazan\nEkler: ıyor,m,du,dır\nSeçenekler:\n1. kazandırmıyordu\n2. kazanmdırıyordu\n3. kazandırduıyorm\n4. kazanıyordırmdu\n5. kazanıyordırdum\n6. kazanduıyormdır\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 380,
+                "total_tokens": 381
+            },
+            "correct": true
+        },
+        {
+            "root": "büyü",
+            "suffixes": [
+                "ye",
+                "me",
+                "dik"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nSeçenekler:\n1. kaldırtirmekabil\n2. kaldırabilmektir\n3. kaldırtirabilmek\n4. kaldırmektirabil\n5. kaldırmekabiltir\n6. kaldırabiltirmek\nCevap: 2\n\nÖrnek 4:\nKök: büyü\nEkler: dik,me,ye\nSeçenekler:\n1. büyümeyedik\n2. büyüdikyeme\n3. büyümedikye\n4. büyüyemedik\n5. büyüdikmeye\n6. büyüyedikme\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 371,
+                "total_tokens": 372
+            },
+            "correct": false
+        },
+        {
+            "root": "yaka",
+            "suffixes": [
+                "lar",
+                "ken"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nSeçenekler:\n1. kaldırabiltirmek\n2. kaldırmekabiltir\n3. kaldırtirabilmek\n4. kaldırabilmektir\n5. kaldırtirmekabil\n6. kaldırmektirabil\nCevap: 4\n\nÖrnek 4:\nKök: yaka\nEkler: ken,lar\nSeçenekler:\n1. yakakenlar\n2. yakalarken\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 324,
+                "total_tokens": 325
+            },
+            "correct": true
+        },
+        {
+            "root": "duvar",
+            "suffixes": [
+                "ın",
+                "da",
+                "ki"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nSeçenekler:\n1. kaldırabilmektir\n2. kaldırtirabilmek\n3. kaldırmektirabil\n4. kaldırabiltirmek\n5. kaldırmekabiltir\n6. kaldırtirmekabil\nCevap: 1\n\nÖrnek 4:\nKök: duvar\nEkler: ki,ın,da\nSeçenekler:\n1. duvardakiın\n2. duvarınkida\n3. duvarkidaın\n4. duvarkiında\n5. duvarındaki\n6. duvardaınki\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 359,
+                "total_tokens": 360
+            },
+            "correct": true
+        },
+        {
+            "root": "kavra",
+            "suffixes": [
+                "ya",
+                "ma",
+                "z",
+                "dı",
+                "m"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nSeçenekler:\n1. kaldırmektirabil\n2. kaldırtirmekabil\n3. kaldırtirabilmek\n4. kaldırmekabiltir\n5. kaldırabilmektir\n6. kaldırabiltirmek\nCevap: 5\n\nÖrnek 4:\nKök: kavra\nEkler: ma,m,ya,z,dı\nSeçenekler:\n1. kavradızyamam\n2. kavrazyadımam\n3. kavrayamazdım\n4. kavradımmazya\n5. kavrayazmmadı\n6. kavramazdıyam\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 376,
+                "total_tokens": 377
+            },
+            "correct": true
+        },
+        {
+            "root": "etki",
+            "suffixes": [
+                "le",
+                "yeceğ",
+                "i",
+                "ydi"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nSeçenekler:\n1. kaldırmekabiltir\n2. kaldırmektirabil\n3. kaldırabilmektir\n4. kaldırabiltirmek\n5. kaldırtirmekabil\n6. kaldırtirabilmek\nCevap: 3\n\nÖrnek 4:\nKök: etki\nEkler: ydi,le,i,yeceğ\nSeçenekler:\n1. etkiyeceğiydile\n2. etkiyeceğydilei\n3. etkileydiiyeceğ\n4. etkiydileyeceği\n5. etkiydiileyeceğ\n6. etkileyeceğiydi\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 378,
+                "total_tokens": 379
+            },
+            "correct": false
+        },
+        {
+            "root": "somya",
+            "suffixes": [
+                "n",
+                "ın"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nSeçenekler:\n1. kaldırabilmektir\n2. kaldırabiltirmek\n3. kaldırtirabilmek\n4. kaldırtirmekabil\n5. kaldırmekabiltir\n6. kaldırmektirabil\nCevap: 1\n\nÖrnek 4:\nKök: somya\nEkler: ın,n\nSeçenekler:\n1. somyaınn\n2. somyanın\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 325,
+                "total_tokens": 326
+            },
+            "correct": true
+        },
+        {
+            "root": "kur",
+            "suffixes": [
+                "a",
+                "ma",
+                "z",
+                "dı"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldırtirmekabil\n2. kaldırabiltirmek\n3. kaldırmektirabil\n4. kaldırmekabiltir\n5. kaldırabilmektir\n6. kaldırtirabilmek\nCevap: 5\n\nÖrnek 4:\nKök: kur\nEkler: dı,ma,a,z\nSeçenekler:\n1. kurmadıza\n2. kuradımaz\n3. kurmazdıa\n4. kuramazdı\n5. kurzamadı\n6. kurzmaadı\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true
+        },
+        {
+            "root": "yer",
+            "suffixes": [
+                "leş",
+                "in"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nSeçenekler:\n1. kaldırtirmekabil\n2. kaldırtirabilmek\n3. kaldırmektirabil\n4. kaldırabiltirmek\n5. kaldırabilmektir\n6. kaldırmekabiltir\nCevap: 5\n\nÖrnek 4:\nKök: yer\nEkler: leş,in\nSeçenekler:\n1. yerinleş\n2. yerleşin\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 323,
+                "total_tokens": 324
+            },
+            "correct": true
+        },
+        {
+            "root": "oku",
+            "suffixes": [
+                "r",
+                "un",
+                "a"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nSeçenekler:\n1. kaldırmekabiltir\n2. kaldırmektirabil\n3. kaldırabilmektir\n4. kaldırtirabilmek\n5. kaldırabiltirmek\n6. kaldırtirmekabil\nCevap: 3\n\nÖrnek 4:\nKök: oku\nEkler: a,un,r\nSeçenekler:\n1. okuunar\n2. okuarun\n3. okuunra\n4. okuruna\n5. okuraun\n6. okuaunr\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 351,
+                "total_tokens": 352
+            },
+            "correct": true
+        },
+        {
+            "root": "birey",
+            "suffixes": [
+                "sel",
+                "ci",
+                "liğ",
+                "i"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nSeçenekler:\n1. kaldırtirmekabil\n2. kaldırabilmektir\n3. kaldırmekabiltir\n4. kaldırmektirabil\n5. kaldırtirabilmek\n6. kaldırabiltirmek\nCevap: 2\n\nÖrnek 4:\nKök: birey\nEkler: i,sel,ci,liğ\nSeçenekler:\n1. bireyliğicisel\n2. bireyliğselici\n3. bireyiliğselci\n4. bireyseliliğci\n5. bireyselciliği\n6. bireyseliciliğ\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 376,
+                "total_tokens": 377
+            },
+            "correct": true
+        },
+        {
+            "root": "fincan",
+            "suffixes": [
+                "ın",
+                "da"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldırmektirabil\n2. kaldırabiltirmek\n3. kaldırmekabiltir\n4. kaldırtirmekabil\n5. kaldırtirabilmek\n6. kaldırabilmektir\nCevap: 6\n\nÖrnek 4:\nKök: fincan\nEkler: da,ın\nSeçenekler:\n1. fincanında\n2. fincandaın\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 324,
+                "total_tokens": 325
+            },
+            "correct": true
+        },
+        {
+            "root": "ağla",
+            "suffixes": [
+                "r",
+                "ı"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nSeçenekler:\n1. kaldırtirmekabil\n2. kaldırmekabiltir\n3. kaldırtirabilmek\n4. kaldırabilmektir\n5. kaldırabiltirmek\n6. kaldırmektirabil\nCevap: 4\n\nÖrnek 4:\nKök: ağla\nEkler: r,ı\nSeçenekler:\n1. ağları\n2. ağlaır\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 326,
+                "total_tokens": 327
+            },
+            "correct": true
+        },
+        {
+            "root": "san",
+            "suffixes": [
+                "ıl",
+                "sa"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nSeçenekler:\n1. kaldırmekabiltir\n2. kaldırabiltirmek\n3. kaldırmektirabil\n4. kaldırtirabilmek\n5. kaldırtirmekabil\n6. kaldırabilmektir\nCevap: 6\n\nÖrnek 4:\nKök: san\nEkler: sa,ıl\nSeçenekler:\n1. sansaıl\n2. sanılsa\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 321,
+                "total_tokens": 322
+            },
+            "correct": true
+        },
+        {
+            "root": "oluş",
+            "suffixes": [
+                "tur",
+                "abil",
+                "ir",
+                "im"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nSeçenekler:\n1. kaldırtirabilmek\n2. kaldırmektirabil\n3. kaldırabilmektir\n4. kaldırtirmekabil\n5. kaldırmekabiltir\n6. kaldırabiltirmek\nCevap: 3\n\nÖrnek 4:\nKök: oluş\nEkler: abil,tur,im,ir\nSeçenekler:\n1. oluşturabilirim\n2. oluşimturirabil\n3. oluşirimturabil\n4. oluşturimabilir\n5. oluşimirabiltur\n6. oluşturabilimir\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 370,
+                "total_tokens": 371
+            },
+            "correct": true
+        },
+        {
+            "root": "bulun",
+            "suffixes": [
+                "muş",
+                "tur"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldırtirabilmek\n2. kaldırabiltirmek\n3. kaldırmekabiltir\n4. kaldırmektirabil\n5. kaldırtirmekabil\n6. kaldırabilmektir\nCevap: 6\n\nÖrnek 4:\nKök: bulun\nEkler: muş,tur\nSeçenekler:\n1. bulunturmuş\n2. bulunmuştur\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 328,
+                "total_tokens": 329
+            },
+            "correct": true
+        },
+        {
+            "root": "kıl",
+            "suffixes": [
+                "mak",
+                "tı"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nSeçenekler:\n1. kaldırabilmektir\n2. kaldırtirabilmek\n3. kaldırmekabiltir\n4. kaldırmektirabil\n5. kaldırabiltirmek\n6. kaldırtirmekabil\nCevap: 1\n\nÖrnek 4:\nKök: kıl\nEkler: tı,mak\nSeçenekler:\n1. kılmaktı\n2. kıltımak\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 328,
+                "total_tokens": 329
+            },
+            "correct": true
+        },
+        {
+            "root": "a",
+            "suffixes": [
+                "n",
+                "laş",
+                "ıl",
+                "dı",
+                "m"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldırmektirabil\n2. kaldırtirabilmek\n3. kaldırabilmektir\n4. kaldırtirmekabil\n5. kaldırmekabiltir\n6. kaldırabiltirmek\nCevap: 3\n\nÖrnek 4:\nKök: a\nEkler: n,dı,ıl,m,laş\nSeçenekler:\n1. adımnıllaş\n2. aıllaşdınm\n3. adılaşnılm\n4. anlaşıldım\n5. alaşmnıldı\n6. amnıllaşdı\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 374,
+                "total_tokens": 375
+            },
+            "correct": true
+        },
+        {
+            "root": "kır",
+            "suffixes": [
+                "ma",
+                "yın"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nSeçenekler:\n1. kaldırabilmektir\n2. kaldırtirabilmek\n3. kaldırtirmekabil\n4. kaldırmekabiltir\n5. kaldırmektirabil\n6. kaldırabiltirmek\nCevap: 1\n\nÖrnek 4:\nKök: kır\nEkler: yın,ma\nSeçenekler:\n1. kıryınma\n2. kırmayın\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 328,
+                "total_tokens": 329
+            },
+            "correct": true
+        },
+        {
+            "root": "duy",
+            "suffixes": [
+                "ma",
+                "m",
+                "ı"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nSeçenekler:\n1. kaldırabilmektir\n2. kaldırabiltirmek\n3. kaldırmektirabil\n4. kaldırtirabilmek\n5. kaldırtirmekabil\n6. kaldırmekabiltir\nCevap: 1\n\nÖrnek 4:\nKök: duy\nEkler: ı,ma,m\nSeçenekler:\n1. duyımam\n2. duymamı\n3. duymaım\n4. duymmaı\n5. duymıma\n6. duyımma\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 354,
+                "total_tokens": 355
+            },
+            "correct": true
+        },
+        {
+            "root": "iş",
+            "suffixes": [
+                "i",
+                "ni"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldırmekabiltir\n2. kaldırtirmekabil\n3. kaldırtirabilmek\n4. kaldırabiltirmek\n5. kaldırmektirabil\n6. kaldırabilmektir\nCevap: 6\n\nÖrnek 4:\nKök: iş\nEkler: i,ni\nSeçenekler:\n1. işnii\n2. işini\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 320,
+                "total_tokens": 321
+            },
+            "correct": true
+        },
+        {
+            "root": "in",
+            "suffixes": [
+                "er",
+                "iz"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nSeçenekler:\n1. kaldırmekabiltir\n2. kaldırabilmektir\n3. kaldırmektirabil\n4. kaldırtirabilmek\n5. kaldırabiltirmek\n6. kaldırtirmekabil\nCevap: 2\n\nÖrnek 4:\nKök: in\nEkler: er,iz\nSeçenekler:\n1. inizer\n2. ineriz\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 321,
+                "total_tokens": 322
+            },
+            "correct": true
+        },
+        {
+            "root": "güven",
+            "suffixes": [
+                "siz",
+                "liğ",
+                "in",
+                "den"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nSeçenekler:\n1. kaldırmektirabil\n2. kaldırabiltirmek\n3. kaldırabilmektir\n4. kaldırtirmekabil\n5. kaldırtirabilmek\n6. kaldırmekabiltir\nCevap: 3\n\nÖrnek 4:\nKök: güven\nEkler: siz,den,in,liğ\nSeçenekler:\n1. güvenliğinsizden\n2. güvenliğsizinden\n3. güvensizliğinden\n4. güveninliğsizden\n5. güvensizdeninliğ\n6. güvenindenliğsiz\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 375,
+                "total_tokens": 376
+            },
+            "correct": true
+        },
+        {
+            "root": "sek",
+            "suffixes": [
+                "iz",
+                "e"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldırabiltirmek\n2. kaldırabilmektir\n3. kaldırmekabiltir\n4. kaldırtirabilmek\n5. kaldırtirmekabil\n6. kaldırmektirabil\nCevap: 2\n\nÖrnek 4:\nKök: sek\nEkler: e,iz\nSeçenekler:\n1. sekeiz\n2. sekize\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 321,
+                "total_tokens": 322
+            },
+            "correct": false
+        },
+        {
+            "root": "gökdelen",
+            "suffixes": [
+                "ler",
+                "imiz",
+                "e"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nSeçenekler:\n1. kaldırabilmektir\n2. kaldırabiltirmek\n3. kaldırtirmekabil\n4. kaldırtirabilmek\n5. kaldırmektirabil\n6. kaldırmekabiltir\nCevap: 1\n\nÖrnek 4:\nKök: gökdelen\nEkler: e,imiz,ler\nSeçenekler:\n1. gökdelenlereimiz\n2. gökdeleneimizler\n3. gökdelenimizeler\n4. gökdelenlerimize\n5. gökdelenelerimiz\n6. gökdelenimizlere\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 370,
+                "total_tokens": 371
+            },
+            "correct": true
+        },
+        {
+            "root": "gün",
+            "suffixes": [
+                "lük",
+                "ten"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nSeçenekler:\n1. kaldırtirmekabil\n2. kaldırabiltirmek\n3. kaldırtirabilmek\n4. kaldırabilmektir\n5. kaldırmektirabil\n6. kaldırmekabiltir\nCevap: 4\n\nÖrnek 4:\nKök: gün\nEkler: lük,ten\nSeçenekler:\n1. güntenlük\n2. günlükten\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 323,
+                "total_tokens": 324
+            },
+            "correct": true
+        },
+        {
+            "root": "okul",
+            "suffixes": [
+                "umuz",
+                "a"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldırabiltirmek\n2. kaldırmekabiltir\n3. kaldırmektirabil\n4. kaldırabilmektir\n5. kaldırtirmekabil\n6. kaldırtirabilmek\nCevap: 4\n\nÖrnek 4:\nKök: okul\nEkler: umuz,a\nSeçenekler:\n1. okulumuza\n2. okulaumuz\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 324,
+                "total_tokens": 325
+            },
+            "correct": true
+        },
+        {
+            "root": "burk",
+            "suffixes": [
+                "ul",
+                "ma",
+                "dan"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nSeçenekler:\n1. kaldırabilmektir\n2. kaldırabiltirmek\n3. kaldırmekabiltir\n4. kaldırtirabilmek\n5. kaldırtirmekabil\n6. kaldırmektirabil\nCevap: 1\n\nÖrnek 4:\nKök: burk\nEkler: dan,ul,ma\nSeçenekler:\n1. burkmadanul\n2. burkmauldan\n3. burkuldanma\n4. burkdanmaul\n5. burkdanulma\n6. burkulmadan\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 358,
+                "total_tokens": 359
+            },
+            "correct": true
+        },
+        {
+            "root": "çuvalla",
+            "suffixes": [
+                "ma",
+                "mız",
+                "a"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nSeçenekler:\n1. kaldırtirabilmek\n2. kaldırmekabiltir\n3. kaldırmektirabil\n4. kaldırabilmektir\n5. kaldırabiltirmek\n6. kaldırtirmekabil\nCevap: 4\n\nÖrnek 4:\nKök: çuvalla\nEkler: ma,a,mız\nSeçenekler:\n1. çuvallamaamız\n2. çuvallamızama\n3. çuvallamamıza\n4. çuvallaamamız\n5. çuvallamızmaa\n6. çuvallaamızma\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 369,
+                "total_tokens": 370
+            },
+            "correct": true
+        },
+        {
+            "root": "de",
+            "suffixes": [
+                "n",
+                "e",
+                "me",
+                "me",
+                "si",
+                "nden"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nSeçenekler:\n1. kaldırabilmektir\n2. kaldırtirabilmek\n3. kaldırmekabiltir\n4. kaldırtirmekabil\n5. kaldırabiltirmek\n6. kaldırmektirabil\nCevap: 1\n\nÖrnek 4:\nKök: de\nEkler: n,me,si,me,e,nden\nSeçenekler:\n1. denememesinden\n2. desimemenenden\n3. deendennmemesi\n4. dememendenensi\n5. demeendenmesin\n6. desinmeemenden\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 363,
+                "total_tokens": 364
+            },
+            "correct": false
+        },
+        {
+            "root": "galaksi",
+            "suffixes": [
+                "n",
+                "in"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldırtirmekabil\n2. kaldırtirabilmek\n3. kaldırabiltirmek\n4. kaldırabilmektir\n5. kaldırmekabiltir\n6. kaldırmektirabil\nCevap: 4\n\nÖrnek 4:\nKök: galaksi\nEkler: in,n\nSeçenekler:\n1. galaksinin\n2. galaksiinn\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 320,
+                "total_tokens": 321
+            },
+            "correct": true
+        },
+        {
+            "root": "inan",
+            "suffixes": [
+                "ma",
+                "sa",
+                "n"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nSeçenekler:\n1. kaldırtirmekabil\n2. kaldırmekabiltir\n3. kaldırtirabilmek\n4. kaldırabiltirmek\n5. kaldırmektirabil\n6. kaldırabilmektir\nCevap: 6\n\nÖrnek 4:\nKök: inan\nEkler: ma,n,sa\nSeçenekler:\n1. inannmasa\n2. inannsama\n3. inanmansa\n4. inansanma\n5. inanmasan\n6. inansaman\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 353,
+                "total_tokens": 354
+            },
+            "correct": false
+        },
+        {
+            "root": "tanı",
+            "suffixes": [
+                "n",
+                "ma",
+                "dığ",
+                "ı"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldırabilmektir\n2. kaldırmektirabil\n3. kaldırmekabiltir\n4. kaldırtirabilmek\n5. kaldırabiltirmek\n6. kaldırtirmekabil\nCevap: 1\n\nÖrnek 4:\nKök: tanı\nEkler: ma,n,ı,dığ\nSeçenekler:\n1. tanındığıma\n2. tanınmadığı\n3. tanımanıdığ\n4. tanıdığıman\n5. tanıımadığn\n6. tanıdığnmaı\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 364,
+                "total_tokens": 365
+            },
+            "correct": false
+        },
+        {
+            "root": "çık",
+            "suffixes": [
+                "ma",
+                "yış",
+                "ı"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nSeçenekler:\n1. kaldırtirmekabil\n2. kaldırmektirabil\n3. kaldırabilmektir\n4. kaldırtirabilmek\n5. kaldırabiltirmek\n6. kaldırmekabiltir\nCevap: 3\n\nÖrnek 4:\nKök: çık\nEkler: ma,yış,ı\nSeçenekler:\n1. çıkmaıyış\n2. çıkımayış\n3. çıkmayışı\n4. çıkyışıma\n5. çıkyışmaı\n6. çıkıyışma\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 367,
+                "total_tokens": 368
+            },
+            "correct": false
+        },
+        {
+            "root": "pay",
+            "suffixes": [
+                "laş",
+                "tığ",
+                "ı",
+                "nı"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldırtirmekabil\n2. kaldırabiltirmek\n3. kaldırtirabilmek\n4. kaldırmekabiltir\n5. kaldırabilmektir\n6. kaldırmektirabil\nCevap: 5\n\nÖrnek 4:\nKök: pay\nEkler: nı,laş,ı,tığ\nSeçenekler:\n1. paylaştığını\n2. paytığılaşnı\n3. paylaştığnıı\n4. paynıılaştığ\n5. payılaştığnı\n6. paynılaştığı\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 374,
+                "total_tokens": 375
+            },
+            "correct": false
+        },
+        {
+            "root": "figüran",
+            "suffixes": [
+                "lar",
+                "ın",
+                "dan"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldırabilmektir\n2. kaldırmektirabil\n3. kaldırabiltirmek\n4. kaldırmekabiltir\n5. kaldırtirmekabil\n6. kaldırtirabilmek\nCevap: 1\n\nÖrnek 4:\nKök: figüran\nEkler: dan,lar,ın\nSeçenekler:\n1. figüranındanlar\n2. figürandanınlar\n3. figüranlardanın\n4. figüranınlardan\n5. figüranlarından\n6. figürandanların\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 365,
+                "total_tokens": 366
+            },
+            "correct": true
+        },
+        {
+            "root": "do",
+            "suffixes": [
+                "st",
+                "lar",
+                "ınız"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldırabilmektir\n2. kaldırtirmekabil\n3. kaldırmektirabil\n4. kaldırtirabilmek\n5. kaldırmekabiltir\n6. kaldırabiltirmek\nCevap: 1\n\nÖrnek 4:\nKök: do\nEkler: ınız,lar,st\nSeçenekler:\n1. dolarınızst\n2. dolarstınız\n3. doınızstlar\n4. doınızlarst\n5. dostınızlar\n6. dostlarınız\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 359,
+                "total_tokens": 360
+            },
+            "correct": true
+        },
+        {
+            "root": "ye",
+            "suffixes": [
+                "r",
+                "i",
+                "nde"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nSeçenekler:\n1. kaldırabilmektir\n2. kaldırabiltirmek\n3. kaldırtirmekabil\n4. kaldırtirabilmek\n5. kaldırmektirabil\n6. kaldırmekabiltir\nCevap: 1\n\nÖrnek 4:\nKök: ye\nEkler: r,nde,i\nSeçenekler:\n1. yendeir\n2. yerinde\n3. yenderi\n4. yeirnde\n5. yerndei\n6. yeinder\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 345,
+                "total_tokens": 346
+            },
+            "correct": true
+        },
+        {
+            "root": "kusur",
+            "suffixes": [
+                "lar",
+                "ım",
+                "ı"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nSeçenekler:\n1. kaldırabiltirmek\n2. kaldırmekabiltir\n3. kaldırtirabilmek\n4. kaldırmektirabil\n5. kaldırtirmekabil\n6. kaldırabilmektir\nCevap: 6\n\nÖrnek 4:\nKök: kusur\nEkler: ı,lar,ım\nSeçenekler:\n1. kusurımılar\n2. kusurıımlar\n3. kusurımları\n4. kusurlarıım\n5. kusurlarımı\n6. kusurılarım\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 368,
+                "total_tokens": 369
+            },
+            "correct": false
+        },
+        {
+            "root": "getir",
+            "suffixes": [
+                "t",
+                "en"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldırabilmektir\n2. kaldırabiltirmek\n3. kaldırmekabiltir\n4. kaldırtirmekabil\n5. kaldırmektirabil\n6. kaldırtirabilmek\nCevap: 1\n\nÖrnek 4:\nKök: getir\nEkler: en,t\nSeçenekler:\n1. getirten\n2. getirent\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 322,
+                "total_tokens": 323
+            },
+            "correct": true
+        },
+        {
+            "root": "an",
+            "suffixes": [
+                "laş",
+                "ma",
+                "lar",
+                "a"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nSeçenekler:\n1. kaldırtirmekabil\n2. kaldırtirabilmek\n3. kaldırabilmektir\n4. kaldırmektirabil\n5. kaldırmekabiltir\n6. kaldırabiltirmek\nCevap: 3\n\nÖrnek 4:\nKök: an\nEkler: laş,a,lar,ma\nSeçenekler:\n1. analaşlarma\n2. anlaralaşma\n3. analarmalaş\n4. anlarlaşama\n5. anlarmaalaş\n6. anlaşmalara\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 361,
+                "total_tokens": 362
+            },
+            "correct": true
+        },
+        {
+            "root": "ek",
+            "suffixes": [
+                "le",
+                "yeceğ",
+                "iz"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nSeçenekler:\n1. kaldırabiltirmek\n2. kaldırmektirabil\n3. kaldırabilmektir\n4. kaldırtirmekabil\n5. kaldırtirabilmek\n6. kaldırmekabiltir\nCevap: 3\n\nÖrnek 4:\nKök: ek\nEkler: iz,yeceğ,le\nSeçenekler:\n1. ekizleyeceğ\n2. ekleizyeceğ\n3. ekyeceğleiz\n4. ekleyeceğiz\n5. ekyeceğizle\n6. ekizyeceğle\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 363,
+                "total_tokens": 364
+            },
+            "correct": true
+        },
+        {
+            "root": "bisiklet",
+            "suffixes": [
+                "im",
+                "le"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nSeçenekler:\n1. kaldırmektirabil\n2. kaldırmekabiltir\n3. kaldırabiltirmek\n4. kaldırtirabilmek\n5. kaldırabilmektir\n6. kaldırtirmekabil\nCevap: 5\n\nÖrnek 4:\nKök: bisiklet\nEkler: le,im\nSeçenekler:\n1. bisikletimle\n2. bisikletleim\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 328,
+                "total_tokens": 329
+            },
+            "correct": true
+        },
+        {
+            "root": "kok",
+            "suffixes": [
+                "la",
+                "yabil",
+                "iyor",
+                "du",
+                "m"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nSeçenekler:\n1. kaldırabilmektir\n2. kaldırmekabiltir\n3. kaldırtirmekabil\n4. kaldırmektirabil\n5. kaldırtirabilmek\n6. kaldırabiltirmek\nCevap: 1\n\nÖrnek 4:\nKök: kok\nEkler: m,iyor,la,du,yabil\nSeçenekler:\n1. koklayabiliyordum\n2. koklamduiyoryabil\n3. kokyabilduiyormla\n4. kokiyoryabildulam\n5. koklamiyoryabildu\n6. kokyabillaiyordum\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 378,
+                "total_tokens": 379
+            },
+            "correct": false
+        },
+        {
+            "root": "yeni",
+            "suffixes": [
+                "len",
+                "me",
+                "ler",
+                "i"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nSeçenekler:\n1. kaldırabiltirmek\n2. kaldırmekabiltir\n3. kaldırtirabilmek\n4. kaldırmektirabil\n5. kaldırabilmektir\n6. kaldırtirmekabil\nCevap: 5\n\nÖrnek 4:\nKök: yeni\nEkler: len,me,ler,i\nSeçenekler:\n1. yenilerimelen\n2. yeniilerlenme\n3. yenimelenleri\n4. yenilerlenmei\n5. yeniimelerlen\n6. yenilenmeleri\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 357,
+                "total_tokens": 358
+            },
+            "correct": true
+        },
+        {
+            "root": "süpür",
+            "suffixes": [
+                "müş",
+                "tür"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nSeçenekler:\n1. kaldırmekabiltir\n2. kaldırtirmekabil\n3. kaldırtirabilmek\n4. kaldırmektirabil\n5. kaldırabilmektir\n6. kaldırabiltirmek\nCevap: 5\n\nÖrnek 4:\nKök: süpür\nEkler: müş,tür\nSeçenekler:\n1. süpürtürmüş\n2. süpürmüştür\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 333,
+                "total_tokens": 334
+            },
+            "correct": false
+        },
+        {
+            "root": "şefi",
+            "suffixes": [
+                "miz",
+                "in"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldırmekabiltir\n2. kaldırmektirabil\n3. kaldırtirabilmek\n4. kaldırabilmektir\n5. kaldırabiltirmek\n6. kaldırtirmekabil\nCevap: 4\n\nÖrnek 4:\nKök: şefi\nEkler: in,miz\nSeçenekler:\n1. şefimizin\n2. şefiinmiz\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 328,
+                "total_tokens": 329
+            },
+            "correct": true
+        },
+        {
+            "root": "konuş",
+            "suffixes": [
+                "abil",
+                "di",
+                "m"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nSeçenekler:\n1. kaldırmektirabil\n2. kaldırtirmekabil\n3. kaldırabilmektir\n4. kaldırtirabilmek\n5. kaldırabiltirmek\n6. kaldırmekabiltir\nCevap: 3\n\nÖrnek 4:\nKök: konuş\nEkler: m,di,abil\nSeçenekler:\n1. konuşabildim\n2. konuşmabildi\n3. konuşmdiabil\n4. konuşabilmdi\n5. konuşdiabilm\n6. konuşdimabil\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 359,
+                "total_tokens": 360
+            },
+            "correct": true
+        },
+        {
+            "root": "toparla",
+            "suffixes": [
+                "ma",
+                "m",
+                "dan"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nSeçenekler:\n1. kaldırtirmekabil\n2. kaldırmektirabil\n3. kaldırmekabiltir\n4. kaldırabilmektir\n5. kaldırtirabilmek\n6. kaldırabiltirmek\nCevap: 4\n\nÖrnek 4:\nKök: toparla\nEkler: m,ma,dan\nSeçenekler:\n1. toparlamdanma\n2. toparlamamdan\n3. toparladanmam\n4. toparladanmma\n5. toparlamadanm\n6. toparlammadan\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 363,
+                "total_tokens": 364
+            },
+            "correct": false
+        },
+        {
+            "root": "dola",
+            "suffixes": [
+                "n",
+                "abil",
+                "iyor",
+                "um"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nSeçenekler:\n1. kaldırabiltirmek\n2. kaldırtirabilmek\n3. kaldırmektirabil\n4. kaldırabilmektir\n5. kaldırtirmekabil\n6. kaldırmekabiltir\nCevap: 4\n\nÖrnek 4:\nKök: dola\nEkler: abil,n,iyor,um\nSeçenekler:\n1. dolaiyornabilum\n2. dolaiyornumabil\n3. dolanabiliyorum\n4. dolaabilnumiyor\n5. dolaumabilniyor\n6. dolaiyorumabiln\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 368,
+                "total_tokens": 369
+            },
+            "correct": true
+        },
+        {
+            "root": "daya",
+            "suffixes": [
+                "t",
+                "ma",
+                "da"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldırabilmektir\n2. kaldırmektirabil\n3. kaldırmekabiltir\n4. kaldırtirmekabil\n5. kaldırabiltirmek\n6. kaldırtirabilmek\nCevap: 1\n\nÖrnek 4:\nKök: daya\nEkler: t,ma,da\nSeçenekler:\n1. dayamadat\n2. dayadatma\n3. dayatmada\n4. dayadamat\n5. dayamatda\n6. dayatdama\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 351,
+                "total_tokens": 352
+            },
+            "correct": true
+        },
+        {
+            "root": "yelten",
+            "suffixes": [
+                "miş",
+                "ler",
+                "dir"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nSeçenekler:\n1. kaldırmektirabil\n2. kaldırabiltirmek\n3. kaldırtirabilmek\n4. kaldırtirmekabil\n5. kaldırmekabiltir\n6. kaldırabilmektir\nCevap: 6\n\nÖrnek 4:\nKök: yelten\nEkler: ler,miş,dir\nSeçenekler:\n1. yeltenmişlerdir\n2. yeltendirmişler\n3. yeltenlermişdir\n4. yeltendirlermiş\n5. yeltenlerdirmiş\n6. yeltenmişdirler\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 372,
+                "total_tokens": 373
+            },
+            "correct": true
+        },
+        {
+            "root": "dinle",
+            "suffixes": [
+                "diğ",
+                "im",
+                "in"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldırabilmektir\n2. kaldırmektirabil\n3. kaldırtirmekabil\n4. kaldırtirabilmek\n5. kaldırabiltirmek\n6. kaldırmekabiltir\nCevap: 1\n\nÖrnek 4:\nKök: dinle\nEkler: in,im,diğ\nSeçenekler:\n1. dinleimindiğ\n2. dinlediğimin\n3. dinleindiğim\n4. dinleimdiğin\n5. dinleinimdiğ\n6. dinlediğinim\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 363,
+                "total_tokens": 364
+            },
+            "correct": false
+        },
+        {
+            "root": "do",
+            "suffixes": [
+                "lan",
+                "dı",
+                "m"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nSeçenekler:\n1. kaldırtirabilmek\n2. kaldırabilmektir\n3. kaldırmekabiltir\n4. kaldırabiltirmek\n5. kaldırmektirabil\n6. kaldırtirmekabil\nCevap: 2\n\nÖrnek 4:\nKök: do\nEkler: m,dı,lan\nSeçenekler:\n1. dodılanm\n2. domlandı\n3. domdılan\n4. dodımlan\n5. dolanmdı\n6. dolandım\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 352,
+                "total_tokens": 353
+            },
+            "correct": false
+        },
+        {
+            "root": "yar",
+            "suffixes": [
+                "ış",
+                "ıyor"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldırmekabiltir\n2. kaldırabiltirmek\n3. kaldırtirmekabil\n4. kaldırmektirabil\n5. kaldırtirabilmek\n6. kaldırabilmektir\nCevap: 6\n\nÖrnek 4:\nKök: yar\nEkler: ıyor,ış\nSeçenekler:\n1. yarışıyor\n2. yarıyorış\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 329,
+                "total_tokens": 330
+            },
+            "correct": true
+        },
+        {
+            "root": "tart",
+            "suffixes": [
+                "ış",
+                "ıl",
+                "mış"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nSeçenekler:\n1. kaldırtirmekabil\n2. kaldırtirabilmek\n3. kaldırmekabiltir\n4. kaldırabiltirmek\n5. kaldırmektirabil\n6. kaldırabilmektir\nCevap: 6\n\nÖrnek 4:\nKök: tart\nEkler: mış,ış,ıl\nSeçenekler:\n1. tartmışılış\n2. tartılışmış\n3. tartılmışış\n4. tartışılmış\n5. tartışmışıl\n6. tartmışışıl\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 360,
+                "total_tokens": 361
+            },
+            "correct": true
+        },
+        {
+            "root": "an",
+            "suffixes": [
+                "la",
+                "m",
+                "ıyor",
+                "lar",
+                "dır"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nSeçenekler:\n1. kaldırmekabiltir\n2. kaldırabilmektir\n3. kaldırmektirabil\n4. kaldırtirmekabil\n5. kaldırtirabilmek\n6. kaldırabiltirmek\nCevap: 2\n\nÖrnek 4:\nKök: an\nEkler: dır,la,lar,m,ıyor\nSeçenekler:\n1. anmıyorlalardır\n2. anlamıyorlardır\n3. anmıyorlarladır\n4. andırmlalarıyor\n5. anladırmlarıyor\n6. andırlarıyorlam\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 374,
+                "total_tokens": 375
+            },
+            "correct": true
+        },
+        {
+            "root": "yaklaş",
+            "suffixes": [
+                "tır",
+                "ma",
+                "dığ",
+                "ım"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nSeçenekler:\n1. kaldırtirmekabil\n2. kaldırmekabiltir\n3. kaldırabiltirmek\n4. kaldırtirabilmek\n5. kaldırabilmektir\n6. kaldırmektirabil\nCevap: 5\n\nÖrnek 4:\nKök: yaklaş\nEkler: ma,tır,ım,dığ\nSeçenekler:\n1. yaklaştırmadığım\n2. yaklaşımtırdığma\n3. yaklaşmatırımdığ\n4. yaklaşdığmatırım\n5. yaklaşmadığımtır\n6. yaklaşmaımdığtır\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 383,
+                "total_tokens": 384
+            },
+            "correct": false
+        },
+        {
+            "root": "alın",
+            "suffixes": [
+                "a",
+                "ma",
+                "yan"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nSeçenekler:\n1. kaldırmekabiltir\n2. kaldırmektirabil\n3. kaldırtirmekabil\n4. kaldırabiltirmek\n5. kaldırtirabilmek\n6. kaldırabilmektir\nCevap: 6\n\nÖrnek 4:\nKök: alın\nEkler: yan,a,ma\nSeçenekler:\n1. alınmayana\n2. alınmaayan\n3. alınayanma\n4. alınamayan\n5. alınyanmaa\n6. alınyanama\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 357,
+                "total_tokens": 358
+            },
+            "correct": true
+        },
+        {
+            "root": "din",
+            "suffixes": [
+                "le",
+                "ye",
+                "me",
+                "me",
+                "ye"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldırtirmekabil\n2. kaldırmektirabil\n3. kaldırtirabilmek\n4. kaldırmekabiltir\n5. kaldırabiltirmek\n6. kaldırabilmektir\nCevap: 6\n\nÖrnek 4:\nKök: din\nEkler: ye,me,ye,le,me\nSeçenekler:\n1. dinmeleyeyeme\n2. dinyemelemeye\n3. dinyememeleye\n4. dinyemeleyeme\n5. dinmeleyemeye\n6. dinleyememeye\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 365,
+                "total_tokens": 366
+            },
+            "correct": false
+        },
+        {
+            "root": "hapsol",
+            "suffixes": [
+                "muş",
+                "lar",
+                "dı"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldırtirmekabil\n2. kaldırmektirabil\n3. kaldırmekabiltir\n4. kaldırtirabilmek\n5. kaldırabilmektir\n6. kaldırabiltirmek\nCevap: 5\n\nÖrnek 4:\nKök: hapsol\nEkler: lar,muş,dı\nSeçenekler:\n1. hapsolmuşlardı\n2. hapsoldımuşlar\n3. hapsolmuşdılar\n4. hapsollardımuş\n5. hapsoldılarmuş\n6. hapsollarmuşdı\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 375,
+                "total_tokens": 376
+            },
+            "correct": false
+        },
+        {
+            "root": "kamp",
+            "suffixes": [
+                "ım",
+                "dan"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldırabilmektir\n2. kaldırtirmekabil\n3. kaldırtirabilmek\n4. kaldırabiltirmek\n5. kaldırmekabiltir\n6. kaldırmektirabil\nCevap: 1\n\nÖrnek 4:\nKök: kamp\nEkler: ım,dan\nSeçenekler:\n1. kampdanım\n2. kampımdan\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 327,
+                "total_tokens": 328
+            },
+            "correct": true
+        },
+        {
+            "root": "gez",
+            "suffixes": [
+                "im",
+                "de",
+                "ki"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nSeçenekler:\n1. kaldırtirabilmek\n2. kaldırabiltirmek\n3. kaldırtirmekabil\n4. kaldırmektirabil\n5. kaldırabilmektir\n6. kaldırmekabiltir\nCevap: 5\n\nÖrnek 4:\nKök: gez\nEkler: ki,de,im\nSeçenekler:\n1. gezdeimki\n2. gezkideim\n3. gezimdeki\n4. gezkiimde\n5. gezimkide\n6. gezdekiim\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 352,
+                "total_tokens": 353
+            },
+            "correct": true
+        },
+        {
+            "root": "erte",
+            "suffixes": [
+                "le",
+                "me",
+                "miş"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzları\n2. omuzılar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldırmekabiltir\n2. kaldırabiltirmek\n3. kaldırtirabilmek\n4. kaldırtirmekabil\n5. kaldırabilmektir\n6. kaldırmektirabil\nCevap: 5\n\nÖrnek 4:\nKök: erte\nEkler: miş,me,le\nSeçenekler:\n1. ertelememiş\n2. ertemişleme\n3. ertelemişme\n4. ertemelemiş\n5. ertemişmele\n6. ertememişle\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 366,
+                "total_tokens": 367
+            },
+            "correct": false
+        },
+        {
+            "root": "sağ",
+            "suffixes": [
+                "la",
+                "ya",
+                "m",
+                "ıyor",
+                "sa"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nSeçenekler:\n1. kaldırmekabiltir\n2. kaldırtirmekabil\n3. kaldırabiltirmek\n4. kaldırmektirabil\n5. kaldırtirabilmek\n6. kaldırabilmektir\nCevap: 6\n\nÖrnek 4:\nKök: sağ\nEkler: ıyor,ya,sa,m,la\nSeçenekler:\n1. sağsaıyoryalam\n2. sağyaıyormsala\n3. sağıyorsamyala\n4. sağıyorsalamya\n5. sağmlaıyorsaya\n6. sağlayamıyorsa\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 375,
+                "total_tokens": 376
+            },
+            "correct": false
+        },
+        {
+            "root": "işle",
+            "suffixes": [
+                "yen",
+                "ler",
+                "e"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nSeçenekler:\n1. kaldırtirmekabil\n2. kaldırmekabiltir\n3. kaldırtirabilmek\n4. kaldırabilmektir\n5. kaldırabiltirmek\n6. kaldırmektirabil\nCevap: 4\n\nÖrnek 4:\nKök: işle\nEkler: ler,yen,e\nSeçenekler:\n1. işleeyenler\n2. işleyenlere\n3. işleeleryen\n4. işleyeneler\n5. işlelereyen\n6. işleleryene\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 359,
+                "total_tokens": 360
+            },
+            "correct": true
+        },
+        {
+            "root": "yüksel",
+            "suffixes": [
+                "me",
+                "n",
+                "in"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldırtirabilmek\n2. kaldırabilmektir\n3. kaldırabiltirmek\n4. kaldırmektirabil\n5. kaldırtirmekabil\n6. kaldırmekabiltir\nCevap: 2\n\nÖrnek 4:\nKök: yüksel\nEkler: n,me,in\nSeçenekler:\n1. yükselninme\n2. yükselinmen\n3. yükselnmein\n4. yükselinnme\n5. yükselmenin\n6. yükselmeinn\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 365,
+                "total_tokens": 366
+            },
+            "correct": true
+        },
+        {
+            "root": "kon",
+            "suffixes": [
+                "uş",
+                "ma",
+                "yıp"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolanmış\n2. dolmışan\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nSeçenekler:\n1. kaldırabiltirmek\n2. kaldırtirmekabil\n3. kaldırabilmektir\n4. kaldırmekabiltir\n5. kaldırtirabilmek\n6. kaldırmektirabil\nCevap: 3\n\nÖrnek 4:\nKök: kon\nEkler: ma,uş,yıp\nSeçenekler:\n1. konuşmayıp\n2. konyıpmauş\n3. konmauşyıp\n4. konuşyıpma\n5. konyıpuşma\n6. konmayıpuş\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 364,
+                "total_tokens": 365
+            },
+            "correct": true
+        },
+        {
+            "root": "ol",
+            "suffixes": [
+                "duk",
+                "la"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldırabiltirmek\n2. kaldırtirabilmek\n3. kaldırmekabiltir\n4. kaldırmektirabil\n5. kaldırtirmekabil\n6. kaldırabilmektir\nCevap: 6\n\nÖrnek 4:\nKök: ol\nEkler: duk,la\nSeçenekler:\n1. olladuk\n2. oldukla\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 323,
+                "total_tokens": 324
+            },
+            "correct": false
+        },
+        {
+            "root": "anlam",
+            "suffixes": [
+                "lan",
+                "dır",
+                "ma",
+                "mız",
+                "ı"
+            ],
+            "prompt": "Size bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dolmışan\n2. dolanmış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuzılar\n2. omuzları\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldırabiltirmek\n2. kaldırtirabilmek\n3. kaldırmekabiltir\n4. kaldırtirmekabil\n5. kaldırmektirabil\n6. kaldırabilmektir\nCevap: 6\n\nÖrnek 4:\nKök: anlam\nEkler: mız,dır,ı,lan,ma\nSeçenekler:\n1. anlamlanmızmadırı\n2. anlamlanmadırımız\n3. anlamlandırmamızı\n4. anlamdırmızlanmaı\n5. anlamılandırmamız\n6. anlammızlanımadır\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 385,
+                "total_tokens": 386
+            },
+            "correct": false
+        }
+    ]
+}
