@@ -62,17 +62,17 @@ def text_completion(client, prompt, model="text-davinci-003", return_text=True, 
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--datapath", type=str, help="Path to evaluation data in json", required=True)
-    parser.add_argument("--openai-key", type=str, help="OpenAI API Key")
-    parser.add_argument("--model", type=str, help="Model to use for evaluation", default="gpt-3.5-turbo")
-    parser.add_argument("--temperature", type=float, help="Temperature for generation", default=0.3)
-    parser.add_argument("--max-tokens", type=int, help="Max tokens for generation", default=40)
-    parser.add_argument("--top-p", type=float, help="Top p for generation", default=1)
-    parser.add_argument("--frequency-penalty", type=float, help="Frequency penalty for generation", default=0)
-    parser.add_argument("--presence-penalty", type=float, help="Presence penalty for generation", default=0)
-    parser.add_argument("--output-dir", type=str, help="Output directory for evaluation results", default="outputs")
-    parser.add_argument("--num-samples", type=int, help="Number of samples to evaluate", default=0)
-    parser.add_argument("--ignore-path", type=str, help="Path to already evaluated data", default=None)
+    parser.add_argument("-d", "--datapath", type=str, help="Path to evaluation data in json", required=True)
+    parser.add_argument("-k", "--openai-key", type=str, help="OpenAI API Key")
+    parser.add_argument("-m", "--model", type=str, help="Model to use for evaluation", default="gpt-3.5-turbo")
+    parser.add_argument("-t", "--temperature", type=float, help="Temperature for generation", default=0.3)
+    parser.add_argument("-g", "--max-tokens", type=int, help="Max tokens for generation", default=40)
+    parser.add_argument("-p", "--top-p", type=float, help="Top p for generation", default=1)
+    parser.add_argument("-fp", "--frequency-penalty", type=float, help="Frequency penalty for generation", default=0)
+    parser.add_argument("-pp", "--presence-penalty", type=float, help="Presence penalty for generation", default=0)
+    parser.add_argument("-o", "--output-dir", type=str, help="Output directory for evaluation results", default="outputs")
+    parser.add_argument("-n", "--num-samples", type=int, help="Number of samples to evaluate", default=0)
+    parser.add_argument("-i", "--ignore-path", type=str, help="Path to already evaluated data", default=None)
     
     args = parser.parse_args()
     

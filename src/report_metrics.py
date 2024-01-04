@@ -9,7 +9,7 @@ def get_prediction(ref_response, model_response, template):
     if template in ["bfill"]:
         model_response = [word.strip().strip("'").strip('"').strip() for word in model_response.strip("[]").split(",")]
         pred = 1 if str(ref_response) == str(model_response) else 0
-    elif template in ["morph_gen_en", "morph_disc_en"]:
+    elif template.startswith("morph_gen") or template.startswith("morph_disc"):
         pred = 1 if str(ref_response) == str(model_response).strip() else 0
     else:
         raise ValueError(f"Template {template} not supported for evaluation.")
@@ -113,8 +113,8 @@ def report_metrics(results_files, compute_usage=False):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--results-path", type=str, help="Path to evaluation results file in json or directory", required=True)
-    parser.add_argument("--compute-usage", action="store_true", help="Compute usage metrics", default=False)
+    parser.add_argument("-r", "--results-path", type=str, help="Path to evaluation results file in json or directory", required=True)
+    parser.add_argument("-u", "--compute-usage", action="store_true", help="Compute usage metrics", default=False)
 
     args = parser.parse_args()
 

@@ -1,0 +1,1937 @@
+{
+    "metadata": {
+        "datapath": "../data/tr/btwd/temp_tr/btwd_prep_post_sample_morph_eval_morph_gen_tr_s3.json",
+        "model": "gpt-3.5-turbo",
+        "temperature": 0.3,
+        "max_tokens": 40,
+        "top_p": 1,
+        "frequency_penalty": 0,
+        "presence_penalty": 0
+    },
+    "metrics": {
+        "usage": {
+            "prompt_tokens": 20779,
+            "completion_tokens": 463,
+            "total_tokens": 21242
+        },
+        "cost": {
+            "input": 0.031168500000000002,
+            "output": 0.000926,
+            "total": 0.032094500000000005
+        },
+        "macro_f1": 0.24242424242424243,
+        "accuracy": 0.32,
+        "precision": 0.5,
+        "recall": 0.16
+    },
+    "data": [
+        {
+            "root": "dol",
+            "suffixes": [
+                "an",
+                "mış"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: dol\nEkler: mış,an\nCevap: ",
+            "reference": "dolanmış",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "dolanmışan",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 205,
+                "total_tokens": 210
+            },
+            "correct": false
+        },
+        {
+            "root": "omuz",
+            "suffixes": [
+                "lar",
+                "ı"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: omuz\nEkler: ı,lar\nCevap: ",
+            "reference": "omuzları",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "omuzlar",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 206,
+                "total_tokens": 209
+            },
+            "correct": false
+        },
+        {
+            "root": "kaldır",
+            "suffixes": [
+                "abil",
+                "mek",
+                "tir"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: kaldır\nEkler: tir,abil,mek\nCevap: ",
+            "reference": "kaldırabilmektir",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "kaldırabilmektir",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 208,
+                "total_tokens": 215
+            },
+            "correct": true
+        },
+        {
+            "root": "enerji",
+            "suffixes": [
+                "m",
+                "e"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nCevap: ",
+            "reference": "enerjime",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "enerjime",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 204,
+                "total_tokens": 207
+            },
+            "correct": true
+        },
+        {
+            "root": "iş",
+            "suffixes": [
+                "le",
+                "me",
+                "ci",
+                "liğ",
+                "i"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: iş\nEkler: i,liğ,me,ci,le\nCevap: ",
+            "reference": "işlemeciliği",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "işçile",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 211,
+                "total_tokens": 214
+            },
+            "correct": false
+        },
+        {
+            "root": "il",
+            "suffixes": [
+                "ki",
+                "ne"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: il\nEkler: ne,ki\nCevap: ",
+            "reference": "ilkine",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "ilneki",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 205,
+                "total_tokens": 208
+            },
+            "correct": false
+        },
+        {
+            "root": "tut",
+            "suffixes": [
+                "umuz",
+                "u"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: tut\nEkler: umuz,u\nCevap: ",
+            "reference": "tutumuzu",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "tutumuzu",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 204,
+                "total_tokens": 208
+            },
+            "correct": true
+        },
+        {
+            "root": "ver",
+            "suffixes": [
+                "me",
+                "miş"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: ver\nEkler: me,miş\nCevap: ",
+            "reference": "vermemiş",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "vermemiş",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 205,
+                "total_tokens": 208
+            },
+            "correct": true
+        },
+        {
+            "root": "koş",
+            "suffixes": [
+                "tur",
+                "ur",
+                "um"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: koş\nEkler: tur,um,ur\nCevap: ",
+            "reference": "koştururum",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "koşumur",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 208,
+                "total_tokens": 212
+            },
+            "correct": false
+        },
+        {
+            "root": "at",
+            "suffixes": [
+                "ıl",
+                "ma",
+                "yacağ",
+                "ı",
+                "nı"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: at\nEkler: ıl,yacağ,ma,nı,ı\nCevap: ",
+            "reference": "atılmayacağını",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "atılacakmamış",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 213,
+                "total_tokens": 219
+            },
+            "correct": false
+        },
+        {
+            "root": "ağabey",
+            "suffixes": [
+                "ler",
+                "imiz",
+                "i"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: ağabey\nEkler: imiz,ler,i\nCevap: ",
+            "reference": "ağabeylerimizi",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "ağabeyimiz",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 211,
+                "total_tokens": 217
+            },
+            "correct": false
+        },
+        {
+            "root": "karşı",
+            "suffixes": [
+                "ya",
+                "dır"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: karşı\nEkler: dır,ya\nCevap: ",
+            "reference": "karşıyadır",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "karşıdır",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 207,
+                "total_tokens": 211
+            },
+            "correct": false
+        },
+        {
+            "root": "gel",
+            "suffixes": [
+                "iş",
+                "tir",
+                "diğ",
+                "im",
+                "i"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: gel\nEkler: iş,im,i,diğ,tir\nCevap: ",
+            "reference": "geliştirdiğimi",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "gelmiştim",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 211,
+                "total_tokens": 215
+            },
+            "correct": false
+        },
+        {
+            "root": "sahil",
+            "suffixes": [
+                "ler",
+                "i",
+                "ni"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: sahil\nEkler: ni,i,ler\nCevap: ",
+            "reference": "sahillerini",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "sahillerini",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 207,
+                "total_tokens": 211
+            },
+            "correct": true
+        },
+        {
+            "root": "soru",
+            "suffixes": [
+                "m",
+                "suz",
+                "luk",
+                "lar",
+                "ı"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: soru\nEkler: m,suz,luk,ı,lar\nCevap: ",
+            "reference": "sorumsuzlukları",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "sorularımızsızlık",
+            "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 213,
+                "total_tokens": 221
+            },
+            "correct": false
+        },
+        {
+            "root": "gurur",
+            "suffixes": [
+                "un",
+                "un"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: gurur\nEkler: un,un\nCevap: ",
+            "reference": "gururunun",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "gururunun",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 207,
+                "total_tokens": 212
+            },
+            "correct": true
+        },
+        {
+            "root": "iste",
+            "suffixes": [
+                "me",
+                "dik",
+                "ler",
+                "i",
+                "ni"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: iste\nEkler: ler,dik,ni,i,me\nCevap: ",
+            "reference": "istemediklerini",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "isteme",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 211,
+                "total_tokens": 213
+            },
+            "correct": false
+        },
+        {
+            "root": "yarım",
+            "suffixes": [
+                "lar",
+                "ımız"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: yarım\nEkler: lar,ımız\nCevap: ",
+            "reference": "yarımlarımız",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "yarımlarımız",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 207,
+                "total_tokens": 213
+            },
+            "correct": true
+        },
+        {
+            "root": "kukla",
+            "suffixes": [
+                "lar",
+                "ı",
+                "ydı"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: kukla\nEkler: ı,ydı,lar\nCevap: ",
+            "reference": "kuklalarıydı",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "kuklaydılar",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 210,
+                "total_tokens": 216
+            },
+            "correct": false
+        },
+        {
+            "root": "kendi",
+            "suffixes": [
+                "ler",
+                "i",
+                "dir"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: kendi\nEkler: ler,dir,i\nCevap: ",
+            "reference": "kendileridir",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "kendileridir",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 206,
+                "total_tokens": 211
+            },
+            "correct": true
+        },
+        {
+            "root": "eş",
+            "suffixes": [
+                "in",
+                "in"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: eş\nEkler: in,in\nCevap: ",
+            "reference": "eşinin",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "eşinin",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 204,
+                "total_tokens": 207
+            },
+            "correct": true
+        },
+        {
+            "root": "yaz",
+            "suffixes": [
+                "mış",
+                "tı",
+                "m"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: yaz\nEkler: m,tı,mış\nCevap: ",
+            "reference": "yazmıştım",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "yazmış",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 206,
+                "total_tokens": 210
+            },
+            "correct": false
+        },
+        {
+            "root": "hücre",
+            "suffixes": [
+                "miz",
+                "de"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: hücre\nEkler: miz,de\nCevap: ",
+            "reference": "hücremizde",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "hücremizde",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 208,
+                "total_tokens": 214
+            },
+            "correct": true
+        },
+        {
+            "root": "düzel",
+            "suffixes": [
+                "t",
+                "mek",
+                "te"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: düzel\nEkler: t,te,mek\nCevap: ",
+            "reference": "düzeltmekte",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "düzeltmek",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 207,
+                "total_tokens": 211
+            },
+            "correct": false
+        },
+        {
+            "root": "tuğla",
+            "suffixes": [
+                "lar",
+                "ın",
+                "ı"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: tuğla\nEkler: ı,lar,ın\nCevap: ",
+            "reference": "tuğlalarını",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "tuğlaların",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 210,
+                "total_tokens": 215
+            },
+            "correct": false
+        },
+        {
+            "root": "bas",
+            "suffixes": [
+                "tır",
+                "dığ",
+                "ı",
+                "nda"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: bas\nEkler: nda,ı,tır,dığ\nCevap: ",
+            "reference": "bastırdığında",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "basındığı",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 210,
+                "total_tokens": 213
+            },
+            "correct": false
+        },
+        {
+            "root": "ferah",
+            "suffixes": [
+                "la",
+                "t",
+                "abil",
+                "eceğ",
+                "im",
+                "i"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: ferah\nEkler: i,abil,im,la,t,eceğ\nCevap: ",
+            "reference": "ferahlatabileceğimi",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "ferahlaşabileceğim",
+            "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 214,
+                "total_tokens": 222
+            },
+            "correct": false
+        },
+        {
+            "root": "unut",
+            "suffixes": [
+                "ma",
+                "sınlar"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: unut\nEkler: ma,sınlar\nCevap: ",
+            "reference": "unutmasınlar",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "unutmasınlar",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 207,
+                "total_tokens": 212
+            },
+            "correct": true
+        },
+        {
+            "root": "bark",
+            "suffixes": [
+                "ın",
+                "dan"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: bark\nEkler: ın,dan\nCevap: ",
+            "reference": "barkından",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "barkından",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 206,
+                "total_tokens": 209
+            },
+            "correct": true
+        },
+        {
+            "root": "yaz",
+            "suffixes": [
+                "ma",
+                "l",
+                "ım"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: yaz\nEkler: l,ma,ım\nCevap: ",
+            "reference": "yazmalım",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "yazılmaım",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 207,
+                "total_tokens": 212
+            },
+            "correct": false
+        },
+        {
+            "root": "kazan",
+            "suffixes": [
+                "dır",
+                "m",
+                "ıyor",
+                "du"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: kazan\nEkler: ıyor,du,dır,m\nCevap: ",
+            "reference": "kazandırmıyordu",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "kazanıyordum",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 210,
+                "total_tokens": 217
+            },
+            "correct": false
+        },
+        {
+            "root": "büyü",
+            "suffixes": [
+                "ye",
+                "me",
+                "dik"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: büyü\nEkler: ye,dik,me\nCevap: ",
+            "reference": "büyüyemedik",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "büyüdik",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 210,
+                "total_tokens": 216
+            },
+            "correct": false
+        },
+        {
+            "root": "yaka",
+            "suffixes": [
+                "lar",
+                "ken"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: yaka\nEkler: ken,lar\nCevap: ",
+            "reference": "yakalarken",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "yakalar",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 205,
+                "total_tokens": 208
+            },
+            "correct": false
+        },
+        {
+            "root": "duvar",
+            "suffixes": [
+                "ın",
+                "da",
+                "ki"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: duvar\nEkler: ki,da,ın\nCevap: ",
+            "reference": "duvarındaki",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "duvarındaki",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 206,
+                "total_tokens": 210
+            },
+            "correct": true
+        },
+        {
+            "root": "kavra",
+            "suffixes": [
+                "ya",
+                "ma",
+                "z",
+                "dı",
+                "m"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: kavra\nEkler: ya,z,ma,dı,m\nCevap: ",
+            "reference": "kavrayamazdım",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "kavramadım",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 211,
+                "total_tokens": 216
+            },
+            "correct": false
+        },
+        {
+            "root": "etki",
+            "suffixes": [
+                "le",
+                "yeceğ",
+                "i",
+                "ydi"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: etki\nEkler: i,le,ydi,yeceğ\nCevap: ",
+            "reference": "etkileyeceğiydi",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "etkileyebileceğiydi",
+            "usage": {
+                "completion_tokens": 9,
+                "prompt_tokens": 210,
+                "total_tokens": 219
+            },
+            "correct": false
+        },
+        {
+            "root": "somya",
+            "suffixes": [
+                "n",
+                "ın"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: somya\nEkler: n,ın\nCevap: ",
+            "reference": "somyanın",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "somyanın",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 207,
+                "total_tokens": 211
+            },
+            "correct": true
+        },
+        {
+            "root": "kur",
+            "suffixes": [
+                "a",
+                "ma",
+                "z",
+                "dı"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: kur\nEkler: ma,dı,a,z\nCevap: ",
+            "reference": "kuramazdı",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "kuramadıza",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 207,
+                "total_tokens": 212
+            },
+            "correct": false
+        },
+        {
+            "root": "yer",
+            "suffixes": [
+                "leş",
+                "in"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: yer\nEkler: leş,in\nCevap: ",
+            "reference": "yerleşin",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "yerleşin",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 204,
+                "total_tokens": 208
+            },
+            "correct": true
+        },
+        {
+            "root": "oku",
+            "suffixes": [
+                "r",
+                "un",
+                "a"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: oku\nEkler: un,r,a\nCevap: ",
+            "reference": "okuruna",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "okurun",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 207,
+                "total_tokens": 210
+            },
+            "correct": false
+        },
+        {
+            "root": "birey",
+            "suffixes": [
+                "sel",
+                "ci",
+                "liğ",
+                "i"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: birey\nEkler: i,ci,liğ,sel\nCevap: ",
+            "reference": "bireyselciliği",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "bireycilikselliği",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 211,
+                "total_tokens": 218
+            },
+            "correct": false
+        },
+        {
+            "root": "fincan",
+            "suffixes": [
+                "ın",
+                "da"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: fincan\nEkler: da,ın\nCevap: ",
+            "reference": "fincanında",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "fincanda",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 205,
+                "total_tokens": 208
+            },
+            "correct": false
+        },
+        {
+            "root": "ağla",
+            "suffixes": [
+                "r",
+                "ı"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: ağla\nEkler: ı,r\nCevap: ",
+            "reference": "ağları",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "ağlar",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 207,
+                "total_tokens": 210
+            },
+            "correct": false
+        },
+        {
+            "root": "san",
+            "suffixes": [
+                "ıl",
+                "sa"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: san\nEkler: ıl,sa\nCevap: ",
+            "reference": "sanılsa",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "sanılsa",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 207,
+                "total_tokens": 210
+            },
+            "correct": true
+        },
+        {
+            "root": "oluş",
+            "suffixes": [
+                "tur",
+                "abil",
+                "ir",
+                "im"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: oluş\nEkler: im,abil,ir,tur\nCevap: ",
+            "reference": "oluşturabilirim",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "oluşabilirtur",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 210,
+                "total_tokens": 215
+            },
+            "correct": false
+        },
+        {
+            "root": "bulun",
+            "suffixes": [
+                "muş",
+                "tur"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: bulun\nEkler: tur,muş\nCevap: ",
+            "reference": "bulunmuştur",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "bulunmuştur",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 206,
+                "total_tokens": 211
+            },
+            "correct": true
+        },
+        {
+            "root": "kıl",
+            "suffixes": [
+                "mak",
+                "tı"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: kıl\nEkler: mak,tı\nCevap: ",
+            "reference": "kılmaktı",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "kılmaktı",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 206,
+                "total_tokens": 211
+            },
+            "correct": true
+        },
+        {
+            "root": "a",
+            "suffixes": [
+                "n",
+                "laş",
+                "ıl",
+                "dı",
+                "m"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: a\nEkler: dı,laş,ıl,n,m\nCevap: ",
+            "reference": "anlaşıldım",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "adıllaşmamış",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 210,
+                "total_tokens": 217
+            },
+            "correct": false
+        },
+        {
+            "root": "kır",
+            "suffixes": [
+                "ma",
+                "yın"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: kır\nEkler: yın,ma\nCevap: ",
+            "reference": "kırmayın",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "kırmayınma",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 205,
+                "total_tokens": 211
+            },
+            "correct": false
+        },
+        {
+            "root": "duy",
+            "suffixes": [
+                "ma",
+                "m",
+                "ı"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: duy\nEkler: ı,m,ma\nCevap: ",
+            "reference": "duymamı",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "duyma",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 208,
+                "total_tokens": 211
+            },
+            "correct": false
+        },
+        {
+            "root": "iş",
+            "suffixes": [
+                "i",
+                "ni"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: iş\nEkler: ni,i\nCevap: ",
+            "reference": "işini",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "işini",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 204,
+                "total_tokens": 206
+            },
+            "correct": true
+        },
+        {
+            "root": "in",
+            "suffixes": [
+                "er",
+                "iz"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: in\nEkler: iz,er\nCevap: ",
+            "reference": "ineriz",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "inizer",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 204,
+                "total_tokens": 206
+            },
+            "correct": false
+        },
+        {
+            "root": "güven",
+            "suffixes": [
+                "siz",
+                "liğ",
+                "in",
+                "den"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: güven\nEkler: siz,den,in,liğ\nCevap: ",
+            "reference": "güvensizliğinden",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "güvensizliğinden",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 209,
+                "total_tokens": 216
+            },
+            "correct": true
+        },
+        {
+            "root": "sek",
+            "suffixes": [
+                "iz",
+                "e"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: sek\nEkler: e,iz\nCevap: ",
+            "reference": "sekize",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "sekeiz",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 204,
+                "total_tokens": 207
+            },
+            "correct": false
+        },
+        {
+            "root": "gökdelen",
+            "suffixes": [
+                "ler",
+                "imiz",
+                "e"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: gökdelen\nEkler: imiz,ler,e\nCevap: ",
+            "reference": "gökdelenlerimize",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "gökdelenlerimize",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 207,
+                "total_tokens": 213
+            },
+            "correct": true
+        },
+        {
+            "root": "gün",
+            "suffixes": [
+                "lük",
+                "ten"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: gün\nEkler: lük,ten\nCevap: ",
+            "reference": "günlükten",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "günlükten",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 207,
+                "total_tokens": 212
+            },
+            "correct": true
+        },
+        {
+            "root": "okul",
+            "suffixes": [
+                "umuz",
+                "a"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: okul\nEkler: umuz,a\nCevap: ",
+            "reference": "okulumuza",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "okulumuza",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 206,
+                "total_tokens": 210
+            },
+            "correct": true
+        },
+        {
+            "root": "burk",
+            "suffixes": [
+                "ul",
+                "ma",
+                "dan"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: burk\nEkler: ul,dan,ma\nCevap: ",
+            "reference": "burkulmadan",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "burkuldama",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 208,
+                "total_tokens": 212
+            },
+            "correct": false
+        },
+        {
+            "root": "çuvalla",
+            "suffixes": [
+                "ma",
+                "mız",
+                "a"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: çuvalla\nEkler: ma,a,mız\nCevap: ",
+            "reference": "çuvallamamıza",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "çuvallamamız",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 207,
+                "total_tokens": 213
+            },
+            "correct": false
+        },
+        {
+            "root": "de",
+            "suffixes": [
+                "n",
+                "e",
+                "me",
+                "me",
+                "si",
+                "nden"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: de\nEkler: me,e,me,n,nden,si\nCevap: ",
+            "reference": "denememesinden",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "demesinden",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 212,
+                "total_tokens": 215
+            },
+            "correct": false
+        },
+        {
+            "root": "galaksi",
+            "suffixes": [
+                "n",
+                "in"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: galaksi\nEkler: in,n\nCevap: ",
+            "reference": "galaksinin",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "galaksinin",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 204,
+                "total_tokens": 207
+            },
+            "correct": true
+        },
+        {
+            "root": "inan",
+            "suffixes": [
+                "ma",
+                "sa",
+                "n"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: inan\nEkler: sa,ma,n\nCevap: ",
+            "reference": "inanmasan",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "inansa",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 208,
+                "total_tokens": 210
+            },
+            "correct": false
+        },
+        {
+            "root": "tanı",
+            "suffixes": [
+                "n",
+                "ma",
+                "dığ",
+                "ı"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: tanı\nEkler: ma,n,dığ,ı\nCevap: ",
+            "reference": "tanınmadığı",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "tanımadığı",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 209,
+                "total_tokens": 213
+            },
+            "correct": false
+        },
+        {
+            "root": "çık",
+            "suffixes": [
+                "ma",
+                "yış",
+                "ı"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: çık\nEkler: ma,ı,yış\nCevap: ",
+            "reference": "çıkmayışı",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "çıkamayış",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 208,
+                "total_tokens": 213
+            },
+            "correct": false
+        },
+        {
+            "root": "pay",
+            "suffixes": [
+                "laş",
+                "tığ",
+                "ı",
+                "nı"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: pay\nEkler: nı,laş,ı,tığ\nCevap: ",
+            "reference": "paylaştığını",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "paylaşıktığ",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 211,
+                "total_tokens": 216
+            },
+            "correct": false
+        },
+        {
+            "root": "figüran",
+            "suffixes": [
+                "lar",
+                "ın",
+                "dan"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: figüran\nEkler: lar,dan,ın\nCevap: ",
+            "reference": "figüranlarından",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "figüranlardanın",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 207,
+                "total_tokens": 214
+            },
+            "correct": false
+        },
+        {
+            "root": "do",
+            "suffixes": [
+                "st",
+                "lar",
+                "ınız"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: do\nEkler: lar,ınız,st\nCevap: ",
+            "reference": "dostlarınız",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "dostlarınızst",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 207,
+                "total_tokens": 213
+            },
+            "correct": false
+        },
+        {
+            "root": "ye",
+            "suffixes": [
+                "r",
+                "i",
+                "nde"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: ye\nEkler: nde,i,r\nCevap: ",
+            "reference": "yerinde",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "yendeir",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 205,
+                "total_tokens": 208
+            },
+            "correct": false
+        },
+        {
+            "root": "kusur",
+            "suffixes": [
+                "lar",
+                "ım",
+                "ı"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: kusur\nEkler: ım,lar,ı\nCevap: ",
+            "reference": "kusurlarımı",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "kusurumları",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 209,
+                "total_tokens": 213
+            },
+            "correct": false
+        },
+        {
+            "root": "getir",
+            "suffixes": [
+                "t",
+                "en"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: getir\nEkler: t,en\nCevap: ",
+            "reference": "getirten",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "getirent",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 204,
+                "total_tokens": 207
+            },
+            "correct": false
+        },
+        {
+            "root": "an",
+            "suffixes": [
+                "laş",
+                "ma",
+                "lar",
+                "a"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: an\nEkler: laş,lar,a,ma\nCevap: ",
+            "reference": "anlaşmalara",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "anlaşmalara",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 209,
+                "total_tokens": 214
+            },
+            "correct": true
+        },
+        {
+            "root": "ek",
+            "suffixes": [
+                "le",
+                "yeceğ",
+                "iz"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: ek\nEkler: iz,yeceğ,le\nCevap: ",
+            "reference": "ekleyeceğiz",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "ekleyeceğiz",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 207,
+                "total_tokens": 212
+            },
+            "correct": true
+        },
+        {
+            "root": "bisiklet",
+            "suffixes": [
+                "im",
+                "le"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: bisiklet\nEkler: im,le\nCevap: ",
+            "reference": "bisikletimle",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "bisikletimle",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 206,
+                "total_tokens": 211
+            },
+            "correct": true
+        },
+        {
+            "root": "kok",
+            "suffixes": [
+                "la",
+                "yabil",
+                "iyor",
+                "du",
+                "m"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: kok\nEkler: iyor,la,m,du,yabil\nCevap: ",
+            "reference": "koklayabiliyordum",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "koklayabilirdim",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 211,
+                "total_tokens": 216
+            },
+            "correct": false
+        },
+        {
+            "root": "yeni",
+            "suffixes": [
+                "len",
+                "me",
+                "ler",
+                "i"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: yeni\nEkler: len,i,me,ler\nCevap: ",
+            "reference": "yenilenmeleri",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "yeniye",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 208,
+                "total_tokens": 211
+            },
+            "correct": false
+        },
+        {
+            "root": "süpür",
+            "suffixes": [
+                "müş",
+                "tür"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: süpür\nEkler: müş,tür\nCevap: ",
+            "reference": "süpürmüştür",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "süpürmüştür",
+            "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 208,
+                "total_tokens": 216
+            },
+            "correct": true
+        },
+        {
+            "root": "şefi",
+            "suffixes": [
+                "miz",
+                "in"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: şefi\nEkler: in,miz\nCevap: ",
+            "reference": "şefimizin",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "şefiniz",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 207,
+                "total_tokens": 210
+            },
+            "correct": false
+        },
+        {
+            "root": "konuş",
+            "suffixes": [
+                "abil",
+                "di",
+                "m"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: konuş\nEkler: m,abil,di\nCevap: ",
+            "reference": "konuşabildim",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "konuşabilirdim",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 207,
+                "total_tokens": 212
+            },
+            "correct": false
+        },
+        {
+            "root": "toparla",
+            "suffixes": [
+                "ma",
+                "m",
+                "dan"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: toparla\nEkler: ma,m,dan\nCevap: ",
+            "reference": "toparlamamdan",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "toparlamadan",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 207,
+                "total_tokens": 211
+            },
+            "correct": false
+        },
+        {
+            "root": "dola",
+            "suffixes": [
+                "n",
+                "abil",
+                "iyor",
+                "um"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: dola\nEkler: abil,iyor,n,um\nCevap: ",
+            "reference": "dolanabiliyorum",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "dolaşıyorum",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 209,
+                "total_tokens": 214
+            },
+            "correct": false
+        },
+        {
+            "root": "daya",
+            "suffixes": [
+                "t",
+                "ma",
+                "da"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: daya\nEkler: t,da,ma\nCevap: ",
+            "reference": "dayatmada",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "dayatmadat",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 208,
+                "total_tokens": 212
+            },
+            "correct": false
+        },
+        {
+            "root": "yelten",
+            "suffixes": [
+                "miş",
+                "ler",
+                "dir"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: yelten\nEkler: miş,dir,ler\nCevap: ",
+            "reference": "yeltenmişlerdir",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "yeltenmişlerdir",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 209,
+                "total_tokens": 216
+            },
+            "correct": true
+        },
+        {
+            "root": "dinle",
+            "suffixes": [
+                "diğ",
+                "im",
+                "in"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: dinle\nEkler: diğ,im,in\nCevap: ",
+            "reference": "dinlediğimin",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "dinlediğim",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 207,
+                "total_tokens": 212
+            },
+            "correct": false
+        },
+        {
+            "root": "do",
+            "suffixes": [
+                "lan",
+                "dı",
+                "m"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: do\nEkler: m,lan,dı\nCevap: ",
+            "reference": "dolandım",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "dolandım",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 206,
+                "total_tokens": 209
+            },
+            "correct": true
+        },
+        {
+            "root": "yar",
+            "suffixes": [
+                "ış",
+                "ıyor"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: yar\nEkler: ıyor,ış\nCevap: ",
+            "reference": "yarışıyor",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "yarıyorış",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 207,
+                "total_tokens": 211
+            },
+            "correct": false
+        },
+        {
+            "root": "tart",
+            "suffixes": [
+                "ış",
+                "ıl",
+                "mış"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: tart\nEkler: ıl,mış,ış\nCevap: ",
+            "reference": "tartışılmış",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "tartılmış",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 208,
+                "total_tokens": 213
+            },
+            "correct": false
+        },
+        {
+            "root": "an",
+            "suffixes": [
+                "la",
+                "m",
+                "ıyor",
+                "lar",
+                "dır"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: an\nEkler: lar,dır,la,m,ıyor\nCevap: ",
+            "reference": "anlamıyorlardır",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "anlamıyorlar",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 210,
+                "total_tokens": 215
+            },
+            "correct": false
+        },
+        {
+            "root": "yaklaş",
+            "suffixes": [
+                "tır",
+                "ma",
+                "dığ",
+                "ım"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: yaklaş\nEkler: ım,ma,dığ,tır\nCevap: ",
+            "reference": "yaklaştırmadığım",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "yaklaşmadığımı",
+            "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 212,
+                "total_tokens": 220
+            },
+            "correct": false
+        },
+        {
+            "root": "alın",
+            "suffixes": [
+                "a",
+                "ma",
+                "yan"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: alın\nEkler: ma,a,yan\nCevap: ",
+            "reference": "alınamayan",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "alınmayan",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 206,
+                "total_tokens": 210
+            },
+            "correct": false
+        },
+        {
+            "root": "din",
+            "suffixes": [
+                "le",
+                "ye",
+                "me",
+                "me",
+                "ye"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: din\nEkler: me,le,me,ye,ye\nCevap: ",
+            "reference": "dinleyememeye",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "dinlememeye",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 212,
+                "total_tokens": 216
+            },
+            "correct": false
+        },
+        {
+            "root": "hapsol",
+            "suffixes": [
+                "muş",
+                "lar",
+                "dı"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: hapsol\nEkler: muş,lar,dı\nCevap: ",
+            "reference": "hapsolmuşlardı",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "hapsolmuşlardı",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 210,
+                "total_tokens": 217
+            },
+            "correct": true
+        },
+        {
+            "root": "kamp",
+            "suffixes": [
+                "ım",
+                "dan"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: kamp\nEkler: ım,dan\nCevap: ",
+            "reference": "kampımdan",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "kampımdan",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 206,
+                "total_tokens": 211
+            },
+            "correct": true
+        },
+        {
+            "root": "gez",
+            "suffixes": [
+                "im",
+                "de",
+                "ki"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: gez\nEkler: ki,im,de\nCevap: ",
+            "reference": "gezimdeki",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "gezimde",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 207,
+                "total_tokens": 211
+            },
+            "correct": false
+        },
+        {
+            "root": "erte",
+            "suffixes": [
+                "le",
+                "me",
+                "miş"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: erte\nEkler: le,miş,me\nCevap: ",
+            "reference": "ertelememiş",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "ertelemiş",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 208,
+                "total_tokens": 211
+            },
+            "correct": false
+        },
+        {
+            "root": "sağ",
+            "suffixes": [
+                "la",
+                "ya",
+                "m",
+                "ıyor",
+                "sa"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: sağ\nEkler: la,sa,ıyor,m,ya\nCevap: ",
+            "reference": "sağlayamıyorsa",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "sağlamıyor",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 210,
+                "total_tokens": 215
+            },
+            "correct": false
+        },
+        {
+            "root": "işle",
+            "suffixes": [
+                "yen",
+                "ler",
+                "e"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: işle\nEkler: e,yen,ler\nCevap: ",
+            "reference": "işleyenlere",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "işleyenler",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 208,
+                "total_tokens": 212
+            },
+            "correct": false
+        },
+        {
+            "root": "yüksel",
+            "suffixes": [
+                "me",
+                "n",
+                "in"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: yüksel\nEkler: in,n,me\nCevap: ",
+            "reference": "yükselmenin",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "yükselinme",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 208,
+                "total_tokens": 213
+            },
+            "correct": false
+        },
+        {
+            "root": "kon",
+            "suffixes": [
+                "uş",
+                "ma",
+                "yıp"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: kon\nEkler: uş,yıp,ma\nCevap: ",
+            "reference": "konuşmayıp",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "konuşmamış",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 210,
+                "total_tokens": 215
+            },
+            "correct": false
+        },
+        {
+            "root": "ol",
+            "suffixes": [
+                "duk",
+                "la"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: ol\nEkler: la,duk\nCevap: ",
+            "reference": "oldukla",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "olduk",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 204,
+                "total_tokens": 206
+            },
+            "correct": false
+        },
+        {
+            "root": "anlam",
+            "suffixes": [
+                "lan",
+                "dır",
+                "ma",
+                "mız",
+                "ı"
+            ],
+            "prompt": "Size bir kök ve bir ek listesi verilecek ve sizden bu kökten verilen ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nCevap: dolanmış\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nCevap: omuzları\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nCevap: kaldırabilmektir\n\nÖrnek 4:\nKök: anlam\nEkler: dır,ı,mız,ma,lan\nCevap: ",
+            "reference": "anlamlandırmamızı",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "anlamdırmamızlan",
+            "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 214,
+                "total_tokens": 222
+            },
+            "correct": false
+        }
+    ]
+}

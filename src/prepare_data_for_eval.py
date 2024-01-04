@@ -5,7 +5,7 @@ from tqdm import tqdm
 import random
 
 from utils import read_json, write_json
-from prompts import MORPH_GEN_EN_INSTRUCTION_TEMPLATE, MORPH_GEN_EN_SHOT_TEMPLATE, MORPH_DISC_EN_INSTRUCTION_TEMPLATE, MORPH_DISC_EN_SHOT_TEMPLATE
+from prompts import *
 
 LANGUAGE_MAP = {
     "tr": "Turkish",
@@ -15,11 +15,15 @@ LANGUAGE_MAP = {
 INSTRUCTION_TEMPLATES = {
     "morph_gen_en": MORPH_GEN_EN_INSTRUCTION_TEMPLATE,
     "morph_disc_en": MORPH_DISC_EN_INSTRUCTION_TEMPLATE,
+    "morph_gen_tr": MORPH_GEN_TR_INSTRUCTION_TEMPLATE,
+    "morph_disc_tr": MORPH_DISC_TR_INSTRUCTION_TEMPLATE,
 }
 
 SHOT_TEMPLATES = {
     "morph_gen_en": MORPH_GEN_EN_SHOT_TEMPLATE,
     "morph_disc_en": MORPH_DISC_EN_SHOT_TEMPLATE,
+    "morph_gen_tr": MORPH_GEN_TR_SHOT_TEMPLATE,
+    "morph_disc_tr": MORPH_DISC_TR_SHOT_TEMPLATE,
 }
 
 def prepare_sample_for_morph_gen(sample, shot_samples, template, language):
@@ -111,6 +115,8 @@ def prepare_sample_for_morph_disc(sample, shot_samples, template, language):
 TEMPLATE_PROCESSOR_MAP = {
     "morph_gen_en": prepare_sample_for_morph_gen,
     "morph_disc_en": prepare_sample_for_morph_disc,
+    "morph_gen_tr": prepare_sample_for_morph_gen,
+    "morph_disc_tr": prepare_sample_for_morph_disc,
 }
 
 def main():
