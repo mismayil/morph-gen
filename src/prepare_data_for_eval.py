@@ -8,8 +8,14 @@ from utils import read_json, write_json
 from prompts import *
 
 LANGUAGE_MAP = {
-    "tr": "Turkish",
-    "en": "English",
+    "tr": {
+        "en": "Turkish",
+        "tr": "Türkçe"
+    },
+    "en": {
+        "en": "English",
+        "tr": "İngilizce"
+    }
 }
 
 INSTRUCTION_TEMPLATES = {
@@ -17,6 +23,10 @@ INSTRUCTION_TEMPLATES = {
     "morph_disc_en": MORPH_DISC_EN_INSTRUCTION_TEMPLATE,
     "morph_gen_tr": MORPH_GEN_TR_INSTRUCTION_TEMPLATE,
     "morph_disc_tr": MORPH_DISC_TR_INSTRUCTION_TEMPLATE,
+    "nonce_morph_gen_en": MORPH_GEN_NONCE_EN_INSTRUCTION_TEMPLATE,
+    "nonce_morph_disc_en": MORPH_DISC_NONCE_EN_INSTRUCTION_TEMPLATE,
+    "nonce_morph_gen_tr": MORPH_GEN_NONCE_TR_INSTRUCTION_TEMPLATE,
+    "nonce_morph_disc_tr": MORPH_DISC_NONCE_TR_INSTRUCTION_TEMPLATE
 }
 
 SHOT_TEMPLATES = {
@@ -24,20 +34,48 @@ SHOT_TEMPLATES = {
     "morph_disc_en": MORPH_DISC_EN_SHOT_TEMPLATE,
     "morph_gen_tr": MORPH_GEN_TR_SHOT_TEMPLATE,
     "morph_disc_tr": MORPH_DISC_TR_SHOT_TEMPLATE,
+    "nonce_morph_gen_en": MORPH_GEN_NONCE_EN_SHOT_TEMPLATE,
+    "nonce_morph_disc_en": MORPH_DISC_NONCE_EN_SHOT_TEMPLATE,
+    "nonce_morph_gen_tr": MORPH_GEN_NONCE_TR_SHOT_TEMPLATE,
+    "nonce_morph_disc_tr": MORPH_DISC_NONCE_TR_SHOT_TEMPLATE
 }
+
+def _is_ood_sample(sample):
+    return "original_root" in sample
+
+def _get_sample_definition(sample, language, template_lang):
+    if template_lang == "en":
+        return f"'{sample['root']}' means '{sample['original_root']}' in {LANGUAGE_MAP[language][template_lang]}."
+    elif template_lang == "tr":
+        return f"'{sample['root']}' {LANGUAGE_MAP[language][template_lang]} '{sample['original_root']}' anlamına gelir."
+
+def _get_template_lang(template):
+    return template.split("_")[-1]
 
 def prepare_sample_for_morph_gen(sample, shot_samples, template, language):
     shots = []
+    template_lang = _get_template_lang(template)
 
     for idx, shot_sample in enumerate(shot_samples):
         suffixes = random.sample(shot_sample["suffixes"], len(shot_sample["suffixes"]))
-        shot = SHOT_TEMPLATES[template].format(
-            index=idx+1,
-            root=shot_sample["root"],
-            suffixes=",".join(suffixes),
-            answer=shot_sample["derivation"],
-            # pos=POS_MAP[shot_sample["pos"]],
-        )
+        if _is_ood_sample(shot_sample):
+            definition = _get_sample_definition(shot_sample, language, template_lang)
+            shot = SHOT_TEMPLATES[f"nonce_{template}"].format(
+                index=idx+1,
+                root=shot_sample["root"],
+                definition=definition,
+                suffixes=",".join(suffixes),
+                answer=shot_sample["derivation"],
+                # pos=POS_MAP[shot_sample["pos"]],
+            )
+        else:
+            shot = SHOT_TEMPLATES[template].format(
+                index=idx+1,
+                root=shot_sample["root"],
+                suffixes=",".join(suffixes),
+                answer=shot_sample["derivation"],
+                # pos=POS_MAP[shot_sample["pos"]],
+            )
         shots.append(shot)
 
     shots_prompt = "\n\n".join(shots)
@@ -45,15 +83,31 @@ def prepare_sample_for_morph_gen(sample, shot_samples, template, language):
     eval_data = []
 
     suffixes = random.sample(sample["suffixes"], len(sample["suffixes"]))
-    final_shot = SHOT_TEMPLATES[template].format(
-        index=len(shot_samples)+1,
-        root=sample["root"],
-        suffixes=",".join(suffixes),
-        # pos=POS_MAP[sample["pos"]],
-        answer="",
-    )
+    if _is_ood_sample(sample):
+        definition = _get_sample_definition(sample, language, template_lang)
+        final_shot = SHOT_TEMPLATES[f"nonce_{template}"].format(
+            index=len(shot_samples)+1,
+            root=sample["root"],
+            definition=definition,
+            suffixes=",".join(suffixes),
+            answer="",
+            # pos=POS_MAP[sample["pos"]],
+        )
+    else:
+        final_shot = SHOT_TEMPLATES[template].format(
+            index=len(shot_samples)+1,
+            root=sample["root"],
+            suffixes=",".join(suffixes),
+            # pos=POS_MAP[sample["pos"]],
+            answer="",
+        )
     
-    prompt = f"{INSTRUCTION_TEMPLATES[template].format(language=LANGUAGE_MAP[language])}\n\n{shots_prompt}\n\n{final_shot}"
+    instruction_template = INSTRUCTION_TEMPLATES[template]
+
+    if _is_ood_sample(sample):
+        instruction_template = INSTRUCTION_TEMPLATES[f"nonce_{template}"]
+
+    prompt = f"{instruction_template.format(language=LANGUAGE_MAP[language][template_lang])}\n\n{shots_prompt}\n\n{final_shot}"
     
     eval_data.append({
         "root": sample["root"],
@@ -68,19 +122,32 @@ def prepare_sample_for_morph_gen(sample, shot_samples, template, language):
 
 def prepare_sample_for_morph_disc(sample, shot_samples, template, language):
     shots = []
+    template_lang = _get_template_lang(template)
 
     for idx, shot_sample in enumerate(shot_samples):
         options = random.sample(shot_sample["options"], len(shot_sample["options"]))
         suffixes = random.sample(shot_sample["suffixes"], len(shot_sample["suffixes"]))
-
-        shot = SHOT_TEMPLATES[template].format(
-            index=idx+1,
-            root=shot_sample["root"],
-            suffixes=",".join(suffixes),
-            # pos=POS_MAP[shot_sample["pos"]],
-            options="\n".join([f"{o_index+1}. {option}" for o_index, option in enumerate(options)]),
-            answer=options.index(shot_sample["derivation"])+1,
-        )
+        
+        if _is_ood_sample(shot_sample):
+            definition = _get_sample_definition(shot_sample, language, template_lang)
+            shot = SHOT_TEMPLATES[f"nonce_{template}"].format(
+                index=idx+1,
+                root=shot_sample["root"],
+                definition=definition,
+                suffixes=",".join(suffixes),
+                # pos=POS_MAP[shot_sample["pos"]],
+                options="\n".join([f"{o_index+1}. {option}" for o_index, option in enumerate(options)]),
+                answer=options.index(shot_sample["derivation"])+1,
+            )
+        else:
+            shot = SHOT_TEMPLATES[template].format(
+                index=idx+1,
+                root=shot_sample["root"],
+                suffixes=",".join(suffixes),
+                # pos=POS_MAP[shot_sample["pos"]],
+                options="\n".join([f"{o_index+1}. {option}" for o_index, option in enumerate(options)]),
+                answer=options.index(shot_sample["derivation"])+1,
+            )
         shots.append(shot)
 
     shots_prompt = "\n\n".join(shots)
@@ -90,16 +157,33 @@ def prepare_sample_for_morph_disc(sample, shot_samples, template, language):
     options = random.sample(sample["options"], len(sample["options"]))
 
     suffixes = random.sample(sample["suffixes"], len(sample["suffixes"]))
-    final_shot = SHOT_TEMPLATES[template].format(
-        index=len(shot_samples)+1,
-        root=sample["root"],
-        suffixes=",".join(suffixes),
-        # pos=POS_MAP[sample["pos"]],
-        options="\n".join([f"{o_index+1}. {option}" for o_index, option in enumerate(options)]),
-        answer="",
-    )
+    if _is_ood_sample(sample):
+        definition = _get_sample_definition(sample, language, template_lang)
+        final_shot = SHOT_TEMPLATES[f"nonce_{template}"].format(
+            index=len(shot_samples)+1,
+            root=sample["root"],
+            definition=definition,
+            suffixes=",".join(suffixes),
+            # pos=POS_MAP[sample["pos"]],
+            options="\n".join([f"{o_index+1}. {option}" for o_index, option in enumerate(options)]),
+            answer="",
+        )
+    else:
+        final_shot = SHOT_TEMPLATES[template].format(
+            index=len(shot_samples)+1,
+            root=sample["root"],
+            suffixes=",".join(suffixes),
+            # pos=POS_MAP[sample["pos"]],
+            options="\n".join([f"{o_index+1}. {option}" for o_index, option in enumerate(options)]),
+            answer="",
+        )
     
-    prompt = f"{INSTRUCTION_TEMPLATES[template].format(language=LANGUAGE_MAP[language])}\n\n{shots_prompt}\n\n{final_shot}"
+    instruction_template = INSTRUCTION_TEMPLATES[template]
+
+    if _is_ood_sample(sample):
+        instruction_template = INSTRUCTION_TEMPLATES[f"nonce_{template}"]
+
+    prompt = f"{instruction_template.format(language=LANGUAGE_MAP[language][template_lang])}\n\n{shots_prompt}\n\n{final_shot}"
     
     eval_data.append({
         "root": sample["root"],

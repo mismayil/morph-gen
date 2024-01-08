@@ -162,3 +162,40 @@ def generate_nonce_word_tr(word):
     
     nonce_word = prefix + immutable_part
     return nonce_word
+
+def generate_nonce_word_en(word):
+    word = word.lower()
+
+    hard_vowels = ["a", "o", "u"]
+    soft_vowels = ["e", "i"]
+    consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "r", "s", "t", "v", "w", "y", "z"]
+
+    last_vowel_index = None
+
+    for i, char in enumerate(word):
+        if char in hard_vowels or char in soft_vowels:
+            last_vowel_index = i
+    
+    immutable_part = word[last_vowel_index:]
+    mutable_part = word[:last_vowel_index]
+
+    if not mutable_part:
+        prefix = ""
+        for i in range(3):
+            if i % 2 == 0:
+                prefix += random.choice(consonants)
+            else:
+                prefix += random.choice(soft_vowels) if immutable_part[0] in soft_vowels else random.choice(hard_vowels)
+    else:
+        prefix = ""
+
+        for char in mutable_part:
+            if char in hard_vowels:
+                prefix += random.choice(list(set(hard_vowels)-set([char])))
+            elif char in soft_vowels:
+                prefix += random.choice(list(set(soft_vowels)-set([char])))
+            else:
+                prefix += random.choice(consonants)
+    
+    nonce_word = prefix + immutable_part
+    return nonce_word

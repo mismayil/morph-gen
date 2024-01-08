@@ -7,9 +7,10 @@ from itertools import permutations
 import json
 
 from utils import read_json, write_json
-from morphology import generate_nonce_word_tr
+from morphology import generate_nonce_word_tr, generate_nonce_word_en
 
 TR_DICTIONARY_PATH = "../../data/tr/gts.json"
+EN_DICTIONARY_PATH = "../../data/en/words_alpha.txt"
 
 def _read_tr_dictionary():
     dictionary = []
@@ -18,6 +19,14 @@ def _read_tr_dictionary():
         for line in lines:
             json_line = json.loads(line)
             dictionary.append(json_line["madde"])
+    return dictionary
+
+def _read_en_dictionary():
+    dictionary = []
+    with open(EN_DICTIONARY_PATH, "r") as f:
+        lines = f.readlines()
+        for line in lines:
+            dictionary.append(line.strip())
     return dictionary
 
 def prepare_tr_pilot_data_for_morph(input_data, num_samples=None):
@@ -77,7 +86,7 @@ def prepare_tr_data_for_morph(input_data, num_samples=None):
     
     morph_data = []
 
-    for sample in tqdm(data, desc="Preparing data for Morph tasks"):
+    for sample in tqdm(data, desc="Preparing data TR for Morph tasks"):
         suffixes = sample["morphemes"]
 
         if len(suffixes) > 1:
@@ -111,7 +120,7 @@ def prepare_tr_nonce_data_for_morph(input_data, num_samples=None):
     data = input_data["data"]
     nonce_data = []
 
-    for sample in tqdm(data, total=len(data), desc="Preparing nonce data for Morph tasks"):
+    for sample in tqdm(data, total=len(data), desc="Preparing TR nonce data for Morph tasks"):
         root = sample["root"]
         pos = sample["pos"]
         suffixes = sample["suffixes"]
@@ -143,7 +152,7 @@ def prepare_en_data_for_morph(input_data, num_samples=None):
     
     morph_data = []
 
-    for sample in tqdm(data, desc="Preparing data for Morph tasks"):
+    for sample in tqdm(data, desc="Preparing EN data for Morph tasks"):
         suffixes = sample["morphemes"]
 
         if len(suffixes) > 1:
@@ -172,11 +181,44 @@ def prepare_en_data_for_morph(input_data, num_samples=None):
 
     return morph_data
 
+def prepare_en_nonce_data_for_morph(input_data, num_samples=None):
+    dictionary = _read_en_dictionary()
+    data = input_data["data"]
+    nonce_data = []
+
+    for sample in tqdm(data, total=len(data), desc="Preparing EN nonce data for Morph tasks"):
+        root = sample["root"]
+        pos = sample["pos"]
+        suffixes = sample["suffixes"]
+        derivation = sample["derivation"]
+        options = sample["options"]
+
+        while True:
+            nonce_word = generate_nonce_word_en(root)
+            if nonce_word not in dictionary:
+                break
+
+        nonce_data.append({
+            "original_root": root,
+            "root": nonce_word,
+            "pos": pos,
+            "suffixes": suffixes,
+            "derivation": derivation.replace(root, nonce_word, 1),
+            "options": [option.replace(root, nonce_word, 1) for option in options],
+            "answer": 0
+        })
+    
+    if num_samples is not None:
+        nonce_data = random.sample(nonce_data, num_samples)
+    
+    return nonce_data
+
 DATA_PROCESSOR_MAP = {
     "tr_pilot_morph": (prepare_tr_pilot_data_for_morph, "_morph"),
     "tr_morph": (prepare_tr_data_for_morph, "_morph"),
     "tr_morph_nonce": (prepare_tr_nonce_data_for_morph, "_nonce"),
-    "en_morph": (prepare_en_data_for_morph, "_morph")
+    "en_morph": (prepare_en_data_for_morph, "_morph"),
+    "en_morph_nonce": (prepare_en_nonce_data_for_morph, "_nonce")
 }
 
 def main():
