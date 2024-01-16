@@ -1,0 +1,1837 @@
+{
+    "metadata": {
+        "datapath": "../data/en/morpholex/temp_en/v4/MorphoLEX_en_prep_morph_sample_nonce_sep+_eval_morph_gen_en_s5.json",
+        "model": "gpt-3.5-turbo",
+        "temperature": 0.3,
+        "max_tokens": 40,
+        "top_p": 1,
+        "frequency_penalty": 0,
+        "presence_penalty": 0
+    },
+    "metrics": {
+        "usage": {
+            "prompt_tokens": 31441,
+            "completion_tokens": 668,
+            "total_tokens": 32109
+        },
+        "cost": {
+            "input": 0.0471615,
+            "output": 0.001336,
+            "total": 0.0484975
+        },
+        "macro_f1": 0.42196531791907516,
+        "accuracy": 0.73,
+        "precision": 0.5,
+        "recall": 0.365
+    },
+    "data": [
+        {
+            "root": "vetect",
+            "suffixes": [
+                "ion",
+                "al"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: ",
+            "reference": "vetect+ion+al",
+            "template": "morph_gen_en",
+            "original_root": "direct",
+            "model_output": "vetect+al+ion",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 313,
+                "total_tokens": 319
+            },
+            "correct": false
+        },
+        {
+            "root": "vhift",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: ",
+            "reference": "vhift+less+ness",
+            "template": "morph_gen_en",
+            "original_root": "shift",
+            "model_output": "vhift+ness+less",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 313,
+                "total_tokens": 319
+            },
+            "correct": false
+        },
+        {
+            "root": "kogyiss",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: ",
+            "reference": "kogyiss+ist+ic",
+            "template": "morph_gen_en",
+            "original_root": "narciss",
+            "model_output": "kogyiss+ist+ic",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 317,
+                "total_tokens": 324
+            },
+            "correct": true
+        },
+        {
+            "root": "sojic",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: ",
+            "reference": "sojic+ious+ness",
+            "template": "morph_gen_en",
+            "original_root": "judic",
+            "model_output": "sojic+ious+ness",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 317,
+                "total_tokens": 324
+            },
+            "correct": true
+        },
+        {
+            "root": "huth",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: ",
+            "reference": "huth+less+ness",
+            "template": "morph_gen_en",
+            "original_root": "ruth",
+            "model_output": "huth+ness+less",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 314,
+                "total_tokens": 320
+            },
+            "correct": false
+        },
+        {
+            "root": "hizimp",
+            "suffixes": [
+                "ish",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: hizimp\nDefinition: 'hizimp' means 'imp' in English.\nSuffixes: ly,ish\nAnswer: ",
+            "reference": "hizimp+ish+ly",
+            "template": "morph_gen_en",
+            "original_root": "imp",
+            "model_output": "hizimp+ly+ish",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 315,
+                "total_tokens": 322
+            },
+            "correct": false
+        },
+        {
+            "root": "zunac",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: zunac\nDefinition: 'zunac' means 'rapac' in English.\nSuffixes: ious,ness\nAnswer: ",
+            "reference": "zunac+ious+ness",
+            "template": "morph_gen_en",
+            "original_root": "rapac",
+            "model_output": "zunac+ious+ness",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 315,
+                "total_tokens": 322
+            },
+            "correct": true
+        },
+        {
+            "root": "ponif",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: ponif\nDefinition: 'ponif' means 'pacif' in English.\nSuffixes: ist,ic\nAnswer: ",
+            "reference": "ponif+ist+ic",
+            "template": "morph_gen_en",
+            "original_root": "pacif",
+            "model_output": "ponif+ic+ist",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 314,
+                "total_tokens": 320
+            },
+            "correct": false
+        },
+        {
+            "root": "fudart",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: fudart\nDefinition: 'fudart' means 'art' in English.\nSuffixes: ly,less\nAnswer: ",
+            "reference": "fudart+less+ly",
+            "template": "morph_gen_en",
+            "original_root": "art",
+            "model_output": "fudart+less+ly",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 315,
+                "total_tokens": 322
+            },
+            "correct": true
+        },
+        {
+            "root": "gibac",
+            "suffixes": [
+                "ious",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: gibac\nDefinition: 'gibac' means 'verac' in English.\nSuffixes: ly,ious\nAnswer: ",
+            "reference": "gibac+ious+ly",
+            "template": "morph_gen_en",
+            "original_root": "verac",
+            "model_output": "gibac+ly+ious",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 315,
+                "total_tokens": 322
+            },
+            "correct": false
+        },
+        {
+            "root": "mziad",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: mziad\nDefinition: 'mziad' means 'dread' in English.\nSuffixes: ful,ly\nAnswer: ",
+            "reference": "mziad+ful+ly",
+            "template": "morph_gen_en",
+            "original_root": "dread",
+            "model_output": "mziad+ful+ly",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 315,
+                "total_tokens": 322
+            },
+            "correct": true
+        },
+        {
+            "root": "urort",
+            "suffixes": [
+                "ion",
+                "ist"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: urort\nDefinition: 'urort' means 'abort' in English.\nSuffixes: ist,ion\nAnswer: ",
+            "reference": "urort+ion+ist",
+            "template": "morph_gen_en",
+            "original_root": "abort",
+            "model_output": "urort+ion+ist",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 312,
+                "total_tokens": 318
+            },
+            "correct": true
+        },
+        {
+            "root": "rukizor",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: rukizor\nDefinition: 'rukizor' means 'categor' in English.\nSuffixes: ic,al\nAnswer: ",
+            "reference": "rukizor+ic+al",
+            "template": "morph_gen_en",
+            "original_root": "categor",
+            "model_output": "rukizor+ic+al",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 317,
+                "total_tokens": 324
+            },
+            "correct": true
+        },
+        {
+            "root": "hupal",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: hupal\nDefinition: 'hupal' means 'total' in English.\nSuffixes: ist,ic\nAnswer: ",
+            "reference": "hupal+ist+ic",
+            "template": "morph_gen_en",
+            "original_root": "total",
+            "model_output": "hupal+ic+ist",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 312,
+                "total_tokens": 318
+            },
+            "correct": false
+        },
+        {
+            "root": "uzzetul",
+            "suffixes": [
+                "ate",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: uzzetul\nDefinition: 'uzzetul' means 'articul' in English.\nSuffixes: ate,ly\nAnswer: ",
+            "reference": "uzzetul+ate+ly",
+            "template": "morph_gen_en",
+            "original_root": "articul",
+            "model_output": "uzzetul+ate+ly",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 317,
+                "total_tokens": 324
+            },
+            "correct": true
+        },
+        {
+            "root": "icectr",
+            "suffixes": [
+                "on",
+                "ics"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: icectr\nDefinition: 'icectr' means 'electr' in English.\nSuffixes: on,ics\nAnswer: ",
+            "reference": "icectr+on+ics",
+            "template": "morph_gen_en",
+            "original_root": "electr",
+            "model_output": "icectr+ics+on",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 315,
+                "total_tokens": 322
+            },
+            "correct": false
+        },
+        {
+            "root": "ziver",
+            "suffixes": [
+                "al",
+                "ity"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: ziver\nDefinition: 'ziver' means 'gener' in English.\nSuffixes: ity,al\nAnswer: ",
+            "reference": "ziver+al+ity",
+            "template": "morph_gen_en",
+            "original_root": "gener",
+            "model_output": "ziver+ity+al",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 314,
+                "total_tokens": 320
+            },
+            "correct": false
+        },
+        {
+            "root": "rbien",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: rbien\nDefinition: 'rbien' means 'green' in English.\nSuffixes: ish,ness\nAnswer: ",
+            "reference": "rbien+ish+ness",
+            "template": "morph_gen_en",
+            "original_root": "green",
+            "model_output": "rbien+ish+ness",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 314,
+                "total_tokens": 320
+            },
+            "correct": true
+        },
+        {
+            "root": "modor",
+            "suffixes": [
+                "it",
+                "ism"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: modor\nDefinition: 'modor' means 'favor' in English.\nSuffixes: ism,it\nAnswer: ",
+            "reference": "modor+it+ism",
+            "template": "morph_gen_en",
+            "original_root": "favor",
+            "model_output": "modor+ism+it",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 313,
+                "total_tokens": 319
+            },
+            "correct": false
+        },
+        {
+            "root": "nin",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: nin\nDefinition: 'nin' means 'sin' in English.\nSuffixes: less,ness\nAnswer: ",
+            "reference": "nin+less+ness",
+            "template": "morph_gen_en",
+            "original_root": "sin",
+            "model_output": "nin+less+ness",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 311,
+                "total_tokens": 316
+            },
+            "correct": true
+        },
+        {
+            "root": "lomat",
+            "suffixes": [
+                "al",
+                "ize"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: lomat\nDefinition: 'lomat' means 'palat' in English.\nSuffixes: al,ize\nAnswer: ",
+            "reference": "lomat+al+ize",
+            "template": "morph_gen_en",
+            "original_root": "palat",
+            "model_output": "lomat+ize+al",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 313,
+                "total_tokens": 319
+            },
+            "correct": false
+        },
+        {
+            "root": "vukpe",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: vukpe\nDefinition: 'vukpe' means 'taste' in English.\nSuffixes: ful,ness\nAnswer: ",
+            "reference": "vukpe+ful+ness",
+            "template": "morph_gen_en",
+            "original_root": "taste",
+            "model_output": "vukpe+ful+ness",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 316,
+                "total_tokens": 323
+            },
+            "correct": true
+        },
+        {
+            "root": "aletin",
+            "suffixes": [
+                "al",
+                "ity"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: aletin\nDefinition: 'aletin' means 'origin' in English.\nSuffixes: ity,al\nAnswer: ",
+            "reference": "aletin+al+ity",
+            "template": "morph_gen_en",
+            "original_root": "origin",
+            "model_output": "aletin+ity+al",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 316,
+                "total_tokens": 323
+            },
+            "correct": false
+        },
+        {
+            "root": "mkfsphys",
+            "suffixes": [
+                "ic",
+                "al",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: mkfsphys\nDefinition: 'mkfsphys' means 'phys' in English.\nSuffixes: al,ic,ness\nAnswer: ",
+            "reference": "mkfsphys+ic+al+ness",
+            "template": "morph_gen_en",
+            "original_root": "phys",
+            "model_output": "mkfsphys+ic+al+ness",
+            "usage": {
+                "completion_tokens": 9,
+                "prompt_tokens": 316,
+                "total_tokens": 325
+            },
+            "correct": true
+        },
+        {
+            "root": "gtaod",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: gtaod\nDefinition: 'gtaod' means 'blood' in English.\nSuffixes: ness,less\nAnswer: ",
+            "reference": "gtaod+less+ness",
+            "template": "morph_gen_en",
+            "original_root": "blood",
+            "model_output": "gtaod+less+ness",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 315,
+                "total_tokens": 322
+            },
+            "correct": true
+        },
+        {
+            "root": "tist",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: tist\nDefinition: 'tist' means 'list' in English.\nSuffixes: less,ly\nAnswer: ",
+            "reference": "tist+less+ly",
+            "template": "morph_gen_en",
+            "original_root": "list",
+            "model_output": "tist+less+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 312,
+                "total_tokens": 318
+            },
+            "correct": true
+        },
+        {
+            "root": "yfopjit",
+            "suffixes": [
+                "ion",
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: yfopjit\nDefinition: 'yfopjit' means 'transit' in English.\nSuffixes: ly,ion,al\nAnswer: ",
+            "reference": "yfopjit+ion+al+ly",
+            "template": "morph_gen_en",
+            "original_root": "transit",
+            "model_output": "yfopjit+ion+al+ly",
+            "usage": {
+                "completion_tokens": 10,
+                "prompt_tokens": 320,
+                "total_tokens": 330
+            },
+            "correct": true
+        },
+        {
+            "root": "foct",
+            "suffixes": [
+                "urn",
+                "al"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: foct\nDefinition: 'foct' means 'noct' in English.\nSuffixes: al,urn\nAnswer: ",
+            "reference": "foct+urn+al",
+            "template": "morph_gen_en",
+            "original_root": "noct",
+            "model_output": "foct+al+urn",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 313,
+                "total_tokens": 319
+            },
+            "correct": false
+        },
+        {
+            "root": "owomem",
+            "suffixes": [
+                "ic",
+                "ian"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: owomem\nDefinition: 'owomem' means 'academ' in English.\nSuffixes: ic,ian\nAnswer: ",
+            "reference": "owomem+ic+ian",
+            "template": "morph_gen_en",
+            "original_root": "academ",
+            "model_output": "owomem+ian+ic",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 315,
+                "total_tokens": 322
+            },
+            "correct": false
+        },
+        {
+            "root": "jbzser",
+            "suffixes": [
+                "ic",
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: jbzser\nDefinition: 'jbzser' means 'hyster' in English.\nSuffixes: ly,al,ic\nAnswer: ",
+            "reference": "jbzser+ic+al+ly",
+            "template": "morph_gen_en",
+            "original_root": "hyster",
+            "model_output": "jbzser+ic+al+ly",
+            "usage": {
+                "completion_tokens": 9,
+                "prompt_tokens": 317,
+                "total_tokens": 326
+            },
+            "correct": true
+        },
+        {
+            "root": "vust",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: vust\nDefinition: 'vust' means 'lust' in English.\nSuffixes: ful,ness\nAnswer: ",
+            "reference": "vust+ful+ness",
+            "template": "morph_gen_en",
+            "original_root": "lust",
+            "model_output": "vust+ful+ness",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 312,
+                "total_tokens": 318
+            },
+            "correct": true
+        },
+        {
+            "root": "ukfim",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: ukfim\nDefinition: 'ukfim' means 'optim' in English.\nSuffixes: ic,ist\nAnswer: ",
+            "reference": "ukfim+ist+ic",
+            "template": "morph_gen_en",
+            "original_root": "optim",
+            "model_output": "ukfim+ist+ic",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 314,
+                "total_tokens": 321
+            },
+            "correct": true
+        },
+        {
+            "root": "onsor",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: onsor\nDefinition: 'onsor' means 'aphor' in English.\nSuffixes: ic,ist\nAnswer: ",
+            "reference": "onsor+ist+ic",
+            "template": "morph_gen_en",
+            "original_root": "aphor",
+            "model_output": "onsor+ist+ic",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 313,
+                "total_tokens": 319
+            },
+            "correct": true
+        },
+        {
+            "root": "uwort",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: uwort\nDefinition: 'uwort' means 'abort' in English.\nSuffixes: ive,ly\nAnswer: ",
+            "reference": "uwort+ive+ly",
+            "template": "morph_gen_en",
+            "original_root": "abort",
+            "model_output": "uwort+ive+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 312,
+                "total_tokens": 318
+            },
+            "correct": true
+        },
+        {
+            "root": "lilicje",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: lilicje\nDefinition: 'lilicje' means 'defence' in English.\nSuffixes: ness,less\nAnswer: ",
+            "reference": "lilicje+less+ness",
+            "template": "morph_gen_en",
+            "original_root": "defence",
+            "model_output": "lilicje+less+ness",
+            "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 316,
+                "total_tokens": 324
+            },
+            "correct": true
+        },
+        {
+            "root": "rutac",
+            "suffixes": [
+                "ious",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: rutac\nDefinition: 'rutac' means 'vorac' in English.\nSuffixes: ly,ious\nAnswer: ",
+            "reference": "rutac+ious+ly",
+            "template": "morph_gen_en",
+            "original_root": "vorac",
+            "model_output": "rutac+ious+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 313,
+                "total_tokens": 319
+            },
+            "correct": true
+        },
+        {
+            "root": "ilo",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: ilo\nDefinition: 'ilo' means 'ego' in English.\nSuffixes: ist,ic\nAnswer: ",
+            "reference": "ilo+ist+ic",
+            "template": "morph_gen_en",
+            "original_root": "ego",
+            "model_output": "ilo+ist+ic",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 311,
+                "total_tokens": 316
+            },
+            "correct": true
+        },
+        {
+            "root": "bupye",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: bupye\nDefinition: 'bupye' means 'waste' in English.\nSuffixes: ful,ness\nAnswer: ",
+            "reference": "bupye+ful+ness",
+            "template": "morph_gen_en",
+            "original_root": "waste",
+            "model_output": "bupye+ful+ness",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 316,
+                "total_tokens": 323
+            },
+            "correct": true
+        },
+        {
+            "root": "fivwi",
+            "suffixes": [
+                "ment",
+                "al",
+                "ism"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: fivwi\nDefinition: 'fivwi' means 'senti' in English.\nSuffixes: al,ment,ism\nAnswer: ",
+            "reference": "fivwi+ment+al+ism",
+            "template": "morph_gen_en",
+            "original_root": "senti",
+            "model_output": "fivwi+ism+al+ment",
+            "usage": {
+                "completion_tokens": 9,
+                "prompt_tokens": 318,
+                "total_tokens": 327
+            },
+            "correct": false
+        },
+        {
+            "root": "fkeumph",
+            "suffixes": [
+                "ant",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: fkeumph\nDefinition: 'fkeumph' means 'triumph' in English.\nSuffixes: ant,ly\nAnswer: ",
+            "reference": "fkeumph+ant+ly",
+            "template": "morph_gen_en",
+            "original_root": "triumph",
+            "model_output": "fkeumph+ant+ly",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 317,
+                "total_tokens": 324
+            },
+            "correct": true
+        },
+        {
+            "root": "jeyer",
+            "suffixes": [
+                "al",
+                "ism"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: jeyer\nDefinition: 'jeyer' means 'liber' in English.\nSuffixes: al,ism\nAnswer: ",
+            "reference": "jeyer+al+ism",
+            "template": "morph_gen_en",
+            "original_root": "liber",
+            "model_output": "jeyer+al+ism",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 314,
+                "total_tokens": 320
+            },
+            "correct": true
+        },
+        {
+            "root": "higeod",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: higeod\nDefinition: 'higeod' means 'period' in English.\nSuffixes: al,ic\nAnswer: ",
+            "reference": "higeod+ic+al",
+            "template": "morph_gen_en",
+            "original_root": "period",
+            "model_output": "higeod+ic+al",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 314,
+                "total_tokens": 321
+            },
+            "correct": true
+        },
+        {
+            "root": "guul",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: guul\nDefinition: 'guul' means 'soul' in English.\nSuffixes: ly,less\nAnswer: ",
+            "reference": "guul+less+ly",
+            "template": "morph_gen_en",
+            "original_root": "soul",
+            "model_output": "guul+less+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 314,
+                "total_tokens": 320
+            },
+            "correct": true
+        },
+        {
+            "root": "jjikuzeheon",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: jjikuzeheon\nDefinition: 'jjikuzeheon' means 'preposition' in English.\nSuffixes: al,ly\nAnswer: ",
+            "reference": "jjikuzeheon+al+ly",
+            "template": "morph_gen_en",
+            "original_root": "preposition",
+            "model_output": "jjikuzeheon+al+ly",
+            "usage": {
+                "completion_tokens": 9,
+                "prompt_tokens": 320,
+                "total_tokens": 329
+            },
+            "correct": true
+        },
+        {
+            "root": "vmamect",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: vmamect\nDefinition: 'vmamect' means 'protect' in English.\nSuffixes: ive,ness\nAnswer: ",
+            "reference": "vmamect+ive+ness",
+            "template": "morph_gen_en",
+            "original_root": "protect",
+            "model_output": "vmamect+ive+ness",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 315,
+                "total_tokens": 322
+            },
+            "correct": true
+        },
+        {
+            "root": "jlier",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: jlier\nDefinition: 'jlier' means 'cheer' in English.\nSuffixes: ful,ly\nAnswer: ",
+            "reference": "jlier+ful+ly",
+            "template": "morph_gen_en",
+            "original_root": "cheer",
+            "model_output": "jlier+ful+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 313,
+                "total_tokens": 319
+            },
+            "correct": true
+        },
+        {
+            "root": "sozyeon",
+            "suffixes": [
+                "ate",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: sozyeon\nDefinition: 'sozyeon' means 'passion' in English.\nSuffixes: ness,ate\nAnswer: ",
+            "reference": "sozyeon+ate+ness",
+            "template": "morph_gen_en",
+            "original_root": "passion",
+            "model_output": "sozyeon+ate+ness",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 315,
+                "total_tokens": 322
+            },
+            "correct": true
+        },
+        {
+            "root": "keblu",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: keblu\nDefinition: 'keblu' means 'lingu' in English.\nSuffixes: ist,ic\nAnswer: ",
+            "reference": "keblu+ist+ic",
+            "template": "morph_gen_en",
+            "original_root": "lingu",
+            "model_output": "keblu+ist+ic",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 315,
+                "total_tokens": 322
+            },
+            "correct": true
+        },
+        {
+            "root": "wobe",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: wobe\nDefinition: 'wobe' means 'hate' in English.\nSuffixes: ful,ly\nAnswer: ",
+            "reference": "wobe+ful+ly",
+            "template": "morph_gen_en",
+            "original_root": "hate",
+            "model_output": "wobe+ful+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 313,
+                "total_tokens": 319
+            },
+            "correct": true
+        },
+        {
+            "root": "morm",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: morm\nDefinition: 'morm' means 'gorm' in English.\nSuffixes: less,ly\nAnswer: ",
+            "reference": "morm+less+ly",
+            "template": "morph_gen_en",
+            "original_root": "gorm",
+            "model_output": "morm+less+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 313,
+                "total_tokens": 319
+            },
+            "correct": true
+        },
+        {
+            "root": "ceck",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: ceck\nDefinition: 'ceck' means 'feck' in English.\nSuffixes: ness,less\nAnswer: ",
+            "reference": "ceck+less+ness",
+            "template": "morph_gen_en",
+            "original_root": "feck",
+            "model_output": "ceck+less+ness",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 314,
+                "total_tokens": 320
+            },
+            "correct": true
+        },
+        {
+            "root": "tial",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: tial\nDefinition: 'tial' means 'real' in English.\nSuffixes: ic,ist\nAnswer: ",
+            "reference": "tial+ist+ic",
+            "template": "morph_gen_en",
+            "original_root": "real",
+            "model_output": "tial+ist+ic",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 313,
+                "total_tokens": 319
+            },
+            "correct": true
+        },
+        {
+            "root": "coltteon",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: coltteon\nDefinition: 'coltteon' means 'function' in English.\nSuffixes: ist,al\nAnswer: ",
+            "reference": "coltteon+al+ist",
+            "template": "morph_gen_en",
+            "original_root": "function",
+            "model_output": "coltteon+ist+al",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 314,
+                "total_tokens": 321
+            },
+            "correct": false
+        },
+        {
+            "root": "rniet",
+            "suffixes": [
+                "en",
+                "er"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: rniet\nDefinition: 'rniet' means 'sweet' in English.\nSuffixes: er,en\nAnswer: ",
+            "reference": "rniet+en+er",
+            "template": "morph_gen_en",
+            "original_root": "sweet",
+            "model_output": "rniet+en+er",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 311,
+                "total_tokens": 317
+            },
+            "correct": true
+        },
+        {
+            "root": "paele",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: paele\nDefinition: 'paele' means 'guile' in English.\nSuffixes: less,ly\nAnswer: ",
+            "reference": "paele+less+ly",
+            "template": "morph_gen_en",
+            "original_root": "guile",
+            "model_output": "paele+less+ly",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 316,
+                "total_tokens": 323
+            },
+            "correct": true
+        },
+        {
+            "root": "buol",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: buol\nDefinition: 'buol' means 'fool' in English.\nSuffixes: ness,ish\nAnswer: ",
+            "reference": "buol+ish+ness",
+            "template": "morph_gen_en",
+            "original_root": "fool",
+            "model_output": "buol+ish+ness",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 313,
+                "total_tokens": 319
+            },
+            "correct": true
+        },
+        {
+            "root": "tecpinct",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: tecpinct\nDefinition: 'tecpinct' means 'distinct' in English.\nSuffixes: ive,ness\nAnswer: ",
+            "reference": "tecpinct+ive+ness",
+            "template": "morph_gen_en",
+            "original_root": "distinct",
+            "model_output": "tecpinct+ive+ness",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 314,
+                "total_tokens": 321
+            },
+            "correct": true
+        },
+        {
+            "root": "korm",
+            "suffixes": [
+                "al",
+                "ize"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: korm\nDefinition: 'korm' means 'norm' in English.\nSuffixes: al,ize\nAnswer: ",
+            "reference": "korm+al+ize",
+            "template": "morph_gen_en",
+            "original_root": "norm",
+            "model_output": "korm+al+ize",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 312,
+                "total_tokens": 318
+            },
+            "correct": true
+        },
+        {
+            "root": "uzfetul",
+            "suffixes": [
+                "ate",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: uzfetul\nDefinition: 'uzfetul' means 'articul' in English.\nSuffixes: ness,ate\nAnswer: ",
+            "reference": "uzfetul+ate+ness",
+            "template": "morph_gen_en",
+            "original_root": "articul",
+            "model_output": "uzfetul+ate+ness",
+            "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 318,
+                "total_tokens": 326
+            },
+            "correct": true
+        },
+        {
+            "root": "wapjet",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: wapjet\nDefinition: 'wapjet' means 'forget' in English.\nSuffixes: ness,ful\nAnswer: ",
+            "reference": "wapjet+ful+ness",
+            "template": "morph_gen_en",
+            "original_root": "forget",
+            "model_output": "wapjet+ful+ness",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 313,
+                "total_tokens": 319
+            },
+            "correct": true
+        },
+        {
+            "root": "hutr",
+            "suffixes": [
+                "efac",
+                "tive"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: hutr\nDefinition: 'hutr' means 'putr' in English.\nSuffixes: tive,efac\nAnswer: ",
+            "reference": "hutr+efac+tive",
+            "template": "morph_gen_en",
+            "original_root": "putr",
+            "model_output": "hutr+efac+tive",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 315,
+                "total_tokens": 322
+            },
+            "correct": true
+        },
+        {
+            "root": "hacrepeon",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: hacrepeon\nDefinition: 'hacrepeon' means 'condition' in English.\nSuffixes: ly,al\nAnswer: ",
+            "reference": "hacrepeon+al+ly",
+            "template": "morph_gen_en",
+            "original_root": "condition",
+            "model_output": "hacrepeon+al+ly",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 315,
+                "total_tokens": 322
+            },
+            "correct": true
+        },
+        {
+            "root": "yfoce",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: yfoce\nDefinition: 'yfoce' means 'shame' in English.\nSuffixes: ness,ful\nAnswer: ",
+            "reference": "yfoce+ful+ness",
+            "template": "morph_gen_en",
+            "original_root": "shame",
+            "model_output": "yfoce+ful+ness",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 316,
+                "total_tokens": 323
+            },
+            "correct": true
+        },
+        {
+            "root": "pel",
+            "suffixes": [
+                "ar",
+                "ize"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: pel\nDefinition: 'pel' means 'vel' in English.\nSuffixes: ar,ize\nAnswer: ",
+            "reference": "pel+ar+ize",
+            "template": "morph_gen_en",
+            "original_root": "vel",
+            "model_output": "pel+ar+ize",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 310,
+                "total_tokens": 315
+            },
+            "correct": true
+        },
+        {
+            "root": "cinsi",
+            "suffixes": [
+                "ment",
+                "al",
+                "ist"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: cinsi\nDefinition: 'cinsi' means 'senti' in English.\nSuffixes: ment,ist,al\nAnswer: ",
+            "reference": "cinsi+ment+al+ist",
+            "template": "morph_gen_en",
+            "original_root": "senti",
+            "model_output": "cinsi+ment+ist+al",
+            "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 316,
+                "total_tokens": 324
+            },
+            "correct": false
+        },
+        {
+            "root": "ptiss",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: ptiss\nDefinition: 'ptiss' means 'bliss' in English.\nSuffixes: ful,ly\nAnswer: ",
+            "reference": "ptiss+ful+ly",
+            "template": "morph_gen_en",
+            "original_root": "bliss",
+            "model_output": "ptiss+ful+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 313,
+                "total_tokens": 319
+            },
+            "correct": true
+        },
+        {
+            "root": "giar",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: giar\nDefinition: 'giar' means 'tear' in English.\nSuffixes: less,ly\nAnswer: ",
+            "reference": "giar+less+ly",
+            "template": "morph_gen_en",
+            "original_root": "tear",
+            "model_output": "giar+less+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 313,
+                "total_tokens": 319
+            },
+            "correct": true
+        },
+        {
+            "root": "wect",
+            "suffixes": [
+                "ure",
+                "ship"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: wect\nDefinition: 'wect' means 'lect' in English.\nSuffixes: ship,ure\nAnswer: ",
+            "reference": "wect+ure+ship",
+            "template": "morph_gen_en",
+            "original_root": "lect",
+            "model_output": "wect+ure+ship",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 312,
+                "total_tokens": 318
+            },
+            "correct": true
+        },
+        {
+            "root": "letagdic",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: letagdic\nDefinition: 'letagdic' means 'liturgic' in English.\nSuffixes: ly,al\nAnswer: ",
+            "reference": "letagdic+al+ly",
+            "template": "morph_gen_en",
+            "original_root": "liturgic",
+            "model_output": "letagdic+al+ly",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 317,
+                "total_tokens": 324
+            },
+            "correct": true
+        },
+        {
+            "root": "wiber",
+            "suffixes": [
+                "al",
+                "issimo"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: wiber\nDefinition: 'wiber' means 'gener' in English.\nSuffixes: al,issimo\nAnswer: ",
+            "reference": "wiber+al+issimo",
+            "template": "morph_gen_en",
+            "original_root": "gener",
+            "model_output": "wiber+al+issimo",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 313,
+                "total_tokens": 320
+            },
+            "correct": true
+        },
+        {
+            "root": "felp",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: felp\nDefinition: 'felp' means 'help' in English.\nSuffixes: ness,less\nAnswer: ",
+            "reference": "felp+less+ness",
+            "template": "morph_gen_en",
+            "original_root": "help",
+            "model_output": "felp+ness+less",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 313,
+                "total_tokens": 319
+            },
+            "correct": false
+        },
+        {
+            "root": "evjoit",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: evjoit\nDefinition: 'evjoit' means 'intuit' in English.\nSuffixes: ive,ly\nAnswer: ",
+            "reference": "evjoit+ive+ly",
+            "template": "morph_gen_en",
+            "original_root": "intuit",
+            "model_output": "evjoit+ive+ly",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 316,
+                "total_tokens": 323
+            },
+            "correct": true
+        },
+        {
+            "root": "zash",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: zash\nDefinition: 'zash' means 'bash' in English.\nSuffixes: ful,ly\nAnswer: ",
+            "reference": "zash+ful+ly",
+            "template": "morph_gen_en",
+            "original_root": "bash",
+            "model_output": "zash+ful+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 312,
+                "total_tokens": 318
+            },
+            "correct": true
+        },
+        {
+            "root": "cimect",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: cimect\nDefinition: 'cimect' means 'select' in English.\nSuffixes: ive,ness\nAnswer: ",
+            "reference": "cimect+ive+ness",
+            "template": "morph_gen_en",
+            "original_root": "select",
+            "model_output": "cimect+ive+ness",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 315,
+                "total_tokens": 322
+            },
+            "correct": true
+        },
+        {
+            "root": "buin",
+            "suffixes": [
+                "t",
+                "ure"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: buin\nDefinition: 'buin' means 'join' in English.\nSuffixes: t,ure\nAnswer: ",
+            "reference": "buin+t+ure",
+            "template": "morph_gen_en",
+            "original_root": "join",
+            "model_output": "buin+ure+t",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 313,
+                "total_tokens": 318
+            },
+            "correct": false
+        },
+        {
+            "root": "cikeod",
+            "suffixes": [
+                "ic",
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: cikeod\nDefinition: 'cikeod' means 'period' in English.\nSuffixes: al,ly,ic\nAnswer: ",
+            "reference": "cikeod+ic+al+ly",
+            "template": "morph_gen_en",
+            "original_root": "period",
+            "model_output": "cikeod+al+ly+ic",
+            "usage": {
+                "completion_tokens": 9,
+                "prompt_tokens": 316,
+                "total_tokens": 325
+            },
+            "correct": false
+        },
+        {
+            "root": "gelf",
+            "suffixes": [
+                "ish",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: gelf\nDefinition: 'gelf' means 'self' in English.\nSuffixes: ish,ly\nAnswer: ",
+            "reference": "gelf+ish+ly",
+            "template": "morph_gen_en",
+            "original_root": "self",
+            "model_output": "gelf+ish+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 313,
+                "total_tokens": 319
+            },
+            "correct": true
+        },
+        {
+            "root": "ukjbduct",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: ukjbduct\nDefinition: 'ukjbduct' means 'obstruct' in English.\nSuffixes: ive,ness\nAnswer: ",
+            "reference": "ukjbduct+ive+ness",
+            "template": "morph_gen_en",
+            "original_root": "obstruct",
+            "model_output": "ukjbduct+ive+ness",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 316,
+                "total_tokens": 323
+            },
+            "correct": true
+        },
+        {
+            "root": "gute",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: gute\nDefinition: 'gute' means 'dole' in English.\nSuffixes: ful,ly\nAnswer: ",
+            "reference": "gute+ful+ly",
+            "template": "morph_gen_en",
+            "original_root": "dole",
+            "model_output": "gute+ful+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 313,
+                "total_tokens": 319
+            },
+            "correct": true
+        },
+        {
+            "root": "dupopt",
+            "suffixes": [
+                "ion",
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: dupopt\nDefinition: 'dupopt' means 'opt' in English.\nSuffixes: ion,al,ly\nAnswer: ",
+            "reference": "dupopt+ion+al+ly",
+            "template": "morph_gen_en",
+            "original_root": "opt",
+            "model_output": "dupopt+ion+al+ly",
+            "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 314,
+                "total_tokens": 322
+            },
+            "correct": true
+        },
+        {
+            "root": "bnijoc",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: bnijoc\nDefinition: 'bnijoc' means 'precoc' in English.\nSuffixes: ious,ness\nAnswer: ",
+            "reference": "bnijoc+ious+ness",
+            "template": "morph_gen_en",
+            "original_root": "precoc",
+            "model_output": "bnijoc+ious+ness",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 317,
+                "total_tokens": 324
+            },
+            "correct": true
+        },
+        {
+            "root": "lract",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: lract\nDefinition: 'lract' means 'pract' in English.\nSuffixes: al,ic\nAnswer: ",
+            "reference": "lract+ic+al",
+            "template": "morph_gen_en",
+            "original_root": "pract",
+            "model_output": "lract+ic+al",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 313,
+                "total_tokens": 319
+            },
+            "correct": true
+        },
+        {
+            "root": "zijdiwu",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: zijdiwu\nDefinition: 'zijdiwu' means 'perpetu' in English.\nSuffixes: al,ly\nAnswer: ",
+            "reference": "zijdiwu+al+ly",
+            "template": "morph_gen_en",
+            "original_root": "perpetu",
+            "model_output": "zijdiwu+al+ly",
+            "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 318,
+                "total_tokens": 326
+            },
+            "correct": true
+        },
+        {
+            "root": "coith",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: coith\nDefinition: 'coith' means 'faith' in English.\nSuffixes: ful,ness\nAnswer: ",
+            "reference": "coith+ful+ness",
+            "template": "morph_gen_en",
+            "original_root": "faith",
+            "model_output": "coith+ful+ness",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 313,
+                "total_tokens": 319
+            },
+            "correct": true
+        },
+        {
+            "root": "acesin",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: acesin\nDefinition: 'acesin' means 'origin' in English.\nSuffixes: al,ly\nAnswer: ",
+            "reference": "acesin+al+ly",
+            "template": "morph_gen_en",
+            "original_root": "origin",
+            "model_output": "acesin+al+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 314,
+                "total_tokens": 320
+            },
+            "correct": true
+        },
+        {
+            "root": "culeon",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: culeon\nDefinition: 'culeon' means 'nation' in English.\nSuffixes: al,ist\nAnswer: ",
+            "reference": "culeon+al+ist",
+            "template": "morph_gen_en",
+            "original_root": "nation",
+            "model_output": "culeon+ist+al",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 314,
+                "total_tokens": 321
+            },
+            "correct": false
+        },
+        {
+            "root": "wakern",
+            "suffixes": [
+                "ment",
+                "al"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: wakern\nDefinition: 'wakern' means 'govern' in English.\nSuffixes: ment,al\nAnswer: ",
+            "reference": "wakern+ment+al",
+            "template": "morph_gen_en",
+            "original_root": "govern",
+            "model_output": "wakern+ment+al",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 316,
+                "total_tokens": 323
+            },
+            "correct": true
+        },
+        {
+            "root": "nedesar",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: nedesar\nDefinition: 'nedesar' means 'militar' in English.\nSuffixes: ic,ist\nAnswer: ",
+            "reference": "nedesar+ist+ic",
+            "template": "morph_gen_en",
+            "original_root": "militar",
+            "model_output": "nedesar+ic+ist",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 315,
+                "total_tokens": 321
+            },
+            "correct": false
+        },
+        {
+            "root": "modme",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: modme\nDefinition: 'modme' means 'taste' in English.\nSuffixes: ful,ly\nAnswer: ",
+            "reference": "modme+ful+ly",
+            "template": "morph_gen_en",
+            "original_root": "taste",
+            "model_output": "modme+ful+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 313,
+                "total_tokens": 319
+            },
+            "correct": true
+        },
+        {
+            "root": "piigh",
+            "suffixes": [
+                "t",
+                "less"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: piigh\nDefinition: 'piigh' means 'weigh' in English.\nSuffixes: t,less\nAnswer: ",
+            "reference": "piigh+t+less",
+            "template": "morph_gen_en",
+            "original_root": "weigh",
+            "model_output": "piigh+less+t",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 312,
+                "total_tokens": 317
+            },
+            "correct": false
+        },
+        {
+            "root": "wyig",
+            "suffixes": [
+                "id",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: wyig\nDefinition: 'wyig' means 'frig' in English.\nSuffixes: ly,id\nAnswer: ",
+            "reference": "wyig+id+ly",
+            "template": "morph_gen_en",
+            "original_root": "frig",
+            "model_output": "wyig+id+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 313,
+                "total_tokens": 319
+            },
+            "correct": true
+        },
+        {
+            "root": "nyuject",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: nyuject\nDefinition: 'nyuject' means 'protect' in English.\nSuffixes: ive,ly\nAnswer: ",
+            "reference": "nyuject+ive+ly",
+            "template": "morph_gen_en",
+            "original_root": "protect",
+            "model_output": "nyuject+ive+ly",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 314,
+                "total_tokens": 321
+            },
+            "correct": true
+        },
+        {
+            "root": "hucetter",
+            "suffixes": [
+                "iall",
+                "y"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: hucetter\nDefinition: 'hucetter' means 'magister' in English.\nSuffixes: iall,y\nAnswer: ",
+            "reference": "hucetter+iall+y",
+            "template": "morph_gen_en",
+            "original_root": "magister",
+            "model_output": "hucetter+iall+y",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 316,
+                "total_tokens": 323
+            },
+            "correct": true
+        },
+        {
+            "root": "tibelf",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: tibelf\nDefinition: 'tibelf' means 'elf' in English.\nSuffixes: ish,ness\nAnswer: ",
+            "reference": "tibelf+ish+ness",
+            "template": "morph_gen_en",
+            "original_root": "elf",
+            "model_output": "tibelf+ness+ish",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 315,
+                "total_tokens": 322
+            },
+            "correct": false
+        },
+        {
+            "root": "bnkiylijic",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: bnkiylijic\nDefinition: 'bnkiylijic' means 'cybernetic' in English.\nSuffixes: ly,al\nAnswer: ",
+            "reference": "bnkiylijic+al+ly",
+            "template": "morph_gen_en",
+            "original_root": "cybernetic",
+            "model_output": "bnkiylijic+ly+al",
+            "usage": {
+                "completion_tokens": 9,
+                "prompt_tokens": 321,
+                "total_tokens": 330
+            },
+            "correct": false
+        },
+        {
+            "root": "jens",
+            "suffixes": [
+                "or",
+                "ious",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: jens\nDefinition: 'jens' means 'cens' in English.\nSuffixes: ious,or,ness\nAnswer: ",
+            "reference": "jens+or+ious+ness",
+            "template": "morph_gen_en",
+            "original_root": "cens",
+            "model_output": "jens+ious+ness+or",
+            "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 316,
+                "total_tokens": 324
+            },
+            "correct": false
+        },
+        {
+            "root": "faurn",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: faurn\nDefinition: 'faurn' means 'journ' in English.\nSuffixes: al,ist\nAnswer: ",
+            "reference": "faurn+al+ist",
+            "template": "morph_gen_en",
+            "original_root": "journ",
+            "model_output": "faurn+ist+al",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 313,
+                "total_tokens": 319
+            },
+            "correct": false
+        },
+        {
+            "root": "mfiep",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: mfiep\nDefinition: 'mfiep' means 'sheep' in English.\nSuffixes: ish,ness\nAnswer: ",
+            "reference": "mfiep+ish+ness",
+            "template": "morph_gen_en",
+            "original_root": "sheep",
+            "model_output": "mfiep+ish+ness",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 316,
+                "total_tokens": 323
+            },
+            "correct": true
+        },
+        {
+            "root": "ohe",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nAnswer: huth+less+ness\n\nExample 6:\nWord root: ohe\nDefinition: 'ohe' means 'use' in English.\nSuffixes: less,ly\nAnswer: ",
+            "reference": "ohe+less+ly",
+            "template": "morph_gen_en",
+            "original_root": "use",
+            "model_output": "ohe+less+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 312,
+                "total_tokens": 318
+            },
+            "correct": true
+        },
+        {
+            "root": "toin",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nAnswer: vetect+ion+al\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nAnswer: vhift+less+ness\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nAnswer: kogyiss+ist+ic\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nAnswer: sojic+ious+ness\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nAnswer: huth+less+ness\n\nExample 6:\nWord root: toin\nDefinition: 'toin' means 'pain' in English.\nSuffixes: less,ly\nAnswer: ",
+            "reference": "toin+less+ly",
+            "template": "morph_gen_en",
+            "original_root": "pain",
+            "model_output": "toin+less+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 312,
+                "total_tokens": 318
+            },
+            "correct": true
+        }
+    ]
+}

@@ -1,0 +1,1837 @@
+{
+    "metadata": {
+        "datapath": "../data/en/morpholex/temp_en/v4/MorphoLEX_en_prep_morph_sample_sep+_eval_morph_gen_en_s5.json",
+        "model": "gpt-3.5-turbo",
+        "temperature": 0.3,
+        "max_tokens": 40,
+        "top_p": 1,
+        "frequency_penalty": 0,
+        "presence_penalty": 0
+    },
+    "metrics": {
+        "usage": {
+            "prompt_tokens": 21209,
+            "completion_tokens": 577,
+            "total_tokens": 21786
+        },
+        "cost": {
+            "input": 0.0318135,
+            "output": 0.0011539999999999999,
+            "total": 0.032967500000000004
+        },
+        "macro_f1": 0.42857142857142855,
+        "accuracy": 0.75,
+        "precision": 0.5,
+        "recall": 0.375
+    },
+    "data": [
+        {
+            "root": "direct",
+            "suffixes": [
+                "ion",
+                "al"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: direct\nSuffixes: al,ion\nAnswer: ",
+            "reference": "direct+ion+al",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "direct+al+ion",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 211,
+                "total_tokens": 216
+            },
+            "correct": false
+        },
+        {
+            "root": "shift",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: shift\nSuffixes: less,ness\nAnswer: ",
+            "reference": "shift+less+ness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "shift+ness+less",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 212,
+                "total_tokens": 217
+            },
+            "correct": false
+        },
+        {
+            "root": "narciss",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: ",
+            "reference": "narciss+ist+ic",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "narciss+ist+ic",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 212,
+                "total_tokens": 219
+            },
+            "correct": true
+        },
+        {
+            "root": "judic",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: judic\nSuffixes: ness,ious\nAnswer: ",
+            "reference": "judic+ious+ness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "judic+ious+ness",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 212,
+                "total_tokens": 218
+            },
+            "correct": true
+        },
+        {
+            "root": "ruth",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ",
+            "reference": "ruth+less+ness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "ruth+less+ness",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 212,
+                "total_tokens": 218
+            },
+            "correct": true
+        },
+        {
+            "root": "imp",
+            "suffixes": [
+                "ish",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: imp\nSuffixes: ly,ish\nAnswer: ",
+            "reference": "imp+ish+ly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "imp+ly+ish",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 212,
+                "total_tokens": 217
+            },
+            "correct": false
+        },
+        {
+            "root": "rapac",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: rapac\nSuffixes: ness,ious\nAnswer: ",
+            "reference": "rapac+ious+ness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "rapac+ious+ness",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 213,
+                "total_tokens": 219
+            },
+            "correct": true
+        },
+        {
+            "root": "pacif",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: pacif\nSuffixes: ic,ist\nAnswer: ",
+            "reference": "pacif+ist+ic",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "pacif+ist+ic",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 213,
+                "total_tokens": 219
+            },
+            "correct": true
+        },
+        {
+            "root": "art",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: art\nSuffixes: less,ly\nAnswer: ",
+            "reference": "art+less+ly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "art+less+ly",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 212,
+                "total_tokens": 217
+            },
+            "correct": true
+        },
+        {
+            "root": "verac",
+            "suffixes": [
+                "ious",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: verac\nSuffixes: ly,ious\nAnswer: ",
+            "reference": "verac+ious+ly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "verac+ious+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 213,
+                "total_tokens": 219
+            },
+            "correct": true
+        },
+        {
+            "root": "dread",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: dread\nSuffixes: ful,ly\nAnswer: ",
+            "reference": "dread+ful+ly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "dread+ful+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 212,
+                "total_tokens": 218
+            },
+            "correct": true
+        },
+        {
+            "root": "abort",
+            "suffixes": [
+                "ion",
+                "ist"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: abort\nSuffixes: ion,ist\nAnswer: ",
+            "reference": "abort+ion+ist",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "abort+ion+ist",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 211,
+                "total_tokens": 216
+            },
+            "correct": true
+        },
+        {
+            "root": "categor",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: categor\nSuffixes: al,ic\nAnswer: ",
+            "reference": "categor+ic+al",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "categor+al+ic",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 212,
+                "total_tokens": 218
+            },
+            "correct": false
+        },
+        {
+            "root": "total",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: total\nSuffixes: ist,ic\nAnswer: ",
+            "reference": "total+ist+ic",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "total+ist+ic",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 211,
+                "total_tokens": 216
+            },
+            "correct": true
+        },
+        {
+            "root": "articul",
+            "suffixes": [
+                "ate",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: articul\nSuffixes: ate,ly\nAnswer: ",
+            "reference": "articul+ate+ly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "articul+ate+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 213,
+                "total_tokens": 219
+            },
+            "correct": true
+        },
+        {
+            "root": "electr",
+            "suffixes": [
+                "on",
+                "ics"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: electr\nSuffixes: on,ics\nAnswer: ",
+            "reference": "electr+on+ics",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "electr+on+ics",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 212,
+                "total_tokens": 218
+            },
+            "correct": true
+        },
+        {
+            "root": "gener",
+            "suffixes": [
+                "al",
+                "ity"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: gener\nSuffixes: al,ity\nAnswer: ",
+            "reference": "gener+al+ity",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "gener+al+ity",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 212,
+                "total_tokens": 217
+            },
+            "correct": true
+        },
+        {
+            "root": "green",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: green\nSuffixes: ish,ness\nAnswer: ",
+            "reference": "green+ish+ness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "green+ness+ish",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 212,
+                "total_tokens": 217
+            },
+            "correct": false
+        },
+        {
+            "root": "favor",
+            "suffixes": [
+                "it",
+                "ism"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: favor\nSuffixes: ism,it\nAnswer: ",
+            "reference": "favor+it+ism",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "favor+ism+it",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 212,
+                "total_tokens": 217
+            },
+            "correct": false
+        },
+        {
+            "root": "sin",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: sin\nSuffixes: less,ness\nAnswer: ",
+            "reference": "sin+less+ness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "sin+less+ness",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 212,
+                "total_tokens": 217
+            },
+            "correct": true
+        },
+        {
+            "root": "palat",
+            "suffixes": [
+                "al",
+                "ize"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: palat\nSuffixes: ize,al\nAnswer: ",
+            "reference": "palat+al+ize",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "palat+ize+al",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 214,
+                "total_tokens": 220
+            },
+            "correct": false
+        },
+        {
+            "root": "taste",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: taste\nSuffixes: ful,ness\nAnswer: ",
+            "reference": "taste+ful+ness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "taste+ful+ness",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 211,
+                "total_tokens": 217
+            },
+            "correct": true
+        },
+        {
+            "root": "origin",
+            "suffixes": [
+                "al",
+                "ity"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: origin\nSuffixes: al,ity\nAnswer: ",
+            "reference": "origin+al+ity",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "origin+al+ity",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 211,
+                "total_tokens": 216
+            },
+            "correct": true
+        },
+        {
+            "root": "phys",
+            "suffixes": [
+                "ic",
+                "al",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: phys\nSuffixes: ic,al,ness\nAnswer: ",
+            "reference": "phys+ic+al+ness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "phys+ic+al+ness",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 213,
+                "total_tokens": 220
+            },
+            "correct": true
+        },
+        {
+            "root": "blood",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: blood\nSuffixes: ness,less\nAnswer: ",
+            "reference": "blood+less+ness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "blood+less+ness",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 211,
+                "total_tokens": 216
+            },
+            "correct": true
+        },
+        {
+            "root": "list",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: list\nSuffixes: less,ly\nAnswer: ",
+            "reference": "list+less+ly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "list+less+ly",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 212,
+                "total_tokens": 217
+            },
+            "correct": true
+        },
+        {
+            "root": "transit",
+            "suffixes": [
+                "ion",
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: transit\nSuffixes: al,ly,ion\nAnswer: ",
+            "reference": "transit+ion+al+ly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "transit+ion+al+ly",
+            "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 213,
+                "total_tokens": 221
+            },
+            "correct": true
+        },
+        {
+            "root": "noct",
+            "suffixes": [
+                "urn",
+                "al"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: noct\nSuffixes: urn,al\nAnswer: ",
+            "reference": "noct+urn+al",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "noct+urn+al",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 212,
+                "total_tokens": 218
+            },
+            "correct": true
+        },
+        {
+            "root": "academ",
+            "suffixes": [
+                "ic",
+                "ian"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: academ\nSuffixes: ic,ian\nAnswer: ",
+            "reference": "academ+ic+ian",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "academ+ian+ic",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 213,
+                "total_tokens": 219
+            },
+            "correct": false
+        },
+        {
+            "root": "hyster",
+            "suffixes": [
+                "ic",
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: hyster\nSuffixes: ic,ly,al\nAnswer: ",
+            "reference": "hyster+ic+al+ly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "hyster+ic+al+ly",
+            "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 213,
+                "total_tokens": 221
+            },
+            "correct": true
+        },
+        {
+            "root": "lust",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: lust\nSuffixes: ness,ful\nAnswer: ",
+            "reference": "lust+ful+ness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "lust+ful+ness",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 211,
+                "total_tokens": 216
+            },
+            "correct": true
+        },
+        {
+            "root": "optim",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: optim\nSuffixes: ist,ic\nAnswer: ",
+            "reference": "optim+ist+ic",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "optim+ic+ist",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 212,
+                "total_tokens": 217
+            },
+            "correct": false
+        },
+        {
+            "root": "aphor",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: aphor\nSuffixes: ic,ist\nAnswer: ",
+            "reference": "aphor+ist+ic",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "aphor+ic+ist",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 213,
+                "total_tokens": 219
+            },
+            "correct": false
+        },
+        {
+            "root": "abort",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: abort\nSuffixes: ive,ly\nAnswer: ",
+            "reference": "abort+ive+ly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "abort+ive+ly",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 211,
+                "total_tokens": 216
+            },
+            "correct": true
+        },
+        {
+            "root": "defence",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: defence\nSuffixes: ness,less\nAnswer: ",
+            "reference": "defence+less+ness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "defence+less+ness",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 211,
+                "total_tokens": 217
+            },
+            "correct": true
+        },
+        {
+            "root": "vorac",
+            "suffixes": [
+                "ious",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: vorac\nSuffixes: ious,ly\nAnswer: ",
+            "reference": "vorac+ious+ly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "vorac+ious+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 214,
+                "total_tokens": 220
+            },
+            "correct": true
+        },
+        {
+            "root": "ego",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: ego\nSuffixes: ic,ist\nAnswer: ",
+            "reference": "ego+ist+ic",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "ego+ic+ist",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 212,
+                "total_tokens": 217
+            },
+            "correct": false
+        },
+        {
+            "root": "waste",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: waste\nSuffixes: ness,ful\nAnswer: ",
+            "reference": "waste+ful+ness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "waste+ful+ness",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 212,
+                "total_tokens": 218
+            },
+            "correct": true
+        },
+        {
+            "root": "senti",
+            "suffixes": [
+                "ment",
+                "al",
+                "ism"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: senti\nSuffixes: al,ment,ism\nAnswer: ",
+            "reference": "senti+ment+al+ism",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "senti+al+ment+ism",
+            "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 215,
+                "total_tokens": 223
+            },
+            "correct": false
+        },
+        {
+            "root": "triumph",
+            "suffixes": [
+                "ant",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: triumph\nSuffixes: ant,ly\nAnswer: ",
+            "reference": "triumph+ant+ly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "triumph+ant+ly",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 211,
+                "total_tokens": 218
+            },
+            "correct": true
+        },
+        {
+            "root": "liber",
+            "suffixes": [
+                "al",
+                "ism"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: liber\nSuffixes: al,ism\nAnswer: ",
+            "reference": "liber+al+ism",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "liber+ism+al",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 211,
+                "total_tokens": 217
+            },
+            "correct": false
+        },
+        {
+            "root": "period",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: period\nSuffixes: ic,al\nAnswer: ",
+            "reference": "period+ic+al",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "period+ic+al",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 211,
+                "total_tokens": 216
+            },
+            "correct": true
+        },
+        {
+            "root": "soul",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: soul\nSuffixes: ly,less\nAnswer: ",
+            "reference": "soul+less+ly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "soul+less+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 212,
+                "total_tokens": 218
+            },
+            "correct": true
+        },
+        {
+            "root": "preposition",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: preposition\nSuffixes: al,ly\nAnswer: ",
+            "reference": "preposition+al+ly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "preposition+al+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 213,
+                "total_tokens": 219
+            },
+            "correct": true
+        },
+        {
+            "root": "protect",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: protect\nSuffixes: ness,ive\nAnswer: ",
+            "reference": "protect+ive+ness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "protect+ive+ness",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 211,
+                "total_tokens": 216
+            },
+            "correct": true
+        },
+        {
+            "root": "cheer",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: cheer\nSuffixes: ful,ly\nAnswer: ",
+            "reference": "cheer+ful+ly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "cheer+ful+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 212,
+                "total_tokens": 218
+            },
+            "correct": true
+        },
+        {
+            "root": "passion",
+            "suffixes": [
+                "ate",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: passion\nSuffixes: ness,ate\nAnswer: ",
+            "reference": "passion+ate+ness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "passion+ate+ness",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 212,
+                "total_tokens": 218
+            },
+            "correct": true
+        },
+        {
+            "root": "lingu",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: lingu\nSuffixes: ist,ic\nAnswer: ",
+            "reference": "lingu+ist+ic",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "lingu+ist+ic",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 211,
+                "total_tokens": 217
+            },
+            "correct": true
+        },
+        {
+            "root": "hate",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: hate\nSuffixes: ful,ly\nAnswer: ",
+            "reference": "hate+ful+ly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "hate+ful+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 211,
+                "total_tokens": 217
+            },
+            "correct": true
+        },
+        {
+            "root": "gorm",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: gorm\nSuffixes: less,ly\nAnswer: ",
+            "reference": "gorm+less+ly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "gorm+less+ly",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 213,
+                "total_tokens": 218
+            },
+            "correct": true
+        },
+        {
+            "root": "feck",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: feck\nSuffixes: ness,less\nAnswer: ",
+            "reference": "feck+less+ness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "feck+ness+less",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 213,
+                "total_tokens": 219
+            },
+            "correct": false
+        },
+        {
+            "root": "real",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: real\nSuffixes: ist,ic\nAnswer: ",
+            "reference": "real+ist+ic",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "real+ist+ic",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 211,
+                "total_tokens": 216
+            },
+            "correct": true
+        },
+        {
+            "root": "function",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: function\nSuffixes: al,ist\nAnswer: ",
+            "reference": "function+al+ist",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "function+ist+al",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 211,
+                "total_tokens": 216
+            },
+            "correct": false
+        },
+        {
+            "root": "sweet",
+            "suffixes": [
+                "en",
+                "er"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: sweet\nSuffixes: er,en\nAnswer: ",
+            "reference": "sweet+en+er",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "sweet+er+en",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 210,
+                "total_tokens": 215
+            },
+            "correct": false
+        },
+        {
+            "root": "guile",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: guile\nSuffixes: less,ly\nAnswer: ",
+            "reference": "guile+less+ly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "guile+less+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 213,
+                "total_tokens": 219
+            },
+            "correct": true
+        },
+        {
+            "root": "fool",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: fool\nSuffixes: ness,ish\nAnswer: ",
+            "reference": "fool+ish+ness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "fool+ness+ish",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 212,
+                "total_tokens": 218
+            },
+            "correct": false
+        },
+        {
+            "root": "distinct",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: distinct\nSuffixes: ness,ive\nAnswer: ",
+            "reference": "distinct+ive+ness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "distinct+ive+ness",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 212,
+                "total_tokens": 217
+            },
+            "correct": true
+        },
+        {
+            "root": "norm",
+            "suffixes": [
+                "al",
+                "ize"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: norm\nSuffixes: ize,al\nAnswer: ",
+            "reference": "norm+al+ize",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "norm+al+ize",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 213,
+                "total_tokens": 218
+            },
+            "correct": true
+        },
+        {
+            "root": "articul",
+            "suffixes": [
+                "ate",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: articul\nSuffixes: ate,ness\nAnswer: ",
+            "reference": "articul+ate+ness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "articul+ate+ness",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 212,
+                "total_tokens": 218
+            },
+            "correct": true
+        },
+        {
+            "root": "forget",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: forget\nSuffixes: ful,ness\nAnswer: ",
+            "reference": "forget+ful+ness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "forget+ful+ness",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 212,
+                "total_tokens": 217
+            },
+            "correct": true
+        },
+        {
+            "root": "putr",
+            "suffixes": [
+                "efac",
+                "tive"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: putr\nSuffixes: efac,tive\nAnswer: ",
+            "reference": "putr+efac+tive",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "putr+efac+tive",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 213,
+                "total_tokens": 220
+            },
+            "correct": true
+        },
+        {
+            "root": "condition",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: condition\nSuffixes: ly,al\nAnswer: ",
+            "reference": "condition+al+ly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "condition+ly+al",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 212,
+                "total_tokens": 217
+            },
+            "correct": false
+        },
+        {
+            "root": "shame",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: shame\nSuffixes: ful,ness\nAnswer: ",
+            "reference": "shame+ful+ness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "shame+ful+ness",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 212,
+                "total_tokens": 218
+            },
+            "correct": true
+        },
+        {
+            "root": "vel",
+            "suffixes": [
+                "ar",
+                "ize"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: vel\nSuffixes: ar,ize\nAnswer: ",
+            "reference": "vel+ar+ize",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "vel+ar+ize",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 211,
+                "total_tokens": 216
+            },
+            "correct": true
+        },
+        {
+            "root": "senti",
+            "suffixes": [
+                "ment",
+                "al",
+                "ist"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: senti\nSuffixes: al,ment,ist\nAnswer: ",
+            "reference": "senti+ment+al+ist",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "senti+ment+al+ist",
+            "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 214,
+                "total_tokens": 222
+            },
+            "correct": true
+        },
+        {
+            "root": "bliss",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: bliss\nSuffixes: ful,ly\nAnswer: ",
+            "reference": "bliss+ful+ly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "bliss+ful+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 212,
+                "total_tokens": 218
+            },
+            "correct": true
+        },
+        {
+            "root": "tear",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: tear\nSuffixes: ly,less\nAnswer: ",
+            "reference": "tear+less+ly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "tear+less+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 212,
+                "total_tokens": 218
+            },
+            "correct": true
+        },
+        {
+            "root": "lect",
+            "suffixes": [
+                "ure",
+                "ship"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: lect\nSuffixes: ship,ure\nAnswer: ",
+            "reference": "lect+ure+ship",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "lect+ure+ship",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 212,
+                "total_tokens": 217
+            },
+            "correct": true
+        },
+        {
+            "root": "liturgic",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: liturgic\nSuffixes: al,ly\nAnswer: ",
+            "reference": "liturgic+al+ly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "liturgic+al+ly",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 213,
+                "total_tokens": 220
+            },
+            "correct": true
+        },
+        {
+            "root": "gener",
+            "suffixes": [
+                "al",
+                "issimo"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: gener\nSuffixes: issimo,al\nAnswer: ",
+            "reference": "gener+al+issimo",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "gener+issimo+al",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 213,
+                "total_tokens": 219
+            },
+            "correct": false
+        },
+        {
+            "root": "help",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: help\nSuffixes: less,ness\nAnswer: ",
+            "reference": "help+less+ness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "help+less+ness",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 212,
+                "total_tokens": 217
+            },
+            "correct": true
+        },
+        {
+            "root": "intuit",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: intuit\nSuffixes: ive,ly\nAnswer: ",
+            "reference": "intuit+ive+ly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "intuit+ive+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 211,
+                "total_tokens": 217
+            },
+            "correct": true
+        },
+        {
+            "root": "bash",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: bash\nSuffixes: ly,ful\nAnswer: ",
+            "reference": "bash+ful+ly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "bash+ful+ly",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 211,
+                "total_tokens": 216
+            },
+            "correct": true
+        },
+        {
+            "root": "select",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: select\nSuffixes: ness,ive\nAnswer: ",
+            "reference": "select+ive+ness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "select+ive+ness",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 211,
+                "total_tokens": 216
+            },
+            "correct": true
+        },
+        {
+            "root": "join",
+            "suffixes": [
+                "t",
+                "ure"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: join\nSuffixes: ure,t\nAnswer: ",
+            "reference": "join+t+ure",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "join+ture+t",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 211,
+                "total_tokens": 215
+            },
+            "correct": false
+        },
+        {
+            "root": "period",
+            "suffixes": [
+                "ic",
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: period\nSuffixes: al,ly,ic\nAnswer: ",
+            "reference": "period+ic+al+ly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "period+ic+al+ly",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 213,
+                "total_tokens": 220
+            },
+            "correct": true
+        },
+        {
+            "root": "self",
+            "suffixes": [
+                "ish",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: self\nSuffixes: ly,ish\nAnswer: ",
+            "reference": "self+ish+ly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "self+ly+ish",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 212,
+                "total_tokens": 217
+            },
+            "correct": false
+        },
+        {
+            "root": "obstruct",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: obstruct\nSuffixes: ness,ive\nAnswer: ",
+            "reference": "obstruct+ive+ness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "obstruct+ive+ness",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 212,
+                "total_tokens": 218
+            },
+            "correct": true
+        },
+        {
+            "root": "dole",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: dole\nSuffixes: ly,ful\nAnswer: ",
+            "reference": "dole+ful+ly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "dole+ful+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 213,
+                "total_tokens": 219
+            },
+            "correct": true
+        },
+        {
+            "root": "opt",
+            "suffixes": [
+                "ion",
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: opt\nSuffixes: ly,al,ion\nAnswer: ",
+            "reference": "opt+ion+al+ly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "opt+ion+al+ly",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 214,
+                "total_tokens": 221
+            },
+            "correct": true
+        },
+        {
+            "root": "precoc",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: precoc\nSuffixes: ious,ness\nAnswer: ",
+            "reference": "precoc+ious+ness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "precoc+ious+ness",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 214,
+                "total_tokens": 220
+            },
+            "correct": true
+        },
+        {
+            "root": "pract",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: pract\nSuffixes: ic,al\nAnswer: ",
+            "reference": "pract+ic+al",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "pract+ic+al",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 212,
+                "total_tokens": 218
+            },
+            "correct": true
+        },
+        {
+            "root": "perpetu",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: perpetu\nSuffixes: al,ly\nAnswer: ",
+            "reference": "perpetu+al+ly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "perpetu+al+ly",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 212,
+                "total_tokens": 219
+            },
+            "correct": true
+        },
+        {
+            "root": "faith",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: faith\nSuffixes: ness,ful\nAnswer: ",
+            "reference": "faith+ful+ness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "faith+ness+ful",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 212,
+                "total_tokens": 217
+            },
+            "correct": false
+        },
+        {
+            "root": "origin",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: origin\nSuffixes: ly,al\nAnswer: ",
+            "reference": "origin+al+ly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "origin+al+ly",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 212,
+                "total_tokens": 217
+            },
+            "correct": true
+        },
+        {
+            "root": "nation",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: nation\nSuffixes: ist,al\nAnswer: ",
+            "reference": "nation+al+ist",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "nation+ist+al",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 212,
+                "total_tokens": 217
+            },
+            "correct": false
+        },
+        {
+            "root": "govern",
+            "suffixes": [
+                "ment",
+                "al"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: govern\nSuffixes: al,ment\nAnswer: ",
+            "reference": "govern+ment+al",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "govern+ment+al",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 211,
+                "total_tokens": 217
+            },
+            "correct": true
+        },
+        {
+            "root": "militar",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: militar\nSuffixes: ic,ist\nAnswer: ",
+            "reference": "militar+ist+ic",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "militar+ist+ic",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 212,
+                "total_tokens": 219
+            },
+            "correct": true
+        },
+        {
+            "root": "taste",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: taste\nSuffixes: ly,ful\nAnswer: ",
+            "reference": "taste+ful+ly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "taste+ly+ful",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 212,
+                "total_tokens": 218
+            },
+            "correct": false
+        },
+        {
+            "root": "weigh",
+            "suffixes": [
+                "t",
+                "less"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: weigh\nSuffixes: less,t\nAnswer: ",
+            "reference": "weigh+t+less",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "weigh+t+less",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 210,
+                "total_tokens": 214
+            },
+            "correct": true
+        },
+        {
+            "root": "frig",
+            "suffixes": [
+                "id",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: frig\nSuffixes: ly,id\nAnswer: ",
+            "reference": "frig+id+ly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "frig+id+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 211,
+                "total_tokens": 217
+            },
+            "correct": true
+        },
+        {
+            "root": "protect",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: protect\nSuffixes: ive,ly\nAnswer: ",
+            "reference": "protect+ive+ly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "protect+ive+ly",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 212,
+                "total_tokens": 217
+            },
+            "correct": true
+        },
+        {
+            "root": "magister",
+            "suffixes": [
+                "iall",
+                "y"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: magister\nSuffixes: iall,y\nAnswer: ",
+            "reference": "magister+iall+y",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "magister+iall+y",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 213,
+                "total_tokens": 219
+            },
+            "correct": true
+        },
+        {
+            "root": "elf",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: elf\nSuffixes: ness,ish\nAnswer: ",
+            "reference": "elf+ish+ness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "elf+ish+ness",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 211,
+                "total_tokens": 216
+            },
+            "correct": true
+        },
+        {
+            "root": "cybernetic",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: cybernetic\nSuffixes: ly,al\nAnswer: ",
+            "reference": "cybernetic+al+ly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "cybernetic+al+ly",
+            "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 214,
+                "total_tokens": 222
+            },
+            "correct": true
+        },
+        {
+            "root": "cens",
+            "suffixes": [
+                "or",
+                "ious",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: cens\nSuffixes: or,ious,ness\nAnswer: ",
+            "reference": "cens+or+ious+ness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "cens+or+ious+ness",
+            "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 215,
+                "total_tokens": 223
+            },
+            "correct": true
+        },
+        {
+            "root": "journ",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ist,ic\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: journ\nSuffixes: al,ist\nAnswer: ",
+            "reference": "journ+al+ist",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "journ+ist+al",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 212,
+                "total_tokens": 218
+            },
+            "correct": false
+        },
+        {
+            "root": "sheep",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: sheep\nSuffixes: ish,ness\nAnswer: ",
+            "reference": "sheep+ish+ness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "sheep+ish+ness",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 213,
+                "total_tokens": 219
+            },
+            "correct": true
+        },
+        {
+            "root": "use",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: ion,al\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: ness,less\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ness,ious\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: less,ness\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: use\nSuffixes: ly,less\nAnswer: ",
+            "reference": "use+less+ly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "use+less+ly",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 211,
+                "total_tokens": 216
+            },
+            "correct": true
+        },
+        {
+            "root": "pain",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: al,ion\nAnswer: direct+ion+al\n\nExample 2:\nWord root: shift\nSuffixes: less,ness\nAnswer: shift+less+ness\n\nExample 3:\nWord root: narciss\nSuffixes: ic,ist\nAnswer: narciss+ist+ic\n\nExample 4:\nWord root: judic\nSuffixes: ious,ness\nAnswer: judic+ious+ness\n\nExample 5:\nWord root: ruth\nSuffixes: ness,less\nAnswer: ruth+less+ness\n\nExample 6:\nWord root: pain\nSuffixes: less,ly\nAnswer: ",
+            "reference": "pain+less+ly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "pain+less+ly",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 212,
+                "total_tokens": 217
+            },
+            "correct": true
+        }
+    ]
+}

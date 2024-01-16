@@ -41,7 +41,7 @@ SHOT_TEMPLATES = {
 }
 
 def _is_ood_sample(sample):
-    return "original_root" in sample
+    return sample.get("original_root", None) is not None
 
 def _get_sample_definition(sample, language, template_lang):
     if template_lang == "en":

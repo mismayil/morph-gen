@@ -1,0 +1,1837 @@
+{
+    "metadata": {
+        "datapath": "../data/en/morpholex/temp_tr/v4/MorphoLEX_en_prep_morph_sample_nonce_sep+_eval_morph_gen_tr_s3.json",
+        "model": "gpt-3.5-turbo",
+        "temperature": 0.3,
+        "max_tokens": 40,
+        "top_p": 1,
+        "frequency_penalty": 0,
+        "presence_penalty": 0
+    },
+    "metrics": {
+        "usage": {
+            "prompt_tokens": 32393,
+            "completion_tokens": 714,
+            "total_tokens": 33107
+        },
+        "cost": {
+            "input": 0.0485895,
+            "output": 0.001428,
+            "total": 0.0500175
+        },
+        "macro_f1": 0.3865030674846626,
+        "accuracy": 0.63,
+        "precision": 0.5,
+        "recall": 0.315
+    },
+    "data": [
+        {
+            "root": "vetect",
+            "suffixes": [
+                "ion",
+                "al"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: ",
+            "reference": "vetect+ion+al",
+            "template": "morph_gen_tr",
+            "original_root": "direct",
+            "model_output": "vetect+al+ion",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 322,
+                "total_tokens": 328
+            },
+            "correct": false
+        },
+        {
+            "root": "vhift",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: ",
+            "reference": "vhift+less+ness",
+            "template": "morph_gen_tr",
+            "original_root": "shift",
+            "model_output": "Geçersiz giriş. Lütfen doğru bir giriş yapın.",
+            "usage": {
+                "completion_tokens": 21,
+                "prompt_tokens": 322,
+                "total_tokens": 343
+            },
+            "correct": false
+        },
+        {
+            "root": "kogyiss",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: ",
+            "reference": "kogyiss+ist+ic",
+            "template": "morph_gen_tr",
+            "original_root": "narciss",
+            "model_output": "kogyiss+ic+ist",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 326,
+                "total_tokens": 333
+            },
+            "correct": false
+        },
+        {
+            "root": "sojic",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: sojic\nTanım: 'sojic' İngilizce 'judic' anlamına gelir.\nEkler: ness,ious\nCevap: ",
+            "reference": "sojic+ious+ness",
+            "template": "morph_gen_tr",
+            "original_root": "judic",
+            "model_output": "sojic+ious+ness",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 325,
+                "total_tokens": 332
+            },
+            "correct": true
+        },
+        {
+            "root": "huth",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: huth\nTanım: 'huth' İngilizce 'ruth' anlamına gelir.\nEkler: ness,less\nCevap: ",
+            "reference": "huth+less+ness",
+            "template": "morph_gen_tr",
+            "original_root": "ruth",
+            "model_output": "huth+ness+less",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 323,
+                "total_tokens": 329
+            },
+            "correct": false
+        },
+        {
+            "root": "hizimp",
+            "suffixes": [
+                "ish",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: hizimp\nTanım: 'hizimp' İngilizce 'imp' anlamına gelir.\nEkler: ly,ish\nCevap: ",
+            "reference": "hizimp+ish+ly",
+            "template": "morph_gen_tr",
+            "original_root": "imp",
+            "model_output": "hizimp+ly+ish",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 324,
+                "total_tokens": 331
+            },
+            "correct": false
+        },
+        {
+            "root": "zunac",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: zunac\nTanım: 'zunac' İngilizce 'rapac' anlamına gelir.\nEkler: ness,ious\nCevap: ",
+            "reference": "zunac+ious+ness",
+            "template": "morph_gen_tr",
+            "original_root": "rapac",
+            "model_output": "zunac+ious+ness",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 324,
+                "total_tokens": 331
+            },
+            "correct": true
+        },
+        {
+            "root": "ponif",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: ponif\nTanım: 'ponif' İngilizce 'pacif' anlamına gelir.\nEkler: ist,ic\nCevap: ",
+            "reference": "ponif+ist+ic",
+            "template": "morph_gen_tr",
+            "original_root": "pacif",
+            "model_output": "ponif+ic+ist",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 323,
+                "total_tokens": 329
+            },
+            "correct": false
+        },
+        {
+            "root": "fudart",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: fudart\nTanım: 'fudart' İngilizce 'art' anlamına gelir.\nEkler: ly,less\nCevap: ",
+            "reference": "fudart+less+ly",
+            "template": "morph_gen_tr",
+            "original_root": "art",
+            "model_output": "fudart+less+ly",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 324,
+                "total_tokens": 331
+            },
+            "correct": true
+        },
+        {
+            "root": "gibac",
+            "suffixes": [
+                "ious",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: gibac\nTanım: 'gibac' İngilizce 'verac' anlamına gelir.\nEkler: ious,ly\nCevap: ",
+            "reference": "gibac+ious+ly",
+            "template": "morph_gen_tr",
+            "original_root": "verac",
+            "model_output": "gibac+ious+ly",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 325,
+                "total_tokens": 332
+            },
+            "correct": true
+        },
+        {
+            "root": "mziad",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: mziad\nTanım: 'mziad' İngilizce 'dread' anlamına gelir.\nEkler: ful,ly\nCevap: ",
+            "reference": "mziad+ful+ly",
+            "template": "morph_gen_tr",
+            "original_root": "dread",
+            "model_output": "mziad+ful+ly",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 325,
+                "total_tokens": 332
+            },
+            "correct": true
+        },
+        {
+            "root": "urort",
+            "suffixes": [
+                "ion",
+                "ist"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: urort\nTanım: 'urort' İngilizce 'abort' anlamına gelir.\nEkler: ion,ist\nCevap: ",
+            "reference": "urort+ion+ist",
+            "template": "morph_gen_tr",
+            "original_root": "abort",
+            "model_output": "urort+ion+ist",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 322,
+                "total_tokens": 328
+            },
+            "correct": true
+        },
+        {
+            "root": "rukizor",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: rukizor\nTanım: 'rukizor' İngilizce 'categor' anlamına gelir.\nEkler: al,ic\nCevap: ",
+            "reference": "rukizor+ic+al",
+            "template": "morph_gen_tr",
+            "original_root": "categor",
+            "model_output": "rukizor+ic+al",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 326,
+                "total_tokens": 333
+            },
+            "correct": true
+        },
+        {
+            "root": "hupal",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: hupal\nTanım: 'hupal' İngilizce 'total' anlamına gelir.\nEkler: ist,ic\nCevap: ",
+            "reference": "hupal+ist+ic",
+            "template": "morph_gen_tr",
+            "original_root": "total",
+            "model_output": "hupal+ist+ic",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 322,
+                "total_tokens": 328
+            },
+            "correct": true
+        },
+        {
+            "root": "uzzetul",
+            "suffixes": [
+                "ate",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: uzzetul\nTanım: 'uzzetul' İngilizce 'articul' anlamına gelir.\nEkler: ly,ate\nCevap: ",
+            "reference": "uzzetul+ate+ly",
+            "template": "morph_gen_tr",
+            "original_root": "articul",
+            "model_output": "uzzetul+ate+ly",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 326,
+                "total_tokens": 333
+            },
+            "correct": true
+        },
+        {
+            "root": "icectr",
+            "suffixes": [
+                "on",
+                "ics"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: icectr\nTanım: 'icectr' İngilizce 'electr' anlamına gelir.\nEkler: on,ics\nCevap: ",
+            "reference": "icectr+on+ics",
+            "template": "morph_gen_tr",
+            "original_root": "electr",
+            "model_output": "icectr+on+ics",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 325,
+                "total_tokens": 332
+            },
+            "correct": true
+        },
+        {
+            "root": "ziver",
+            "suffixes": [
+                "al",
+                "ity"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: ziver\nTanım: 'ziver' İngilizce 'gener' anlamına gelir.\nEkler: al,ity\nCevap: ",
+            "reference": "ziver+al+ity",
+            "template": "morph_gen_tr",
+            "original_root": "gener",
+            "model_output": "ziver+al+ity",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 322,
+                "total_tokens": 328
+            },
+            "correct": true
+        },
+        {
+            "root": "rbien",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: rbien\nTanım: 'rbien' İngilizce 'green' anlamına gelir.\nEkler: ish,ness\nCevap: ",
+            "reference": "rbien+ish+ness",
+            "template": "morph_gen_tr",
+            "original_root": "green",
+            "model_output": "rbien+ish+ness",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 323,
+                "total_tokens": 329
+            },
+            "correct": true
+        },
+        {
+            "root": "modor",
+            "suffixes": [
+                "it",
+                "ism"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: modor\nTanım: 'modor' İngilizce 'favor' anlamına gelir.\nEkler: it,ism\nCevap: ",
+            "reference": "modor+it+ism",
+            "template": "morph_gen_tr",
+            "original_root": "favor",
+            "model_output": "modor+ism+it",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 322,
+                "total_tokens": 328
+            },
+            "correct": false
+        },
+        {
+            "root": "nin",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: nin\nTanım: 'nin' İngilizce 'sin' anlamına gelir.\nEkler: less,ness\nCevap: ",
+            "reference": "nin+less+ness",
+            "template": "morph_gen_tr",
+            "original_root": "sin",
+            "model_output": "nin+less+ness",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 320,
+                "total_tokens": 325
+            },
+            "correct": true
+        },
+        {
+            "root": "lomat",
+            "suffixes": [
+                "al",
+                "ize"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: lomat\nTanım: 'lomat' İngilizce 'palat' anlamına gelir.\nEkler: ize,al\nCevap: ",
+            "reference": "lomat+al+ize",
+            "template": "morph_gen_tr",
+            "original_root": "palat",
+            "model_output": "lomat+ize+al",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 324,
+                "total_tokens": 330
+            },
+            "correct": false
+        },
+        {
+            "root": "vukpe",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: vukpe\nTanım: 'vukpe' İngilizce 'taste' anlamına gelir.\nEkler: ness,ful\nCevap: ",
+            "reference": "vukpe+ful+ness",
+            "template": "morph_gen_tr",
+            "original_root": "taste",
+            "model_output": "vukpe+ful+ness",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 325,
+                "total_tokens": 332
+            },
+            "correct": true
+        },
+        {
+            "root": "aletin",
+            "suffixes": [
+                "al",
+                "ity"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: aletin\nTanım: 'aletin' İngilizce 'origin' anlamına gelir.\nEkler: al,ity\nCevap: ",
+            "reference": "aletin+al+ity",
+            "template": "morph_gen_tr",
+            "original_root": "origin",
+            "model_output": "aletin+al+ity",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 324,
+                "total_tokens": 331
+            },
+            "correct": true
+        },
+        {
+            "root": "mkfsphys",
+            "suffixes": [
+                "ic",
+                "al",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: mkfsphys\nTanım: 'mkfsphys' İngilizce 'phys' anlamına gelir.\nEkler: al,ic,ness\nCevap: ",
+            "reference": "mkfsphys+ic+al+ness",
+            "template": "morph_gen_tr",
+            "original_root": "phys",
+            "model_output": "mkfsphys+al+ic+ness",
+            "usage": {
+                "completion_tokens": 9,
+                "prompt_tokens": 326,
+                "total_tokens": 335
+            },
+            "correct": false
+        },
+        {
+            "root": "gtaod",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: gtaod\nTanım: 'gtaod' İngilizce 'blood' anlamına gelir.\nEkler: less,ness\nCevap: ",
+            "reference": "gtaod+less+ness",
+            "template": "morph_gen_tr",
+            "original_root": "blood",
+            "model_output": "gtaod+less+ness",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 324,
+                "total_tokens": 331
+            },
+            "correct": true
+        },
+        {
+            "root": "tist",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: tist\nTanım: 'tist' İngilizce 'list' anlamına gelir.\nEkler: less,ly\nCevap: ",
+            "reference": "tist+less+ly",
+            "template": "morph_gen_tr",
+            "original_root": "list",
+            "model_output": "tist+less+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 322,
+                "total_tokens": 328
+            },
+            "correct": true
+        },
+        {
+            "root": "yfopjit",
+            "suffixes": [
+                "ion",
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: yfopjit\nTanım: 'yfopjit' İngilizce 'transit' anlamına gelir.\nEkler: ly,ion,al\nCevap: ",
+            "reference": "yfopjit+ion+al+ly",
+            "template": "morph_gen_tr",
+            "original_root": "transit",
+            "model_output": "yfopjit+ion+al+ly",
+            "usage": {
+                "completion_tokens": 10,
+                "prompt_tokens": 329,
+                "total_tokens": 339
+            },
+            "correct": true
+        },
+        {
+            "root": "foct",
+            "suffixes": [
+                "urn",
+                "al"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: foct\nTanım: 'foct' İngilizce 'noct' anlamına gelir.\nEkler: urn,al\nCevap: ",
+            "reference": "foct+urn+al",
+            "template": "morph_gen_tr",
+            "original_root": "noct",
+            "model_output": "foct+urn+al",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 323,
+                "total_tokens": 329
+            },
+            "correct": true
+        },
+        {
+            "root": "owomem",
+            "suffixes": [
+                "ic",
+                "ian"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: owomem\nTanım: 'owomem' İngilizce 'academ' anlamına gelir.\nEkler: ian,ic\nCevap: ",
+            "reference": "owomem+ic+ian",
+            "template": "morph_gen_tr",
+            "original_root": "academ",
+            "model_output": "owomem+ian+ic",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 326,
+                "total_tokens": 333
+            },
+            "correct": false
+        },
+        {
+            "root": "jbzser",
+            "suffixes": [
+                "ic",
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: jbzser\nTanım: 'jbzser' İngilizce 'hyster' anlamına gelir.\nEkler: al,ic,ly\nCevap: ",
+            "reference": "jbzser+ic+al+ly",
+            "template": "morph_gen_tr",
+            "original_root": "hyster",
+            "model_output": "jbzser+ic+al+ly",
+            "usage": {
+                "completion_tokens": 9,
+                "prompt_tokens": 327,
+                "total_tokens": 336
+            },
+            "correct": true
+        },
+        {
+            "root": "vust",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: vust\nTanım: 'vust' İngilizce 'lust' anlamına gelir.\nEkler: ness,ful\nCevap: ",
+            "reference": "vust+ful+ness",
+            "template": "morph_gen_tr",
+            "original_root": "lust",
+            "model_output": "vust+ful+ness",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 322,
+                "total_tokens": 328
+            },
+            "correct": true
+        },
+        {
+            "root": "ukfim",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: ukfim\nTanım: 'ukfim' İngilizce 'optim' anlamına gelir.\nEkler: ist,ic\nCevap: ",
+            "reference": "ukfim+ist+ic",
+            "template": "morph_gen_tr",
+            "original_root": "optim",
+            "model_output": "ukfim+ist+ic",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 324,
+                "total_tokens": 331
+            },
+            "correct": true
+        },
+        {
+            "root": "onsor",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: onsor\nTanım: 'onsor' İngilizce 'aphor' anlamına gelir.\nEkler: ic,ist\nCevap: ",
+            "reference": "onsor+ist+ic",
+            "template": "morph_gen_tr",
+            "original_root": "aphor",
+            "model_output": "onsor+ic+ist",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 323,
+                "total_tokens": 329
+            },
+            "correct": false
+        },
+        {
+            "root": "uwort",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: uwort\nTanım: 'uwort' İngilizce 'abort' anlamına gelir.\nEkler: ive,ly\nCevap: ",
+            "reference": "uwort+ive+ly",
+            "template": "morph_gen_tr",
+            "original_root": "abort",
+            "model_output": "uwort+ive+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 322,
+                "total_tokens": 328
+            },
+            "correct": true
+        },
+        {
+            "root": "lilicje",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: lilicje\nTanım: 'lilicje' İngilizce 'defence' anlamına gelir.\nEkler: ness,less\nCevap: ",
+            "reference": "lilicje+less+ness",
+            "template": "morph_gen_tr",
+            "original_root": "defence",
+            "model_output": "lilicje+less+ness",
+            "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 326,
+                "total_tokens": 334
+            },
+            "correct": true
+        },
+        {
+            "root": "rutac",
+            "suffixes": [
+                "ious",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: rutac\nTanım: 'rutac' İngilizce 'vorac' anlamına gelir.\nEkler: ious,ly\nCevap: ",
+            "reference": "rutac+ious+ly",
+            "template": "morph_gen_tr",
+            "original_root": "vorac",
+            "model_output": "rutac+ious+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 324,
+                "total_tokens": 330
+            },
+            "correct": true
+        },
+        {
+            "root": "ilo",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: ilo\nTanım: 'ilo' İngilizce 'ego' anlamına gelir.\nEkler: ist,ic\nCevap: ",
+            "reference": "ilo+ist+ic",
+            "template": "morph_gen_tr",
+            "original_root": "ego",
+            "model_output": "ilo+ist+ic",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 321,
+                "total_tokens": 326
+            },
+            "correct": true
+        },
+        {
+            "root": "bupye",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: bupye\nTanım: 'bupye' İngilizce 'waste' anlamına gelir.\nEkler: ness,ful\nCevap: ",
+            "reference": "bupye+ful+ness",
+            "template": "morph_gen_tr",
+            "original_root": "waste",
+            "model_output": "bupye+ful+ness",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 325,
+                "total_tokens": 332
+            },
+            "correct": true
+        },
+        {
+            "root": "fivwi",
+            "suffixes": [
+                "ment",
+                "al",
+                "ism"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: fivwi\nTanım: 'fivwi' İngilizce 'senti' anlamına gelir.\nEkler: ment,ism,al\nCevap: ",
+            "reference": "fivwi+ment+al+ism",
+            "template": "morph_gen_tr",
+            "original_root": "senti",
+            "model_output": "fivwi+ism+al+ment",
+            "usage": {
+                "completion_tokens": 9,
+                "prompt_tokens": 327,
+                "total_tokens": 336
+            },
+            "correct": false
+        },
+        {
+            "root": "fkeumph",
+            "suffixes": [
+                "ant",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: fkeumph\nTanım: 'fkeumph' İngilizce 'triumph' anlamına gelir.\nEkler: ant,ly\nCevap: ",
+            "reference": "fkeumph+ant+ly",
+            "template": "morph_gen_tr",
+            "original_root": "triumph",
+            "model_output": "fkeumph+ant+ly",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 326,
+                "total_tokens": 333
+            },
+            "correct": true
+        },
+        {
+            "root": "jeyer",
+            "suffixes": [
+                "al",
+                "ism"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: jeyer\nTanım: 'jeyer' İngilizce 'liber' anlamına gelir.\nEkler: ism,al\nCevap: ",
+            "reference": "jeyer+al+ism",
+            "template": "morph_gen_tr",
+            "original_root": "liber",
+            "model_output": "jeyer+ism+al",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 324,
+                "total_tokens": 330
+            },
+            "correct": false
+        },
+        {
+            "root": "higeod",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: higeod\nTanım: 'higeod' İngilizce 'period' anlamına gelir.\nEkler: ic,al\nCevap: ",
+            "reference": "higeod+ic+al",
+            "template": "morph_gen_tr",
+            "original_root": "period",
+            "model_output": "higeod+al+ic",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 324,
+                "total_tokens": 331
+            },
+            "correct": false
+        },
+        {
+            "root": "guul",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: guul\nTanım: 'guul' İngilizce 'soul' anlamına gelir.\nEkler: ly,less\nCevap: ",
+            "reference": "guul+less+ly",
+            "template": "morph_gen_tr",
+            "original_root": "soul",
+            "model_output": "guul+less+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 323,
+                "total_tokens": 329
+            },
+            "correct": true
+        },
+        {
+            "root": "jjikuzeheon",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: jjikuzeheon\nTanım: 'jjikuzeheon' İngilizce 'preposition' anlamına gelir.\nEkler: al,ly\nCevap: ",
+            "reference": "jjikuzeheon+al+ly",
+            "template": "morph_gen_tr",
+            "original_root": "preposition",
+            "model_output": "jjikuzeheon+al+ly",
+            "usage": {
+                "completion_tokens": 9,
+                "prompt_tokens": 329,
+                "total_tokens": 338
+            },
+            "correct": true
+        },
+        {
+            "root": "vmamect",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: vmamect\nTanım: 'vmamect' İngilizce 'protect' anlamına gelir.\nEkler: ive,ness\nCevap: ",
+            "reference": "vmamect+ive+ness",
+            "template": "morph_gen_tr",
+            "original_root": "protect",
+            "model_output": "vmamect+ive+ness",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 324,
+                "total_tokens": 331
+            },
+            "correct": true
+        },
+        {
+            "root": "jlier",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: jlier\nTanım: 'jlier' İngilizce 'cheer' anlamına gelir.\nEkler: ly,ful\nCevap: ",
+            "reference": "jlier+ful+ly",
+            "template": "morph_gen_tr",
+            "original_root": "cheer",
+            "model_output": "jlier+ful+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 323,
+                "total_tokens": 329
+            },
+            "correct": true
+        },
+        {
+            "root": "sozyeon",
+            "suffixes": [
+                "ate",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: sozyeon\nTanım: 'sozyeon' İngilizce 'passion' anlamına gelir.\nEkler: ness,ate\nCevap: ",
+            "reference": "sozyeon+ate+ness",
+            "template": "morph_gen_tr",
+            "original_root": "passion",
+            "model_output": "sozyeon+ate+ness",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 325,
+                "total_tokens": 332
+            },
+            "correct": true
+        },
+        {
+            "root": "keblu",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: keblu\nTanım: 'keblu' İngilizce 'lingu' anlamına gelir.\nEkler: ist,ic\nCevap: ",
+            "reference": "keblu+ist+ic",
+            "template": "morph_gen_tr",
+            "original_root": "lingu",
+            "model_output": "Bu örnekte doğru bir kelime üretmek mümkün değildir, çünkü verilen eklerle 'keblu' kökünden dilbilgisel",
+            "usage": {
+                "completion_tokens": 40,
+                "prompt_tokens": 325,
+                "total_tokens": 365
+            },
+            "correct": false
+        },
+        {
+            "root": "wobe",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: wobe\nTanım: 'wobe' İngilizce 'hate' anlamına gelir.\nEkler: ly,ful\nCevap: ",
+            "reference": "wobe+ful+ly",
+            "template": "morph_gen_tr",
+            "original_root": "hate",
+            "model_output": "wobe+ful+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 323,
+                "total_tokens": 329
+            },
+            "correct": true
+        },
+        {
+            "root": "morm",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: morm\nTanım: 'morm' İngilizce 'gorm' anlamına gelir.\nEkler: ly,less\nCevap: ",
+            "reference": "morm+less+ly",
+            "template": "morph_gen_tr",
+            "original_root": "gorm",
+            "model_output": "morm+ly+less",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 322,
+                "total_tokens": 328
+            },
+            "correct": false
+        },
+        {
+            "root": "ceck",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: ceck\nTanım: 'ceck' İngilizce 'feck' anlamına gelir.\nEkler: less,ness\nCevap: ",
+            "reference": "ceck+less+ness",
+            "template": "morph_gen_tr",
+            "original_root": "feck",
+            "model_output": "ceck+less+ness",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 323,
+                "total_tokens": 329
+            },
+            "correct": true
+        },
+        {
+            "root": "tial",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: tial\nTanım: 'tial' İngilizce 'real' anlamına gelir.\nEkler: ic,ist\nCevap: ",
+            "reference": "tial+ist+ic",
+            "template": "morph_gen_tr",
+            "original_root": "real",
+            "model_output": "tial+ic+ist",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 322,
+                "total_tokens": 328
+            },
+            "correct": false
+        },
+        {
+            "root": "coltteon",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: coltteon\nTanım: 'coltteon' İngilizce 'function' anlamına gelir.\nEkler: al,ist\nCevap: ",
+            "reference": "coltteon+al+ist",
+            "template": "morph_gen_tr",
+            "original_root": "function",
+            "model_output": "coltteon+ist+al",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 324,
+                "total_tokens": 331
+            },
+            "correct": false
+        },
+        {
+            "root": "rniet",
+            "suffixes": [
+                "en",
+                "er"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: rniet\nTanım: 'rniet' İngilizce 'sweet' anlamına gelir.\nEkler: en,er\nCevap: ",
+            "reference": "rniet+en+er",
+            "template": "morph_gen_tr",
+            "original_root": "sweet",
+            "model_output": "rniet+er+en",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 322,
+                "total_tokens": 328
+            },
+            "correct": false
+        },
+        {
+            "root": "paele",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: paele\nTanım: 'paele' İngilizce 'guile' anlamına gelir.\nEkler: ly,less\nCevap: ",
+            "reference": "paele+less+ly",
+            "template": "morph_gen_tr",
+            "original_root": "guile",
+            "model_output": "paele+less+ly",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 325,
+                "total_tokens": 332
+            },
+            "correct": true
+        },
+        {
+            "root": "buol",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: buol\nTanım: 'buol' İngilizce 'fool' anlamına gelir.\nEkler: ness,ish\nCevap: ",
+            "reference": "buol+ish+ness",
+            "template": "morph_gen_tr",
+            "original_root": "fool",
+            "model_output": "buol+ish+ness",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 323,
+                "total_tokens": 329
+            },
+            "correct": true
+        },
+        {
+            "root": "tecpinct",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: tecpinct\nTanım: 'tecpinct' İngilizce 'distinct' anlamına gelir.\nEkler: ive,ness\nCevap: ",
+            "reference": "tecpinct+ive+ness",
+            "template": "morph_gen_tr",
+            "original_root": "distinct",
+            "model_output": "tecpinct+ive+ness",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 324,
+                "total_tokens": 331
+            },
+            "correct": true
+        },
+        {
+            "root": "korm",
+            "suffixes": [
+                "al",
+                "ize"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: korm\nTanım: 'korm' İngilizce 'norm' anlamına gelir.\nEkler: ize,al\nCevap: ",
+            "reference": "korm+al+ize",
+            "template": "morph_gen_tr",
+            "original_root": "norm",
+            "model_output": "korm+ize+al",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 323,
+                "total_tokens": 329
+            },
+            "correct": false
+        },
+        {
+            "root": "uzfetul",
+            "suffixes": [
+                "ate",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: uzfetul\nTanım: 'uzfetul' İngilizce 'articul' anlamına gelir.\nEkler: ate,ness\nCevap: ",
+            "reference": "uzfetul+ate+ness",
+            "template": "morph_gen_tr",
+            "original_root": "articul",
+            "model_output": "uzfetul+ate+ness",
+            "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 327,
+                "total_tokens": 335
+            },
+            "correct": true
+        },
+        {
+            "root": "wapjet",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: wapjet\nTanım: 'wapjet' İngilizce 'forget' anlamına gelir.\nEkler: ful,ness\nCevap: ",
+            "reference": "wapjet+ful+ness",
+            "template": "morph_gen_tr",
+            "original_root": "forget",
+            "model_output": "wapjet+ful+ness",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 323,
+                "total_tokens": 329
+            },
+            "correct": true
+        },
+        {
+            "root": "hutr",
+            "suffixes": [
+                "efac",
+                "tive"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: hutr\nTanım: 'hutr' İngilizce 'putr' anlamına gelir.\nEkler: tive,efac\nCevap: ",
+            "reference": "hutr+efac+tive",
+            "template": "morph_gen_tr",
+            "original_root": "putr",
+            "model_output": "hutr+efac+tive",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 325,
+                "total_tokens": 332
+            },
+            "correct": true
+        },
+        {
+            "root": "hacrepeon",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: hacrepeon\nTanım: 'hacrepeon' İngilizce 'condition' anlamına gelir.\nEkler: al,ly\nCevap: ",
+            "reference": "hacrepeon+al+ly",
+            "template": "morph_gen_tr",
+            "original_root": "condition",
+            "model_output": "hacrepeon+al+ly",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 324,
+                "total_tokens": 331
+            },
+            "correct": true
+        },
+        {
+            "root": "yfoce",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: yfoce\nTanım: 'yfoce' İngilizce 'shame' anlamına gelir.\nEkler: ness,ful\nCevap: ",
+            "reference": "yfoce+ful+ness",
+            "template": "morph_gen_tr",
+            "original_root": "shame",
+            "model_output": "yfoce+ness+ful",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 325,
+                "total_tokens": 332
+            },
+            "correct": false
+        },
+        {
+            "root": "pel",
+            "suffixes": [
+                "ar",
+                "ize"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: pel\nTanım: 'pel' İngilizce 'vel' anlamına gelir.\nEkler: ize,ar\nCevap: ",
+            "reference": "pel+ar+ize",
+            "template": "morph_gen_tr",
+            "original_root": "vel",
+            "model_output": "pel+ize+ar",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 321,
+                "total_tokens": 326
+            },
+            "correct": false
+        },
+        {
+            "root": "cinsi",
+            "suffixes": [
+                "ment",
+                "al",
+                "ist"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: cinsi\nTanım: 'cinsi' İngilizce 'senti' anlamına gelir.\nEkler: al,ist,ment\nCevap: ",
+            "reference": "cinsi+ment+al+ist",
+            "template": "morph_gen_tr",
+            "original_root": "senti",
+            "model_output": "cinsi+ment+al+ist",
+            "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 325,
+                "total_tokens": 333
+            },
+            "correct": true
+        },
+        {
+            "root": "ptiss",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: ptiss\nTanım: 'ptiss' İngilizce 'bliss' anlamına gelir.\nEkler: ful,ly\nCevap: ",
+            "reference": "ptiss+ful+ly",
+            "template": "morph_gen_tr",
+            "original_root": "bliss",
+            "model_output": "ptiss+ful+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 323,
+                "total_tokens": 329
+            },
+            "correct": true
+        },
+        {
+            "root": "giar",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: giar\nTanım: 'giar' İngilizce 'tear' anlamına gelir.\nEkler: ly,less\nCevap: ",
+            "reference": "giar+less+ly",
+            "template": "morph_gen_tr",
+            "original_root": "tear",
+            "model_output": "giar+ly+less",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 323,
+                "total_tokens": 329
+            },
+            "correct": false
+        },
+        {
+            "root": "wect",
+            "suffixes": [
+                "ure",
+                "ship"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: wect\nTanım: 'wect' İngilizce 'lect' anlamına gelir.\nEkler: ship,ure\nCevap: ",
+            "reference": "wect+ure+ship",
+            "template": "morph_gen_tr",
+            "original_root": "lect",
+            "model_output": "wect+ship+ure",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 322,
+                "total_tokens": 328
+            },
+            "correct": false
+        },
+        {
+            "root": "letagdic",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: letagdic\nTanım: 'letagdic' İngilizce 'liturgic' anlamına gelir.\nEkler: al,ly\nCevap: ",
+            "reference": "letagdic+al+ly",
+            "template": "morph_gen_tr",
+            "original_root": "liturgic",
+            "model_output": "letagdic+al+ly",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 326,
+                "total_tokens": 333
+            },
+            "correct": true
+        },
+        {
+            "root": "wiber",
+            "suffixes": [
+                "al",
+                "issimo"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: wiber\nTanım: 'wiber' İngilizce 'gener' anlamına gelir.\nEkler: issimo,al\nCevap: ",
+            "reference": "wiber+al+issimo",
+            "template": "morph_gen_tr",
+            "original_root": "gener",
+            "model_output": "wiber+al+issimo",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 323,
+                "total_tokens": 330
+            },
+            "correct": true
+        },
+        {
+            "root": "felp",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: felp\nTanım: 'felp' İngilizce 'help' anlamına gelir.\nEkler: ness,less\nCevap: ",
+            "reference": "felp+less+ness",
+            "template": "morph_gen_tr",
+            "original_root": "help",
+            "model_output": "felp+less+ness",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 322,
+                "total_tokens": 328
+            },
+            "correct": true
+        },
+        {
+            "root": "evjoit",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: evjoit\nTanım: 'evjoit' İngilizce 'intuit' anlamına gelir.\nEkler: ly,ive\nCevap: ",
+            "reference": "evjoit+ive+ly",
+            "template": "morph_gen_tr",
+            "original_root": "intuit",
+            "model_output": "evjoit+ly+ive",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 325,
+                "total_tokens": 332
+            },
+            "correct": false
+        },
+        {
+            "root": "zash",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: zash\nTanım: 'zash' İngilizce 'bash' anlamına gelir.\nEkler: ful,ly\nCevap: ",
+            "reference": "zash+ful+ly",
+            "template": "morph_gen_tr",
+            "original_root": "bash",
+            "model_output": "zash+ful+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 322,
+                "total_tokens": 328
+            },
+            "correct": true
+        },
+        {
+            "root": "cimect",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: cimect\nTanım: 'cimect' İngilizce 'select' anlamına gelir.\nEkler: ive,ness\nCevap: ",
+            "reference": "cimect+ive+ness",
+            "template": "morph_gen_tr",
+            "original_root": "select",
+            "model_output": "cimect+ive+ness",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 324,
+                "total_tokens": 331
+            },
+            "correct": true
+        },
+        {
+            "root": "buin",
+            "suffixes": [
+                "t",
+                "ure"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: buin\nTanım: 'buin' İngilizce 'join' anlamına gelir.\nEkler: ure,t\nCevap: ",
+            "reference": "buin+t+ure",
+            "template": "morph_gen_tr",
+            "original_root": "join",
+            "model_output": "buin+ure+t",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 321,
+                "total_tokens": 326
+            },
+            "correct": false
+        },
+        {
+            "root": "cikeod",
+            "suffixes": [
+                "ic",
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: cikeod\nTanım: 'cikeod' İngilizce 'period' anlamına gelir.\nEkler: ic,al,ly\nCevap: ",
+            "reference": "cikeod+ic+al+ly",
+            "template": "morph_gen_tr",
+            "original_root": "period",
+            "model_output": "cikeod+al+ly+ic",
+            "usage": {
+                "completion_tokens": 9,
+                "prompt_tokens": 326,
+                "total_tokens": 335
+            },
+            "correct": false
+        },
+        {
+            "root": "gelf",
+            "suffixes": [
+                "ish",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: gelf\nTanım: 'gelf' İngilizce 'self' anlamına gelir.\nEkler: ly,ish\nCevap: ",
+            "reference": "gelf+ish+ly",
+            "template": "morph_gen_tr",
+            "original_root": "self",
+            "model_output": "gelf+ly+ish",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 322,
+                "total_tokens": 328
+            },
+            "correct": false
+        },
+        {
+            "root": "ukjbduct",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: ukjbduct\nTanım: 'ukjbduct' İngilizce 'obstruct' anlamına gelir.\nEkler: ive,ness\nCevap: ",
+            "reference": "ukjbduct+ive+ness",
+            "template": "morph_gen_tr",
+            "original_root": "obstruct",
+            "model_output": "ukjbduct+ive+ness",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 325,
+                "total_tokens": 332
+            },
+            "correct": true
+        },
+        {
+            "root": "gute",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: gute\nTanım: 'gute' İngilizce 'dole' anlamına gelir.\nEkler: ful,ly\nCevap: ",
+            "reference": "gute+ful+ly",
+            "template": "morph_gen_tr",
+            "original_root": "dole",
+            "model_output": "gute+ful+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 322,
+                "total_tokens": 328
+            },
+            "correct": true
+        },
+        {
+            "root": "dupopt",
+            "suffixes": [
+                "ion",
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: dupopt\nTanım: 'dupopt' İngilizce 'opt' anlamına gelir.\nEkler: ly,ion,al\nCevap: ",
+            "reference": "dupopt+ion+al+ly",
+            "template": "morph_gen_tr",
+            "original_root": "opt",
+            "model_output": "dupopt+ion+al",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 324,
+                "total_tokens": 330
+            },
+            "correct": false
+        },
+        {
+            "root": "bnijoc",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: bnijoc\nTanım: 'bnijoc' İngilizce 'precoc' anlamına gelir.\nEkler: ness,ious\nCevap: ",
+            "reference": "bnijoc+ious+ness",
+            "template": "morph_gen_tr",
+            "original_root": "precoc",
+            "model_output": "bnijoc+ious+ness",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 325,
+                "total_tokens": 332
+            },
+            "correct": true
+        },
+        {
+            "root": "lract",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: lract\nTanım: 'lract' İngilizce 'pract' anlamına gelir.\nEkler: ic,al\nCevap: ",
+            "reference": "lract+ic+al",
+            "template": "morph_gen_tr",
+            "original_root": "pract",
+            "model_output": "lract+ic+al",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 323,
+                "total_tokens": 329
+            },
+            "correct": true
+        },
+        {
+            "root": "zijdiwu",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: zijdiwu\nTanım: 'zijdiwu' İngilizce 'perpetu' anlamına gelir.\nEkler: ly,al\nCevap: ",
+            "reference": "zijdiwu+al+ly",
+            "template": "morph_gen_tr",
+            "original_root": "perpetu",
+            "model_output": "zijdiwu+al+ly",
+            "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 327,
+                "total_tokens": 335
+            },
+            "correct": true
+        },
+        {
+            "root": "coith",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: coith\nTanım: 'coith' İngilizce 'faith' anlamına gelir.\nEkler: ful,ness\nCevap: ",
+            "reference": "coith+ful+ness",
+            "template": "morph_gen_tr",
+            "original_root": "faith",
+            "model_output": "coith+ful+ness",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 322,
+                "total_tokens": 328
+            },
+            "correct": true
+        },
+        {
+            "root": "acesin",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: acesin\nTanım: 'acesin' İngilizce 'origin' anlamına gelir.\nEkler: al,ly\nCevap: ",
+            "reference": "acesin+al+ly",
+            "template": "morph_gen_tr",
+            "original_root": "origin",
+            "model_output": "acesin+al+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 323,
+                "total_tokens": 329
+            },
+            "correct": true
+        },
+        {
+            "root": "culeon",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: culeon\nTanım: 'culeon' İngilizce 'nation' anlamına gelir.\nEkler: ist,al\nCevap: ",
+            "reference": "culeon+al+ist",
+            "template": "morph_gen_tr",
+            "original_root": "nation",
+            "model_output": "culeon+al+ist",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 324,
+                "total_tokens": 331
+            },
+            "correct": true
+        },
+        {
+            "root": "wakern",
+            "suffixes": [
+                "ment",
+                "al"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: wakern\nTanım: 'wakern' İngilizce 'govern' anlamına gelir.\nEkler: al,ment\nCevap: ",
+            "reference": "wakern+ment+al",
+            "template": "morph_gen_tr",
+            "original_root": "govern",
+            "model_output": "wakern+al+ment",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 325,
+                "total_tokens": 332
+            },
+            "correct": false
+        },
+        {
+            "root": "nedesar",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: nedesar\nTanım: 'nedesar' İngilizce 'militar' anlamına gelir.\nEkler: ic,ist\nCevap: ",
+            "reference": "nedesar+ist+ic",
+            "template": "morph_gen_tr",
+            "original_root": "militar",
+            "model_output": "nedesar+ist+ic",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 324,
+                "total_tokens": 330
+            },
+            "correct": true
+        },
+        {
+            "root": "modme",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: modme\nTanım: 'modme' İngilizce 'taste' anlamına gelir.\nEkler: ly,ful\nCevap: ",
+            "reference": "modme+ful+ly",
+            "template": "morph_gen_tr",
+            "original_root": "taste",
+            "model_output": "modme+ly+ful",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 323,
+                "total_tokens": 329
+            },
+            "correct": false
+        },
+        {
+            "root": "piigh",
+            "suffixes": [
+                "t",
+                "less"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: piigh\nTanım: 'piigh' İngilizce 'weigh' anlamına gelir.\nEkler: less,t\nCevap: ",
+            "reference": "piigh+t+less",
+            "template": "morph_gen_tr",
+            "original_root": "weigh",
+            "model_output": "piigh+less+t",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 321,
+                "total_tokens": 326
+            },
+            "correct": false
+        },
+        {
+            "root": "wyig",
+            "suffixes": [
+                "id",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: wyig\nTanım: 'wyig' İngilizce 'frig' anlamına gelir.\nEkler: id,ly\nCevap: ",
+            "reference": "wyig+id+ly",
+            "template": "morph_gen_tr",
+            "original_root": "frig",
+            "model_output": "wyig+id+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 323,
+                "total_tokens": 329
+            },
+            "correct": true
+        },
+        {
+            "root": "nyuject",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: nyuject\nTanım: 'nyuject' İngilizce 'protect' anlamına gelir.\nEkler: ive,ly\nCevap: ",
+            "reference": "nyuject+ive+ly",
+            "template": "morph_gen_tr",
+            "original_root": "protect",
+            "model_output": "nyuject+ive+ly",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 324,
+                "total_tokens": 331
+            },
+            "correct": true
+        },
+        {
+            "root": "hucetter",
+            "suffixes": [
+                "iall",
+                "y"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: hucetter\nTanım: 'hucetter' İngilizce 'magister' anlamına gelir.\nEkler: y,iall\nCevap: ",
+            "reference": "hucetter+iall+y",
+            "template": "morph_gen_tr",
+            "original_root": "magister",
+            "model_output": "hucetter+iall+y",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 326,
+                "total_tokens": 333
+            },
+            "correct": true
+        },
+        {
+            "root": "tibelf",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: tibelf\nTanım: 'tibelf' İngilizce 'elf' anlamına gelir.\nEkler: ish,ness\nCevap: ",
+            "reference": "tibelf+ish+ness",
+            "template": "morph_gen_tr",
+            "original_root": "elf",
+            "model_output": "tibelf+ness+ish",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 325,
+                "total_tokens": 332
+            },
+            "correct": false
+        },
+        {
+            "root": "bnkiylijic",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: bnkiylijic\nTanım: 'bnkiylijic' İngilizce 'cybernetic' anlamına gelir.\nEkler: al,ly\nCevap: ",
+            "reference": "bnkiylijic+al+ly",
+            "template": "morph_gen_tr",
+            "original_root": "cybernetic",
+            "model_output": "bnkiylijic+al+ly",
+            "usage": {
+                "completion_tokens": 9,
+                "prompt_tokens": 331,
+                "total_tokens": 340
+            },
+            "correct": true
+        },
+        {
+            "root": "jens",
+            "suffixes": [
+                "or",
+                "ious",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: jens\nTanım: 'jens' İngilizce 'cens' anlamına gelir.\nEkler: ious,ness,or\nCevap: ",
+            "reference": "jens+or+ious+ness",
+            "template": "morph_gen_tr",
+            "original_root": "cens",
+            "model_output": "jens+ious+ness+or",
+            "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 326,
+                "total_tokens": 334
+            },
+            "correct": false
+        },
+        {
+            "root": "faurn",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: faurn\nTanım: 'faurn' İngilizce 'journ' anlamına gelir.\nEkler: ist,al\nCevap: ",
+            "reference": "faurn+al+ist",
+            "template": "morph_gen_tr",
+            "original_root": "journ",
+            "model_output": "faurn+ist+al",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 323,
+                "total_tokens": 329
+            },
+            "correct": false
+        },
+        {
+            "root": "mfiep",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: mfiep\nTanım: 'mfiep' İngilizce 'sheep' anlamına gelir.\nEkler: ness,ish\nCevap: ",
+            "reference": "mfiep+ish+ness",
+            "template": "morph_gen_tr",
+            "original_root": "sheep",
+            "model_output": "mfiep+ness+ish",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 325,
+                "total_tokens": 332
+            },
+            "correct": false
+        },
+        {
+            "root": "ohe",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: ohe\nTanım: 'ohe' İngilizce 'use' anlamına gelir.\nEkler: less,ly\nCevap: ",
+            "reference": "ohe+less+ly",
+            "template": "morph_gen_tr",
+            "original_root": "use",
+            "model_output": "ohe+less+ly",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 322,
+                "total_tokens": 328
+            },
+            "correct": true
+        },
+        {
+            "root": "toin",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nCevap: vetect+ion+al\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nCevap: vhift+less+ness\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nCevap: kogyiss+ist+ic\n\nÖrnek 4:\nKök: toin\nTanım: 'toin' İngilizce 'pain' anlamına gelir.\nEkler: ly,less\nCevap: ",
+            "reference": "toin+less+ly",
+            "template": "morph_gen_tr",
+            "original_root": "pain",
+            "model_output": "toin+ly+less",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 322,
+                "total_tokens": 328
+            },
+            "correct": false
+        }
+    ]
+}

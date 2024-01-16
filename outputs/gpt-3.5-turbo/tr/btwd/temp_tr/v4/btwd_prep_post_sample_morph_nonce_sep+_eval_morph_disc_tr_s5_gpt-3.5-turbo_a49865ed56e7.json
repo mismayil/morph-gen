@@ -1,0 +1,1937 @@
+{
+    "metadata": {
+        "datapath": "../data/tr/btwd/temp_tr/v4/btwd_prep_post_sample_morph_nonce_sep+_eval_morph_disc_tr_s5.json",
+        "model": "gpt-3.5-turbo",
+        "temperature": 0.3,
+        "max_tokens": 40,
+        "top_p": 1,
+        "frequency_penalty": 0,
+        "presence_penalty": 0
+    },
+    "metrics": {
+        "usage": {
+            "prompt_tokens": 72811,
+            "completion_tokens": 100,
+            "total_tokens": 72911
+        },
+        "cost": {
+            "input": 0.10921650000000001,
+            "output": 0.00019999999999999998,
+            "total": 0.10941650000000001
+        },
+        "macro_f1": 0.2647058823529412,
+        "accuracy": 0.36,
+        "precision": 0.5,
+        "recall": 0.18
+    },
+    "data": [
+        {
+            "root": "col",
+            "suffixes": [
+                "an",
+                "mış"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,abil,mek\nSeçenekler:\n1. foyşır+tir+mek+abil\n2. foyşır+mek+tir+abil\n3. foyşır+abil+mek+tir\n4. foyşır+tir+abil+mek\n5. foyşır+abil+tir+mek\n6. foyşır+mek+abil+tir\nCevap: 3\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: m,e\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: le,ci,i,liğ,me\nSeçenekler:\n1. sidiş+ci+le+me+liğ+i\n2. sidiş+ci+i+liğ+le+me\n3. sidiş+liğ+le+me+i+ci\n4. sidiş+me+ci+liğ+i+le\n5. sidiş+le+me+ci+liğ+i\n6. sidiş+liğ+i+me+le+ci\nCevap: 5\n\nÖrnek 6:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "dol",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 682,
+                "total_tokens": 683
+            },
+            "correct": true
+        },
+        {
+            "root": "akuz",
+            "suffixes": [
+                "lar",
+                "ı"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: mek,abil,tir\nSeçenekler:\n1. foyşır+abil+tir+mek\n2. foyşır+tir+abil+mek\n3. foyşır+abil+mek+tir\n4. foyşır+mek+abil+tir\n5. foyşır+mek+tir+abil\n6. foyşır+tir+mek+abil\nCevap: 3\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: m,e\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: ci,liğ,le,i,me\nSeçenekler:\n1. sidiş+ci+i+liğ+le+me\n2. sidiş+liğ+le+me+i+ci\n3. sidiş+me+ci+liğ+i+le\n4. sidiş+le+me+ci+liğ+i\n5. sidiş+liğ+i+me+le+ci\n6. sidiş+ci+le+me+liğ+i\nCevap: 4\n\nÖrnek 6:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "omuz",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 688,
+                "total_tokens": 689
+            },
+            "correct": false
+        },
+        {
+            "root": "foyşır",
+            "suffixes": [
+                "abil",
+                "mek",
+                "tir"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,abil,mek\nSeçenekler:\n1. foyşır+mek+abil+tir\n2. foyşır+abil+mek+tir\n3. foyşır+mek+tir+abil\n4. foyşır+abil+tir+mek\n5. foyşır+tir+mek+abil\n6. foyşır+tir+abil+mek\nCevap: 2\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: ci,me,le,liğ,i\nSeçenekler:\n1. sidiş+ci+i+liğ+le+me\n2. sidiş+liğ+le+me+i+ci\n3. sidiş+ci+le+me+liğ+i\n4. sidiş+liğ+i+me+le+ci\n5. sidiş+le+me+ci+liğ+i\n6. sidiş+me+ci+liğ+i+le\nCevap: 5\n\nÖrnek 6:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: mek,tir,abil\nSeçenekler:\n1. foyşır+abil+tir+mek\n2. foyşır+tir+mek+abil\n3. foyşır+mek+tir+abil\n4. foyşır+mek+abil+tir\n5. foyşır+abil+mek+tir\n6. foyşır+tir+abil+mek\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": "kaldır",
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 753,
+                "total_tokens": 754
+            },
+            "correct": false
+        },
+        {
+            "root": "ügüfmi",
+            "suffixes": [
+                "m",
+                "e"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: mek,abil,tir\nSeçenekler:\n1. foyşır+mek+abil+tir\n2. foyşır+tir+abil+mek\n3. foyşır+mek+tir+abil\n4. foyşır+abil+tir+mek\n5. foyşır+abil+mek+tir\n6. foyşır+tir+mek+abil\nCevap: 5\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: le,me,ci,liğ,i\nSeçenekler:\n1. sidiş+ci+i+liğ+le+me\n2. sidiş+le+me+ci+liğ+i\n3. sidiş+ci+le+me+liğ+i\n4. sidiş+me+ci+liğ+i+le\n5. sidiş+liğ+le+me+i+ci\n6. sidiş+liğ+i+me+le+ci\nCevap: 2\n\nÖrnek 6:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: m,e\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "enerji",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 697,
+                "total_tokens": 698
+            },
+            "correct": true
+        },
+        {
+            "root": "sidiş",
+            "suffixes": [
+                "le",
+                "me",
+                "ci",
+                "liğ",
+                "i"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,abil,mek\nSeçenekler:\n1. foyşır+abil+tir+mek\n2. foyşır+mek+abil+tir\n3. foyşır+abil+mek+tir\n4. foyşır+tir+abil+mek\n5. foyşır+mek+tir+abil\n6. foyşır+tir+mek+abil\nCevap: 3\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: liğ,me,i,le,ci\nSeçenekler:\n1. sidiş+liğ+le+me+i+ci\n2. sidiş+le+me+ci+liğ+i\n3. sidiş+me+ci+liğ+i+le\n4. sidiş+liğ+i+me+le+ci\n5. sidiş+ci+i+liğ+le+me\n6. sidiş+ci+le+me+liğ+i\nCevap: 2\n\nÖrnek 6:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: i,me,liğ,ci,le\nSeçenekler:\n1. sidiş+le+me+ci+liğ+i\n2. sidiş+ci+le+me+liğ+i\n3. sidiş+liğ+le+me+i+ci\n4. sidiş+ci+i+liğ+le+me\n5. sidiş+liğ+i+me+le+ci\n6. sidiş+me+ci+liğ+i+le\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "iş",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 771,
+                "total_tokens": 772
+            },
+            "correct": true
+        },
+        {
+            "root": "kimil",
+            "suffixes": [
+                "ki",
+                "ne"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: abil,tir,mek\nSeçenekler:\n1. foyşır+abil+mek+tir\n2. foyşır+mek+abil+tir\n3. foyşır+mek+tir+abil\n4. foyşır+abil+tir+mek\n5. foyşır+tir+mek+abil\n6. foyşır+tir+abil+mek\nCevap: 1\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: le,ci,me,i,liğ\nSeçenekler:\n1. sidiş+me+ci+liğ+i+le\n2. sidiş+liğ+le+me+i+ci\n3. sidiş+ci+i+liğ+le+me\n4. sidiş+liğ+i+me+le+ci\n5. sidiş+le+me+ci+liğ+i\n6. sidiş+ci+le+me+liğ+i\nCevap: 5\n\nÖrnek 6:\nKök: kimil\nTanım: 'kimil' Türkçe 'il' anlamına gelir.\nEkler: ki,ne\nSeçenekler:\n1. kimil+ne+ki\n2. kimil+ki+ne\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "il",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 686,
+                "total_tokens": 687
+            },
+            "correct": true
+        },
+        {
+            "root": "yut",
+            "suffixes": [
+                "umuz",
+                "u"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: mek,tir,abil\nSeçenekler:\n1. foyşır+tir+abil+mek\n2. foyşır+tir+mek+abil\n3. foyşır+mek+abil+tir\n4. foyşır+mek+tir+abil\n5. foyşır+abil+tir+mek\n6. foyşır+abil+mek+tir\nCevap: 6\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: m,e\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: me,ci,i,liğ,le\nSeçenekler:\n1. sidiş+me+ci+liğ+i+le\n2. sidiş+liğ+le+me+i+ci\n3. sidiş+le+me+ci+liğ+i\n4. sidiş+ci+le+me+liğ+i\n5. sidiş+ci+i+liğ+le+me\n6. sidiş+liğ+i+me+le+ci\nCevap: 3\n\nÖrnek 6:\nKök: yut\nTanım: 'yut' Türkçe 'tut' anlamına gelir.\nEkler: u,umuz\nSeçenekler:\n1. yut+umuz+u\n2. yut+u+umuz\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "tut",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 691,
+                "total_tokens": 692
+            },
+            "correct": false
+        },
+        {
+            "root": "ger",
+            "suffixes": [
+                "me",
+                "miş"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: mek,abil,tir\nSeçenekler:\n1. foyşır+tir+mek+abil\n2. foyşır+tir+abil+mek\n3. foyşır+abil+mek+tir\n4. foyşır+mek+tir+abil\n5. foyşır+mek+abil+tir\n6. foyşır+abil+tir+mek\nCevap: 3\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: m,e\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: ci,liğ,me,le,i\nSeçenekler:\n1. sidiş+ci+le+me+liğ+i\n2. sidiş+liğ+le+me+i+ci\n3. sidiş+liğ+i+me+le+ci\n4. sidiş+le+me+ci+liğ+i\n5. sidiş+ci+i+liğ+le+me\n6. sidiş+me+ci+liğ+i+le\nCevap: 4\n\nÖrnek 6:\nKök: ger\nTanım: 'ger' Türkçe 'ver' anlamına gelir.\nEkler: miş,me\nSeçenekler:\n1. ger+miş+me\n2. ger+me+miş\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "ver",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 685,
+                "total_tokens": 686
+            },
+            "correct": true
+        },
+        {
+            "root": "çoş",
+            "suffixes": [
+                "tur",
+                "ur",
+                "um"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: mek,tir,abil\nSeçenekler:\n1. foyşır+tir+abil+mek\n2. foyşır+mek+tir+abil\n3. foyşır+abil+mek+tir\n4. foyşır+abil+tir+mek\n5. foyşır+mek+abil+tir\n6. foyşır+tir+mek+abil\nCevap: 3\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: m,e\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: le,me,ci,i,liğ\nSeçenekler:\n1. sidiş+liğ+i+me+le+ci\n2. sidiş+ci+le+me+liğ+i\n3. sidiş+le+me+ci+liğ+i\n4. sidiş+me+ci+liğ+i+le\n5. sidiş+ci+i+liğ+le+me\n6. sidiş+liğ+le+me+i+ci\nCevap: 3\n\nÖrnek 6:\nKök: çoş\nTanım: 'çoş' Türkçe 'koş' anlamına gelir.\nEkler: tur,um,ur\nSeçenekler:\n1. çoş+ur+um+tur\n2. çoş+tur+ur+um\n3. çoş+tur+um+ur\n4. çoş+um+ur+tur\n5. çoş+ur+tur+um\n6. çoş+um+tur+ur\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "koş",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 744,
+                "total_tokens": 745
+            },
+            "correct": false
+        },
+        {
+            "root": "mıcat",
+            "suffixes": [
+                "ıl",
+                "ma",
+                "yacağ",
+                "ı",
+                "nı"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,abil,mek\nSeçenekler:\n1. foyşır+abil+mek+tir\n2. foyşır+abil+tir+mek\n3. foyşır+tir+abil+mek\n4. foyşır+tir+mek+abil\n5. foyşır+mek+abil+tir\n6. foyşır+mek+tir+abil\nCevap: 1\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: le,me,ci,liğ,i\nSeçenekler:\n1. sidiş+liğ+i+me+le+ci\n2. sidiş+le+me+ci+liğ+i\n3. sidiş+liğ+le+me+i+ci\n4. sidiş+me+ci+liğ+i+le\n5. sidiş+ci+le+me+liğ+i\n6. sidiş+ci+i+liğ+le+me\nCevap: 2\n\nÖrnek 6:\nKök: mıcat\nTanım: 'mıcat' Türkçe 'at' anlamına gelir.\nEkler: nı,ıl,yacağ,ı,ma\nSeçenekler:\n1. mıcat+nı+ma+yacağ+ı+ıl\n2. mıcat+ıl+ma+yacağ+ı+nı\n3. mıcat+yacağ+ıl+ı+nı+ma\n4. mıcat+nı+ı+ıl+yacağ+ma\n5. mıcat+ma+nı+yacağ+ı+ıl\n6. mıcat+yacağ+ma+nı+ıl+ı\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "at",
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 779,
+                "total_tokens": 780
+            },
+            "correct": false
+        },
+        {
+            "root": "umıvey",
+            "suffixes": [
+                "ler",
+                "imiz",
+                "i"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,abil,mek\nSeçenekler:\n1. foyşır+tir+abil+mek\n2. foyşır+mek+tir+abil\n3. foyşır+abil+tir+mek\n4. foyşır+mek+abil+tir\n5. foyşır+abil+mek+tir\n6. foyşır+tir+mek+abil\nCevap: 5\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: m,e\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: le,liğ,ci,i,me\nSeçenekler:\n1. sidiş+le+me+ci+liğ+i\n2. sidiş+ci+le+me+liğ+i\n3. sidiş+liğ+le+me+i+ci\n4. sidiş+me+ci+liğ+i+le\n5. sidiş+ci+i+liğ+le+me\n6. sidiş+liğ+i+me+le+ci\nCevap: 1\n\nÖrnek 6:\nKök: umıvey\nTanım: 'umıvey' Türkçe 'ağabey' anlamına gelir.\nEkler: imiz,ler,i\nSeçenekler:\n1. umıvey+imiz+i+ler\n2. umıvey+ler+imiz+i\n3. umıvey+i+imiz+ler\n4. umıvey+ler+i+imiz\n5. umıvey+i+ler+imiz\n6. umıvey+imiz+ler+i\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "ağabey",
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 746,
+                "total_tokens": 747
+            },
+            "correct": false
+        },
+        {
+            "root": "roprı",
+            "suffixes": [
+                "ya",
+                "dır"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: mek,abil,tir\nSeçenekler:\n1. foyşır+abil+tir+mek\n2. foyşır+tir+mek+abil\n3. foyşır+mek+tir+abil\n4. foyşır+tir+abil+mek\n5. foyşır+abil+mek+tir\n6. foyşır+mek+abil+tir\nCevap: 5\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: ci,le,me,liğ,i\nSeçenekler:\n1. sidiş+le+me+ci+liğ+i\n2. sidiş+ci+i+liğ+le+me\n3. sidiş+ci+le+me+liğ+i\n4. sidiş+liğ+le+me+i+ci\n5. sidiş+me+ci+liğ+i+le\n6. sidiş+liğ+i+me+le+ci\nCevap: 1\n\nÖrnek 6:\nKök: roprı\nTanım: 'roprı' Türkçe 'karşı' anlamına gelir.\nEkler: dır,ya\nSeçenekler:\n1. roprı+dır+ya\n2. roprı+ya+dır\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "karşı",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 693,
+                "total_tokens": 694
+            },
+            "correct": true
+        },
+        {
+            "root": "pel",
+            "suffixes": [
+                "iş",
+                "tir",
+                "diğ",
+                "im",
+                "i"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,abil,mek\nSeçenekler:\n1. foyşır+tir+abil+mek\n2. foyşır+mek+tir+abil\n3. foyşır+tir+mek+abil\n4. foyşır+abil+tir+mek\n5. foyşır+mek+abil+tir\n6. foyşır+abil+mek+tir\nCevap: 6\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: i,le,ci,me,liğ\nSeçenekler:\n1. sidiş+liğ+le+me+i+ci\n2. sidiş+ci+i+liğ+le+me\n3. sidiş+me+ci+liğ+i+le\n4. sidiş+le+me+ci+liğ+i\n5. sidiş+ci+le+me+liğ+i\n6. sidiş+liğ+i+me+le+ci\nCevap: 4\n\nÖrnek 6:\nKök: pel\nTanım: 'pel' Türkçe 'gel' anlamına gelir.\nEkler: im,tir,iş,i,diğ\nSeçenekler:\n1. pel+tir+i+iş+diğ+im\n2. pel+im+iş+i+tir+diğ\n3. pel+iş+i+im+diğ+tir\n4. pel+i+diğ+tir+iş+im\n5. pel+iş+tir+diğ+im+i\n6. pel+iş+im+diğ+i+tir\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": "gel",
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 756,
+                "total_tokens": 757
+            },
+            "correct": false
+        },
+        {
+            "root": "şotil",
+            "suffixes": [
+                "ler",
+                "i",
+                "ni"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,abil,mek\nSeçenekler:\n1. foyşır+mek+abil+tir\n2. foyşır+mek+tir+abil\n3. foyşır+tir+abil+mek\n4. foyşır+abil+mek+tir\n5. foyşır+tir+mek+abil\n6. foyşır+abil+tir+mek\nCevap: 4\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: m,e\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: liğ,le,i,ci,me\nSeçenekler:\n1. sidiş+ci+le+me+liğ+i\n2. sidiş+me+ci+liğ+i+le\n3. sidiş+liğ+i+me+le+ci\n4. sidiş+ci+i+liğ+le+me\n5. sidiş+le+me+ci+liğ+i\n6. sidiş+liğ+le+me+i+ci\nCevap: 5\n\nÖrnek 6:\nKök: şotil\nTanım: 'şotil' Türkçe 'sahil' anlamına gelir.\nEkler: i,ni,ler\nSeçenekler:\n1. şotil+ni+i+ler\n2. şotil+ler+i+ni\n3. şotil+ni+ler+i\n4. şotil+i+ler+ni\n5. şotil+i+ni+ler\n6. şotil+ler+ni+i\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "sahil",
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 739,
+                "total_tokens": 740
+            },
+            "correct": false
+        },
+        {
+            "root": "kısu",
+            "suffixes": [
+                "m",
+                "suz",
+                "luk",
+                "lar",
+                "ı"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,abil,mek\nSeçenekler:\n1. foyşır+mek+abil+tir\n2. foyşır+mek+tir+abil\n3. foyşır+abil+mek+tir\n4. foyşır+abil+tir+mek\n5. foyşır+tir+mek+abil\n6. foyşır+tir+abil+mek\nCevap: 3\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: i,liğ,me,ci,le\nSeçenekler:\n1. sidiş+liğ+i+me+le+ci\n2. sidiş+ci+i+liğ+le+me\n3. sidiş+me+ci+liğ+i+le\n4. sidiş+le+me+ci+liğ+i\n5. sidiş+ci+le+me+liğ+i\n6. sidiş+liğ+le+me+i+ci\nCevap: 4\n\nÖrnek 6:\nKök: kısu\nTanım: 'kısu' Türkçe 'soru' anlamına gelir.\nEkler: luk,lar,m,suz,ı\nSeçenekler:\n1. kısu+ı+luk+suz+m+lar\n2. kısu+ı+lar+suz+luk+m\n3. kısu+m+suz+luk+lar+ı\n4. kısu+lar+ı+suz+m+luk\n5. kısu+ı+luk+suz+lar+m\n6. kısu+luk+suz+m+ı+lar\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": "soru",
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 766,
+                "total_tokens": 767
+            },
+            "correct": false
+        },
+        {
+            "root": "tarur",
+            "suffixes": [
+                "un",
+                "un"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: mek,tir,abil\nSeçenekler:\n1. foyşır+abil+mek+tir\n2. foyşır+tir+abil+mek\n3. foyşır+tir+mek+abil\n4. foyşır+abil+tir+mek\n5. foyşır+mek+tir+abil\n6. foyşır+mek+abil+tir\nCevap: 1\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: m,e\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: me,i,ci,le,liğ\nSeçenekler:\n1. sidiş+le+me+ci+liğ+i\n2. sidiş+liğ+le+me+i+ci\n3. sidiş+ci+i+liğ+le+me\n4. sidiş+ci+le+me+liğ+i\n5. sidiş+me+ci+liğ+i+le\n6. sidiş+liğ+i+me+le+ci\nCevap: 1\n\nÖrnek 6:\nKök: tarur\nTanım: 'tarur' Türkçe 'gurur' anlamına gelir.\nEkler: un,un\nSeçenekler:\n1. tarur+un+un\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "gurur",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 679,
+                "total_tokens": 680
+            },
+            "correct": true
+        },
+        {
+            "root": "öfse",
+            "suffixes": [
+                "me",
+                "dik",
+                "ler",
+                "i",
+                "ni"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,mek,abil\nSeçenekler:\n1. foyşır+tir+abil+mek\n2. foyşır+mek+abil+tir\n3. foyşır+abil+mek+tir\n4. foyşır+tir+mek+abil\n5. foyşır+abil+tir+mek\n6. foyşır+mek+tir+abil\nCevap: 3\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: ci,me,le,i,liğ\nSeçenekler:\n1. sidiş+le+me+ci+liğ+i\n2. sidiş+liğ+i+me+le+ci\n3. sidiş+me+ci+liğ+i+le\n4. sidiş+ci+le+me+liğ+i\n5. sidiş+liğ+le+me+i+ci\n6. sidiş+ci+i+liğ+le+me\nCevap: 1\n\nÖrnek 6:\nKök: öfse\nTanım: 'öfse' Türkçe 'iste' anlamına gelir.\nEkler: me,i,ni,ler,dik\nSeçenekler:\n1. öfse+i+dik+ler+ni+me\n2. öfse+me+ni+i+ler+dik\n3. öfse+me+dik+i+ni+ler\n4. öfse+me+dik+ler+i+ni\n5. öfse+me+dik+ni+ler+i\n6. öfse+i+ni+me+dik+ler\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": "iste",
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 763,
+                "total_tokens": 764
+            },
+            "correct": false
+        },
+        {
+            "root": "zızım",
+            "suffixes": [
+                "lar",
+                "ımız"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: mek,abil,tir\nSeçenekler:\n1. foyşır+tir+mek+abil\n2. foyşır+abil+tir+mek\n3. foyşır+abil+mek+tir\n4. foyşır+mek+abil+tir\n5. foyşır+tir+abil+mek\n6. foyşır+mek+tir+abil\nCevap: 3\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: ci,me,le,liğ,i\nSeçenekler:\n1. sidiş+ci+i+liğ+le+me\n2. sidiş+le+me+ci+liğ+i\n3. sidiş+liğ+le+me+i+ci\n4. sidiş+me+ci+liğ+i+le\n5. sidiş+ci+le+me+liğ+i\n6. sidiş+liğ+i+me+le+ci\nCevap: 2\n\nÖrnek 6:\nKök: zızım\nTanım: 'zızım' Türkçe 'yarım' anlamına gelir.\nEkler: lar,ımız\nSeçenekler:\n1. zızım+lar+ımız\n2. zızım+ımız+lar\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "yarım",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 693,
+                "total_tokens": 694
+            },
+            "correct": true
+        },
+        {
+            "root": "tıcza",
+            "suffixes": [
+                "lar",
+                "ı",
+                "ydı"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: abil,tir,mek\nSeçenekler:\n1. foyşır+tir+abil+mek\n2. foyşır+abil+mek+tir\n3. foyşır+mek+abil+tir\n4. foyşır+tir+mek+abil\n5. foyşır+abil+tir+mek\n6. foyşır+mek+tir+abil\nCevap: 2\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: liğ,me,ci,i,le\nSeçenekler:\n1. sidiş+me+ci+liğ+i+le\n2. sidiş+liğ+i+me+le+ci\n3. sidiş+ci+le+me+liğ+i\n4. sidiş+le+me+ci+liğ+i\n5. sidiş+ci+i+liğ+le+me\n6. sidiş+liğ+le+me+i+ci\nCevap: 4\n\nÖrnek 6:\nKök: tıcza\nTanım: 'tıcza' Türkçe 'kukla' anlamına gelir.\nEkler: lar,ı,ydı\nSeçenekler:\n1. tıcza+ydı+ı+lar\n2. tıcza+ı+ydı+lar\n3. tıcza+ı+lar+ydı\n4. tıcza+ydı+lar+ı\n5. tıcza+lar+ı+ydı\n6. tıcza+lar+ydı+ı\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": "kukla",
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 752,
+                "total_tokens": 753
+            },
+            "correct": false
+        },
+        {
+            "root": "şifği",
+            "suffixes": [
+                "ler",
+                "i",
+                "dir"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: abil,mek,tir\nSeçenekler:\n1. foyşır+abil+mek+tir\n2. foyşır+mek+tir+abil\n3. foyşır+tir+abil+mek\n4. foyşır+mek+abil+tir\n5. foyşır+tir+mek+abil\n6. foyşır+abil+tir+mek\nCevap: 1\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: m,e\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: i,ci,me,le,liğ\nSeçenekler:\n1. sidiş+ci+i+liğ+le+me\n2. sidiş+ci+le+me+liğ+i\n3. sidiş+liğ+i+me+le+ci\n4. sidiş+me+ci+liğ+i+le\n5. sidiş+liğ+le+me+i+ci\n6. sidiş+le+me+ci+liğ+i\nCevap: 6\n\nÖrnek 6:\nKök: şifği\nTanım: 'şifği' Türkçe 'kendi' anlamına gelir.\nEkler: ler,i,dir\nSeçenekler:\n1. şifği+i+ler+dir\n2. şifği+ler+dir+i\n3. şifği+dir+ler+i\n4. şifği+i+dir+ler\n5. şifği+ler+i+dir\n6. şifği+dir+i+ler\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": "kendi",
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 739,
+                "total_tokens": 740
+            },
+            "correct": true
+        },
+        {
+            "root": "nümeş",
+            "suffixes": [
+                "in",
+                "in"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,abil,mek\nSeçenekler:\n1. foyşır+mek+tir+abil\n2. foyşır+tir+abil+mek\n3. foyşır+abil+mek+tir\n4. foyşır+abil+tir+mek\n5. foyşır+tir+mek+abil\n6. foyşır+mek+abil+tir\nCevap: 3\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: le,me,ci,i,liğ\nSeçenekler:\n1. sidiş+le+me+ci+liğ+i\n2. sidiş+liğ+le+me+i+ci\n3. sidiş+me+ci+liğ+i+le\n4. sidiş+liğ+i+me+le+ci\n5. sidiş+ci+le+me+liğ+i\n6. sidiş+ci+i+liğ+le+me\nCevap: 1\n\nÖrnek 6:\nKök: nümeş\nTanım: 'nümeş' Türkçe 'eş' anlamına gelir.\nEkler: in,in\nSeçenekler:\n1. nümeş+in+in\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "eş",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 682,
+                "total_tokens": 683
+            },
+            "correct": true
+        },
+        {
+            "root": "raz",
+            "suffixes": [
+                "mış",
+                "tı",
+                "m"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,abil,mek\nSeçenekler:\n1. foyşır+abil+mek+tir\n2. foyşır+mek+tir+abil\n3. foyşır+tir+mek+abil\n4. foyşır+mek+abil+tir\n5. foyşır+tir+abil+mek\n6. foyşır+abil+tir+mek\nCevap: 1\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: m,e\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: me,le,liğ,i,ci\nSeçenekler:\n1. sidiş+me+ci+liğ+i+le\n2. sidiş+ci+le+me+liğ+i\n3. sidiş+le+me+ci+liğ+i\n4. sidiş+ci+i+liğ+le+me\n5. sidiş+liğ+i+me+le+ci\n6. sidiş+liğ+le+me+i+ci\nCevap: 3\n\nÖrnek 6:\nKök: raz\nTanım: 'raz' Türkçe 'yaz' anlamına gelir.\nEkler: mış,tı,m\nSeçenekler:\n1. raz+m+tı+mış\n2. raz+mış+m+tı\n3. raz+tı+mış+m\n4. raz+mış+tı+m\n5. raz+m+mış+tı\n6. raz+tı+m+mış\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": "yaz",
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 723,
+                "total_tokens": 724
+            },
+            "correct": true
+        },
+        {
+            "root": "cöcşe",
+            "suffixes": [
+                "miz",
+                "de"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,abil,mek\nSeçenekler:\n1. foyşır+mek+tir+abil\n2. foyşır+mek+abil+tir\n3. foyşır+abil+mek+tir\n4. foyşır+abil+tir+mek\n5. foyşır+tir+abil+mek\n6. foyşır+tir+mek+abil\nCevap: 3\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: m,e\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: i,me,le,liğ,ci\nSeçenekler:\n1. sidiş+ci+i+liğ+le+me\n2. sidiş+liğ+le+me+i+ci\n3. sidiş+liğ+i+me+le+ci\n4. sidiş+ci+le+me+liğ+i\n5. sidiş+le+me+ci+liğ+i\n6. sidiş+me+ci+liğ+i+le\nCevap: 5\n\nÖrnek 6:\nKök: cöcşe\nTanım: 'cöcşe' Türkçe 'hücre' anlamına gelir.\nEkler: miz,de\nSeçenekler:\n1. cöcşe+miz+de\n2. cöcşe+de+miz\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "hücre",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 700,
+                "total_tokens": 701
+            },
+            "correct": true
+        },
+        {
+            "root": "pikel",
+            "suffixes": [
+                "t",
+                "mek",
+                "te"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,mek,abil\nSeçenekler:\n1. foyşır+abil+mek+tir\n2. foyşır+mek+tir+abil\n3. foyşır+tir+mek+abil\n4. foyşır+tir+abil+mek\n5. foyşır+abil+tir+mek\n6. foyşır+mek+abil+tir\nCevap: 1\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: liğ,ci,i,le,me\nSeçenekler:\n1. sidiş+le+me+ci+liğ+i\n2. sidiş+ci+i+liğ+le+me\n3. sidiş+liğ+i+me+le+ci\n4. sidiş+me+ci+liğ+i+le\n5. sidiş+liğ+le+me+i+ci\n6. sidiş+ci+le+me+liğ+i\nCevap: 1\n\nÖrnek 6:\nKök: pikel\nTanım: 'pikel' Türkçe 'düzel' anlamına gelir.\nEkler: mek,te,t\nSeçenekler:\n1. pikel+mek+te+t\n2. pikel+te+mek+t\n3. pikel+te+t+mek\n4. pikel+mek+t+te\n5. pikel+t+mek+te\n6. pikel+t+te+mek\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": "düzel",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 731,
+                "total_tokens": 732
+            },
+            "correct": false
+        },
+        {
+            "root": "rıpga",
+            "suffixes": [
+                "lar",
+                "ın",
+                "ı"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,mek,abil\nSeçenekler:\n1. foyşır+mek+abil+tir\n2. foyşır+abil+mek+tir\n3. foyşır+abil+tir+mek\n4. foyşır+tir+mek+abil\n5. foyşır+mek+tir+abil\n6. foyşır+tir+abil+mek\nCevap: 2\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: le,liğ,ci,me,i\nSeçenekler:\n1. sidiş+le+me+ci+liğ+i\n2. sidiş+liğ+i+me+le+ci\n3. sidiş+me+ci+liğ+i+le\n4. sidiş+liğ+le+me+i+ci\n5. sidiş+ci+le+me+liğ+i\n6. sidiş+ci+i+liğ+le+me\nCevap: 1\n\nÖrnek 6:\nKök: rıpga\nTanım: 'rıpga' Türkçe 'tuğla' anlamına gelir.\nEkler: ın,ı,lar\nSeçenekler:\n1. rıpga+ı+lar+ın\n2. rıpga+ı+ın+lar\n3. rıpga+ın+lar+ı\n4. rıpga+lar+ı+ın\n5. rıpga+ın+ı+lar\n6. rıpga+lar+ın+ı\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": "tuğla",
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 746,
+                "total_tokens": 747
+            },
+            "correct": false
+        },
+        {
+            "root": "jas",
+            "suffixes": [
+                "tır",
+                "dığ",
+                "ı",
+                "nda"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,mek,abil\nSeçenekler:\n1. foyşır+mek+abil+tir\n2. foyşır+tir+abil+mek\n3. foyşır+abil+tir+mek\n4. foyşır+abil+mek+tir\n5. foyşır+tir+mek+abil\n6. foyşır+mek+tir+abil\nCevap: 4\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: le,me,i,ci,liğ\nSeçenekler:\n1. sidiş+liğ+le+me+i+ci\n2. sidiş+liğ+i+me+le+ci\n3. sidiş+ci+le+me+liğ+i\n4. sidiş+le+me+ci+liğ+i\n5. sidiş+ci+i+liğ+le+me\n6. sidiş+me+ci+liğ+i+le\nCevap: 4\n\nÖrnek 6:\nKök: jas\nTanım: 'jas' Türkçe 'bas' anlamına gelir.\nEkler: ı,nda,dığ,tır\nSeçenekler:\n1. jas+nda+ı+tır+dığ\n2. jas+tır+nda+dığ+ı\n3. jas+tır+dığ+ı+nda\n4. jas+dığ+tır+ı+nda\n5. jas+tır+ı+nda+dığ\n6. jas+nda+dığ+tır+ı\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": "bas",
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 748,
+                "total_tokens": 749
+            },
+            "correct": true
+        },
+        {
+            "root": "ğümah",
+            "suffixes": [
+                "la",
+                "t",
+                "abil",
+                "eceğ",
+                "im",
+                "i"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,abil,mek\nSeçenekler:\n1. foyşır+tir+abil+mek\n2. foyşır+tir+mek+abil\n3. foyşır+abil+tir+mek\n4. foyşır+abil+mek+tir\n5. foyşır+mek+abil+tir\n6. foyşır+mek+tir+abil\nCevap: 4\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: m,e\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: me,i,le,liğ,ci\nSeçenekler:\n1. sidiş+le+me+ci+liğ+i\n2. sidiş+me+ci+liğ+i+le\n3. sidiş+ci+le+me+liğ+i\n4. sidiş+liğ+le+me+i+ci\n5. sidiş+ci+i+liğ+le+me\n6. sidiş+liğ+i+me+le+ci\nCevap: 1\n\nÖrnek 6:\nKök: ğümah\nTanım: 'ğümah' Türkçe 'ferah' anlamına gelir.\nEkler: abil,im,eceğ,t,i,la\nSeçenekler:\n1. ğümah+im+t+i+abil+la+eceğ\n2. ğümah+i+im+eceğ+t+la+abil\n3. ğümah+abil+i+im+t+la+eceğ\n4. ğümah+i+eceğ+t+la+im+abil\n5. ğümah+la+t+abil+eceğ+im+i\n6. ğümah+i+abil+la+t+im+eceğ\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": "ferah",
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 788,
+                "total_tokens": 789
+            },
+            "correct": false
+        },
+        {
+            "root": "ıput",
+            "suffixes": [
+                "ma",
+                "sınlar"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: mek,tir,abil\nSeçenekler:\n1. foyşır+mek+abil+tir\n2. foyşır+abil+tir+mek\n3. foyşır+abil+mek+tir\n4. foyşır+mek+tir+abil\n5. foyşır+tir+abil+mek\n6. foyşır+tir+mek+abil\nCevap: 3\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: me,ci,le,i,liğ\nSeçenekler:\n1. sidiş+liğ+i+me+le+ci\n2. sidiş+ci+i+liğ+le+me\n3. sidiş+le+me+ci+liğ+i\n4. sidiş+me+ci+liğ+i+le\n5. sidiş+ci+le+me+liğ+i\n6. sidiş+liğ+le+me+i+ci\nCevap: 3\n\nÖrnek 6:\nKök: ıput\nTanım: 'ıput' Türkçe 'unut' anlamına gelir.\nEkler: sınlar,ma\nSeçenekler:\n1. ıput+ma+sınlar\n2. ıput+sınlar+ma\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "unut",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 693,
+                "total_tokens": 694
+            },
+            "correct": false
+        },
+        {
+            "root": "yark",
+            "suffixes": [
+                "ın",
+                "dan"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,abil,mek\nSeçenekler:\n1. foyşır+tir+mek+abil\n2. foyşır+abil+tir+mek\n3. foyşır+abil+mek+tir\n4. foyşır+mek+abil+tir\n5. foyşır+tir+abil+mek\n6. foyşır+mek+tir+abil\nCevap: 3\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: m,e\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: i,le,liğ,ci,me\nSeçenekler:\n1. sidiş+me+ci+liğ+i+le\n2. sidiş+ci+le+me+liğ+i\n3. sidiş+liğ+le+me+i+ci\n4. sidiş+ci+i+liğ+le+me\n5. sidiş+le+me+ci+liğ+i\n6. sidiş+liğ+i+me+le+ci\nCevap: 5\n\nÖrnek 6:\nKök: yark\nTanım: 'yark' Türkçe 'bark' anlamına gelir.\nEkler: ın,dan\nSeçenekler:\n1. yark+ın+dan\n2. yark+dan+ın\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "bark",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 688,
+                "total_tokens": 689
+            },
+            "correct": true
+        },
+        {
+            "root": "maz",
+            "suffixes": [
+                "ma",
+                "l",
+                "ım"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: mek,abil,tir\nSeçenekler:\n1. foyşır+mek+abil+tir\n2. foyşır+tir+mek+abil\n3. foyşır+abil+tir+mek\n4. foyşır+mek+tir+abil\n5. foyşır+tir+abil+mek\n6. foyşır+abil+mek+tir\nCevap: 6\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: m,e\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: ci,le,liğ,me,i\nSeçenekler:\n1. sidiş+ci+le+me+liğ+i\n2. sidiş+le+me+ci+liğ+i\n3. sidiş+me+ci+liğ+i+le\n4. sidiş+liğ+le+me+i+ci\n5. sidiş+liğ+i+me+le+ci\n6. sidiş+ci+i+liğ+le+me\nCevap: 2\n\nÖrnek 6:\nKök: maz\nTanım: 'maz' Türkçe 'yaz' anlamına gelir.\nEkler: ma,ım,l\nSeçenekler:\n1. maz+ım+l+ma\n2. maz+ma+l+ım\n3. maz+ım+ma+l\n4. maz+l+ım+ma\n5. maz+l+ma+ım\n6. maz+ma+ım+l\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "yaz",
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 729,
+                "total_tokens": 730
+            },
+            "correct": false
+        },
+        {
+            "root": "sucan",
+            "suffixes": [
+                "dır",
+                "m",
+                "ıyor",
+                "du"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,abil,mek\nSeçenekler:\n1. foyşır+tir+abil+mek\n2. foyşır+abil+tir+mek\n3. foyşır+mek+tir+abil\n4. foyşır+abil+mek+tir\n5. foyşır+tir+mek+abil\n6. foyşır+mek+abil+tir\nCevap: 4\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: i,ci,le,me,liğ\nSeçenekler:\n1. sidiş+ci+le+me+liğ+i\n2. sidiş+ci+i+liğ+le+me\n3. sidiş+me+ci+liğ+i+le\n4. sidiş+le+me+ci+liğ+i\n5. sidiş+liğ+le+me+i+ci\n6. sidiş+liğ+i+me+le+ci\nCevap: 4\n\nÖrnek 6:\nKök: sucan\nTanım: 'sucan' Türkçe 'kazan' anlamına gelir.\nEkler: ıyor,dır,du,m\nSeçenekler:\n1. sucan+m+du+ıyor+dır\n2. sucan+dır+m+ıyor+du\n3. sucan+ıyor+m+du+dır\n4. sucan+ıyor+dır+m+du\n5. sucan+m+dır+du+ıyor\n6. sucan+m+dır+ıyor+du\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "kazan",
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 754,
+                "total_tokens": 755
+            },
+            "correct": false
+        },
+        {
+            "root": "çevü",
+            "suffixes": [
+                "ye",
+                "me",
+                "dik"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: abil,mek,tir\nSeçenekler:\n1. foyşır+mek+tir+abil\n2. foyşır+abil+mek+tir\n3. foyşır+tir+abil+mek\n4. foyşır+mek+abil+tir\n5. foyşır+tir+mek+abil\n6. foyşır+abil+tir+mek\nCevap: 2\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: ci,le,liğ,i,me\nSeçenekler:\n1. sidiş+me+ci+liğ+i+le\n2. sidiş+liğ+le+me+i+ci\n3. sidiş+le+me+ci+liğ+i\n4. sidiş+ci+i+liğ+le+me\n5. sidiş+ci+le+me+liğ+i\n6. sidiş+liğ+i+me+le+ci\nCevap: 3\n\nÖrnek 6:\nKök: çevü\nTanım: 'çevü' Türkçe 'büyü' anlamına gelir.\nEkler: dik,me,ye\nSeçenekler:\n1. çevü+me+dik+ye\n2. çevü+me+ye+dik\n3. çevü+ye+me+dik\n4. çevü+ye+dik+me\n5. çevü+dik+ye+me\n6. çevü+dik+me+ye\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": "büyü",
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 747,
+                "total_tokens": 748
+            },
+            "correct": false
+        },
+        {
+            "root": "joba",
+            "suffixes": [
+                "lar",
+                "ken"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: abil,tir,mek\nSeçenekler:\n1. foyşır+mek+abil+tir\n2. foyşır+tir+abil+mek\n3. foyşır+abil+tir+mek\n4. foyşır+abil+mek+tir\n5. foyşır+mek+tir+abil\n6. foyşır+tir+mek+abil\nCevap: 4\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: le,me,ci,liğ,i\nSeçenekler:\n1. sidiş+liğ+i+me+le+ci\n2. sidiş+ci+i+liğ+le+me\n3. sidiş+ci+le+me+liğ+i\n4. sidiş+liğ+le+me+i+ci\n5. sidiş+me+ci+liğ+i+le\n6. sidiş+le+me+ci+liğ+i\nCevap: 6\n\nÖrnek 6:\nKök: joba\nTanım: 'joba' Türkçe 'yaka' anlamına gelir.\nEkler: lar,ken\nSeçenekler:\n1. joba+lar+ken\n2. joba+ken+lar\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "yaka",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 687,
+                "total_tokens": 688
+            },
+            "correct": true
+        },
+        {
+            "root": "jofar",
+            "suffixes": [
+                "ın",
+                "da",
+                "ki"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: abil,mek,tir\nSeçenekler:\n1. foyşır+abil+tir+mek\n2. foyşır+tir+mek+abil\n3. foyşır+mek+abil+tir\n4. foyşır+mek+tir+abil\n5. foyşır+abil+mek+tir\n6. foyşır+tir+abil+mek\nCevap: 5\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: m,e\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: liğ,le,ci,me,i\nSeçenekler:\n1. sidiş+ci+le+me+liğ+i\n2. sidiş+le+me+ci+liğ+i\n3. sidiş+me+ci+liğ+i+le\n4. sidiş+ci+i+liğ+le+me\n5. sidiş+liğ+i+me+le+ci\n6. sidiş+liğ+le+me+i+ci\nCevap: 2\n\nÖrnek 6:\nKök: jofar\nTanım: 'jofar' Türkçe 'duvar' anlamına gelir.\nEkler: da,ki,ın\nSeçenekler:\n1. jofar+ki+ın+da\n2. jofar+ki+da+ın\n3. jofar+da+ın+ki\n4. jofar+ın+ki+da\n5. jofar+da+ki+ın\n6. jofar+ın+da+ki\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": "duvar",
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 746,
+                "total_tokens": 747
+            },
+            "correct": false
+        },
+        {
+            "root": "juzşa",
+            "suffixes": [
+                "ya",
+                "ma",
+                "z",
+                "dı",
+                "m"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,abil,mek\nSeçenekler:\n1. foyşır+abil+mek+tir\n2. foyşır+abil+tir+mek\n3. foyşır+mek+abil+tir\n4. foyşır+tir+mek+abil\n5. foyşır+tir+abil+mek\n6. foyşır+mek+tir+abil\nCevap: 1\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: me,ci,le,i,liğ\nSeçenekler:\n1. sidiş+le+me+ci+liğ+i\n2. sidiş+liğ+le+me+i+ci\n3. sidiş+ci+i+liğ+le+me\n4. sidiş+me+ci+liğ+i+le\n5. sidiş+liğ+i+me+le+ci\n6. sidiş+ci+le+me+liğ+i\nCevap: 1\n\nÖrnek 6:\nKök: juzşa\nTanım: 'juzşa' Türkçe 'kavra' anlamına gelir.\nEkler: ya,m,dı,ma,z\nSeçenekler:\n1. juzşa+m+ya+ma+dı+z\n2. juzşa+z+ya+m+dı+ma\n3. juzşa+dı+ma+ya+m+z\n4. juzşa+z+m+ya+dı+ma\n5. juzşa+z+m+ma+ya+dı\n6. juzşa+ya+ma+z+dı+m\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": "kavra",
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 766,
+                "total_tokens": 767
+            },
+            "correct": false
+        },
+        {
+            "root": "ijci",
+            "suffixes": [
+                "le",
+                "yeceğ",
+                "i",
+                "ydi"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: mek,tir,abil\nSeçenekler:\n1. foyşır+tir+mek+abil\n2. foyşır+mek+abil+tir\n3. foyşır+tir+abil+mek\n4. foyşır+mek+tir+abil\n5. foyşır+abil+tir+mek\n6. foyşır+abil+mek+tir\nCevap: 6\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: liğ,me,le,i,ci\nSeçenekler:\n1. sidiş+ci+le+me+liğ+i\n2. sidiş+ci+i+liğ+le+me\n3. sidiş+le+me+ci+liğ+i\n4. sidiş+me+ci+liğ+i+le\n5. sidiş+liğ+le+me+i+ci\n6. sidiş+liğ+i+me+le+ci\nCevap: 3\n\nÖrnek 6:\nKök: ijci\nTanım: 'ijci' Türkçe 'etki' anlamına gelir.\nEkler: yeceğ,i,le,ydi\nSeçenekler:\n1. ijci+i+le+ydi+yeceğ\n2. ijci+le+i+yeceğ+ydi\n3. ijci+yeceğ+i+le+ydi\n4. ijci+ydi+i+yeceğ+le\n5. ijci+ydi+i+le+yeceğ\n6. ijci+le+yeceğ+i+ydi\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": "etki",
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 758,
+                "total_tokens": 759
+            },
+            "correct": false
+        },
+        {
+            "root": "yusra",
+            "suffixes": [
+                "n",
+                "ın"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: mek,tir,abil\nSeçenekler:\n1. foyşır+mek+tir+abil\n2. foyşır+tir+mek+abil\n3. foyşır+tir+abil+mek\n4. foyşır+mek+abil+tir\n5. foyşır+abil+tir+mek\n6. foyşır+abil+mek+tir\nCevap: 6\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: i,ci,me,le,liğ\nSeçenekler:\n1. sidiş+liğ+le+me+i+ci\n2. sidiş+le+me+ci+liğ+i\n3. sidiş+ci+i+liğ+le+me\n4. sidiş+ci+le+me+liğ+i\n5. sidiş+liğ+i+me+le+ci\n6. sidiş+me+ci+liğ+i+le\nCevap: 2\n\nÖrnek 6:\nKök: yusra\nTanım: 'yusra' Türkçe 'somya' anlamına gelir.\nEkler: n,ın\nSeçenekler:\n1. yusra+ın+n\n2. yusra+n+ın\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "somya",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 687,
+                "total_tokens": 688
+            },
+            "correct": false
+        },
+        {
+            "root": "jur",
+            "suffixes": [
+                "a",
+                "ma",
+                "z",
+                "dı"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,abil,mek\nSeçenekler:\n1. foyşır+mek+tir+abil\n2. foyşır+abil+mek+tir\n3. foyşır+abil+tir+mek\n4. foyşır+tir+abil+mek\n5. foyşır+tir+mek+abil\n6. foyşır+mek+abil+tir\nCevap: 2\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: m,e\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: le,me,i,ci,liğ\nSeçenekler:\n1. sidiş+ci+i+liğ+le+me\n2. sidiş+ci+le+me+liğ+i\n3. sidiş+liğ+i+me+le+ci\n4. sidiş+me+ci+liğ+i+le\n5. sidiş+le+me+ci+liğ+i\n6. sidiş+liğ+le+me+i+ci\nCevap: 5\n\nÖrnek 6:\nKök: jur\nTanım: 'jur' Türkçe 'kur' anlamına gelir.\nEkler: dı,a,ma,z\nSeçenekler:\n1. jur+ma+z+dı+a\n2. jur+ma+z+a+dı\n3. jur+z+a+dı+ma\n4. jur+a+dı+z+ma\n5. jur+dı+ma+z+a\n6. jur+a+ma+z+dı\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": "kur",
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 728,
+                "total_tokens": 729
+            },
+            "correct": false
+        },
+        {
+            "root": "ger",
+            "suffixes": [
+                "leş",
+                "in"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: abil,tir,mek\nSeçenekler:\n1. foyşır+tir+mek+abil\n2. foyşır+mek+abil+tir\n3. foyşır+mek+tir+abil\n4. foyşır+tir+abil+mek\n5. foyşır+abil+tir+mek\n6. foyşır+abil+mek+tir\nCevap: 6\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: me,liğ,i,ci,le\nSeçenekler:\n1. sidiş+ci+i+liğ+le+me\n2. sidiş+liğ+i+me+le+ci\n3. sidiş+me+ci+liğ+i+le\n4. sidiş+le+me+ci+liğ+i\n5. sidiş+liğ+le+me+i+ci\n6. sidiş+ci+le+me+liğ+i\nCevap: 4\n\nÖrnek 6:\nKök: ger\nTanım: 'ger' Türkçe 'yer' anlamına gelir.\nEkler: in,leş\nSeçenekler:\n1. ger+leş+in\n2. ger+in+leş\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "yer",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 685,
+                "total_tokens": 686
+            },
+            "correct": false
+        },
+        {
+            "root": "ıhu",
+            "suffixes": [
+                "r",
+                "un",
+                "a"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: abil,tir,mek\nSeçenekler:\n1. foyşır+abil+mek+tir\n2. foyşır+mek+tir+abil\n3. foyşır+abil+tir+mek\n4. foyşır+mek+abil+tir\n5. foyşır+tir+abil+mek\n6. foyşır+tir+mek+abil\nCevap: 1\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: m,e\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: ci,le,i,liğ,me\nSeçenekler:\n1. sidiş+me+ci+liğ+i+le\n2. sidiş+ci+i+liğ+le+me\n3. sidiş+le+me+ci+liğ+i\n4. sidiş+liğ+i+me+le+ci\n5. sidiş+liğ+le+me+i+ci\n6. sidiş+ci+le+me+liğ+i\nCevap: 3\n\nÖrnek 6:\nKök: ıhu\nTanım: 'ıhu' Türkçe 'oku' anlamına gelir.\nEkler: un,r,a\nSeçenekler:\n1. ıhu+r+un+a\n2. ıhu+un+a+r\n3. ıhu+r+a+un\n4. ıhu+a+r+un\n5. ıhu+a+un+r\n6. ıhu+un+r+a\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "oku",
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 729,
+                "total_tokens": 730
+            },
+            "correct": false
+        },
+        {
+            "root": "nevey",
+            "suffixes": [
+                "sel",
+                "ci",
+                "liğ",
+                "i"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: abil,tir,mek\nSeçenekler:\n1. foyşır+mek+tir+abil\n2. foyşır+tir+mek+abil\n3. foyşır+mek+abil+tir\n4. foyşır+abil+mek+tir\n5. foyşır+abil+tir+mek\n6. foyşır+tir+abil+mek\nCevap: 4\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: le,me,liğ,i,ci\nSeçenekler:\n1. sidiş+liğ+le+me+i+ci\n2. sidiş+ci+i+liğ+le+me\n3. sidiş+me+ci+liğ+i+le\n4. sidiş+liğ+i+me+le+ci\n5. sidiş+ci+le+me+liğ+i\n6. sidiş+le+me+ci+liğ+i\nCevap: 6\n\nÖrnek 6:\nKök: nevey\nTanım: 'nevey' Türkçe 'birey' anlamına gelir.\nEkler: ci,i,liğ,sel\nSeçenekler:\n1. nevey+sel+ci+liğ+i\n2. nevey+sel+liğ+i+ci\n3. nevey+ci+sel+i+liğ\n4. nevey+liğ+i+ci+sel\n5. nevey+liğ+sel+ci+i\n6. nevey+liğ+ci+sel+i\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "birey",
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 751,
+                "total_tokens": 752
+            },
+            "correct": false
+        },
+        {
+            "root": "vezsan",
+            "suffixes": [
+                "ın",
+                "da"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,mek,abil\nSeçenekler:\n1. foyşır+abil+tir+mek\n2. foyşır+mek+tir+abil\n3. foyşır+abil+mek+tir\n4. foyşır+tir+abil+mek\n5. foyşır+tir+mek+abil\n6. foyşır+mek+abil+tir\nCevap: 3\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: m,e\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: me,ci,liğ,le,i\nSeçenekler:\n1. sidiş+liğ+le+me+i+ci\n2. sidiş+liğ+i+me+le+ci\n3. sidiş+me+ci+liğ+i+le\n4. sidiş+le+me+ci+liğ+i\n5. sidiş+ci+le+me+liğ+i\n6. sidiş+ci+i+liğ+le+me\nCevap: 4\n\nÖrnek 6:\nKök: vezsan\nTanım: 'vezsan' Türkçe 'fincan' anlamına gelir.\nEkler: da,ın\nSeçenekler:\n1. vezsan+ın+da\n2. vezsan+da+ın\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "fincan",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 687,
+                "total_tokens": 688
+            },
+            "correct": true
+        },
+        {
+            "root": "usma",
+            "suffixes": [
+                "r",
+                "ı"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: mek,abil,tir\nSeçenekler:\n1. foyşır+abil+tir+mek\n2. foyşır+tir+abil+mek\n3. foyşır+mek+abil+tir\n4. foyşır+tir+mek+abil\n5. foyşır+mek+tir+abil\n6. foyşır+abil+mek+tir\nCevap: 6\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: le,ci,me,i,liğ\nSeçenekler:\n1. sidiş+liğ+le+me+i+ci\n2. sidiş+ci+le+me+liğ+i\n3. sidiş+me+ci+liğ+i+le\n4. sidiş+le+me+ci+liğ+i\n5. sidiş+liğ+i+me+le+ci\n6. sidiş+ci+i+liğ+le+me\nCevap: 4\n\nÖrnek 6:\nKök: usma\nTanım: 'usma' Türkçe 'ağla' anlamına gelir.\nEkler: r,ı\nSeçenekler:\n1. usma+ı+r\n2. usma+r+ı\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "ağla",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 686,
+                "total_tokens": 687
+            },
+            "correct": true
+        },
+        {
+            "root": "pan",
+            "suffixes": [
+                "ıl",
+                "sa"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: mek,tir,abil\nSeçenekler:\n1. foyşır+abil+tir+mek\n2. foyşır+tir+abil+mek\n3. foyşır+abil+mek+tir\n4. foyşır+tir+mek+abil\n5. foyşır+mek+abil+tir\n6. foyşır+mek+tir+abil\nCevap: 3\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: ci,i,le,me,liğ\nSeçenekler:\n1. sidiş+liğ+le+me+i+ci\n2. sidiş+le+me+ci+liğ+i\n3. sidiş+me+ci+liğ+i+le\n4. sidiş+ci+le+me+liğ+i\n5. sidiş+ci+i+liğ+le+me\n6. sidiş+liğ+i+me+le+ci\nCevap: 2\n\nÖrnek 6:\nKök: pan\nTanım: 'pan' Türkçe 'san' anlamına gelir.\nEkler: sa,ıl\nSeçenekler:\n1. pan+sa+ıl\n2. pan+ıl+sa\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "san",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 683,
+                "total_tokens": 684
+            },
+            "correct": false
+        },
+        {
+            "root": "acuş",
+            "suffixes": [
+                "tur",
+                "abil",
+                "ir",
+                "im"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: abil,mek,tir\nSeçenekler:\n1. foyşır+tir+mek+abil\n2. foyşır+abil+tir+mek\n3. foyşır+abil+mek+tir\n4. foyşır+mek+tir+abil\n5. foyşır+mek+abil+tir\n6. foyşır+tir+abil+mek\nCevap: 3\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: liğ,le,me,i,ci\nSeçenekler:\n1. sidiş+liğ+i+me+le+ci\n2. sidiş+ci+i+liğ+le+me\n3. sidiş+me+ci+liğ+i+le\n4. sidiş+ci+le+me+liğ+i\n5. sidiş+le+me+ci+liğ+i\n6. sidiş+liğ+le+me+i+ci\nCevap: 5\n\nÖrnek 6:\nKök: acuş\nTanım: 'acuş' Türkçe 'oluş' anlamına gelir.\nEkler: tur,ir,abil,im\nSeçenekler:\n1. acuş+tur+abil+ir+im\n2. acuş+tur+im+abil+ir\n3. acuş+im+tur+ir+abil\n4. acuş+im+abil+tur+ir\n5. acuş+abil+im+tur+ir\n6. acuş+ir+tur+abil+im\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "oluş",
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 752,
+                "total_tokens": 753
+            },
+            "correct": false
+        },
+        {
+            "root": "maşun",
+            "suffixes": [
+                "muş",
+                "tur"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: mek,tir,abil\nSeçenekler:\n1. foyşır+mek+abil+tir\n2. foyşır+mek+tir+abil\n3. foyşır+tir+abil+mek\n4. foyşır+tir+mek+abil\n5. foyşır+abil+tir+mek\n6. foyşır+abil+mek+tir\nCevap: 6\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: liğ,ci,i,le,me\nSeçenekler:\n1. sidiş+liğ+i+me+le+ci\n2. sidiş+liğ+le+me+i+ci\n3. sidiş+le+me+ci+liğ+i\n4. sidiş+me+ci+liğ+i+le\n5. sidiş+ci+i+liğ+le+me\n6. sidiş+ci+le+me+liğ+i\nCevap: 3\n\nÖrnek 6:\nKök: maşun\nTanım: 'maşun' Türkçe 'bulun' anlamına gelir.\nEkler: muş,tur\nSeçenekler:\n1. maşun+muş+tur\n2. maşun+tur+muş\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "bulun",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 694,
+                "total_tokens": 695
+            },
+            "correct": true
+        },
+        {
+            "root": "çıl",
+            "suffixes": [
+                "mak",
+                "tı"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: abil,mek,tir\nSeçenekler:\n1. foyşır+mek+abil+tir\n2. foyşır+abil+mek+tir\n3. foyşır+mek+tir+abil\n4. foyşır+abil+tir+mek\n5. foyşır+tir+mek+abil\n6. foyşır+tir+abil+mek\nCevap: 2\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: m,e\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: i,ci,me,liğ,le\nSeçenekler:\n1. sidiş+liğ+le+me+i+ci\n2. sidiş+liğ+i+me+le+ci\n3. sidiş+le+me+ci+liğ+i\n4. sidiş+ci+i+liğ+le+me\n5. sidiş+me+ci+liğ+i+le\n6. sidiş+ci+le+me+liğ+i\nCevap: 3\n\nÖrnek 6:\nKök: çıl\nTanım: 'çıl' Türkçe 'kıl' anlamına gelir.\nEkler: mak,tı\nSeçenekler:\n1. çıl+tı+mak\n2. çıl+mak+tı\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "kıl",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 687,
+                "total_tokens": 688
+            },
+            "correct": false
+        },
+        {
+            "root": "çava",
+            "suffixes": [
+                "n",
+                "laş",
+                "ıl",
+                "dı",
+                "m"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: mek,tir,abil\nSeçenekler:\n1. foyşır+mek+tir+abil\n2. foyşır+tir+abil+mek\n3. foyşır+tir+mek+abil\n4. foyşır+mek+abil+tir\n5. foyşır+abil+tir+mek\n6. foyşır+abil+mek+tir\nCevap: 6\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: i,ci,me,liğ,le\nSeçenekler:\n1. sidiş+liğ+i+me+le+ci\n2. sidiş+me+ci+liğ+i+le\n3. sidiş+liğ+le+me+i+ci\n4. sidiş+ci+le+me+liğ+i\n5. sidiş+le+me+ci+liğ+i\n6. sidiş+ci+i+liğ+le+me\nCevap: 5\n\nÖrnek 6:\nKök: çava\nTanım: 'çava' Türkçe 'a' anlamına gelir.\nEkler: laş,n,dı,m,ıl\nSeçenekler:\n1. çava+dı+laş+n+ıl+m\n2. çava+n+m+laş+dı+ıl\n3. çava+n+laş+ıl+dı+m\n4. çava+laş+dı+m+n+ıl\n5. çava+dı+n+laş+m+ıl\n6. çava+n+laş+m+ıl+dı\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": "a",
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 757,
+                "total_tokens": 758
+            },
+            "correct": true
+        },
+        {
+            "root": "zır",
+            "suffixes": [
+                "ma",
+                "yın"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: mek,abil,tir\nSeçenekler:\n1. foyşır+tir+abil+mek\n2. foyşır+mek+abil+tir\n3. foyşır+tir+mek+abil\n4. foyşır+mek+tir+abil\n5. foyşır+abil+tir+mek\n6. foyşır+abil+mek+tir\nCevap: 6\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: m,e\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: i,me,le,liğ,ci\nSeçenekler:\n1. sidiş+liğ+le+me+i+ci\n2. sidiş+ci+le+me+liğ+i\n3. sidiş+me+ci+liğ+i+le\n4. sidiş+liğ+i+me+le+ci\n5. sidiş+ci+i+liğ+le+me\n6. sidiş+le+me+ci+liğ+i\nCevap: 6\n\nÖrnek 6:\nKök: zır\nTanım: 'zır' Türkçe 'kır' anlamına gelir.\nEkler: ma,yın\nSeçenekler:\n1. zır+ma+yın\n2. zır+yın+ma\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "kır",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 687,
+                "total_tokens": 688
+            },
+            "correct": true
+        },
+        {
+            "root": "fuy",
+            "suffixes": [
+                "ma",
+                "m",
+                "ı"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: abil,tir,mek\nSeçenekler:\n1. foyşır+mek+tir+abil\n2. foyşır+abil+mek+tir\n3. foyşır+abil+tir+mek\n4. foyşır+mek+abil+tir\n5. foyşır+tir+abil+mek\n6. foyşır+tir+mek+abil\nCevap: 2\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: m,e\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: ci,liğ,le,i,me\nSeçenekler:\n1. sidiş+liğ+le+me+i+ci\n2. sidiş+liğ+i+me+le+ci\n3. sidiş+le+me+ci+liğ+i\n4. sidiş+me+ci+liğ+i+le\n5. sidiş+ci+le+me+liğ+i\n6. sidiş+ci+i+liğ+le+me\nCevap: 3\n\nÖrnek 6:\nKök: fuy\nTanım: 'fuy' Türkçe 'duy' anlamına gelir.\nEkler: m,ı,ma\nSeçenekler:\n1. fuy+ma+m+ı\n2. fuy+ı+ma+m\n3. fuy+m+ma+ı\n4. fuy+m+ı+ma\n5. fuy+ma+ı+m\n6. fuy+ı+m+ma\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "duy",
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 732,
+                "total_tokens": 733
+            },
+            "correct": false
+        },
+        {
+            "root": "röçiş",
+            "suffixes": [
+                "i",
+                "ni"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,mek,abil\nSeçenekler:\n1. foyşır+tir+abil+mek\n2. foyşır+mek+abil+tir\n3. foyşır+abil+mek+tir\n4. foyşır+abil+tir+mek\n5. foyşır+tir+mek+abil\n6. foyşır+mek+tir+abil\nCevap: 3\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: m,e\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: liğ,le,me,i,ci\nSeçenekler:\n1. sidiş+ci+le+me+liğ+i\n2. sidiş+le+me+ci+liğ+i\n3. sidiş+me+ci+liğ+i+le\n4. sidiş+liğ+le+me+i+ci\n5. sidiş+ci+i+liğ+le+me\n6. sidiş+liğ+i+me+le+ci\nCevap: 2\n\nÖrnek 6:\nKök: röçiş\nTanım: 'röçiş' Türkçe 'iş' anlamına gelir.\nEkler: ni,i\nSeçenekler:\n1. röçiş+ni+i\n2. röçiş+i+ni\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "iş",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 690,
+                "total_tokens": 691
+            },
+            "correct": false
+        },
+        {
+            "root": "fivin",
+            "suffixes": [
+                "er",
+                "iz"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,abil,mek\nSeçenekler:\n1. foyşır+mek+tir+abil\n2. foyşır+tir+mek+abil\n3. foyşır+mek+abil+tir\n4. foyşır+tir+abil+mek\n5. foyşır+abil+tir+mek\n6. foyşır+abil+mek+tir\nCevap: 6\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: m,e\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: le,me,i,liğ,ci\nSeçenekler:\n1. sidiş+me+ci+liğ+i+le\n2. sidiş+liğ+le+me+i+ci\n3. sidiş+liğ+i+me+le+ci\n4. sidiş+le+me+ci+liğ+i\n5. sidiş+ci+i+liğ+le+me\n6. sidiş+ci+le+me+liğ+i\nCevap: 4\n\nÖrnek 6:\nKök: fivin\nTanım: 'fivin' Türkçe 'in' anlamına gelir.\nEkler: er,iz\nSeçenekler:\n1. fivin+er+iz\n2. fivin+iz+er\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "in",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 689,
+                "total_tokens": 690
+            },
+            "correct": true
+        },
+        {
+            "root": "yifen",
+            "suffixes": [
+                "siz",
+                "liğ",
+                "in",
+                "den"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,mek,abil\nSeçenekler:\n1. foyşır+tir+mek+abil\n2. foyşır+mek+tir+abil\n3. foyşır+abil+mek+tir\n4. foyşır+abil+tir+mek\n5. foyşır+mek+abil+tir\n6. foyşır+tir+abil+mek\nCevap: 3\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: ci,liğ,i,le,me\nSeçenekler:\n1. sidiş+liğ+le+me+i+ci\n2. sidiş+ci+i+liğ+le+me\n3. sidiş+liğ+i+me+le+ci\n4. sidiş+le+me+ci+liğ+i\n5. sidiş+me+ci+liğ+i+le\n6. sidiş+ci+le+me+liğ+i\nCevap: 4\n\nÖrnek 6:\nKök: yifen\nTanım: 'yifen' Türkçe 'güven' anlamına gelir.\nEkler: siz,den,liğ,in\nSeçenekler:\n1. yifen+den+liğ+in+siz\n2. yifen+in+liğ+den+siz\n3. yifen+liğ+siz+den+in\n4. yifen+liğ+in+den+siz\n5. yifen+siz+den+liğ+in\n6. yifen+siz+liğ+in+den\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": "güven",
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 756,
+                "total_tokens": 757
+            },
+            "correct": false
+        },
+        {
+            "root": "jek",
+            "suffixes": [
+                "iz",
+                "e"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,abil,mek\nSeçenekler:\n1. foyşır+tir+mek+abil\n2. foyşır+abil+mek+tir\n3. foyşır+tir+abil+mek\n4. foyşır+mek+tir+abil\n5. foyşır+abil+tir+mek\n6. foyşır+mek+abil+tir\nCevap: 2\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: m,e\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: i,le,ci,liğ,me\nSeçenekler:\n1. sidiş+ci+le+me+liğ+i\n2. sidiş+ci+i+liğ+le+me\n3. sidiş+le+me+ci+liğ+i\n4. sidiş+me+ci+liğ+i+le\n5. sidiş+liğ+i+me+le+ci\n6. sidiş+liğ+le+me+i+ci\nCevap: 3\n\nÖrnek 6:\nKök: jek\nTanım: 'jek' Türkçe 'sek' anlamına gelir.\nEkler: e,iz\nSeçenekler:\n1. jek+iz+e\n2. jek+e+iz\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "sek",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 686,
+                "total_tokens": 687
+            },
+            "correct": true
+        },
+        {
+            "root": "peyhiben",
+            "suffixes": [
+                "ler",
+                "imiz",
+                "e"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: abil,mek,tir\nSeçenekler:\n1. foyşır+tir+mek+abil\n2. foyşır+tir+abil+mek\n3. foyşır+mek+abil+tir\n4. foyşır+abil+mek+tir\n5. foyşır+abil+tir+mek\n6. foyşır+mek+tir+abil\nCevap: 4\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: m,e\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: i,me,ci,le,liğ\nSeçenekler:\n1. sidiş+me+ci+liğ+i+le\n2. sidiş+ci+i+liğ+le+me\n3. sidiş+ci+le+me+liğ+i\n4. sidiş+le+me+ci+liğ+i\n5. sidiş+liğ+le+me+i+ci\n6. sidiş+liğ+i+me+le+ci\nCevap: 4\n\nÖrnek 6:\nKök: peyhiben\nTanım: 'peyhiben' Türkçe 'gökdelen' anlamına gelir.\nEkler: e,imiz,ler\nSeçenekler:\n1. peyhiben+imiz+ler+e\n2. peyhiben+ler+e+imiz\n3. peyhiben+ler+imiz+e\n4. peyhiben+imiz+e+ler\n5. peyhiben+e+imiz+ler\n6. peyhiben+e+ler+imiz\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": "gökdelen",
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 762,
+                "total_tokens": 763
+            },
+            "correct": false
+        },
+        {
+            "root": "kün",
+            "suffixes": [
+                "lük",
+                "ten"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: abil,tir,mek\nSeçenekler:\n1. foyşır+tir+mek+abil\n2. foyşır+mek+tir+abil\n3. foyşır+abil+tir+mek\n4. foyşır+abil+mek+tir\n5. foyşır+mek+abil+tir\n6. foyşır+tir+abil+mek\nCevap: 4\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: liğ,ci,me,i,le\nSeçenekler:\n1. sidiş+ci+le+me+liğ+i\n2. sidiş+ci+i+liğ+le+me\n3. sidiş+le+me+ci+liğ+i\n4. sidiş+liğ+le+me+i+ci\n5. sidiş+me+ci+liğ+i+le\n6. sidiş+liğ+i+me+le+ci\nCevap: 3\n\nÖrnek 6:\nKök: kün\nTanım: 'kün' Türkçe 'gün' anlamına gelir.\nEkler: lük,ten\nSeçenekler:\n1. kün+ten+lük\n2. kün+lük+ten\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "gün",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 688,
+                "total_tokens": 689
+            },
+            "correct": false
+        },
+        {
+            "root": "utul",
+            "suffixes": [
+                "umuz",
+                "a"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,abil,mek\nSeçenekler:\n1. foyşır+mek+tir+abil\n2. foyşır+tir+abil+mek\n3. foyşır+mek+abil+tir\n4. foyşır+tir+mek+abil\n5. foyşır+abil+mek+tir\n6. foyşır+abil+tir+mek\nCevap: 5\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: ci,i,liğ,le,me\nSeçenekler:\n1. sidiş+liğ+i+me+le+ci\n2. sidiş+ci+le+me+liğ+i\n3. sidiş+ci+i+liğ+le+me\n4. sidiş+me+ci+liğ+i+le\n5. sidiş+liğ+le+me+i+ci\n6. sidiş+le+me+ci+liğ+i\nCevap: 6\n\nÖrnek 6:\nKök: utul\nTanım: 'utul' Türkçe 'okul' anlamına gelir.\nEkler: umuz,a\nSeçenekler:\n1. utul+umuz+a\n2. utul+a+umuz\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "okul",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 686,
+                "total_tokens": 687
+            },
+            "correct": true
+        },
+        {
+            "root": "durk",
+            "suffixes": [
+                "ul",
+                "ma",
+                "dan"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,abil,mek\nSeçenekler:\n1. foyşır+mek+tir+abil\n2. foyşır+tir+abil+mek\n3. foyşır+abil+mek+tir\n4. foyşır+mek+abil+tir\n5. foyşır+abil+tir+mek\n6. foyşır+tir+mek+abil\nCevap: 3\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: ci,i,liğ,le,me\nSeçenekler:\n1. sidiş+le+me+ci+liğ+i\n2. sidiş+liğ+le+me+i+ci\n3. sidiş+me+ci+liğ+i+le\n4. sidiş+liğ+i+me+le+ci\n5. sidiş+ci+le+me+liğ+i\n6. sidiş+ci+i+liğ+le+me\nCevap: 1\n\nÖrnek 6:\nKök: durk\nTanım: 'durk' Türkçe 'burk' anlamına gelir.\nEkler: dan,ma,ul\nSeçenekler:\n1. durk+dan+ul+ma\n2. durk+ma+dan+ul\n3. durk+ma+ul+dan\n4. durk+dan+ma+ul\n5. durk+ul+dan+ma\n6. durk+ul+ma+dan\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": "burk",
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 737,
+                "total_tokens": 738
+            },
+            "correct": false
+        },
+        {
+            "root": "sıyozza",
+            "suffixes": [
+                "ma",
+                "mız",
+                "a"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: abil,mek,tir\nSeçenekler:\n1. foyşır+mek+tir+abil\n2. foyşır+mek+abil+tir\n3. foyşır+tir+mek+abil\n4. foyşır+abil+mek+tir\n5. foyşır+tir+abil+mek\n6. foyşır+abil+tir+mek\nCevap: 4\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: m,e\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: liğ,me,i,ci,le\nSeçenekler:\n1. sidiş+ci+le+me+liğ+i\n2. sidiş+ci+i+liğ+le+me\n3. sidiş+le+me+ci+liğ+i\n4. sidiş+liğ+i+me+le+ci\n5. sidiş+me+ci+liğ+i+le\n6. sidiş+liğ+le+me+i+ci\nCevap: 3\n\nÖrnek 6:\nKök: sıyozza\nTanım: 'sıyozza' Türkçe 'çuvalla' anlamına gelir.\nEkler: ma,mız,a\nSeçenekler:\n1. sıyozza+a+mız+ma\n2. sıyozza+mız+a+ma\n3. sıyozza+ma+mız+a\n4. sıyozza+mız+ma+a\n5. sıyozza+ma+a+mız\n6. sıyozza+a+ma+mız\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": "çuvalla",
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 756,
+                "total_tokens": 757
+            },
+            "correct": false
+        },
+        {
+            "root": "ğe",
+            "suffixes": [
+                "n",
+                "e",
+                "me",
+                "me",
+                "si",
+                "nden"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,mek,abil\nSeçenekler:\n1. foyşır+tir+mek+abil\n2. foyşır+tir+abil+mek\n3. foyşır+mek+abil+tir\n4. foyşır+abil+tir+mek\n5. foyşır+abil+mek+tir\n6. foyşır+mek+tir+abil\nCevap: 5\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: le,me,liğ,i,ci\nSeçenekler:\n1. sidiş+liğ+le+me+i+ci\n2. sidiş+le+me+ci+liğ+i\n3. sidiş+me+ci+liğ+i+le\n4. sidiş+liğ+i+me+le+ci\n5. sidiş+ci+le+me+liğ+i\n6. sidiş+ci+i+liğ+le+me\nCevap: 2\n\nÖrnek 6:\nKök: ğe\nTanım: 'ğe' Türkçe 'de' anlamına gelir.\nEkler: nden,e,n,me,me,si\nSeçenekler:\n1. ğe+si+me+e+me+nden+n\n2. ğe+si+nden+me+me+e+n\n3. ğe+me+me+nden+n+e+si\n4. ğe+nden+si+e+me+n+me\n5. ğe+n+e+me+me+si+nden\n6. ğe+me+me+nden+si+n+e\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": "de",
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 783,
+                "total_tokens": 784
+            },
+            "correct": false
+        },
+        {
+            "root": "mırısgi",
+            "suffixes": [
+                "n",
+                "in"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,abil,mek\nSeçenekler:\n1. foyşır+tir+abil+mek\n2. foyşır+abil+tir+mek\n3. foyşır+abil+mek+tir\n4. foyşır+tir+mek+abil\n5. foyşır+mek+abil+tir\n6. foyşır+mek+tir+abil\nCevap: 3\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: liğ,me,i,ci,le\nSeçenekler:\n1. sidiş+ci+le+me+liğ+i\n2. sidiş+liğ+le+me+i+ci\n3. sidiş+liğ+i+me+le+ci\n4. sidiş+le+me+ci+liğ+i\n5. sidiş+me+ci+liğ+i+le\n6. sidiş+ci+i+liğ+le+me\nCevap: 4\n\nÖrnek 6:\nKök: mırısgi\nTanım: 'mırısgi' Türkçe 'galaksi' anlamına gelir.\nEkler: n,in\nSeçenekler:\n1. mırısgi+in+n\n2. mırısgi+n+in\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "galaksi",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 692,
+                "total_tokens": 693
+            },
+            "correct": true
+        },
+        {
+            "root": "ühan",
+            "suffixes": [
+                "ma",
+                "sa",
+                "n"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: abil,tir,mek\nSeçenekler:\n1. foyşır+tir+mek+abil\n2. foyşır+mek+tir+abil\n3. foyşır+mek+abil+tir\n4. foyşır+abil+mek+tir\n5. foyşır+tir+abil+mek\n6. foyşır+abil+tir+mek\nCevap: 4\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: liğ,le,me,ci,i\nSeçenekler:\n1. sidiş+le+me+ci+liğ+i\n2. sidiş+liğ+le+me+i+ci\n3. sidiş+liğ+i+me+le+ci\n4. sidiş+ci+le+me+liğ+i\n5. sidiş+ci+i+liğ+le+me\n6. sidiş+me+ci+liğ+i+le\nCevap: 1\n\nÖrnek 6:\nKök: ühan\nTanım: 'ühan' Türkçe 'inan' anlamına gelir.\nEkler: n,ma,sa\nSeçenekler:\n1. ühan+n+sa+ma\n2. ühan+ma+sa+n\n3. ühan+sa+n+ma\n4. ühan+ma+n+sa\n5. ühan+sa+ma+n\n6. ühan+n+ma+sa\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "inan",
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 731,
+                "total_tokens": 732
+            },
+            "correct": false
+        },
+        {
+            "root": "rodı",
+            "suffixes": [
+                "n",
+                "ma",
+                "dığ",
+                "ı"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,mek,abil\nSeçenekler:\n1. foyşır+tir+abil+mek\n2. foyşır+tir+mek+abil\n3. foyşır+mek+abil+tir\n4. foyşır+abil+tir+mek\n5. foyşır+mek+tir+abil\n6. foyşır+abil+mek+tir\nCevap: 6\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: m,e\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: liğ,ci,me,i,le\nSeçenekler:\n1. sidiş+le+me+ci+liğ+i\n2. sidiş+liğ+le+me+i+ci\n3. sidiş+ci+le+me+liğ+i\n4. sidiş+liğ+i+me+le+ci\n5. sidiş+ci+i+liğ+le+me\n6. sidiş+me+ci+liğ+i+le\nCevap: 1\n\nÖrnek 6:\nKök: rodı\nTanım: 'rodı' Türkçe 'tanı' anlamına gelir.\nEkler: n,dığ,ma,ı\nSeçenekler:\n1. rodı+ma+ı+dığ+n\n2. rodı+n+ma+dığ+ı\n3. rodı+ı+ma+n+dığ\n4. rodı+ı+ma+dığ+n\n5. rodı+ma+ı+n+dığ\n6. rodı+ma+dığ+n+ı\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "tanı",
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 743,
+                "total_tokens": 744
+            },
+            "correct": false
+        },
+        {
+            "root": "lık",
+            "suffixes": [
+                "ma",
+                "yış",
+                "ı"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: mek,abil,tir\nSeçenekler:\n1. foyşır+mek+tir+abil\n2. foyşır+mek+abil+tir\n3. foyşır+tir+abil+mek\n4. foyşır+abil+tir+mek\n5. foyşır+abil+mek+tir\n6. foyşır+tir+mek+abil\nCevap: 5\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: liğ,le,i,ci,me\nSeçenekler:\n1. sidiş+me+ci+liğ+i+le\n2. sidiş+liğ+le+me+i+ci\n3. sidiş+liğ+i+me+le+ci\n4. sidiş+le+me+ci+liğ+i\n5. sidiş+ci+i+liğ+le+me\n6. sidiş+ci+le+me+liğ+i\nCevap: 4\n\nÖrnek 6:\nKök: lık\nTanım: 'lık' Türkçe 'çık' anlamına gelir.\nEkler: yış,ma,ı\nSeçenekler:\n1. lık+ma+yış+ı\n2. lık+yış+ma+ı\n3. lık+yış+ı+ma\n4. lık+ı+yış+ma\n5. lık+ı+ma+yış\n6. lık+ma+ı+yış\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "çık",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 738,
+                "total_tokens": 739
+            },
+            "correct": true
+        },
+        {
+            "root": "may",
+            "suffixes": [
+                "laş",
+                "tığ",
+                "ı",
+                "nı"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: mek,tir,abil\nSeçenekler:\n1. foyşır+tir+mek+abil\n2. foyşır+tir+abil+mek\n3. foyşır+mek+abil+tir\n4. foyşır+mek+tir+abil\n5. foyşır+abil+tir+mek\n6. foyşır+abil+mek+tir\nCevap: 6\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: ci,me,liğ,le,i\nSeçenekler:\n1. sidiş+liğ+i+me+le+ci\n2. sidiş+me+ci+liğ+i+le\n3. sidiş+ci+le+me+liğ+i\n4. sidiş+ci+i+liğ+le+me\n5. sidiş+liğ+le+me+i+ci\n6. sidiş+le+me+ci+liğ+i\nCevap: 6\n\nÖrnek 6:\nKök: may\nTanım: 'may' Türkçe 'pay' anlamına gelir.\nEkler: nı,laş,ı,tığ\nSeçenekler:\n1. may+tığ+ı+laş+nı\n2. may+nı+ı+tığ+laş\n3. may+nı+ı+laş+tığ\n4. may+laş+tığ+ı+nı\n5. may+nı+laş+tığ+ı\n6. may+ı+nı+laş+tığ\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": "pay",
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 750,
+                "total_tokens": 751
+            },
+            "correct": false
+        },
+        {
+            "root": "tüğenan",
+            "suffixes": [
+                "lar",
+                "ın",
+                "dan"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: abil,tir,mek\nSeçenekler:\n1. foyşır+abil+mek+tir\n2. foyşır+mek+tir+abil\n3. foyşır+tir+abil+mek\n4. foyşır+abil+tir+mek\n5. foyşır+mek+abil+tir\n6. foyşır+tir+mek+abil\nCevap: 1\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: m,e\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: le,liğ,ci,me,i\nSeçenekler:\n1. sidiş+liğ+i+me+le+ci\n2. sidiş+ci+le+me+liğ+i\n3. sidiş+le+me+ci+liğ+i\n4. sidiş+ci+i+liğ+le+me\n5. sidiş+me+ci+liğ+i+le\n6. sidiş+liğ+le+me+i+ci\nCevap: 3\n\nÖrnek 6:\nKök: tüğenan\nTanım: 'tüğenan' Türkçe 'figüran' anlamına gelir.\nEkler: lar,ın,dan\nSeçenekler:\n1. tüğenan+ın+lar+dan\n2. tüğenan+dan+lar+ın\n3. tüğenan+ın+dan+lar\n4. tüğenan+lar+ın+dan\n5. tüğenan+dan+ın+lar\n6. tüğenan+lar+dan+ın\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": "figüran",
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 755,
+                "total_tokens": 756
+            },
+            "correct": true
+        },
+        {
+            "root": "ko",
+            "suffixes": [
+                "st",
+                "lar",
+                "ınız"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: abil,tir,mek\nSeçenekler:\n1. foyşır+mek+abil+tir\n2. foyşır+abil+tir+mek\n3. foyşır+tir+abil+mek\n4. foyşır+tir+mek+abil\n5. foyşır+abil+mek+tir\n6. foyşır+mek+tir+abil\nCevap: 5\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: ci,me,i,le,liğ\nSeçenekler:\n1. sidiş+ci+i+liğ+le+me\n2. sidiş+ci+le+me+liğ+i\n3. sidiş+liğ+le+me+i+ci\n4. sidiş+me+ci+liğ+i+le\n5. sidiş+le+me+ci+liğ+i\n6. sidiş+liğ+i+me+le+ci\nCevap: 5\n\nÖrnek 6:\nKök: ko\nTanım: 'ko' Türkçe 'do' anlamına gelir.\nEkler: st,lar,ınız\nSeçenekler:\n1. ko+st+lar+ınız\n2. ko+st+ınız+lar\n3. ko+lar+ınız+st\n4. ko+ınız+lar+st\n5. ko+lar+st+ınız\n6. ko+ınız+st+lar\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "do",
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 736,
+                "total_tokens": 737
+            },
+            "correct": false
+        },
+        {
+            "root": "ğe",
+            "suffixes": [
+                "r",
+                "i",
+                "nde"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: abil,tir,mek\nSeçenekler:\n1. foyşır+mek+abil+tir\n2. foyşır+mek+tir+abil\n3. foyşır+tir+abil+mek\n4. foyşır+abil+mek+tir\n5. foyşır+abil+tir+mek\n6. foyşır+tir+mek+abil\nCevap: 4\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: me,ci,liğ,le,i\nSeçenekler:\n1. sidiş+me+ci+liğ+i+le\n2. sidiş+liğ+i+me+le+ci\n3. sidiş+ci+le+me+liğ+i\n4. sidiş+liğ+le+me+i+ci\n5. sidiş+ci+i+liğ+le+me\n6. sidiş+le+me+ci+liğ+i\nCevap: 6\n\nÖrnek 6:\nKök: ğe\nTanım: 'ğe' Türkçe 'ye' anlamına gelir.\nEkler: nde,i,r\nSeçenekler:\n1. ğe+i+nde+r\n2. ğe+nde+r+i\n3. ğe+i+r+nde\n4. ğe+nde+i+r\n5. ğe+r+nde+i\n6. ğe+r+i+nde\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": "ye",
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 730,
+                "total_tokens": 731
+            },
+            "correct": false
+        },
+        {
+            "root": "ponur",
+            "suffixes": [
+                "lar",
+                "ım",
+                "ı"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: mek,tir,abil\nSeçenekler:\n1. foyşır+abil+mek+tir\n2. foyşır+abil+tir+mek\n3. foyşır+mek+abil+tir\n4. foyşır+tir+mek+abil\n5. foyşır+mek+tir+abil\n6. foyşır+tir+abil+mek\nCevap: 1\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: ci,liğ,le,i,me\nSeçenekler:\n1. sidiş+ci+i+liğ+le+me\n2. sidiş+liğ+i+me+le+ci\n3. sidiş+liğ+le+me+i+ci\n4. sidiş+ci+le+me+liğ+i\n5. sidiş+me+ci+liğ+i+le\n6. sidiş+le+me+ci+liğ+i\nCevap: 6\n\nÖrnek 6:\nKök: ponur\nTanım: 'ponur' Türkçe 'kusur' anlamına gelir.\nEkler: ım,ı,lar\nSeçenekler:\n1. ponur+ım+lar+ı\n2. ponur+lar+ım+ı\n3. ponur+lar+ı+ım\n4. ponur+ı+ım+lar\n5. ponur+ım+ı+lar\n6. ponur+ı+lar+ım\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "kusur",
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 738,
+                "total_tokens": 739
+            },
+            "correct": false
+        },
+        {
+            "root": "lübir",
+            "suffixes": [
+                "t",
+                "en"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,mek,abil\nSeçenekler:\n1. foyşır+abil+tir+mek\n2. foyşır+mek+tir+abil\n3. foyşır+tir+abil+mek\n4. foyşır+mek+abil+tir\n5. foyşır+tir+mek+abil\n6. foyşır+abil+mek+tir\nCevap: 6\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: i,me,liğ,le,ci\nSeçenekler:\n1. sidiş+me+ci+liğ+i+le\n2. sidiş+ci+i+liğ+le+me\n3. sidiş+liğ+le+me+i+ci\n4. sidiş+le+me+ci+liğ+i\n5. sidiş+liğ+i+me+le+ci\n6. sidiş+ci+le+me+liğ+i\nCevap: 4\n\nÖrnek 6:\nKök: lübir\nTanım: 'lübir' Türkçe 'getir' anlamına gelir.\nEkler: t,en\nSeçenekler:\n1. lübir+t+en\n2. lübir+en+t\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "getir",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 689,
+                "total_tokens": 690
+            },
+            "correct": true
+        },
+        {
+            "root": "juğan",
+            "suffixes": [
+                "laş",
+                "ma",
+                "lar",
+                "a"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,mek,abil\nSeçenekler:\n1. foyşır+tir+abil+mek\n2. foyşır+tir+mek+abil\n3. foyşır+abil+mek+tir\n4. foyşır+mek+tir+abil\n5. foyşır+abil+tir+mek\n6. foyşır+mek+abil+tir\nCevap: 3\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: m,e\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: le,me,liğ,ci,i\nSeçenekler:\n1. sidiş+ci+le+me+liğ+i\n2. sidiş+ci+i+liğ+le+me\n3. sidiş+me+ci+liğ+i+le\n4. sidiş+le+me+ci+liğ+i\n5. sidiş+liğ+le+me+i+ci\n6. sidiş+liğ+i+me+le+ci\nCevap: 4\n\nÖrnek 6:\nKök: juğan\nTanım: 'juğan' Türkçe 'an' anlamına gelir.\nEkler: lar,laş,a,ma\nSeçenekler:\n1. juğan+a+lar+laş+ma\n2. juğan+ma+lar+a+laş\n3. juğan+a+lar+ma+laş\n4. juğan+laş+a+ma+lar\n5. juğan+ma+laş+lar+a\n6. juğan+laş+ma+lar+a\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": "an",
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 757,
+                "total_tokens": 758
+            },
+            "correct": true
+        },
+        {
+            "root": "ğicek",
+            "suffixes": [
+                "le",
+                "yeceğ",
+                "iz"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: abil,mek,tir\nSeçenekler:\n1. foyşır+tir+mek+abil\n2. foyşır+tir+abil+mek\n3. foyşır+mek+tir+abil\n4. foyşır+abil+mek+tir\n5. foyşır+abil+tir+mek\n6. foyşır+mek+abil+tir\nCevap: 4\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: m,e\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: le,ci,liğ,me,i\nSeçenekler:\n1. sidiş+liğ+le+me+i+ci\n2. sidiş+me+ci+liğ+i+le\n3. sidiş+ci+i+liğ+le+me\n4. sidiş+ci+le+me+liğ+i\n5. sidiş+le+me+ci+liğ+i\n6. sidiş+liğ+i+me+le+ci\nCevap: 5\n\nÖrnek 6:\nKök: ğicek\nTanım: 'ğicek' Türkçe 'ek' anlamına gelir.\nEkler: iz,le,yeceğ\nSeçenekler:\n1. ğicek+yeceğ+iz+le\n2. ğicek+iz+yeceğ+le\n3. ğicek+iz+le+yeceğ\n4. ğicek+le+yeceğ+iz\n5. ğicek+yeceğ+le+iz\n6. ğicek+le+iz+yeceğ\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": "ek",
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 763,
+                "total_tokens": 764
+            },
+            "correct": false
+        },
+        {
+            "root": "cüpekmet",
+            "suffixes": [
+                "im",
+                "le"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: abil,tir,mek\nSeçenekler:\n1. foyşır+mek+abil+tir\n2. foyşır+tir+mek+abil\n3. foyşır+abil+mek+tir\n4. foyşır+mek+tir+abil\n5. foyşır+tir+abil+mek\n6. foyşır+abil+tir+mek\nCevap: 3\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: m,e\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: me,liğ,i,le,ci\nSeçenekler:\n1. sidiş+liğ+i+me+le+ci\n2. sidiş+ci+i+liğ+le+me\n3. sidiş+liğ+le+me+i+ci\n4. sidiş+me+ci+liğ+i+le\n5. sidiş+ci+le+me+liğ+i\n6. sidiş+le+me+ci+liğ+i\nCevap: 6\n\nÖrnek 6:\nKök: cüpekmet\nTanım: 'cüpekmet' Türkçe 'bisiklet' anlamına gelir.\nEkler: le,im\nSeçenekler:\n1. cüpekmet+le+im\n2. cüpekmet+im+le\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "bisiklet",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 696,
+                "total_tokens": 697
+            },
+            "correct": false
+        },
+        {
+            "root": "vok",
+            "suffixes": [
+                "la",
+                "yabil",
+                "iyor",
+                "du",
+                "m"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: mek,tir,abil\nSeçenekler:\n1. foyşır+tir+mek+abil\n2. foyşır+abil+mek+tir\n3. foyşır+mek+abil+tir\n4. foyşır+abil+tir+mek\n5. foyşır+tir+abil+mek\n6. foyşır+mek+tir+abil\nCevap: 2\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: me,i,le,liğ,ci\nSeçenekler:\n1. sidiş+le+me+ci+liğ+i\n2. sidiş+liğ+le+me+i+ci\n3. sidiş+ci+i+liğ+le+me\n4. sidiş+me+ci+liğ+i+le\n5. sidiş+ci+le+me+liğ+i\n6. sidiş+liğ+i+me+le+ci\nCevap: 1\n\nÖrnek 6:\nKök: vok\nTanım: 'vok' Türkçe 'kok' anlamına gelir.\nEkler: yabil,la,du,m,iyor\nSeçenekler:\n1. vok+iyor+m+yabil+du+la\n2. vok+yabil+la+iyor+m+du\n3. vok+la+yabil+du+iyor+m\n4. vok+la+m+du+yabil+iyor\n5. vok+la+yabil+iyor+du+m\n6. vok+iyor+m+du+la+yabil\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": "kok",
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 759,
+                "total_tokens": 760
+            },
+            "correct": false
+        },
+        {
+            "root": "hüti",
+            "suffixes": [
+                "len",
+                "me",
+                "ler",
+                "i"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,mek,abil\nSeçenekler:\n1. foyşır+abil+tir+mek\n2. foyşır+tir+mek+abil\n3. foyşır+tir+abil+mek\n4. foyşır+abil+mek+tir\n5. foyşır+mek+tir+abil\n6. foyşır+mek+abil+tir\nCevap: 4\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: ci,i,liğ,le,me\nSeçenekler:\n1. sidiş+ci+le+me+liğ+i\n2. sidiş+ci+i+liğ+le+me\n3. sidiş+me+ci+liğ+i+le\n4. sidiş+liğ+i+me+le+ci\n5. sidiş+le+me+ci+liğ+i\n6. sidiş+liğ+le+me+i+ci\nCevap: 5\n\nÖrnek 6:\nKök: hüti\nTanım: 'hüti' Türkçe 'yeni' anlamına gelir.\nEkler: i,me,ler,len\nSeçenekler:\n1. hüti+me+ler+i+len\n2. hüti+ler+i+me+len\n3. hüti+me+len+i+ler\n4. hüti+i+me+len+ler\n5. hüti+len+me+ler+i\n6. hüti+ler+i+len+me\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": "yeni",
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 745,
+                "total_tokens": 746
+            },
+            "correct": false
+        },
+        {
+            "root": "hiçür",
+            "suffixes": [
+                "müş",
+                "tür"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: mek,abil,tir\nSeçenekler:\n1. foyşır+mek+abil+tir\n2. foyşır+mek+tir+abil\n3. foyşır+abil+mek+tir\n4. foyşır+tir+abil+mek\n5. foyşır+abil+tir+mek\n6. foyşır+tir+mek+abil\nCevap: 3\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: ci,liğ,le,i,me\nSeçenekler:\n1. sidiş+ci+le+me+liğ+i\n2. sidiş+le+me+ci+liğ+i\n3. sidiş+me+ci+liğ+i+le\n4. sidiş+ci+i+liğ+le+me\n5. sidiş+liğ+le+me+i+ci\n6. sidiş+liğ+i+me+le+ci\nCevap: 2\n\nÖrnek 6:\nKök: hiçür\nTanım: 'hiçür' Türkçe 'süpür' anlamına gelir.\nEkler: müş,tür\nSeçenekler:\n1. hiçür+tür+müş\n2. hiçür+müş+tür\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "süpür",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 695,
+                "total_tokens": 696
+            },
+            "correct": false
+        },
+        {
+            "root": "vümi",
+            "suffixes": [
+                "miz",
+                "in"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: mek,tir,abil\nSeçenekler:\n1. foyşır+abil+mek+tir\n2. foyşır+tir+mek+abil\n3. foyşır+mek+abil+tir\n4. foyşır+tir+abil+mek\n5. foyşır+abil+tir+mek\n6. foyşır+mek+tir+abil\nCevap: 1\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: le,i,ci,liğ,me\nSeçenekler:\n1. sidiş+liğ+le+me+i+ci\n2. sidiş+le+me+ci+liğ+i\n3. sidiş+liğ+i+me+le+ci\n4. sidiş+ci+le+me+liğ+i\n5. sidiş+me+ci+liğ+i+le\n6. sidiş+ci+i+liğ+le+me\nCevap: 2\n\nÖrnek 6:\nKök: vümi\nTanım: 'vümi' Türkçe 'şefi' anlamına gelir.\nEkler: miz,in\nSeçenekler:\n1. vümi+miz+in\n2. vümi+in+miz\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "şefi",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 692,
+                "total_tokens": 693
+            },
+            "correct": true
+        },
+        {
+            "root": "mukuş",
+            "suffixes": [
+                "abil",
+                "di",
+                "m"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,mek,abil\nSeçenekler:\n1. foyşır+mek+tir+abil\n2. foyşır+tir+mek+abil\n3. foyşır+abil+mek+tir\n4. foyşır+abil+tir+mek\n5. foyşır+tir+abil+mek\n6. foyşır+mek+abil+tir\nCevap: 3\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: i,liğ,me,ci,le\nSeçenekler:\n1. sidiş+liğ+le+me+i+ci\n2. sidiş+liğ+i+me+le+ci\n3. sidiş+ci+i+liğ+le+me\n4. sidiş+ci+le+me+liğ+i\n5. sidiş+me+ci+liğ+i+le\n6. sidiş+le+me+ci+liğ+i\nCevap: 6\n\nÖrnek 6:\nKök: mukuş\nTanım: 'mukuş' Türkçe 'konuş' anlamına gelir.\nEkler: di,abil,m\nSeçenekler:\n1. mukuş+di+abil+m\n2. mukuş+m+di+abil\n3. mukuş+abil+m+di\n4. mukuş+m+abil+di\n5. mukuş+di+m+abil\n6. mukuş+abil+di+m\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": "konuş",
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 738,
+                "total_tokens": 739
+            },
+            "correct": false
+        },
+        {
+            "root": "nılomda",
+            "suffixes": [
+                "ma",
+                "m",
+                "dan"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: mek,tir,abil\nSeçenekler:\n1. foyşır+abil+mek+tir\n2. foyşır+tir+abil+mek\n3. foyşır+abil+tir+mek\n4. foyşır+tir+mek+abil\n5. foyşır+mek+tir+abil\n6. foyşır+mek+abil+tir\nCevap: 1\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: liğ,le,i,me,ci\nSeçenekler:\n1. sidiş+liğ+le+me+i+ci\n2. sidiş+me+ci+liğ+i+le\n3. sidiş+le+me+ci+liğ+i\n4. sidiş+ci+i+liğ+le+me\n5. sidiş+ci+le+me+liğ+i\n6. sidiş+liğ+i+me+le+ci\nCevap: 3\n\nÖrnek 6:\nKök: nılomda\nTanım: 'nılomda' Türkçe 'toparla' anlamına gelir.\nEkler: dan,ma,m\nSeçenekler:\n1. nılomda+ma+dan+m\n2. nılomda+dan+ma+m\n3. nılomda+m+ma+dan\n4. nılomda+ma+m+dan\n5. nılomda+dan+m+ma\n6. nılomda+m+dan+ma\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": "toparla",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 747,
+                "total_tokens": 748
+            },
+            "correct": false
+        },
+        {
+            "root": "mıla",
+            "suffixes": [
+                "n",
+                "abil",
+                "iyor",
+                "um"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: abil,tir,mek\nSeçenekler:\n1. foyşır+mek+abil+tir\n2. foyşır+tir+abil+mek\n3. foyşır+mek+tir+abil\n4. foyşır+abil+tir+mek\n5. foyşır+abil+mek+tir\n6. foyşır+tir+mek+abil\nCevap: 5\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: i,ci,liğ,me,le\nSeçenekler:\n1. sidiş+liğ+i+me+le+ci\n2. sidiş+ci+le+me+liğ+i\n3. sidiş+ci+i+liğ+le+me\n4. sidiş+me+ci+liğ+i+le\n5. sidiş+le+me+ci+liğ+i\n6. sidiş+liğ+le+me+i+ci\nCevap: 5\n\nÖrnek 6:\nKök: mıla\nTanım: 'mıla' Türkçe 'dola' anlamına gelir.\nEkler: n,abil,um,iyor\nSeçenekler:\n1. mıla+iyor+um+abil+n\n2. mıla+n+um+abil+iyor\n3. mıla+n+abil+iyor+um\n4. mıla+iyor+n+um+abil\n5. mıla+um+n+abil+iyor\n6. mıla+n+iyor+abil+um\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": "dola",
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 755,
+                "total_tokens": 756
+            },
+            "correct": true
+        },
+        {
+            "root": "buta",
+            "suffixes": [
+                "t",
+                "ma",
+                "da"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,abil,mek\nSeçenekler:\n1. foyşır+mek+tir+abil\n2. foyşır+abil+mek+tir\n3. foyşır+tir+abil+mek\n4. foyşır+tir+mek+abil\n5. foyşır+mek+abil+tir\n6. foyşır+abil+tir+mek\nCevap: 2\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: m,e\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: le,i,ci,me,liğ\nSeçenekler:\n1. sidiş+me+ci+liğ+i+le\n2. sidiş+liğ+le+me+i+ci\n3. sidiş+ci+le+me+liğ+i\n4. sidiş+ci+i+liğ+le+me\n5. sidiş+liğ+i+me+le+ci\n6. sidiş+le+me+ci+liğ+i\nCevap: 6\n\nÖrnek 6:\nKök: buta\nTanım: 'buta' Türkçe 'daya' anlamına gelir.\nEkler: da,ma,t\nSeçenekler:\n1. buta+da+ma+t\n2. buta+ma+t+da\n3. buta+t+da+ma\n4. buta+da+t+ma\n5. buta+ma+da+t\n6. buta+t+ma+da\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": "daya",
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 728,
+                "total_tokens": 729
+            },
+            "correct": false
+        },
+        {
+            "root": "fikgen",
+            "suffixes": [
+                "miş",
+                "ler",
+                "dir"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,mek,abil\nSeçenekler:\n1. foyşır+abil+tir+mek\n2. foyşır+abil+mek+tir\n3. foyşır+mek+tir+abil\n4. foyşır+tir+mek+abil\n5. foyşır+mek+abil+tir\n6. foyşır+tir+abil+mek\nCevap: 2\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: m,e\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: i,me,le,liğ,ci\nSeçenekler:\n1. sidiş+me+ci+liğ+i+le\n2. sidiş+ci+i+liğ+le+me\n3. sidiş+le+me+ci+liğ+i\n4. sidiş+liğ+le+me+i+ci\n5. sidiş+liğ+i+me+le+ci\n6. sidiş+ci+le+me+liğ+i\nCevap: 3\n\nÖrnek 6:\nKök: fikgen\nTanım: 'fikgen' Türkçe 'yelten' anlamına gelir.\nEkler: miş,dir,ler\nSeçenekler:\n1. fikgen+miş+ler+dir\n2. fikgen+miş+dir+ler\n3. fikgen+dir+ler+miş\n4. fikgen+dir+miş+ler\n5. fikgen+ler+dir+miş\n6. fikgen+ler+miş+dir\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "yelten",
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 753,
+                "total_tokens": 754
+            },
+            "correct": false
+        },
+        {
+            "root": "köbce",
+            "suffixes": [
+                "diğ",
+                "im",
+                "in"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: mek,abil,tir\nSeçenekler:\n1. foyşır+tir+abil+mek\n2. foyşır+tir+mek+abil\n3. foyşır+abil+mek+tir\n4. foyşır+mek+tir+abil\n5. foyşır+mek+abil+tir\n6. foyşır+abil+tir+mek\nCevap: 3\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: me,i,ci,le,liğ\nSeçenekler:\n1. sidiş+liğ+le+me+i+ci\n2. sidiş+ci+i+liğ+le+me\n3. sidiş+le+me+ci+liğ+i\n4. sidiş+liğ+i+me+le+ci\n5. sidiş+ci+le+me+liğ+i\n6. sidiş+me+ci+liğ+i+le\nCevap: 3\n\nÖrnek 6:\nKök: köbce\nTanım: 'köbce' Türkçe 'dinle' anlamına gelir.\nEkler: diğ,in,im\nSeçenekler:\n1. köbce+diğ+im+in\n2. köbce+diğ+in+im\n3. köbce+im+in+diğ\n4. köbce+in+diğ+im\n5. köbce+in+im+diğ\n6. köbce+im+diğ+in\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "dinle",
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 750,
+                "total_tokens": 751
+            },
+            "correct": false
+        },
+        {
+            "root": "lo",
+            "suffixes": [
+                "lan",
+                "dı",
+                "m"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: mek,abil,tir\nSeçenekler:\n1. foyşır+tir+abil+mek\n2. foyşır+abil+tir+mek\n3. foyşır+tir+mek+abil\n4. foyşır+mek+tir+abil\n5. foyşır+abil+mek+tir\n6. foyşır+mek+abil+tir\nCevap: 5\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: ci,le,liğ,i,me\nSeçenekler:\n1. sidiş+ci+le+me+liğ+i\n2. sidiş+me+ci+liğ+i+le\n3. sidiş+liğ+i+me+le+ci\n4. sidiş+le+me+ci+liğ+i\n5. sidiş+liğ+le+me+i+ci\n6. sidiş+ci+i+liğ+le+me\nCevap: 4\n\nÖrnek 6:\nKök: lo\nTanım: 'lo' Türkçe 'do' anlamına gelir.\nEkler: dı,m,lan\nSeçenekler:\n1. lo+m+lan+dı\n2. lo+m+dı+lan\n3. lo+lan+dı+m\n4. lo+dı+lan+m\n5. lo+dı+m+lan\n6. lo+lan+m+dı\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": "do",
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 723,
+                "total_tokens": 724
+            },
+            "correct": true
+        },
+        {
+            "root": "ğar",
+            "suffixes": [
+                "ış",
+                "ıyor"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,mek,abil\nSeçenekler:\n1. foyşır+mek+abil+tir\n2. foyşır+tir+mek+abil\n3. foyşır+abil+mek+tir\n4. foyşır+abil+tir+mek\n5. foyşır+tir+abil+mek\n6. foyşır+mek+tir+abil\nCevap: 3\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: liğ,le,ci,me,i\nSeçenekler:\n1. sidiş+liğ+le+me+i+ci\n2. sidiş+ci+i+liğ+le+me\n3. sidiş+ci+le+me+liğ+i\n4. sidiş+me+ci+liğ+i+le\n5. sidiş+le+me+ci+liğ+i\n6. sidiş+liğ+i+me+le+ci\nCevap: 5\n\nÖrnek 6:\nKök: ğar\nTanım: 'ğar' Türkçe 'yar' anlamına gelir.\nEkler: ış,ıyor\nSeçenekler:\n1. ğar+ıyor+ış\n2. ğar+ış+ıyor\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "yar",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 692,
+                "total_tokens": 693
+            },
+            "correct": true
+        },
+        {
+            "root": "vart",
+            "suffixes": [
+                "ış",
+                "ıl",
+                "mış"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: mek,abil,tir\nSeçenekler:\n1. foyşır+abil+mek+tir\n2. foyşır+abil+tir+mek\n3. foyşır+tir+abil+mek\n4. foyşır+tir+mek+abil\n5. foyşır+mek+abil+tir\n6. foyşır+mek+tir+abil\nCevap: 1\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: i,le,liğ,ci,me\nSeçenekler:\n1. sidiş+liğ+i+me+le+ci\n2. sidiş+liğ+le+me+i+ci\n3. sidiş+le+me+ci+liğ+i\n4. sidiş+ci+i+liğ+le+me\n5. sidiş+ci+le+me+liğ+i\n6. sidiş+me+ci+liğ+i+le\nCevap: 3\n\nÖrnek 6:\nKök: vart\nTanım: 'vart' Türkçe 'tart' anlamına gelir.\nEkler: ış,ıl,mış\nSeçenekler:\n1. vart+mış+ış+ıl\n2. vart+ış+ıl+mış\n3. vart+ış+mış+ıl\n4. vart+mış+ıl+ış\n5. vart+ıl+ış+mış\n6. vart+ıl+mış+ış\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "tart",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 738,
+                "total_tokens": 739
+            },
+            "correct": true
+        },
+        {
+            "root": "rıgan",
+            "suffixes": [
+                "la",
+                "m",
+                "ıyor",
+                "lar",
+                "dır"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: abil,tir,mek\nSeçenekler:\n1. foyşır+abil+tir+mek\n2. foyşır+tir+mek+abil\n3. foyşır+abil+mek+tir\n4. foyşır+mek+tir+abil\n5. foyşır+mek+abil+tir\n6. foyşır+tir+abil+mek\nCevap: 3\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: ci,liğ,le,i,me\nSeçenekler:\n1. sidiş+ci+le+me+liğ+i\n2. sidiş+liğ+i+me+le+ci\n3. sidiş+liğ+le+me+i+ci\n4. sidiş+le+me+ci+liğ+i\n5. sidiş+me+ci+liğ+i+le\n6. sidiş+ci+i+liğ+le+me\nCevap: 4\n\nÖrnek 6:\nKök: rıgan\nTanım: 'rıgan' Türkçe 'an' anlamına gelir.\nEkler: m,dır,lar,la,ıyor\nSeçenekler:\n1. rıgan+lar+ıyor+la+dır+m\n2. rıgan+lar+ıyor+m+la+dır\n3. rıgan+dır+lar+m+ıyor+la\n4. rıgan+dır+lar+la+ıyor+m\n5. rıgan+la+m+ıyor+lar+dır\n6. rıgan+m+lar+la+ıyor+dır\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": "an",
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 772,
+                "total_tokens": 773
+            },
+            "correct": true
+        },
+        {
+            "root": "mupdaş",
+            "suffixes": [
+                "tır",
+                "ma",
+                "dığ",
+                "ım"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: abil,tir,mek\nSeçenekler:\n1. foyşır+tir+abil+mek\n2. foyşır+tir+mek+abil\n3. foyşır+mek+tir+abil\n4. foyşır+mek+abil+tir\n5. foyşır+abil+tir+mek\n6. foyşır+abil+mek+tir\nCevap: 6\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: i,liğ,le,ci,me\nSeçenekler:\n1. sidiş+ci+i+liğ+le+me\n2. sidiş+le+me+ci+liğ+i\n3. sidiş+liğ+i+me+le+ci\n4. sidiş+me+ci+liğ+i+le\n5. sidiş+ci+le+me+liğ+i\n6. sidiş+liğ+le+me+i+ci\nCevap: 2\n\nÖrnek 6:\nKök: mupdaş\nTanım: 'mupdaş' Türkçe 'yaklaş' anlamına gelir.\nEkler: ma,tır,dığ,ım\nSeçenekler:\n1. mupdaş+tır+ma+dığ+ım\n2. mupdaş+ma+tır+dığ+ım\n3. mupdaş+ma+tır+ım+dığ\n4. mupdaş+ma+ım+tır+dığ\n5. mupdaş+tır+ım+ma+dığ\n6. mupdaş+ım+ma+dığ+tır\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "yaklaş",
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 771,
+                "total_tokens": 772
+            },
+            "correct": false
+        },
+        {
+            "root": "ıkın",
+            "suffixes": [
+                "a",
+                "ma",
+                "yan"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: mek,tir,abil\nSeçenekler:\n1. foyşır+tir+abil+mek\n2. foyşır+tir+mek+abil\n3. foyşır+mek+tir+abil\n4. foyşır+mek+abil+tir\n5. foyşır+abil+tir+mek\n6. foyşır+abil+mek+tir\nCevap: 6\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: i,le,liğ,me,ci\nSeçenekler:\n1. sidiş+liğ+le+me+i+ci\n2. sidiş+ci+i+liğ+le+me\n3. sidiş+ci+le+me+liğ+i\n4. sidiş+le+me+ci+liğ+i\n5. sidiş+me+ci+liğ+i+le\n6. sidiş+liğ+i+me+le+ci\nCevap: 4\n\nÖrnek 6:\nKök: ıkın\nTanım: 'ıkın' Türkçe 'alın' anlamına gelir.\nEkler: yan,a,ma\nSeçenekler:\n1. ıkın+a+yan+ma\n2. ıkın+ma+a+yan\n3. ıkın+a+ma+yan\n4. ıkın+ma+yan+a\n5. ıkın+yan+a+ma\n6. ıkın+yan+ma+a\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": "alın",
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 738,
+                "total_tokens": 739
+            },
+            "correct": true
+        },
+        {
+            "root": "nin",
+            "suffixes": [
+                "le",
+                "ye",
+                "me",
+                "me",
+                "ye"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,abil,mek\nSeçenekler:\n1. foyşır+abil+mek+tir\n2. foyşır+mek+tir+abil\n3. foyşır+mek+abil+tir\n4. foyşır+abil+tir+mek\n5. foyşır+tir+abil+mek\n6. foyşır+tir+mek+abil\nCevap: 1\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: liğ,me,le,ci,i\nSeçenekler:\n1. sidiş+ci+i+liğ+le+me\n2. sidiş+liğ+i+me+le+ci\n3. sidiş+le+me+ci+liğ+i\n4. sidiş+me+ci+liğ+i+le\n5. sidiş+ci+le+me+liğ+i\n6. sidiş+liğ+le+me+i+ci\nCevap: 3\n\nÖrnek 6:\nKök: nin\nTanım: 'nin' Türkçe 'din' anlamına gelir.\nEkler: ye,ye,le,me,me\nSeçenekler:\n1. nin+le+ye+me+me+ye\n2. nin+ye+me+ye+le+me\n3. nin+le+me+ye+ye+me\n4. nin+ye+le+ye+me+me\n5. nin+ye+ye+me+le+me\n6. nin+le+ye+ye+me+me\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "din",
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 754,
+                "total_tokens": 755
+            },
+            "correct": false
+        },
+        {
+            "root": "şıfmol",
+            "suffixes": [
+                "muş",
+                "lar",
+                "dı"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: mek,abil,tir\nSeçenekler:\n1. foyşır+tir+mek+abil\n2. foyşır+abil+tir+mek\n3. foyşır+abil+mek+tir\n4. foyşır+tir+abil+mek\n5. foyşır+mek+abil+tir\n6. foyşır+mek+tir+abil\nCevap: 3\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: i,le,me,liğ,ci\nSeçenekler:\n1. sidiş+liğ+i+me+le+ci\n2. sidiş+ci+i+liğ+le+me\n3. sidiş+liğ+le+me+i+ci\n4. sidiş+le+me+ci+liğ+i\n5. sidiş+me+ci+liğ+i+le\n6. sidiş+ci+le+me+liğ+i\nCevap: 4\n\nÖrnek 6:\nKök: şıfmol\nTanım: 'şıfmol' Türkçe 'hapsol' anlamına gelir.\nEkler: muş,dı,lar\nSeçenekler:\n1. şıfmol+muş+dı+lar\n2. şıfmol+dı+muş+lar\n3. şıfmol+lar+muş+dı\n4. şıfmol+muş+lar+dı\n5. şıfmol+lar+dı+muş\n6. şıfmol+dı+lar+muş\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": "hapsol",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 760,
+                "total_tokens": 761
+            },
+            "correct": false
+        },
+        {
+            "root": "çamp",
+            "suffixes": [
+                "ım",
+                "dan"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,mek,abil\nSeçenekler:\n1. foyşır+tir+mek+abil\n2. foyşır+abil+mek+tir\n3. foyşır+abil+tir+mek\n4. foyşır+mek+tir+abil\n5. foyşır+tir+abil+mek\n6. foyşır+mek+abil+tir\nCevap: 2\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: i,le,ci,me,liğ\nSeçenekler:\n1. sidiş+liğ+i+me+le+ci\n2. sidiş+ci+i+liğ+le+me\n3. sidiş+ci+le+me+liğ+i\n4. sidiş+liğ+le+me+i+ci\n5. sidiş+le+me+ci+liğ+i\n6. sidiş+me+ci+liğ+i+le\nCevap: 5\n\nÖrnek 6:\nKök: çamp\nTanım: 'çamp' Türkçe 'kamp' anlamına gelir.\nEkler: dan,ım\nSeçenekler:\n1. çamp+dan+ım\n2. çamp+ım+dan\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "kamp",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 687,
+                "total_tokens": 688
+            },
+            "correct": false
+        },
+        {
+            "root": "çez",
+            "suffixes": [
+                "im",
+                "de",
+                "ki"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: abil,mek,tir\nSeçenekler:\n1. foyşır+mek+abil+tir\n2. foyşır+tir+abil+mek\n3. foyşır+tir+mek+abil\n4. foyşır+abil+mek+tir\n5. foyşır+abil+tir+mek\n6. foyşır+mek+tir+abil\nCevap: 4\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: le,ci,i,liğ,me\nSeçenekler:\n1. sidiş+me+ci+liğ+i+le\n2. sidiş+liğ+le+me+i+ci\n3. sidiş+le+me+ci+liğ+i\n4. sidiş+ci+i+liğ+le+me\n5. sidiş+liğ+i+me+le+ci\n6. sidiş+ci+le+me+liğ+i\nCevap: 3\n\nÖrnek 6:\nKök: çez\nTanım: 'çez' Türkçe 'gez' anlamına gelir.\nEkler: im,ki,de\nSeçenekler:\n1. çez+im+ki+de\n2. çez+im+de+ki\n3. çez+ki+im+de\n4. çez+de+im+ki\n5. çez+de+ki+im\n6. çez+ki+de+im\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "gez",
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 738,
+                "total_tokens": 739
+            },
+            "correct": false
+        },
+        {
+            "root": "ivte",
+            "suffixes": [
+                "le",
+                "me",
+                "miş"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,abil,mek\nSeçenekler:\n1. foyşır+mek+abil+tir\n2. foyşır+tir+mek+abil\n3. foyşır+abil+mek+tir\n4. foyşır+tir+abil+mek\n5. foyşır+abil+tir+mek\n6. foyşır+mek+tir+abil\nCevap: 3\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: i,liğ,me,ci,le\nSeçenekler:\n1. sidiş+liğ+le+me+i+ci\n2. sidiş+liğ+i+me+le+ci\n3. sidiş+me+ci+liğ+i+le\n4. sidiş+ci+le+me+liğ+i\n5. sidiş+ci+i+liğ+le+me\n6. sidiş+le+me+ci+liğ+i\nCevap: 6\n\nÖrnek 6:\nKök: ivte\nTanım: 'ivte' Türkçe 'erte' anlamına gelir.\nEkler: le,me,miş\nSeçenekler:\n1. ivte+me+miş+le\n2. ivte+miş+me+le\n3. ivte+me+le+miş\n4. ivte+le+me+miş\n5. ivte+le+miş+me\n6. ivte+miş+le+me\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": "erte",
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 743,
+                "total_tokens": 744
+            },
+            "correct": true
+        },
+        {
+            "root": "gağ",
+            "suffixes": [
+                "la",
+                "ya",
+                "m",
+                "ıyor",
+                "sa"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: abil,mek,tir\nSeçenekler:\n1. foyşır+mek+abil+tir\n2. foyşır+mek+tir+abil\n3. foyşır+tir+abil+mek\n4. foyşır+abil+mek+tir\n5. foyşır+tir+mek+abil\n6. foyşır+abil+tir+mek\nCevap: 4\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: m,e\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: le,ci,me,liğ,i\nSeçenekler:\n1. sidiş+liğ+i+me+le+ci\n2. sidiş+liğ+le+me+i+ci\n3. sidiş+ci+i+liğ+le+me\n4. sidiş+me+ci+liğ+i+le\n5. sidiş+le+me+ci+liğ+i\n6. sidiş+ci+le+me+liğ+i\nCevap: 5\n\nÖrnek 6:\nKök: gağ\nTanım: 'gağ' Türkçe 'sağ' anlamına gelir.\nEkler: ıyor,m,la,ya,sa\nSeçenekler:\n1. gağ+la+m+ya+sa+ıyor\n2. gağ+la+ıyor+m+sa+ya\n3. gağ+ya+sa+ıyor+la+m\n4. gağ+la+ya+m+ıyor+sa\n5. gağ+m+sa+la+ya+ıyor\n6. gağ+la+ya+ıyor+m+sa\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": "sağ",
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 765,
+                "total_tokens": 766
+            },
+            "correct": false
+        },
+        {
+            "root": "ütke",
+            "suffixes": [
+                "yen",
+                "ler",
+                "e"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+mış+an\n2. col+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: abil,mek,tir\nSeçenekler:\n1. foyşır+tir+abil+mek\n2. foyşır+tir+mek+abil\n3. foyşır+abil+mek+tir\n4. foyşır+abil+tir+mek\n5. foyşır+mek+tir+abil\n6. foyşır+mek+abil+tir\nCevap: 3\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: me,ci,le,liğ,i\nSeçenekler:\n1. sidiş+le+me+ci+liğ+i\n2. sidiş+me+ci+liğ+i+le\n3. sidiş+ci+le+me+liğ+i\n4. sidiş+ci+i+liğ+le+me\n5. sidiş+liğ+i+me+le+ci\n6. sidiş+liğ+le+me+i+ci\nCevap: 1\n\nÖrnek 6:\nKök: ütke\nTanım: 'ütke' Türkçe 'işle' anlamına gelir.\nEkler: e,yen,ler\nSeçenekler:\n1. ütke+e+yen+ler\n2. ütke+yen+e+ler\n3. ütke+yen+ler+e\n4. ütke+ler+e+yen\n5. ütke+ler+yen+e\n6. ütke+e+ler+yen\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": "işle",
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 745,
+                "total_tokens": 746
+            },
+            "correct": false
+        },
+        {
+            "root": "dibpel",
+            "suffixes": [
+                "me",
+                "n",
+                "in"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,abil,mek\nSeçenekler:\n1. foyşır+abil+tir+mek\n2. foyşır+mek+tir+abil\n3. foyşır+abil+mek+tir\n4. foyşır+tir+mek+abil\n5. foyşır+mek+abil+tir\n6. foyşır+tir+abil+mek\nCevap: 3\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: e,m\nSeçenekler:\n1. ügüfmi+m+e\n2. ügüfmi+e+m\nCevap: 1\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: le,i,liğ,me,ci\nSeçenekler:\n1. sidiş+liğ+le+me+i+ci\n2. sidiş+ci+le+me+liğ+i\n3. sidiş+le+me+ci+liğ+i\n4. sidiş+liğ+i+me+le+ci\n5. sidiş+ci+i+liğ+le+me\n6. sidiş+me+ci+liğ+i+le\nCevap: 3\n\nÖrnek 6:\nKök: dibpel\nTanım: 'dibpel' Türkçe 'yüksel' anlamına gelir.\nEkler: me,n,in\nSeçenekler:\n1. dibpel+me+in+n\n2. dibpel+in+n+me\n3. dibpel+n+in+me\n4. dibpel+n+me+in\n5. dibpel+me+n+in\n6. dibpel+in+me+n\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": "yüksel",
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 732,
+                "total_tokens": 733
+            },
+            "correct": false
+        },
+        {
+            "root": "bon",
+            "suffixes": [
+                "uş",
+                "ma",
+                "yıp"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: mış,an\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+lar+ı\n2. akuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: tir,mek,abil\nSeçenekler:\n1. foyşır+tir+abil+mek\n2. foyşır+mek+abil+tir\n3. foyşır+abil+mek+tir\n4. foyşır+tir+mek+abil\n5. foyşır+abil+tir+mek\n6. foyşır+mek+tir+abil\nCevap: 3\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: m,e\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: i,me,le,liğ,ci\nSeçenekler:\n1. sidiş+ci+le+me+liğ+i\n2. sidiş+liğ+le+me+i+ci\n3. sidiş+ci+i+liğ+le+me\n4. sidiş+me+ci+liğ+i+le\n5. sidiş+le+me+ci+liğ+i\n6. sidiş+liğ+i+me+le+ci\nCevap: 5\n\nÖrnek 6:\nKök: bon\nTanım: 'bon' Türkçe 'kon' anlamına gelir.\nEkler: uş,ma,yıp\nSeçenekler:\n1. bon+uş+yıp+ma\n2. bon+yıp+ma+uş\n3. bon+ma+uş+yıp\n4. bon+ma+yıp+uş\n5. bon+yıp+uş+ma\n6. bon+uş+ma+yıp\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": "kon",
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 736,
+                "total_tokens": 737
+            },
+            "correct": false
+        },
+        {
+            "root": "luşol",
+            "suffixes": [
+                "duk",
+                "la"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: ı,lar\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: abil,mek,tir\nSeçenekler:\n1. foyşır+tir+mek+abil\n2. foyşır+mek+tir+abil\n3. foyşır+mek+abil+tir\n4. foyşır+abil+mek+tir\n5. foyşır+abil+tir+mek\n6. foyşır+tir+abil+mek\nCevap: 4\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: m,e\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: i,ci,le,me,liğ\nSeçenekler:\n1. sidiş+me+ci+liğ+i+le\n2. sidiş+ci+le+me+liğ+i\n3. sidiş+liğ+le+me+i+ci\n4. sidiş+liğ+i+me+le+ci\n5. sidiş+ci+i+liğ+le+me\n6. sidiş+le+me+ci+liğ+i\nCevap: 6\n\nÖrnek 6:\nKök: luşol\nTanım: 'luşol' Türkçe 'ol' anlamına gelir.\nEkler: la,duk\nSeçenekler:\n1. luşol+la+duk\n2. luşol+duk+la\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "ol",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 691,
+                "total_tokens": 692
+            },
+            "correct": false
+        },
+        {
+            "root": "ıykam",
+            "suffixes": [
+                "lan",
+                "dır",
+                "ma",
+                "mız",
+                "ı"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: an,mış\nSeçenekler:\n1. col+an+mış\n2. col+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: lar,ı\nSeçenekler:\n1. akuz+ı+lar\n2. akuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: abil,tir,mek\nSeçenekler:\n1. foyşır+tir+mek+abil\n2. foyşır+abil+mek+tir\n3. foyşır+tir+abil+mek\n4. foyşır+abil+tir+mek\n5. foyşır+mek+abil+tir\n6. foyşır+mek+tir+abil\nCevap: 2\n\nÖrnek 4:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: m,e\nSeçenekler:\n1. ügüfmi+e+m\n2. ügüfmi+m+e\nCevap: 2\n\nÖrnek 5:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: le,me,ci,liğ,i\nSeçenekler:\n1. sidiş+le+me+ci+liğ+i\n2. sidiş+liğ+le+me+i+ci\n3. sidiş+me+ci+liğ+i+le\n4. sidiş+liğ+i+me+le+ci\n5. sidiş+ci+i+liğ+le+me\n6. sidiş+ci+le+me+liğ+i\nCevap: 1\n\nÖrnek 6:\nKök: ıykam\nTanım: 'ıykam' Türkçe 'anlam' anlamına gelir.\nEkler: ı,dır,ma,lan,mız\nSeçenekler:\n1. ıykam+ı+dır+lan+mız+ma\n2. ıykam+lan+dır+ma+mız+ı\n3. ıykam+dır+mız+ı+ma+lan\n4. ıykam+ma+ı+mız+dır+lan\n5. ıykam+mız+dır+ma+lan+ı\n6. ıykam+ma+ı+dır+mız+lan\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "anlam",
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 780,
+                "total_tokens": 781
+            },
+            "correct": false
+        }
+    ]
+}

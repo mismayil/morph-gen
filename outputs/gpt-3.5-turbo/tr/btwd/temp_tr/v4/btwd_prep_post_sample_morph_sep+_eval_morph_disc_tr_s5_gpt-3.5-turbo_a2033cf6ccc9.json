@@ -1,0 +1,1937 @@
+{
+    "metadata": {
+        "datapath": "../data/tr/btwd/temp_tr/v4/btwd_prep_post_sample_morph_sep+_eval_morph_disc_tr_s5.json",
+        "model": "gpt-3.5-turbo",
+        "temperature": 0.3,
+        "max_tokens": 40,
+        "top_p": 1,
+        "frequency_penalty": 0,
+        "presence_penalty": 0
+    },
+    "metrics": {
+        "usage": {
+            "prompt_tokens": 55478,
+            "completion_tokens": 100,
+            "total_tokens": 55578
+        },
+        "cost": {
+            "input": 0.083217,
+            "output": 0.00019999999999999998,
+            "total": 0.083417
+        },
+        "macro_f1": 0.20634920634920637,
+        "accuracy": 0.26,
+        "precision": 0.5,
+        "recall": 0.13
+    },
+    "data": [
+        {
+            "root": "dol",
+            "suffixes": [
+                "an",
+                "mış"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldır+tir+mek+abil\n2. kaldır+abil+mek+tir\n3. kaldır+mek+tir+abil\n4. kaldır+tir+abil+mek\n5. kaldır+mek+abil+tir\n6. kaldır+abil+tir+mek\nCevap: 2\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: i,ci,liğ,le,me\nSeçenekler:\n1. iş+le+me+ci+liğ+i\n2. iş+me+ci+i+le+liğ\n3. iş+i+ci+liğ+le+me\n4. iş+i+ci+liğ+me+le\n5. iş+me+ci+le+liğ+i\n6. iş+me+le+liğ+i+ci\nCevap: 1\n\nÖrnek 6:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 516,
+                "total_tokens": 517
+            },
+            "correct": false
+        },
+        {
+            "root": "omuz",
+            "suffixes": [
+                "lar",
+                "ı"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldır+mek+tir+abil\n2. kaldır+abil+tir+mek\n3. kaldır+tir+mek+abil\n4. kaldır+tir+abil+mek\n5. kaldır+mek+abil+tir\n6. kaldır+abil+mek+tir\nCevap: 6\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: i,le,liğ,ci,me\nSeçenekler:\n1. iş+me+le+liğ+i+ci\n2. iş+i+ci+liğ+me+le\n3. iş+le+me+ci+liğ+i\n4. iş+i+ci+liğ+le+me\n5. iş+me+ci+le+liğ+i\n6. iş+me+ci+i+le+liğ\nCevap: 3\n\nÖrnek 6:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 519,
+                "total_tokens": 520
+            },
+            "correct": true
+        },
+        {
+            "root": "kaldır",
+            "suffixes": [
+                "abil",
+                "mek",
+                "tir"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nSeçenekler:\n1. kaldır+mek+abil+tir\n2. kaldır+abil+tir+mek\n3. kaldır+tir+mek+abil\n4. kaldır+mek+tir+abil\n5. kaldır+abil+mek+tir\n6. kaldır+tir+abil+mek\nCevap: 5\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: ci,liğ,me,le,i\nSeçenekler:\n1. iş+i+ci+liğ+le+me\n2. iş+i+ci+liğ+me+le\n3. iş+le+me+ci+liğ+i\n4. iş+me+ci+i+le+liğ\n5. iş+me+le+liğ+i+ci\n6. iş+me+ci+le+liğ+i\nCevap: 3\n\nÖrnek 6:\nKök: kaldır\nEkler: mek,abil,tir\nSeçenekler:\n1. kaldır+tir+abil+mek\n2. kaldır+abil+tir+mek\n3. kaldır+abil+mek+tir\n4. kaldır+mek+tir+abil\n5. kaldır+tir+mek+abil\n6. kaldır+mek+abil+tir\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 575,
+                "total_tokens": 576
+            },
+            "correct": false
+        },
+        {
+            "root": "enerji",
+            "suffixes": [
+                "m",
+                "e"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldır+tir+mek+abil\n2. kaldır+tir+abil+mek\n3. kaldır+abil+tir+mek\n4. kaldır+mek+abil+tir\n5. kaldır+abil+mek+tir\n6. kaldır+mek+tir+abil\nCevap: 5\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: le,me,liğ,i,ci\nSeçenekler:\n1. iş+le+me+ci+liğ+i\n2. iş+me+ci+i+le+liğ\n3. iş+me+le+liğ+i+ci\n4. iş+i+ci+liğ+le+me\n5. iş+me+ci+le+liğ+i\n6. iş+i+ci+liğ+me+le\nCevap: 1\n\nÖrnek 6:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 516,
+                "total_tokens": 517
+            },
+            "correct": false
+        },
+        {
+            "root": "iş",
+            "suffixes": [
+                "le",
+                "me",
+                "ci",
+                "liğ",
+                "i"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nSeçenekler:\n1. kaldır+mek+abil+tir\n2. kaldır+tir+abil+mek\n3. kaldır+mek+tir+abil\n4. kaldır+tir+mek+abil\n5. kaldır+abil+tir+mek\n6. kaldır+abil+mek+tir\nCevap: 6\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: i,liğ,me,le,ci\nSeçenekler:\n1. iş+le+me+ci+liğ+i\n2. iş+me+le+liğ+i+ci\n3. iş+me+ci+i+le+liğ\n4. iş+i+ci+liğ+me+le\n5. iş+i+ci+liğ+le+me\n6. iş+me+ci+le+liğ+i\nCevap: 1\n\nÖrnek 6:\nKök: iş\nEkler: me,le,ci,i,liğ\nSeçenekler:\n1. iş+i+ci+liğ+le+me\n2. iş+me+le+liğ+i+ci\n3. iş+le+me+ci+liğ+i\n4. iş+me+ci+le+liğ+i\n5. iş+me+ci+i+le+liğ\n6. iş+i+ci+liğ+me+le\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 590,
+                "total_tokens": 591
+            },
+            "correct": false
+        },
+        {
+            "root": "il",
+            "suffixes": [
+                "ki",
+                "ne"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nSeçenekler:\n1. kaldır+tir+abil+mek\n2. kaldır+abil+mek+tir\n3. kaldır+abil+tir+mek\n4. kaldır+tir+mek+abil\n5. kaldır+mek+tir+abil\n6. kaldır+mek+abil+tir\nCevap: 2\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: ci,liğ,i,me,le\nSeçenekler:\n1. iş+me+ci+i+le+liğ\n2. iş+le+me+ci+liğ+i\n3. iş+i+ci+liğ+me+le\n4. iş+i+ci+liğ+le+me\n5. iş+me+ci+le+liğ+i\n6. iş+me+le+liğ+i+ci\nCevap: 2\n\nÖrnek 6:\nKök: il\nEkler: ne,ki\nSeçenekler:\n1. il+ne+ki\n2. il+ki+ne\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 514,
+                "total_tokens": 515
+            },
+            "correct": false
+        },
+        {
+            "root": "tut",
+            "suffixes": [
+                "umuz",
+                "u"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldır+abil+tir+mek\n2. kaldır+mek+abil+tir\n3. kaldır+tir+mek+abil\n4. kaldır+mek+tir+abil\n5. kaldır+tir+abil+mek\n6. kaldır+abil+mek+tir\nCevap: 6\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: le,me,liğ,ci,i\nSeçenekler:\n1. iş+me+ci+le+liğ+i\n2. iş+le+me+ci+liğ+i\n3. iş+me+ci+i+le+liğ\n4. iş+i+ci+liğ+me+le\n5. iş+i+ci+liğ+le+me\n6. iş+me+le+liğ+i+ci\nCevap: 2\n\nÖrnek 6:\nKök: tut\nEkler: u,umuz\nSeçenekler:\n1. tut+u+umuz\n2. tut+umuz+u\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 519,
+                "total_tokens": 520
+            },
+            "correct": false
+        },
+        {
+            "root": "ver",
+            "suffixes": [
+                "me",
+                "miş"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldır+abil+mek+tir\n2. kaldır+mek+tir+abil\n3. kaldır+tir+mek+abil\n4. kaldır+mek+abil+tir\n5. kaldır+tir+abil+mek\n6. kaldır+abil+tir+mek\nCevap: 1\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: ci,liğ,me,le,i\nSeçenekler:\n1. iş+me+ci+le+liğ+i\n2. iş+i+ci+liğ+le+me\n3. iş+me+ci+i+le+liğ\n4. iş+me+le+liğ+i+ci\n5. iş+le+me+ci+liğ+i\n6. iş+i+ci+liğ+me+le\nCevap: 5\n\nÖrnek 6:\nKök: ver\nEkler: me,miş\nSeçenekler:\n1. ver+me+miş\n2. ver+miş+me\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 518,
+                "total_tokens": 519
+            },
+            "correct": true
+        },
+        {
+            "root": "koş",
+            "suffixes": [
+                "tur",
+                "ur",
+                "um"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldır+mek+abil+tir\n2. kaldır+abil+mek+tir\n3. kaldır+mek+tir+abil\n4. kaldır+abil+tir+mek\n5. kaldır+tir+mek+abil\n6. kaldır+tir+abil+mek\nCevap: 2\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: ci,liğ,le,i,me\nSeçenekler:\n1. iş+le+me+ci+liğ+i\n2. iş+me+ci+le+liğ+i\n3. iş+i+ci+liğ+me+le\n4. iş+i+ci+liğ+le+me\n5. iş+me+ci+i+le+liğ\n6. iş+me+le+liğ+i+ci\nCevap: 1\n\nÖrnek 6:\nKök: koş\nEkler: ur,um,tur\nSeçenekler:\n1. koş+ur+um+tur\n2. koş+tur+um+ur\n3. koş+um+ur+tur\n4. koş+um+tur+ur\n5. koş+tur+ur+um\n6. koş+ur+tur+um\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 568,
+                "total_tokens": 569
+            },
+            "correct": true
+        },
+        {
+            "root": "at",
+            "suffixes": [
+                "ıl",
+                "ma",
+                "yacağ",
+                "ı",
+                "nı"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nSeçenekler:\n1. kaldır+mek+abil+tir\n2. kaldır+tir+abil+mek\n3. kaldır+abil+mek+tir\n4. kaldır+mek+tir+abil\n5. kaldır+abil+tir+mek\n6. kaldır+tir+mek+abil\nCevap: 3\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: liğ,i,ci,me,le\nSeçenekler:\n1. iş+me+ci+i+le+liğ\n2. iş+me+le+liğ+i+ci\n3. iş+me+ci+le+liğ+i\n4. iş+i+ci+liğ+le+me\n5. iş+i+ci+liğ+me+le\n6. iş+le+me+ci+liğ+i\nCevap: 6\n\nÖrnek 6:\nKök: at\nEkler: ma,nı,ı,ıl,yacağ\nSeçenekler:\n1. at+ıl+ı+ma+nı+yacağ\n2. at+ma+nı+ıl+ı+yacağ\n3. at+ma+ıl+yacağ+ı+nı\n4. at+nı+yacağ+ı+ıl+ma\n5. at+ı+yacağ+ma+ıl+nı\n6. at+ıl+ma+yacağ+ı+nı\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 596,
+                "total_tokens": 597
+            },
+            "correct": false
+        },
+        {
+            "root": "ağabey",
+            "suffixes": [
+                "ler",
+                "imiz",
+                "i"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nSeçenekler:\n1. kaldır+mek+abil+tir\n2. kaldır+abil+mek+tir\n3. kaldır+tir+abil+mek\n4. kaldır+mek+tir+abil\n5. kaldır+abil+tir+mek\n6. kaldır+tir+mek+abil\nCevap: 2\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: me,liğ,le,ci,i\nSeçenekler:\n1. iş+i+ci+liğ+me+le\n2. iş+me+ci+i+le+liğ\n3. iş+le+me+ci+liğ+i\n4. iş+me+ci+le+liğ+i\n5. iş+i+ci+liğ+le+me\n6. iş+me+le+liğ+i+ci\nCevap: 3\n\nÖrnek 6:\nKök: ağabey\nEkler: i,ler,imiz\nSeçenekler:\n1. ağabey+imiz+ler+i\n2. ağabey+imiz+i+ler\n3. ağabey+ler+imiz+i\n4. ağabey+ler+i+imiz\n5. ağabey+i+imiz+ler\n6. ağabey+i+ler+imiz\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 582,
+                "total_tokens": 583
+            },
+            "correct": false
+        },
+        {
+            "root": "karşı",
+            "suffixes": [
+                "ya",
+                "dır"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldır+tir+abil+mek\n2. kaldır+mek+abil+tir\n3. kaldır+mek+tir+abil\n4. kaldır+abil+mek+tir\n5. kaldır+abil+tir+mek\n6. kaldır+tir+mek+abil\nCevap: 4\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: i,liğ,me,le,ci\nSeçenekler:\n1. iş+i+ci+liğ+le+me\n2. iş+me+ci+i+le+liğ\n3. iş+i+ci+liğ+me+le\n4. iş+me+ci+le+liğ+i\n5. iş+le+me+ci+liğ+i\n6. iş+me+le+liğ+i+ci\nCevap: 5\n\nÖrnek 6:\nKök: karşı\nEkler: dır,ya\nSeçenekler:\n1. karşı+dır+ya\n2. karşı+ya+dır\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 520,
+                "total_tokens": 521
+            },
+            "correct": false
+        },
+        {
+            "root": "gel",
+            "suffixes": [
+                "iş",
+                "tir",
+                "diğ",
+                "im",
+                "i"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nSeçenekler:\n1. kaldır+tir+abil+mek\n2. kaldır+mek+abil+tir\n3. kaldır+tir+mek+abil\n4. kaldır+mek+tir+abil\n5. kaldır+abil+tir+mek\n6. kaldır+abil+mek+tir\nCevap: 6\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: i,me,liğ,ci,le\nSeçenekler:\n1. iş+me+ci+le+liğ+i\n2. iş+i+ci+liğ+le+me\n3. iş+i+ci+liğ+me+le\n4. iş+me+ci+i+le+liğ\n5. iş+le+me+ci+liğ+i\n6. iş+me+le+liğ+i+ci\nCevap: 5\n\nÖrnek 6:\nKök: gel\nEkler: iş,im,diğ,i,tir\nSeçenekler:\n1. gel+diğ+i+tir+iş+im\n2. gel+iş+i+im+tir+diğ\n3. gel+tir+im+diğ+iş+i\n4. gel+diğ+im+iş+tir+i\n5. gel+iş+tir+diğ+im+i\n6. gel+im+iş+i+tir+diğ\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 590,
+                "total_tokens": 591
+            },
+            "correct": false
+        },
+        {
+            "root": "sahil",
+            "suffixes": [
+                "ler",
+                "i",
+                "ni"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldır+tir+mek+abil\n2. kaldır+mek+tir+abil\n3. kaldır+abil+mek+tir\n4. kaldır+mek+abil+tir\n5. kaldır+tir+abil+mek\n6. kaldır+abil+tir+mek\nCevap: 3\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: le,ci,i,me,liğ\nSeçenekler:\n1. iş+me+ci+i+le+liğ\n2. iş+le+me+ci+liğ+i\n3. iş+i+ci+liğ+le+me\n4. iş+me+le+liğ+i+ci\n5. iş+i+ci+liğ+me+le\n6. iş+me+ci+le+liğ+i\nCevap: 2\n\nÖrnek 6:\nKök: sahil\nEkler: ler,ni,i\nSeçenekler:\n1. sahil+ler+ni+i\n2. sahil+ler+i+ni\n3. sahil+i+ler+ni\n4. sahil+i+ni+ler\n5. sahil+ni+i+ler\n6. sahil+ni+ler+i\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 560,
+                "total_tokens": 561
+            },
+            "correct": false
+        },
+        {
+            "root": "soru",
+            "suffixes": [
+                "m",
+                "suz",
+                "luk",
+                "lar",
+                "ı"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nSeçenekler:\n1. kaldır+mek+tir+abil\n2. kaldır+abil+mek+tir\n3. kaldır+tir+abil+mek\n4. kaldır+mek+abil+tir\n5. kaldır+abil+tir+mek\n6. kaldır+tir+mek+abil\nCevap: 2\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: i,liğ,ci,le,me\nSeçenekler:\n1. iş+me+ci+le+liğ+i\n2. iş+i+ci+liğ+me+le\n3. iş+me+le+liğ+i+ci\n4. iş+me+ci+i+le+liğ\n5. iş+le+me+ci+liğ+i\n6. iş+i+ci+liğ+le+me\nCevap: 5\n\nÖrnek 6:\nKök: soru\nEkler: luk,ı,m,suz,lar\nSeçenekler:\n1. soru+ı+m+suz+luk+lar\n2. soru+suz+luk+lar+m+ı\n3. soru+ı+lar+suz+luk+m\n4. soru+m+suz+luk+lar+ı\n5. soru+lar+suz+m+luk+ı\n6. soru+lar+suz+luk+m+ı\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 588,
+                "total_tokens": 589
+            },
+            "correct": false
+        },
+        {
+            "root": "gurur",
+            "suffixes": [
+                "un",
+                "un"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nSeçenekler:\n1. kaldır+tir+abil+mek\n2. kaldır+mek+tir+abil\n3. kaldır+abil+tir+mek\n4. kaldır+tir+mek+abil\n5. kaldır+abil+mek+tir\n6. kaldır+mek+abil+tir\nCevap: 5\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: ci,i,me,liğ,le\nSeçenekler:\n1. iş+i+ci+liğ+me+le\n2. iş+me+ci+i+le+liğ\n3. iş+me+le+liğ+i+ci\n4. iş+me+ci+le+liğ+i\n5. iş+le+me+ci+liğ+i\n6. iş+i+ci+liğ+le+me\nCevap: 5\n\nÖrnek 6:\nKök: gurur\nEkler: un,un\nSeçenekler:\n1. gurur+un+un\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 511,
+                "total_tokens": 512
+            },
+            "correct": true
+        },
+        {
+            "root": "iste",
+            "suffixes": [
+                "me",
+                "dik",
+                "ler",
+                "i",
+                "ni"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldır+abil+tir+mek\n2. kaldır+abil+mek+tir\n3. kaldır+mek+abil+tir\n4. kaldır+tir+mek+abil\n5. kaldır+mek+tir+abil\n6. kaldır+tir+abil+mek\nCevap: 2\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: me,ci,le,i,liğ\nSeçenekler:\n1. iş+le+me+ci+liğ+i\n2. iş+me+ci+le+liğ+i\n3. iş+me+le+liğ+i+ci\n4. iş+me+ci+i+le+liğ\n5. iş+i+ci+liğ+le+me\n6. iş+i+ci+liğ+me+le\nCevap: 1\n\nÖrnek 6:\nKök: iste\nEkler: ni,ler,i,me,dik\nSeçenekler:\n1. iste+ni+me+i+dik+ler\n2. iste+me+ler+i+dik+ni\n3. iste+i+ler+dik+me+ni\n4. iste+me+dik+ler+i+ni\n5. iste+me+ni+i+dik+ler\n6. iste+ni+i+dik+ler+me\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 589,
+                "total_tokens": 590
+            },
+            "correct": false
+        },
+        {
+            "root": "yarım",
+            "suffixes": [
+                "lar",
+                "ımız"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nSeçenekler:\n1. kaldır+abil+mek+tir\n2. kaldır+abil+tir+mek\n3. kaldır+mek+tir+abil\n4. kaldır+tir+abil+mek\n5. kaldır+tir+mek+abil\n6. kaldır+mek+abil+tir\nCevap: 1\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: liğ,me,i,le,ci\nSeçenekler:\n1. iş+me+ci+i+le+liğ\n2. iş+i+ci+liğ+me+le\n3. iş+me+le+liğ+i+ci\n4. iş+le+me+ci+liğ+i\n5. iş+i+ci+liğ+le+me\n6. iş+me+ci+le+liğ+i\nCevap: 4\n\nÖrnek 6:\nKök: yarım\nEkler: lar,ımız\nSeçenekler:\n1. yarım+lar+ımız\n2. yarım+ımız+lar\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 524,
+                "total_tokens": 525
+            },
+            "correct": true
+        },
+        {
+            "root": "kukla",
+            "suffixes": [
+                "lar",
+                "ı",
+                "ydı"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nSeçenekler:\n1. kaldır+tir+mek+abil\n2. kaldır+tir+abil+mek\n3. kaldır+mek+tir+abil\n4. kaldır+abil+tir+mek\n5. kaldır+mek+abil+tir\n6. kaldır+abil+mek+tir\nCevap: 6\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: liğ,i,ci,me,le\nSeçenekler:\n1. iş+me+le+liğ+i+ci\n2. iş+i+ci+liğ+me+le\n3. iş+le+me+ci+liğ+i\n4. iş+me+ci+le+liğ+i\n5. iş+i+ci+liğ+le+me\n6. iş+me+ci+i+le+liğ\nCevap: 3\n\nÖrnek 6:\nKök: kukla\nEkler: lar,ı,ydı\nSeçenekler:\n1. kukla+lar+ı+ydı\n2. kukla+ydı+ı+lar\n3. kukla+lar+ydı+ı\n4. kukla+ı+lar+ydı\n5. kukla+ydı+lar+ı\n6. kukla+ı+ydı+lar\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 576,
+                "total_tokens": 577
+            },
+            "correct": false
+        },
+        {
+            "root": "kendi",
+            "suffixes": [
+                "ler",
+                "i",
+                "dir"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldır+abil+tir+mek\n2. kaldır+mek+tir+abil\n3. kaldır+tir+mek+abil\n4. kaldır+tir+abil+mek\n5. kaldır+mek+abil+tir\n6. kaldır+abil+mek+tir\nCevap: 6\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: ci,me,i,le,liğ\nSeçenekler:\n1. iş+me+le+liğ+i+ci\n2. iş+le+me+ci+liğ+i\n3. iş+me+ci+le+liğ+i\n4. iş+i+ci+liğ+le+me\n5. iş+i+ci+liğ+me+le\n6. iş+me+ci+i+le+liğ\nCevap: 2\n\nÖrnek 6:\nKök: kendi\nEkler: dir,ler,i\nSeçenekler:\n1. kendi+i+dir+ler\n2. kendi+i+ler+dir\n3. kendi+dir+i+ler\n4. kendi+ler+dir+i\n5. kendi+ler+i+dir\n6. kendi+dir+ler+i\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 560,
+                "total_tokens": 561
+            },
+            "correct": true
+        },
+        {
+            "root": "eş",
+            "suffixes": [
+                "in",
+                "in"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nSeçenekler:\n1. kaldır+abil+mek+tir\n2. kaldır+tir+mek+abil\n3. kaldır+tir+abil+mek\n4. kaldır+mek+tir+abil\n5. kaldır+mek+abil+tir\n6. kaldır+abil+tir+mek\nCevap: 1\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: le,liğ,i,me,ci\nSeçenekler:\n1. iş+i+ci+liğ+me+le\n2. iş+me+ci+i+le+liğ\n3. iş+me+ci+le+liğ+i\n4. iş+le+me+ci+liğ+i\n5. iş+i+ci+liğ+le+me\n6. iş+me+le+liğ+i+ci\nCevap: 4\n\nÖrnek 6:\nKök: eş\nEkler: in,in\nSeçenekler:\n1. eş+in+in\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 507,
+                "total_tokens": 508
+            },
+            "correct": true
+        },
+        {
+            "root": "yaz",
+            "suffixes": [
+                "mış",
+                "tı",
+                "m"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nSeçenekler:\n1. kaldır+tir+mek+abil\n2. kaldır+abil+tir+mek\n3. kaldır+mek+tir+abil\n4. kaldır+abil+mek+tir\n5. kaldır+mek+abil+tir\n6. kaldır+tir+abil+mek\nCevap: 4\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: me,i,ci,liğ,le\nSeçenekler:\n1. iş+i+ci+liğ+le+me\n2. iş+i+ci+liğ+me+le\n3. iş+le+me+ci+liğ+i\n4. iş+me+le+liğ+i+ci\n5. iş+me+ci+le+liğ+i\n6. iş+me+ci+i+le+liğ\nCevap: 3\n\nÖrnek 6:\nKök: yaz\nEkler: mış,tı,m\nSeçenekler:\n1. yaz+mış+tı+m\n2. yaz+tı+mış+m\n3. yaz+mış+m+tı\n4. yaz+m+tı+mış\n5. yaz+m+mış+tı\n6. yaz+tı+m+mış\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 555,
+                "total_tokens": 556
+            },
+            "correct": false
+        },
+        {
+            "root": "hücre",
+            "suffixes": [
+                "miz",
+                "de"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nSeçenekler:\n1. kaldır+abil+tir+mek\n2. kaldır+mek+abil+tir\n3. kaldır+mek+tir+abil\n4. kaldır+tir+mek+abil\n5. kaldır+abil+mek+tir\n6. kaldır+tir+abil+mek\nCevap: 5\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: liğ,me,le,i,ci\nSeçenekler:\n1. iş+me+le+liğ+i+ci\n2. iş+i+ci+liğ+le+me\n3. iş+le+me+ci+liğ+i\n4. iş+me+ci+le+liğ+i\n5. iş+i+ci+liğ+me+le\n6. iş+me+ci+i+le+liğ\nCevap: 3\n\nÖrnek 6:\nKök: hücre\nEkler: miz,de\nSeçenekler:\n1. hücre+de+miz\n2. hücre+miz+de\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 522,
+                "total_tokens": 523
+            },
+            "correct": true
+        },
+        {
+            "root": "düzel",
+            "suffixes": [
+                "t",
+                "mek",
+                "te"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldır+tir+mek+abil\n2. kaldır+abil+tir+mek\n3. kaldır+tir+abil+mek\n4. kaldır+mek+tir+abil\n5. kaldır+mek+abil+tir\n6. kaldır+abil+mek+tir\nCevap: 6\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: i,le,liğ,me,ci\nSeçenekler:\n1. iş+i+ci+liğ+le+me\n2. iş+le+me+ci+liğ+i\n3. iş+me+le+liğ+i+ci\n4. iş+me+ci+i+le+liğ\n5. iş+me+ci+le+liğ+i\n6. iş+i+ci+liğ+me+le\nCevap: 2\n\nÖrnek 6:\nKök: düzel\nEkler: mek,t,te\nSeçenekler:\n1. düzel+mek+t+te\n2. düzel+t+mek+te\n3. düzel+t+te+mek\n4. düzel+te+mek+t\n5. düzel+mek+te+t\n6. düzel+te+t+mek\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 563,
+                "total_tokens": 564
+            },
+            "correct": false
+        },
+        {
+            "root": "tuğla",
+            "suffixes": [
+                "lar",
+                "ın",
+                "ı"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nSeçenekler:\n1. kaldır+mek+abil+tir\n2. kaldır+tir+abil+mek\n3. kaldır+abil+mek+tir\n4. kaldır+tir+mek+abil\n5. kaldır+abil+tir+mek\n6. kaldır+mek+tir+abil\nCevap: 3\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: me,le,i,ci,liğ\nSeçenekler:\n1. iş+le+me+ci+liğ+i\n2. iş+i+ci+liğ+me+le\n3. iş+me+ci+i+le+liğ\n4. iş+i+ci+liğ+le+me\n5. iş+me+ci+le+liğ+i\n6. iş+me+le+liğ+i+ci\nCevap: 1\n\nÖrnek 6:\nKök: tuğla\nEkler: ın,lar,ı\nSeçenekler:\n1. tuğla+ın+lar+ı\n2. tuğla+ı+lar+ın\n3. tuğla+ı+ın+lar\n4. tuğla+lar+ın+ı\n5. tuğla+ın+ı+lar\n6. tuğla+lar+ı+ın\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 576,
+                "total_tokens": 577
+            },
+            "correct": false
+        },
+        {
+            "root": "bas",
+            "suffixes": [
+                "tır",
+                "dığ",
+                "ı",
+                "nda"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nSeçenekler:\n1. kaldır+mek+abil+tir\n2. kaldır+tir+abil+mek\n3. kaldır+mek+tir+abil\n4. kaldır+abil+tir+mek\n5. kaldır+tir+mek+abil\n6. kaldır+abil+mek+tir\nCevap: 6\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: me,le,liğ,ci,i\nSeçenekler:\n1. iş+le+me+ci+liğ+i\n2. iş+me+le+liğ+i+ci\n3. iş+i+ci+liğ+me+le\n4. iş+me+ci+le+liğ+i\n5. iş+i+ci+liğ+le+me\n6. iş+me+ci+i+le+liğ\nCevap: 1\n\nÖrnek 6:\nKök: bas\nEkler: tır,nda,dığ,ı\nSeçenekler:\n1. bas+nda+ı+dığ+tır\n2. bas+ı+tır+dığ+nda\n3. bas+ı+tır+nda+dığ\n4. bas+tır+dığ+ı+nda\n5. bas+dığ+nda+ı+tır\n6. bas+tır+ı+nda+dığ\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 575,
+                "total_tokens": 576
+            },
+            "correct": true
+        },
+        {
+            "root": "ferah",
+            "suffixes": [
+                "la",
+                "t",
+                "abil",
+                "eceğ",
+                "im",
+                "i"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nSeçenekler:\n1. kaldır+abil+tir+mek\n2. kaldır+mek+tir+abil\n3. kaldır+mek+abil+tir\n4. kaldır+tir+abil+mek\n5. kaldır+tir+mek+abil\n6. kaldır+abil+mek+tir\nCevap: 6\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: le,me,ci,i,liğ\nSeçenekler:\n1. iş+me+ci+le+liğ+i\n2. iş+i+ci+liğ+me+le\n3. iş+i+ci+liğ+le+me\n4. iş+le+me+ci+liğ+i\n5. iş+me+le+liğ+i+ci\n6. iş+me+ci+i+le+liğ\nCevap: 4\n\nÖrnek 6:\nKök: ferah\nEkler: i,t,im,la,eceğ,abil\nSeçenekler:\n1. ferah+la+t+abil+eceğ+im+i\n2. ferah+eceğ+la+im+abil+t+i\n3. ferah+i+abil+la+eceğ+im+t\n4. ferah+im+t+abil+eceğ+i+la\n5. ferah+t+abil+la+im+eceğ+i\n6. ferah+im+abil+i+eceğ+t+la\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 604,
+                "total_tokens": 605
+            },
+            "correct": false
+        },
+        {
+            "root": "unut",
+            "suffixes": [
+                "ma",
+                "sınlar"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldır+mek+abil+tir\n2. kaldır+tir+mek+abil\n3. kaldır+tir+abil+mek\n4. kaldır+mek+tir+abil\n5. kaldır+abil+tir+mek\n6. kaldır+abil+mek+tir\nCevap: 6\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: liğ,me,ci,le,i\nSeçenekler:\n1. iş+me+ci+i+le+liğ\n2. iş+le+me+ci+liğ+i\n3. iş+me+ci+le+liğ+i\n4. iş+i+ci+liğ+me+le\n5. iş+me+le+liğ+i+ci\n6. iş+i+ci+liğ+le+me\nCevap: 2\n\nÖrnek 6:\nKök: unut\nEkler: sınlar,ma\nSeçenekler:\n1. unut+sınlar+ma\n2. unut+ma+sınlar\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 520,
+                "total_tokens": 521
+            },
+            "correct": false
+        },
+        {
+            "root": "bark",
+            "suffixes": [
+                "ın",
+                "dan"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldır+abil+tir+mek\n2. kaldır+tir+abil+mek\n3. kaldır+abil+mek+tir\n4. kaldır+tir+mek+abil\n5. kaldır+mek+abil+tir\n6. kaldır+mek+tir+abil\nCevap: 3\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: le,ci,liğ,me,i\nSeçenekler:\n1. iş+me+ci+le+liğ+i\n2. iş+me+le+liğ+i+ci\n3. iş+i+ci+liğ+le+me\n4. iş+i+ci+liğ+me+le\n5. iş+me+ci+i+le+liğ\n6. iş+le+me+ci+liğ+i\nCevap: 6\n\nÖrnek 6:\nKök: bark\nEkler: dan,ın\nSeçenekler:\n1. bark+ın+dan\n2. bark+dan+ın\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 515,
+                "total_tokens": 516
+            },
+            "correct": true
+        },
+        {
+            "root": "yaz",
+            "suffixes": [
+                "ma",
+                "l",
+                "ım"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldır+mek+tir+abil\n2. kaldır+tir+abil+mek\n3. kaldır+mek+abil+tir\n4. kaldır+abil+tir+mek\n5. kaldır+tir+mek+abil\n6. kaldır+abil+mek+tir\nCevap: 6\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: i,me,le,liğ,ci\nSeçenekler:\n1. iş+i+ci+liğ+le+me\n2. iş+me+ci+le+liğ+i\n3. iş+le+me+ci+liğ+i\n4. iş+me+le+liğ+i+ci\n5. iş+me+ci+i+le+liğ\n6. iş+i+ci+liğ+me+le\nCevap: 3\n\nÖrnek 6:\nKök: yaz\nEkler: ım,l,ma\nSeçenekler:\n1. yaz+ım+l+ma\n2. yaz+ım+ma+l\n3. yaz+l+ım+ma\n4. yaz+ma+ım+l\n5. yaz+ma+l+ım\n6. yaz+l+ma+ım\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 556,
+                "total_tokens": 557
+            },
+            "correct": false
+        },
+        {
+            "root": "kazan",
+            "suffixes": [
+                "dır",
+                "m",
+                "ıyor",
+                "du"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nSeçenekler:\n1. kaldır+tir+mek+abil\n2. kaldır+tir+abil+mek\n3. kaldır+mek+tir+abil\n4. kaldır+mek+abil+tir\n5. kaldır+abil+mek+tir\n6. kaldır+abil+tir+mek\nCevap: 5\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: me,liğ,le,i,ci\nSeçenekler:\n1. iş+i+ci+liğ+le+me\n2. iş+me+le+liğ+i+ci\n3. iş+me+ci+i+le+liğ\n4. iş+me+ci+le+liğ+i\n5. iş+i+ci+liğ+me+le\n6. iş+le+me+ci+liğ+i\nCevap: 6\n\nÖrnek 6:\nKök: kazan\nEkler: m,ıyor,dır,du\nSeçenekler:\n1. kazan+dır+du+m+ıyor\n2. kazan+m+dır+du+ıyor\n3. kazan+dır+m+ıyor+du\n4. kazan+du+dır+ıyor+m\n5. kazan+du+ıyor+m+dır\n6. kazan+du+m+dır+ıyor\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 584,
+                "total_tokens": 585
+            },
+            "correct": true
+        },
+        {
+            "root": "büyü",
+            "suffixes": [
+                "ye",
+                "me",
+                "dik"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldır+abil+tir+mek\n2. kaldır+mek+abil+tir\n3. kaldır+tir+mek+abil\n4. kaldır+abil+mek+tir\n5. kaldır+tir+abil+mek\n6. kaldır+mek+tir+abil\nCevap: 4\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: me,ci,liğ,le,i\nSeçenekler:\n1. iş+le+me+ci+liğ+i\n2. iş+me+ci+le+liğ+i\n3. iş+i+ci+liğ+me+le\n4. iş+i+ci+liğ+le+me\n5. iş+me+ci+i+le+liğ\n6. iş+me+le+liğ+i+ci\nCevap: 1\n\nÖrnek 6:\nKök: büyü\nEkler: dik,me,ye\nSeçenekler:\n1. büyü+ye+me+dik\n2. büyü+dik+ye+me\n3. büyü+me+dik+ye\n4. büyü+ye+dik+me\n5. büyü+me+ye+dik\n6. büyü+dik+me+ye\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 574,
+                "total_tokens": 575
+            },
+            "correct": false
+        },
+        {
+            "root": "yaka",
+            "suffixes": [
+                "lar",
+                "ken"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nSeçenekler:\n1. kaldır+tir+mek+abil\n2. kaldır+abil+mek+tir\n3. kaldır+mek+abil+tir\n4. kaldır+tir+abil+mek\n5. kaldır+mek+tir+abil\n6. kaldır+abil+tir+mek\nCevap: 2\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: le,me,ci,liğ,i\nSeçenekler:\n1. iş+me+ci+le+liğ+i\n2. iş+i+ci+liğ+le+me\n3. iş+i+ci+liğ+me+le\n4. iş+me+ci+i+le+liğ\n5. iş+me+le+liğ+i+ci\n6. iş+le+me+ci+liğ+i\nCevap: 6\n\nÖrnek 6:\nKök: yaka\nEkler: ken,lar\nSeçenekler:\n1. yaka+ken+lar\n2. yaka+lar+ken\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 519,
+                "total_tokens": 520
+            },
+            "correct": false
+        },
+        {
+            "root": "duvar",
+            "suffixes": [
+                "ın",
+                "da",
+                "ki"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldır+tir+abil+mek\n2. kaldır+tir+mek+abil\n3. kaldır+abil+mek+tir\n4. kaldır+abil+tir+mek\n5. kaldır+mek+tir+abil\n6. kaldır+mek+abil+tir\nCevap: 3\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: i,me,ci,liğ,le\nSeçenekler:\n1. iş+me+le+liğ+i+ci\n2. iş+i+ci+liğ+le+me\n3. iş+i+ci+liğ+me+le\n4. iş+me+ci+le+liğ+i\n5. iş+le+me+ci+liğ+i\n6. iş+me+ci+i+le+liğ\nCevap: 5\n\nÖrnek 6:\nKök: duvar\nEkler: da,ın,ki\nSeçenekler:\n1. duvar+ki+da+ın\n2. duvar+da+ın+ki\n3. duvar+ın+da+ki\n4. duvar+ın+ki+da\n5. duvar+ki+ın+da\n6. duvar+da+ki+ın\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 567,
+                "total_tokens": 568
+            },
+            "correct": false
+        },
+        {
+            "root": "kavra",
+            "suffixes": [
+                "ya",
+                "ma",
+                "z",
+                "dı",
+                "m"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldır+mek+abil+tir\n2. kaldır+abil+tir+mek\n3. kaldır+tir+mek+abil\n4. kaldır+abil+mek+tir\n5. kaldır+tir+abil+mek\n6. kaldır+mek+tir+abil\nCevap: 4\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: ci,me,i,le,liğ\nSeçenekler:\n1. iş+le+me+ci+liğ+i\n2. iş+me+ci+i+le+liğ\n3. iş+i+ci+liğ+me+le\n4. iş+i+ci+liğ+le+me\n5. iş+me+le+liğ+i+ci\n6. iş+me+ci+le+liğ+i\nCevap: 1\n\nÖrnek 6:\nKök: kavra\nEkler: ma,dı,ya,m,z\nSeçenekler:\n1. kavra+dı+ma+m+z+ya\n2. kavra+dı+m+ma+ya+z\n3. kavra+ma+ya+z+dı+m\n4. kavra+ma+z+m+dı+ya\n5. kavra+ya+m+dı+ma+z\n6. kavra+ya+ma+z+dı+m\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 581,
+                "total_tokens": 582
+            },
+            "correct": false
+        },
+        {
+            "root": "etki",
+            "suffixes": [
+                "le",
+                "yeceğ",
+                "i",
+                "ydi"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nSeçenekler:\n1. kaldır+tir+abil+mek\n2. kaldır+mek+abil+tir\n3. kaldır+abil+mek+tir\n4. kaldır+mek+tir+abil\n5. kaldır+abil+tir+mek\n6. kaldır+tir+mek+abil\nCevap: 3\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: i,ci,le,me,liğ\nSeçenekler:\n1. iş+me+le+liğ+i+ci\n2. iş+me+ci+le+liğ+i\n3. iş+i+ci+liğ+le+me\n4. iş+le+me+ci+liğ+i\n5. iş+i+ci+liğ+me+le\n6. iş+me+ci+i+le+liğ\nCevap: 4\n\nÖrnek 6:\nKök: etki\nEkler: le,ydi,yeceğ,i\nSeçenekler:\n1. etki+i+ydi+yeceğ+le\n2. etki+le+yeceğ+i+ydi\n3. etki+ydi+le+i+yeceğ\n4. etki+ydi+i+le+yeceğ\n5. etki+yeceğ+ydi+i+le\n6. etki+yeceğ+i+ydi+le\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 588,
+                "total_tokens": 589
+            },
+            "correct": false
+        },
+        {
+            "root": "somya",
+            "suffixes": [
+                "n",
+                "ın"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nSeçenekler:\n1. kaldır+tir+abil+mek\n2. kaldır+abil+mek+tir\n3. kaldır+abil+tir+mek\n4. kaldır+mek+abil+tir\n5. kaldır+tir+mek+abil\n6. kaldır+mek+tir+abil\nCevap: 2\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: me,le,liğ,ci,i\nSeçenekler:\n1. iş+i+ci+liğ+le+me\n2. iş+me+ci+le+liğ+i\n3. iş+i+ci+liğ+me+le\n4. iş+me+ci+i+le+liğ\n5. iş+me+le+liğ+i+ci\n6. iş+le+me+ci+liğ+i\nCevap: 6\n\nÖrnek 6:\nKök: somya\nEkler: ın,n\nSeçenekler:\n1. somya+ın+n\n2. somya+n+ın\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 516,
+                "total_tokens": 517
+            },
+            "correct": false
+        },
+        {
+            "root": "kur",
+            "suffixes": [
+                "a",
+                "ma",
+                "z",
+                "dı"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldır+mek+tir+abil\n2. kaldır+mek+abil+tir\n3. kaldır+tir+abil+mek\n4. kaldır+abil+tir+mek\n5. kaldır+abil+mek+tir\n6. kaldır+tir+mek+abil\nCevap: 5\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: ci,i,me,liğ,le\nSeçenekler:\n1. iş+i+ci+liğ+le+me\n2. iş+me+ci+i+le+liğ\n3. iş+me+ci+le+liğ+i\n4. iş+i+ci+liğ+me+le\n5. iş+me+le+liğ+i+ci\n6. iş+le+me+ci+liğ+i\nCevap: 6\n\nÖrnek 6:\nKök: kur\nEkler: z,ma,a,dı\nSeçenekler:\n1. kur+z+ma+dı+a\n2. kur+dı+ma+z+a\n3. kur+a+ma+z+dı\n4. kur+dı+z+ma+a\n5. kur+ma+a+z+dı\n6. kur+ma+z+a+dı\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 560,
+                "total_tokens": 561
+            },
+            "correct": false
+        },
+        {
+            "root": "yer",
+            "suffixes": [
+                "leş",
+                "in"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nSeçenekler:\n1. kaldır+mek+tir+abil\n2. kaldır+mek+abil+tir\n3. kaldır+tir+abil+mek\n4. kaldır+tir+mek+abil\n5. kaldır+abil+mek+tir\n6. kaldır+abil+tir+mek\nCevap: 5\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: le,ci,me,liğ,i\nSeçenekler:\n1. iş+me+ci+le+liğ+i\n2. iş+i+ci+liğ+le+me\n3. iş+me+ci+i+le+liğ\n4. iş+i+ci+liğ+me+le\n5. iş+me+le+liğ+i+ci\n6. iş+le+me+ci+liğ+i\nCevap: 6\n\nÖrnek 6:\nKök: yer\nEkler: leş,in\nSeçenekler:\n1. yer+leş+in\n2. yer+in+leş\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 517,
+                "total_tokens": 518
+            },
+            "correct": true
+        },
+        {
+            "root": "oku",
+            "suffixes": [
+                "r",
+                "un",
+                "a"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldır+mek+tir+abil\n2. kaldır+mek+abil+tir\n3. kaldır+abil+mek+tir\n4. kaldır+tir+mek+abil\n5. kaldır+abil+tir+mek\n6. kaldır+tir+abil+mek\nCevap: 3\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: liğ,i,ci,le,me\nSeçenekler:\n1. iş+me+ci+i+le+liğ\n2. iş+le+me+ci+liğ+i\n3. iş+i+ci+liğ+le+me\n4. iş+me+ci+le+liğ+i\n5. iş+me+le+liğ+i+ci\n6. iş+i+ci+liğ+me+le\nCevap: 2\n\nÖrnek 6:\nKök: oku\nEkler: a,un,r\nSeçenekler:\n1. oku+a+un+r\n2. oku+r+a+un\n3. oku+r+un+a\n4. oku+a+r+un\n5. oku+un+r+a\n6. oku+un+a+r\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 556,
+                "total_tokens": 557
+            },
+            "correct": false
+        },
+        {
+            "root": "birey",
+            "suffixes": [
+                "sel",
+                "ci",
+                "liğ",
+                "i"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nSeçenekler:\n1. kaldır+tir+abil+mek\n2. kaldır+tir+mek+abil\n3. kaldır+mek+abil+tir\n4. kaldır+abil+tir+mek\n5. kaldır+abil+mek+tir\n6. kaldır+mek+tir+abil\nCevap: 5\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: me,i,ci,liğ,le\nSeçenekler:\n1. iş+i+ci+liğ+me+le\n2. iş+me+ci+le+liğ+i\n3. iş+le+me+ci+liğ+i\n4. iş+i+ci+liğ+le+me\n5. iş+me+ci+i+le+liğ\n6. iş+me+le+liğ+i+ci\nCevap: 3\n\nÖrnek 6:\nKök: birey\nEkler: sel,i,liğ,ci\nSeçenekler:\n1. birey+ci+i+sel+liğ\n2. birey+sel+ci+liğ+i\n3. birey+sel+ci+i+liğ\n4. birey+liğ+i+ci+sel\n5. birey+ci+sel+i+liğ\n6. birey+liğ+ci+sel+i\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 588,
+                "total_tokens": 589
+            },
+            "correct": false
+        },
+        {
+            "root": "fincan",
+            "suffixes": [
+                "ın",
+                "da"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nSeçenekler:\n1. kaldır+mek+tir+abil\n2. kaldır+tir+mek+abil\n3. kaldır+abil+mek+tir\n4. kaldır+abil+tir+mek\n5. kaldır+tir+abil+mek\n6. kaldır+mek+abil+tir\nCevap: 3\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: i,liğ,me,ci,le\nSeçenekler:\n1. iş+me+ci+le+liğ+i\n2. iş+me+ci+i+le+liğ\n3. iş+le+me+ci+liğ+i\n4. iş+me+le+liğ+i+ci\n5. iş+i+ci+liğ+me+le\n6. iş+i+ci+liğ+le+me\nCevap: 3\n\nÖrnek 6:\nKök: fincan\nEkler: da,ın\nSeçenekler:\n1. fincan+da+ın\n2. fincan+ın+da\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 519,
+                "total_tokens": 520
+            },
+            "correct": false
+        },
+        {
+            "root": "ağla",
+            "suffixes": [
+                "r",
+                "ı"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldır+mek+tir+abil\n2. kaldır+abil+mek+tir\n3. kaldır+tir+abil+mek\n4. kaldır+mek+abil+tir\n5. kaldır+abil+tir+mek\n6. kaldır+tir+mek+abil\nCevap: 2\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: le,me,liğ,i,ci\nSeçenekler:\n1. iş+le+me+ci+liğ+i\n2. iş+i+ci+liğ+me+le\n3. iş+me+ci+le+liğ+i\n4. iş+me+ci+i+le+liğ\n5. iş+i+ci+liğ+le+me\n6. iş+me+le+liğ+i+ci\nCevap: 1\n\nÖrnek 6:\nKök: ağla\nEkler: ı,r\nSeçenekler:\n1. ağla+r+ı\n2. ağla+ı+r\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 520,
+                "total_tokens": 521
+            },
+            "correct": false
+        },
+        {
+            "root": "san",
+            "suffixes": [
+                "ıl",
+                "sa"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldır+tir+mek+abil\n2. kaldır+mek+abil+tir\n3. kaldır+mek+tir+abil\n4. kaldır+abil+tir+mek\n5. kaldır+abil+mek+tir\n6. kaldır+tir+abil+mek\nCevap: 5\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: ci,le,me,i,liğ\nSeçenekler:\n1. iş+me+ci+le+liğ+i\n2. iş+i+ci+liğ+le+me\n3. iş+i+ci+liğ+me+le\n4. iş+le+me+ci+liğ+i\n5. iş+me+le+liğ+i+ci\n6. iş+me+ci+i+le+liğ\nCevap: 4\n\nÖrnek 6:\nKök: san\nEkler: ıl,sa\nSeçenekler:\n1. san+ıl+sa\n2. san+sa+ıl\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 515,
+                "total_tokens": 516
+            },
+            "correct": true
+        },
+        {
+            "root": "oluş",
+            "suffixes": [
+                "tur",
+                "abil",
+                "ir",
+                "im"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nSeçenekler:\n1. kaldır+tir+mek+abil\n2. kaldır+abil+mek+tir\n3. kaldır+tir+abil+mek\n4. kaldır+abil+tir+mek\n5. kaldır+mek+tir+abil\n6. kaldır+mek+abil+tir\nCevap: 2\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: le,liğ,i,me,ci\nSeçenekler:\n1. iş+i+ci+liğ+le+me\n2. iş+me+ci+le+liğ+i\n3. iş+me+ci+i+le+liğ\n4. iş+le+me+ci+liğ+i\n5. iş+me+le+liğ+i+ci\n6. iş+i+ci+liğ+me+le\nCevap: 4\n\nÖrnek 6:\nKök: oluş\nEkler: ir,abil,tur,im\nSeçenekler:\n1. oluş+abil+im+tur+ir\n2. oluş+abil+ir+tur+im\n3. oluş+im+ir+tur+abil\n4. oluş+tur+abil+ir+im\n5. oluş+tur+abil+im+ir\n6. oluş+ir+tur+im+abil\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 583,
+                "total_tokens": 584
+            },
+            "correct": false
+        },
+        {
+            "root": "bulun",
+            "suffixes": [
+                "muş",
+                "tur"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldır+abil+tir+mek\n2. kaldır+abil+mek+tir\n3. kaldır+mek+tir+abil\n4. kaldır+tir+abil+mek\n5. kaldır+mek+abil+tir\n6. kaldır+tir+mek+abil\nCevap: 2\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: liğ,ci,me,i,le\nSeçenekler:\n1. iş+i+ci+liğ+me+le\n2. iş+i+ci+liğ+le+me\n3. iş+me+ci+le+liğ+i\n4. iş+me+le+liğ+i+ci\n5. iş+le+me+ci+liğ+i\n6. iş+me+ci+i+le+liğ\nCevap: 5\n\nÖrnek 6:\nKök: bulun\nEkler: tur,muş\nSeçenekler:\n1. bulun+tur+muş\n2. bulun+muş+tur\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 520,
+                "total_tokens": 521
+            },
+            "correct": false
+        },
+        {
+            "root": "kıl",
+            "suffixes": [
+                "mak",
+                "tı"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nSeçenekler:\n1. kaldır+mek+abil+tir\n2. kaldır+tir+abil+mek\n3. kaldır+abil+tir+mek\n4. kaldır+mek+tir+abil\n5. kaldır+abil+mek+tir\n6. kaldır+tir+mek+abil\nCevap: 5\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: liğ,le,i,ci,me\nSeçenekler:\n1. iş+i+ci+liğ+le+me\n2. iş+me+ci+i+le+liğ\n3. iş+me+ci+le+liğ+i\n4. iş+i+ci+liğ+me+le\n5. iş+le+me+ci+liğ+i\n6. iş+me+le+liğ+i+ci\nCevap: 5\n\nÖrnek 6:\nKök: kıl\nEkler: mak,tı\nSeçenekler:\n1. kıl+tı+mak\n2. kıl+mak+tı\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 519,
+                "total_tokens": 520
+            },
+            "correct": false
+        },
+        {
+            "root": "a",
+            "suffixes": [
+                "n",
+                "laş",
+                "ıl",
+                "dı",
+                "m"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nSeçenekler:\n1. kaldır+tir+abil+mek\n2. kaldır+abil+mek+tir\n3. kaldır+mek+abil+tir\n4. kaldır+tir+mek+abil\n5. kaldır+abil+tir+mek\n6. kaldır+mek+tir+abil\nCevap: 2\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: ci,le,me,i,liğ\nSeçenekler:\n1. iş+me+ci+le+liğ+i\n2. iş+me+ci+i+le+liğ\n3. iş+i+ci+liğ+me+le\n4. iş+le+me+ci+liğ+i\n5. iş+me+le+liğ+i+ci\n6. iş+i+ci+liğ+le+me\nCevap: 4\n\nÖrnek 6:\nKök: a\nEkler: n,dı,m,ıl,laş\nSeçenekler:\n1. a+laş+n+m+ıl+dı\n2. a+m+ıl+laş+dı+n\n3. a+n+laş+ıl+dı+m\n4. a+ıl+m+n+dı+laş\n5. a+n+ıl+laş+dı+m\n6. a+m+laş+ıl+n+dı\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 584,
+                "total_tokens": 585
+            },
+            "correct": false
+        },
+        {
+            "root": "kır",
+            "suffixes": [
+                "ma",
+                "yın"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldır+tir+mek+abil\n2. kaldır+mek+abil+tir\n3. kaldır+abil+tir+mek\n4. kaldır+tir+abil+mek\n5. kaldır+abil+mek+tir\n6. kaldır+mek+tir+abil\nCevap: 5\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: me,i,liğ,ci,le\nSeçenekler:\n1. iş+i+ci+liğ+me+le\n2. iş+le+me+ci+liğ+i\n3. iş+me+ci+i+le+liğ\n4. iş+i+ci+liğ+le+me\n5. iş+me+ci+le+liğ+i\n6. iş+me+le+liğ+i+ci\nCevap: 2\n\nÖrnek 6:\nKök: kır\nEkler: yın,ma\nSeçenekler:\n1. kır+ma+yın\n2. kır+yın+ma\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 520,
+                "total_tokens": 521
+            },
+            "correct": false
+        },
+        {
+            "root": "duy",
+            "suffixes": [
+                "ma",
+                "m",
+                "ı"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nSeçenekler:\n1. kaldır+tir+mek+abil\n2. kaldır+mek+tir+abil\n3. kaldır+abil+mek+tir\n4. kaldır+tir+abil+mek\n5. kaldır+abil+tir+mek\n6. kaldır+mek+abil+tir\nCevap: 3\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: liğ,i,ci,le,me\nSeçenekler:\n1. iş+le+me+ci+liğ+i\n2. iş+i+ci+liğ+me+le\n3. iş+me+ci+le+liğ+i\n4. iş+me+le+liğ+i+ci\n5. iş+i+ci+liğ+le+me\n6. iş+me+ci+i+le+liğ\nCevap: 1\n\nÖrnek 6:\nKök: duy\nEkler: m,ı,ma\nSeçenekler:\n1. duy+m+ı+ma\n2. duy+m+ma+ı\n3. duy+ı+ma+m\n4. duy+ı+m+ma\n5. duy+ma+m+ı\n6. duy+ma+ı+m\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 561,
+                "total_tokens": 562
+            },
+            "correct": false
+        },
+        {
+            "root": "iş",
+            "suffixes": [
+                "i",
+                "ni"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nSeçenekler:\n1. kaldır+abil+tir+mek\n2. kaldır+mek+abil+tir\n3. kaldır+abil+mek+tir\n4. kaldır+tir+abil+mek\n5. kaldır+tir+mek+abil\n6. kaldır+mek+tir+abil\nCevap: 3\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: liğ,ci,le,i,me\nSeçenekler:\n1. iş+le+me+ci+liğ+i\n2. iş+me+ci+le+liğ+i\n3. iş+me+le+liğ+i+ci\n4. iş+i+ci+liğ+me+le\n5. iş+i+ci+liğ+le+me\n6. iş+me+ci+i+le+liğ\nCevap: 1\n\nÖrnek 6:\nKök: iş\nEkler: ni,i\nSeçenekler:\n1. iş+ni+i\n2. iş+i+ni\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 511,
+                "total_tokens": 512
+            },
+            "correct": true
+        },
+        {
+            "root": "in",
+            "suffixes": [
+                "er",
+                "iz"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nSeçenekler:\n1. kaldır+tir+mek+abil\n2. kaldır+abil+tir+mek\n3. kaldır+mek+abil+tir\n4. kaldır+tir+abil+mek\n5. kaldır+mek+tir+abil\n6. kaldır+abil+mek+tir\nCevap: 6\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: ci,liğ,le,me,i\nSeçenekler:\n1. iş+i+ci+liğ+le+me\n2. iş+i+ci+liğ+me+le\n3. iş+me+le+liğ+i+ci\n4. iş+me+ci+i+le+liğ\n5. iş+le+me+ci+liğ+i\n6. iş+me+ci+le+liğ+i\nCevap: 5\n\nÖrnek 6:\nKök: in\nEkler: er,iz\nSeçenekler:\n1. in+er+iz\n2. in+iz+er\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 515,
+                "total_tokens": 516
+            },
+            "correct": true
+        },
+        {
+            "root": "güven",
+            "suffixes": [
+                "siz",
+                "liğ",
+                "in",
+                "den"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nSeçenekler:\n1. kaldır+tir+abil+mek\n2. kaldır+abil+mek+tir\n3. kaldır+mek+abil+tir\n4. kaldır+abil+tir+mek\n5. kaldır+tir+mek+abil\n6. kaldır+mek+tir+abil\nCevap: 2\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: liğ,i,le,me,ci\nSeçenekler:\n1. iş+me+ci+le+liğ+i\n2. iş+me+le+liğ+i+ci\n3. iş+le+me+ci+liğ+i\n4. iş+i+ci+liğ+me+le\n5. iş+me+ci+i+le+liğ\n6. iş+i+ci+liğ+le+me\nCevap: 3\n\nÖrnek 6:\nKök: güven\nEkler: den,siz,in,liğ\nSeçenekler:\n1. güven+siz+den+liğ+in\n2. güven+den+liğ+in+siz\n3. güven+siz+liğ+den+in\n4. güven+den+liğ+siz+in\n5. güven+liğ+den+in+siz\n6. güven+siz+liğ+in+den\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 589,
+                "total_tokens": 590
+            },
+            "correct": false
+        },
+        {
+            "root": "sek",
+            "suffixes": [
+                "iz",
+                "e"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldır+tir+abil+mek\n2. kaldır+abil+tir+mek\n3. kaldır+tir+mek+abil\n4. kaldır+mek+abil+tir\n5. kaldır+mek+tir+abil\n6. kaldır+abil+mek+tir\nCevap: 6\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: liğ,me,ci,le,i\nSeçenekler:\n1. iş+le+me+ci+liğ+i\n2. iş+me+ci+i+le+liğ\n3. iş+i+ci+liğ+me+le\n4. iş+me+le+liğ+i+ci\n5. iş+me+ci+le+liğ+i\n6. iş+i+ci+liğ+le+me\nCevap: 1\n\nÖrnek 6:\nKök: sek\nEkler: iz,e\nSeçenekler:\n1. sek+e+iz\n2. sek+iz+e\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 513,
+                "total_tokens": 514
+            },
+            "correct": true
+        },
+        {
+            "root": "gökdelen",
+            "suffixes": [
+                "ler",
+                "imiz",
+                "e"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldır+abil+tir+mek\n2. kaldır+tir+abil+mek\n3. kaldır+mek+abil+tir\n4. kaldır+mek+tir+abil\n5. kaldır+tir+mek+abil\n6. kaldır+abil+mek+tir\nCevap: 6\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: le,ci,i,liğ,me\nSeçenekler:\n1. iş+le+me+ci+liğ+i\n2. iş+me+ci+i+le+liğ\n3. iş+i+ci+liğ+me+le\n4. iş+me+le+liğ+i+ci\n5. iş+i+ci+liğ+le+me\n6. iş+me+ci+le+liğ+i\nCevap: 1\n\nÖrnek 6:\nKök: gökdelen\nEkler: imiz,e,ler\nSeçenekler:\n1. gökdelen+ler+imiz+e\n2. gökdelen+ler+e+imiz\n3. gökdelen+imiz+ler+e\n4. gökdelen+e+ler+imiz\n5. gökdelen+imiz+e+ler\n6. gökdelen+e+imiz+ler\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 580,
+                "total_tokens": 581
+            },
+            "correct": false
+        },
+        {
+            "root": "gün",
+            "suffixes": [
+                "lük",
+                "ten"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nSeçenekler:\n1. kaldır+mek+tir+abil\n2. kaldır+mek+abil+tir\n3. kaldır+tir+abil+mek\n4. kaldır+tir+mek+abil\n5. kaldır+abil+mek+tir\n6. kaldır+abil+tir+mek\nCevap: 5\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: me,ci,le,liğ,i\nSeçenekler:\n1. iş+me+ci+le+liğ+i\n2. iş+i+ci+liğ+le+me\n3. iş+i+ci+liğ+me+le\n4. iş+le+me+ci+liğ+i\n5. iş+me+ci+i+le+liğ\n6. iş+me+le+liğ+i+ci\nCevap: 4\n\nÖrnek 6:\nKök: gün\nEkler: ten,lük\nSeçenekler:\n1. gün+lük+ten\n2. gün+ten+lük\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 514,
+                "total_tokens": 515
+            },
+            "correct": false
+        },
+        {
+            "root": "okul",
+            "suffixes": [
+                "umuz",
+                "a"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldır+abil+tir+mek\n2. kaldır+mek+tir+abil\n3. kaldır+tir+mek+abil\n4. kaldır+mek+abil+tir\n5. kaldır+abil+mek+tir\n6. kaldır+tir+abil+mek\nCevap: 5\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: me,i,ci,le,liğ\nSeçenekler:\n1. iş+me+ci+i+le+liğ\n2. iş+i+ci+liğ+le+me\n3. iş+me+le+liğ+i+ci\n4. iş+i+ci+liğ+me+le\n5. iş+me+ci+le+liğ+i\n6. iş+le+me+ci+liğ+i\nCevap: 6\n\nÖrnek 6:\nKök: okul\nEkler: umuz,a\nSeçenekler:\n1. okul+umuz+a\n2. okul+a+umuz\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 516,
+                "total_tokens": 517
+            },
+            "correct": true
+        },
+        {
+            "root": "burk",
+            "suffixes": [
+                "ul",
+                "ma",
+                "dan"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldır+abil+mek+tir\n2. kaldır+tir+mek+abil\n3. kaldır+tir+abil+mek\n4. kaldır+abil+tir+mek\n5. kaldır+mek+abil+tir\n6. kaldır+mek+tir+abil\nCevap: 1\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: le,me,liğ,i,ci\nSeçenekler:\n1. iş+me+ci+i+le+liğ\n2. iş+i+ci+liğ+le+me\n3. iş+me+le+liğ+i+ci\n4. iş+me+ci+le+liğ+i\n5. iş+le+me+ci+liğ+i\n6. iş+i+ci+liğ+me+le\nCevap: 5\n\nÖrnek 6:\nKök: burk\nEkler: dan,ma,ul\nSeçenekler:\n1. burk+dan+ma+ul\n2. burk+ma+ul+dan\n3. burk+dan+ul+ma\n4. burk+ma+dan+ul\n5. burk+ul+ma+dan\n6. burk+ul+dan+ma\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 567,
+                "total_tokens": 568
+            },
+            "correct": false
+        },
+        {
+            "root": "çuvalla",
+            "suffixes": [
+                "ma",
+                "mız",
+                "a"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldır+mek+tir+abil\n2. kaldır+mek+abil+tir\n3. kaldır+abil+tir+mek\n4. kaldır+abil+mek+tir\n5. kaldır+tir+mek+abil\n6. kaldır+tir+abil+mek\nCevap: 4\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: liğ,me,i,le,ci\nSeçenekler:\n1. iş+le+me+ci+liğ+i\n2. iş+me+ci+i+le+liğ\n3. iş+me+le+liğ+i+ci\n4. iş+me+ci+le+liğ+i\n5. iş+i+ci+liğ+le+me\n6. iş+i+ci+liğ+me+le\nCevap: 1\n\nÖrnek 6:\nKök: çuvalla\nEkler: mız,ma,a\nSeçenekler:\n1. çuvalla+mız+ma+a\n2. çuvalla+a+mız+ma\n3. çuvalla+ma+mız+a\n4. çuvalla+ma+a+mız\n5. çuvalla+a+ma+mız\n6. çuvalla+mız+a+ma\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 569,
+                "total_tokens": 570
+            },
+            "correct": false
+        },
+        {
+            "root": "de",
+            "suffixes": [
+                "n",
+                "e",
+                "me",
+                "me",
+                "si",
+                "nden"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldır+abil+tir+mek\n2. kaldır+mek+abil+tir\n3. kaldır+mek+tir+abil\n4. kaldır+abil+mek+tir\n5. kaldır+tir+mek+abil\n6. kaldır+tir+abil+mek\nCevap: 4\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: ci,me,le,i,liğ\nSeçenekler:\n1. iş+me+ci+i+le+liğ\n2. iş+i+ci+liğ+me+le\n3. iş+me+le+liğ+i+ci\n4. iş+le+me+ci+liğ+i\n5. iş+me+ci+le+liğ+i\n6. iş+i+ci+liğ+le+me\nCevap: 4\n\nÖrnek 6:\nKök: de\nEkler: nden,si,n,e,me,me\nSeçenekler:\n1. de+n+e+me+me+si+nden\n2. de+n+me+me+si+e+nden\n3. de+n+me+nden+e+si+me\n4. de+si+me+me+nden+n+e\n5. de+me+n+e+me+nden+si\n6. de+nden+si+e+n+me+me\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 601,
+                "total_tokens": 602
+            },
+            "correct": false
+        },
+        {
+            "root": "galaksi",
+            "suffixes": [
+                "n",
+                "in"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nSeçenekler:\n1. kaldır+abil+mek+tir\n2. kaldır+mek+abil+tir\n3. kaldır+mek+tir+abil\n4. kaldır+tir+mek+abil\n5. kaldır+tir+abil+mek\n6. kaldır+abil+tir+mek\nCevap: 1\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: le,me,liğ,ci,i\nSeçenekler:\n1. iş+me+le+liğ+i+ci\n2. iş+me+ci+i+le+liğ\n3. iş+i+ci+liğ+me+le\n4. iş+le+me+ci+liğ+i\n5. iş+i+ci+liğ+le+me\n6. iş+me+ci+le+liğ+i\nCevap: 4\n\nÖrnek 6:\nKök: galaksi\nEkler: n,in\nSeçenekler:\n1. galaksi+n+in\n2. galaksi+in+n\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 516,
+                "total_tokens": 517
+            },
+            "correct": true
+        },
+        {
+            "root": "inan",
+            "suffixes": [
+                "ma",
+                "sa",
+                "n"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nSeçenekler:\n1. kaldır+tir+mek+abil\n2. kaldır+tir+abil+mek\n3. kaldır+mek+abil+tir\n4. kaldır+abil+mek+tir\n5. kaldır+abil+tir+mek\n6. kaldır+mek+tir+abil\nCevap: 4\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: liğ,me,le,i,ci\nSeçenekler:\n1. iş+me+le+liğ+i+ci\n2. iş+me+ci+i+le+liğ\n3. iş+i+ci+liğ+me+le\n4. iş+i+ci+liğ+le+me\n5. iş+me+ci+le+liğ+i\n6. iş+le+me+ci+liğ+i\nCevap: 6\n\nÖrnek 6:\nKök: inan\nEkler: n,sa,ma\nSeçenekler:\n1. inan+sa+n+ma\n2. inan+ma+n+sa\n3. inan+n+sa+ma\n4. inan+sa+ma+n\n5. inan+n+ma+sa\n6. inan+ma+sa+n\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 562,
+                "total_tokens": 563
+            },
+            "correct": false
+        },
+        {
+            "root": "tanı",
+            "suffixes": [
+                "n",
+                "ma",
+                "dığ",
+                "ı"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nSeçenekler:\n1. kaldır+tir+abil+mek\n2. kaldır+abil+tir+mek\n3. kaldır+tir+mek+abil\n4. kaldır+abil+mek+tir\n5. kaldır+mek+tir+abil\n6. kaldır+mek+abil+tir\nCevap: 4\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: liğ,le,ci,me,i\nSeçenekler:\n1. iş+me+ci+i+le+liğ\n2. iş+i+ci+liğ+le+me\n3. iş+le+me+ci+liğ+i\n4. iş+i+ci+liğ+me+le\n5. iş+me+le+liğ+i+ci\n6. iş+me+ci+le+liğ+i\nCevap: 3\n\nÖrnek 6:\nKök: tanı\nEkler: ı,dığ,ma,n\nSeçenekler:\n1. tanı+ı+ma+n+dığ\n2. tanı+ı+dığ+ma+n\n3. tanı+n+ma+dığ+ı\n4. tanı+n+ı+dığ+ma\n5. tanı+n+ma+ı+dığ\n6. tanı+ı+ma+dığ+n\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 577,
+                "total_tokens": 578
+            },
+            "correct": false
+        },
+        {
+            "root": "çık",
+            "suffixes": [
+                "ma",
+                "yış",
+                "ı"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldır+abil+tir+mek\n2. kaldır+tir+abil+mek\n3. kaldır+mek+tir+abil\n4. kaldır+tir+mek+abil\n5. kaldır+mek+abil+tir\n6. kaldır+abil+mek+tir\nCevap: 6\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: me,ci,liğ,i,le\nSeçenekler:\n1. iş+i+ci+liğ+me+le\n2. iş+me+ci+i+le+liğ\n3. iş+me+le+liğ+i+ci\n4. iş+le+me+ci+liğ+i\n5. iş+i+ci+liğ+le+me\n6. iş+me+ci+le+liğ+i\nCevap: 4\n\nÖrnek 6:\nKök: çık\nEkler: ı,ma,yış\nSeçenekler:\n1. çık+ma+yış+ı\n2. çık+ı+yış+ma\n3. çık+yış+ma+ı\n4. çık+ma+ı+yış\n5. çık+yış+ı+ma\n6. çık+ı+ma+yış\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 569,
+                "total_tokens": 570
+            },
+            "correct": false
+        },
+        {
+            "root": "pay",
+            "suffixes": [
+                "laş",
+                "tığ",
+                "ı",
+                "nı"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nSeçenekler:\n1. kaldır+tir+mek+abil\n2. kaldır+abil+tir+mek\n3. kaldır+mek+tir+abil\n4. kaldır+abil+mek+tir\n5. kaldır+tir+abil+mek\n6. kaldır+mek+abil+tir\nCevap: 4\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: ci,liğ,me,i,le\nSeçenekler:\n1. iş+me+ci+i+le+liğ\n2. iş+i+ci+liğ+le+me\n3. iş+me+le+liğ+i+ci\n4. iş+i+ci+liğ+me+le\n5. iş+le+me+ci+liğ+i\n6. iş+me+ci+le+liğ+i\nCevap: 5\n\nÖrnek 6:\nKök: pay\nEkler: ı,laş,nı,tığ\nSeçenekler:\n1. pay+tığ+ı+nı+laş\n2. pay+nı+ı+tığ+laş\n3. pay+ı+laş+nı+tığ\n4. pay+laş+tığ+ı+nı\n5. pay+ı+tığ+laş+nı\n6. pay+laş+nı+tığ+ı\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 582,
+                "total_tokens": 583
+            },
+            "correct": true
+        },
+        {
+            "root": "figüran",
+            "suffixes": [
+                "lar",
+                "ın",
+                "dan"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldır+tir+abil+mek\n2. kaldır+tir+mek+abil\n3. kaldır+abil+tir+mek\n4. kaldır+abil+mek+tir\n5. kaldır+mek+abil+tir\n6. kaldır+mek+tir+abil\nCevap: 4\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: me,i,ci,le,liğ\nSeçenekler:\n1. iş+me+ci+le+liğ+i\n2. iş+me+le+liğ+i+ci\n3. iş+le+me+ci+liğ+i\n4. iş+me+ci+i+le+liğ\n5. iş+i+ci+liğ+le+me\n6. iş+i+ci+liğ+me+le\nCevap: 3\n\nÖrnek 6:\nKök: figüran\nEkler: dan,lar,ın\nSeçenekler:\n1. figüran+dan+ın+lar\n2. figüran+lar+ın+dan\n3. figüran+ın+lar+dan\n4. figüran+lar+dan+ın\n5. figüran+ın+dan+lar\n6. figüran+dan+lar+ın\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 575,
+                "total_tokens": 576
+            },
+            "correct": false
+        },
+        {
+            "root": "do",
+            "suffixes": [
+                "st",
+                "lar",
+                "ınız"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nSeçenekler:\n1. kaldır+tir+abil+mek\n2. kaldır+mek+abil+tir\n3. kaldır+mek+tir+abil\n4. kaldır+abil+tir+mek\n5. kaldır+abil+mek+tir\n6. kaldır+tir+mek+abil\nCevap: 5\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: i,le,me,liğ,ci\nSeçenekler:\n1. iş+me+le+liğ+i+ci\n2. iş+i+ci+liğ+me+le\n3. iş+i+ci+liğ+le+me\n4. iş+me+ci+le+liğ+i\n5. iş+me+ci+i+le+liğ\n6. iş+le+me+ci+liğ+i\nCevap: 6\n\nÖrnek 6:\nKök: do\nEkler: ınız,lar,st\nSeçenekler:\n1. do+ınız+st+lar\n2. do+lar+ınız+st\n3. do+ınız+lar+st\n4. do+st+ınız+lar\n5. do+st+lar+ınız\n6. do+lar+st+ınız\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 570,
+                "total_tokens": 571
+            },
+            "correct": false
+        },
+        {
+            "root": "ye",
+            "suffixes": [
+                "r",
+                "i",
+                "nde"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nSeçenekler:\n1. kaldır+tir+mek+abil\n2. kaldır+tir+abil+mek\n3. kaldır+mek+tir+abil\n4. kaldır+mek+abil+tir\n5. kaldır+abil+mek+tir\n6. kaldır+abil+tir+mek\nCevap: 5\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: i,le,me,liğ,ci\nSeçenekler:\n1. iş+le+me+ci+liğ+i\n2. iş+me+le+liğ+i+ci\n3. iş+me+ci+le+liğ+i\n4. iş+i+ci+liğ+me+le\n5. iş+i+ci+liğ+le+me\n6. iş+me+ci+i+le+liğ\nCevap: 1\n\nÖrnek 6:\nKök: ye\nEkler: i,nde,r\nSeçenekler:\n1. ye+r+nde+i\n2. ye+i+nde+r\n3. ye+nde+i+r\n4. ye+nde+r+i\n5. ye+i+r+nde\n6. ye+r+i+nde\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 548,
+                "total_tokens": 549
+            },
+            "correct": false
+        },
+        {
+            "root": "kusur",
+            "suffixes": [
+                "lar",
+                "ım",
+                "ı"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nSeçenekler:\n1. kaldır+tir+abil+mek\n2. kaldır+tir+mek+abil\n3. kaldır+mek+tir+abil\n4. kaldır+mek+abil+tir\n5. kaldır+abil+tir+mek\n6. kaldır+abil+mek+tir\nCevap: 6\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: me,i,liğ,ci,le\nSeçenekler:\n1. iş+le+me+ci+liğ+i\n2. iş+me+le+liğ+i+ci\n3. iş+me+ci+i+le+liğ\n4. iş+i+ci+liğ+me+le\n5. iş+i+ci+liğ+le+me\n6. iş+me+ci+le+liğ+i\nCevap: 1\n\nÖrnek 6:\nKök: kusur\nEkler: ım,lar,ı\nSeçenekler:\n1. kusur+lar+ım+ı\n2. kusur+lar+ı+ım\n3. kusur+ı+ım+lar\n4. kusur+ım+ı+lar\n5. kusur+ım+lar+ı\n6. kusur+ı+lar+ım\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 575,
+                "total_tokens": 576
+            },
+            "correct": false
+        },
+        {
+            "root": "getir",
+            "suffixes": [
+                "t",
+                "en"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldır+abil+mek+tir\n2. kaldır+abil+tir+mek\n3. kaldır+tir+abil+mek\n4. kaldır+mek+tir+abil\n5. kaldır+mek+abil+tir\n6. kaldır+tir+mek+abil\nCevap: 1\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: liğ,le,me,ci,i\nSeçenekler:\n1. iş+me+ci+le+liğ+i\n2. iş+i+ci+liğ+le+me\n3. iş+me+le+liğ+i+ci\n4. iş+me+ci+i+le+liğ\n5. iş+le+me+ci+liğ+i\n6. iş+i+ci+liğ+me+le\nCevap: 5\n\nÖrnek 6:\nKök: getir\nEkler: en,t\nSeçenekler:\n1. getir+en+t\n2. getir+t+en\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 513,
+                "total_tokens": 514
+            },
+            "correct": false
+        },
+        {
+            "root": "an",
+            "suffixes": [
+                "laş",
+                "ma",
+                "lar",
+                "a"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldır+abil+tir+mek\n2. kaldır+abil+mek+tir\n3. kaldır+mek+abil+tir\n4. kaldır+tir+abil+mek\n5. kaldır+tir+mek+abil\n6. kaldır+mek+tir+abil\nCevap: 2\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: me,le,liğ,ci,i\nSeçenekler:\n1. iş+i+ci+liğ+me+le\n2. iş+me+ci+le+liğ+i\n3. iş+me+le+liğ+i+ci\n4. iş+i+ci+liğ+le+me\n5. iş+me+ci+i+le+liğ\n6. iş+le+me+ci+liğ+i\nCevap: 6\n\nÖrnek 6:\nKök: an\nEkler: a,laş,lar,ma\nSeçenekler:\n1. an+ma+laş+lar+a\n2. an+a+ma+laş+lar\n3. an+lar+ma+a+laş\n4. an+ma+a+lar+laş\n5. an+laş+ma+lar+a\n6. an+ma+laş+a+lar\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 576,
+                "total_tokens": 577
+            },
+            "correct": true
+        },
+        {
+            "root": "ek",
+            "suffixes": [
+                "le",
+                "yeceğ",
+                "iz"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldır+mek+tir+abil\n2. kaldır+abil+mek+tir\n3. kaldır+mek+abil+tir\n4. kaldır+tir+abil+mek\n5. kaldır+abil+tir+mek\n6. kaldır+tir+mek+abil\nCevap: 2\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: liğ,le,i,ci,me\nSeçenekler:\n1. iş+i+ci+liğ+le+me\n2. iş+i+ci+liğ+me+le\n3. iş+me+le+liğ+i+ci\n4. iş+me+ci+le+liğ+i\n5. iş+me+ci+i+le+liğ\n6. iş+le+me+ci+liğ+i\nCevap: 6\n\nÖrnek 6:\nKök: ek\nEkler: yeceğ,le,iz\nSeçenekler:\n1. ek+iz+yeceğ+le\n2. ek+yeceğ+le+iz\n3. ek+yeceğ+iz+le\n4. ek+iz+le+yeceğ\n5. ek+le+yeceğ+iz\n6. ek+le+iz+yeceğ\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 575,
+                "total_tokens": 576
+            },
+            "correct": true
+        },
+        {
+            "root": "bisiklet",
+            "suffixes": [
+                "im",
+                "le"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nSeçenekler:\n1. kaldır+abil+tir+mek\n2. kaldır+mek+abil+tir\n3. kaldır+mek+tir+abil\n4. kaldır+tir+mek+abil\n5. kaldır+tir+abil+mek\n6. kaldır+abil+mek+tir\nCevap: 6\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: ci,le,liğ,me,i\nSeçenekler:\n1. iş+le+me+ci+liğ+i\n2. iş+i+ci+liğ+me+le\n3. iş+me+ci+i+le+liğ\n4. iş+me+le+liğ+i+ci\n5. iş+i+ci+liğ+le+me\n6. iş+me+ci+le+liğ+i\nCevap: 1\n\nÖrnek 6:\nKök: bisiklet\nEkler: im,le\nSeçenekler:\n1. bisiklet+le+im\n2. bisiklet+im+le\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 522,
+                "total_tokens": 523
+            },
+            "correct": true
+        },
+        {
+            "root": "kok",
+            "suffixes": [
+                "la",
+                "yabil",
+                "iyor",
+                "du",
+                "m"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nSeçenekler:\n1. kaldır+mek+tir+abil\n2. kaldır+abil+mek+tir\n3. kaldır+tir+mek+abil\n4. kaldır+mek+abil+tir\n5. kaldır+tir+abil+mek\n6. kaldır+abil+tir+mek\nCevap: 2\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: i,liğ,le,me,ci\nSeçenekler:\n1. iş+me+le+liğ+i+ci\n2. iş+i+ci+liğ+me+le\n3. iş+i+ci+liğ+le+me\n4. iş+me+ci+i+le+liğ\n5. iş+le+me+ci+liğ+i\n6. iş+me+ci+le+liğ+i\nCevap: 5\n\nÖrnek 6:\nKök: kok\nEkler: iyor,la,m,yabil,du\nSeçenekler:\n1. kok+m+du+la+iyor+yabil\n2. kok+du+iyor+la+m+yabil\n3. kok+yabil+m+iyor+du+la\n4. kok+iyor+la+yabil+du+m\n5. kok+m+du+iyor+la+yabil\n6. kok+la+yabil+iyor+du+m\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 584,
+                "total_tokens": 585
+            },
+            "correct": true
+        },
+        {
+            "root": "yeni",
+            "suffixes": [
+                "len",
+                "me",
+                "ler",
+                "i"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nSeçenekler:\n1. kaldır+tir+mek+abil\n2. kaldır+mek+abil+tir\n3. kaldır+mek+tir+abil\n4. kaldır+tir+abil+mek\n5. kaldır+abil+mek+tir\n6. kaldır+abil+tir+mek\nCevap: 5\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: me,i,ci,le,liğ\nSeçenekler:\n1. iş+me+le+liğ+i+ci\n2. iş+i+ci+liğ+le+me\n3. iş+me+ci+i+le+liğ\n4. iş+i+ci+liğ+me+le\n5. iş+le+me+ci+liğ+i\n6. iş+me+ci+le+liğ+i\nCevap: 5\n\nÖrnek 6:\nKök: yeni\nEkler: i,ler,len,me\nSeçenekler:\n1. yeni+me+i+len+ler\n2. yeni+ler+me+i+len\n3. yeni+i+len+me+ler\n4. yeni+me+len+i+ler\n5. yeni+len+me+ler+i\n6. yeni+len+ler+i+me\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 562,
+                "total_tokens": 563
+            },
+            "correct": false
+        },
+        {
+            "root": "süpür",
+            "suffixes": [
+                "müş",
+                "tür"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nSeçenekler:\n1. kaldır+abil+mek+tir\n2. kaldır+abil+tir+mek\n3. kaldır+mek+tir+abil\n4. kaldır+tir+mek+abil\n5. kaldır+mek+abil+tir\n6. kaldır+tir+abil+mek\nCevap: 1\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: ci,i,le,liğ,me\nSeçenekler:\n1. iş+le+me+ci+liğ+i\n2. iş+me+ci+le+liğ+i\n3. iş+me+ci+i+le+liğ\n4. iş+me+le+liğ+i+ci\n5. iş+i+ci+liğ+me+le\n6. iş+i+ci+liğ+le+me\nCevap: 1\n\nÖrnek 6:\nKök: süpür\nEkler: tür,müş\nSeçenekler:\n1. süpür+müş+tür\n2. süpür+tür+müş\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 525,
+                "total_tokens": 526
+            },
+            "correct": false
+        },
+        {
+            "root": "şefi",
+            "suffixes": [
+                "miz",
+                "in"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nSeçenekler:\n1. kaldır+tir+mek+abil\n2. kaldır+mek+abil+tir\n3. kaldır+tir+abil+mek\n4. kaldır+mek+tir+abil\n5. kaldır+abil+tir+mek\n6. kaldır+abil+mek+tir\nCevap: 6\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: le,me,i,ci,liğ\nSeçenekler:\n1. iş+me+ci+i+le+liğ\n2. iş+me+ci+le+liğ+i\n3. iş+i+ci+liğ+me+le\n4. iş+me+le+liğ+i+ci\n5. iş+le+me+ci+liğ+i\n6. iş+i+ci+liğ+le+me\nCevap: 5\n\nÖrnek 6:\nKök: şefi\nEkler: in,miz\nSeçenekler:\n1. şefi+miz+in\n2. şefi+in+miz\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 522,
+                "total_tokens": 523
+            },
+            "correct": false
+        },
+        {
+            "root": "konuş",
+            "suffixes": [
+                "abil",
+                "di",
+                "m"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nSeçenekler:\n1. kaldır+mek+tir+abil\n2. kaldır+mek+abil+tir\n3. kaldır+abil+mek+tir\n4. kaldır+tir+mek+abil\n5. kaldır+abil+tir+mek\n6. kaldır+tir+abil+mek\nCevap: 3\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: i,le,me,liğ,ci\nSeçenekler:\n1. iş+le+me+ci+liğ+i\n2. iş+me+ci+le+liğ+i\n3. iş+me+le+liğ+i+ci\n4. iş+me+ci+i+le+liğ\n5. iş+i+ci+liğ+me+le\n6. iş+i+ci+liğ+le+me\nCevap: 1\n\nÖrnek 6:\nKök: konuş\nEkler: m,abil,di\nSeçenekler:\n1. konuş+abil+di+m\n2. konuş+m+abil+di\n3. konuş+m+di+abil\n4. konuş+di+m+abil\n5. konuş+abil+m+di\n6. konuş+di+abil+m\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 563,
+                "total_tokens": 564
+            },
+            "correct": false
+        },
+        {
+            "root": "toparla",
+            "suffixes": [
+                "ma",
+                "m",
+                "dan"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nSeçenekler:\n1. kaldır+abil+mek+tir\n2. kaldır+tir+abil+mek\n3. kaldır+tir+mek+abil\n4. kaldır+abil+tir+mek\n5. kaldır+mek+tir+abil\n6. kaldır+mek+abil+tir\nCevap: 1\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: ci,liğ,me,i,le\nSeçenekler:\n1. iş+i+ci+liğ+le+me\n2. iş+me+le+liğ+i+ci\n3. iş+le+me+ci+liğ+i\n4. iş+i+ci+liğ+me+le\n5. iş+me+ci+i+le+liğ\n6. iş+me+ci+le+liğ+i\nCevap: 3\n\nÖrnek 6:\nKök: toparla\nEkler: dan,m,ma\nSeçenekler:\n1. toparla+m+ma+dan\n2. toparla+m+dan+ma\n3. toparla+dan+m+ma\n4. toparla+dan+ma+m\n5. toparla+ma+m+dan\n6. toparla+ma+dan+m\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 567,
+                "total_tokens": 568
+            },
+            "correct": false
+        },
+        {
+            "root": "dola",
+            "suffixes": [
+                "n",
+                "abil",
+                "iyor",
+                "um"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nSeçenekler:\n1. kaldır+abil+tir+mek\n2. kaldır+tir+mek+abil\n3. kaldır+tir+abil+mek\n4. kaldır+abil+mek+tir\n5. kaldır+mek+abil+tir\n6. kaldır+mek+tir+abil\nCevap: 4\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: me,ci,i,liğ,le\nSeçenekler:\n1. iş+i+ci+liğ+le+me\n2. iş+me+ci+i+le+liğ\n3. iş+me+ci+le+liğ+i\n4. iş+me+le+liğ+i+ci\n5. iş+i+ci+liğ+me+le\n6. iş+le+me+ci+liğ+i\nCevap: 6\n\nÖrnek 6:\nKök: dola\nEkler: abil,n,iyor,um\nSeçenekler:\n1. dola+abil+um+n+iyor\n2. dola+iyor+abil+n+um\n3. dola+um+n+abil+iyor\n4. dola+n+abil+um+iyor\n5. dola+n+abil+iyor+um\n6. dola+iyor+n+um+abil\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 577,
+                "total_tokens": 578
+            },
+            "correct": true
+        },
+        {
+            "root": "daya",
+            "suffixes": [
+                "t",
+                "ma",
+                "da"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldır+abil+mek+tir\n2. kaldır+mek+abil+tir\n3. kaldır+tir+mek+abil\n4. kaldır+tir+abil+mek\n5. kaldır+mek+tir+abil\n6. kaldır+abil+tir+mek\nCevap: 1\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: liğ,le,i,me,ci\nSeçenekler:\n1. iş+le+me+ci+liğ+i\n2. iş+me+ci+le+liğ+i\n3. iş+i+ci+liğ+me+le\n4. iş+me+le+liğ+i+ci\n5. iş+me+ci+i+le+liğ\n6. iş+i+ci+liğ+le+me\nCevap: 1\n\nÖrnek 6:\nKök: daya\nEkler: t,ma,da\nSeçenekler:\n1. daya+t+ma+da\n2. daya+da+t+ma\n3. daya+ma+da+t\n4. daya+ma+t+da\n5. daya+da+ma+t\n6. daya+t+da+ma\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 561,
+                "total_tokens": 562
+            },
+            "correct": false
+        },
+        {
+            "root": "yelten",
+            "suffixes": [
+                "miş",
+                "ler",
+                "dir"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nSeçenekler:\n1. kaldır+abil+tir+mek\n2. kaldır+abil+mek+tir\n3. kaldır+mek+abil+tir\n4. kaldır+mek+tir+abil\n5. kaldır+tir+mek+abil\n6. kaldır+tir+abil+mek\nCevap: 2\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: ci,me,le,liğ,i\nSeçenekler:\n1. iş+me+ci+le+liğ+i\n2. iş+i+ci+liğ+me+le\n3. iş+le+me+ci+liğ+i\n4. iş+me+ci+i+le+liğ\n5. iş+i+ci+liğ+le+me\n6. iş+me+le+liğ+i+ci\nCevap: 3\n\nÖrnek 6:\nKök: yelten\nEkler: ler,dir,miş\nSeçenekler:\n1. yelten+dir+ler+miş\n2. yelten+ler+dir+miş\n3. yelten+ler+miş+dir\n4. yelten+miş+dir+ler\n5. yelten+miş+ler+dir\n6. yelten+dir+miş+ler\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 583,
+                "total_tokens": 584
+            },
+            "correct": false
+        },
+        {
+            "root": "dinle",
+            "suffixes": [
+                "diğ",
+                "im",
+                "in"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldır+abil+mek+tir\n2. kaldır+mek+abil+tir\n3. kaldır+tir+mek+abil\n4. kaldır+tir+abil+mek\n5. kaldır+mek+tir+abil\n6. kaldır+abil+tir+mek\nCevap: 1\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: i,liğ,me,ci,le\nSeçenekler:\n1. iş+me+ci+i+le+liğ\n2. iş+i+ci+liğ+le+me\n3. iş+le+me+ci+liğ+i\n4. iş+me+ci+le+liğ+i\n5. iş+me+le+liğ+i+ci\n6. iş+i+ci+liğ+me+le\nCevap: 3\n\nÖrnek 6:\nKök: dinle\nEkler: in,diğ,im\nSeçenekler:\n1. dinle+diğ+im+in\n2. dinle+diğ+in+im\n3. dinle+in+diğ+im\n4. dinle+in+im+diğ\n5. dinle+im+diğ+in\n6. dinle+im+in+diğ\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 574,
+                "total_tokens": 575
+            },
+            "correct": true
+        },
+        {
+            "root": "do",
+            "suffixes": [
+                "lan",
+                "dı",
+                "m"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,mek,tir\nSeçenekler:\n1. kaldır+tir+abil+mek\n2. kaldır+abil+tir+mek\n3. kaldır+tir+mek+abil\n4. kaldır+abil+mek+tir\n5. kaldır+mek+tir+abil\n6. kaldır+mek+abil+tir\nCevap: 4\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: me,liğ,le,i,ci\nSeçenekler:\n1. iş+i+ci+liğ+me+le\n2. iş+me+ci+i+le+liğ\n3. iş+me+le+liğ+i+ci\n4. iş+i+ci+liğ+le+me\n5. iş+me+ci+le+liğ+i\n6. iş+le+me+ci+liğ+i\nCevap: 6\n\nÖrnek 6:\nKök: do\nEkler: lan,m,dı\nSeçenekler:\n1. do+m+lan+dı\n2. do+lan+m+dı\n3. do+dı+lan+m\n4. do+m+dı+lan\n5. do+dı+m+lan\n6. do+lan+dı+m\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 553,
+                "total_tokens": 554
+            },
+            "correct": false
+        },
+        {
+            "root": "yar",
+            "suffixes": [
+                "ış",
+                "ıyor"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldır+tir+abil+mek\n2. kaldır+abil+mek+tir\n3. kaldır+tir+mek+abil\n4. kaldır+abil+tir+mek\n5. kaldır+mek+tir+abil\n6. kaldır+mek+abil+tir\nCevap: 2\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: le,ci,i,me,liğ\nSeçenekler:\n1. iş+i+ci+liğ+me+le\n2. iş+me+le+liğ+i+ci\n3. iş+i+ci+liğ+le+me\n4. iş+me+ci+le+liğ+i\n5. iş+le+me+ci+liğ+i\n6. iş+me+ci+i+le+liğ\nCevap: 5\n\nÖrnek 6:\nKök: yar\nEkler: ıyor,ış\nSeçenekler:\n1. yar+ıyor+ış\n2. yar+ış+ıyor\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 523,
+                "total_tokens": 524
+            },
+            "correct": false
+        },
+        {
+            "root": "tart",
+            "suffixes": [
+                "ış",
+                "ıl",
+                "mış"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nSeçenekler:\n1. kaldır+mek+tir+abil\n2. kaldır+tir+abil+mek\n3. kaldır+mek+abil+tir\n4. kaldır+abil+mek+tir\n5. kaldır+abil+tir+mek\n6. kaldır+tir+mek+abil\nCevap: 4\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: liğ,me,le,i,ci\nSeçenekler:\n1. iş+i+ci+liğ+me+le\n2. iş+me+le+liğ+i+ci\n3. iş+i+ci+liğ+le+me\n4. iş+me+ci+le+liğ+i\n5. iş+me+ci+i+le+liğ\n6. iş+le+me+ci+liğ+i\nCevap: 6\n\nÖrnek 6:\nKök: tart\nEkler: mış,ıl,ış\nSeçenekler:\n1. tart+ıl+ış+mış\n2. tart+ıl+mış+ış\n3. tart+mış+ış+ıl\n4. tart+mış+ıl+ış\n5. tart+ış+ıl+mış\n6. tart+ış+mış+ıl\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 561,
+                "total_tokens": 562
+            },
+            "correct": false
+        },
+        {
+            "root": "an",
+            "suffixes": [
+                "la",
+                "m",
+                "ıyor",
+                "lar",
+                "dır"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldır+abil+mek+tir\n2. kaldır+tir+mek+abil\n3. kaldır+mek+tir+abil\n4. kaldır+abil+tir+mek\n5. kaldır+tir+abil+mek\n6. kaldır+mek+abil+tir\nCevap: 1\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: me,i,le,ci,liğ\nSeçenekler:\n1. iş+i+ci+liğ+me+le\n2. iş+le+me+ci+liğ+i\n3. iş+i+ci+liğ+le+me\n4. iş+me+le+liğ+i+ci\n5. iş+me+ci+i+le+liğ\n6. iş+me+ci+le+liğ+i\nCevap: 2\n\nÖrnek 6:\nKök: an\nEkler: lar,ıyor,m,dır,la\nSeçenekler:\n1. an+la+dır+lar+m+ıyor\n2. an+ıyor+dır+la+m+lar\n3. an+dır+ıyor+lar+la+m\n4. an+ıyor+lar+m+dır+la\n5. an+ıyor+dır+lar+m+la\n6. an+la+m+ıyor+lar+dır\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 589,
+                "total_tokens": 590
+            },
+            "correct": false
+        },
+        {
+            "root": "yaklaş",
+            "suffixes": [
+                "tır",
+                "ma",
+                "dığ",
+                "ım"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldır+tir+abil+mek\n2. kaldır+abil+mek+tir\n3. kaldır+abil+tir+mek\n4. kaldır+mek+abil+tir\n5. kaldır+tir+mek+abil\n6. kaldır+mek+tir+abil\nCevap: 2\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: liğ,i,ci,le,me\nSeçenekler:\n1. iş+me+le+liğ+i+ci\n2. iş+i+ci+liğ+le+me\n3. iş+i+ci+liğ+me+le\n4. iş+me+ci+i+le+liğ\n5. iş+le+me+ci+liğ+i\n6. iş+me+ci+le+liğ+i\nCevap: 5\n\nÖrnek 6:\nKök: yaklaş\nEkler: tır,ım,dığ,ma\nSeçenekler:\n1. yaklaş+ım+dığ+tır+ma\n2. yaklaş+tır+ma+dığ+ım\n3. yaklaş+ma+ım+tır+dığ\n4. yaklaş+ım+dığ+ma+tır\n5. yaklaş+ma+tır+dığ+ım\n6. yaklaş+ım+ma+tır+dığ\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 588,
+                "total_tokens": 589
+            },
+            "correct": false
+        },
+        {
+            "root": "alın",
+            "suffixes": [
+                "a",
+                "ma",
+                "yan"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldır+tir+mek+abil\n2. kaldır+abil+tir+mek\n3. kaldır+mek+tir+abil\n4. kaldır+tir+abil+mek\n5. kaldır+abil+mek+tir\n6. kaldır+mek+abil+tir\nCevap: 5\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: liğ,le,ci,me,i\nSeçenekler:\n1. iş+me+le+liğ+i+ci\n2. iş+i+ci+liğ+me+le\n3. iş+i+ci+liğ+le+me\n4. iş+me+ci+le+liğ+i\n5. iş+me+ci+i+le+liğ\n6. iş+le+me+ci+liğ+i\nCevap: 6\n\nÖrnek 6:\nKök: alın\nEkler: ma,a,yan\nSeçenekler:\n1. alın+a+ma+yan\n2. alın+yan+ma+a\n3. alın+a+yan+ma\n4. alın+ma+a+yan\n5. alın+yan+a+ma\n6. alın+ma+yan+a\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 561,
+                "total_tokens": 562
+            },
+            "correct": false
+        },
+        {
+            "root": "din",
+            "suffixes": [
+                "le",
+                "ye",
+                "me",
+                "me",
+                "ye"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nSeçenekler:\n1. kaldır+tir+mek+abil\n2. kaldır+mek+tir+abil\n3. kaldır+mek+abil+tir\n4. kaldır+abil+mek+tir\n5. kaldır+abil+tir+mek\n6. kaldır+tir+abil+mek\nCevap: 4\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: i,ci,liğ,me,le\nSeçenekler:\n1. iş+me+ci+i+le+liğ\n2. iş+i+ci+liğ+me+le\n3. iş+le+me+ci+liğ+i\n4. iş+i+ci+liğ+le+me\n5. iş+me+le+liğ+i+ci\n6. iş+me+ci+le+liğ+i\nCevap: 3\n\nÖrnek 6:\nKök: din\nEkler: me,le,ye,me,ye\nSeçenekler:\n1. din+me+le+ye+me+ye\n2. din+le+ye+me+me+ye\n3. din+ye+me+ye+me+le\n4. din+me+me+ye+ye+le\n5. din+ye+me+le+me+ye\n6. din+le+me+me+ye+ye\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 591,
+                "total_tokens": 592
+            },
+            "correct": false
+        },
+        {
+            "root": "hapsol",
+            "suffixes": [
+                "muş",
+                "lar",
+                "dı"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nSeçenekler:\n1. kaldır+tir+abil+mek\n2. kaldır+abil+mek+tir\n3. kaldır+tir+mek+abil\n4. kaldır+mek+tir+abil\n5. kaldır+abil+tir+mek\n6. kaldır+mek+abil+tir\nCevap: 2\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: ci,i,me,le,liğ\nSeçenekler:\n1. iş+me+le+liğ+i+ci\n2. iş+le+me+ci+liğ+i\n3. iş+i+ci+liğ+le+me\n4. iş+me+ci+i+le+liğ\n5. iş+i+ci+liğ+me+le\n6. iş+me+ci+le+liğ+i\nCevap: 2\n\nÖrnek 6:\nKök: hapsol\nEkler: muş,dı,lar\nSeçenekler:\n1. hapsol+muş+lar+dı\n2. hapsol+lar+muş+dı\n3. hapsol+dı+muş+lar\n4. hapsol+lar+dı+muş\n5. hapsol+dı+lar+muş\n6. hapsol+muş+dı+lar\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 581,
+                "total_tokens": 582
+            },
+            "correct": false
+        },
+        {
+            "root": "kamp",
+            "suffixes": [
+                "ım",
+                "dan"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,mek,abil\nSeçenekler:\n1. kaldır+mek+tir+abil\n2. kaldır+abil+mek+tir\n3. kaldır+abil+tir+mek\n4. kaldır+tir+mek+abil\n5. kaldır+mek+abil+tir\n6. kaldır+tir+abil+mek\nCevap: 2\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: le,me,ci,liğ,i\nSeçenekler:\n1. iş+me+ci+i+le+liğ\n2. iş+me+ci+le+liğ+i\n3. iş+i+ci+liğ+me+le\n4. iş+le+me+ci+liğ+i\n5. iş+me+le+liğ+i+ci\n6. iş+i+ci+liğ+le+me\nCevap: 4\n\nÖrnek 6:\nKök: kamp\nEkler: dan,ım\nSeçenekler:\n1. kamp+ım+dan\n2. kamp+dan+ım\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 516,
+                "total_tokens": 517
+            },
+            "correct": false
+        },
+        {
+            "root": "gez",
+            "suffixes": [
+                "im",
+                "de",
+                "ki"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,abil,tir\nSeçenekler:\n1. kaldır+abil+tir+mek\n2. kaldır+tir+abil+mek\n3. kaldır+mek+abil+tir\n4. kaldır+abil+mek+tir\n5. kaldır+mek+tir+abil\n6. kaldır+tir+mek+abil\nCevap: 4\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: liğ,le,ci,me,i\nSeçenekler:\n1. iş+le+me+ci+liğ+i\n2. iş+me+le+liğ+i+ci\n3. iş+i+ci+liğ+le+me\n4. iş+i+ci+liğ+me+le\n5. iş+me+ci+i+le+liğ\n6. iş+me+ci+le+liğ+i\nCevap: 1\n\nÖrnek 6:\nKök: gez\nEkler: im,ki,de\nSeçenekler:\n1. gez+de+im+ki\n2. gez+ki+de+im\n3. gez+de+ki+im\n4. gez+im+ki+de\n5. gez+im+de+ki\n6. gez+ki+im+de\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 562,
+                "total_tokens": 563
+            },
+            "correct": false
+        },
+        {
+            "root": "erte",
+            "suffixes": [
+                "le",
+                "me",
+                "miş"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nSeçenekler:\n1. kaldır+tir+mek+abil\n2. kaldır+mek+tir+abil\n3. kaldır+abil+mek+tir\n4. kaldır+abil+tir+mek\n5. kaldır+mek+abil+tir\n6. kaldır+tir+abil+mek\nCevap: 3\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: ci,liğ,me,le,i\nSeçenekler:\n1. iş+i+ci+liğ+me+le\n2. iş+me+ci+le+liğ+i\n3. iş+le+me+ci+liğ+i\n4. iş+i+ci+liğ+le+me\n5. iş+me+le+liğ+i+ci\n6. iş+me+ci+i+le+liğ\nCevap: 3\n\nÖrnek 6:\nKök: erte\nEkler: miş,me,le\nSeçenekler:\n1. erte+le+me+miş\n2. erte+le+miş+me\n3. erte+miş+me+le\n4. erte+me+miş+le\n5. erte+me+le+miş\n6. erte+miş+le+me\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 576,
+                "total_tokens": 577
+            },
+            "correct": false
+        },
+        {
+            "root": "sağ",
+            "suffixes": [
+                "la",
+                "ya",
+                "m",
+                "ıyor",
+                "sa"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: ı,lar\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldır+abil+mek+tir\n2. kaldır+mek+tir+abil\n3. kaldır+tir+mek+abil\n4. kaldır+mek+abil+tir\n5. kaldır+tir+abil+mek\n6. kaldır+abil+tir+mek\nCevap: 1\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: i,me,ci,liğ,le\nSeçenekler:\n1. iş+i+ci+liğ+le+me\n2. iş+me+ci+i+le+liğ\n3. iş+me+ci+le+liğ+i\n4. iş+le+me+ci+liğ+i\n5. iş+i+ci+liğ+me+le\n6. iş+me+le+liğ+i+ci\nCevap: 4\n\nÖrnek 6:\nKök: sağ\nEkler: m,la,ıyor,ya,sa\nSeçenekler:\n1. sağ+la+ıyor+m+sa+ya\n2. sağ+la+m+sa+ya+ıyor\n3. sağ+ya+sa+la+m+ıyor\n4. sağ+la+ya+m+ıyor+sa\n5. sağ+la+m+ıyor+ya+sa\n6. sağ+ya+ıyor+la+sa+m\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 591,
+                "total_tokens": 592
+            },
+            "correct": false
+        },
+        {
+            "root": "işle",
+            "suffixes": [
+                "yen",
+                "ler",
+                "e"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: an,mış\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: tir,abil,mek\nSeçenekler:\n1. kaldır+abil+tir+mek\n2. kaldır+abil+mek+tir\n3. kaldır+mek+abil+tir\n4. kaldır+mek+tir+abil\n5. kaldır+tir+abil+mek\n6. kaldır+tir+mek+abil\nCevap: 2\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: ci,le,me,i,liğ\nSeçenekler:\n1. iş+i+ci+liğ+le+me\n2. iş+me+le+liğ+i+ci\n3. iş+me+ci+i+le+liğ\n4. iş+me+ci+le+liğ+i\n5. iş+i+ci+liğ+me+le\n6. iş+le+me+ci+liğ+i\nCevap: 6\n\nÖrnek 6:\nKök: işle\nEkler: ler,yen,e\nSeçenekler:\n1. işle+yen+e+ler\n2. işle+e+yen+ler\n3. işle+e+ler+yen\n4. işle+ler+e+yen\n5. işle+ler+yen+e\n6. işle+yen+ler+e\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 565,
+                "total_tokens": 566
+            },
+            "correct": false
+        },
+        {
+            "root": "yüksel",
+            "suffixes": [
+                "me",
+                "n",
+                "in"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nSeçenekler:\n1. kaldır+tir+abil+mek\n2. kaldır+tir+mek+abil\n3. kaldır+abil+mek+tir\n4. kaldır+mek+abil+tir\n5. kaldır+abil+tir+mek\n6. kaldır+mek+tir+abil\nCevap: 3\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: le,ci,liğ,me,i\nSeçenekler:\n1. iş+me+ci+le+liğ+i\n2. iş+me+ci+i+le+liğ\n3. iş+i+ci+liğ+le+me\n4. iş+i+ci+liğ+me+le\n5. iş+le+me+ci+liğ+i\n6. iş+me+le+liğ+i+ci\nCevap: 5\n\nÖrnek 6:\nKök: yüksel\nEkler: me,n,in\nSeçenekler:\n1. yüksel+n+in+me\n2. yüksel+in+me+n\n3. yüksel+in+n+me\n4. yüksel+n+me+in\n5. yüksel+me+n+in\n6. yüksel+me+in+n\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 574,
+                "total_tokens": 575
+            },
+            "correct": false
+        },
+        {
+            "root": "kon",
+            "suffixes": [
+                "uş",
+                "ma",
+                "yıp"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nSeçenekler:\n1. kaldır+tir+abil+mek\n2. kaldır+tir+mek+abil\n3. kaldır+abil+tir+mek\n4. kaldır+abil+mek+tir\n5. kaldır+mek+tir+abil\n6. kaldır+mek+abil+tir\nCevap: 4\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+m+e\n2. enerji+e+m\nCevap: 1\n\nÖrnek 5:\nKök: iş\nEkler: liğ,le,ci,i,me\nSeçenekler:\n1. iş+me+ci+le+liğ+i\n2. iş+me+le+liğ+i+ci\n3. iş+i+ci+liğ+me+le\n4. iş+le+me+ci+liğ+i\n5. iş+i+ci+liğ+le+me\n6. iş+me+ci+i+le+liğ\nCevap: 4\n\nÖrnek 6:\nKök: kon\nEkler: ma,uş,yıp\nSeçenekler:\n1. kon+yıp+ma+uş\n2. kon+uş+yıp+ma\n3. kon+ma+uş+yıp\n4. kon+ma+yıp+uş\n5. kon+yıp+uş+ma\n6. kon+uş+ma+yıp\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 568,
+                "total_tokens": 569
+            },
+            "correct": true
+        },
+        {
+            "root": "ol",
+            "suffixes": [
+                "duk",
+                "la"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+an+mış\n2. dol+mış+an\nCevap: 1\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+ı+lar\n2. omuz+lar+ı\nCevap: 2\n\nÖrnek 3:\nKök: kaldır\nEkler: abil,tir,mek\nSeçenekler:\n1. kaldır+abil+mek+tir\n2. kaldır+tir+mek+abil\n3. kaldır+abil+tir+mek\n4. kaldır+tir+abil+mek\n5. kaldır+mek+tir+abil\n6. kaldır+mek+abil+tir\nCevap: 1\n\nÖrnek 4:\nKök: enerji\nEkler: m,e\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: me,ci,le,i,liğ\nSeçenekler:\n1. iş+i+ci+liğ+me+le\n2. iş+i+ci+liğ+le+me\n3. iş+me+ci+i+le+liğ\n4. iş+me+le+liğ+i+ci\n5. iş+me+ci+le+liğ+i\n6. iş+le+me+ci+liğ+i\nCevap: 6\n\nÖrnek 6:\nKök: ol\nEkler: la,duk\nSeçenekler:\n1. ol+duk+la\n2. ol+la+duk\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 515,
+                "total_tokens": 516
+            },
+            "correct": false
+        },
+        {
+            "root": "anlam",
+            "suffixes": [
+                "lan",
+                "dır",
+                "ma",
+                "mız",
+                "ı"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dol\nEkler: mış,an\nSeçenekler:\n1. dol+mış+an\n2. dol+an+mış\nCevap: 2\n\nÖrnek 2:\nKök: omuz\nEkler: lar,ı\nSeçenekler:\n1. omuz+lar+ı\n2. omuz+ı+lar\nCevap: 1\n\nÖrnek 3:\nKök: kaldır\nEkler: mek,tir,abil\nSeçenekler:\n1. kaldır+tir+abil+mek\n2. kaldır+abil+tir+mek\n3. kaldır+mek+tir+abil\n4. kaldır+mek+abil+tir\n5. kaldır+tir+mek+abil\n6. kaldır+abil+mek+tir\nCevap: 6\n\nÖrnek 4:\nKök: enerji\nEkler: e,m\nSeçenekler:\n1. enerji+e+m\n2. enerji+m+e\nCevap: 2\n\nÖrnek 5:\nKök: iş\nEkler: le,me,ci,liğ,i\nSeçenekler:\n1. iş+i+ci+liğ+me+le\n2. iş+le+me+ci+liğ+i\n3. iş+me+ci+le+liğ+i\n4. iş+me+ci+i+le+liğ\n5. iş+me+le+liğ+i+ci\n6. iş+i+ci+liğ+le+me\nCevap: 2\n\nÖrnek 6:\nKök: anlam\nEkler: ma,lan,mız,ı,dır\nSeçenekler:\n1. anlam+lan+ma+ı+mız+dır\n2. anlam+lan+mız+dır+ma+ı\n3. anlam+lan+ı+mız+dır+ma\n4. anlam+lan+dır+ma+mız+ı\n5. anlam+ma+dır+mız+ı+lan\n6. anlam+ma+ı+mız+dır+lan\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 596,
+                "total_tokens": 597
+            },
+            "correct": false
+        }
+    ]
+}

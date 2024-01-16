@@ -29,7 +29,7 @@ def _read_en_dictionary():
             dictionary.append(line.strip())
     return dictionary
 
-def prepare_tr_pilot_data_for_morph(input_data, num_samples=None):
+def prepare_tr_pilot_data_for_morph(input_data, num_samples=None, separator="", *args, **kwargs):
     data = input_data["data"]
 
     if num_samples is not None:
@@ -41,7 +41,7 @@ def prepare_tr_pilot_data_for_morph(input_data, num_samples=None):
         root = sample["root"]
         alt_root = sample["alt_root"]
         suffixes = sample["suffixes"]
-        derivation = sample["derivation"]
+        derivation = sample["root"] + separator + separator.join(suffixes)
         alt_derivation = sample["derivation"].replace(root, alt_root)
 
         suffix_perms = list(permutations(suffixes))
@@ -49,8 +49,8 @@ def prepare_tr_pilot_data_for_morph(input_data, num_samples=None):
         alt_root_options = set()
 
         for suffix_perm in suffix_perms:
-            root_derivation = root + ''.join(suffix_perm)
-            alt_root_derivation = alt_root + ''.join(suffix_perm)
+            root_derivation = root + separator + separator.join(suffix_perm)
+            alt_root_derivation = alt_root + separator + separator.join(suffix_perm)
 
             if root_derivation != derivation:
                 root_options.add(root_derivation)
@@ -81,32 +81,34 @@ def prepare_tr_pilot_data_for_morph(input_data, num_samples=None):
     
     return morph_data
 
-def prepare_tr_data_for_morph(input_data, num_samples=None):
+def prepare_tr_data_for_morph(input_data, num_samples=None, separator="", *args, **kwargs):
     data = input_data["data"]
     
     morph_data = []
 
     for sample in tqdm(data, desc="Preparing data TR for Morph tasks"):
-        suffixes = sample["morphemes"]
+        suffixes = sample["morphemes"] if "morphemes" in sample else sample["suffixes"]
+        ref_derivation = sample["root"] + separator + separator.join(sample["suffixes"])
 
         if len(suffixes) > 1:
             suffix_perms = list(permutations(suffixes))
             options = set()
 
             for suffix_perm in suffix_perms:
-                derivation = sample["root"] + ''.join(suffix_perm)
+                derivation = sample["root"] + separator + separator.join(suffix_perm)
 
-                if derivation != sample["derivation"]:
+                if derivation != ref_derivation:
                     options.add(derivation)
 
             options = random.sample(list(options), min(len(options), 5))
 
             morph_data.append({
+                "original_root": sample["original_root"] if "original_root" in sample else None,
                 "root": sample["root"],
                 "pos": sample["pos"],
                 "suffixes": suffixes,
-                "derivation": sample["derivation"],
-                "options": [sample["derivation"]] + list(options),
+                "derivation": ref_derivation,
+                "options": [ref_derivation] + list(options),
                 "answer": 0
             })
     
@@ -115,7 +117,7 @@ def prepare_tr_data_for_morph(input_data, num_samples=None):
 
     return morph_data
 
-def prepare_tr_nonce_data_for_morph(input_data, num_samples=None):
+def prepare_tr_nonce_data_for_morph(input_data, num_samples=None, *args, **kwargs):
     dictionary = _read_tr_dictionary()
     data = input_data["data"]
     nonce_data = []
@@ -147,32 +149,34 @@ def prepare_tr_nonce_data_for_morph(input_data, num_samples=None):
     
     return nonce_data
 
-def prepare_en_data_for_morph(input_data, num_samples=None):
+def prepare_en_data_for_morph(input_data, num_samples=None, separator="", *args, **kwargs):
     data = input_data["data"]
     
     morph_data = []
 
     for sample in tqdm(data, desc="Preparing EN data for Morph tasks"):
-        suffixes = sample["morphemes"]
+        suffixes = sample["morphemes"] if "morphemes" in sample else sample["suffixes"]
+        ref_derivation = sample["root"] + separator + separator.join(sample["suffixes"])
 
         if len(suffixes) > 1:
             suffix_perms = list(permutations(suffixes))
             options = set()
 
             for suffix_perm in suffix_perms:
-                derivation = sample["root"] + ''.join(suffix_perm)
+                derivation = sample["root"] + separator + separator.join(suffix_perm)
 
-                if derivation != sample["derivation"]:
+                if derivation != ref_derivation:
                     options.add(derivation)
 
             options = random.sample(list(options), min(len(options), 5))
 
             morph_data.append({
+                "original_root": sample["original_root"] if "original_root" in sample else None,
                 "root": sample["root"],
                 "pos": sample["pos"],
                 "suffixes": suffixes,
-                "derivation": sample["derivation"],
-                "options": [sample["derivation"]] + list(options),
+                "derivation": ref_derivation,
+                "options": [ref_derivation] + list(options),
                 "answer": 0
             })
     
@@ -181,7 +185,7 @@ def prepare_en_data_for_morph(input_data, num_samples=None):
 
     return morph_data
 
-def prepare_en_nonce_data_for_morph(input_data, num_samples=None):
+def prepare_en_nonce_data_for_morph(input_data, num_samples=None, *args, **kwargs):
     dictionary = _read_en_dictionary()
     data = input_data["data"]
     nonce_data = []
@@ -228,10 +232,11 @@ def main():
     parser.add_argument("-n", "--num-samples", type=int, default=None, help="Number of samples to process")
     parser.add_argument("-s", "--suffix", type=str, default="", help="Custom suffix for output file path.")
     parser.add_argument("-o", "--output-dir", type=str, default=None, help="Output directory path. Defaults to input directory path.")
+    parser.add_argument("-t", "--separator", type=str, default="", help="Separator to use between morphemes. Defaults to empty string.")
 
     args = parser.parse_args()
     input_data = read_json(args.datapath)
-    morph_data = DATA_PROCESSOR_MAP[args.processor][0](input_data, args.num_samples)
+    morph_data = DATA_PROCESSOR_MAP[args.processor][0](input_data, args.num_samples, separator=args.separator)
 
     datapath = pathlib.Path(args.datapath)
     output_dir = pathlib.Path(args.output_dir) if args.output_dir is not None else datapath.parent

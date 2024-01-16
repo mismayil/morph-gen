@@ -1,0 +1,1837 @@
+{
+    "metadata": {
+        "datapath": "../data/en/morpholex/temp_tr/v4/MorphoLEX_en_prep_morph_sample_nonce_sep+_eval_morph_disc_tr_s3.json",
+        "model": "gpt-3.5-turbo",
+        "temperature": 0.3,
+        "max_tokens": 40,
+        "top_p": 1,
+        "frequency_penalty": 0,
+        "presence_penalty": 0
+    },
+    "metrics": {
+        "usage": {
+            "prompt_tokens": 40107,
+            "completion_tokens": 100,
+            "total_tokens": 40207
+        },
+        "cost": {
+            "input": 0.0601605,
+            "output": 0.00019999999999999998,
+            "total": 0.0603605
+        },
+        "macro_f1": 0.3548387096774194,
+        "accuracy": 0.55,
+        "precision": 0.5,
+        "recall": 0.275
+    },
+    "data": [
+        {
+            "root": "vetect",
+            "suffixes": [
+                "ion",
+                "al"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "direct",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 394,
+                "total_tokens": 395
+            },
+            "correct": false
+        },
+        {
+            "root": "vhift",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "shift",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 394,
+                "total_tokens": 395
+            },
+            "correct": false
+        },
+        {
+            "root": "kogyiss",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "narciss",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 400,
+                "total_tokens": 401
+            },
+            "correct": true
+        },
+        {
+            "root": "sojic",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: sojic\nTanım: 'sojic' İngilizce 'judic' anlamına gelir.\nEkler: ness,ious\nSeçenekler:\n1. sojic+ious+ness\n2. sojic+ness+ious\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "judic",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 399,
+                "total_tokens": 400
+            },
+            "correct": false
+        },
+        {
+            "root": "huth",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: huth\nTanım: 'huth' İngilizce 'ruth' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. huth+less+ness\n2. huth+ness+less\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "ruth",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 395,
+                "total_tokens": 396
+            },
+            "correct": false
+        },
+        {
+            "root": "hizimp",
+            "suffixes": [
+                "ish",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: hizimp\nTanım: 'hizimp' İngilizce 'imp' anlamına gelir.\nEkler: ish,ly\nSeçenekler:\n1. hizimp+ly+ish\n2. hizimp+ish+ly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "imp",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 399,
+                "total_tokens": 400
+            },
+            "correct": true
+        },
+        {
+            "root": "zunac",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: zunac\nTanım: 'zunac' İngilizce 'rapac' anlamına gelir.\nEkler: ious,ness\nSeçenekler:\n1. zunac+ious+ness\n2. zunac+ness+ious\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "rapac",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 397,
+                "total_tokens": 398
+            },
+            "correct": true
+        },
+        {
+            "root": "ponif",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: ponif\nTanım: 'ponif' İngilizce 'pacif' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. ponif+ist+ic\n2. ponif+ic+ist\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "pacif",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 395,
+                "total_tokens": 396
+            },
+            "correct": false
+        },
+        {
+            "root": "fudart",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: fudart\nTanım: 'fudart' İngilizce 'art' anlamına gelir.\nEkler: ly,less\nSeçenekler:\n1. fudart+less+ly\n2. fudart+ly+less\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "art",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 398,
+                "total_tokens": 399
+            },
+            "correct": true
+        },
+        {
+            "root": "gibac",
+            "suffixes": [
+                "ious",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: gibac\nTanım: 'gibac' İngilizce 'verac' anlamına gelir.\nEkler: ious,ly\nSeçenekler:\n1. gibac+ious+ly\n2. gibac+ly+ious\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "verac",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 397,
+                "total_tokens": 398
+            },
+            "correct": true
+        },
+        {
+            "root": "mziad",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: mziad\nTanım: 'mziad' İngilizce 'dread' anlamına gelir.\nEkler: ful,ly\nSeçenekler:\n1. mziad+ful+ly\n2. mziad+ly+ful\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "dread",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 399,
+                "total_tokens": 400
+            },
+            "correct": true
+        },
+        {
+            "root": "urort",
+            "suffixes": [
+                "ion",
+                "ist"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: urort\nTanım: 'urort' İngilizce 'abort' anlamına gelir.\nEkler: ist,ion\nSeçenekler:\n1. urort+ist+ion\n2. urort+ion+ist\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "abort",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 394,
+                "total_tokens": 395
+            },
+            "correct": false
+        },
+        {
+            "root": "rukizor",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: rukizor\nTanım: 'rukizor' İngilizce 'categor' anlamına gelir.\nEkler: ic,al\nSeçenekler:\n1. rukizor+ic+al\n2. rukizor+al+ic\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "categor",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 402,
+                "total_tokens": 403
+            },
+            "correct": true
+        },
+        {
+            "root": "hupal",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: hupal\nTanım: 'hupal' İngilizce 'total' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. hupal+ist+ic\n2. hupal+ic+ist\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "total",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 394,
+                "total_tokens": 395
+            },
+            "correct": false
+        },
+        {
+            "root": "uzzetul",
+            "suffixes": [
+                "ate",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: uzzetul\nTanım: 'uzzetul' İngilizce 'articul' anlamına gelir.\nEkler: ly,ate\nSeçenekler:\n1. uzzetul+ly+ate\n2. uzzetul+ate+ly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "articul",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 402,
+                "total_tokens": 403
+            },
+            "correct": true
+        },
+        {
+            "root": "icectr",
+            "suffixes": [
+                "on",
+                "ics"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: icectr\nTanım: 'icectr' İngilizce 'electr' anlamına gelir.\nEkler: ics,on\nSeçenekler:\n1. icectr+on+ics\n2. icectr+ics+on\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "electr",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 399,
+                "total_tokens": 400
+            },
+            "correct": false
+        },
+        {
+            "root": "ziver",
+            "suffixes": [
+                "al",
+                "ity"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: ziver\nTanım: 'ziver' İngilizce 'gener' anlamına gelir.\nEkler: ity,al\nSeçenekler:\n1. ziver+al+ity\n2. ziver+ity+al\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "gener",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 395,
+                "total_tokens": 396
+            },
+            "correct": false
+        },
+        {
+            "root": "rbien",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: rbien\nTanım: 'rbien' İngilizce 'green' anlamına gelir.\nEkler: ness,ish\nSeçenekler:\n1. rbien+ness+ish\n2. rbien+ish+ness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "green",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 394,
+                "total_tokens": 395
+            },
+            "correct": false
+        },
+        {
+            "root": "modor",
+            "suffixes": [
+                "it",
+                "ism"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: modor\nTanım: 'modor' İngilizce 'favor' anlamına gelir.\nEkler: ism,it\nSeçenekler:\n1. modor+it+ism\n2. modor+ism+it\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "favor",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 394,
+                "total_tokens": 395
+            },
+            "correct": false
+        },
+        {
+            "root": "nin",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: nin\nTanım: 'nin' İngilizce 'sin' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. nin+less+ness\n2. nin+ness+less\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "sin",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 390,
+                "total_tokens": 391
+            },
+            "correct": true
+        },
+        {
+            "root": "lomat",
+            "suffixes": [
+                "al",
+                "ize"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: lomat\nTanım: 'lomat' İngilizce 'palat' anlamına gelir.\nEkler: al,ize\nSeçenekler:\n1. lomat+ize+al\n2. lomat+al+ize\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "palat",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 395,
+                "total_tokens": 396
+            },
+            "correct": true
+        },
+        {
+            "root": "vukpe",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: vukpe\nTanım: 'vukpe' İngilizce 'taste' anlamına gelir.\nEkler: ness,ful\nSeçenekler:\n1. vukpe+ness+ful\n2. vukpe+ful+ness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "taste",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 399,
+                "total_tokens": 400
+            },
+            "correct": false
+        },
+        {
+            "root": "aletin",
+            "suffixes": [
+                "al",
+                "ity"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: aletin\nTanım: 'aletin' İngilizce 'origin' anlamına gelir.\nEkler: ity,al\nSeçenekler:\n1. aletin+ity+al\n2. aletin+al+ity\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "origin",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 399,
+                "total_tokens": 400
+            },
+            "correct": true
+        },
+        {
+            "root": "mkfsphys",
+            "suffixes": [
+                "ic",
+                "al",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: mkfsphys\nTanım: 'mkfsphys' İngilizce 'phys' anlamına gelir.\nEkler: ness,al,ic\nSeçenekler:\n1. mkfsphys+ness+al+ic\n2. mkfsphys+al+ic+ness\n3. mkfsphys+ic+al+ness\n4. mkfsphys+al+ness+ic\n5. mkfsphys+ic+ness+al\n6. mkfsphys+ness+ic+al\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": "phys",
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 452,
+                "total_tokens": 453
+            },
+            "correct": false
+        },
+        {
+            "root": "gtaod",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: gtaod\nTanım: 'gtaod' İngilizce 'blood' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. gtaod+ness+less\n2. gtaod+less+ness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "blood",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 398,
+                "total_tokens": 399
+            },
+            "correct": true
+        },
+        {
+            "root": "tist",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: tist\nTanım: 'tist' İngilizce 'list' anlamına gelir.\nEkler: less,ly\nSeçenekler:\n1. tist+ly+less\n2. tist+less+ly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "list",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 394,
+                "total_tokens": 395
+            },
+            "correct": true
+        },
+        {
+            "root": "yfopjit",
+            "suffixes": [
+                "ion",
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: yfopjit\nTanım: 'yfopjit' İngilizce 'transit' anlamına gelir.\nEkler: al,ion,ly\nSeçenekler:\n1. yfopjit+ion+al+ly\n2. yfopjit+ly+al+ion\n3. yfopjit+al+ly+ion\n4. yfopjit+al+ion+ly\n5. yfopjit+ion+ly+al\n6. yfopjit+ly+ion+al\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "transit",
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 461,
+                "total_tokens": 462
+            },
+            "correct": false
+        },
+        {
+            "root": "foct",
+            "suffixes": [
+                "urn",
+                "al"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: foct\nTanım: 'foct' İngilizce 'noct' anlamına gelir.\nEkler: urn,al\nSeçenekler:\n1. foct+urn+al\n2. foct+al+urn\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "noct",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 395,
+                "total_tokens": 396
+            },
+            "correct": true
+        },
+        {
+            "root": "owomem",
+            "suffixes": [
+                "ic",
+                "ian"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: owomem\nTanım: 'owomem' İngilizce 'academ' anlamına gelir.\nEkler: ic,ian\nSeçenekler:\n1. owomem+ic+ian\n2. owomem+ian+ic\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "academ",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 399,
+                "total_tokens": 400
+            },
+            "correct": true
+        },
+        {
+            "root": "jbzser",
+            "suffixes": [
+                "ic",
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: jbzser\nTanım: 'jbzser' İngilizce 'hyster' anlamına gelir.\nEkler: al,ic,ly\nSeçenekler:\n1. jbzser+ly+ic+al\n2. jbzser+ic+ly+al\n3. jbzser+ic+al+ly\n4. jbzser+ly+al+ic\n5. jbzser+al+ly+ic\n6. jbzser+al+ic+ly\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": "hyster",
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 453,
+                "total_tokens": 454
+            },
+            "correct": false
+        },
+        {
+            "root": "vust",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: vust\nTanım: 'vust' İngilizce 'lust' anlamına gelir.\nEkler: ness,ful\nSeçenekler:\n1. vust+ness+ful\n2. vust+ful+ness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "lust",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 394,
+                "total_tokens": 395
+            },
+            "correct": true
+        },
+        {
+            "root": "ukfim",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: ukfim\nTanım: 'ukfim' İngilizce 'optim' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. ukfim+ic+ist\n2. ukfim+ist+ic\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "optim",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 398,
+                "total_tokens": 399
+            },
+            "correct": true
+        },
+        {
+            "root": "onsor",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: onsor\nTanım: 'onsor' İngilizce 'aphor' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. onsor+ist+ic\n2. onsor+ic+ist\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "aphor",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 395,
+                "total_tokens": 396
+            },
+            "correct": false
+        },
+        {
+            "root": "uwort",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: uwort\nTanım: 'uwort' İngilizce 'abort' anlamına gelir.\nEkler: ive,ly\nSeçenekler:\n1. uwort+ive+ly\n2. uwort+ly+ive\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "abort",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 394,
+                "total_tokens": 395
+            },
+            "correct": true
+        },
+        {
+            "root": "lilicje",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: lilicje\nTanım: 'lilicje' İngilizce 'defence' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. lilicje+ness+less\n2. lilicje+less+ness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "defence",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 400,
+                "total_tokens": 401
+            },
+            "correct": false
+        },
+        {
+            "root": "rutac",
+            "suffixes": [
+                "ious",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: rutac\nTanım: 'rutac' İngilizce 'vorac' anlamına gelir.\nEkler: ious,ly\nSeçenekler:\n1. rutac+ly+ious\n2. rutac+ious+ly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "vorac",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 396,
+                "total_tokens": 397
+            },
+            "correct": true
+        },
+        {
+            "root": "ilo",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: ilo\nTanım: 'ilo' İngilizce 'ego' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. ilo+ist+ic\n2. ilo+ic+ist\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "ego",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 393,
+                "total_tokens": 394
+            },
+            "correct": true
+        },
+        {
+            "root": "bupye",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: bupye\nTanım: 'bupye' İngilizce 'waste' anlamına gelir.\nEkler: ful,ness\nSeçenekler:\n1. bupye+ful+ness\n2. bupye+ness+ful\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "waste",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 399,
+                "total_tokens": 400
+            },
+            "correct": true
+        },
+        {
+            "root": "fivwi",
+            "suffixes": [
+                "ment",
+                "al",
+                "ism"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: fivwi\nTanım: 'fivwi' İngilizce 'senti' anlamına gelir.\nEkler: ment,al,ism\nSeçenekler:\n1. fivwi+ment+al+ism\n2. fivwi+ism+ment+al\n3. fivwi+al+ism+ment\n4. fivwi+al+ment+ism\n5. fivwi+ism+al+ment\n6. fivwi+ment+ism+al\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "senti",
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 453,
+                "total_tokens": 454
+            },
+            "correct": false
+        },
+        {
+            "root": "fkeumph",
+            "suffixes": [
+                "ant",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: fkeumph\nTanım: 'fkeumph' İngilizce 'triumph' anlamına gelir.\nEkler: ly,ant\nSeçenekler:\n1. fkeumph+ant+ly\n2. fkeumph+ly+ant\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "triumph",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 400,
+                "total_tokens": 401
+            },
+            "correct": false
+        },
+        {
+            "root": "jeyer",
+            "suffixes": [
+                "al",
+                "ism"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: jeyer\nTanım: 'jeyer' İngilizce 'liber' anlamına gelir.\nEkler: al,ism\nSeçenekler:\n1. jeyer+al+ism\n2. jeyer+ism+al\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "liber",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 395,
+                "total_tokens": 396
+            },
+            "correct": true
+        },
+        {
+            "root": "higeod",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: higeod\nTanım: 'higeod' İngilizce 'period' anlamına gelir.\nEkler: ic,al\nSeçenekler:\n1. higeod+al+ic\n2. higeod+ic+al\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "period",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 398,
+                "total_tokens": 399
+            },
+            "correct": true
+        },
+        {
+            "root": "guul",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: guul\nTanım: 'guul' İngilizce 'soul' anlamına gelir.\nEkler: ly,less\nSeçenekler:\n1. guul+ly+less\n2. guul+less+ly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "soul",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 395,
+                "total_tokens": 396
+            },
+            "correct": false
+        },
+        {
+            "root": "jjikuzeheon",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: jjikuzeheon\nTanım: 'jjikuzeheon' İngilizce 'preposition' anlamına gelir.\nEkler: al,ly\nSeçenekler:\n1. jjikuzeheon+al+ly\n2. jjikuzeheon+ly+al\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "preposition",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 407,
+                "total_tokens": 408
+            },
+            "correct": false
+        },
+        {
+            "root": "vmamect",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: vmamect\nTanım: 'vmamect' İngilizce 'protect' anlamına gelir.\nEkler: ness,ive\nSeçenekler:\n1. vmamect+ness+ive\n2. vmamect+ive+ness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "protect",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 398,
+                "total_tokens": 399
+            },
+            "correct": true
+        },
+        {
+            "root": "jlier",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: jlier\nTanım: 'jlier' İngilizce 'cheer' anlamına gelir.\nEkler: ly,ful\nSeçenekler:\n1. jlier+ly+ful\n2. jlier+ful+ly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "cheer",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 395,
+                "total_tokens": 396
+            },
+            "correct": false
+        },
+        {
+            "root": "sozyeon",
+            "suffixes": [
+                "ate",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: sozyeon\nTanım: 'sozyeon' İngilizce 'passion' anlamına gelir.\nEkler: ate,ness\nSeçenekler:\n1. sozyeon+ate+ness\n2. sozyeon+ness+ate\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "passion",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 399,
+                "total_tokens": 400
+            },
+            "correct": true
+        },
+        {
+            "root": "keblu",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: keblu\nTanım: 'keblu' İngilizce 'lingu' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. keblu+ist+ic\n2. keblu+ic+ist\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "lingu",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 399,
+                "total_tokens": 400
+            },
+            "correct": false
+        },
+        {
+            "root": "wobe",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: wobe\nTanım: 'wobe' İngilizce 'hate' anlamına gelir.\nEkler: ly,ful\nSeçenekler:\n1. wobe+ly+ful\n2. wobe+ful+ly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "hate",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 395,
+                "total_tokens": 396
+            },
+            "correct": false
+        },
+        {
+            "root": "morm",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: morm\nTanım: 'morm' İngilizce 'gorm' anlamına gelir.\nEkler: ly,less\nSeçenekler:\n1. morm+less+ly\n2. morm+ly+less\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "gorm",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 394,
+                "total_tokens": 395
+            },
+            "correct": false
+        },
+        {
+            "root": "ceck",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: ceck\nTanım: 'ceck' İngilizce 'feck' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. ceck+less+ness\n2. ceck+ness+less\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "feck",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 395,
+                "total_tokens": 396
+            },
+            "correct": true
+        },
+        {
+            "root": "tial",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: tial\nTanım: 'tial' İngilizce 'real' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. tial+ist+ic\n2. tial+ic+ist\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "real",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 394,
+                "total_tokens": 395
+            },
+            "correct": false
+        },
+        {
+            "root": "coltteon",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: coltteon\nTanım: 'coltteon' İngilizce 'function' anlamına gelir.\nEkler: al,ist\nSeçenekler:\n1. coltteon+ist+al\n2. coltteon+al+ist\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "function",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 398,
+                "total_tokens": 399
+            },
+            "correct": true
+        },
+        {
+            "root": "rniet",
+            "suffixes": [
+                "en",
+                "er"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: rniet\nTanım: 'rniet' İngilizce 'sweet' anlamına gelir.\nEkler: en,er\nSeçenekler:\n1. rniet+er+en\n2. rniet+en+er\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "sweet",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 394,
+                "total_tokens": 395
+            },
+            "correct": true
+        },
+        {
+            "root": "paele",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: paele\nTanım: 'paele' İngilizce 'guile' anlamına gelir.\nEkler: less,ly\nSeçenekler:\n1. paele+less+ly\n2. paele+ly+less\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "guile",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 399,
+                "total_tokens": 400
+            },
+            "correct": true
+        },
+        {
+            "root": "buol",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: buol\nTanım: 'buol' İngilizce 'fool' anlamına gelir.\nEkler: ish,ness\nSeçenekler:\n1. buol+ness+ish\n2. buol+ish+ness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "fool",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 396,
+                "total_tokens": 397
+            },
+            "correct": true
+        },
+        {
+            "root": "tecpinct",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: tecpinct\nTanım: 'tecpinct' İngilizce 'distinct' anlamına gelir.\nEkler: ive,ness\nSeçenekler:\n1. tecpinct+ive+ness\n2. tecpinct+ness+ive\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "distinct",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 398,
+                "total_tokens": 399
+            },
+            "correct": true
+        },
+        {
+            "root": "korm",
+            "suffixes": [
+                "al",
+                "ize"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: korm\nTanım: 'korm' İngilizce 'norm' anlamına gelir.\nEkler: ize,al\nSeçenekler:\n1. korm+al+ize\n2. korm+ize+al\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "norm",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 395,
+                "total_tokens": 396
+            },
+            "correct": true
+        },
+        {
+            "root": "uzfetul",
+            "suffixes": [
+                "ate",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: uzfetul\nTanım: 'uzfetul' İngilizce 'articul' anlamına gelir.\nEkler: ate,ness\nSeçenekler:\n1. uzfetul+ate+ness\n2. uzfetul+ness+ate\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "articul",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 403,
+                "total_tokens": 404
+            },
+            "correct": true
+        },
+        {
+            "root": "wapjet",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: wapjet\nTanım: 'wapjet' İngilizce 'forget' anlamına gelir.\nEkler: ful,ness\nSeçenekler:\n1. wapjet+ful+ness\n2. wapjet+ness+ful\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "forget",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 397,
+                "total_tokens": 398
+            },
+            "correct": true
+        },
+        {
+            "root": "hutr",
+            "suffixes": [
+                "efac",
+                "tive"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: hutr\nTanım: 'hutr' İngilizce 'putr' anlamına gelir.\nEkler: tive,efac\nSeçenekler:\n1. hutr+efac+tive\n2. hutr+tive+efac\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "putr",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 399,
+                "total_tokens": 400
+            },
+            "correct": true
+        },
+        {
+            "root": "hacrepeon",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: hacrepeon\nTanım: 'hacrepeon' İngilizce 'condition' anlamına gelir.\nEkler: al,ly\nSeçenekler:\n1. hacrepeon+ly+al\n2. hacrepeon+al+ly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "condition",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 398,
+                "total_tokens": 399
+            },
+            "correct": true
+        },
+        {
+            "root": "yfoce",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: yfoce\nTanım: 'yfoce' İngilizce 'shame' anlamına gelir.\nEkler: ful,ness\nSeçenekler:\n1. yfoce+ful+ness\n2. yfoce+ness+ful\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "shame",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 399,
+                "total_tokens": 400
+            },
+            "correct": true
+        },
+        {
+            "root": "pel",
+            "suffixes": [
+                "ar",
+                "ize"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: pel\nTanım: 'pel' İngilizce 'vel' anlamına gelir.\nEkler: ize,ar\nSeçenekler:\n1. pel+ar+ize\n2. pel+ize+ar\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "vel",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 391,
+                "total_tokens": 392
+            },
+            "correct": false
+        },
+        {
+            "root": "cinsi",
+            "suffixes": [
+                "ment",
+                "al",
+                "ist"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: cinsi\nTanım: 'cinsi' İngilizce 'senti' anlamına gelir.\nEkler: ment,al,ist\nSeçenekler:\n1. cinsi+ist+al+ment\n2. cinsi+al+ist+ment\n3. cinsi+ist+ment+al\n4. cinsi+ment+al+ist\n5. cinsi+al+ment+ist\n6. cinsi+ment+ist+al\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": "senti",
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 445,
+                "total_tokens": 446
+            },
+            "correct": true
+        },
+        {
+            "root": "ptiss",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: ptiss\nTanım: 'ptiss' İngilizce 'bliss' anlamına gelir.\nEkler: ful,ly\nSeçenekler:\n1. ptiss+ly+ful\n2. ptiss+ful+ly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "bliss",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 395,
+                "total_tokens": 396
+            },
+            "correct": true
+        },
+        {
+            "root": "giar",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: giar\nTanım: 'giar' İngilizce 'tear' anlamına gelir.\nEkler: ly,less\nSeçenekler:\n1. giar+less+ly\n2. giar+ly+less\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "tear",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 395,
+                "total_tokens": 396
+            },
+            "correct": false
+        },
+        {
+            "root": "wect",
+            "suffixes": [
+                "ure",
+                "ship"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: wect\nTanım: 'wect' İngilizce 'lect' anlamına gelir.\nEkler: ship,ure\nSeçenekler:\n1. wect+ure+ship\n2. wect+ship+ure\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "lect",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 394,
+                "total_tokens": 395
+            },
+            "correct": false
+        },
+        {
+            "root": "letagdic",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: letagdic\nTanım: 'letagdic' İngilizce 'liturgic' anlamına gelir.\nEkler: al,ly\nSeçenekler:\n1. letagdic+ly+al\n2. letagdic+al+ly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "liturgic",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 400,
+                "total_tokens": 401
+            },
+            "correct": true
+        },
+        {
+            "root": "wiber",
+            "suffixes": [
+                "al",
+                "issimo"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: wiber\nTanım: 'wiber' İngilizce 'gener' anlamına gelir.\nEkler: al,issimo\nSeçenekler:\n1. wiber+issimo+al\n2. wiber+al+issimo\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "gener",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 397,
+                "total_tokens": 398
+            },
+            "correct": false
+        },
+        {
+            "root": "felp",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: felp\nTanım: 'felp' İngilizce 'help' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. felp+less+ness\n2. felp+ness+less\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "help",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 394,
+                "total_tokens": 395
+            },
+            "correct": true
+        },
+        {
+            "root": "evjoit",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: evjoit\nTanım: 'evjoit' İngilizce 'intuit' anlamına gelir.\nEkler: ive,ly\nSeçenekler:\n1. evjoit+ly+ive\n2. evjoit+ive+ly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "intuit",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 399,
+                "total_tokens": 400
+            },
+            "correct": true
+        },
+        {
+            "root": "zash",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: zash\nTanım: 'zash' İngilizce 'bash' anlamına gelir.\nEkler: ly,ful\nSeçenekler:\n1. zash+ful+ly\n2. zash+ly+ful\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "bash",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 394,
+                "total_tokens": 395
+            },
+            "correct": true
+        },
+        {
+            "root": "cimect",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: cimect\nTanım: 'cimect' İngilizce 'select' anlamına gelir.\nEkler: ness,ive\nSeçenekler:\n1. cimect+ness+ive\n2. cimect+ive+ness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "select",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 398,
+                "total_tokens": 399
+            },
+            "correct": false
+        },
+        {
+            "root": "buin",
+            "suffixes": [
+                "t",
+                "ure"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: buin\nTanım: 'buin' İngilizce 'join' anlamına gelir.\nEkler: t,ure\nSeçenekler:\n1. buin+t+ure\n2. buin+ure+t\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "join",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 392,
+                "total_tokens": 393
+            },
+            "correct": true
+        },
+        {
+            "root": "cikeod",
+            "suffixes": [
+                "ic",
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: cikeod\nTanım: 'cikeod' İngilizce 'period' anlamına gelir.\nEkler: ly,al,ic\nSeçenekler:\n1. cikeod+ic+al+ly\n2. cikeod+ic+ly+al\n3. cikeod+ly+ic+al\n4. cikeod+ly+al+ic\n5. cikeod+al+ic+ly\n6. cikeod+al+ly+ic\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "period",
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 452,
+                "total_tokens": 453
+            },
+            "correct": false
+        },
+        {
+            "root": "gelf",
+            "suffixes": [
+                "ish",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: gelf\nTanım: 'gelf' İngilizce 'self' anlamına gelir.\nEkler: ly,ish\nSeçenekler:\n1. gelf+ly+ish\n2. gelf+ish+ly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "self",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 394,
+                "total_tokens": 395
+            },
+            "correct": false
+        },
+        {
+            "root": "ukjbduct",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: ukjbduct\nTanım: 'ukjbduct' İngilizce 'obstruct' anlamına gelir.\nEkler: ive,ness\nSeçenekler:\n1. ukjbduct+ness+ive\n2. ukjbduct+ive+ness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "obstruct",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 399,
+                "total_tokens": 400
+            },
+            "correct": false
+        },
+        {
+            "root": "gute",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: gute\nTanım: 'gute' İngilizce 'dole' anlamına gelir.\nEkler: ful,ly\nSeçenekler:\n1. gute+ly+ful\n2. gute+ful+ly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "dole",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 392,
+                "total_tokens": 393
+            },
+            "correct": false
+        },
+        {
+            "root": "dupopt",
+            "suffixes": [
+                "ion",
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: dupopt\nTanım: 'dupopt' İngilizce 'opt' anlamına gelir.\nEkler: ion,al,ly\nSeçenekler:\n1. dupopt+ly+al+ion\n2. dupopt+al+ion+ly\n3. dupopt+al+ly+ion\n4. dupopt+ion+ly+al\n5. dupopt+ion+al+ly\n6. dupopt+ly+ion+al\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": "opt",
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 444,
+                "total_tokens": 445
+            },
+            "correct": false
+        },
+        {
+            "root": "bnijoc",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: bnijoc\nTanım: 'bnijoc' İngilizce 'precoc' anlamına gelir.\nEkler: ness,ious\nSeçenekler:\n1. bnijoc+ness+ious\n2. bnijoc+ious+ness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "precoc",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 399,
+                "total_tokens": 400
+            },
+            "correct": true
+        },
+        {
+            "root": "lract",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: lract\nTanım: 'lract' İngilizce 'pract' anlamına gelir.\nEkler: al,ic\nSeçenekler:\n1. lract+al+ic\n2. lract+ic+al\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "pract",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 395,
+                "total_tokens": 396
+            },
+            "correct": true
+        },
+        {
+            "root": "zijdiwu",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: zijdiwu\nTanım: 'zijdiwu' İngilizce 'perpetu' anlamına gelir.\nEkler: ly,al\nSeçenekler:\n1. zijdiwu+ly+al\n2. zijdiwu+al+ly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "perpetu",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 401,
+                "total_tokens": 402
+            },
+            "correct": true
+        },
+        {
+            "root": "coith",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: coith\nTanım: 'coith' İngilizce 'faith' anlamına gelir.\nEkler: ful,ness\nSeçenekler:\n1. coith+ness+ful\n2. coith+ful+ness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "faith",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 394,
+                "total_tokens": 395
+            },
+            "correct": true
+        },
+        {
+            "root": "acesin",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: acesin\nTanım: 'acesin' İngilizce 'origin' anlamına gelir.\nEkler: al,ly\nSeçenekler:\n1. acesin+al+ly\n2. acesin+ly+al\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "origin",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 397,
+                "total_tokens": 398
+            },
+            "correct": false
+        },
+        {
+            "root": "culeon",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: culeon\nTanım: 'culeon' İngilizce 'nation' anlamına gelir.\nEkler: ist,al\nSeçenekler:\n1. culeon+al+ist\n2. culeon+ist+al\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "nation",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 398,
+                "total_tokens": 399
+            },
+            "correct": true
+        },
+        {
+            "root": "wakern",
+            "suffixes": [
+                "ment",
+                "al"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: wakern\nTanım: 'wakern' İngilizce 'govern' anlamına gelir.\nEkler: ment,al\nSeçenekler:\n1. wakern+ment+al\n2. wakern+al+ment\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "govern",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 399,
+                "total_tokens": 400
+            },
+            "correct": true
+        },
+        {
+            "root": "nedesar",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: nedesar\nTanım: 'nedesar' İngilizce 'militar' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. nedesar+ic+ist\n2. nedesar+ist+ic\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "militar",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 396,
+                "total_tokens": 397
+            },
+            "correct": true
+        },
+        {
+            "root": "modme",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: modme\nTanım: 'modme' İngilizce 'taste' anlamına gelir.\nEkler: ful,ly\nSeçenekler:\n1. modme+ful+ly\n2. modme+ly+ful\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "taste",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 395,
+                "total_tokens": 396
+            },
+            "correct": true
+        },
+        {
+            "root": "piigh",
+            "suffixes": [
+                "t",
+                "less"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: piigh\nTanım: 'piigh' İngilizce 'weigh' anlamına gelir.\nEkler: less,t\nSeçenekler:\n1. piigh+less+t\n2. piigh+t+less\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "weigh",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 391,
+                "total_tokens": 392
+            },
+            "correct": false
+        },
+        {
+            "root": "wyig",
+            "suffixes": [
+                "id",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: wyig\nTanım: 'wyig' İngilizce 'frig' anlamına gelir.\nEkler: id,ly\nSeçenekler:\n1. wyig+ly+id\n2. wyig+id+ly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "frig",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 395,
+                "total_tokens": 396
+            },
+            "correct": false
+        },
+        {
+            "root": "nyuject",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: nyuject\nTanım: 'nyuject' İngilizce 'protect' anlamına gelir.\nEkler: ive,ly\nSeçenekler:\n1. nyuject+ive+ly\n2. nyuject+ly+ive\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "protect",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 398,
+                "total_tokens": 399
+            },
+            "correct": true
+        },
+        {
+            "root": "hucetter",
+            "suffixes": [
+                "iall",
+                "y"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: hucetter\nTanım: 'hucetter' İngilizce 'magister' anlamına gelir.\nEkler: y,iall\nSeçenekler:\n1. hucetter+y+iall\n2. hucetter+iall+y\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "magister",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 400,
+                "total_tokens": 401
+            },
+            "correct": true
+        },
+        {
+            "root": "tibelf",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: tibelf\nTanım: 'tibelf' İngilizce 'elf' anlamına gelir.\nEkler: ish,ness\nSeçenekler:\n1. tibelf+ness+ish\n2. tibelf+ish+ness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "elf",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 399,
+                "total_tokens": 400
+            },
+            "correct": false
+        },
+        {
+            "root": "bnkiylijic",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ist,ic\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: bnkiylijic\nTanım: 'bnkiylijic' İngilizce 'cybernetic' anlamına gelir.\nEkler: al,ly\nSeçenekler:\n1. bnkiylijic+ly+al\n2. bnkiylijic+al+ly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "cybernetic",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 409,
+                "total_tokens": 410
+            },
+            "correct": false
+        },
+        {
+            "root": "jens",
+            "suffixes": [
+                "or",
+                "ious",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: jens\nTanım: 'jens' İngilizce 'cens' anlamına gelir.\nEkler: ness,ious,or\nSeçenekler:\n1. jens+ness+ious+or\n2. jens+ness+or+ious\n3. jens+or+ious+ness\n4. jens+or+ness+ious\n5. jens+ious+ness+or\n6. jens+ious+or+ness\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": "cens",
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 445,
+                "total_tokens": 446
+            },
+            "correct": false
+        },
+        {
+            "root": "faurn",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+ness+less\n2. vhift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: faurn\nTanım: 'faurn' İngilizce 'journ' anlamına gelir.\nEkler: al,ist\nSeçenekler:\n1. faurn+al+ist\n2. faurn+ist+al\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "journ",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 395,
+                "total_tokens": 396
+            },
+            "correct": false
+        },
+        {
+            "root": "mfiep",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: mfiep\nTanım: 'mfiep' İngilizce 'sheep' anlamına gelir.\nEkler: ish,ness\nSeçenekler:\n1. mfiep+ness+ish\n2. mfiep+ish+ness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "sheep",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 400,
+                "total_tokens": 401
+            },
+            "correct": true
+        },
+        {
+            "root": "ohe",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: al,ion\nSeçenekler:\n1. vetect+al+ion\n2. vetect+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: ness,less\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: ohe\nTanım: 'ohe' İngilizce 'use' anlamına gelir.\nEkler: ly,less\nSeçenekler:\n1. ohe+ly+less\n2. ohe+less+ly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "use",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 394,
+                "total_tokens": 395
+            },
+            "correct": false
+        },
+        {
+            "root": "toin",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: ion,al\nSeçenekler:\n1. vetect+ion+al\n2. vetect+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: less,ness\nSeçenekler:\n1. vhift+less+ness\n2. vhift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: ic,ist\nSeçenekler:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: toin\nTanım: 'toin' İngilizce 'pain' anlamına gelir.\nEkler: ly,less\nSeçenekler:\n1. toin+less+ly\n2. toin+ly+less\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "pain",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 394,
+                "total_tokens": 395
+            },
+            "correct": false
+        }
+    ]
+}

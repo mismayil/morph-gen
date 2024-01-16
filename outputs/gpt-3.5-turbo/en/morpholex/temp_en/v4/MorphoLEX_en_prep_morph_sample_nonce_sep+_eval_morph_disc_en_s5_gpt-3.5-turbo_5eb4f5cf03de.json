@@ -1,0 +1,1837 @@
+{
+    "metadata": {
+        "datapath": "../data/en/morpholex/temp_en/v4/MorphoLEX_en_prep_morph_sample_nonce_sep+_eval_morph_disc_en_s5.json",
+        "model": "gpt-3.5-turbo",
+        "temperature": 0.3,
+        "max_tokens": 40,
+        "top_p": 1,
+        "frequency_penalty": 0,
+        "presence_penalty": 0
+    },
+    "metrics": {
+        "usage": {
+            "prompt_tokens": 41460,
+            "completion_tokens": 116,
+            "total_tokens": 41576
+        },
+        "cost": {
+            "input": 0.06219,
+            "output": 0.000232,
+            "total": 0.062422000000000005
+        },
+        "macro_f1": 0.32432432432432434,
+        "accuracy": 0.48,
+        "precision": 0.5,
+        "recall": 0.24
+    },
+    "data": [
+        {
+            "root": "vetect",
+            "suffixes": [
+                "ion",
+                "al"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "direct",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 407,
+                "total_tokens": 408
+            },
+            "correct": false
+        },
+        {
+            "root": "vhift",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "shift",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 407,
+                "total_tokens": 408
+            },
+            "correct": true
+        },
+        {
+            "root": "kogyiss",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "narciss",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 413,
+                "total_tokens": 414
+            },
+            "correct": false
+        },
+        {
+            "root": "sojic",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "judic",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 413,
+                "total_tokens": 414
+            },
+            "correct": true
+        },
+        {
+            "root": "huth",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "ruth",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 408,
+                "total_tokens": 409
+            },
+            "correct": false
+        },
+        {
+            "root": "hizimp",
+            "suffixes": [
+                "ish",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: hizimp\nDefinition: 'hizimp' means 'imp' in English.\nSuffixes: ish,ly\nOptions:\n1. hizimp+ish+ly\n2. hizimp+ly+ish\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "imp",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 412,
+                "total_tokens": 413
+            },
+            "correct": true
+        },
+        {
+            "root": "zunac",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: zunac\nDefinition: 'zunac' means 'rapac' in English.\nSuffixes: ness,ious\nOptions:\n1. zunac+ious+ness\n2. zunac+ness+ious\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "rapac",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 409,
+                "total_tokens": 410
+            },
+            "correct": true
+        },
+        {
+            "root": "ponif",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: ponif\nDefinition: 'ponif' means 'pacif' in English.\nSuffixes: ic,ist\nOptions:\n1. ponif+ist+ic\n2. ponif+ic+ist\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "pacif",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 409,
+                "total_tokens": 410
+            },
+            "correct": false
+        },
+        {
+            "root": "fudart",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: fudart\nDefinition: 'fudart' means 'art' in English.\nSuffixes: less,ly\nOptions:\n1. fudart+less+ly\n2. fudart+ly+less\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "art",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 412,
+                "total_tokens": 413
+            },
+            "correct": false
+        },
+        {
+            "root": "gibac",
+            "suffixes": [
+                "ious",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: gibac\nDefinition: 'gibac' means 'verac' in English.\nSuffixes: ious,ly\nOptions:\n1. gibac+ly+ious\n2. gibac+ious+ly\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "verac",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 410,
+                "total_tokens": 411
+            },
+            "correct": true
+        },
+        {
+            "root": "mziad",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: mziad\nDefinition: 'mziad' means 'dread' in English.\nSuffixes: ful,ly\nOptions:\n1. mziad+ful+ly\n2. mziad+ly+ful\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "dread",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 412,
+                "total_tokens": 413
+            },
+            "correct": false
+        },
+        {
+            "root": "urort",
+            "suffixes": [
+                "ion",
+                "ist"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: urort\nDefinition: 'urort' means 'abort' in English.\nSuffixes: ist,ion\nOptions:\n1. urort+ion+ist\n2. urort+ist+ion\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "abort",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 408,
+                "total_tokens": 409
+            },
+            "correct": false
+        },
+        {
+            "root": "rukizor",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: rukizor\nDefinition: 'rukizor' means 'categor' in English.\nSuffixes: ic,al\nOptions:\n1. rukizor+al+ic\n2. rukizor+ic+al\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "categor",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 415,
+                "total_tokens": 416
+            },
+            "correct": true
+        },
+        {
+            "root": "hupal",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: hupal\nDefinition: 'hupal' means 'total' in English.\nSuffixes: ist,ic\nOptions:\n1. hupal+ic+ist\n2. hupal+ist+ic\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "total",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 408,
+                "total_tokens": 409
+            },
+            "correct": true
+        },
+        {
+            "root": "uzzetul",
+            "suffixes": [
+                "ate",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: uzzetul\nDefinition: 'uzzetul' means 'articul' in English.\nSuffixes: ly,ate\nOptions:\n1. uzzetul+ly+ate\n2. uzzetul+ate+ly\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "articul",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 415,
+                "total_tokens": 416
+            },
+            "correct": true
+        },
+        {
+            "root": "icectr",
+            "suffixes": [
+                "on",
+                "ics"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: icectr\nDefinition: 'icectr' means 'electr' in English.\nSuffixes: ics,on\nOptions:\n1. icectr+on+ics\n2. icectr+ics+on\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "electr",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 412,
+                "total_tokens": 413
+            },
+            "correct": false
+        },
+        {
+            "root": "ziver",
+            "suffixes": [
+                "al",
+                "ity"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: ziver\nDefinition: 'ziver' means 'gener' in English.\nSuffixes: ity,al\nOptions:\n1. ziver+ity+al\n2. ziver+al+ity\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "gener",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 409,
+                "total_tokens": 410
+            },
+            "correct": false
+        },
+        {
+            "root": "rbien",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: rbien\nDefinition: 'rbien' means 'green' in English.\nSuffixes: ness,ish\nOptions:\n1. rbien+ness+ish\n2. rbien+ish+ness\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "green",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 408,
+                "total_tokens": 409
+            },
+            "correct": false
+        },
+        {
+            "root": "modor",
+            "suffixes": [
+                "it",
+                "ism"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: modor\nDefinition: 'modor' means 'favor' in English.\nSuffixes: it,ism\nOptions:\n1. modor+it+ism\n2. modor+ism+it\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "favor",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 408,
+                "total_tokens": 409
+            },
+            "correct": true
+        },
+        {
+            "root": "nin",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: nin\nDefinition: 'nin' means 'sin' in English.\nSuffixes: ness,less\nOptions:\n1. nin+less+ness\n2. nin+ness+less\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "sin",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 404,
+                "total_tokens": 405
+            },
+            "correct": true
+        },
+        {
+            "root": "lomat",
+            "suffixes": [
+                "al",
+                "ize"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: lomat\nDefinition: 'lomat' means 'palat' in English.\nSuffixes: al,ize\nOptions:\n1. lomat+ize+al\n2. lomat+al+ize\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "palat",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 409,
+                "total_tokens": 410
+            },
+            "correct": false
+        },
+        {
+            "root": "vukpe",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: vukpe\nDefinition: 'vukpe' means 'taste' in English.\nSuffixes: ness,ful\nOptions:\n1. vukpe+ful+ness\n2. vukpe+ness+ful\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "taste",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 413,
+                "total_tokens": 414
+            },
+            "correct": false
+        },
+        {
+            "root": "aletin",
+            "suffixes": [
+                "al",
+                "ity"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: aletin\nDefinition: 'aletin' means 'origin' in English.\nSuffixes: ity,al\nOptions:\n1. aletin+al+ity\n2. aletin+ity+al\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "origin",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 413,
+                "total_tokens": 414
+            },
+            "correct": true
+        },
+        {
+            "root": "mkfsphys",
+            "suffixes": [
+                "ic",
+                "al",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: mkfsphys\nDefinition: 'mkfsphys' means 'phys' in English.\nSuffixes: al,ic,ness\nOptions:\n1. mkfsphys+ic+ness+al\n2. mkfsphys+al+ic+ness\n3. mkfsphys+ic+al+ness\n4. mkfsphys+al+ness+ic\n5. mkfsphys+ness+al+ic\n6. mkfsphys+ness+ic+al\nAnswer: ",
+            "reference": 3,
+            "template": "morph_disc_en",
+            "original_root": "phys",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 465,
+                "total_tokens": 466
+            },
+            "correct": false
+        },
+        {
+            "root": "gtaod",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: gtaod\nDefinition: 'gtaod' means 'blood' in English.\nSuffixes: ness,less\nOptions:\n1. gtaod+ness+less\n2. gtaod+less+ness\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "blood",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 412,
+                "total_tokens": 413
+            },
+            "correct": true
+        },
+        {
+            "root": "tist",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: tist\nDefinition: 'tist' means 'list' in English.\nSuffixes: ly,less\nOptions:\n1. tist+less+ly\n2. tist+ly+less\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "list",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 407,
+                "total_tokens": 408
+            },
+            "correct": false
+        },
+        {
+            "root": "yfopjit",
+            "suffixes": [
+                "ion",
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: yfopjit\nDefinition: 'yfopjit' means 'transit' in English.\nSuffixes: ly,ion,al\nOptions:\n1. yfopjit+al+ly+ion\n2. yfopjit+ly+ion+al\n3. yfopjit+ly+al+ion\n4. yfopjit+ion+al+ly\n5. yfopjit+al+ion+ly\n6. yfopjit+ion+ly+al\nAnswer: ",
+            "reference": 4,
+            "template": "morph_disc_en",
+            "original_root": "transit",
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 475,
+                "total_tokens": 476
+            },
+            "correct": true
+        },
+        {
+            "root": "foct",
+            "suffixes": [
+                "urn",
+                "al"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: foct\nDefinition: 'foct' means 'noct' in English.\nSuffixes: urn,al\nOptions:\n1. foct+al+urn\n2. foct+urn+al\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "noct",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 409,
+                "total_tokens": 410
+            },
+            "correct": true
+        },
+        {
+            "root": "owomem",
+            "suffixes": [
+                "ic",
+                "ian"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: owomem\nDefinition: 'owomem' means 'academ' in English.\nSuffixes: ian,ic\nOptions:\n1. owomem+ic+ian\n2. owomem+ian+ic\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "academ",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 413,
+                "total_tokens": 414
+            },
+            "correct": false
+        },
+        {
+            "root": "jbzser",
+            "suffixes": [
+                "ic",
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: jbzser\nDefinition: 'jbzser' means 'hyster' in English.\nSuffixes: ly,al,ic\nOptions:\n1. jbzser+ly+al+ic\n2. jbzser+ic+al+ly\n3. jbzser+ic+ly+al\n4. jbzser+ly+ic+al\n5. jbzser+al+ic+ly\n6. jbzser+al+ly+ic\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "hyster",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 467,
+                "total_tokens": 468
+            },
+            "correct": true
+        },
+        {
+            "root": "vust",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: vust\nDefinition: 'vust' means 'lust' in English.\nSuffixes: ness,ful\nOptions:\n1. vust+ful+ness\n2. vust+ness+ful\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "lust",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 408,
+                "total_tokens": 409
+            },
+            "correct": false
+        },
+        {
+            "root": "ukfim",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: ukfim\nDefinition: 'ukfim' means 'optim' in English.\nSuffixes: ist,ic\nOptions:\n1. ukfim+ic+ist\n2. ukfim+ist+ic\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "optim",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 412,
+                "total_tokens": 413
+            },
+            "correct": false
+        },
+        {
+            "root": "onsor",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: onsor\nDefinition: 'onsor' means 'aphor' in English.\nSuffixes: ic,ist\nOptions:\n1. onsor+ic+ist\n2. onsor+ist+ic\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "aphor",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 408,
+                "total_tokens": 409
+            },
+            "correct": false
+        },
+        {
+            "root": "uwort",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: uwort\nDefinition: 'uwort' means 'abort' in English.\nSuffixes: ly,ive\nOptions:\n1. uwort+ly+ive\n2. uwort+ive+ly\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "abort",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 408,
+                "total_tokens": 409
+            },
+            "correct": true
+        },
+        {
+            "root": "lilicje",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: lilicje\nDefinition: 'lilicje' means 'defence' in English.\nSuffixes: ness,less\nOptions:\n1. lilicje+ness+less\n2. lilicje+less+ness\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "defence",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 413,
+                "total_tokens": 414
+            },
+            "correct": false
+        },
+        {
+            "root": "rutac",
+            "suffixes": [
+                "ious",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: rutac\nDefinition: 'rutac' means 'vorac' in English.\nSuffixes: ious,ly\nOptions:\n1. rutac+ly+ious\n2. rutac+ious+ly\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "vorac",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 410,
+                "total_tokens": 411
+            },
+            "correct": false
+        },
+        {
+            "root": "ilo",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: ilo\nDefinition: 'ilo' means 'ego' in English.\nSuffixes: ic,ist\nOptions:\n1. ilo+ic+ist\n2. ilo+ist+ic\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "ego",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 406,
+                "total_tokens": 407
+            },
+            "correct": true
+        },
+        {
+            "root": "bupye",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: bupye\nDefinition: 'bupye' means 'waste' in English.\nSuffixes: ness,ful\nOptions:\n1. bupye+ness+ful\n2. bupye+ful+ness\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "waste",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 413,
+                "total_tokens": 414
+            },
+            "correct": false
+        },
+        {
+            "root": "fivwi",
+            "suffixes": [
+                "ment",
+                "al",
+                "ism"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: fivwi\nDefinition: 'fivwi' means 'senti' in English.\nSuffixes: ism,ment,al\nOptions:\n1. fivwi+al+ment+ism\n2. fivwi+ism+al+ment\n3. fivwi+al+ism+ment\n4. fivwi+ment+al+ism\n5. fivwi+ism+ment+al\n6. fivwi+ment+ism+al\nAnswer: ",
+            "reference": 4,
+            "template": "morph_disc_en",
+            "original_root": "senti",
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 467,
+                "total_tokens": 468
+            },
+            "correct": false
+        },
+        {
+            "root": "fkeumph",
+            "suffixes": [
+                "ant",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: fkeumph\nDefinition: 'fkeumph' means 'triumph' in English.\nSuffixes: ant,ly\nOptions:\n1. fkeumph+ly+ant\n2. fkeumph+ant+ly\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "triumph",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 413,
+                "total_tokens": 414
+            },
+            "correct": true
+        },
+        {
+            "root": "jeyer",
+            "suffixes": [
+                "al",
+                "ism"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: jeyer\nDefinition: 'jeyer' means 'liber' in English.\nSuffixes: ism,al\nOptions:\n1. jeyer+ism+al\n2. jeyer+al+ism\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "liber",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 409,
+                "total_tokens": 410
+            },
+            "correct": true
+        },
+        {
+            "root": "higeod",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: higeod\nDefinition: 'higeod' means 'period' in English.\nSuffixes: al,ic\nOptions:\n1. higeod+ic+al\n2. higeod+al+ic\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "period",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 411,
+                "total_tokens": 412
+            },
+            "correct": false
+        },
+        {
+            "root": "guul",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: guul\nDefinition: 'guul' means 'soul' in English.\nSuffixes: less,ly\nOptions:\n1. guul+ly+less\n2. guul+less+ly\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "soul",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 409,
+                "total_tokens": 410
+            },
+            "correct": false
+        },
+        {
+            "root": "jjikuzeheon",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: jjikuzeheon\nDefinition: 'jjikuzeheon' means 'preposition' in English.\nSuffixes: ly,al\nOptions:\n1. jjikuzeheon+ly+al\n2. jjikuzeheon+al+ly\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "preposition",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 420,
+                "total_tokens": 421
+            },
+            "correct": false
+        },
+        {
+            "root": "vmamect",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: vmamect\nDefinition: 'vmamect' means 'protect' in English.\nSuffixes: ness,ive\nOptions:\n1. vmamect+ness+ive\n2. vmamect+ive+ness\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "protect",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 411,
+                "total_tokens": 412
+            },
+            "correct": false
+        },
+        {
+            "root": "jlier",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: jlier\nDefinition: 'jlier' means 'cheer' in English.\nSuffixes: ly,ful\nOptions:\n1. jlier+ful+ly\n2. jlier+ly+ful\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "cheer",
+            "model_output": "1. jlier+ful+ly",
+            "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 408,
+                "total_tokens": 416
+            },
+            "correct": false
+        },
+        {
+            "root": "sozyeon",
+            "suffixes": [
+                "ate",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: sozyeon\nDefinition: 'sozyeon' means 'passion' in English.\nSuffixes: ate,ness\nOptions:\n1. sozyeon+ate+ness\n2. sozyeon+ness+ate\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "passion",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 413,
+                "total_tokens": 414
+            },
+            "correct": false
+        },
+        {
+            "root": "keblu",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: keblu\nDefinition: 'keblu' means 'lingu' in English.\nSuffixes: ic,ist\nOptions:\n1. keblu+ist+ic\n2. keblu+ic+ist\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "lingu",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 413,
+                "total_tokens": 414
+            },
+            "correct": false
+        },
+        {
+            "root": "wobe",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: wobe\nDefinition: 'wobe' means 'hate' in English.\nSuffixes: ly,ful\nOptions:\n1. wobe+ly+ful\n2. wobe+ful+ly\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "hate",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 408,
+                "total_tokens": 409
+            },
+            "correct": true
+        },
+        {
+            "root": "morm",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: morm\nDefinition: 'morm' means 'gorm' in English.\nSuffixes: less,ly\nOptions:\n1. morm+less+ly\n2. morm+ly+less\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "gorm",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 408,
+                "total_tokens": 409
+            },
+            "correct": true
+        },
+        {
+            "root": "ceck",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: ceck\nDefinition: 'ceck' means 'feck' in English.\nSuffixes: less,ness\nOptions:\n1. ceck+ness+less\n2. ceck+less+ness\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "feck",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 409,
+                "total_tokens": 410
+            },
+            "correct": true
+        },
+        {
+            "root": "tial",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: tial\nDefinition: 'tial' means 'real' in English.\nSuffixes: ist,ic\nOptions:\n1. tial+ist+ic\n2. tial+ic+ist\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "real",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 408,
+                "total_tokens": 409
+            },
+            "correct": true
+        },
+        {
+            "root": "coltteon",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: coltteon\nDefinition: 'coltteon' means 'function' in English.\nSuffixes: ist,al\nOptions:\n1. coltteon+al+ist\n2. coltteon+ist+al\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "function",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 411,
+                "total_tokens": 412
+            },
+            "correct": true
+        },
+        {
+            "root": "rniet",
+            "suffixes": [
+                "en",
+                "er"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: rniet\nDefinition: 'rniet' means 'sweet' in English.\nSuffixes: er,en\nOptions:\n1. rniet+en+er\n2. rniet+er+en\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "sweet",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 407,
+                "total_tokens": 408
+            },
+            "correct": false
+        },
+        {
+            "root": "paele",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: paele\nDefinition: 'paele' means 'guile' in English.\nSuffixes: less,ly\nOptions:\n1. paele+less+ly\n2. paele+ly+less\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "guile",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 412,
+                "total_tokens": 413
+            },
+            "correct": true
+        },
+        {
+            "root": "buol",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: buol\nDefinition: 'buol' means 'fool' in English.\nSuffixes: ish,ness\nOptions:\n1. buol+ness+ish\n2. buol+ish+ness\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "fool",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 409,
+                "total_tokens": 410
+            },
+            "correct": true
+        },
+        {
+            "root": "tecpinct",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: tecpinct\nDefinition: 'tecpinct' means 'distinct' in English.\nSuffixes: ness,ive\nOptions:\n1. tecpinct+ive+ness\n2. tecpinct+ness+ive\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "distinct",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 411,
+                "total_tokens": 412
+            },
+            "correct": false
+        },
+        {
+            "root": "korm",
+            "suffixes": [
+                "al",
+                "ize"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: korm\nDefinition: 'korm' means 'norm' in English.\nSuffixes: al,ize\nOptions:\n1. korm+ize+al\n2. korm+al+ize\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "norm",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 408,
+                "total_tokens": 409
+            },
+            "correct": true
+        },
+        {
+            "root": "uzfetul",
+            "suffixes": [
+                "ate",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: uzfetul\nDefinition: 'uzfetul' means 'articul' in English.\nSuffixes: ness,ate\nOptions:\n1. uzfetul+ate+ness\n2. uzfetul+ness+ate\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "articul",
+            "model_output": "1. uzfetul+ate+ness",
+            "usage": {
+                "completion_tokens": 10,
+                "prompt_tokens": 417,
+                "total_tokens": 427
+            },
+            "correct": false
+        },
+        {
+            "root": "wapjet",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: wapjet\nDefinition: 'wapjet' means 'forget' in English.\nSuffixes: ness,ful\nOptions:\n1. wapjet+ful+ness\n2. wapjet+ness+ful\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "forget",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 411,
+                "total_tokens": 412
+            },
+            "correct": false
+        },
+        {
+            "root": "hutr",
+            "suffixes": [
+                "efac",
+                "tive"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: hutr\nDefinition: 'hutr' means 'putr' in English.\nSuffixes: tive,efac\nOptions:\n1. hutr+tive+efac\n2. hutr+efac+tive\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "putr",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 412,
+                "total_tokens": 413
+            },
+            "correct": false
+        },
+        {
+            "root": "hacrepeon",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: hacrepeon\nDefinition: 'hacrepeon' means 'condition' in English.\nSuffixes: al,ly\nOptions:\n1. hacrepeon+ly+al\n2. hacrepeon+al+ly\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "condition",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 411,
+                "total_tokens": 412
+            },
+            "correct": false
+        },
+        {
+            "root": "yfoce",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: yfoce\nDefinition: 'yfoce' means 'shame' in English.\nSuffixes: ful,ness\nOptions:\n1. yfoce+ness+ful\n2. yfoce+ful+ness\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "shame",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 413,
+                "total_tokens": 414
+            },
+            "correct": true
+        },
+        {
+            "root": "pel",
+            "suffixes": [
+                "ar",
+                "ize"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: pel\nDefinition: 'pel' means 'vel' in English.\nSuffixes: ize,ar\nOptions:\n1. pel+ar+ize\n2. pel+ize+ar\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "vel",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 405,
+                "total_tokens": 406
+            },
+            "correct": false
+        },
+        {
+            "root": "cinsi",
+            "suffixes": [
+                "ment",
+                "al",
+                "ist"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: cinsi\nDefinition: 'cinsi' means 'senti' in English.\nSuffixes: al,ment,ist\nOptions:\n1. cinsi+ist+al+ment\n2. cinsi+al+ist+ment\n3. cinsi+al+ment+ist\n4. cinsi+ment+al+ist\n5. cinsi+ist+ment+al\n6. cinsi+ment+ist+al\nAnswer: ",
+            "reference": 4,
+            "template": "morph_disc_en",
+            "original_root": "senti",
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 459,
+                "total_tokens": 460
+            },
+            "correct": false
+        },
+        {
+            "root": "ptiss",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: ptiss\nDefinition: 'ptiss' means 'bliss' in English.\nSuffixes: ful,ly\nOptions:\n1. ptiss+ful+ly\n2. ptiss+ly+ful\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "bliss",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 409,
+                "total_tokens": 410
+            },
+            "correct": true
+        },
+        {
+            "root": "giar",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: giar\nDefinition: 'giar' means 'tear' in English.\nSuffixes: ly,less\nOptions:\n1. giar+ly+less\n2. giar+less+ly\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "tear",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 408,
+                "total_tokens": 409
+            },
+            "correct": false
+        },
+        {
+            "root": "wect",
+            "suffixes": [
+                "ure",
+                "ship"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: wect\nDefinition: 'wect' means 'lect' in English.\nSuffixes: ship,ure\nOptions:\n1. wect+ship+ure\n2. wect+ure+ship\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "lect",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 408,
+                "total_tokens": 409
+            },
+            "correct": true
+        },
+        {
+            "root": "letagdic",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: letagdic\nDefinition: 'letagdic' means 'liturgic' in English.\nSuffixes: ly,al\nOptions:\n1. letagdic+al+ly\n2. letagdic+ly+al\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "liturgic",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 413,
+                "total_tokens": 414
+            },
+            "correct": true
+        },
+        {
+            "root": "wiber",
+            "suffixes": [
+                "al",
+                "issimo"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: wiber\nDefinition: 'wiber' means 'gener' in English.\nSuffixes: issimo,al\nOptions:\n1. wiber+issimo+al\n2. wiber+al+issimo\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "gener",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 410,
+                "total_tokens": 411
+            },
+            "correct": true
+        },
+        {
+            "root": "felp",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: felp\nDefinition: 'felp' means 'help' in English.\nSuffixes: less,ness\nOptions:\n1. felp+less+ness\n2. felp+ness+less\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "help",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 407,
+                "total_tokens": 408
+            },
+            "correct": false
+        },
+        {
+            "root": "evjoit",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: evjoit\nDefinition: 'evjoit' means 'intuit' in English.\nSuffixes: ly,ive\nOptions:\n1. evjoit+ly+ive\n2. evjoit+ive+ly\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "intuit",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 412,
+                "total_tokens": 413
+            },
+            "correct": false
+        },
+        {
+            "root": "zash",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: zash\nDefinition: 'zash' means 'bash' in English.\nSuffixes: ly,ful\nOptions:\n1. zash+ly+ful\n2. zash+ful+ly\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "bash",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 407,
+                "total_tokens": 408
+            },
+            "correct": false
+        },
+        {
+            "root": "cimect",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: cimect\nDefinition: 'cimect' means 'select' in English.\nSuffixes: ive,ness\nOptions:\n1. cimect+ive+ness\n2. cimect+ness+ive\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "select",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 412,
+                "total_tokens": 413
+            },
+            "correct": true
+        },
+        {
+            "root": "buin",
+            "suffixes": [
+                "t",
+                "ure"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: buin\nDefinition: 'buin' means 'join' in English.\nSuffixes: t,ure\nOptions:\n1. buin+t+ure\n2. buin+ure+t\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "join",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 405,
+                "total_tokens": 406
+            },
+            "correct": false
+        },
+        {
+            "root": "cikeod",
+            "suffixes": [
+                "ic",
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: cikeod\nDefinition: 'cikeod' means 'period' in English.\nSuffixes: ly,al,ic\nOptions:\n1. cikeod+ic+ly+al\n2. cikeod+ly+ic+al\n3. cikeod+al+ly+ic\n4. cikeod+ic+al+ly\n5. cikeod+al+ic+ly\n6. cikeod+ly+al+ic\nAnswer: ",
+            "reference": 4,
+            "template": "morph_disc_en",
+            "original_root": "period",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 466,
+                "total_tokens": 467
+            },
+            "correct": false
+        },
+        {
+            "root": "gelf",
+            "suffixes": [
+                "ish",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: gelf\nDefinition: 'gelf' means 'self' in English.\nSuffixes: ish,ly\nOptions:\n1. gelf+ly+ish\n2. gelf+ish+ly\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "self",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 408,
+                "total_tokens": 409
+            },
+            "correct": true
+        },
+        {
+            "root": "ukjbduct",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: ukjbduct\nDefinition: 'ukjbduct' means 'obstruct' in English.\nSuffixes: ness,ive\nOptions:\n1. ukjbduct+ive+ness\n2. ukjbduct+ness+ive\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "obstruct",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 413,
+                "total_tokens": 414
+            },
+            "correct": true
+        },
+        {
+            "root": "gute",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: gute\nDefinition: 'gute' means 'dole' in English.\nSuffixes: ful,ly\nOptions:\n1. gute+ly+ful\n2. gute+ful+ly\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "dole",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 406,
+                "total_tokens": 407
+            },
+            "correct": true
+        },
+        {
+            "root": "dupopt",
+            "suffixes": [
+                "ion",
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: dupopt\nDefinition: 'dupopt' means 'opt' in English.\nSuffixes: al,ly,ion\nOptions:\n1. dupopt+ly+al+ion\n2. dupopt+ly+ion+al\n3. dupopt+ion+al+ly\n4. dupopt+al+ion+ly\n5. dupopt+ion+ly+al\n6. dupopt+al+ly+ion\nAnswer: ",
+            "reference": 3,
+            "template": "morph_disc_en",
+            "original_root": "opt",
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 458,
+                "total_tokens": 459
+            },
+            "correct": true
+        },
+        {
+            "root": "bnijoc",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: bnijoc\nDefinition: 'bnijoc' means 'precoc' in English.\nSuffixes: ness,ious\nOptions:\n1. bnijoc+ness+ious\n2. bnijoc+ious+ness\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "precoc",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 412,
+                "total_tokens": 413
+            },
+            "correct": false
+        },
+        {
+            "root": "lract",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: lract\nDefinition: 'lract' means 'pract' in English.\nSuffixes: ic,al\nOptions:\n1. lract+ic+al\n2. lract+al+ic\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "pract",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 408,
+                "total_tokens": 409
+            },
+            "correct": false
+        },
+        {
+            "root": "zijdiwu",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: zijdiwu\nDefinition: 'zijdiwu' means 'perpetu' in English.\nSuffixes: al,ly\nOptions:\n1. zijdiwu+al+ly\n2. zijdiwu+ly+al\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "perpetu",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 414,
+                "total_tokens": 415
+            },
+            "correct": true
+        },
+        {
+            "root": "coith",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: coith\nDefinition: 'coith' means 'faith' in English.\nSuffixes: ful,ness\nOptions:\n1. coith+ness+ful\n2. coith+ful+ness\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "faith",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 408,
+                "total_tokens": 409
+            },
+            "correct": false
+        },
+        {
+            "root": "acesin",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: acesin\nDefinition: 'acesin' means 'origin' in English.\nSuffixes: ly,al\nOptions:\n1. acesin+al+ly\n2. acesin+ly+al\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "origin",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 411,
+                "total_tokens": 412
+            },
+            "correct": true
+        },
+        {
+            "root": "culeon",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: culeon\nDefinition: 'culeon' means 'nation' in English.\nSuffixes: ist,al\nOptions:\n1. culeon+ist+al\n2. culeon+al+ist\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "nation",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 412,
+                "total_tokens": 413
+            },
+            "correct": true
+        },
+        {
+            "root": "wakern",
+            "suffixes": [
+                "ment",
+                "al"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: wakern\nDefinition: 'wakern' means 'govern' in English.\nSuffixes: al,ment\nOptions:\n1. wakern+al+ment\n2. wakern+ment+al\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "govern",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 413,
+                "total_tokens": 414
+            },
+            "correct": true
+        },
+        {
+            "root": "nedesar",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: nedesar\nDefinition: 'nedesar' means 'militar' in English.\nSuffixes: ist,ic\nOptions:\n1. nedesar+ist+ic\n2. nedesar+ic+ist\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "militar",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 410,
+                "total_tokens": 411
+            },
+            "correct": false
+        },
+        {
+            "root": "modme",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: modme\nDefinition: 'modme' means 'taste' in English.\nSuffixes: ly,ful\nOptions:\n1. modme+ful+ly\n2. modme+ly+ful\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "taste",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 409,
+                "total_tokens": 410
+            },
+            "correct": false
+        },
+        {
+            "root": "piigh",
+            "suffixes": [
+                "t",
+                "less"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: piigh\nDefinition: 'piigh' means 'weigh' in English.\nSuffixes: t,less\nOptions:\n1. piigh+t+less\n2. piigh+less+t\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "weigh",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 406,
+                "total_tokens": 407
+            },
+            "correct": true
+        },
+        {
+            "root": "wyig",
+            "suffixes": [
+                "id",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: wyig\nDefinition: 'wyig' means 'frig' in English.\nSuffixes: ly,id\nOptions:\n1. wyig+id+ly\n2. wyig+ly+id\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "frig",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 408,
+                "total_tokens": 409
+            },
+            "correct": true
+        },
+        {
+            "root": "nyuject",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: nyuject\nDefinition: 'nyuject' means 'protect' in English.\nSuffixes: ly,ive\nOptions:\n1. nyuject+ive+ly\n2. nyuject+ly+ive\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "protect",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 411,
+                "total_tokens": 412
+            },
+            "correct": false
+        },
+        {
+            "root": "hucetter",
+            "suffixes": [
+                "iall",
+                "y"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: hucetter\nDefinition: 'hucetter' means 'magister' in English.\nSuffixes: iall,y\nOptions:\n1. hucetter+iall+y\n2. hucetter+y+iall\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "magister",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 413,
+                "total_tokens": 414
+            },
+            "correct": true
+        },
+        {
+            "root": "tibelf",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: tibelf\nDefinition: 'tibelf' means 'elf' in English.\nSuffixes: ish,ness\nOptions:\n1. tibelf+ness+ish\n2. tibelf+ish+ness\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "elf",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 412,
+                "total_tokens": 413
+            },
+            "correct": true
+        },
+        {
+            "root": "bnkiylijic",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: bnkiylijic\nDefinition: 'bnkiylijic' means 'cybernetic' in English.\nSuffixes: ly,al\nOptions:\n1. bnkiylijic+ly+al\n2. bnkiylijic+al+ly\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "cybernetic",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 423,
+                "total_tokens": 424
+            },
+            "correct": false
+        },
+        {
+            "root": "jens",
+            "suffixes": [
+                "or",
+                "ious",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ist+ic\n2. kogyiss+ic+ist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: jens\nDefinition: 'jens' means 'cens' in English.\nSuffixes: ness,ious,or\nOptions:\n1. jens+ness+ious+or\n2. jens+or+ious+ness\n3. jens+ious+or+ness\n4. jens+or+ness+ious\n5. jens+ious+ness+or\n6. jens+ness+or+ious\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "cens",
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 458,
+                "total_tokens": 459
+            },
+            "correct": false
+        },
+        {
+            "root": "faurn",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ness+ious\n2. sojic+ious+ness\nAnswer: 2\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: faurn\nDefinition: 'faurn' means 'journ' in English.\nSuffixes: al,ist\nOptions:\n1. faurn+al+ist\n2. faurn+ist+al\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "journ",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 409,
+                "total_tokens": 410
+            },
+            "correct": true
+        },
+        {
+            "root": "mfiep",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: al,ion\nOptions:\n1. vetect+al+ion\n2. vetect+ion+al\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ious,ness\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: ness,less\nOptions:\n1. huth+ness+less\n2. huth+less+ness\nAnswer: 2\n\nExample 6:\nWord root: mfiep\nDefinition: 'mfiep' means 'sheep' in English.\nSuffixes: ish,ness\nOptions:\n1. mfiep+ness+ish\n2. mfiep+ish+ness\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "sheep",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 414,
+                "total_tokens": 415
+            },
+            "correct": false
+        },
+        {
+            "root": "ohe",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: ness,less\nOptions:\n1. vhift+ness+less\n2. vhift+less+ness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ic,ist\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: ohe\nDefinition: 'ohe' means 'use' in English.\nSuffixes: less,ly\nOptions:\n1. ohe+ly+less\n2. ohe+less+ly\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "use",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 407,
+                "total_tokens": 408
+            },
+            "correct": true
+        },
+        {
+            "root": "toin",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: ion,al\nOptions:\n1. vetect+ion+al\n2. vetect+al+ion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: less,ness\nOptions:\n1. vhift+less+ness\n2. vhift+ness+less\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: ist,ic\nOptions:\n1. kogyiss+ic+ist\n2. kogyiss+ist+ic\nAnswer: 2\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: ness,ious\nOptions:\n1. sojic+ious+ness\n2. sojic+ness+ious\nAnswer: 1\n\nExample 5:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: less,ness\nOptions:\n1. huth+less+ness\n2. huth+ness+less\nAnswer: 1\n\nExample 6:\nWord root: toin\nDefinition: 'toin' means 'pain' in English.\nSuffixes: ly,less\nOptions:\n1. toin+ly+less\n2. toin+less+ly\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "pain",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 407,
+                "total_tokens": 408
+            },
+            "correct": true
+        }
+    ]
+}

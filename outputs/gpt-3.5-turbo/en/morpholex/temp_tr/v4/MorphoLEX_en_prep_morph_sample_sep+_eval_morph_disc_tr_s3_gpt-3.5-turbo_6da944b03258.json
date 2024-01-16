@@ -1,0 +1,1837 @@
+{
+    "metadata": {
+        "datapath": "../data/en/morpholex/temp_tr/v4/MorphoLEX_en_prep_morph_sample_sep+_eval_morph_disc_tr_s3.json",
+        "model": "gpt-3.5-turbo",
+        "temperature": 0.3,
+        "max_tokens": 40,
+        "top_p": 1,
+        "frequency_penalty": 0,
+        "presence_penalty": 0
+    },
+    "metrics": {
+        "usage": {
+            "prompt_tokens": 28774,
+            "completion_tokens": 100,
+            "total_tokens": 28874
+        },
+        "cost": {
+            "input": 0.043161,
+            "output": 0.00019999999999999998,
+            "total": 0.043361
+        },
+        "macro_f1": 0.35064935064935066,
+        "accuracy": 0.54,
+        "precision": 0.5,
+        "recall": 0.27
+    },
+    "data": [
+        {
+            "root": "direct",
+            "suffixes": [
+                "ion",
+                "al"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": true
+        },
+        {
+            "root": "shift",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": false
+        },
+        {
+            "root": "narciss",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": true
+        },
+        {
+            "root": "judic",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: judic\nEkler: ious,ness\nSeçenekler:\n1. judic+ious+ness\n2. judic+ness+ious\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 287,
+                "total_tokens": 288
+            },
+            "correct": true
+        },
+        {
+            "root": "ruth",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: ruth\nEkler: ness,less\nSeçenekler:\n1. ruth+ness+less\n2. ruth+less+ness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": false
+        },
+        {
+            "root": "imp",
+            "suffixes": [
+                "ish",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: imp\nEkler: ly,ish\nSeçenekler:\n1. imp+ish+ly\n2. imp+ly+ish\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": false
+        },
+        {
+            "root": "rapac",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: rapac\nEkler: ness,ious\nSeçenekler:\n1. rapac+ness+ious\n2. rapac+ious+ness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 286,
+                "total_tokens": 287
+            },
+            "correct": true
+        },
+        {
+            "root": "pacif",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: pacif\nEkler: ist,ic\nSeçenekler:\n1. pacif+ist+ic\n2. pacif+ic+ist\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 286,
+                "total_tokens": 287
+            },
+            "correct": false
+        },
+        {
+            "root": "art",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: art\nEkler: ly,less\nSeçenekler:\n1. art+ly+less\n2. art+less+ly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": true
+        },
+        {
+            "root": "verac",
+            "suffixes": [
+                "ious",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: verac\nEkler: ious,ly\nSeçenekler:\n1. verac+ious+ly\n2. verac+ly+ious\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 287,
+                "total_tokens": 288
+            },
+            "correct": true
+        },
+        {
+            "root": "dread",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: dread\nEkler: ful,ly\nSeçenekler:\n1. dread+ful+ly\n2. dread+ly+ful\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": true
+        },
+        {
+            "root": "abort",
+            "suffixes": [
+                "ion",
+                "ist"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: abort\nEkler: ion,ist\nSeçenekler:\n1. abort+ion+ist\n2. abort+ist+ion\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": true
+        },
+        {
+            "root": "categor",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: categor\nEkler: al,ic\nSeçenekler:\n1. categor+al+ic\n2. categor+ic+al\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": false
+        },
+        {
+            "root": "total",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: total\nEkler: ic,ist\nSeçenekler:\n1. total+ist+ic\n2. total+ic+ist\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": true
+        },
+        {
+            "root": "articul",
+            "suffixes": [
+                "ate",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: articul\nEkler: ly,ate\nSeçenekler:\n1. articul+ly+ate\n2. articul+ate+ly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 286,
+                "total_tokens": 287
+            },
+            "correct": false
+        },
+        {
+            "root": "electr",
+            "suffixes": [
+                "on",
+                "ics"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: electr\nEkler: on,ics\nSeçenekler:\n1. electr+on+ics\n2. electr+ics+on\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": true
+        },
+        {
+            "root": "gener",
+            "suffixes": [
+                "al",
+                "ity"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: gener\nEkler: ity,al\nSeçenekler:\n1. gener+ity+al\n2. gener+al+ity\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 284,
+                "total_tokens": 285
+            },
+            "correct": true
+        },
+        {
+            "root": "green",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: green\nEkler: ness,ish\nSeçenekler:\n1. green+ness+ish\n2. green+ish+ness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": false
+        },
+        {
+            "root": "favor",
+            "suffixes": [
+                "it",
+                "ism"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: favor\nEkler: it,ism\nSeçenekler:\n1. favor+ism+it\n2. favor+it+ism\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": true
+        },
+        {
+            "root": "sin",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: sin\nEkler: ness,less\nSeçenekler:\n1. sin+ness+less\n2. sin+less+ness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": false
+        },
+        {
+            "root": "palat",
+            "suffixes": [
+                "al",
+                "ize"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: palat\nEkler: ize,al\nSeçenekler:\n1. palat+al+ize\n2. palat+ize+al\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 287,
+                "total_tokens": 288
+            },
+            "correct": false
+        },
+        {
+            "root": "taste",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: taste\nEkler: ful,ness\nSeçenekler:\n1. taste+ful+ness\n2. taste+ness+ful\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": true
+        },
+        {
+            "root": "origin",
+            "suffixes": [
+                "al",
+                "ity"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: origin\nEkler: ity,al\nSeçenekler:\n1. origin+al+ity\n2. origin+ity+al\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 284,
+                "total_tokens": 285
+            },
+            "correct": true
+        },
+        {
+            "root": "phys",
+            "suffixes": [
+                "ic",
+                "al",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: phys\nEkler: ness,al,ic\nSeçenekler:\n1. phys+al+ic+ness\n2. phys+ic+ness+al\n3. phys+ness+al+ic\n4. phys+ness+ic+al\n5. phys+al+ness+ic\n6. phys+ic+al+ness\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 329,
+                "total_tokens": 330
+            },
+            "correct": false
+        },
+        {
+            "root": "blood",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: blood\nEkler: ness,less\nSeçenekler:\n1. blood+less+ness\n2. blood+ness+less\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": false
+        },
+        {
+            "root": "list",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: list\nEkler: less,ly\nSeçenekler:\n1. list+less+ly\n2. list+ly+less\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": false
+        },
+        {
+            "root": "transit",
+            "suffixes": [
+                "ion",
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: transit\nEkler: al,ly,ion\nSeçenekler:\n1. transit+al+ion+ly\n2. transit+ion+ly+al\n3. transit+ly+ion+al\n4. transit+ion+al+ly\n5. transit+ly+al+ion\n6. transit+al+ly+ion\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 329,
+                "total_tokens": 330
+            },
+            "correct": false
+        },
+        {
+            "root": "noct",
+            "suffixes": [
+                "urn",
+                "al"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: noct\nEkler: urn,al\nSeçenekler:\n1. noct+al+urn\n2. noct+urn+al\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": true
+        },
+        {
+            "root": "academ",
+            "suffixes": [
+                "ic",
+                "ian"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: academ\nEkler: ic,ian\nSeçenekler:\n1. academ+ic+ian\n2. academ+ian+ic\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 286,
+                "total_tokens": 287
+            },
+            "correct": true
+        },
+        {
+            "root": "hyster",
+            "suffixes": [
+                "ic",
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: hyster\nEkler: ic,ly,al\nSeçenekler:\n1. hyster+ly+ic+al\n2. hyster+al+ly+ic\n3. hyster+ic+al+ly\n4. hyster+ly+al+ic\n5. hyster+al+ic+ly\n6. hyster+ic+ly+al\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 329,
+                "total_tokens": 330
+            },
+            "correct": true
+        },
+        {
+            "root": "lust",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: lust\nEkler: ness,ful\nSeçenekler:\n1. lust+ness+ful\n2. lust+ful+ness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": false
+        },
+        {
+            "root": "optim",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: optim\nEkler: ic,ist\nSeçenekler:\n1. optim+ic+ist\n2. optim+ist+ic\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": true
+        },
+        {
+            "root": "aphor",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: aphor\nEkler: ist,ic\nSeçenekler:\n1. aphor+ist+ic\n2. aphor+ic+ist\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 286,
+                "total_tokens": 287
+            },
+            "correct": true
+        },
+        {
+            "root": "abort",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: abort\nEkler: ive,ly\nSeçenekler:\n1. abort+ive+ly\n2. abort+ly+ive\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": true
+        },
+        {
+            "root": "defence",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: defence\nEkler: ness,less\nSeçenekler:\n1. defence+less+ness\n2. defence+ness+less\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": false
+        },
+        {
+            "root": "vorac",
+            "suffixes": [
+                "ious",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: vorac\nEkler: ly,ious\nSeçenekler:\n1. vorac+ly+ious\n2. vorac+ious+ly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 286,
+                "total_tokens": 287
+            },
+            "correct": true
+        },
+        {
+            "root": "ego",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: ego\nEkler: ic,ist\nSeçenekler:\n1. ego+ic+ist\n2. ego+ist+ic\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": false
+        },
+        {
+            "root": "waste",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: waste\nEkler: ful,ness\nSeçenekler:\n1. waste+ness+ful\n2. waste+ful+ness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": true
+        },
+        {
+            "root": "senti",
+            "suffixes": [
+                "ment",
+                "al",
+                "ism"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: senti\nEkler: ment,ism,al\nSeçenekler:\n1. senti+ism+al+ment\n2. senti+al+ment+ism\n3. senti+ment+al+ism\n4. senti+ment+ism+al\n5. senti+ism+ment+al\n6. senti+al+ism+ment\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 336,
+                "total_tokens": 337
+            },
+            "correct": false
+        },
+        {
+            "root": "triumph",
+            "suffixes": [
+                "ant",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: triumph\nEkler: ly,ant\nSeçenekler:\n1. triumph+ant+ly\n2. triumph+ly+ant\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": true
+        },
+        {
+            "root": "liber",
+            "suffixes": [
+                "al",
+                "ism"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: liber\nEkler: ism,al\nSeçenekler:\n1. liber+al+ism\n2. liber+ism+al\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 284,
+                "total_tokens": 285
+            },
+            "correct": true
+        },
+        {
+            "root": "period",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: period\nEkler: ic,al\nSeçenekler:\n1. period+ic+al\n2. period+al+ic\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": true
+        },
+        {
+            "root": "soul",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: soul\nEkler: ly,less\nSeçenekler:\n1. soul+less+ly\n2. soul+ly+less\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": false
+        },
+        {
+            "root": "preposition",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: preposition\nEkler: al,ly\nSeçenekler:\n1. preposition+al+ly\n2. preposition+ly+al\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 286,
+                "total_tokens": 287
+            },
+            "correct": true
+        },
+        {
+            "root": "protect",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: protect\nEkler: ive,ness\nSeçenekler:\n1. protect+ive+ness\n2. protect+ness+ive\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": true
+        },
+        {
+            "root": "cheer",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: cheer\nEkler: ly,ful\nSeçenekler:\n1. cheer+ly+ful\n2. cheer+ful+ly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": true
+        },
+        {
+            "root": "passion",
+            "suffixes": [
+                "ate",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: passion\nEkler: ate,ness\nSeçenekler:\n1. passion+ate+ness\n2. passion+ness+ate\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": false
+        },
+        {
+            "root": "lingu",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: lingu\nEkler: ist,ic\nSeçenekler:\n1. lingu+ic+ist\n2. lingu+ist+ic\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": true
+        },
+        {
+            "root": "hate",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: hate\nEkler: ful,ly\nSeçenekler:\n1. hate+ly+ful\n2. hate+ful+ly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": false
+        },
+        {
+            "root": "gorm",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: gorm\nEkler: less,ly\nSeçenekler:\n1. gorm+ly+less\n2. gorm+less+ly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 286,
+                "total_tokens": 287
+            },
+            "correct": false
+        },
+        {
+            "root": "feck",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: feck\nEkler: ness,less\nSeçenekler:\n1. feck+ness+less\n2. feck+less+ness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 286,
+                "total_tokens": 287
+            },
+            "correct": false
+        },
+        {
+            "root": "real",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: real\nEkler: ist,ic\nSeçenekler:\n1. real+ist+ic\n2. real+ic+ist\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": false
+        },
+        {
+            "root": "function",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: function\nEkler: ist,al\nSeçenekler:\n1. function+ist+al\n2. function+al+ist\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": false
+        },
+        {
+            "root": "sweet",
+            "suffixes": [
+                "en",
+                "er"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: sweet\nEkler: en,er\nSeçenekler:\n1. sweet+en+er\n2. sweet+er+en\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": true
+        },
+        {
+            "root": "guile",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: guile\nEkler: less,ly\nSeçenekler:\n1. guile+ly+less\n2. guile+less+ly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 286,
+                "total_tokens": 287
+            },
+            "correct": true
+        },
+        {
+            "root": "fool",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: fool\nEkler: ness,ish\nSeçenekler:\n1. fool+ish+ness\n2. fool+ness+ish\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": true
+        },
+        {
+            "root": "distinct",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: distinct\nEkler: ive,ness\nSeçenekler:\n1. distinct+ive+ness\n2. distinct+ness+ive\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": true
+        },
+        {
+            "root": "norm",
+            "suffixes": [
+                "al",
+                "ize"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: norm\nEkler: ize,al\nSeçenekler:\n1. norm+ize+al\n2. norm+al+ize\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 284,
+                "total_tokens": 285
+            },
+            "correct": true
+        },
+        {
+            "root": "articul",
+            "suffixes": [
+                "ate",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: articul\nEkler: ness,ate\nSeçenekler:\n1. articul+ness+ate\n2. articul+ate+ness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 286,
+                "total_tokens": 287
+            },
+            "correct": false
+        },
+        {
+            "root": "forget",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: forget\nEkler: ness,ful\nSeçenekler:\n1. forget+ful+ness\n2. forget+ness+ful\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": false
+        },
+        {
+            "root": "putr",
+            "suffixes": [
+                "efac",
+                "tive"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: putr\nEkler: efac,tive\nSeçenekler:\n1. putr+tive+efac\n2. putr+efac+tive\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 289,
+                "total_tokens": 290
+            },
+            "correct": true
+        },
+        {
+            "root": "condition",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: condition\nEkler: al,ly\nSeçenekler:\n1. condition+ly+al\n2. condition+al+ly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": true
+        },
+        {
+            "root": "shame",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: shame\nEkler: ful,ness\nSeçenekler:\n1. shame+ful+ness\n2. shame+ness+ful\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": true
+        },
+        {
+            "root": "vel",
+            "suffixes": [
+                "ar",
+                "ize"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: vel\nEkler: ar,ize\nSeçenekler:\n1. vel+ize+ar\n2. vel+ar+ize\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": true
+        },
+        {
+            "root": "senti",
+            "suffixes": [
+                "ment",
+                "al",
+                "ist"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: senti\nEkler: al,ist,ment\nSeçenekler:\n1. senti+ist+al+ment\n2. senti+ment+ist+al\n3. senti+al+ist+ment\n4. senti+ist+ment+al\n5. senti+al+ment+ist\n6. senti+ment+al+ist\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 336,
+                "total_tokens": 337
+            },
+            "correct": false
+        },
+        {
+            "root": "bliss",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: bliss\nEkler: ly,ful\nSeçenekler:\n1. bliss+ful+ly\n2. bliss+ly+ful\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": false
+        },
+        {
+            "root": "tear",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: tear\nEkler: ly,less\nSeçenekler:\n1. tear+ly+less\n2. tear+less+ly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": false
+        },
+        {
+            "root": "lect",
+            "suffixes": [
+                "ure",
+                "ship"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: lect\nEkler: ure,ship\nSeçenekler:\n1. lect+ship+ure\n2. lect+ure+ship\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": false
+        },
+        {
+            "root": "liturgic",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: liturgic\nEkler: al,ly\nSeçenekler:\n1. liturgic+al+ly\n2. liturgic+ly+al\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 289,
+                "total_tokens": 290
+            },
+            "correct": true
+        },
+        {
+            "root": "gener",
+            "suffixes": [
+                "al",
+                "issimo"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: gener\nEkler: al,issimo\nSeçenekler:\n1. gener+al+issimo\n2. gener+issimo+al\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 286,
+                "total_tokens": 287
+            },
+            "correct": true
+        },
+        {
+            "root": "help",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: help\nEkler: ness,less\nSeçenekler:\n1. help+less+ness\n2. help+ness+less\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": true
+        },
+        {
+            "root": "intuit",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: intuit\nEkler: ive,ly\nSeçenekler:\n1. intuit+ive+ly\n2. intuit+ly+ive\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": true
+        },
+        {
+            "root": "bash",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: bash\nEkler: ly,ful\nSeçenekler:\n1. bash+ly+ful\n2. bash+ful+ly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": false
+        },
+        {
+            "root": "select",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: select\nEkler: ive,ness\nSeçenekler:\n1. select+ness+ive\n2. select+ive+ness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": true
+        },
+        {
+            "root": "join",
+            "suffixes": [
+                "t",
+                "ure"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: join\nEkler: ure,t\nSeçenekler:\n1. join+ure+t\n2. join+t+ure\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 280,
+                "total_tokens": 281
+            },
+            "correct": false
+        },
+        {
+            "root": "period",
+            "suffixes": [
+                "ic",
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: period\nEkler: ly,al,ic\nSeçenekler:\n1. period+ly+al+ic\n2. period+ly+ic+al\n3. period+al+ly+ic\n4. period+al+ic+ly\n5. period+ic+ly+al\n6. period+ic+al+ly\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 329,
+                "total_tokens": 330
+            },
+            "correct": false
+        },
+        {
+            "root": "self",
+            "suffixes": [
+                "ish",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: self\nEkler: ly,ish\nSeçenekler:\n1. self+ish+ly\n2. self+ly+ish\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": false
+        },
+        {
+            "root": "obstruct",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: obstruct\nEkler: ness,ive\nSeçenekler:\n1. obstruct+ness+ive\n2. obstruct+ive+ness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": false
+        },
+        {
+            "root": "dole",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: dole\nEkler: ly,ful\nSeçenekler:\n1. dole+ly+ful\n2. dole+ful+ly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 286,
+                "total_tokens": 287
+            },
+            "correct": false
+        },
+        {
+            "root": "opt",
+            "suffixes": [
+                "ion",
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: opt\nEkler: ly,ion,al\nSeçenekler:\n1. opt+ion+ly+al\n2. opt+ion+al+ly\n3. opt+al+ion+ly\n4. opt+ly+ion+al\n5. opt+ly+al+ion\n6. opt+al+ly+ion\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 329,
+                "total_tokens": 330
+            },
+            "correct": false
+        },
+        {
+            "root": "precoc",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: precoc\nEkler: ness,ious\nSeçenekler:\n1. precoc+ness+ious\n2. precoc+ious+ness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 286,
+                "total_tokens": 287
+            },
+            "correct": true
+        },
+        {
+            "root": "pract",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: pract\nEkler: ic,al\nSeçenekler:\n1. pract+ic+al\n2. pract+al+ic\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": true
+        },
+        {
+            "root": "perpetu",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: perpetu\nEkler: ly,al\nSeçenekler:\n1. perpetu+al+ly\n2. perpetu+ly+al\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 286,
+                "total_tokens": 287
+            },
+            "correct": true
+        },
+        {
+            "root": "faith",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: faith\nEkler: ness,ful\nSeçenekler:\n1. faith+ful+ness\n2. faith+ness+ful\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": true
+        },
+        {
+            "root": "origin",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: origin\nEkler: ly,al\nSeçenekler:\n1. origin+ly+al\n2. origin+al+ly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": false
+        },
+        {
+            "root": "nation",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: nation\nEkler: ist,al\nSeçenekler:\n1. nation+ist+al\n2. nation+al+ist\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": true
+        },
+        {
+            "root": "govern",
+            "suffixes": [
+                "ment",
+                "al"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: govern\nEkler: al,ment\nSeçenekler:\n1. govern+al+ment\n2. govern+ment+al\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": false
+        },
+        {
+            "root": "militar",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: militar\nEkler: ic,ist\nSeçenekler:\n1. militar+ic+ist\n2. militar+ist+ic\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": false
+        },
+        {
+            "root": "taste",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: taste\nEkler: ful,ly\nSeçenekler:\n1. taste+ful+ly\n2. taste+ly+ful\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": true
+        },
+        {
+            "root": "weigh",
+            "suffixes": [
+                "t",
+                "less"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: weigh\nEkler: t,less\nSeçenekler:\n1. weigh+t+less\n2. weigh+less+t\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 281,
+                "total_tokens": 282
+            },
+            "correct": false
+        },
+        {
+            "root": "frig",
+            "suffixes": [
+                "id",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: frig\nEkler: id,ly\nSeçenekler:\n1. frig+ly+id\n2. frig+id+ly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 286,
+                "total_tokens": 287
+            },
+            "correct": false
+        },
+        {
+            "root": "protect",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: protect\nEkler: ive,ly\nSeçenekler:\n1. protect+ive+ly\n2. protect+ly+ive\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": true
+        },
+        {
+            "root": "magister",
+            "suffixes": [
+                "iall",
+                "y"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: magister\nEkler: iall,y\nSeçenekler:\n1. magister+iall+y\n2. magister+y+iall\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 287,
+                "total_tokens": 288
+            },
+            "correct": true
+        },
+        {
+            "root": "elf",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: elf\nEkler: ish,ness\nSeçenekler:\n1. elf+ness+ish\n2. elf+ish+ness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 284,
+                "total_tokens": 285
+            },
+            "correct": true
+        },
+        {
+            "root": "cybernetic",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: cybernetic\nEkler: ly,al\nSeçenekler:\n1. cybernetic+al+ly\n2. cybernetic+ly+al\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 289,
+                "total_tokens": 290
+            },
+            "correct": true
+        },
+        {
+            "root": "cens",
+            "suffixes": [
+                "or",
+                "ious",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ist+ic\n2. narciss+ic+ist\nCevap: 1\n\nÖrnek 4:\nKök: cens\nEkler: or,ious,ness\nSeçenekler:\n1. cens+ness+or+ious\n2. cens+ness+ious+or\n3. cens+ious+ness+or\n4. cens+or+ious+ness\n5. cens+or+ness+ious\n6. cens+ious+or+ness\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 336,
+                "total_tokens": 337
+            },
+            "correct": false
+        },
+        {
+            "root": "journ",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: ion,al\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: journ\nEkler: ist,al\nSeçenekler:\n1. journ+ist+al\n2. journ+al+ist\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 286,
+                "total_tokens": 287
+            },
+            "correct": false
+        },
+        {
+            "root": "sheep",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+ion+al\n2. direct+al+ion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: sheep\nEkler: ness,ish\nSeçenekler:\n1. sheep+ness+ish\n2. sheep+ish+ness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": false
+        },
+        {
+            "root": "use",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: less,ness\nSeçenekler:\n1. shift+ness+less\n2. shift+less+ness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: ic,ist\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: use\nEkler: less,ly\nSeçenekler:\n1. use+less+ly\n2. use+ly+less\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": true
+        },
+        {
+            "root": "pain",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: al,ion\nSeçenekler:\n1. direct+al+ion\n2. direct+ion+al\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: ness,less\nSeçenekler:\n1. shift+less+ness\n2. shift+ness+less\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: ist,ic\nSeçenekler:\n1. narciss+ic+ist\n2. narciss+ist+ic\nCevap: 2\n\nÖrnek 4:\nKök: pain\nEkler: ly,less\nSeçenekler:\n1. pain+less+ly\n2. pain+ly+less\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 283,
+                "total_tokens": 284
+            },
+            "correct": false
+        }
+    ]
+}
