@@ -1,8 +1,8 @@
 #!/bin/bash
 
-version=4
+version=5
 shots=(1 3 5)
-suffix="_sep+"
+suffix=""
 
 for shot in "${shots[@]}"
 do

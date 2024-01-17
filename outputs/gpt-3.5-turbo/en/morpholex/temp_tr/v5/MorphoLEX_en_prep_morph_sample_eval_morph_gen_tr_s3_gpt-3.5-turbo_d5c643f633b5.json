@@ -1,0 +1,1837 @@
+{
+    "metadata": {
+        "datapath": "../data/en/morpholex/temp_tr/v5/MorphoLEX_en_prep_morph_sample_eval_morph_gen_tr_s3.json",
+        "model": "gpt-3.5-turbo",
+        "temperature": 0.3,
+        "max_tokens": 40,
+        "top_p": 1,
+        "frequency_penalty": 0,
+        "presence_penalty": 0
+    },
+    "metrics": {
+        "usage": {
+            "prompt_tokens": 21148,
+            "completion_tokens": 257,
+            "total_tokens": 21405
+        },
+        "cost": {
+            "input": 0.031722,
+            "output": 0.000514,
+            "total": 0.032236
+        },
+        "macro_f1": 0.47643979057591623,
+        "accuracy": 0.91,
+        "precision": 0.5,
+        "recall": 0.455
+    },
+    "data": [
+        {
+            "root": "direct",
+            "suffixes": [
+                "ion",
+                "al"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: direct\nEkler: 'ion','al'\nCevap: ",
+            "reference": "directional",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "directional",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 211,
+                "total_tokens": 213
+            },
+            "correct": true
+        },
+        {
+            "root": "shift",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: shift\nEkler: 'ness','less'\nCevap: ",
+            "reference": "shiftlessness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "shiftlessness",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 211,
+                "total_tokens": 213
+            },
+            "correct": true
+        },
+        {
+            "root": "narciss",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: narciss\nEkler: 'ic','ist'\nCevap: ",
+            "reference": "narcissistic",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "narcissistic",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 211,
+                "total_tokens": 215
+            },
+            "correct": true
+        },
+        {
+            "root": "judic",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nCevap: ",
+            "reference": "judiciousness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "judiciousness",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 212,
+                "total_tokens": 215
+            },
+            "correct": true
+        },
+        {
+            "root": "ruth",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: ruth\nEkler: 'ness','less'\nCevap: ",
+            "reference": "ruthlessness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "ruthlessness",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 211,
+                "total_tokens": 214
+            },
+            "correct": true
+        },
+        {
+            "root": "imp",
+            "suffixes": [
+                "ish",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: imp\nEkler: 'ly','ish'\nCevap: ",
+            "reference": "impishly",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "impishly",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 211,
+                "total_tokens": 213
+            },
+            "correct": true
+        },
+        {
+            "root": "rapac",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: rapac\nEkler: 'ious','ness'\nCevap: ",
+            "reference": "rapaciousness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "rapaciousness",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 212,
+                "total_tokens": 215
+            },
+            "correct": true
+        },
+        {
+            "root": "pacif",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: pacif\nEkler: 'ic','ist'\nCevap: ",
+            "reference": "pacifistic",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "pacifistic",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 212,
+                "total_tokens": 215
+            },
+            "correct": true
+        },
+        {
+            "root": "art",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: art\nEkler: 'ly','less'\nCevap: ",
+            "reference": "artlessly",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "artlessly",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 211,
+                "total_tokens": 213
+            },
+            "correct": true
+        },
+        {
+            "root": "verac",
+            "suffixes": [
+                "ious",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: verac\nEkler: 'ly','ious'\nCevap: ",
+            "reference": "veraciously",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "veraciously",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 212,
+                "total_tokens": 215
+            },
+            "correct": true
+        },
+        {
+            "root": "dread",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: dread\nEkler: 'ly','ful'\nCevap: ",
+            "reference": "dreadfully",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "dreadfully",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 211,
+                "total_tokens": 214
+            },
+            "correct": true
+        },
+        {
+            "root": "abort",
+            "suffixes": [
+                "ion",
+                "ist"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: abort\nEkler: 'ion','ist'\nCevap: ",
+            "reference": "abortionist",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "abortionist",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 211,
+                "total_tokens": 214
+            },
+            "correct": true
+        },
+        {
+            "root": "categor",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: categor\nEkler: 'al','ic'\nCevap: ",
+            "reference": "categorical",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "categorical",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 211,
+                "total_tokens": 213
+            },
+            "correct": true
+        },
+        {
+            "root": "total",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: total\nEkler: 'ist','ic'\nCevap: ",
+            "reference": "totalistic",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "totalistic",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 211,
+                "total_tokens": 213
+            },
+            "correct": true
+        },
+        {
+            "root": "articul",
+            "suffixes": [
+                "ate",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: articul\nEkler: 'ate','ly'\nCevap: ",
+            "reference": "articulately",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "articulately",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 212,
+                "total_tokens": 215
+            },
+            "correct": true
+        },
+        {
+            "root": "electr",
+            "suffixes": [
+                "on",
+                "ics"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: electr\nEkler: 'ics','on'\nCevap: ",
+            "reference": "electronics",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "electronics",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 211,
+                "total_tokens": 212
+            },
+            "correct": true
+        },
+        {
+            "root": "gener",
+            "suffixes": [
+                "al",
+                "ity"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: gener\nEkler: 'al','ity'\nCevap: ",
+            "reference": "generality",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "generality",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 211,
+                "total_tokens": 213
+            },
+            "correct": true
+        },
+        {
+            "root": "green",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: green\nEkler: 'ness','ish'\nCevap: ",
+            "reference": "greenishness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "greenish",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 211,
+                "total_tokens": 213
+            },
+            "correct": false
+        },
+        {
+            "root": "favor",
+            "suffixes": [
+                "it",
+                "ism"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: favor\nEkler: 'ism','it'\nCevap: ",
+            "reference": "favoritism",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "favoritism",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 211,
+                "total_tokens": 214
+            },
+            "correct": true
+        },
+        {
+            "root": "sin",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: sin\nEkler: 'ness','less'\nCevap: ",
+            "reference": "sinlessness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "sinlessness",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 211,
+                "total_tokens": 213
+            },
+            "correct": true
+        },
+        {
+            "root": "palat",
+            "suffixes": [
+                "al",
+                "ize"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: palat\nEkler: 'ize','al'\nCevap: ",
+            "reference": "palatalize",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "palatalize",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 212,
+                "total_tokens": 215
+            },
+            "correct": true
+        },
+        {
+            "root": "taste",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: taste\nEkler: 'ness','ful'\nCevap: ",
+            "reference": "tastefulness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "tasteful",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 211,
+                "total_tokens": 214
+            },
+            "correct": false
+        },
+        {
+            "root": "origin",
+            "suffixes": [
+                "al",
+                "ity"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: origin\nEkler: 'ity','al'\nCevap: ",
+            "reference": "originality",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "originality",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 211,
+                "total_tokens": 213
+            },
+            "correct": true
+        },
+        {
+            "root": "phys",
+            "suffixes": [
+                "ic",
+                "al",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: phys\nEkler: 'ic','al','ness'\nCevap: ",
+            "reference": "physicalness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "physicalness",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 213,
+                "total_tokens": 215
+            },
+            "correct": true
+        },
+        {
+            "root": "blood",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: blood\nEkler: 'less','ness'\nCevap: ",
+            "reference": "bloodlessness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "bloodlessness",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 211,
+                "total_tokens": 213
+            },
+            "correct": true
+        },
+        {
+            "root": "list",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: list\nEkler: 'ly','less'\nCevap: ",
+            "reference": "listlessly",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "listlessly",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 211,
+                "total_tokens": 213
+            },
+            "correct": true
+        },
+        {
+            "root": "transit",
+            "suffixes": [
+                "ion",
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: transit\nEkler: 'ion','ly','al'\nCevap: ",
+            "reference": "transitionally",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "transitionally",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 213,
+                "total_tokens": 215
+            },
+            "correct": true
+        },
+        {
+            "root": "noct",
+            "suffixes": [
+                "urn",
+                "al"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: noct\nEkler: 'urn','al'\nCevap: ",
+            "reference": "nocturnal",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "nocturnal",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 211,
+                "total_tokens": 214
+            },
+            "correct": true
+        },
+        {
+            "root": "academ",
+            "suffixes": [
+                "ic",
+                "ian"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: academ\nEkler: 'ian','ic'\nCevap: ",
+            "reference": "academician",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "academician",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 212,
+                "total_tokens": 214
+            },
+            "correct": true
+        },
+        {
+            "root": "hyster",
+            "suffixes": [
+                "ic",
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: hyster\nEkler: 'al','ic','ly'\nCevap: ",
+            "reference": "hysterically",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "hysterically",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 213,
+                "total_tokens": 216
+            },
+            "correct": true
+        },
+        {
+            "root": "lust",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: lust\nEkler: 'ness','ful'\nCevap: ",
+            "reference": "lustfulness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "lustfulness",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 211,
+                "total_tokens": 213
+            },
+            "correct": true
+        },
+        {
+            "root": "optim",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: optim\nEkler: 'ic','ist'\nCevap: ",
+            "reference": "optimistic",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "optimistic",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 211,
+                "total_tokens": 213
+            },
+            "correct": true
+        },
+        {
+            "root": "aphor",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: aphor\nEkler: 'ic','ist'\nCevap: ",
+            "reference": "aphoristic",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "aphoristic",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 212,
+                "total_tokens": 215
+            },
+            "correct": true
+        },
+        {
+            "root": "abort",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: abort\nEkler: 'ly','ive'\nCevap: ",
+            "reference": "abortively",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "abortive",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 211,
+                "total_tokens": 213
+            },
+            "correct": false
+        },
+        {
+            "root": "defence",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: defence\nEkler: 'less','ness'\nCevap: ",
+            "reference": "defencelessness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "defencelessness",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 211,
+                "total_tokens": 214
+            },
+            "correct": true
+        },
+        {
+            "root": "vorac",
+            "suffixes": [
+                "ious",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: vorac\nEkler: 'ly','ious'\nCevap: ",
+            "reference": "voraciously",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "voraciously",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 212,
+                "total_tokens": 215
+            },
+            "correct": true
+        },
+        {
+            "root": "ego",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: ego\nEkler: 'ist','ic'\nCevap: ",
+            "reference": "egoistic",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "egoistic",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 211,
+                "total_tokens": 213
+            },
+            "correct": true
+        },
+        {
+            "root": "waste",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: waste\nEkler: 'ful','ness'\nCevap: ",
+            "reference": "wastefulness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "wastefulness",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 211,
+                "total_tokens": 215
+            },
+            "correct": true
+        },
+        {
+            "root": "senti",
+            "suffixes": [
+                "ment",
+                "al",
+                "ism"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: senti\nEkler: 'ment','ism','al'\nCevap: ",
+            "reference": "sentimentalism",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "sentimentalism",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 214,
+                "total_tokens": 218
+            },
+            "correct": true
+        },
+        {
+            "root": "triumph",
+            "suffixes": [
+                "ant",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: triumph\nEkler: 'ant','ly'\nCevap: ",
+            "reference": "triumphantly",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "triumphantly",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 211,
+                "total_tokens": 215
+            },
+            "correct": true
+        },
+        {
+            "root": "liber",
+            "suffixes": [
+                "al",
+                "ism"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: liber\nEkler: 'ism','al'\nCevap: ",
+            "reference": "liberalism",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "liberalism",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 211,
+                "total_tokens": 214
+            },
+            "correct": true
+        },
+        {
+            "root": "period",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: period\nEkler: 'ic','al'\nCevap: ",
+            "reference": "periodical",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "periodical",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 211,
+                "total_tokens": 213
+            },
+            "correct": true
+        },
+        {
+            "root": "soul",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: soul\nEkler: 'less','ly'\nCevap: ",
+            "reference": "soullessly",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "soulless",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 211,
+                "total_tokens": 214
+            },
+            "correct": false
+        },
+        {
+            "root": "preposition",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: preposition\nEkler: 'al','ly'\nCevap: ",
+            "reference": "prepositionally",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "prepositionally",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 212,
+                "total_tokens": 215
+            },
+            "correct": true
+        },
+        {
+            "root": "protect",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: protect\nEkler: 'ness','ive'\nCevap: ",
+            "reference": "protectiveness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "protectiveness",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 211,
+                "total_tokens": 213
+            },
+            "correct": true
+        },
+        {
+            "root": "cheer",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: cheer\nEkler: 'ful','ly'\nCevap: ",
+            "reference": "cheerfully",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "cheerfully",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 211,
+                "total_tokens": 214
+            },
+            "correct": true
+        },
+        {
+            "root": "passion",
+            "suffixes": [
+                "ate",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: passion\nEkler: 'ate','ness'\nCevap: ",
+            "reference": "passionateness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "passionateness",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 211,
+                "total_tokens": 215
+            },
+            "correct": true
+        },
+        {
+            "root": "lingu",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: lingu\nEkler: 'ic','ist'\nCevap: ",
+            "reference": "linguistic",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "linguistic",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 211,
+                "total_tokens": 214
+            },
+            "correct": true
+        },
+        {
+            "root": "hate",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: hate\nEkler: 'ful','ly'\nCevap: ",
+            "reference": "hatefully",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "hatefully",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 211,
+                "total_tokens": 214
+            },
+            "correct": true
+        },
+        {
+            "root": "gorm",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: gorm\nEkler: 'less','ly'\nCevap: ",
+            "reference": "gormlessly",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "gormlessly",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 212,
+                "total_tokens": 214
+            },
+            "correct": true
+        },
+        {
+            "root": "feck",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: feck\nEkler: 'ness','less'\nCevap: ",
+            "reference": "fecklessness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "fecklessness",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 212,
+                "total_tokens": 215
+            },
+            "correct": true
+        },
+        {
+            "root": "real",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: real\nEkler: 'ist','ic'\nCevap: ",
+            "reference": "realistic",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "realistic",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 211,
+                "total_tokens": 213
+            },
+            "correct": true
+        },
+        {
+            "root": "function",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: function\nEkler: 'ist','al'\nCevap: ",
+            "reference": "functionalist",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "functional",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 211,
+                "total_tokens": 212
+            },
+            "correct": false
+        },
+        {
+            "root": "sweet",
+            "suffixes": [
+                "en",
+                "er"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: sweet\nEkler: 'er','en'\nCevap: ",
+            "reference": "sweetener",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "sweetener",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 211,
+                "total_tokens": 213
+            },
+            "correct": true
+        },
+        {
+            "root": "guile",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: guile\nEkler: 'ly','less'\nCevap: ",
+            "reference": "guilelessly",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "guilelessly",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 212,
+                "total_tokens": 215
+            },
+            "correct": true
+        },
+        {
+            "root": "fool",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: fool\nEkler: 'ness','ish'\nCevap: ",
+            "reference": "foolishness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "foolishness",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 211,
+                "total_tokens": 215
+            },
+            "correct": true
+        },
+        {
+            "root": "distinct",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: distinct\nEkler: 'ness','ive'\nCevap: ",
+            "reference": "distinctiveness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "distinctiveness",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 211,
+                "total_tokens": 213
+            },
+            "correct": true
+        },
+        {
+            "root": "norm",
+            "suffixes": [
+                "al",
+                "ize"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: norm\nEkler: 'al','ize'\nCevap: ",
+            "reference": "normalize",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "normalize",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 211,
+                "total_tokens": 213
+            },
+            "correct": true
+        },
+        {
+            "root": "articul",
+            "suffixes": [
+                "ate",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: articul\nEkler: 'ate','ness'\nCevap: ",
+            "reference": "articulateness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "articulateness",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 212,
+                "total_tokens": 216
+            },
+            "correct": true
+        },
+        {
+            "root": "forget",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: forget\nEkler: 'ful','ness'\nCevap: ",
+            "reference": "forgetfulness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "forgetfulness",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 211,
+                "total_tokens": 213
+            },
+            "correct": true
+        },
+        {
+            "root": "putr",
+            "suffixes": [
+                "efac",
+                "tive"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: putr\nEkler: 'tive','efac'\nCevap: ",
+            "reference": "putrefactive",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "putrefactive",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 214,
+                "total_tokens": 217
+            },
+            "correct": true
+        },
+        {
+            "root": "condition",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: condition\nEkler: 'ly','al'\nCevap: ",
+            "reference": "conditionally",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "conditionally",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 211,
+                "total_tokens": 212
+            },
+            "correct": true
+        },
+        {
+            "root": "shame",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: shame\nEkler: 'ful','ness'\nCevap: ",
+            "reference": "shamefulness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "shamefulness",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 211,
+                "total_tokens": 214
+            },
+            "correct": true
+        },
+        {
+            "root": "vel",
+            "suffixes": [
+                "ar",
+                "ize"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: vel\nEkler: 'ize','ar'\nCevap: ",
+            "reference": "velarize",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "velarize",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 211,
+                "total_tokens": 214
+            },
+            "correct": true
+        },
+        {
+            "root": "senti",
+            "suffixes": [
+                "ment",
+                "al",
+                "ist"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: senti\nEkler: 'al','ist','ment'\nCevap: ",
+            "reference": "sentimentalist",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "sentimentalist",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 214,
+                "total_tokens": 217
+            },
+            "correct": true
+        },
+        {
+            "root": "bliss",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: bliss\nEkler: 'ly','ful'\nCevap: ",
+            "reference": "blissfully",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "blissfully",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 211,
+                "total_tokens": 214
+            },
+            "correct": true
+        },
+        {
+            "root": "tear",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: tear\nEkler: 'ly','less'\nCevap: ",
+            "reference": "tearlessly",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "tearlessly",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 211,
+                "total_tokens": 214
+            },
+            "correct": true
+        },
+        {
+            "root": "lect",
+            "suffixes": [
+                "ure",
+                "ship"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: lect\nEkler: 'ure','ship'\nCevap: ",
+            "reference": "lectureship",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "lecture",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 211,
+                "total_tokens": 212
+            },
+            "correct": false
+        },
+        {
+            "root": "liturgic",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: liturgic\nEkler: 'ly','al'\nCevap: ",
+            "reference": "liturgically",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "liturgical",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 213,
+                "total_tokens": 215
+            },
+            "correct": false
+        },
+        {
+            "root": "gener",
+            "suffixes": [
+                "al",
+                "issimo"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: gener\nEkler: 'al','issimo'\nCevap: ",
+            "reference": "generalissimo",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "generissimo",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 212,
+                "total_tokens": 215
+            },
+            "correct": false
+        },
+        {
+            "root": "help",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: help\nEkler: 'less','ness'\nCevap: ",
+            "reference": "helplessness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "helplessness",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 211,
+                "total_tokens": 213
+            },
+            "correct": true
+        },
+        {
+            "root": "intuit",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: intuit\nEkler: 'ly','ive'\nCevap: ",
+            "reference": "intuitively",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "intuitively",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 211,
+                "total_tokens": 214
+            },
+            "correct": true
+        },
+        {
+            "root": "bash",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: bash\nEkler: 'ful','ly'\nCevap: ",
+            "reference": "bashfully",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "bashfully",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 211,
+                "total_tokens": 213
+            },
+            "correct": true
+        },
+        {
+            "root": "select",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: select\nEkler: 'ness','ive'\nCevap: ",
+            "reference": "selectiveness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "selectiveness",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 211,
+                "total_tokens": 213
+            },
+            "correct": true
+        },
+        {
+            "root": "join",
+            "suffixes": [
+                "t",
+                "ure"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: join\nEkler: 'ure','t'\nCevap: ",
+            "reference": "jointure",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "jointure",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 211,
+                "total_tokens": 213
+            },
+            "correct": true
+        },
+        {
+            "root": "period",
+            "suffixes": [
+                "ic",
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: period\nEkler: 'al','ic','ly'\nCevap: ",
+            "reference": "periodically",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "periodically",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 213,
+                "total_tokens": 215
+            },
+            "correct": true
+        },
+        {
+            "root": "self",
+            "suffixes": [
+                "ish",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: self\nEkler: 'ish','ly'\nCevap: ",
+            "reference": "selfishly",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "selfishly",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 211,
+                "total_tokens": 213
+            },
+            "correct": true
+        },
+        {
+            "root": "obstruct",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: obstruct\nEkler: 'ive','ness'\nCevap: ",
+            "reference": "obstructiveness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "obstructiveness",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 211,
+                "total_tokens": 214
+            },
+            "correct": true
+        },
+        {
+            "root": "dole",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: dole\nEkler: 'ful','ly'\nCevap: ",
+            "reference": "dolefully",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "dolefully",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 212,
+                "total_tokens": 215
+            },
+            "correct": true
+        },
+        {
+            "root": "opt",
+            "suffixes": [
+                "ion",
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: opt\nEkler: 'al','ion','ly'\nCevap: ",
+            "reference": "optionally",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "optional",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 213,
+                "total_tokens": 214
+            },
+            "correct": false
+        },
+        {
+            "root": "precoc",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: precoc\nEkler: 'ious','ness'\nCevap: ",
+            "reference": "precociousness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "precociousness",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 212,
+                "total_tokens": 215
+            },
+            "correct": true
+        },
+        {
+            "root": "pract",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: pract\nEkler: 'al','ic'\nCevap: ",
+            "reference": "practical",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "practical",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 211,
+                "total_tokens": 213
+            },
+            "correct": true
+        },
+        {
+            "root": "perpetu",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: perpetu\nEkler: 'al','ly'\nCevap: ",
+            "reference": "perpetually",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "perpetually",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 212,
+                "total_tokens": 215
+            },
+            "correct": true
+        },
+        {
+            "root": "faith",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: faith\nEkler: 'ful','ness'\nCevap: ",
+            "reference": "faithfulness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "faithfulness",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 211,
+                "total_tokens": 213
+            },
+            "correct": true
+        },
+        {
+            "root": "origin",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: origin\nEkler: 'ly','al'\nCevap: ",
+            "reference": "originally",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "originally",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 211,
+                "total_tokens": 213
+            },
+            "correct": true
+        },
+        {
+            "root": "nation",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: nation\nEkler: 'al','ist'\nCevap: ",
+            "reference": "nationalist",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "nationalist",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 211,
+                "total_tokens": 213
+            },
+            "correct": true
+        },
+        {
+            "root": "govern",
+            "suffixes": [
+                "ment",
+                "al"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: govern\nEkler: 'ment','al'\nCevap: ",
+            "reference": "governmental",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "governmental",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 211,
+                "total_tokens": 213
+            },
+            "correct": true
+        },
+        {
+            "root": "militar",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: militar\nEkler: 'ist','ic'\nCevap: ",
+            "reference": "militaristic",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "militaristic",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 211,
+                "total_tokens": 215
+            },
+            "correct": true
+        },
+        {
+            "root": "taste",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: taste\nEkler: 'ful','ly'\nCevap: ",
+            "reference": "tastefully",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "tastefully",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 211,
+                "total_tokens": 214
+            },
+            "correct": true
+        },
+        {
+            "root": "weigh",
+            "suffixes": [
+                "t",
+                "less"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: weigh\nEkler: 'less','t'\nCevap: ",
+            "reference": "weightless",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "weightless",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 211,
+                "total_tokens": 213
+            },
+            "correct": true
+        },
+        {
+            "root": "frig",
+            "suffixes": [
+                "id",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: frig\nEkler: 'ly','id'\nCevap: ",
+            "reference": "frigidly",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "frigidly",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 212,
+                "total_tokens": 215
+            },
+            "correct": true
+        },
+        {
+            "root": "protect",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: protect\nEkler: 'ive','ly'\nCevap: ",
+            "reference": "protectively",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "protectively",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 211,
+                "total_tokens": 213
+            },
+            "correct": true
+        },
+        {
+            "root": "magister",
+            "suffixes": [
+                "iall",
+                "y"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: magister\nEkler: 'iall','y'\nCevap: ",
+            "reference": "magisterially",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "magisterially",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 213,
+                "total_tokens": 216
+            },
+            "correct": true
+        },
+        {
+            "root": "elf",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: elf\nEkler: 'ish','ness'\nCevap: ",
+            "reference": "elfishness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "elfishness",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 211,
+                "total_tokens": 214
+            },
+            "correct": true
+        },
+        {
+            "root": "cybernetic",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: cybernetic\nEkler: 'al','ly'\nCevap: ",
+            "reference": "cybernetically",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "cybernetically",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 213,
+                "total_tokens": 217
+            },
+            "correct": true
+        },
+        {
+            "root": "cens",
+            "suffixes": [
+                "or",
+                "ious",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: cens\nEkler: 'ness','or','ious'\nCevap: ",
+            "reference": "censoriousness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "censoriousness",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 214,
+                "total_tokens": 218
+            },
+            "correct": true
+        },
+        {
+            "root": "journ",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: journ\nEkler: 'al','ist'\nCevap: ",
+            "reference": "journalist",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "journalist",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 212,
+                "total_tokens": 214
+            },
+            "correct": true
+        },
+        {
+            "root": "sheep",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: sheep\nEkler: 'ish','ness'\nCevap: ",
+            "reference": "sheepishness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "sheepishness",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 211,
+                "total_tokens": 215
+            },
+            "correct": true
+        },
+        {
+            "root": "use",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nCevap: narcissistic\n\nÖrnek 4:\nKök: use\nEkler: 'ly','less'\nCevap: ",
+            "reference": "uselessly",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "uselessly",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 211,
+                "total_tokens": 213
+            },
+            "correct": true
+        },
+        {
+            "root": "pain",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nCevap: shiftlessness\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nCevap: narcissistic\n\nÖrnek 4:\nKök: pain\nEkler: 'ly','less'\nCevap: ",
+            "reference": "painlessly",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "painlessly",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 211,
+                "total_tokens": 213
+            },
+            "correct": true
+        }
+    ]
+}

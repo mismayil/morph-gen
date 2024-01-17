@@ -64,7 +64,7 @@ def prepare_sample_for_morph_gen(sample, shot_samples, template, language):
                 index=idx+1,
                 root=shot_sample["root"],
                 definition=definition,
-                suffixes=",".join(suffixes),
+                suffixes=",".join([f"'{s}'" for s in suffixes]),
                 answer=shot_sample["derivation"],
                 # pos=POS_MAP[shot_sample["pos"]],
             )
@@ -72,7 +72,7 @@ def prepare_sample_for_morph_gen(sample, shot_samples, template, language):
             shot = SHOT_TEMPLATES[template].format(
                 index=idx+1,
                 root=shot_sample["root"],
-                suffixes=",".join(suffixes),
+                suffixes=",".join([f"'{s}'" for s in suffixes]),
                 answer=shot_sample["derivation"],
                 # pos=POS_MAP[shot_sample["pos"]],
             )
@@ -89,7 +89,7 @@ def prepare_sample_for_morph_gen(sample, shot_samples, template, language):
             index=len(shot_samples)+1,
             root=sample["root"],
             definition=definition,
-            suffixes=",".join(suffixes),
+            suffixes=",".join([f"'{s}'" for s in suffixes]),
             answer="",
             # pos=POS_MAP[sample["pos"]],
         )
@@ -97,7 +97,7 @@ def prepare_sample_for_morph_gen(sample, shot_samples, template, language):
         final_shot = SHOT_TEMPLATES[template].format(
             index=len(shot_samples)+1,
             root=sample["root"],
-            suffixes=",".join(suffixes),
+            suffixes=",".join([f"'{s}'" for s in suffixes]),
             # pos=POS_MAP[sample["pos"]],
             answer="",
         )
@@ -134,7 +134,7 @@ def prepare_sample_for_morph_disc(sample, shot_samples, template, language):
                 index=idx+1,
                 root=shot_sample["root"],
                 definition=definition,
-                suffixes=",".join(suffixes),
+                suffixes=",".join([f"'{s}'" for s in suffixes]),
                 # pos=POS_MAP[shot_sample["pos"]],
                 options="\n".join([f"{o_index+1}. {option}" for o_index, option in enumerate(options)]),
                 answer=options.index(shot_sample["derivation"])+1,
@@ -143,7 +143,7 @@ def prepare_sample_for_morph_disc(sample, shot_samples, template, language):
             shot = SHOT_TEMPLATES[template].format(
                 index=idx+1,
                 root=shot_sample["root"],
-                suffixes=",".join(suffixes),
+                suffixes=",".join([f"'{s}'" for s in suffixes]),
                 # pos=POS_MAP[shot_sample["pos"]],
                 options="\n".join([f"{o_index+1}. {option}" for o_index, option in enumerate(options)]),
                 answer=options.index(shot_sample["derivation"])+1,
@@ -163,7 +163,7 @@ def prepare_sample_for_morph_disc(sample, shot_samples, template, language):
             index=len(shot_samples)+1,
             root=sample["root"],
             definition=definition,
-            suffixes=",".join(suffixes),
+            suffixes=",".join([f"'{s}'" for s in suffixes]),
             # pos=POS_MAP[sample["pos"]],
             options="\n".join([f"{o_index+1}. {option}" for o_index, option in enumerate(options)]),
             answer="",
@@ -172,7 +172,7 @@ def prepare_sample_for_morph_disc(sample, shot_samples, template, language):
         final_shot = SHOT_TEMPLATES[template].format(
             index=len(shot_samples)+1,
             root=sample["root"],
-            suffixes=",".join(suffixes),
+            suffixes=",".join([f"'{s}'" for s in suffixes]),
             # pos=POS_MAP[sample["pos"]],
             options="\n".join([f"{o_index+1}. {option}" for o_index, option in enumerate(options)]),
             answer="",
