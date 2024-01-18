@@ -1,7 +1,7 @@
 # Morphological compositional generalization
 
 ## Overview
-This is the repo for Morphological Compositional Generalization project. For more project details, check the [Notion page](https://attractive-breakfast-885.notion.site/Morphological-compositional-generalization-ba9a542988794c82b9236436be17a172?pvs=4).
+This is the repo for Morphological Compositional Generalization project. For more project details, check the [Notion page](https://meteis.notion.site/Morphological-compositional-generalization-ba9a542988794c82b9236436be17a172?pvs=4).
 
 ## Evaluation Pipeline
 Data is supposed to go through the following pipeline for evaluation:
