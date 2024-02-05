@@ -2,6 +2,8 @@ import argparse
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 from tqdm import tqdm
 import pathlib
+from itertools import permutations
+from collections import defaultdict
 
 from utils import read_json, write_json, find_json_files, MODEL_COSTS, num_tokens_from_string
 
@@ -15,6 +17,22 @@ def get_prediction(ref_response, model_response, template):
         raise ValueError(f"Template {template} not supported for evaluation.")
 
     return pred
+
+def is_faithful(result, ref_response, model_response, template, separator=""):
+    if not template.startswith("morph_gen"):
+        return True
+
+    if len(model_response) != len(ref_response):
+        return False
+    
+    suffix_perms = list(permutations(result["suffixes"]))
+    
+    for suffix_perm in suffix_perms:
+        root_derivation = result["root"] + separator + separator.join(suffix_perm)
+        if root_derivation == model_response:
+            return True
+    
+    return False
 
 def compute_usage(sample, model):
     if model not in MODEL_COSTS:
@@ -46,7 +64,7 @@ def compute_usage(sample, model):
         "total": input_cost + output_cost
     }
 
-def compute_metrics(results, compute_usage=False):
+def compute_metrics(results, compute_usage=False, separator=""):
     metrics = {}
     predictions = []
     references = []
@@ -63,6 +81,8 @@ def compute_metrics(results, compute_usage=False):
         "total": 0
     }
 
+    len_suffix_accuracy = defaultdict(list)
+
     for result in results["data"]:
         gold_response_attr = "reference"
         model_response_attr = "model_output"
@@ -73,7 +93,9 @@ def compute_metrics(results, compute_usage=False):
             references.append(ref)
             predictions.append(pred)
             result["correct"] = ref == pred
-            
+            result["faithful"] = is_faithful(result, result[gold_response_attr], result[model_response_attr], result["template"], separator=separator)
+            len_suffix_accuracy[len(result["suffixes"])].append(result["correct"])
+
             if compute_usage:
                 sample_usage, sample_cost = compute_usage(result, results["metadata"]["model"])
 
@@ -87,10 +109,15 @@ def compute_metrics(results, compute_usage=False):
                     cost["output"] += sample_cost["output"]
                     cost["total"] += sample_cost["total"]
 
-    metrics["macro_f1"] = f1_score(references, predictions, average='macro')
+    # metrics["macro_f1"] = f1_score(references, predictions, average='macro')
     metrics["accuracy"] = accuracy_score(references, predictions)
-    metrics["precision"] = precision_score(references, predictions, average='macro')
-    metrics["recall"] = recall_score(references, predictions, average='macro')
+    # metrics["precision"] = precision_score(references, predictions, average='macro')
+    # metrics["recall"] = recall_score(references, predictions, average='macro')
+    metrics["faithful_accuracy"] = sum([1 for result in results["data"] if result["faithful"]]) / len(results["data"])
+    # sort len_suffix_accuracy by suffix length
+    len_suffix_accuracy = dict(sorted(len_suffix_accuracy.items(), key=lambda item: item[0]))
+    metrics["accuracy_by_suffix_len"] = {k: sum(v) / len(v) for k, v in len_suffix_accuracy.items()}
+    metrics["num_samples_by_suffix_len"] = {k: len(v) for k, v in len_suffix_accuracy.items()}
 
     if compute_usage:
         metrics["usage"] = usage
@@ -98,13 +125,13 @@ def compute_metrics(results, compute_usage=False):
 
     return metrics
 
-def report_metrics(results_files, compute_usage=False):
+def report_metrics(results_files, compute_usage=False, separator=""):
     for results_file in tqdm(results_files, total=len(results_files)):
         results = read_json(results_file)
         
         try:
             if "data" in results:
-                metrics = compute_metrics(results, compute_usage=compute_usage)
+                metrics = compute_metrics(results, compute_usage=compute_usage, separator=separator)
                 results["metrics"].update(metrics)
                 write_json(results, results_file, ensure_ascii=False)
         except Exception as e:
@@ -115,6 +142,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-r", "--results-path", type=str, help="Path to evaluation results file in json or directory", required=True)
     parser.add_argument("-u", "--compute-usage", action="store_true", help="Compute usage metrics", default=False)
+    parser.add_argument("-t", "--separator", type=str, default="", help="Separator to use between morphemes. Defaults to empty string.")
 
     args = parser.parse_args()
 
@@ -127,7 +155,7 @@ def main():
     else:
         files_to_process.extend(find_json_files(args.results_path))
 
-    report_metrics(files_to_process, args.compute_usage)
+    report_metrics(files_to_process, args.compute_usage, args.separator)
 
 if __name__ == "__main__":
     main()
