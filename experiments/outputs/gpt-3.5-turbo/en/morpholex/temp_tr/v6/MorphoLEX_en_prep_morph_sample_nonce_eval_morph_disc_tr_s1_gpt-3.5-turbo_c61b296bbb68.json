@@ -1,0 +1,2043 @@
+{
+    "metadata": {
+        "datapath": "../experiments/data/en/morpholex/temp_tr/v6/MorphoLEX_en_prep_morph_sample_nonce_eval_morph_disc_tr_s1.json",
+        "model": "gpt-3.5-turbo",
+        "temperature": 0.3,
+        "max_tokens": 40,
+        "top_p": 1,
+        "frequency_penalty": 0,
+        "presence_penalty": 0
+    },
+    "metrics": {
+        "usage": {
+            "prompt_tokens": 24592,
+            "completion_tokens": 100,
+            "total_tokens": 24692
+        },
+        "cost": {
+            "input": 0.036888000000000004,
+            "output": 0.00019999999999999998,
+            "total": 0.037088
+        },
+        "accuracy": 0.58,
+        "faithful_accuracy": 1.0,
+        "accuracy_by_suffix_len": {
+            "2": 0.5978260869565217,
+            "3": 0.375
+        },
+        "num_samples_by_suffix_len": {
+            "2": 92,
+            "3": 8
+        }
+    },
+    "data": [
+        {
+            "id": "morpholex-ood-0",
+            "root": "vetect",
+            "suffixes": [
+                "ion",
+                "al"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: 'ness','less'\nSeçenekler:\n1. vhiftnessless\n2. vhiftlessness\nCevap: 2\n\nÖrnek 2:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "direct",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 238,
+                "total_tokens": 239
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-1",
+            "root": "vhift",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: vhift\nTanım: 'vhift' İngilizce 'shift' anlamına gelir.\nEkler: 'less','ness'\nSeçenekler:\n1. vhiftnessless\n2. vhiftlessness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "shift",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 238,
+                "total_tokens": 239
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-2",
+            "root": "kogyiss",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: kogyiss\nTanım: 'kogyiss' İngilizce 'narciss' anlamına gelir.\nEkler: 'ic','ist'\nSeçenekler:\n1. kogyissistic\n2. kogyissicist\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "narciss",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 243,
+                "total_tokens": 244
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-3",
+            "root": "sojic",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: sojic\nTanım: 'sojic' İngilizce 'judic' anlamına gelir.\nEkler: 'ious','ness'\nSeçenekler:\n1. sojicnessious\n2. sojiciousness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "judic",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 242,
+                "total_tokens": 243
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-4",
+            "root": "huth",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: huth\nTanım: 'huth' İngilizce 'ruth' anlamına gelir.\nEkler: 'less','ness'\nSeçenekler:\n1. huthnessless\n2. huthlessness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "ruth",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 238,
+                "total_tokens": 239
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-5",
+            "root": "hizimp",
+            "suffixes": [
+                "ish",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: hizimp\nTanım: 'hizimp' İngilizce 'imp' anlamına gelir.\nEkler: 'ly','ish'\nSeçenekler:\n1. hizimplyish\n2. hizimpishly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "imp",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 241,
+                "total_tokens": 242
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-6",
+            "root": "zunac",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: zunac\nTanım: 'zunac' İngilizce 'rapac' anlamına gelir.\nEkler: 'ious','ness'\nSeçenekler:\n1. zunacnessious\n2. zunaciousness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "rapac",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 239,
+                "total_tokens": 240
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-7",
+            "root": "ponif",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: ponif\nTanım: 'ponif' İngilizce 'pacif' anlamına gelir.\nEkler: 'ic','ist'\nSeçenekler:\n1. ponificist\n2. ponifistic\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "pacif",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 237,
+                "total_tokens": 238
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-8",
+            "root": "fudart",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: fudart\nTanım: 'fudart' İngilizce 'art' anlamına gelir.\nEkler: 'ly','less'\nSeçenekler:\n1. fudartlessly\n2. fudartlyless\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "art",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 241,
+                "total_tokens": 242
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-9",
+            "root": "gibac",
+            "suffixes": [
+                "ious",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: gibac\nTanım: 'gibac' İngilizce 'verac' anlamına gelir.\nEkler: 'ious','ly'\nSeçenekler:\n1. gibaclyious\n2. gibaciously\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "verac",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 239,
+                "total_tokens": 240
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-10",
+            "root": "mziad",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: mziad\nTanım: 'mziad' İngilizce 'dread' anlamına gelir.\nEkler: 'ful','ly'\nSeçenekler:\n1. mziadfully\n2. mziadlyful\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "dread",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 242,
+                "total_tokens": 243
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-11",
+            "root": "urort",
+            "suffixes": [
+                "ion",
+                "ist"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: urort\nTanım: 'urort' İngilizce 'abort' anlamına gelir.\nEkler: 'ist','ion'\nSeçenekler:\n1. urortionist\n2. urortistion\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "abort",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 237,
+                "total_tokens": 238
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-12",
+            "root": "rukizor",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: rukizor\nTanım: 'rukizor' İngilizce 'categor' anlamına gelir.\nEkler: 'al','ic'\nSeçenekler:\n1. rukizorical\n2. rukizoralic\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "categor",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 243,
+                "total_tokens": 244
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-13",
+            "root": "hupal",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: hupal\nTanım: 'hupal' İngilizce 'total' anlamına gelir.\nEkler: 'ist','ic'\nSeçenekler:\n1. hupalicist\n2. hupalistic\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "total",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 237,
+                "total_tokens": 238
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-14",
+            "root": "uzzetul",
+            "suffixes": [
+                "ate",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: uzzetul\nTanım: 'uzzetul' İngilizce 'articul' anlamına gelir.\nEkler: 'ly','ate'\nSeçenekler:\n1. uzzetullyate\n2. uzzetulately\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "articul",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 244,
+                "total_tokens": 245
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-15",
+            "root": "icectr",
+            "suffixes": [
+                "on",
+                "ics"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: icectr\nTanım: 'icectr' İngilizce 'electr' anlamına gelir.\nEkler: 'on','ics'\nSeçenekler:\n1. icectronics\n2. icectricson\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "electr",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 240,
+                "total_tokens": 241
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-16",
+            "root": "ziver",
+            "suffixes": [
+                "al",
+                "ity"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: ziver\nTanım: 'ziver' İngilizce 'gener' anlamına gelir.\nEkler: 'ity','al'\nSeçenekler:\n1. ziverityal\n2. ziverality\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "gener",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 237,
+                "total_tokens": 238
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-17",
+            "root": "rbien",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: rbien\nTanım: 'rbien' İngilizce 'green' anlamına gelir.\nEkler: 'ness','ish'\nSeçenekler:\n1. rbiennessish\n2. rbienishness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "green",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 238,
+                "total_tokens": 239
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-18",
+            "root": "modor",
+            "suffixes": [
+                "it",
+                "ism"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: modor\nTanım: 'modor' İngilizce 'favor' anlamına gelir.\nEkler: 'ism','it'\nSeçenekler:\n1. modoritism\n2. modorismit\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "favor",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 237,
+                "total_tokens": 238
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-19",
+            "root": "nin",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: nin\nTanım: 'nin' İngilizce 'sin' anlamına gelir.\nEkler: 'ness','less'\nSeçenekler:\n1. ninnessless\n2. ninlessness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "sin",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 233,
+                "total_tokens": 234
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-20",
+            "root": "lomat",
+            "suffixes": [
+                "al",
+                "ize"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: lomat\nTanım: 'lomat' İngilizce 'palat' anlamına gelir.\nEkler: 'al','ize'\nSeçenekler:\n1. lomatizeal\n2. lomatalize\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "palat",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 239,
+                "total_tokens": 240
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-21",
+            "root": "vukpe",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: vukpe\nTanım: 'vukpe' İngilizce 'taste' anlamına gelir.\nEkler: 'ful','ness'\nSeçenekler:\n1. vukpenessful\n2. vukpefulness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "taste",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 242,
+                "total_tokens": 243
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-22",
+            "root": "aletin",
+            "suffixes": [
+                "al",
+                "ity"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: aletin\nTanım: 'aletin' İngilizce 'origin' anlamına gelir.\nEkler: 'ity','al'\nSeçenekler:\n1. aletinality\n2. aletinityal\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "origin",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 239,
+                "total_tokens": 240
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-23",
+            "root": "mkfsphys",
+            "suffixes": [
+                "ic",
+                "al",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: yfopjit\nTanım: 'yfopjit' İngilizce 'transit' anlamına gelir.\nEkler: 'ion','ly','al'\nSeçenekler:\n1. yfopjitalionly\n2. yfopjitallyion\n3. yfopjitionlyal\n4. yfopjitionally\n5. yfopjitlyalion\n6. yfopjitlyional\nCevap: 4\n\nÖrnek 2:\nKök: mkfsphys\nTanım: 'mkfsphys' İngilizce 'phys' anlamına gelir.\nEkler: 'ness','ic','al'\nSeçenekler:\n1. mkfsphysicalness\n2. mkfsphysnessical\n3. mkfsphysalicness\n4. mkfsphysnessalic\n5. mkfsphysalnessic\n6. mkfsphysicnessal\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "phys",
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 327,
+                "total_tokens": 328
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-24",
+            "root": "gtaod",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: gtaod\nTanım: 'gtaod' İngilizce 'blood' anlamına gelir.\nEkler: 'less','ness'\nSeçenekler:\n1. gtaodnessless\n2. gtaodlessness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "blood",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 241,
+                "total_tokens": 242
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-25",
+            "root": "tist",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: tist\nTanım: 'tist' İngilizce 'list' anlamına gelir.\nEkler: 'ly','less'\nSeçenekler:\n1. tistlessly\n2. tistlyless\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "list",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 237,
+                "total_tokens": 238
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-26",
+            "root": "yfopjit",
+            "suffixes": [
+                "ion",
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: mkfsphys\nTanım: 'mkfsphys' İngilizce 'phys' anlamına gelir.\nEkler: 'al','ness','ic'\nSeçenekler:\n1. mkfsphysicalness\n2. mkfsphysicnessal\n3. mkfsphysalicness\n4. mkfsphysnessalic\n5. mkfsphysalnessic\n6. mkfsphysnessical\nCevap: 1\n\nÖrnek 2:\nKök: yfopjit\nTanım: 'yfopjit' İngilizce 'transit' anlamına gelir.\nEkler: 'ly','ion','al'\nSeçenekler:\n1. yfopjitionlyal\n2. yfopjitionally\n3. yfopjitlyional\n4. yfopjitlyalion\n5. yfopjitalionly\n6. yfopjitallyion\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "transit",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 327,
+                "total_tokens": 328
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-27",
+            "root": "foct",
+            "suffixes": [
+                "urn",
+                "al"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: foct\nTanım: 'foct' İngilizce 'noct' anlamına gelir.\nEkler: 'urn','al'\nSeçenekler:\n1. focturnal\n2. foctalurn\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "noct",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 237,
+                "total_tokens": 238
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-28",
+            "root": "owomem",
+            "suffixes": [
+                "ic",
+                "ian"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: owomem\nTanım: 'owomem' İngilizce 'academ' anlamına gelir.\nEkler: 'ic','ian'\nSeçenekler:\n1. owomemician\n2. owomemianic\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "academ",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 242,
+                "total_tokens": 243
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-29",
+            "root": "jbzser",
+            "suffixes": [
+                "ic",
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: mkfsphys\nTanım: 'mkfsphys' İngilizce 'phys' anlamına gelir.\nEkler: 'ness','ic','al'\nSeçenekler:\n1. mkfsphysnessalic\n2. mkfsphysnessical\n3. mkfsphysalnessic\n4. mkfsphysicnessal\n5. mkfsphysicalness\n6. mkfsphysalicness\nCevap: 5\n\nÖrnek 2:\nKök: jbzser\nTanım: 'jbzser' İngilizce 'hyster' anlamına gelir.\nEkler: 'ic','ly','al'\nSeçenekler:\n1. jbzserically\n2. jbzsericlyal\n3. jbzserlyalic\n4. jbzserlyical\n5. jbzserallyic\n6. jbzseralicly\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "hyster",
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 318,
+                "total_tokens": 319
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-30",
+            "root": "vust",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: vust\nTanım: 'vust' İngilizce 'lust' anlamına gelir.\nEkler: 'ness','ful'\nSeçenekler:\n1. vustfulness\n2. vustnessful\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "lust",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 237,
+                "total_tokens": 238
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-31",
+            "root": "ukfim",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: ukfim\nTanım: 'ukfim' İngilizce 'optim' anlamına gelir.\nEkler: 'ic','ist'\nSeçenekler:\n1. ukfimicist\n2. ukfimistic\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "optim",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 241,
+                "total_tokens": 242
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-32",
+            "root": "onsor",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: onsor\nTanım: 'onsor' İngilizce 'aphor' anlamına gelir.\nEkler: 'ist','ic'\nSeçenekler:\n1. onsoristic\n2. onsoricist\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "aphor",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 237,
+                "total_tokens": 238
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-33",
+            "root": "uwort",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: uwort\nTanım: 'uwort' İngilizce 'abort' anlamına gelir.\nEkler: 'ive','ly'\nSeçenekler:\n1. uwortlyive\n2. uwortively\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "abort",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 237,
+                "total_tokens": 238
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-34",
+            "root": "lilicje",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: lilicje\nTanım: 'lilicje' İngilizce 'defence' anlamına gelir.\nEkler: 'less','ness'\nSeçenekler:\n1. lilicjelessness\n2. lilicjenessless\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "defence",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 243,
+                "total_tokens": 244
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-35",
+            "root": "rutac",
+            "suffixes": [
+                "ious",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: rutac\nTanım: 'rutac' İngilizce 'vorac' anlamına gelir.\nEkler: 'ly','ious'\nSeçenekler:\n1. rutaclyious\n2. rutaciously\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "vorac",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 238,
+                "total_tokens": 239
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-36",
+            "root": "ilo",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: ilo\nTanım: 'ilo' İngilizce 'ego' anlamına gelir.\nEkler: 'ic','ist'\nSeçenekler:\n1. iloicist\n2. iloistic\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "ego",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 236,
+                "total_tokens": 237
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-37",
+            "root": "bupye",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: bupye\nTanım: 'bupye' İngilizce 'waste' anlamına gelir.\nEkler: 'ness','ful'\nSeçenekler:\n1. bupyenessful\n2. bupyefulness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "waste",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 241,
+                "total_tokens": 242
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-38",
+            "root": "fivwi",
+            "suffixes": [
+                "ment",
+                "al",
+                "ism"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: mkfsphys\nTanım: 'mkfsphys' İngilizce 'phys' anlamına gelir.\nEkler: 'ness','ic','al'\nSeçenekler:\n1. mkfsphysnessalic\n2. mkfsphysalnessic\n3. mkfsphysnessical\n4. mkfsphysalicness\n5. mkfsphysicnessal\n6. mkfsphysicalness\nCevap: 6\n\nÖrnek 2:\nKök: fivwi\nTanım: 'fivwi' İngilizce 'senti' anlamına gelir.\nEkler: 'al','ism','ment'\nSeçenekler:\n1. fivwiismalment\n2. fivwiismmental\n3. fivwimentismal\n4. fivwialmentism\n5. fivwimentalism\n6. fivwialismment\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": "senti",
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 323,
+                "total_tokens": 324
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-39",
+            "root": "fkeumph",
+            "suffixes": [
+                "ant",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: fkeumph\nTanım: 'fkeumph' İngilizce 'triumph' anlamına gelir.\nEkler: 'ly','ant'\nSeçenekler:\n1. fkeumphantly\n2. fkeumphlyant\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "triumph",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 243,
+                "total_tokens": 244
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-40",
+            "root": "jeyer",
+            "suffixes": [
+                "al",
+                "ism"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: jeyer\nTanım: 'jeyer' İngilizce 'liber' anlamına gelir.\nEkler: 'al','ism'\nSeçenekler:\n1. jeyerismal\n2. jeyeralism\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "liber",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 239,
+                "total_tokens": 240
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-41",
+            "root": "higeod",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: higeod\nTanım: 'higeod' İngilizce 'period' anlamına gelir.\nEkler: 'ic','al'\nSeçenekler:\n1. higeodalic\n2. higeodical\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "period",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 240,
+                "total_tokens": 241
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-42",
+            "root": "guul",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: guul\nTanım: 'guul' İngilizce 'soul' anlamına gelir.\nEkler: 'less','ly'\nSeçenekler:\n1. guullessly\n2. guullyless\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "soul",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 237,
+                "total_tokens": 238
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-43",
+            "root": "jjikuzeheon",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: jjikuzeheon\nTanım: 'jjikuzeheon' İngilizce 'preposition' anlamına gelir.\nEkler: 'ly','al'\nSeçenekler:\n1. jjikuzeheonally\n2. jjikuzeheonlyal\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "preposition",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 249,
+                "total_tokens": 250
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-44",
+            "root": "vmamect",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: vmamect\nTanım: 'vmamect' İngilizce 'protect' anlamına gelir.\nEkler: 'ive','ness'\nSeçenekler:\n1. vmamectiveness\n2. vmamectnessive\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "protect",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 241,
+                "total_tokens": 242
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-45",
+            "root": "jlier",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: jlier\nTanım: 'jlier' İngilizce 'cheer' anlamına gelir.\nEkler: 'ly','ful'\nSeçenekler:\n1. jlierlyful\n2. jlierfully\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "cheer",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 238,
+                "total_tokens": 239
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-46",
+            "root": "sozyeon",
+            "suffixes": [
+                "ate",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: sozyeon\nTanım: 'sozyeon' İngilizce 'passion' anlamına gelir.\nEkler: 'ness','ate'\nSeçenekler:\n1. sozyeonnessate\n2. sozyeonateness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "passion",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 243,
+                "total_tokens": 244
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-47",
+            "root": "keblu",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: keblu\nTanım: 'keblu' İngilizce 'lingu' anlamına gelir.\nEkler: 'ist','ic'\nSeçenekler:\n1. kebluicist\n2. kebluistic\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "lingu",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 242,
+                "total_tokens": 243
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-48",
+            "root": "wobe",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: wobe\nTanım: 'wobe' İngilizce 'hate' anlamına gelir.\nEkler: 'ly','ful'\nSeçenekler:\n1. wobelyful\n2. wobefully\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "hate",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 238,
+                "total_tokens": 239
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-49",
+            "root": "morm",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: morm\nTanım: 'morm' İngilizce 'gorm' anlamına gelir.\nEkler: 'ly','less'\nSeçenekler:\n1. mormlyless\n2. mormlessly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "gorm",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 237,
+                "total_tokens": 238
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-50",
+            "root": "ceck",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: ceck\nTanım: 'ceck' İngilizce 'feck' anlamına gelir.\nEkler: 'less','ness'\nSeçenekler:\n1. cecknessless\n2. cecklessness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "feck",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 238,
+                "total_tokens": 239
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-51",
+            "root": "tial",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: tial\nTanım: 'tial' İngilizce 'real' anlamına gelir.\nEkler: 'ist','ic'\nSeçenekler:\n1. tialistic\n2. tialicist\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "real",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 237,
+                "total_tokens": 238
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-52",
+            "root": "coltteon",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: coltteon\nTanım: 'coltteon' İngilizce 'function' anlamına gelir.\nEkler: 'al','ist'\nSeçenekler:\n1. coltteonalist\n2. coltteonistal\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "function",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 241,
+                "total_tokens": 242
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-53",
+            "root": "rniet",
+            "suffixes": [
+                "en",
+                "er"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: rniet\nTanım: 'rniet' İngilizce 'sweet' anlamına gelir.\nEkler: 'er','en'\nSeçenekler:\n1. rnietener\n2. rnieteren\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "sweet",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 237,
+                "total_tokens": 238
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-54",
+            "root": "paele",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: paele\nTanım: 'paele' İngilizce 'guile' anlamına gelir.\nEkler: 'less','ly'\nSeçenekler:\n1. paelelyless\n2. paelelessly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "guile",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 242,
+                "total_tokens": 243
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-55",
+            "root": "buol",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: buol\nTanım: 'buol' İngilizce 'fool' anlamına gelir.\nEkler: 'ish','ness'\nSeçenekler:\n1. buolnessish\n2. buolishness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "fool",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 239,
+                "total_tokens": 240
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-56",
+            "root": "tecpinct",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: tecpinct\nTanım: 'tecpinct' İngilizce 'distinct' anlamına gelir.\nEkler: 'ive','ness'\nSeçenekler:\n1. tecpinctnessive\n2. tecpinctiveness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "distinct",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 241,
+                "total_tokens": 242
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-57",
+            "root": "korm",
+            "suffixes": [
+                "al",
+                "ize"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: korm\nTanım: 'korm' İngilizce 'norm' anlamına gelir.\nEkler: 'ize','al'\nSeçenekler:\n1. kormizeal\n2. kormalize\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "norm",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 237,
+                "total_tokens": 238
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-58",
+            "root": "uzfetul",
+            "suffixes": [
+                "ate",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: uzfetul\nTanım: 'uzfetul' İngilizce 'articul' anlamına gelir.\nEkler: 'ness','ate'\nSeçenekler:\n1. uzfetulateness\n2. uzfetulnessate\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "articul",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 247,
+                "total_tokens": 248
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-59",
+            "root": "wapjet",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: wapjet\nTanım: 'wapjet' İngilizce 'forget' anlamına gelir.\nEkler: 'ness','ful'\nSeçenekler:\n1. wapjetfulness\n2. wapjetnessful\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "forget",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 240,
+                "total_tokens": 241
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-60",
+            "root": "hutr",
+            "suffixes": [
+                "efac",
+                "tive"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: hutr\nTanım: 'hutr' İngilizce 'putr' anlamına gelir.\nEkler: 'tive','efac'\nSeçenekler:\n1. hutrefactive\n2. hutrtiveefac\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "putr",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 241,
+                "total_tokens": 242
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-61",
+            "root": "hacrepeon",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: hacrepeon\nTanım: 'hacrepeon' İngilizce 'condition' anlamına gelir.\nEkler: 'al','ly'\nSeçenekler:\n1. hacrepeonlyal\n2. hacrepeonally\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "condition",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 241,
+                "total_tokens": 242
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-62",
+            "root": "yfoce",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: yfoce\nTanım: 'yfoce' İngilizce 'shame' anlamına gelir.\nEkler: 'ness','ful'\nSeçenekler:\n1. yfocenessful\n2. yfocefulness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "shame",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 242,
+                "total_tokens": 243
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-63",
+            "root": "pel",
+            "suffixes": [
+                "ar",
+                "ize"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: pel\nTanım: 'pel' İngilizce 'vel' anlamına gelir.\nEkler: 'ar','ize'\nSeçenekler:\n1. pelarize\n2. pelizear\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "vel",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 234,
+                "total_tokens": 235
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-64",
+            "root": "cinsi",
+            "suffixes": [
+                "ment",
+                "al",
+                "ist"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: mkfsphys\nTanım: 'mkfsphys' İngilizce 'phys' anlamına gelir.\nEkler: 'ness','al','ic'\nSeçenekler:\n1. mkfsphysnessalic\n2. mkfsphysnessical\n3. mkfsphysalicness\n4. mkfsphysalnessic\n5. mkfsphysicalness\n6. mkfsphysicnessal\nCevap: 5\n\nÖrnek 2:\nKök: cinsi\nTanım: 'cinsi' İngilizce 'senti' anlamına gelir.\nEkler: 'ist','al','ment'\nSeçenekler:\n1. cinsimentistal\n2. cinsiistmental\n3. cinsialistment\n4. cinsiistalment\n5. cinsimentalist\n6. cinsialmentist\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": "senti",
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 314,
+                "total_tokens": 315
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-65",
+            "root": "ptiss",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: ptiss\nTanım: 'ptiss' İngilizce 'bliss' anlamına gelir.\nEkler: 'ful','ly'\nSeçenekler:\n1. ptissfully\n2. ptisslyful\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "bliss",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 238,
+                "total_tokens": 239
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-66",
+            "root": "giar",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: giar\nTanım: 'giar' İngilizce 'tear' anlamına gelir.\nEkler: 'ly','less'\nSeçenekler:\n1. giarlessly\n2. giarlyless\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "tear",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 238,
+                "total_tokens": 239
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-67",
+            "root": "wect",
+            "suffixes": [
+                "ure",
+                "ship"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: wect\nTanım: 'wect' İngilizce 'lect' anlamına gelir.\nEkler: 'ship','ure'\nSeçenekler:\n1. wectshipure\n2. wectureship\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "lect",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 238,
+                "total_tokens": 239
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-68",
+            "root": "letagdic",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: letagdic\nTanım: 'letagdic' İngilizce 'liturgic' anlamına gelir.\nEkler: 'al','ly'\nSeçenekler:\n1. letagdiclyal\n2. letagdically\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "liturgic",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 243,
+                "total_tokens": 244
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-69",
+            "root": "wiber",
+            "suffixes": [
+                "al",
+                "issimo"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: wiber\nTanım: 'wiber' İngilizce 'gener' anlamına gelir.\nEkler: 'issimo','al'\nSeçenekler:\n1. wiberissimoal\n2. wiberalissimo\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "gener",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 241,
+                "total_tokens": 242
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-70",
+            "root": "felp",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: felp\nTanım: 'felp' İngilizce 'help' anlamına gelir.\nEkler: 'less','ness'\nSeçenekler:\n1. felplessness\n2. felpnessless\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "help",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 237,
+                "total_tokens": 238
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-71",
+            "root": "evjoit",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: evjoit\nTanım: 'evjoit' İngilizce 'intuit' anlamına gelir.\nEkler: 'ly','ive'\nSeçenekler:\n1. evjoitively\n2. evjoitlyive\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "intuit",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 242,
+                "total_tokens": 243
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-72",
+            "root": "zash",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: zash\nTanım: 'zash' İngilizce 'bash' anlamına gelir.\nEkler: 'ly','ful'\nSeçenekler:\n1. zashlyful\n2. zashfully\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "bash",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 237,
+                "total_tokens": 238
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-73",
+            "root": "cimect",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: cimect\nTanım: 'cimect' İngilizce 'select' anlamına gelir.\nEkler: 'ness','ive'\nSeçenekler:\n1. cimectnessive\n2. cimectiveness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "select",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 241,
+                "total_tokens": 242
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-74",
+            "root": "buin",
+            "suffixes": [
+                "t",
+                "ure"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: buin\nTanım: 'buin' İngilizce 'join' anlamına gelir.\nEkler: 'ure','t'\nSeçenekler:\n1. buinuret\n2. buinture\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "join",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 237,
+                "total_tokens": 238
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-75",
+            "root": "cikeod",
+            "suffixes": [
+                "ic",
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: mkfsphys\nTanım: 'mkfsphys' İngilizce 'phys' anlamına gelir.\nEkler: 'ness','ic','al'\nSeçenekler:\n1. mkfsphysicalness\n2. mkfsphysalnessic\n3. mkfsphysalicness\n4. mkfsphysnessical\n5. mkfsphysnessalic\n6. mkfsphysicnessal\nCevap: 1\n\nÖrnek 2:\nKök: cikeod\nTanım: 'cikeod' İngilizce 'period' anlamına gelir.\nEkler: 'ly','ic','al'\nSeçenekler:\n1. cikeodically\n2. cikeodallyic\n3. cikeodlyical\n4. cikeodlyalic\n5. cikeodiclyal\n6. cikeodalicly\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "period",
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 316,
+                "total_tokens": 317
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-76",
+            "root": "gelf",
+            "suffixes": [
+                "ish",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: gelf\nTanım: 'gelf' İngilizce 'self' anlamına gelir.\nEkler: 'ly','ish'\nSeçenekler:\n1. gelflyish\n2. gelfishly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "self",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 237,
+                "total_tokens": 238
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-77",
+            "root": "ukjbduct",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: ukjbduct\nTanım: 'ukjbduct' İngilizce 'obstruct' anlamına gelir.\nEkler: 'ness','ive'\nSeçenekler:\n1. ukjbductnessive\n2. ukjbductiveness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "obstruct",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 242,
+                "total_tokens": 243
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-78",
+            "root": "gute",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: gute\nTanım: 'gute' İngilizce 'dole' anlamına gelir.\nEkler: 'ly','ful'\nSeçenekler:\n1. gutelyful\n2. gutefully\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "dole",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 235,
+                "total_tokens": 236
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-79",
+            "root": "dupopt",
+            "suffixes": [
+                "ion",
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: mkfsphys\nTanım: 'mkfsphys' İngilizce 'phys' anlamına gelir.\nEkler: 'ic','ness','al'\nSeçenekler:\n1. mkfsphysicalness\n2. mkfsphysicnessal\n3. mkfsphysnessical\n4. mkfsphysnessalic\n5. mkfsphysalicness\n6. mkfsphysalnessic\nCevap: 1\n\nÖrnek 2:\nKök: dupopt\nTanım: 'dupopt' İngilizce 'opt' anlamına gelir.\nEkler: 'ly','ion','al'\nSeçenekler:\n1. dupoptlyional\n2. dupoptlyalion\n3. dupoptionally\n4. dupoptalionly\n5. dupoptionlyal\n6. dupoptallyion\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": "opt",
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 308,
+                "total_tokens": 309
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-80",
+            "root": "bnijoc",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: bnijoc\nTanım: 'bnijoc' İngilizce 'precoc' anlamına gelir.\nEkler: 'ious','ness'\nSeçenekler:\n1. bnijocnessious\n2. bnijociousness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "precoc",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 242,
+                "total_tokens": 243
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-81",
+            "root": "lract",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: lract\nTanım: 'lract' İngilizce 'pract' anlamına gelir.\nEkler: 'ic','al'\nSeçenekler:\n1. lractalic\n2. lractical\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "pract",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 236,
+                "total_tokens": 237
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-82",
+            "root": "zijdiwu",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: zijdiwu\nTanım: 'zijdiwu' İngilizce 'perpetu' anlamına gelir.\nEkler: 'ly','al'\nSeçenekler:\n1. zijdiwulyal\n2. zijdiwually\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "perpetu",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 244,
+                "total_tokens": 245
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-83",
+            "root": "coith",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: coith\nTanım: 'coith' İngilizce 'faith' anlamına gelir.\nEkler: 'ness','ful'\nSeçenekler:\n1. coithfulness\n2. coithnessful\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "faith",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 237,
+                "total_tokens": 238
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-84",
+            "root": "acesin",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: acesin\nTanım: 'acesin' İngilizce 'origin' anlamına gelir.\nEkler: 'ly','al'\nSeçenekler:\n1. acesinally\n2. acesinlyal\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "origin",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 239,
+                "total_tokens": 240
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-85",
+            "root": "culeon",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: culeon\nTanım: 'culeon' İngilizce 'nation' anlamına gelir.\nEkler: 'ist','al'\nSeçenekler:\n1. culeonistal\n2. culeonalist\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "nation",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 241,
+                "total_tokens": 242
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-86",
+            "root": "wakern",
+            "suffixes": [
+                "ment",
+                "al"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: wakern\nTanım: 'wakern' İngilizce 'govern' anlamına gelir.\nEkler: 'ment','al'\nSeçenekler:\n1. wakernalment\n2. wakernmental\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "govern",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 241,
+                "total_tokens": 242
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-87",
+            "root": "nedesar",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: nedesar\nTanım: 'nedesar' İngilizce 'militar' anlamına gelir.\nEkler: 'ist','ic'\nSeçenekler:\n1. nedesaricist\n2. nedesaristic\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "militar",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 239,
+                "total_tokens": 240
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-88",
+            "root": "modme",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: modme\nTanım: 'modme' İngilizce 'taste' anlamına gelir.\nEkler: 'ful','ly'\nSeçenekler:\n1. modmelyful\n2. modmefully\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "taste",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 238,
+                "total_tokens": 239
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-89",
+            "root": "piigh",
+            "suffixes": [
+                "t",
+                "less"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: piigh\nTanım: 'piigh' İngilizce 'weigh' anlamına gelir.\nEkler: 'less','t'\nSeçenekler:\n1. piightless\n2. piighlesst\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "weigh",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 237,
+                "total_tokens": 238
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-90",
+            "root": "wyig",
+            "suffixes": [
+                "id",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: wyig\nTanım: 'wyig' İngilizce 'frig' anlamına gelir.\nEkler: 'ly','id'\nSeçenekler:\n1. wyiglyid\n2. wyigidly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "frig",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 238,
+                "total_tokens": 239
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-91",
+            "root": "nyuject",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: nyuject\nTanım: 'nyuject' İngilizce 'protect' anlamına gelir.\nEkler: 'ive','ly'\nSeçenekler:\n1. nyujectively\n2. nyujectlyive\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "protect",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 241,
+                "total_tokens": 242
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-92",
+            "root": "hucetter",
+            "suffixes": [
+                "iall",
+                "y"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: hucetter\nTanım: 'hucetter' İngilizce 'magister' anlamına gelir.\nEkler: 'y','iall'\nSeçenekler:\n1. hucetteryiall\n2. hucetterially\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "magister",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 244,
+                "total_tokens": 245
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-93",
+            "root": "tibelf",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: tibelf\nTanım: 'tibelf' İngilizce 'elf' anlamına gelir.\nEkler: 'ish','ness'\nSeçenekler:\n1. tibelfishness\n2. tibelfnessish\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "elf",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 242,
+                "total_tokens": 243
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-94",
+            "root": "bnkiylijic",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: bnkiylijic\nTanım: 'bnkiylijic' İngilizce 'cybernetic' anlamına gelir.\nEkler: 'ly','al'\nSeçenekler:\n1. bnkiylijically\n2. bnkiylijiclyal\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "cybernetic",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 251,
+                "total_tokens": 252
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-95",
+            "root": "jens",
+            "suffixes": [
+                "or",
+                "ious",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: mkfsphys\nTanım: 'mkfsphys' İngilizce 'phys' anlamına gelir.\nEkler: 'ness','al','ic'\nSeçenekler:\n1. mkfsphysalnessic\n2. mkfsphysicalness\n3. mkfsphysnessalic\n4. mkfsphysicnessal\n5. mkfsphysnessical\n6. mkfsphysalicness\nCevap: 2\n\nÖrnek 2:\nKök: jens\nTanım: 'jens' İngilizce 'cens' anlamına gelir.\nEkler: 'ness','or','ious'\nSeçenekler:\n1. jensnessiousor\n2. jensiousorness\n3. jensiousnessor\n4. jensnessorious\n5. jensornessious\n6. jensoriousness\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": "cens",
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 314,
+                "total_tokens": 315
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-96",
+            "root": "faurn",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: faurn\nTanım: 'faurn' İngilizce 'journ' anlamına gelir.\nEkler: 'al','ist'\nSeçenekler:\n1. faurnistal\n2. faurnalist\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "journ",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 238,
+                "total_tokens": 239
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-97",
+            "root": "mfiep",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'ion','al'\nSeçenekler:\n1. vetectalion\n2. vetectional\nCevap: 2\n\nÖrnek 2:\nKök: mfiep\nTanım: 'mfiep' İngilizce 'sheep' anlamına gelir.\nEkler: 'ish','ness'\nSeçenekler:\n1. mfiepishness\n2. mfiepnessish\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "sheep",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 243,
+                "total_tokens": 244
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-98",
+            "root": "ohe",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: ohe\nTanım: 'ohe' İngilizce 'use' anlamına gelir.\nEkler: 'less','ly'\nSeçenekler:\n1. ohelyless\n2. ohelessly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": "use",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 236,
+                "total_tokens": 237
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-99",
+            "root": "toin",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: vetect\nTanım: 'vetect' İngilizce 'direct' anlamına gelir.\nEkler: 'al','ion'\nSeçenekler:\n1. vetectional\n2. vetectalion\nCevap: 1\n\nÖrnek 2:\nKök: toin\nTanım: 'toin' İngilizce 'pain' anlamına gelir.\nEkler: 'ly','less'\nSeçenekler:\n1. toinlessly\n2. toinlyless\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": "pain",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 237,
+                "total_tokens": 238
+            },
+            "correct": false,
+            "faithful": true
+        }
+    ]
+}

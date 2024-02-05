@@ -1,0 +1,2043 @@
+{
+    "metadata": {
+        "datapath": "../experiments/data/en/morpholex/temp_en/v6/MorphoLEX_en_prep_morph_sample_eval_morph_gen_en_s3.json",
+        "model": "gpt-3.5-turbo",
+        "temperature": 0.3,
+        "max_tokens": 40,
+        "top_p": 1,
+        "frequency_penalty": 0,
+        "presence_penalty": 0
+    },
+    "metrics": {
+        "usage": {
+            "prompt_tokens": 15614,
+            "completion_tokens": 254,
+            "total_tokens": 15868
+        },
+        "cost": {
+            "input": 0.023421,
+            "output": 0.000508,
+            "total": 0.023929000000000002
+        },
+        "accuracy": 0.89,
+        "faithful_accuracy": 0.89,
+        "accuracy_by_suffix_len": {
+            "2": 0.8913043478260869,
+            "3": 0.875
+        },
+        "num_samples_by_suffix_len": {
+            "2": 92,
+            "3": 8
+        }
+    },
+    "data": [
+        {
+            "id": "morpholex-0",
+            "root": "direct",
+            "suffixes": [
+                "ion",
+                "al"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 2:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 3:\nWord root: judic\nSuffixes: 'ious','ness'\nAnswer: judiciousness\n\nExample 4:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: ",
+            "reference": "directional",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "directional",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 158,
+                "total_tokens": 160
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-1",
+            "root": "shift",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 3:\nWord root: judic\nSuffixes: 'ness','ious'\nAnswer: judiciousness\n\nExample 4:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: ",
+            "reference": "shiftlessness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "shiftlessness",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 157,
+                "total_tokens": 159
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-2",
+            "root": "narciss",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: judic\nSuffixes: 'ious','ness'\nAnswer: judiciousness\n\nExample 4:\nWord root: narciss\nSuffixes: 'ic','ist'\nAnswer: ",
+            "reference": "narcissistic",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "narcissistic",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 157,
+                "total_tokens": 161
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-3",
+            "root": "judic",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nAnswer: narcissistic\n\nExample 4:\nWord root: judic\nSuffixes: 'ious','ness'\nAnswer: ",
+            "reference": "judiciousness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "judiciousness",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 156,
+                "total_tokens": 159
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-4",
+            "root": "ruth",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: ruth\nSuffixes: 'ness','less'\nAnswer: ",
+            "reference": "ruthlessness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "ruthlessness",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 155,
+                "total_tokens": 158
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-5",
+            "root": "imp",
+            "suffixes": [
+                "ish",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nAnswer: narcissistic\n\nExample 4:\nWord root: imp\nSuffixes: 'ish','ly'\nAnswer: ",
+            "reference": "impishly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "impishly",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 155,
+                "total_tokens": 157
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-6",
+            "root": "rapac",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: rapac\nSuffixes: 'ious','ness'\nAnswer: ",
+            "reference": "rapaciousness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "rapaciousness",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 156,
+                "total_tokens": 159
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-7",
+            "root": "pacif",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: pacif\nSuffixes: 'ic','ist'\nAnswer: ",
+            "reference": "pacifistic",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "pacifistic",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 156,
+                "total_tokens": 159
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-8",
+            "root": "art",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nAnswer: narcissistic\n\nExample 4:\nWord root: art\nSuffixes: 'less','ly'\nAnswer: ",
+            "reference": "artlessly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "artlessly",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 155,
+                "total_tokens": 157
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-9",
+            "root": "verac",
+            "suffixes": [
+                "ious",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: verac\nSuffixes: 'ly','ious'\nAnswer: ",
+            "reference": "veraciously",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "veraciously",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 156,
+                "total_tokens": 159
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-10",
+            "root": "dread",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: dread\nSuffixes: 'ful','ly'\nAnswer: ",
+            "reference": "dreadfully",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "dreadfully",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 155,
+                "total_tokens": 158
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-11",
+            "root": "abort",
+            "suffixes": [
+                "ion",
+                "ist"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: abort\nSuffixes: 'ist','ion'\nAnswer: ",
+            "reference": "abortionist",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "abortionist",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 155,
+                "total_tokens": 158
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-12",
+            "root": "categor",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nAnswer: narcissistic\n\nExample 4:\nWord root: categor\nSuffixes: 'al','ic'\nAnswer: ",
+            "reference": "categorical",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "categorical",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 155,
+                "total_tokens": 157
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-13",
+            "root": "total",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: total\nSuffixes: 'ist','ic'\nAnswer: ",
+            "reference": "totalistic",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "totalistic",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 155,
+                "total_tokens": 157
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-14",
+            "root": "articul",
+            "suffixes": [
+                "ate",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: articul\nSuffixes: 'ly','ate'\nAnswer: ",
+            "reference": "articulately",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "articulate",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 156,
+                "total_tokens": 158
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-15",
+            "root": "electr",
+            "suffixes": [
+                "on",
+                "ics"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nAnswer: narcissistic\n\nExample 4:\nWord root: electr\nSuffixes: 'ics','on'\nAnswer: ",
+            "reference": "electronics",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "electronics",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 155,
+                "total_tokens": 157
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-16",
+            "root": "gener",
+            "suffixes": [
+                "al",
+                "ity"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nAnswer: narcissistic\n\nExample 4:\nWord root: gener\nSuffixes: 'ity','al'\nAnswer: ",
+            "reference": "generality",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "generality",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 155,
+                "total_tokens": 157
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-17",
+            "root": "green",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nAnswer: narcissistic\n\nExample 4:\nWord root: green\nSuffixes: 'ish','ness'\nAnswer: ",
+            "reference": "greenishness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "greenishness",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 155,
+                "total_tokens": 158
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-18",
+            "root": "favor",
+            "suffixes": [
+                "it",
+                "ism"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: favor\nSuffixes: 'ism','it'\nAnswer: ",
+            "reference": "favoritism",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "favoritism",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 155,
+                "total_tokens": 158
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-19",
+            "root": "sin",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: sin\nSuffixes: 'less','ness'\nAnswer: ",
+            "reference": "sinlessness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "sinlessness",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 155,
+                "total_tokens": 157
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-20",
+            "root": "palat",
+            "suffixes": [
+                "al",
+                "ize"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nAnswer: narcissistic\n\nExample 4:\nWord root: palat\nSuffixes: 'al','ize'\nAnswer: ",
+            "reference": "palatalize",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "palatalize",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 156,
+                "total_tokens": 159
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-21",
+            "root": "taste",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: taste\nSuffixes: 'ful','ness'\nAnswer: ",
+            "reference": "tastefulness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "tastefulness",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 155,
+                "total_tokens": 159
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-22",
+            "root": "origin",
+            "suffixes": [
+                "al",
+                "ity"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: origin\nSuffixes: 'al','ity'\nAnswer: ",
+            "reference": "originality",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "originality",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 155,
+                "total_tokens": 157
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-23",
+            "root": "phys",
+            "suffixes": [
+                "ic",
+                "al",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: transit\nSuffixes: 'ion','al','ly'\nAnswer: transitionally\n\nExample 2:\nWord root: hyster\nSuffixes: 'ly','al','ic'\nAnswer: hysterically\n\nExample 3:\nWord root: senti\nSuffixes: 'ism','ment','al'\nAnswer: sentimentalism\n\nExample 4:\nWord root: phys\nSuffixes: 'ic','al','ness'\nAnswer: ",
+            "reference": "physicalness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "physicalness",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 165,
+                "total_tokens": 167
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-24",
+            "root": "blood",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nAnswer: narcissistic\n\nExample 4:\nWord root: blood\nSuffixes: 'ness','less'\nAnswer: ",
+            "reference": "bloodlessness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "bloodlessness",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 155,
+                "total_tokens": 158
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-25",
+            "root": "list",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nAnswer: narcissistic\n\nExample 4:\nWord root: list\nSuffixes: 'less','ly'\nAnswer: ",
+            "reference": "listlessly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "listlessly",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 155,
+                "total_tokens": 157
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-26",
+            "root": "transit",
+            "suffixes": [
+                "ion",
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: phys\nSuffixes: 'ic','al','ness'\nAnswer: physicalness\n\nExample 2:\nWord root: hyster\nSuffixes: 'ly','ic','al'\nAnswer: hysterically\n\nExample 3:\nWord root: senti\nSuffixes: 'ism','ment','al'\nAnswer: sentimentalism\n\nExample 4:\nWord root: transit\nSuffixes: 'al','ion','ly'\nAnswer: ",
+            "reference": "transitionally",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "transitionally",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 165,
+                "total_tokens": 167
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-27",
+            "root": "noct",
+            "suffixes": [
+                "urn",
+                "al"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: noct\nSuffixes: 'al','urn'\nAnswer: ",
+            "reference": "nocturnal",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "nocturnal",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 155,
+                "total_tokens": 158
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-28",
+            "root": "academ",
+            "suffixes": [
+                "ic",
+                "ian"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: academ\nSuffixes: 'ian','ic'\nAnswer: ",
+            "reference": "academician",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "academician",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 156,
+                "total_tokens": 158
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-29",
+            "root": "hyster",
+            "suffixes": [
+                "ic",
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: phys\nSuffixes: 'ness','al','ic'\nAnswer: physicalness\n\nExample 2:\nWord root: transit\nSuffixes: 'al','ly','ion'\nAnswer: transitionally\n\nExample 3:\nWord root: senti\nSuffixes: 'ism','ment','al'\nAnswer: sentimentalism\n\nExample 4:\nWord root: hyster\nSuffixes: 'ic','al','ly'\nAnswer: ",
+            "reference": "hysterically",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "hysterically",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 165,
+                "total_tokens": 168
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-30",
+            "root": "lust",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: lust\nSuffixes: 'ful','ness'\nAnswer: ",
+            "reference": "lustfulness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "lustfulness",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 155,
+                "total_tokens": 157
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-31",
+            "root": "optim",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nAnswer: narcissistic\n\nExample 4:\nWord root: optim\nSuffixes: 'ist','ic'\nAnswer: ",
+            "reference": "optimistic",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "optimistic",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 155,
+                "total_tokens": 157
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-32",
+            "root": "aphor",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: aphor\nSuffixes: 'ic','ist'\nAnswer: ",
+            "reference": "aphoristic",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "aphoristic",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 156,
+                "total_tokens": 159
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-33",
+            "root": "abort",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: abort\nSuffixes: 'ly','ive'\nAnswer: ",
+            "reference": "abortively",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "abortive",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 155,
+                "total_tokens": 157
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-34",
+            "root": "defence",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: defence\nSuffixes: 'ness','less'\nAnswer: ",
+            "reference": "defencelessness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "defencelessness",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 155,
+                "total_tokens": 158
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-35",
+            "root": "vorac",
+            "suffixes": [
+                "ious",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: vorac\nSuffixes: 'ly','ious'\nAnswer: ",
+            "reference": "voraciously",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "voraciously",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 156,
+                "total_tokens": 159
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-36",
+            "root": "ego",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: ego\nSuffixes: 'ic','ist'\nAnswer: ",
+            "reference": "egoistic",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "egoistic",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 155,
+                "total_tokens": 157
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-37",
+            "root": "waste",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nAnswer: narcissistic\n\nExample 4:\nWord root: waste\nSuffixes: 'ful','ness'\nAnswer: ",
+            "reference": "wastefulness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "wastefulness",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 155,
+                "total_tokens": 159
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-38",
+            "root": "senti",
+            "suffixes": [
+                "ment",
+                "al",
+                "ism"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: phys\nSuffixes: 'al','ness','ic'\nAnswer: physicalness\n\nExample 2:\nWord root: transit\nSuffixes: 'ion','al','ly'\nAnswer: transitionally\n\nExample 3:\nWord root: hyster\nSuffixes: 'ic','ly','al'\nAnswer: hysterically\n\nExample 4:\nWord root: senti\nSuffixes: 'ism','al','ment'\nAnswer: ",
+            "reference": "sentimentalism",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "sentimentalism",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 165,
+                "total_tokens": 169
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-39",
+            "root": "triumph",
+            "suffixes": [
+                "ant",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nAnswer: narcissistic\n\nExample 4:\nWord root: triumph\nSuffixes: 'ant','ly'\nAnswer: ",
+            "reference": "triumphantly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "triumphantly",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 155,
+                "total_tokens": 159
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-40",
+            "root": "liber",
+            "suffixes": [
+                "al",
+                "ism"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nAnswer: narcissistic\n\nExample 4:\nWord root: liber\nSuffixes: 'ism','al'\nAnswer: ",
+            "reference": "liberalism",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "liberalism",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 155,
+                "total_tokens": 158
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-41",
+            "root": "period",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: period\nSuffixes: 'al','ic'\nAnswer: ",
+            "reference": "periodical",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "periodical",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 155,
+                "total_tokens": 157
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-42",
+            "root": "soul",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nAnswer: narcissistic\n\nExample 4:\nWord root: soul\nSuffixes: 'ly','less'\nAnswer: ",
+            "reference": "soullessly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "soullessly",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 155,
+                "total_tokens": 158
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-43",
+            "root": "preposition",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: preposition\nSuffixes: 'ly','al'\nAnswer: ",
+            "reference": "prepositionally",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "prepositionally",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 156,
+                "total_tokens": 159
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-44",
+            "root": "protect",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nAnswer: narcissistic\n\nExample 4:\nWord root: protect\nSuffixes: 'ness','ive'\nAnswer: ",
+            "reference": "protectiveness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "protectiveness",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 155,
+                "total_tokens": 157
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-45",
+            "root": "cheer",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: cheer\nSuffixes: 'ful','ly'\nAnswer: ",
+            "reference": "cheerfully",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "cheerfully",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 155,
+                "total_tokens": 158
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-46",
+            "root": "passion",
+            "suffixes": [
+                "ate",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: passion\nSuffixes: 'ness','ate'\nAnswer: ",
+            "reference": "passionateness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "passionate",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 155,
+                "total_tokens": 157
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-47",
+            "root": "lingu",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nAnswer: narcissistic\n\nExample 4:\nWord root: lingu\nSuffixes: 'ic','ist'\nAnswer: ",
+            "reference": "linguistic",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "linguistic",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 155,
+                "total_tokens": 158
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-48",
+            "root": "hate",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: hate\nSuffixes: 'ly','ful'\nAnswer: ",
+            "reference": "hatefully",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "hatefully",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 155,
+                "total_tokens": 158
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-49",
+            "root": "gorm",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: gorm\nSuffixes: 'less','ly'\nAnswer: ",
+            "reference": "gormlessly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "gormlessly",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 156,
+                "total_tokens": 158
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-50",
+            "root": "feck",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: feck\nSuffixes: 'ness','less'\nAnswer: ",
+            "reference": "fecklessness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "fecklessness",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 156,
+                "total_tokens": 159
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-51",
+            "root": "real",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: real\nSuffixes: 'ist','ic'\nAnswer: ",
+            "reference": "realistic",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "realistic",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 155,
+                "total_tokens": 157
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-52",
+            "root": "function",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nAnswer: narcissistic\n\nExample 4:\nWord root: function\nSuffixes: 'al','ist'\nAnswer: ",
+            "reference": "functionalist",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "functionalist",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 155,
+                "total_tokens": 157
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-53",
+            "root": "sweet",
+            "suffixes": [
+                "en",
+                "er"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: sweet\nSuffixes: 'er','en'\nAnswer: ",
+            "reference": "sweetener",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "sweetener",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 155,
+                "total_tokens": 157
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-54",
+            "root": "guile",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nAnswer: narcissistic\n\nExample 4:\nWord root: guile\nSuffixes: 'ly','less'\nAnswer: ",
+            "reference": "guilelessly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "guilelessly",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 156,
+                "total_tokens": 159
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-55",
+            "root": "fool",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nAnswer: narcissistic\n\nExample 4:\nWord root: fool\nSuffixes: 'ish','ness'\nAnswer: ",
+            "reference": "foolishness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "foolishness",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 155,
+                "total_tokens": 159
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-56",
+            "root": "distinct",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nAnswer: narcissistic\n\nExample 4:\nWord root: distinct\nSuffixes: 'ive','ness'\nAnswer: ",
+            "reference": "distinctiveness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "distinctiveness",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 155,
+                "total_tokens": 157
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-57",
+            "root": "norm",
+            "suffixes": [
+                "al",
+                "ize"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: norm\nSuffixes: 'al','ize'\nAnswer: ",
+            "reference": "normalize",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "normalize",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 155,
+                "total_tokens": 157
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-58",
+            "root": "articul",
+            "suffixes": [
+                "ate",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nAnswer: narcissistic\n\nExample 4:\nWord root: articul\nSuffixes: 'ness','ate'\nAnswer: ",
+            "reference": "articulateness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "articulate",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 156,
+                "total_tokens": 158
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-59",
+            "root": "forget",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nAnswer: narcissistic\n\nExample 4:\nWord root: forget\nSuffixes: 'ness','ful'\nAnswer: ",
+            "reference": "forgetfulness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "forgetfulness",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 155,
+                "total_tokens": 157
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-60",
+            "root": "putr",
+            "suffixes": [
+                "efac",
+                "tive"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: putr\nSuffixes: 'tive','efac'\nAnswer: ",
+            "reference": "putrefactive",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "putrefactive",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 158,
+                "total_tokens": 161
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-61",
+            "root": "condition",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: condition\nSuffixes: 'ly','al'\nAnswer: ",
+            "reference": "conditionally",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "conditionally",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 155,
+                "total_tokens": 156
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-62",
+            "root": "shame",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: shame\nSuffixes: 'ful','ness'\nAnswer: ",
+            "reference": "shamefulness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "shamefulness",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 155,
+                "total_tokens": 158
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-63",
+            "root": "vel",
+            "suffixes": [
+                "ar",
+                "ize"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nAnswer: narcissistic\n\nExample 4:\nWord root: vel\nSuffixes: 'ize','ar'\nAnswer: ",
+            "reference": "velarize",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "velar",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 155,
+                "total_tokens": 157
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-64",
+            "root": "senti",
+            "suffixes": [
+                "ment",
+                "al",
+                "ist"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: phys\nSuffixes: 'ic','ness','al'\nAnswer: physicalness\n\nExample 2:\nWord root: transit\nSuffixes: 'ly','al','ion'\nAnswer: transitionally\n\nExample 3:\nWord root: hyster\nSuffixes: 'al','ly','ic'\nAnswer: hysterically\n\nExample 4:\nWord root: senti\nSuffixes: 'al','ment','ist'\nAnswer: ",
+            "reference": "sentimentalist",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "sentimentalist",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 165,
+                "total_tokens": 168
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-65",
+            "root": "bliss",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: bliss\nSuffixes: 'ful','ly'\nAnswer: ",
+            "reference": "blissfully",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "blissfully",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 155,
+                "total_tokens": 158
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-66",
+            "root": "tear",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: tear\nSuffixes: 'less','ly'\nAnswer: ",
+            "reference": "tearlessly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "tearlessly",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 155,
+                "total_tokens": 158
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-67",
+            "root": "lect",
+            "suffixes": [
+                "ure",
+                "ship"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: lect\nSuffixes: 'ure','ship'\nAnswer: ",
+            "reference": "lectureship",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "lecture",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 155,
+                "total_tokens": 156
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-68",
+            "root": "liturgic",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: liturgic\nSuffixes: 'al','ly'\nAnswer: ",
+            "reference": "liturgically",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "liturgical",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 157,
+                "total_tokens": 159
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-69",
+            "root": "gener",
+            "suffixes": [
+                "al",
+                "issimo"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: gener\nSuffixes: 'issimo','al'\nAnswer: ",
+            "reference": "generalissimo",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "generational",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 156,
+                "total_tokens": 158
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-70",
+            "root": "help",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nAnswer: narcissistic\n\nExample 4:\nWord root: help\nSuffixes: 'ness','less'\nAnswer: ",
+            "reference": "helplessness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "helplessness",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 155,
+                "total_tokens": 157
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-71",
+            "root": "intuit",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nAnswer: narcissistic\n\nExample 4:\nWord root: intuit\nSuffixes: 'ive','ly'\nAnswer: ",
+            "reference": "intuitively",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "intuitively",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 155,
+                "total_tokens": 158
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-72",
+            "root": "bash",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: bash\nSuffixes: 'ly','ful'\nAnswer: ",
+            "reference": "bashfully",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "bashfully",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 155,
+                "total_tokens": 157
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-73",
+            "root": "select",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: select\nSuffixes: 'ive','ness'\nAnswer: ",
+            "reference": "selectiveness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "selectiveness",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 155,
+                "total_tokens": 157
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-74",
+            "root": "join",
+            "suffixes": [
+                "t",
+                "ure"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nAnswer: narcissistic\n\nExample 4:\nWord root: join\nSuffixes: 'ure','t'\nAnswer: ",
+            "reference": "jointure",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "jointure",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 155,
+                "total_tokens": 157
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-75",
+            "root": "period",
+            "suffixes": [
+                "ic",
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: phys\nSuffixes: 'ic','ness','al'\nAnswer: physicalness\n\nExample 2:\nWord root: transit\nSuffixes: 'al','ion','ly'\nAnswer: transitionally\n\nExample 3:\nWord root: hyster\nSuffixes: 'ly','ic','al'\nAnswer: hysterically\n\nExample 4:\nWord root: period\nSuffixes: 'al','ly','ic'\nAnswer: ",
+            "reference": "periodically",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "periodically",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 164,
+                "total_tokens": 166
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-76",
+            "root": "self",
+            "suffixes": [
+                "ish",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: self\nSuffixes: 'ly','ish'\nAnswer: ",
+            "reference": "selfishly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "selfishly",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 155,
+                "total_tokens": 157
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-77",
+            "root": "obstruct",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nAnswer: narcissistic\n\nExample 4:\nWord root: obstruct\nSuffixes: 'ness','ive'\nAnswer: ",
+            "reference": "obstructiveness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "obstructiveness",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 155,
+                "total_tokens": 158
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-78",
+            "root": "dole",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nAnswer: narcissistic\n\nExample 4:\nWord root: dole\nSuffixes: 'ful','ly'\nAnswer: ",
+            "reference": "dolefully",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "dolefully",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 156,
+                "total_tokens": 159
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-79",
+            "root": "opt",
+            "suffixes": [
+                "ion",
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: phys\nSuffixes: 'al','ic','ness'\nAnswer: physicalness\n\nExample 2:\nWord root: transit\nSuffixes: 'ion','ly','al'\nAnswer: transitionally\n\nExample 3:\nWord root: hyster\nSuffixes: 'ic','al','ly'\nAnswer: hysterically\n\nExample 4:\nWord root: opt\nSuffixes: 'al','ion','ly'\nAnswer: ",
+            "reference": "optionally",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "optional",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 164,
+                "total_tokens": 165
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-80",
+            "root": "precoc",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: precoc\nSuffixes: 'ness','ious'\nAnswer: ",
+            "reference": "precociousness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "precociousness",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 156,
+                "total_tokens": 159
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-81",
+            "root": "pract",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nAnswer: narcissistic\n\nExample 4:\nWord root: pract\nSuffixes: 'al','ic'\nAnswer: ",
+            "reference": "practical",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "practical",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 155,
+                "total_tokens": 157
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-82",
+            "root": "perpetu",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nAnswer: narcissistic\n\nExample 4:\nWord root: perpetu\nSuffixes: 'al','ly'\nAnswer: ",
+            "reference": "perpetually",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "perpetually",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 156,
+                "total_tokens": 159
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-83",
+            "root": "faith",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: faith\nSuffixes: 'ness','ful'\nAnswer: ",
+            "reference": "faithfulness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "faithfulness",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 155,
+                "total_tokens": 157
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-84",
+            "root": "origin",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: origin\nSuffixes: 'al','ly'\nAnswer: ",
+            "reference": "originally",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "originally",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 155,
+                "total_tokens": 157
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-85",
+            "root": "nation",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: nation\nSuffixes: 'ist','al'\nAnswer: ",
+            "reference": "nationalist",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "nationalist",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 155,
+                "total_tokens": 157
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-86",
+            "root": "govern",
+            "suffixes": [
+                "ment",
+                "al"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: govern\nSuffixes: 'ment','al'\nAnswer: ",
+            "reference": "governmental",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "governmental",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 155,
+                "total_tokens": 157
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-87",
+            "root": "militar",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nAnswer: narcissistic\n\nExample 4:\nWord root: militar\nSuffixes: 'ic','ist'\nAnswer: ",
+            "reference": "militaristic",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "militaristic",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 155,
+                "total_tokens": 159
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-88",
+            "root": "taste",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nAnswer: narcissistic\n\nExample 4:\nWord root: taste\nSuffixes: 'ly','ful'\nAnswer: ",
+            "reference": "tastefully",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "tastefully",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 155,
+                "total_tokens": 158
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-89",
+            "root": "weigh",
+            "suffixes": [
+                "t",
+                "less"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: weigh\nSuffixes: 'less','t'\nAnswer: ",
+            "reference": "weightless",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "weightless",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 155,
+                "total_tokens": 157
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-90",
+            "root": "frig",
+            "suffixes": [
+                "id",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nAnswer: narcissistic\n\nExample 4:\nWord root: frig\nSuffixes: 'ly','id'\nAnswer: ",
+            "reference": "frigidly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "frigid",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 156,
+                "total_tokens": 158
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-91",
+            "root": "protect",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: protect\nSuffixes: 'ly','ive'\nAnswer: ",
+            "reference": "protectively",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "protectively",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 155,
+                "total_tokens": 157
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-92",
+            "root": "magister",
+            "suffixes": [
+                "iall",
+                "y"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nAnswer: narcissistic\n\nExample 4:\nWord root: magister\nSuffixes: 'y','iall'\nAnswer: ",
+            "reference": "magisterially",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "magisterial",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 157,
+                "total_tokens": 160
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-93",
+            "root": "elf",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: elf\nSuffixes: 'ish','ness'\nAnswer: ",
+            "reference": "elfishness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "elfishness",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 155,
+                "total_tokens": 158
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-94",
+            "root": "cybernetic",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: cybernetic\nSuffixes: 'al','ly'\nAnswer: ",
+            "reference": "cybernetically",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "cybernetically",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 157,
+                "total_tokens": 161
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-95",
+            "root": "cens",
+            "suffixes": [
+                "or",
+                "ious",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: phys\nSuffixes: 'ness','al','ic'\nAnswer: physicalness\n\nExample 2:\nWord root: transit\nSuffixes: 'al','ly','ion'\nAnswer: transitionally\n\nExample 3:\nWord root: hyster\nSuffixes: 'al','ly','ic'\nAnswer: hysterically\n\nExample 4:\nWord root: cens\nSuffixes: 'ness','or','ious'\nAnswer: ",
+            "reference": "censoriousness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "censoriousness",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 165,
+                "total_tokens": 169
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-96",
+            "root": "journ",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: journ\nSuffixes: 'ist','al'\nAnswer: ",
+            "reference": "journalist",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "journalist",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 156,
+                "total_tokens": 158
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-97",
+            "root": "sheep",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: sheep\nSuffixes: 'ish','ness'\nAnswer: ",
+            "reference": "sheepishness",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "sheepishness",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 155,
+                "total_tokens": 159
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-98",
+            "root": "use",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: use\nSuffixes: 'less','ly'\nAnswer: ",
+            "reference": "uselessly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "uselessly",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 155,
+                "total_tokens": 157
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-99",
+            "root": "pain",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in English and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nAnswer: directional\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nAnswer: shiftlessness\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nAnswer: narcissistic\n\nExample 4:\nWord root: pain\nSuffixes: 'less','ly'\nAnswer: ",
+            "reference": "painlessly",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "painlessly",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 155,
+                "total_tokens": 157
+            },
+            "correct": true,
+            "faithful": true
+        }
+    ]
+}

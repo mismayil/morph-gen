@@ -1,0 +1,2043 @@
+{
+    "metadata": {
+        "datapath": "../experiments/data/en/morpholex/temp_en/v6/MorphoLEX_en_prep_morph_sample_nonce_eval_morph_disc_en_s3.json",
+        "model": "gpt-3.5-turbo",
+        "temperature": 0.3,
+        "max_tokens": 40,
+        "top_p": 1,
+        "frequency_penalty": 0,
+        "presence_penalty": 0
+    },
+    "metrics": {
+        "usage": {
+            "prompt_tokens": 29052,
+            "completion_tokens": 116,
+            "total_tokens": 29168
+        },
+        "cost": {
+            "input": 0.043578,
+            "output": 0.000232,
+            "total": 0.04381
+        },
+        "accuracy": 0.73,
+        "faithful_accuracy": 1.0,
+        "accuracy_by_suffix_len": {
+            "2": 0.75,
+            "3": 0.5
+        },
+        "num_samples_by_suffix_len": {
+            "2": 92,
+            "3": 8
+        }
+    },
+    "data": [
+        {
+            "id": "morpholex-ood-0",
+            "root": "vetect",
+            "suffixes": [
+                "ion",
+                "al"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 2:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 3:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: 'ious','ness'\nOptions:\n1. sojicnessious\n2. sojiciousness\nAnswer: 2\n\nExample 4:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "direct",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 280,
+                "total_tokens": 281
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-1",
+            "root": "vhift",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 3:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: 'ness','ious'\nOptions:\n1. sojiciousness\n2. sojicnessious\nAnswer: 1\n\nExample 4:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "shift",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 280,
+                "total_tokens": 281
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-2",
+            "root": "kogyiss",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: 'ness','ious'\nOptions:\n1. sojicnessious\n2. sojiciousness\nAnswer: 2\n\nExample 4:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "narciss",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 280,
+                "total_tokens": 281
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-3",
+            "root": "sojic",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: 'ious','ness'\nOptions:\n1. sojiciousness\n2. sojicnessious\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "judic",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 280,
+                "total_tokens": 281
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-4",
+            "root": "huth",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: 'ness','less'\nOptions:\n1. huthlessness\n2. huthnessless\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "ruth",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 276,
+                "total_tokens": 277
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-5",
+            "root": "hizimp",
+            "suffixes": [
+                "ish",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: hizimp\nDefinition: 'hizimp' means 'imp' in English.\nSuffixes: 'ish','ly'\nOptions:\n1. hizimpishly\n2. hizimplyish\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "imp",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 279,
+                "total_tokens": 280
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-6",
+            "root": "zunac",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: zunac\nDefinition: 'zunac' means 'rapac' in English.\nSuffixes: 'ious','ness'\nOptions:\n1. zunacnessious\n2. zunaciousness\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "rapac",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 277,
+                "total_tokens": 278
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-7",
+            "root": "ponif",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: ponif\nDefinition: 'ponif' means 'pacif' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. ponificist\n2. ponifistic\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "pacif",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 275,
+                "total_tokens": 276
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-8",
+            "root": "fudart",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: fudart\nDefinition: 'fudart' means 'art' in English.\nSuffixes: 'less','ly'\nOptions:\n1. fudartlessly\n2. fudartlyless\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "art",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 279,
+                "total_tokens": 280
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-9",
+            "root": "gibac",
+            "suffixes": [
+                "ious",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: gibac\nDefinition: 'gibac' means 'verac' in English.\nSuffixes: 'ly','ious'\nOptions:\n1. gibaclyious\n2. gibaciously\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "verac",
+            "model_output": "1. gibaclyious\n2. gibaciously\n\nAnswer: 2",
+            "usage": {
+                "completion_tokens": 17,
+                "prompt_tokens": 277,
+                "total_tokens": 294
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-10",
+            "root": "mziad",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: mziad\nDefinition: 'mziad' means 'dread' in English.\nSuffixes: 'ful','ly'\nOptions:\n1. mziadlyful\n2. mziadfully\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "dread",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 280,
+                "total_tokens": 281
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-11",
+            "root": "urort",
+            "suffixes": [
+                "ion",
+                "ist"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: urort\nDefinition: 'urort' means 'abort' in English.\nSuffixes: 'ion','ist'\nOptions:\n1. urortistion\n2. urortionist\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "abort",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 275,
+                "total_tokens": 276
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-12",
+            "root": "rukizor",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: rukizor\nDefinition: 'rukizor' means 'categor' in English.\nSuffixes: 'ic','al'\nOptions:\n1. rukizorical\n2. rukizoralic\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "categor",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 281,
+                "total_tokens": 282
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-13",
+            "root": "hupal",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: hupal\nDefinition: 'hupal' means 'total' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. hupalistic\n2. hupalicist\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "total",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 275,
+                "total_tokens": 276
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-14",
+            "root": "uzzetul",
+            "suffixes": [
+                "ate",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: uzzetul\nDefinition: 'uzzetul' means 'articul' in English.\nSuffixes: 'ly','ate'\nOptions:\n1. uzzetullyate\n2. uzzetulately\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "articul",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 282,
+                "total_tokens": 283
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-15",
+            "root": "icectr",
+            "suffixes": [
+                "on",
+                "ics"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: icectr\nDefinition: 'icectr' means 'electr' in English.\nSuffixes: 'ics','on'\nOptions:\n1. icectronics\n2. icectricson\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "electr",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 278,
+                "total_tokens": 279
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-16",
+            "root": "ziver",
+            "suffixes": [
+                "al",
+                "ity"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: ziver\nDefinition: 'ziver' means 'gener' in English.\nSuffixes: 'al','ity'\nOptions:\n1. ziverityal\n2. ziverality\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "gener",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 275,
+                "total_tokens": 276
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-17",
+            "root": "rbien",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: rbien\nDefinition: 'rbien' means 'green' in English.\nSuffixes: 'ish','ness'\nOptions:\n1. rbiennessish\n2. rbienishness\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "green",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 276,
+                "total_tokens": 277
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-18",
+            "root": "modor",
+            "suffixes": [
+                "it",
+                "ism"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: modor\nDefinition: 'modor' means 'favor' in English.\nSuffixes: 'ism','it'\nOptions:\n1. modoritism\n2. modorismit\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "favor",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 275,
+                "total_tokens": 276
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-19",
+            "root": "nin",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: nin\nDefinition: 'nin' means 'sin' in English.\nSuffixes: 'less','ness'\nOptions:\n1. ninlessness\n2. ninnessless\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "sin",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 271,
+                "total_tokens": 272
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-20",
+            "root": "lomat",
+            "suffixes": [
+                "al",
+                "ize"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: lomat\nDefinition: 'lomat' means 'palat' in English.\nSuffixes: 'al','ize'\nOptions:\n1. lomatalize\n2. lomatizeal\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "palat",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 277,
+                "total_tokens": 278
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-21",
+            "root": "vukpe",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: vukpe\nDefinition: 'vukpe' means 'taste' in English.\nSuffixes: 'ful','ness'\nOptions:\n1. vukpefulness\n2. vukpenessful\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "taste",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 280,
+                "total_tokens": 281
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-22",
+            "root": "aletin",
+            "suffixes": [
+                "al",
+                "ity"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: aletin\nDefinition: 'aletin' means 'origin' in English.\nSuffixes: 'ity','al'\nOptions:\n1. aletinityal\n2. aletinality\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "origin",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 277,
+                "total_tokens": 278
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-23",
+            "root": "mkfsphys",
+            "suffixes": [
+                "ic",
+                "al",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: yfopjit\nDefinition: 'yfopjit' means 'transit' in English.\nSuffixes: 'ion','al','ly'\nOptions:\n1. yfopjitlyalion\n2. yfopjitionally\n3. yfopjitallyion\n4. yfopjitlyional\n5. yfopjitalionly\n6. yfopjitionlyal\nAnswer: 2\n\nExample 2:\nWord root: jbzser\nDefinition: 'jbzser' means 'hyster' in English.\nSuffixes: 'ic','al','ly'\nOptions:\n1. jbzsericlyal\n2. jbzserically\n3. jbzseralicly\n4. jbzserallyic\n5. jbzserlyalic\n6. jbzserlyical\nAnswer: 2\n\nExample 3:\nWord root: fivwi\nDefinition: 'fivwi' means 'senti' in English.\nSuffixes: 'ment','ism','al'\nOptions:\n1. fivwiismmental\n2. fivwimentismal\n3. fivwialismment\n4. fivwialmentism\n5. fivwimentalism\n6. fivwiismalment\nAnswer: 5\n\nExample 4:\nWord root: mkfsphys\nDefinition: 'mkfsphys' means 'phys' in English.\nSuffixes: 'ness','al','ic'\nOptions:\n1. mkfsphysalicness\n2. mkfsphysnessalic\n3. mkfsphysicnessal\n4. mkfsphysicalness\n5. mkfsphysnessical\n6. mkfsphysalnessic\nAnswer: ",
+            "reference": 4,
+            "template": "morph_disc_en",
+            "original_root": "phys",
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 443,
+                "total_tokens": 444
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-24",
+            "root": "gtaod",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: gtaod\nDefinition: 'gtaod' means 'blood' in English.\nSuffixes: 'ness','less'\nOptions:\n1. gtaodlessness\n2. gtaodnessless\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "blood",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 279,
+                "total_tokens": 280
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-25",
+            "root": "tist",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: tist\nDefinition: 'tist' means 'list' in English.\nSuffixes: 'less','ly'\nOptions:\n1. tistlyless\n2. tistlessly\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "list",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 275,
+                "total_tokens": 276
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-26",
+            "root": "yfopjit",
+            "suffixes": [
+                "ion",
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: mkfsphys\nDefinition: 'mkfsphys' means 'phys' in English.\nSuffixes: 'ic','al','ness'\nOptions:\n1. mkfsphysicalness\n2. mkfsphysalnessic\n3. mkfsphysicnessal\n4. mkfsphysnessical\n5. mkfsphysnessalic\n6. mkfsphysalicness\nAnswer: 1\n\nExample 2:\nWord root: jbzser\nDefinition: 'jbzser' means 'hyster' in English.\nSuffixes: 'ic','al','ly'\nOptions:\n1. jbzserlyical\n2. jbzserically\n3. jbzserallyic\n4. jbzseralicly\n5. jbzserlyalic\n6. jbzsericlyal\nAnswer: 2\n\nExample 3:\nWord root: fivwi\nDefinition: 'fivwi' means 'senti' in English.\nSuffixes: 'ment','al','ism'\nOptions:\n1. fivwimentalism\n2. fivwialmentism\n3. fivwiismmental\n4. fivwialismment\n5. fivwimentismal\n6. fivwiismalment\nAnswer: 1\n\nExample 4:\nWord root: yfopjit\nDefinition: 'yfopjit' means 'transit' in English.\nSuffixes: 'ion','al','ly'\nOptions:\n1. yfopjitalionly\n2. yfopjitlyional\n3. yfopjitionlyal\n4. yfopjitionally\n5. yfopjitallyion\n6. yfopjitlyalion\nAnswer: ",
+            "reference": 4,
+            "template": "morph_disc_en",
+            "original_root": "transit",
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 443,
+                "total_tokens": 444
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-27",
+            "root": "foct",
+            "suffixes": [
+                "urn",
+                "al"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: foct\nDefinition: 'foct' means 'noct' in English.\nSuffixes: 'urn','al'\nOptions:\n1. foctalurn\n2. focturnal\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "noct",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 275,
+                "total_tokens": 276
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-28",
+            "root": "owomem",
+            "suffixes": [
+                "ic",
+                "ian"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: owomem\nDefinition: 'owomem' means 'academ' in English.\nSuffixes: 'ic','ian'\nOptions:\n1. owomemician\n2. owomemianic\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "academ",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 280,
+                "total_tokens": 281
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-29",
+            "root": "jbzser",
+            "suffixes": [
+                "ic",
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: mkfsphys\nDefinition: 'mkfsphys' means 'phys' in English.\nSuffixes: 'ic','al','ness'\nOptions:\n1. mkfsphysnessical\n2. mkfsphysalicness\n3. mkfsphysicnessal\n4. mkfsphysicalness\n5. mkfsphysnessalic\n6. mkfsphysalnessic\nAnswer: 4\n\nExample 2:\nWord root: yfopjit\nDefinition: 'yfopjit' means 'transit' in English.\nSuffixes: 'ion','ly','al'\nOptions:\n1. yfopjitionlyal\n2. yfopjitionally\n3. yfopjitalionly\n4. yfopjitlyalion\n5. yfopjitlyional\n6. yfopjitallyion\nAnswer: 2\n\nExample 3:\nWord root: fivwi\nDefinition: 'fivwi' means 'senti' in English.\nSuffixes: 'ism','al','ment'\nOptions:\n1. fivwialmentism\n2. fivwimentismal\n3. fivwiismmental\n4. fivwialismment\n5. fivwimentalism\n6. fivwiismalment\nAnswer: 5\n\nExample 4:\nWord root: jbzser\nDefinition: 'jbzser' means 'hyster' in English.\nSuffixes: 'ic','al','ly'\nOptions:\n1. jbzseralicly\n2. jbzserlyical\n3. jbzsericlyal\n4. jbzserallyic\n5. jbzserlyalic\n6. jbzserically\nAnswer: ",
+            "reference": 6,
+            "template": "morph_disc_en",
+            "original_root": "hyster",
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 443,
+                "total_tokens": 444
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-30",
+            "root": "vust",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: vust\nDefinition: 'vust' means 'lust' in English.\nSuffixes: 'ful','ness'\nOptions:\n1. vustnessful\n2. vustfulness\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "lust",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 275,
+                "total_tokens": 276
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-31",
+            "root": "ukfim",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: ukfim\nDefinition: 'ukfim' means 'optim' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. ukfimicist\n2. ukfimistic\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "optim",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 279,
+                "total_tokens": 280
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-32",
+            "root": "onsor",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: onsor\nDefinition: 'onsor' means 'aphor' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. onsoricist\n2. onsoristic\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "aphor",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 275,
+                "total_tokens": 276
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-33",
+            "root": "uwort",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: uwort\nDefinition: 'uwort' means 'abort' in English.\nSuffixes: 'ive','ly'\nOptions:\n1. uwortlyive\n2. uwortively\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "abort",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 275,
+                "total_tokens": 276
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-34",
+            "root": "lilicje",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: lilicje\nDefinition: 'lilicje' means 'defence' in English.\nSuffixes: 'less','ness'\nOptions:\n1. lilicjenessless\n2. lilicjelessness\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "defence",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 281,
+                "total_tokens": 282
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-35",
+            "root": "rutac",
+            "suffixes": [
+                "ious",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: rutac\nDefinition: 'rutac' means 'vorac' in English.\nSuffixes: 'ious','ly'\nOptions:\n1. rutaciously\n2. rutaclyious\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "vorac",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 276,
+                "total_tokens": 277
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-36",
+            "root": "ilo",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: ilo\nDefinition: 'ilo' means 'ego' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. iloicist\n2. iloistic\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "ego",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 274,
+                "total_tokens": 275
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-37",
+            "root": "bupye",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: bupye\nDefinition: 'bupye' means 'waste' in English.\nSuffixes: 'ful','ness'\nOptions:\n1. bupyefulness\n2. bupyenessful\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "waste",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 279,
+                "total_tokens": 280
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-38",
+            "root": "fivwi",
+            "suffixes": [
+                "ment",
+                "al",
+                "ism"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: mkfsphys\nDefinition: 'mkfsphys' means 'phys' in English.\nSuffixes: 'ic','ness','al'\nOptions:\n1. mkfsphysalnessic\n2. mkfsphysnessical\n3. mkfsphysicalness\n4. mkfsphysicnessal\n5. mkfsphysnessalic\n6. mkfsphysalicness\nAnswer: 3\n\nExample 2:\nWord root: yfopjit\nDefinition: 'yfopjit' means 'transit' in English.\nSuffixes: 'ly','ion','al'\nOptions:\n1. yfopjitlyalion\n2. yfopjitionlyal\n3. yfopjitlyional\n4. yfopjitallyion\n5. yfopjitionally\n6. yfopjitalionly\nAnswer: 5\n\nExample 3:\nWord root: jbzser\nDefinition: 'jbzser' means 'hyster' in English.\nSuffixes: 'ic','al','ly'\nOptions:\n1. jbzserlyical\n2. jbzsericlyal\n3. jbzserallyic\n4. jbzserically\n5. jbzserlyalic\n6. jbzseralicly\nAnswer: 4\n\nExample 4:\nWord root: fivwi\nDefinition: 'fivwi' means 'senti' in English.\nSuffixes: 'ism','ment','al'\nOptions:\n1. fivwialismment\n2. fivwiismalment\n3. fivwimentismal\n4. fivwimentalism\n5. fivwiismmental\n6. fivwialmentism\nAnswer: ",
+            "reference": 4,
+            "template": "morph_disc_en",
+            "original_root": "senti",
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 443,
+                "total_tokens": 444
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-39",
+            "root": "fkeumph",
+            "suffixes": [
+                "ant",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: fkeumph\nDefinition: 'fkeumph' means 'triumph' in English.\nSuffixes: 'ly','ant'\nOptions:\n1. fkeumphlyant\n2. fkeumphantly\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "triumph",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 281,
+                "total_tokens": 282
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-40",
+            "root": "jeyer",
+            "suffixes": [
+                "al",
+                "ism"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: jeyer\nDefinition: 'jeyer' means 'liber' in English.\nSuffixes: 'al','ism'\nOptions:\n1. jeyeralism\n2. jeyerismal\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "liber",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 277,
+                "total_tokens": 278
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-41",
+            "root": "higeod",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: higeod\nDefinition: 'higeod' means 'period' in English.\nSuffixes: 'ic','al'\nOptions:\n1. higeodical\n2. higeodalic\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "period",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 278,
+                "total_tokens": 279
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-42",
+            "root": "guul",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: guul\nDefinition: 'guul' means 'soul' in English.\nSuffixes: 'less','ly'\nOptions:\n1. guullessly\n2. guullyless\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "soul",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 275,
+                "total_tokens": 276
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-43",
+            "root": "jjikuzeheon",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: jjikuzeheon\nDefinition: 'jjikuzeheon' means 'preposition' in English.\nSuffixes: 'al','ly'\nOptions:\n1. jjikuzeheonlyal\n2. jjikuzeheonally\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "preposition",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 287,
+                "total_tokens": 288
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-44",
+            "root": "vmamect",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: vmamect\nDefinition: 'vmamect' means 'protect' in English.\nSuffixes: 'ness','ive'\nOptions:\n1. vmamectnessive\n2. vmamectiveness\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "protect",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 279,
+                "total_tokens": 280
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-45",
+            "root": "jlier",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: jlier\nDefinition: 'jlier' means 'cheer' in English.\nSuffixes: 'ful','ly'\nOptions:\n1. jlierlyful\n2. jlierfully\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "cheer",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 276,
+                "total_tokens": 277
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-46",
+            "root": "sozyeon",
+            "suffixes": [
+                "ate",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: sozyeon\nDefinition: 'sozyeon' means 'passion' in English.\nSuffixes: 'ness','ate'\nOptions:\n1. sozyeonnessate\n2. sozyeonateness\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "passion",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 281,
+                "total_tokens": 282
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-47",
+            "root": "keblu",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: keblu\nDefinition: 'keblu' means 'lingu' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kebluistic\n2. kebluicist\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "lingu",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 280,
+                "total_tokens": 281
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-48",
+            "root": "wobe",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: wobe\nDefinition: 'wobe' means 'hate' in English.\nSuffixes: 'ful','ly'\nOptions:\n1. wobefully\n2. wobelyful\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "hate",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 276,
+                "total_tokens": 277
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-49",
+            "root": "morm",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: morm\nDefinition: 'morm' means 'gorm' in English.\nSuffixes: 'less','ly'\nOptions:\n1. mormlessly\n2. mormlyless\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "gorm",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 275,
+                "total_tokens": 276
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-50",
+            "root": "ceck",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: ceck\nDefinition: 'ceck' means 'feck' in English.\nSuffixes: 'less','ness'\nOptions:\n1. cecklessness\n2. cecknessless\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "feck",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 276,
+                "total_tokens": 277
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-51",
+            "root": "tial",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: tial\nDefinition: 'tial' means 'real' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. tialistic\n2. tialicist\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "real",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 275,
+                "total_tokens": 276
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-52",
+            "root": "coltteon",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: coltteon\nDefinition: 'coltteon' means 'function' in English.\nSuffixes: 'al','ist'\nOptions:\n1. coltteonistal\n2. coltteonalist\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "function",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 279,
+                "total_tokens": 280
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-53",
+            "root": "rniet",
+            "suffixes": [
+                "en",
+                "er"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: rniet\nDefinition: 'rniet' means 'sweet' in English.\nSuffixes: 'er','en'\nOptions:\n1. rnietener\n2. rnieteren\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "sweet",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 275,
+                "total_tokens": 276
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-54",
+            "root": "paele",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: paele\nDefinition: 'paele' means 'guile' in English.\nSuffixes: 'ly','less'\nOptions:\n1. paelelyless\n2. paelelessly\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "guile",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 280,
+                "total_tokens": 281
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-55",
+            "root": "buol",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: buol\nDefinition: 'buol' means 'fool' in English.\nSuffixes: 'ish','ness'\nOptions:\n1. buolnessish\n2. buolishness\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "fool",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 277,
+                "total_tokens": 278
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-56",
+            "root": "tecpinct",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: tecpinct\nDefinition: 'tecpinct' means 'distinct' in English.\nSuffixes: 'ive','ness'\nOptions:\n1. tecpinctnessive\n2. tecpinctiveness\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "distinct",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 279,
+                "total_tokens": 280
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-57",
+            "root": "korm",
+            "suffixes": [
+                "al",
+                "ize"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: korm\nDefinition: 'korm' means 'norm' in English.\nSuffixes: 'al','ize'\nOptions:\n1. kormalize\n2. kormizeal\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "norm",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 275,
+                "total_tokens": 276
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-58",
+            "root": "uzfetul",
+            "suffixes": [
+                "ate",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: uzfetul\nDefinition: 'uzfetul' means 'articul' in English.\nSuffixes: 'ate','ness'\nOptions:\n1. uzfetulnessate\n2. uzfetulateness\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "articul",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 285,
+                "total_tokens": 286
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-59",
+            "root": "wapjet",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: wapjet\nDefinition: 'wapjet' means 'forget' in English.\nSuffixes: 'ness','ful'\nOptions:\n1. wapjetfulness\n2. wapjetnessful\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "forget",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 278,
+                "total_tokens": 279
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-60",
+            "root": "hutr",
+            "suffixes": [
+                "efac",
+                "tive"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: hutr\nDefinition: 'hutr' means 'putr' in English.\nSuffixes: 'efac','tive'\nOptions:\n1. hutrtiveefac\n2. hutrefactive\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "putr",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 279,
+                "total_tokens": 280
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-61",
+            "root": "hacrepeon",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: hacrepeon\nDefinition: 'hacrepeon' means 'condition' in English.\nSuffixes: 'ly','al'\nOptions:\n1. hacrepeonlyal\n2. hacrepeonally\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "condition",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 279,
+                "total_tokens": 280
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-62",
+            "root": "yfoce",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: yfoce\nDefinition: 'yfoce' means 'shame' in English.\nSuffixes: 'ful','ness'\nOptions:\n1. yfocefulness\n2. yfocenessful\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "shame",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 280,
+                "total_tokens": 281
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-63",
+            "root": "pel",
+            "suffixes": [
+                "ar",
+                "ize"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: pel\nDefinition: 'pel' means 'vel' in English.\nSuffixes: 'ize','ar'\nOptions:\n1. pelarize\n2. pelizear\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "vel",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 272,
+                "total_tokens": 273
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-64",
+            "root": "cinsi",
+            "suffixes": [
+                "ment",
+                "al",
+                "ist"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: mkfsphys\nDefinition: 'mkfsphys' means 'phys' in English.\nSuffixes: 'ic','ness','al'\nOptions:\n1. mkfsphysicnessal\n2. mkfsphysnessical\n3. mkfsphysalicness\n4. mkfsphysalnessic\n5. mkfsphysicalness\n6. mkfsphysnessalic\nAnswer: 5\n\nExample 2:\nWord root: yfopjit\nDefinition: 'yfopjit' means 'transit' in English.\nSuffixes: 'ly','al','ion'\nOptions:\n1. yfopjitalionly\n2. yfopjitlyalion\n3. yfopjitionlyal\n4. yfopjitionally\n5. yfopjitallyion\n6. yfopjitlyional\nAnswer: 4\n\nExample 3:\nWord root: jbzser\nDefinition: 'jbzser' means 'hyster' in English.\nSuffixes: 'al','ly','ic'\nOptions:\n1. jbzserallyic\n2. jbzseralicly\n3. jbzserlyalic\n4. jbzsericlyal\n5. jbzserlyical\n6. jbzserically\nAnswer: 6\n\nExample 4:\nWord root: cinsi\nDefinition: 'cinsi' means 'senti' in English.\nSuffixes: 'al','ment','ist'\nOptions:\n1. cinsimentalist\n2. cinsiistmental\n3. cinsialistment\n4. cinsiistalment\n5. cinsialmentist\n6. cinsimentistal\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "senti",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 434,
+                "total_tokens": 435
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-65",
+            "root": "ptiss",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: ptiss\nDefinition: 'ptiss' means 'bliss' in English.\nSuffixes: 'ly','ful'\nOptions:\n1. ptisslyful\n2. ptissfully\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "bliss",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 276,
+                "total_tokens": 277
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-66",
+            "root": "giar",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: giar\nDefinition: 'giar' means 'tear' in English.\nSuffixes: 'ly','less'\nOptions:\n1. giarlessly\n2. giarlyless\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "tear",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 276,
+                "total_tokens": 277
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-67",
+            "root": "wect",
+            "suffixes": [
+                "ure",
+                "ship"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: wect\nDefinition: 'wect' means 'lect' in English.\nSuffixes: 'ure','ship'\nOptions:\n1. wectshipure\n2. wectureship\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "lect",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 276,
+                "total_tokens": 277
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-68",
+            "root": "letagdic",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: letagdic\nDefinition: 'letagdic' means 'liturgic' in English.\nSuffixes: 'ly','al'\nOptions:\n1. letagdically\n2. letagdiclyal\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "liturgic",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 281,
+                "total_tokens": 282
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-69",
+            "root": "wiber",
+            "suffixes": [
+                "al",
+                "issimo"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: wiber\nDefinition: 'wiber' means 'gener' in English.\nSuffixes: 'al','issimo'\nOptions:\n1. wiberissimoal\n2. wiberalissimo\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "gener",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 279,
+                "total_tokens": 280
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-70",
+            "root": "felp",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: felp\nDefinition: 'felp' means 'help' in English.\nSuffixes: 'less','ness'\nOptions:\n1. felpnessless\n2. felplessness\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "help",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 275,
+                "total_tokens": 276
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-71",
+            "root": "evjoit",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: evjoit\nDefinition: 'evjoit' means 'intuit' in English.\nSuffixes: 'ive','ly'\nOptions:\n1. evjoitively\n2. evjoitlyive\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "intuit",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 280,
+                "total_tokens": 281
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-72",
+            "root": "zash",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: zash\nDefinition: 'zash' means 'bash' in English.\nSuffixes: 'ful','ly'\nOptions:\n1. zashlyful\n2. zashfully\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "bash",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 275,
+                "total_tokens": 276
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-73",
+            "root": "cimect",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: cimect\nDefinition: 'cimect' means 'select' in English.\nSuffixes: 'ive','ness'\nOptions:\n1. cimectiveness\n2. cimectnessive\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "select",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 279,
+                "total_tokens": 280
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-74",
+            "root": "buin",
+            "suffixes": [
+                "t",
+                "ure"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: buin\nDefinition: 'buin' means 'join' in English.\nSuffixes: 't','ure'\nOptions:\n1. buinture\n2. buinuret\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "join",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 275,
+                "total_tokens": 276
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-75",
+            "root": "cikeod",
+            "suffixes": [
+                "ic",
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: mkfsphys\nDefinition: 'mkfsphys' means 'phys' in English.\nSuffixes: 'ness','al','ic'\nOptions:\n1. mkfsphysalnessic\n2. mkfsphysnessalic\n3. mkfsphysicalness\n4. mkfsphysnessical\n5. mkfsphysalicness\n6. mkfsphysicnessal\nAnswer: 3\n\nExample 2:\nWord root: yfopjit\nDefinition: 'yfopjit' means 'transit' in English.\nSuffixes: 'ly','al','ion'\nOptions:\n1. yfopjitionally\n2. yfopjitlyalion\n3. yfopjitionlyal\n4. yfopjitallyion\n5. yfopjitalionly\n6. yfopjitlyional\nAnswer: 1\n\nExample 3:\nWord root: jbzser\nDefinition: 'jbzser' means 'hyster' in English.\nSuffixes: 'ly','ic','al'\nOptions:\n1. jbzserlyical\n2. jbzsericlyal\n3. jbzserallyic\n4. jbzserically\n5. jbzseralicly\n6. jbzserlyalic\nAnswer: 4\n\nExample 4:\nWord root: cikeod\nDefinition: 'cikeod' means 'period' in English.\nSuffixes: 'ic','ly','al'\nOptions:\n1. cikeodlyical\n2. cikeodalicly\n3. cikeodiclyal\n4. cikeodically\n5. cikeodallyic\n6. cikeodlyalic\nAnswer: ",
+            "reference": 4,
+            "template": "morph_disc_en",
+            "original_root": "period",
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 436,
+                "total_tokens": 437
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-76",
+            "root": "gelf",
+            "suffixes": [
+                "ish",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: gelf\nDefinition: 'gelf' means 'self' in English.\nSuffixes: 'ly','ish'\nOptions:\n1. gelfishly\n2. gelflyish\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "self",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 275,
+                "total_tokens": 276
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-77",
+            "root": "ukjbduct",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: ukjbduct\nDefinition: 'ukjbduct' means 'obstruct' in English.\nSuffixes: 'ness','ive'\nOptions:\n1. ukjbductnessive\n2. ukjbductiveness\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "obstruct",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 280,
+                "total_tokens": 281
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-78",
+            "root": "gute",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: gute\nDefinition: 'gute' means 'dole' in English.\nSuffixes: 'ful','ly'\nOptions:\n1. gutelyful\n2. gutefully\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "dole",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 273,
+                "total_tokens": 274
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-79",
+            "root": "dupopt",
+            "suffixes": [
+                "ion",
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: mkfsphys\nDefinition: 'mkfsphys' means 'phys' in English.\nSuffixes: 'al','ness','ic'\nOptions:\n1. mkfsphysnessalic\n2. mkfsphysicnessal\n3. mkfsphysicalness\n4. mkfsphysnessical\n5. mkfsphysalnessic\n6. mkfsphysalicness\nAnswer: 3\n\nExample 2:\nWord root: yfopjit\nDefinition: 'yfopjit' means 'transit' in English.\nSuffixes: 'ly','ion','al'\nOptions:\n1. yfopjitionlyal\n2. yfopjitalionly\n3. yfopjitionally\n4. yfopjitlyional\n5. yfopjitlyalion\n6. yfopjitallyion\nAnswer: 3\n\nExample 3:\nWord root: jbzser\nDefinition: 'jbzser' means 'hyster' in English.\nSuffixes: 'ly','al','ic'\nOptions:\n1. jbzserically\n2. jbzserlyalic\n3. jbzseralicly\n4. jbzserallyic\n5. jbzsericlyal\n6. jbzserlyical\nAnswer: 1\n\nExample 4:\nWord root: dupopt\nDefinition: 'dupopt' means 'opt' in English.\nSuffixes: 'ion','al','ly'\nOptions:\n1. dupoptionally\n2. dupoptionlyal\n3. dupoptalionly\n4. dupoptlyional\n5. dupoptallyion\n6. dupoptlyalion\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "opt",
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 428,
+                "total_tokens": 429
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-80",
+            "root": "bnijoc",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: bnijoc\nDefinition: 'bnijoc' means 'precoc' in English.\nSuffixes: 'ness','ious'\nOptions:\n1. bnijociousness\n2. bnijocnessious\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "precoc",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 280,
+                "total_tokens": 281
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-81",
+            "root": "lract",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: lract\nDefinition: 'lract' means 'pract' in English.\nSuffixes: 'ic','al'\nOptions:\n1. lractalic\n2. lractical\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "pract",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 274,
+                "total_tokens": 275
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-82",
+            "root": "zijdiwu",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: zijdiwu\nDefinition: 'zijdiwu' means 'perpetu' in English.\nSuffixes: 'al','ly'\nOptions:\n1. zijdiwulyal\n2. zijdiwually\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "perpetu",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 282,
+                "total_tokens": 283
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-83",
+            "root": "coith",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: coith\nDefinition: 'coith' means 'faith' in English.\nSuffixes: 'ness','ful'\nOptions:\n1. coithnessful\n2. coithfulness\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "faith",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 275,
+                "total_tokens": 276
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-84",
+            "root": "acesin",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: acesin\nDefinition: 'acesin' means 'origin' in English.\nSuffixes: 'ly','al'\nOptions:\n1. acesinlyal\n2. acesinally\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "origin",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 277,
+                "total_tokens": 278
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-85",
+            "root": "culeon",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: culeon\nDefinition: 'culeon' means 'nation' in English.\nSuffixes: 'ist','al'\nOptions:\n1. culeonistal\n2. culeonalist\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "nation",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 279,
+                "total_tokens": 280
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-86",
+            "root": "wakern",
+            "suffixes": [
+                "ment",
+                "al"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: wakern\nDefinition: 'wakern' means 'govern' in English.\nSuffixes: 'ment','al'\nOptions:\n1. wakernalment\n2. wakernmental\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "govern",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 279,
+                "total_tokens": 280
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-87",
+            "root": "nedesar",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: nedesar\nDefinition: 'nedesar' means 'militar' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. nedesaricist\n2. nedesaristic\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "militar",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 277,
+                "total_tokens": 278
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-88",
+            "root": "modme",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: modme\nDefinition: 'modme' means 'taste' in English.\nSuffixes: 'ful','ly'\nOptions:\n1. modmefully\n2. modmelyful\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "taste",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 276,
+                "total_tokens": 277
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-89",
+            "root": "piigh",
+            "suffixes": [
+                "t",
+                "less"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: piigh\nDefinition: 'piigh' means 'weigh' in English.\nSuffixes: 'less','t'\nOptions:\n1. piighlesst\n2. piightless\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "weigh",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 275,
+                "total_tokens": 276
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-90",
+            "root": "wyig",
+            "suffixes": [
+                "id",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: wyig\nDefinition: 'wyig' means 'frig' in English.\nSuffixes: 'ly','id'\nOptions:\n1. wyiglyid\n2. wyigidly\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "frig",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 276,
+                "total_tokens": 277
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-91",
+            "root": "nyuject",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectalion\n2. vetectional\nAnswer: 2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: nyuject\nDefinition: 'nyuject' means 'protect' in English.\nSuffixes: 'ly','ive'\nOptions:\n1. nyujectively\n2. nyujectlyive\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "protect",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 279,
+                "total_tokens": 280
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-92",
+            "root": "hucetter",
+            "suffixes": [
+                "iall",
+                "y"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: hucetter\nDefinition: 'hucetter' means 'magister' in English.\nSuffixes: 'iall','y'\nOptions:\n1. hucetteryiall\n2. hucetterially\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "magister",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 282,
+                "total_tokens": 283
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-93",
+            "root": "tibelf",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: tibelf\nDefinition: 'tibelf' means 'elf' in English.\nSuffixes: 'ness','ish'\nOptions:\n1. tibelfnessish\n2. tibelfishness\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "elf",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 280,
+                "total_tokens": 281
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-94",
+            "root": "bnkiylijic",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: bnkiylijic\nDefinition: 'bnkiylijic' means 'cybernetic' in English.\nSuffixes: 'al','ly'\nOptions:\n1. bnkiylijically\n2. bnkiylijiclyal\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "cybernetic",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 289,
+                "total_tokens": 290
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-95",
+            "root": "jens",
+            "suffixes": [
+                "or",
+                "ious",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: mkfsphys\nDefinition: 'mkfsphys' means 'phys' in English.\nSuffixes: 'ic','ness','al'\nOptions:\n1. mkfsphysicnessal\n2. mkfsphysalnessic\n3. mkfsphysnessalic\n4. mkfsphysicalness\n5. mkfsphysalicness\n6. mkfsphysnessical\nAnswer: 4\n\nExample 2:\nWord root: yfopjit\nDefinition: 'yfopjit' means 'transit' in English.\nSuffixes: 'al','ly','ion'\nOptions:\n1. yfopjitionlyal\n2. yfopjitlyalion\n3. yfopjitalionly\n4. yfopjitallyion\n5. yfopjitionally\n6. yfopjitlyional\nAnswer: 5\n\nExample 3:\nWord root: jbzser\nDefinition: 'jbzser' means 'hyster' in English.\nSuffixes: 'ic','ly','al'\nOptions:\n1. jbzserically\n2. jbzserallyic\n3. jbzsericlyal\n4. jbzseralicly\n5. jbzserlyical\n6. jbzserlyalic\nAnswer: 1\n\nExample 4:\nWord root: jens\nDefinition: 'jens' means 'cens' in English.\nSuffixes: 'ious','ness','or'\nOptions:\n1. jensnessiousor\n2. jensiousnessor\n3. jensiousorness\n4. jensnessorious\n5. jensoriousness\n6. jensornessious\nAnswer: ",
+            "reference": 5,
+            "template": "morph_disc_en",
+            "original_root": "cens",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 434,
+                "total_tokens": 435
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-96",
+            "root": "faurn",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: faurn\nDefinition: 'faurn' means 'journ' in English.\nSuffixes: 'al','ist'\nOptions:\n1. faurnistal\n2. faurnalist\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "journ",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 276,
+                "total_tokens": 277
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-97",
+            "root": "mfiep",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftlessness\n2. vhiftnessless\nAnswer: 1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissistic\n2. kogyissicist\nAnswer: 1\n\nExample 4:\nWord root: mfiep\nDefinition: 'mfiep' means 'sheep' in English.\nSuffixes: 'ish','ness'\nOptions:\n1. mfiepishness\n2. mfiepnessish\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": "sheep",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 281,
+                "total_tokens": 282
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-98",
+            "root": "ohe",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'al','ion'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'ness','less'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ist','ic'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: ohe\nDefinition: 'ohe' means 'use' in English.\nSuffixes: 'less','ly'\nOptions:\n1. ohelyless\n2. ohelessly\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "use",
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 274,
+                "total_tokens": 275
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-99",
+            "root": "toin",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 'ion','al'\nOptions:\n1. vetectional\n2. vetectalion\nAnswer: 1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 'less','ness'\nOptions:\n1. vhiftnessless\n2. vhiftlessness\nAnswer: 2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 'ic','ist'\nOptions:\n1. kogyissicist\n2. kogyissistic\nAnswer: 2\n\nExample 4:\nWord root: toin\nDefinition: 'toin' means 'pain' in English.\nSuffixes: 'less','ly'\nOptions:\n1. toinlyless\n2. toinlessly\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": "pain",
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 275,
+                "total_tokens": 276
+            },
+            "correct": true,
+            "faithful": true
+        }
+    ]
+}

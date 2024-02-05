@@ -110,6 +110,7 @@ def prepare_sample_for_morph_gen(sample, shot_samples, template, language):
     prompt = f"{instruction_template.format(language=LANGUAGE_MAP[language][template_lang])}\n\n{shots_prompt}\n\n{final_shot}"
     
     eval_data.append({
+        "id": sample["id"],
         "root": sample["root"],
         "suffixes": sample["suffixes"],
         "prompt": prompt,
@@ -186,6 +187,7 @@ def prepare_sample_for_morph_disc(sample, shot_samples, template, language):
     prompt = f"{instruction_template.format(language=LANGUAGE_MAP[language][template_lang])}\n\n{shots_prompt}\n\n{final_shot}"
     
     eval_data.append({
+        "id": sample["id"],
         "root": sample["root"],
         "suffixes": sample["suffixes"],
         "prompt": prompt,
@@ -210,6 +212,7 @@ def main():
     parser.add_argument("-n", "--num-shots", type=int, default=1)
     parser.add_argument("-s", "--suffix", type=str, default="", help="Custom suffix for output file path.")
     parser.add_argument("-o", "--output-dir", type=str, default=None, help="Output directory path. Defaults to input directory path.")
+    parser.add_argument("-m", "--match-len", action="store_true", help="Match length of suffixes in shots and prompts.")
 
     args = parser.parse_args()
     input_data = read_json(args.datapath)
@@ -219,7 +222,11 @@ def main():
     shot_samples = input_data["data"][:args.num_shots]
 
     for sample in tqdm(input_data["data"], desc="Preparing input_data for evaluation"):
-        eval_data.extend(TEMPLATE_PROCESSOR_MAP[args.template](sample, shot_samples, args.template, input_data["metadata"]["language"]))
+        if args.match_len:
+            shot_samples = [shot for shot in input_data["data"] if len(shot["suffixes"]) == len(sample["suffixes"]) and shot["id"] != sample["id"]][:args.num_shots]
+        
+        if shot_samples:
+            eval_data.extend(TEMPLATE_PROCESSOR_MAP[args.template](sample, shot_samples, args.template, input_data["metadata"]["language"]))
 
     datapath = pathlib.Path(args.datapath)
     output_dir = pathlib.Path(args.output_dir) if args.output_dir is not None else datapath.parent

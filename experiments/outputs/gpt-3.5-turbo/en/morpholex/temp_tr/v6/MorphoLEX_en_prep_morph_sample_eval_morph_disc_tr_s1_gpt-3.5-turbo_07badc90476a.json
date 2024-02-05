@@ -1,0 +1,2043 @@
+{
+    "metadata": {
+        "datapath": "../experiments/data/en/morpholex/temp_tr/v6/MorphoLEX_en_prep_morph_sample_eval_morph_disc_tr_s1.json",
+        "model": "gpt-3.5-turbo",
+        "temperature": 0.3,
+        "max_tokens": 40,
+        "top_p": 1,
+        "frequency_penalty": 0,
+        "presence_penalty": 0
+    },
+    "metrics": {
+        "usage": {
+            "prompt_tokens": 18438,
+            "completion_tokens": 100,
+            "total_tokens": 18538
+        },
+        "cost": {
+            "input": 0.027657,
+            "output": 0.00019999999999999998,
+            "total": 0.027857
+        },
+        "accuracy": 0.92,
+        "faithful_accuracy": 1.0,
+        "accuracy_by_suffix_len": {
+            "2": 0.9130434782608695,
+            "3": 1.0
+        },
+        "num_samples_by_suffix_len": {
+            "2": 92,
+            "3": 8
+        }
+    },
+    "data": [
+        {
+            "id": "morpholex-0",
+            "root": "direct",
+            "suffixes": [
+                "ion",
+                "al"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 2:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 181,
+                "total_tokens": 182
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-1",
+            "root": "shift",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 181,
+                "total_tokens": 182
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-2",
+            "root": "narciss",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-3",
+            "root": "judic",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 182,
+                "total_tokens": 183
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-4",
+            "root": "ruth",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-5",
+            "root": "imp",
+            "suffixes": [
+                "ish",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: imp\nEkler: 'ish','ly'\nSeçenekler:\n1. impishly\n2. implyish\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 178,
+                "total_tokens": 179
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-6",
+            "root": "rapac",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: rapac\nEkler: 'ious','ness'\nSeçenekler:\n1. rapaciousness\n2. rapacnessious\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 182,
+                "total_tokens": 183
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-7",
+            "root": "pacif",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: pacif\nEkler: 'ist','ic'\nSeçenekler:\n1. pacificist\n2. pacifistic\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 181,
+                "total_tokens": 182
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-8",
+            "root": "art",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: art\nEkler: 'less','ly'\nSeçenekler:\n1. artlessly\n2. artlyless\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-9",
+            "root": "verac",
+            "suffixes": [
+                "ious",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: verac\nEkler: 'ly','ious'\nSeçenekler:\n1. veraclyious\n2. veraciously\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 182,
+                "total_tokens": 183
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-10",
+            "root": "dread",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: dread\nEkler: 'ly','ful'\nSeçenekler:\n1. dreadlyful\n2. dreadfully\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-11",
+            "root": "abort",
+            "suffixes": [
+                "ion",
+                "ist"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: abort\nEkler: 'ist','ion'\nSeçenekler:\n1. abortionist\n2. abortistion\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-12",
+            "root": "categor",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: categor\nEkler: 'al','ic'\nSeçenekler:\n1. categoralic\n2. categorical\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 177,
+                "total_tokens": 178
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-13",
+            "root": "total",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: total\nEkler: 'ic','ist'\nSeçenekler:\n1. totalistic\n2. totalicist\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-14",
+            "root": "articul",
+            "suffixes": [
+                "ate",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: articul\nEkler: 'ly','ate'\nSeçenekler:\n1. articulately\n2. articullyate\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 181,
+                "total_tokens": 182
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-15",
+            "root": "electr",
+            "suffixes": [
+                "on",
+                "ics"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: electr\nEkler: 'on','ics'\nSeçenekler:\n1. electronics\n2. electricson\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 177,
+                "total_tokens": 178
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-16",
+            "root": "gener",
+            "suffixes": [
+                "al",
+                "ity"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: gener\nEkler: 'al','ity'\nSeçenekler:\n1. generality\n2. generityal\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-17",
+            "root": "green",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: green\nEkler: 'ness','ish'\nSeçenekler:\n1. greenishness\n2. greennessish\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 180,
+                "total_tokens": 181
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-18",
+            "root": "favor",
+            "suffixes": [
+                "it",
+                "ism"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: favor\nEkler: 'it','ism'\nSeçenekler:\n1. favorismit\n2. favoritism\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 180,
+                "total_tokens": 181
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-19",
+            "root": "sin",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: sin\nEkler: 'less','ness'\nSeçenekler:\n1. sinlessness\n2. sinnessless\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-20",
+            "root": "palat",
+            "suffixes": [
+                "al",
+                "ize"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: palat\nEkler: 'ize','al'\nSeçenekler:\n1. palatalize\n2. palatizeal\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 182,
+                "total_tokens": 183
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-21",
+            "root": "taste",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: taste\nEkler: 'ness','ful'\nSeçenekler:\n1. tastefulness\n2. tastenessful\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 180,
+                "total_tokens": 181
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-22",
+            "root": "origin",
+            "suffixes": [
+                "al",
+                "ity"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: origin\nEkler: 'ity','al'\nSeçenekler:\n1. originality\n2. originityal\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-23",
+            "root": "phys",
+            "suffixes": [
+                "ic",
+                "al",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: transit\nEkler: 'al','ly','ion'\nSeçenekler:\n1. transitionally\n2. transitionlyal\n3. transitlyalion\n4. transitalionly\n5. transitallyion\n6. transitlyional\nCevap: 1\n\nÖrnek 2:\nKök: phys\nEkler: 'ic','al','ness'\nSeçenekler:\n1. physalicness\n2. physnessical\n3. physalnessic\n4. physicnessal\n5. physicalness\n6. physnessalic\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 235,
+                "total_tokens": 236
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-24",
+            "root": "blood",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: blood\nEkler: 'less','ness'\nSeçenekler:\n1. bloodlessness\n2. bloodnessless\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-25",
+            "root": "list",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: list\nEkler: 'less','ly'\nSeçenekler:\n1. listlyless\n2. listlessly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-26",
+            "root": "transit",
+            "suffixes": [
+                "ion",
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: phys\nEkler: 'al','ic','ness'\nSeçenekler:\n1. physnessalic\n2. physnessical\n3. physalnessic\n4. physalicness\n5. physicnessal\n6. physicalness\nCevap: 6\n\nÖrnek 2:\nKök: transit\nEkler: 'ly','al','ion'\nSeçenekler:\n1. transitallyion\n2. transitlyional\n3. transitionally\n4. transitionlyal\n5. transitlyalion\n6. transitalionly\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 235,
+                "total_tokens": 236
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-27",
+            "root": "noct",
+            "suffixes": [
+                "urn",
+                "al"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: noct\nEkler: 'urn','al'\nSeçenekler:\n1. noctalurn\n2. nocturnal\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-28",
+            "root": "academ",
+            "suffixes": [
+                "ic",
+                "ian"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: academ\nEkler: 'ic','ian'\nSeçenekler:\n1. academianic\n2. academician\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 181,
+                "total_tokens": 182
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-29",
+            "root": "hyster",
+            "suffixes": [
+                "ic",
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: phys\nEkler: 'al','ness','ic'\nSeçenekler:\n1. physalnessic\n2. physicalness\n3. physalicness\n4. physnessalic\n5. physicnessal\n6. physnessical\nCevap: 2\n\nÖrnek 2:\nKök: hyster\nEkler: 'ic','ly','al'\nSeçenekler:\n1. hystericlyal\n2. hysteralicly\n3. hysterlyalic\n4. hysterlyical\n5. hysterallyic\n6. hysterically\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 238,
+                "total_tokens": 239
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-30",
+            "root": "lust",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: lust\nEkler: 'ful','ness'\nSeçenekler:\n1. lustnessful\n2. lustfulness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-31",
+            "root": "optim",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: optim\nEkler: 'ic','ist'\nSeçenekler:\n1. optimistic\n2. optimicist\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 178,
+                "total_tokens": 179
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-32",
+            "root": "aphor",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: aphor\nEkler: 'ist','ic'\nSeçenekler:\n1. aphoricist\n2. aphoristic\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 181,
+                "total_tokens": 182
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-33",
+            "root": "abort",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: abort\nEkler: 'ly','ive'\nSeçenekler:\n1. abortively\n2. abortlyive\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-34",
+            "root": "defence",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: defence\nEkler: 'less','ness'\nSeçenekler:\n1. defencelessness\n2. defencenessless\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 180,
+                "total_tokens": 181
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-35",
+            "root": "vorac",
+            "suffixes": [
+                "ious",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: vorac\nEkler: 'ious','ly'\nSeçenekler:\n1. voraciously\n2. voraclyious\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 182,
+                "total_tokens": 183
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-36",
+            "root": "ego",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: ego\nEkler: 'ist','ic'\nSeçenekler:\n1. egoistic\n2. egoicist\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-37",
+            "root": "waste",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: waste\nEkler: 'ful','ness'\nSeçenekler:\n1. wastenessful\n2. wastefulness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 180,
+                "total_tokens": 181
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-38",
+            "root": "senti",
+            "suffixes": [
+                "ment",
+                "al",
+                "ism"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: phys\nEkler: 'al','ic','ness'\nSeçenekler:\n1. physalicness\n2. physnessical\n3. physicalness\n4. physicnessal\n5. physnessalic\n6. physalnessic\nCevap: 3\n\nÖrnek 2:\nKök: senti\nEkler: 'ism','al','ment'\nSeçenekler:\n1. sentialismment\n2. sentiismalment\n3. sentiismmental\n4. sentimentismal\n5. sentialmentism\n6. sentimentalism\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 240,
+                "total_tokens": 241
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-39",
+            "root": "triumph",
+            "suffixes": [
+                "ant",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: triumph\nEkler: 'ant','ly'\nSeçenekler:\n1. triumphantly\n2. triumphlyant\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-40",
+            "root": "liber",
+            "suffixes": [
+                "al",
+                "ism"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: liber\nEkler: 'ism','al'\nSeçenekler:\n1. liberalism\n2. liberismal\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 178,
+                "total_tokens": 179
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-41",
+            "root": "period",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: period\nEkler: 'ic','al'\nSeçenekler:\n1. periodalic\n2. periodical\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 178,
+                "total_tokens": 179
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-42",
+            "root": "soul",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: soul\nEkler: 'less','ly'\nSeçenekler:\n1. soullessly\n2. soullyless\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-43",
+            "root": "preposition",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: preposition\nEkler: 'ly','al'\nSeçenekler:\n1. prepositionlyal\n2. prepositionally\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 182,
+                "total_tokens": 183
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-44",
+            "root": "protect",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: protect\nEkler: 'ness','ive'\nSeçenekler:\n1. protectiveness\n2. protectnessive\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-45",
+            "root": "cheer",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: cheer\nEkler: 'ly','ful'\nSeçenekler:\n1. cheerlyful\n2. cheerfully\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-46",
+            "root": "passion",
+            "suffixes": [
+                "ate",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: passion\nEkler: 'ate','ness'\nSeçenekler:\n1. passionateness\n2. passionnessate\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 180,
+                "total_tokens": 181
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-47",
+            "root": "lingu",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: lingu\nEkler: 'ist','ic'\nSeçenekler:\n1. linguistic\n2. linguicist\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 178,
+                "total_tokens": 179
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-48",
+            "root": "hate",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: hate\nEkler: 'ly','ful'\nSeçenekler:\n1. hatelyful\n2. hatefully\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-49",
+            "root": "gorm",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: gorm\nEkler: 'less','ly'\nSeçenekler:\n1. gormlyless\n2. gormlessly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 182,
+                "total_tokens": 183
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-50",
+            "root": "feck",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: feck\nEkler: 'less','ness'\nSeçenekler:\n1. fecknessless\n2. fecklessness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 182,
+                "total_tokens": 183
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-51",
+            "root": "real",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: real\nEkler: 'ist','ic'\nSeçenekler:\n1. realicist\n2. realistic\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 178,
+                "total_tokens": 179
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-52",
+            "root": "function",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: function\nEkler: 'al','ist'\nSeçenekler:\n1. functionistal\n2. functionalist\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-53",
+            "root": "sweet",
+            "suffixes": [
+                "en",
+                "er"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: sweet\nEkler: 'er','en'\nSeçenekler:\n1. sweetener\n2. sweeteren\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-54",
+            "root": "guile",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: guile\nEkler: 'less','ly'\nSeçenekler:\n1. guilelessly\n2. guilelyless\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 182,
+                "total_tokens": 183
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-55",
+            "root": "fool",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: fool\nEkler: 'ness','ish'\nSeçenekler:\n1. foolnessish\n2. foolishness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-56",
+            "root": "distinct",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: distinct\nEkler: 'ness','ive'\nSeçenekler:\n1. distinctnessive\n2. distinctiveness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-57",
+            "root": "norm",
+            "suffixes": [
+                "al",
+                "ize"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: norm\nEkler: 'ize','al'\nSeçenekler:\n1. normizeal\n2. normalize\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 178,
+                "total_tokens": 179
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-58",
+            "root": "articul",
+            "suffixes": [
+                "ate",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: articul\nEkler: 'ness','ate'\nSeçenekler:\n1. articulnessate\n2. articulateness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 183,
+                "total_tokens": 184
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-59",
+            "root": "forget",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: forget\nEkler: 'ful','ness'\nSeçenekler:\n1. forgetfulness\n2. forgetnessful\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-60",
+            "root": "putr",
+            "suffixes": [
+                "efac",
+                "tive"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: putr\nEkler: 'tive','efac'\nSeçenekler:\n1. putrefactive\n2. putrtiveefac\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 185,
+                "total_tokens": 186
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-61",
+            "root": "condition",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: condition\nEkler: 'al','ly'\nSeçenekler:\n1. conditionlyal\n2. conditionally\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-62",
+            "root": "shame",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shame\nEkler: 'ness','ful'\nSeçenekler:\n1. shamefulness\n2. shamenessful\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-63",
+            "root": "vel",
+            "suffixes": [
+                "ar",
+                "ize"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: vel\nEkler: 'ar','ize'\nSeçenekler:\n1. velarize\n2. velizear\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 180,
+                "total_tokens": 181
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-64",
+            "root": "senti",
+            "suffixes": [
+                "ment",
+                "al",
+                "ist"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: phys\nEkler: 'ness','ic','al'\nSeçenekler:\n1. physicnessal\n2. physalnessic\n3. physnessical\n4. physicalness\n5. physnessalic\n6. physalicness\nCevap: 4\n\nÖrnek 2:\nKök: senti\nEkler: 'ment','al','ist'\nSeçenekler:\n1. sentimentalist\n2. sentimentistal\n3. sentialmentist\n4. sentiistalment\n5. sentiistmental\n6. sentialistment\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 240,
+                "total_tokens": 241
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-65",
+            "root": "bliss",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: bliss\nEkler: 'ful','ly'\nSeçenekler:\n1. blisslyful\n2. blissfully\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-66",
+            "root": "tear",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: tear\nEkler: 'ly','less'\nSeçenekler:\n1. tearlyless\n2. tearlessly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-67",
+            "root": "lect",
+            "suffixes": [
+                "ure",
+                "ship"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: lect\nEkler: 'ship','ure'\nSeçenekler:\n1. lectshipure\n2. lectureship\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-68",
+            "root": "liturgic",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: liturgic\nEkler: 'al','ly'\nSeçenekler:\n1. liturgiclyal\n2. liturgically\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 184,
+                "total_tokens": 185
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-69",
+            "root": "gener",
+            "suffixes": [
+                "al",
+                "issimo"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: gener\nEkler: 'al','issimo'\nSeçenekler:\n1. generalissimo\n2. generissimoal\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 182,
+                "total_tokens": 183
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-70",
+            "root": "help",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: help\nEkler: 'ness','less'\nSeçenekler:\n1. helpnessless\n2. helplessness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-71",
+            "root": "intuit",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: intuit\nEkler: 'ly','ive'\nSeçenekler:\n1. intuitlyive\n2. intuitively\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-72",
+            "root": "bash",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: bash\nEkler: 'ful','ly'\nSeçenekler:\n1. bashlyful\n2. bashfully\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-73",
+            "root": "select",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: select\nEkler: 'ive','ness'\nSeçenekler:\n1. selectnessive\n2. selectiveness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-74",
+            "root": "join",
+            "suffixes": [
+                "t",
+                "ure"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: join\nEkler: 'ure','t'\nSeçenekler:\n1. joinuret\n2. jointure\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-75",
+            "root": "period",
+            "suffixes": [
+                "ic",
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: phys\nEkler: 'ness','ic','al'\nSeçenekler:\n1. physnessical\n2. physicalness\n3. physicnessal\n4. physnessalic\n5. physalnessic\n6. physalicness\nCevap: 2\n\nÖrnek 2:\nKök: period\nEkler: 'ic','ly','al'\nSeçenekler:\n1. periodlyical\n2. periodically\n3. periodallyic\n4. periodiclyal\n5. periodalicly\n6. periodlyalic\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 233,
+                "total_tokens": 234
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-76",
+            "root": "self",
+            "suffixes": [
+                "ish",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: self\nEkler: 'ly','ish'\nSeçenekler:\n1. selfishly\n2. selflyish\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-77",
+            "root": "obstruct",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: obstruct\nEkler: 'ive','ness'\nSeçenekler:\n1. obstructiveness\n2. obstructnessive\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-78",
+            "root": "dole",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: dole\nEkler: 'ful','ly'\nSeçenekler:\n1. dolelyful\n2. dolefully\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 182,
+                "total_tokens": 183
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-79",
+            "root": "opt",
+            "suffixes": [
+                "ion",
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: phys\nEkler: 'ic','ness','al'\nSeçenekler:\n1. physalnessic\n2. physnessalic\n3. physicnessal\n4. physalicness\n5. physnessical\n6. physicalness\nCevap: 6\n\nÖrnek 2:\nKök: opt\nEkler: 'al','ion','ly'\nSeçenekler:\n1. optlyional\n2. optalionly\n3. optallyion\n4. optionally\n5. optionlyal\n6. optlyalion\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 233,
+                "total_tokens": 234
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-80",
+            "root": "precoc",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: precoc\nEkler: 'ious','ness'\nSeçenekler:\n1. precociousness\n2. precocnessious\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 182,
+                "total_tokens": 183
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-81",
+            "root": "pract",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: pract\nEkler: 'ic','al'\nSeçenekler:\n1. practical\n2. practalic\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 177,
+                "total_tokens": 178
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-82",
+            "root": "perpetu",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: perpetu\nEkler: 'al','ly'\nSeçenekler:\n1. perpetulyal\n2. perpetually\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 180,
+                "total_tokens": 181
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-83",
+            "root": "faith",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: faith\nEkler: 'ful','ness'\nSeçenekler:\n1. faithnessful\n2. faithfulness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-84",
+            "root": "origin",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: origin\nEkler: 'ly','al'\nSeçenekler:\n1. originlyal\n2. originally\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 178,
+                "total_tokens": 179
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-85",
+            "root": "nation",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: nation\nEkler: 'ist','al'\nSeçenekler:\n1. nationistal\n2. nationalist\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 178,
+                "total_tokens": 179
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-86",
+            "root": "govern",
+            "suffixes": [
+                "ment",
+                "al"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: govern\nEkler: 'al','ment'\nSeçenekler:\n1. governmental\n2. governalment\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 178,
+                "total_tokens": 179
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-87",
+            "root": "militar",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: militar\nEkler: 'ist','ic'\nSeçenekler:\n1. militaricist\n2. militaristic\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-88",
+            "root": "taste",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: taste\nEkler: 'ful','ly'\nSeçenekler:\n1. tastelyful\n2. tastefully\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-89",
+            "root": "weigh",
+            "suffixes": [
+                "t",
+                "less"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: weigh\nEkler: 'less','t'\nSeçenekler:\n1. weightless\n2. weighlesst\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-90",
+            "root": "frig",
+            "suffixes": [
+                "id",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: frig\nEkler: 'ly','id'\nSeçenekler:\n1. frigidly\n2. friglyid\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 182,
+                "total_tokens": 183
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-91",
+            "root": "protect",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: protect\nEkler: 'ly','ive'\nSeçenekler:\n1. protectlyive\n2. protectively\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-92",
+            "root": "magister",
+            "suffixes": [
+                "iall",
+                "y"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: magister\nEkler: 'iall','y'\nSeçenekler:\n1. magisterially\n2. magisteryiall\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 184,
+                "total_tokens": 185
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-93",
+            "root": "elf",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: elf\nEkler: 'ish','ness'\nSeçenekler:\n1. elfnessish\n2. elfishness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 180,
+                "total_tokens": 181
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-94",
+            "root": "cybernetic",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: cybernetic\nEkler: 'ly','al'\nSeçenekler:\n1. cybernetically\n2. cyberneticlyal\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 184,
+                "total_tokens": 185
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-95",
+            "root": "cens",
+            "suffixes": [
+                "or",
+                "ious",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: phys\nEkler: 'ness','ic','al'\nSeçenekler:\n1. physalnessic\n2. physicalness\n3. physnessical\n4. physnessalic\n5. physicnessal\n6. physalicness\nCevap: 2\n\nÖrnek 2:\nKök: cens\nEkler: 'ious','ness','or'\nSeçenekler:\n1. censornessious\n2. censiousorness\n3. censoriousness\n4. censnessorious\n5. censnessiousor\n6. censiousnessor\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 245,
+                "total_tokens": 246
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-96",
+            "root": "journ",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: journ\nEkler: 'al','ist'\nSeçenekler:\n1. journistal\n2. journalist\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 180,
+                "total_tokens": 181
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-97",
+            "root": "sheep",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: sheep\nEkler: 'ish','ness'\nSeçenekler:\n1. sheepishness\n2. sheepnessish\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 180,
+                "total_tokens": 181
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-98",
+            "root": "use",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: use\nEkler: 'ly','less'\nSeçenekler:\n1. uselyless\n2. uselessly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-99",
+            "root": "pain",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: pain\nEkler: 'less','ly'\nSeçenekler:\n1. painlessly\n2. painlyless\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 179,
+                "total_tokens": 180
+            },
+            "correct": true,
+            "faithful": true
+        }
+    ]
+}

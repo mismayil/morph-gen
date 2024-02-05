@@ -1,0 +1,2043 @@
+{
+    "metadata": {
+        "datapath": "../experiments/data/en/morpholex/temp_tr/v6/MorphoLEX_en_prep_morph_sample_eval_morph_gen_tr_s1.json",
+        "model": "gpt-3.5-turbo",
+        "temperature": 0.3,
+        "max_tokens": 40,
+        "top_p": 1,
+        "frequency_penalty": 0,
+        "presence_penalty": 0
+    },
+    "metrics": {
+        "usage": {
+            "prompt_tokens": 15973,
+            "completion_tokens": 249,
+            "total_tokens": 16222
+        },
+        "cost": {
+            "input": 0.0239595,
+            "output": 0.000498,
+            "total": 0.0244575
+        },
+        "accuracy": 0.69,
+        "faithful_accuracy": 0.7,
+        "accuracy_by_suffix_len": {
+            "2": 0.717391304347826,
+            "3": 0.375
+        },
+        "num_samples_by_suffix_len": {
+            "2": 92,
+            "3": 8
+        }
+    },
+    "data": [
+        {
+            "id": "morpholex-0",
+            "root": "direct",
+            "suffixes": [
+                "ion",
+                "al"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: shift\nEkler: 'ness','less'\nCevap: shiftlessness\n\nÖrnek 2:\nKök: direct\nEkler: 'al','ion'\nCevap: ",
+            "reference": "directional",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "directional",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 160,
+                "total_tokens": 162
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-1",
+            "root": "shift",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nCevap: ",
+            "reference": "shiftlessness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "shiftlessness",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 159,
+                "total_tokens": 161
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-2",
+            "root": "narciss",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: narciss\nEkler: 'ist','ic'\nCevap: ",
+            "reference": "narcissistic",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "narcissistic",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 159,
+                "total_tokens": 163
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-3",
+            "root": "judic",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: judic\nEkler: 'ious','ness'\nCevap: ",
+            "reference": "judiciousness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "judiciousness",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 160,
+                "total_tokens": 163
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-4",
+            "root": "ruth",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: ruth\nEkler: 'less','ness'\nCevap: ",
+            "reference": "ruthlessness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "ruthlessness",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 159,
+                "total_tokens": 162
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-5",
+            "root": "imp",
+            "suffixes": [
+                "ish",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: imp\nEkler: 'ly','ish'\nCevap: ",
+            "reference": "impishly",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "implyish",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 159,
+                "total_tokens": 162
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-6",
+            "root": "rapac",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: rapac\nEkler: 'ious','ness'\nCevap: ",
+            "reference": "rapaciousness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "rapaciousness",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 160,
+                "total_tokens": 163
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-7",
+            "root": "pacif",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: pacif\nEkler: 'ic','ist'\nCevap: ",
+            "reference": "pacifistic",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "pacifist",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 160,
+                "total_tokens": 163
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-8",
+            "root": "art",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: art\nEkler: 'less','ly'\nCevap: ",
+            "reference": "artlessly",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "artlessly",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 159,
+                "total_tokens": 161
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-9",
+            "root": "verac",
+            "suffixes": [
+                "ious",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: verac\nEkler: 'ly','ious'\nCevap: ",
+            "reference": "veraciously",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "veracious",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 160,
+                "total_tokens": 162
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-10",
+            "root": "dread",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: dread\nEkler: 'ful','ly'\nCevap: ",
+            "reference": "dreadfully",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "dreadful",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 159,
+                "total_tokens": 162
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-11",
+            "root": "abort",
+            "suffixes": [
+                "ion",
+                "ist"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: abort\nEkler: 'ist','ion'\nCevap: ",
+            "reference": "abortionist",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "abortion",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 159,
+                "total_tokens": 161
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-12",
+            "root": "categor",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: categor\nEkler: 'al','ic'\nCevap: ",
+            "reference": "categorical",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "categorical",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 159,
+                "total_tokens": 161
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-13",
+            "root": "total",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: total\nEkler: 'ist','ic'\nCevap: ",
+            "reference": "totalistic",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "totalistic",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 159,
+                "total_tokens": 161
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-14",
+            "root": "articul",
+            "suffixes": [
+                "ate",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: articul\nEkler: 'ate','ly'\nCevap: ",
+            "reference": "articulately",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "articulate",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 160,
+                "total_tokens": 162
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-15",
+            "root": "electr",
+            "suffixes": [
+                "on",
+                "ics"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: electr\nEkler: 'on','ics'\nCevap: ",
+            "reference": "electronics",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "electronics",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 159,
+                "total_tokens": 160
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-16",
+            "root": "gener",
+            "suffixes": [
+                "al",
+                "ity"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: gener\nEkler: 'ity','al'\nCevap: ",
+            "reference": "generality",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "generality",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 159,
+                "total_tokens": 161
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-17",
+            "root": "green",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: green\nEkler: 'ness','ish'\nCevap: ",
+            "reference": "greenishness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "greenish",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 159,
+                "total_tokens": 161
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-18",
+            "root": "favor",
+            "suffixes": [
+                "it",
+                "ism"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: favor\nEkler: 'ism','it'\nCevap: ",
+            "reference": "favoritism",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "favoritism",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 159,
+                "total_tokens": 162
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-19",
+            "root": "sin",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: sin\nEkler: 'less','ness'\nCevap: ",
+            "reference": "sinlessness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "sinlessness",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 159,
+                "total_tokens": 162
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-20",
+            "root": "palat",
+            "suffixes": [
+                "al",
+                "ize"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: palat\nEkler: 'al','ize'\nCevap: ",
+            "reference": "palatalize",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "palatalize",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 160,
+                "total_tokens": 163
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-21",
+            "root": "taste",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: taste\nEkler: 'ful','ness'\nCevap: ",
+            "reference": "tastefulness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "tastefulness",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 159,
+                "total_tokens": 163
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-22",
+            "root": "origin",
+            "suffixes": [
+                "al",
+                "ity"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: origin\nEkler: 'al','ity'\nCevap: ",
+            "reference": "originality",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "originality",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 159,
+                "total_tokens": 161
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-23",
+            "root": "phys",
+            "suffixes": [
+                "ic",
+                "al",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: transit\nEkler: 'al','ion','ly'\nCevap: transitionally\n\nÖrnek 2:\nKök: phys\nEkler: 'ness','ic','al'\nCevap: ",
+            "reference": "physicalness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "physicalness",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 164,
+                "total_tokens": 166
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-24",
+            "root": "blood",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: blood\nEkler: 'ness','less'\nCevap: ",
+            "reference": "bloodlessness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "bloodless",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 159,
+                "total_tokens": 161
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-25",
+            "root": "list",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: list\nEkler: 'ly','less'\nCevap: ",
+            "reference": "listlessly",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "listlessly",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 159,
+                "total_tokens": 161
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-26",
+            "root": "transit",
+            "suffixes": [
+                "ion",
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: phys\nEkler: 'ic','ness','al'\nCevap: physicalness\n\nÖrnek 2:\nKök: transit\nEkler: 'ion','ly','al'\nCevap: ",
+            "reference": "transitionally",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "transitional",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 164,
+                "total_tokens": 166
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-27",
+            "root": "noct",
+            "suffixes": [
+                "urn",
+                "al"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: noct\nEkler: 'urn','al'\nCevap: ",
+            "reference": "nocturnal",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "nocturnal",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 159,
+                "total_tokens": 162
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-28",
+            "root": "academ",
+            "suffixes": [
+                "ic",
+                "ian"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: academ\nEkler: 'ic','ian'\nCevap: ",
+            "reference": "academician",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "academician",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 160,
+                "total_tokens": 162
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-29",
+            "root": "hyster",
+            "suffixes": [
+                "ic",
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: phys\nEkler: 'al','ness','ic'\nCevap: physicalness\n\nÖrnek 2:\nKök: hyster\nEkler: 'ly','al','ic'\nCevap: ",
+            "reference": "hysterically",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "hysterical",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 164,
+                "total_tokens": 167
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-30",
+            "root": "lust",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: lust\nEkler: 'ness','ful'\nCevap: ",
+            "reference": "lustfulness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "lustfulness",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 159,
+                "total_tokens": 161
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-31",
+            "root": "optim",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: optim\nEkler: 'ic','ist'\nCevap: ",
+            "reference": "optimistic",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "optimistic",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 159,
+                "total_tokens": 161
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-32",
+            "root": "aphor",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: aphor\nEkler: 'ic','ist'\nCevap: ",
+            "reference": "aphoristic",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "aphoristic",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 160,
+                "total_tokens": 163
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-33",
+            "root": "abort",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: abort\nEkler: 'ly','ive'\nCevap: ",
+            "reference": "abortively",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "abortive",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 159,
+                "total_tokens": 161
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-34",
+            "root": "defence",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: defence\nEkler: 'ness','less'\nCevap: ",
+            "reference": "defencelessness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "defencelessness",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 159,
+                "total_tokens": 162
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-35",
+            "root": "vorac",
+            "suffixes": [
+                "ious",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: vorac\nEkler: 'ious','ly'\nCevap: ",
+            "reference": "voraciously",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "voraciously",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 160,
+                "total_tokens": 163
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-36",
+            "root": "ego",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: ego\nEkler: 'ic','ist'\nCevap: ",
+            "reference": "egoistic",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "egoistic",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 159,
+                "total_tokens": 161
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-37",
+            "root": "waste",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: waste\nEkler: 'ness','ful'\nCevap: ",
+            "reference": "wastefulness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "wasteful",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 159,
+                "total_tokens": 162
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-38",
+            "root": "senti",
+            "suffixes": [
+                "ment",
+                "al",
+                "ism"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: phys\nEkler: 'ic','al','ness'\nCevap: physicalness\n\nÖrnek 2:\nKök: senti\nEkler: 'ism','ment','al'\nCevap: ",
+            "reference": "sentimentalism",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "sentimental",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 165,
+                "total_tokens": 168
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-39",
+            "root": "triumph",
+            "suffixes": [
+                "ant",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: triumph\nEkler: 'ant','ly'\nCevap: ",
+            "reference": "triumphantly",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "triumphantly",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 159,
+                "total_tokens": 163
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-40",
+            "root": "liber",
+            "suffixes": [
+                "al",
+                "ism"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: liber\nEkler: 'ism','al'\nCevap: ",
+            "reference": "liberalism",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "liberalism",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 159,
+                "total_tokens": 162
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-41",
+            "root": "period",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: period\nEkler: 'ic','al'\nCevap: ",
+            "reference": "periodical",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "periodical",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 159,
+                "total_tokens": 161
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-42",
+            "root": "soul",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: soul\nEkler: 'ly','less'\nCevap: ",
+            "reference": "soullessly",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "soulless",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 159,
+                "total_tokens": 162
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-43",
+            "root": "preposition",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: preposition\nEkler: 'ly','al'\nCevap: ",
+            "reference": "prepositionally",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "prepositional",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 160,
+                "total_tokens": 163
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-44",
+            "root": "protect",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: protect\nEkler: 'ness','ive'\nCevap: ",
+            "reference": "protectiveness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "protectiveness",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 159,
+                "total_tokens": 161
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-45",
+            "root": "cheer",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: cheer\nEkler: 'ful','ly'\nCevap: ",
+            "reference": "cheerfully",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "cheerfully",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 159,
+                "total_tokens": 162
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-46",
+            "root": "passion",
+            "suffixes": [
+                "ate",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: passion\nEkler: 'ate','ness'\nCevap: ",
+            "reference": "passionateness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "passionate",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 159,
+                "total_tokens": 161
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-47",
+            "root": "lingu",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: lingu\nEkler: 'ic','ist'\nCevap: ",
+            "reference": "linguistic",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "linguistic",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 159,
+                "total_tokens": 162
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-48",
+            "root": "hate",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: hate\nEkler: 'ful','ly'\nCevap: ",
+            "reference": "hatefully",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "hateful",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 159,
+                "total_tokens": 161
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-49",
+            "root": "gorm",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: gorm\nEkler: 'less','ly'\nCevap: ",
+            "reference": "gormlessly",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "gormless",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 160,
+                "total_tokens": 162
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-50",
+            "root": "feck",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: feck\nEkler: 'ness','less'\nCevap: ",
+            "reference": "fecklessness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "fecklessness",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 160,
+                "total_tokens": 163
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-51",
+            "root": "real",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: real\nEkler: 'ic','ist'\nCevap: ",
+            "reference": "realistic",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "realistic",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 159,
+                "total_tokens": 161
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-52",
+            "root": "function",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: function\nEkler: 'al','ist'\nCevap: ",
+            "reference": "functionalist",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "functionalist",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 159,
+                "total_tokens": 161
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-53",
+            "root": "sweet",
+            "suffixes": [
+                "en",
+                "er"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: sweet\nEkler: 'en','er'\nCevap: ",
+            "reference": "sweetener",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "sweeten",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 159,
+                "total_tokens": 161
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-54",
+            "root": "guile",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: guile\nEkler: 'less','ly'\nCevap: ",
+            "reference": "guilelessly",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "guilelessly",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 160,
+                "total_tokens": 163
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-55",
+            "root": "fool",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: fool\nEkler: 'ish','ness'\nCevap: ",
+            "reference": "foolishness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "foolishness",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 159,
+                "total_tokens": 163
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-56",
+            "root": "distinct",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: distinct\nEkler: 'ness','ive'\nCevap: ",
+            "reference": "distinctiveness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "distinctiveness",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 159,
+                "total_tokens": 161
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-57",
+            "root": "norm",
+            "suffixes": [
+                "al",
+                "ize"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: norm\nEkler: 'al','ize'\nCevap: ",
+            "reference": "normalize",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "normalize",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 159,
+                "total_tokens": 161
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-58",
+            "root": "articul",
+            "suffixes": [
+                "ate",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: articul\nEkler: 'ness','ate'\nCevap: ",
+            "reference": "articulateness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "articulate",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 160,
+                "total_tokens": 162
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-59",
+            "root": "forget",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: forget\nEkler: 'ful','ness'\nCevap: ",
+            "reference": "forgetfulness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "forgetfulness",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 159,
+                "total_tokens": 161
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-60",
+            "root": "putr",
+            "suffixes": [
+                "efac",
+                "tive"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: putr\nEkler: 'tive','efac'\nCevap: ",
+            "reference": "putrefactive",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "putrefactive",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 162,
+                "total_tokens": 165
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-61",
+            "root": "condition",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: condition\nEkler: 'al','ly'\nCevap: ",
+            "reference": "conditionally",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "conditionally",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 159,
+                "total_tokens": 160
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-62",
+            "root": "shame",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: shame\nEkler: 'ful','ness'\nCevap: ",
+            "reference": "shamefulness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "shamefulness",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 159,
+                "total_tokens": 162
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-63",
+            "root": "vel",
+            "suffixes": [
+                "ar",
+                "ize"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: vel\nEkler: 'ize','ar'\nCevap: ",
+            "reference": "velarize",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "velarize",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 159,
+                "total_tokens": 162
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-64",
+            "root": "senti",
+            "suffixes": [
+                "ment",
+                "al",
+                "ist"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: phys\nEkler: 'ic','al','ness'\nCevap: physicalness\n\nÖrnek 2:\nKök: senti\nEkler: 'al','ment','ist'\nCevap: ",
+            "reference": "sentimentalist",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "sentimentalist",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 165,
+                "total_tokens": 168
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-65",
+            "root": "bliss",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: bliss\nEkler: 'ly','ful'\nCevap: ",
+            "reference": "blissfully",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "blissful",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 159,
+                "total_tokens": 162
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-66",
+            "root": "tear",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: tear\nEkler: 'less','ly'\nCevap: ",
+            "reference": "tearlessly",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "tearless",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 159,
+                "total_tokens": 162
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-67",
+            "root": "lect",
+            "suffixes": [
+                "ure",
+                "ship"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: lect\nEkler: 'ship','ure'\nCevap: ",
+            "reference": "lectureship",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "lecture",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 159,
+                "total_tokens": 160
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-68",
+            "root": "liturgic",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: liturgic\nEkler: 'al','ly'\nCevap: ",
+            "reference": "liturgically",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "liturgical",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 161,
+                "total_tokens": 163
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-69",
+            "root": "gener",
+            "suffixes": [
+                "al",
+                "issimo"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: gener\nEkler: 'issimo','al'\nCevap: ",
+            "reference": "generalissimo",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "generational",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 160,
+                "total_tokens": 162
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-70",
+            "root": "help",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: help\nEkler: 'ness','less'\nCevap: ",
+            "reference": "helplessness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "helplessness",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 159,
+                "total_tokens": 161
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-71",
+            "root": "intuit",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: intuit\nEkler: 'ly','ive'\nCevap: ",
+            "reference": "intuitively",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "intuitively",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 159,
+                "total_tokens": 162
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-72",
+            "root": "bash",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: bash\nEkler: 'ful','ly'\nCevap: ",
+            "reference": "bashfully",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "bashfully",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 159,
+                "total_tokens": 161
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-73",
+            "root": "select",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: select\nEkler: 'ness','ive'\nCevap: ",
+            "reference": "selectiveness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "selectiveness",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 159,
+                "total_tokens": 161
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-74",
+            "root": "join",
+            "suffixes": [
+                "t",
+                "ure"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: join\nEkler: 't','ure'\nCevap: ",
+            "reference": "jointure",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "jointure",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 159,
+                "total_tokens": 161
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-75",
+            "root": "period",
+            "suffixes": [
+                "ic",
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: phys\nEkler: 'ic','ness','al'\nCevap: physicalness\n\nÖrnek 2:\nKök: period\nEkler: 'ly','ic','al'\nCevap: ",
+            "reference": "periodically",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "periodical",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 164,
+                "total_tokens": 166
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-76",
+            "root": "self",
+            "suffixes": [
+                "ish",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: self\nEkler: 'ly','ish'\nCevap: ",
+            "reference": "selfishly",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "selfishly",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 159,
+                "total_tokens": 161
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-77",
+            "root": "obstruct",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: obstruct\nEkler: 'ness','ive'\nCevap: ",
+            "reference": "obstructiveness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "obstructive",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 159,
+                "total_tokens": 162
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-78",
+            "root": "dole",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: dole\nEkler: 'ly','ful'\nCevap: ",
+            "reference": "dolefully",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "doleful",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 160,
+                "total_tokens": 163
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-79",
+            "root": "opt",
+            "suffixes": [
+                "ion",
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: phys\nEkler: 'ic','ness','al'\nCevap: physicalness\n\nÖrnek 2:\nKök: opt\nEkler: 'ly','ion','al'\nCevap: ",
+            "reference": "optionally",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "optional",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 164,
+                "total_tokens": 165
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-80",
+            "root": "precoc",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: precoc\nEkler: 'ness','ious'\nCevap: ",
+            "reference": "precociousness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "precociousness",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 160,
+                "total_tokens": 163
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-81",
+            "root": "pract",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: pract\nEkler: 'al','ic'\nCevap: ",
+            "reference": "practical",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "practical",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 159,
+                "total_tokens": 161
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-82",
+            "root": "perpetu",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: perpetu\nEkler: 'al','ly'\nCevap: ",
+            "reference": "perpetually",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "perpetually",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 160,
+                "total_tokens": 163
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-83",
+            "root": "faith",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: faith\nEkler: 'ness','ful'\nCevap: ",
+            "reference": "faithfulness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "faithfulness",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 159,
+                "total_tokens": 161
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-84",
+            "root": "origin",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: origin\nEkler: 'ly','al'\nCevap: ",
+            "reference": "originally",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "originally",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 159,
+                "total_tokens": 161
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-85",
+            "root": "nation",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: nation\nEkler: 'al','ist'\nCevap: ",
+            "reference": "nationalist",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "nationalist",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 159,
+                "total_tokens": 161
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-86",
+            "root": "govern",
+            "suffixes": [
+                "ment",
+                "al"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: govern\nEkler: 'ment','al'\nCevap: ",
+            "reference": "governmental",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "governmental",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 159,
+                "total_tokens": 161
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-87",
+            "root": "militar",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: militar\nEkler: 'ic','ist'\nCevap: ",
+            "reference": "militaristic",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "militaristic",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 159,
+                "total_tokens": 163
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-88",
+            "root": "taste",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: taste\nEkler: 'ly','ful'\nCevap: ",
+            "reference": "tastefully",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "tastefully",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 159,
+                "total_tokens": 162
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-89",
+            "root": "weigh",
+            "suffixes": [
+                "t",
+                "less"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: weigh\nEkler: 'less','t'\nCevap: ",
+            "reference": "weightless",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "weightless",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 159,
+                "total_tokens": 161
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-90",
+            "root": "frig",
+            "suffixes": [
+                "id",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: frig\nEkler: 'id','ly'\nCevap: ",
+            "reference": "frigidly",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "frigidly",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 160,
+                "total_tokens": 163
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-91",
+            "root": "protect",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: protect\nEkler: 'ly','ive'\nCevap: ",
+            "reference": "protectively",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "protectively",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 159,
+                "total_tokens": 161
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-92",
+            "root": "magister",
+            "suffixes": [
+                "iall",
+                "y"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: magister\nEkler: 'y','iall'\nCevap: ",
+            "reference": "magisterially",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "magisterial",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 161,
+                "total_tokens": 164
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-93",
+            "root": "elf",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: elf\nEkler: 'ish','ness'\nCevap: ",
+            "reference": "elfishness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "elfishness",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 159,
+                "total_tokens": 162
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-94",
+            "root": "cybernetic",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: cybernetic\nEkler: 'ly','al'\nCevap: ",
+            "reference": "cybernetically",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "cybernetically",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 161,
+                "total_tokens": 165
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-95",
+            "root": "cens",
+            "suffixes": [
+                "or",
+                "ious",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: phys\nEkler: 'al','ic','ness'\nCevap: physicalness\n\nÖrnek 2:\nKök: cens\nEkler: 'ness','ious','or'\nCevap: ",
+            "reference": "censoriousness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "censoriousness",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 165,
+                "total_tokens": 169
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-96",
+            "root": "journ",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: journ\nEkler: 'ist','al'\nCevap: ",
+            "reference": "journalist",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "journalist",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 160,
+                "total_tokens": 162
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-97",
+            "root": "sheep",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: sheep\nEkler: 'ness','ish'\nCevap: ",
+            "reference": "sheepishness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "sheepish",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 159,
+                "total_tokens": 162
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "morpholex-98",
+            "root": "use",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nCevap: directional\n\nÖrnek 2:\nKök: use\nEkler: 'ly','less'\nCevap: ",
+            "reference": "uselessly",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "uselessly",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 159,
+                "total_tokens": 161
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-99",
+            "root": "pain",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nCevap: directional\n\nÖrnek 2:\nKök: pain\nEkler: 'ly','less'\nCevap: ",
+            "reference": "painlessly",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "painlessly",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 159,
+                "total_tokens": 161
+            },
+            "correct": true,
+            "faithful": true
+        }
+    ]
+}

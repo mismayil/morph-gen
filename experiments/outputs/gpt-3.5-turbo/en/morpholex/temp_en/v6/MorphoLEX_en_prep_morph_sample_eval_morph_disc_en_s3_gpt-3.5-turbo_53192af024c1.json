@@ -1,0 +1,2043 @@
+{
+    "metadata": {
+        "datapath": "../experiments/data/en/morpholex/temp_en/v6/MorphoLEX_en_prep_morph_sample_eval_morph_disc_en_s3.json",
+        "model": "gpt-3.5-turbo",
+        "temperature": 0.3,
+        "max_tokens": 40,
+        "top_p": 1,
+        "frequency_penalty": 0,
+        "presence_penalty": 0
+    },
+    "metrics": {
+        "usage": {
+            "prompt_tokens": 21095,
+            "completion_tokens": 100,
+            "total_tokens": 21195
+        },
+        "cost": {
+            "input": 0.031642500000000004,
+            "output": 0.00019999999999999998,
+            "total": 0.0318425
+        },
+        "accuracy": 1.0,
+        "faithful_accuracy": 1.0,
+        "accuracy_by_suffix_len": {
+            "2": 1.0,
+            "3": 1.0
+        },
+        "num_samples_by_suffix_len": {
+            "2": 92,
+            "3": 8
+        }
+    },
+    "data": [
+        {
+            "id": "morpholex-0",
+            "root": "direct",
+            "suffixes": [
+                "ion",
+                "al"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 2:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 3:\nWord root: judic\nSuffixes: 'ious','ness'\nOptions:\n1. judicnessious\n2. judiciousness\nAnswer: 2\n\nExample 4:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directalion\n2. directional\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 204,
+                "total_tokens": 205
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-1",
+            "root": "shift",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 3:\nWord root: judic\nSuffixes: 'ness','ious'\nOptions:\n1. judicnessious\n2. judiciousness\nAnswer: 2\n\nExample 4:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 204,
+                "total_tokens": 205
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-2",
+            "root": "narciss",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: judic\nSuffixes: 'ness','ious'\nOptions:\n1. judiciousness\n2. judicnessious\nAnswer: 1\n\nExample 4:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 204,
+                "total_tokens": 205
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-3",
+            "root": "judic",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: judic\nSuffixes: 'ious','ness'\nOptions:\n1. judicnessious\n2. judiciousness\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 204,
+                "total_tokens": 205
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-4",
+            "root": "ruth",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: ruth\nSuffixes: 'less','ness'\nOptions:\n1. ruthlessness\n2. ruthnessless\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-5",
+            "root": "imp",
+            "suffixes": [
+                "ish",
+                "ly"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: imp\nSuffixes: 'ish','ly'\nOptions:\n1. implyish\n2. impishly\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 200,
+                "total_tokens": 201
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-6",
+            "root": "rapac",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: rapac\nSuffixes: 'ness','ious'\nOptions:\n1. rapaciousness\n2. rapacnessious\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 204,
+                "total_tokens": 205
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-7",
+            "root": "pacif",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: pacif\nSuffixes: 'ic','ist'\nOptions:\n1. pacificist\n2. pacifistic\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 203,
+                "total_tokens": 204
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-8",
+            "root": "art",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: art\nSuffixes: 'less','ly'\nOptions:\n1. artlyless\n2. artlessly\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-9",
+            "root": "verac",
+            "suffixes": [
+                "ious",
+                "ly"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: verac\nSuffixes: 'ious','ly'\nOptions:\n1. veraciously\n2. veraclyious\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 204,
+                "total_tokens": 205
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-10",
+            "root": "dread",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: dread\nSuffixes: 'ly','ful'\nOptions:\n1. dreadlyful\n2. dreadfully\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-11",
+            "root": "abort",
+            "suffixes": [
+                "ion",
+                "ist"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: abort\nSuffixes: 'ion','ist'\nOptions:\n1. abortistion\n2. abortionist\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-12",
+            "root": "categor",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: categor\nSuffixes: 'al','ic'\nOptions:\n1. categoralic\n2. categorical\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 199,
+                "total_tokens": 200
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-13",
+            "root": "total",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: total\nSuffixes: 'ist','ic'\nOptions:\n1. totalistic\n2. totalicist\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-14",
+            "root": "articul",
+            "suffixes": [
+                "ate",
+                "ly"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: articul\nSuffixes: 'ly','ate'\nOptions:\n1. articullyate\n2. articulately\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 203,
+                "total_tokens": 204
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-15",
+            "root": "electr",
+            "suffixes": [
+                "on",
+                "ics"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: electr\nSuffixes: 'ics','on'\nOptions:\n1. electricson\n2. electronics\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 199,
+                "total_tokens": 200
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-16",
+            "root": "gener",
+            "suffixes": [
+                "al",
+                "ity"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: gener\nSuffixes: 'ity','al'\nOptions:\n1. generityal\n2. generality\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-17",
+            "root": "green",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: green\nSuffixes: 'ness','ish'\nOptions:\n1. greennessish\n2. greenishness\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 202,
+                "total_tokens": 203
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-18",
+            "root": "favor",
+            "suffixes": [
+                "it",
+                "ism"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: favor\nSuffixes: 'ism','it'\nOptions:\n1. favoritism\n2. favorismit\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 202,
+                "total_tokens": 203
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-19",
+            "root": "sin",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: sin\nSuffixes: 'ness','less'\nOptions:\n1. sinnessless\n2. sinlessness\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-20",
+            "root": "palat",
+            "suffixes": [
+                "al",
+                "ize"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: palat\nSuffixes: 'al','ize'\nOptions:\n1. palatalize\n2. palatizeal\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 204,
+                "total_tokens": 205
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-21",
+            "root": "taste",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: taste\nSuffixes: 'ful','ness'\nOptions:\n1. tastefulness\n2. tastenessful\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 202,
+                "total_tokens": 203
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-22",
+            "root": "origin",
+            "suffixes": [
+                "al",
+                "ity"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: origin\nSuffixes: 'ity','al'\nOptions:\n1. originality\n2. originityal\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-23",
+            "root": "phys",
+            "suffixes": [
+                "ic",
+                "al",
+                "ness"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: transit\nSuffixes: 'al','ion','ly'\nOptions:\n1. transitallyion\n2. transitalionly\n3. transitlyional\n4. transitionally\n5. transitionlyal\n6. transitlyalion\nAnswer: 4\n\nExample 2:\nWord root: hyster\nSuffixes: 'al','ic','ly'\nOptions:\n1. hysteralicly\n2. hysterlyalic\n3. hysterlyical\n4. hysterically\n5. hystericlyal\n6. hysterallyic\nAnswer: 4\n\nExample 3:\nWord root: senti\nSuffixes: 'ment','al','ism'\nOptions:\n1. sentiismalment\n2. sentimentismal\n3. sentialmentism\n4. sentialismment\n5. sentimentalism\n6. sentiismmental\nAnswer: 5\n\nExample 4:\nWord root: phys\nSuffixes: 'ness','ic','al'\nOptions:\n1. physicnessal\n2. physicalness\n3. physnessical\n4. physnessalic\n5. physalicness\n6. physalnessic\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 317,
+                "total_tokens": 318
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-24",
+            "root": "blood",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: blood\nSuffixes: 'ness','less'\nOptions:\n1. bloodlessness\n2. bloodnessless\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-25",
+            "root": "list",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: list\nSuffixes: 'less','ly'\nOptions:\n1. listlessly\n2. listlyless\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-26",
+            "root": "transit",
+            "suffixes": [
+                "ion",
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: phys\nSuffixes: 'ness','al','ic'\nOptions:\n1. physicnessal\n2. physnessalic\n3. physalicness\n4. physicalness\n5. physalnessic\n6. physnessical\nAnswer: 4\n\nExample 2:\nWord root: hyster\nSuffixes: 'al','ly','ic'\nOptions:\n1. hysterlyalic\n2. hystericlyal\n3. hysteralicly\n4. hysterlyical\n5. hysterallyic\n6. hysterically\nAnswer: 6\n\nExample 3:\nWord root: senti\nSuffixes: 'ism','al','ment'\nOptions:\n1. sentimentismal\n2. sentiismmental\n3. sentimentalism\n4. sentiismalment\n5. sentialismment\n6. sentialmentism\nAnswer: 3\n\nExample 4:\nWord root: transit\nSuffixes: 'ion','ly','al'\nOptions:\n1. transitallyion\n2. transitionlyal\n3. transitionally\n4. transitlyalion\n5. transitlyional\n6. transitalionly\nAnswer: ",
+            "reference": 3,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 317,
+                "total_tokens": 318
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-27",
+            "root": "noct",
+            "suffixes": [
+                "urn",
+                "al"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: noct\nSuffixes: 'al','urn'\nOptions:\n1. nocturnal\n2. noctalurn\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-28",
+            "root": "academ",
+            "suffixes": [
+                "ic",
+                "ian"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: academ\nSuffixes: 'ic','ian'\nOptions:\n1. academianic\n2. academician\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 203,
+                "total_tokens": 204
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-29",
+            "root": "hyster",
+            "suffixes": [
+                "ic",
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: phys\nSuffixes: 'ic','al','ness'\nOptions:\n1. physicalness\n2. physnessalic\n3. physicnessal\n4. physnessical\n5. physalnessic\n6. physalicness\nAnswer: 1\n\nExample 2:\nWord root: transit\nSuffixes: 'ion','al','ly'\nOptions:\n1. transitallyion\n2. transitionally\n3. transitlyalion\n4. transitlyional\n5. transitalionly\n6. transitionlyal\nAnswer: 2\n\nExample 3:\nWord root: senti\nSuffixes: 'ism','al','ment'\nOptions:\n1. sentialismment\n2. sentiismalment\n3. sentimentalism\n4. sentialmentism\n5. sentiismmental\n6. sentimentismal\nAnswer: 3\n\nExample 4:\nWord root: hyster\nSuffixes: 'ly','ic','al'\nOptions:\n1. hysterallyic\n2. hysterically\n3. hystericlyal\n4. hysterlyalic\n5. hysterlyical\n6. hysteralicly\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 317,
+                "total_tokens": 318
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-30",
+            "root": "lust",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: lust\nSuffixes: 'ful','ness'\nOptions:\n1. lustnessful\n2. lustfulness\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-31",
+            "root": "optim",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: optim\nSuffixes: 'ist','ic'\nOptions:\n1. optimistic\n2. optimicist\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 200,
+                "total_tokens": 201
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-32",
+            "root": "aphor",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: aphor\nSuffixes: 'ic','ist'\nOptions:\n1. aphoristic\n2. aphoricist\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 203,
+                "total_tokens": 204
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-33",
+            "root": "abort",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: abort\nSuffixes: 'ive','ly'\nOptions:\n1. abortively\n2. abortlyive\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-34",
+            "root": "defence",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: defence\nSuffixes: 'less','ness'\nOptions:\n1. defencelessness\n2. defencenessless\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 202,
+                "total_tokens": 203
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-35",
+            "root": "vorac",
+            "suffixes": [
+                "ious",
+                "ly"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: vorac\nSuffixes: 'ly','ious'\nOptions:\n1. voraclyious\n2. voraciously\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 204,
+                "total_tokens": 205
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-36",
+            "root": "ego",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: ego\nSuffixes: 'ic','ist'\nOptions:\n1. egoicist\n2. egoistic\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-37",
+            "root": "waste",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: waste\nSuffixes: 'ness','ful'\nOptions:\n1. wastefulness\n2. wastenessful\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 202,
+                "total_tokens": 203
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-38",
+            "root": "senti",
+            "suffixes": [
+                "ment",
+                "al",
+                "ism"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: phys\nSuffixes: 'ic','ness','al'\nOptions:\n1. physicnessal\n2. physalicness\n3. physicalness\n4. physalnessic\n5. physnessical\n6. physnessalic\nAnswer: 3\n\nExample 2:\nWord root: transit\nSuffixes: 'ly','al','ion'\nOptions:\n1. transitlyional\n2. transitalionly\n3. transitlyalion\n4. transitallyion\n5. transitionlyal\n6. transitionally\nAnswer: 6\n\nExample 3:\nWord root: hyster\nSuffixes: 'ly','ic','al'\nOptions:\n1. hysterically\n2. hysterlyalic\n3. hystericlyal\n4. hysteralicly\n5. hysterlyical\n6. hysterallyic\nAnswer: 1\n\nExample 4:\nWord root: senti\nSuffixes: 'ism','al','ment'\nOptions:\n1. sentimentalism\n2. sentiismmental\n3. sentiismalment\n4. sentialmentism\n5. sentialismment\n6. sentimentismal\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 317,
+                "total_tokens": 318
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-39",
+            "root": "triumph",
+            "suffixes": [
+                "ant",
+                "ly"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: triumph\nSuffixes: 'ant','ly'\nOptions:\n1. triumphantly\n2. triumphlyant\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-40",
+            "root": "liber",
+            "suffixes": [
+                "al",
+                "ism"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: liber\nSuffixes: 'al','ism'\nOptions:\n1. liberalism\n2. liberismal\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 200,
+                "total_tokens": 201
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-41",
+            "root": "period",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: period\nSuffixes: 'al','ic'\nOptions:\n1. periodical\n2. periodalic\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 200,
+                "total_tokens": 201
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-42",
+            "root": "soul",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: soul\nSuffixes: 'less','ly'\nOptions:\n1. soullyless\n2. soullessly\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-43",
+            "root": "preposition",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: preposition\nSuffixes: 'ly','al'\nOptions:\n1. prepositionally\n2. prepositionlyal\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 204,
+                "total_tokens": 205
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-44",
+            "root": "protect",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: protect\nSuffixes: 'ive','ness'\nOptions:\n1. protectnessive\n2. protectiveness\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-45",
+            "root": "cheer",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: cheer\nSuffixes: 'ful','ly'\nOptions:\n1. cheerfully\n2. cheerlyful\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-46",
+            "root": "passion",
+            "suffixes": [
+                "ate",
+                "ness"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: passion\nSuffixes: 'ness','ate'\nOptions:\n1. passionnessate\n2. passionateness\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 202,
+                "total_tokens": 203
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-47",
+            "root": "lingu",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: lingu\nSuffixes: 'ist','ic'\nOptions:\n1. linguistic\n2. linguicist\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 200,
+                "total_tokens": 201
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-48",
+            "root": "hate",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: hate\nSuffixes: 'ful','ly'\nOptions:\n1. hatelyful\n2. hatefully\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-49",
+            "root": "gorm",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: gorm\nSuffixes: 'ly','less'\nOptions:\n1. gormlyless\n2. gormlessly\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 204,
+                "total_tokens": 205
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-50",
+            "root": "feck",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: feck\nSuffixes: 'less','ness'\nOptions:\n1. fecklessness\n2. fecknessless\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 204,
+                "total_tokens": 205
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-51",
+            "root": "real",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: real\nSuffixes: 'ic','ist'\nOptions:\n1. realicist\n2. realistic\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 200,
+                "total_tokens": 201
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-52",
+            "root": "function",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: function\nSuffixes: 'ist','al'\nOptions:\n1. functionistal\n2. functionalist\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-53",
+            "root": "sweet",
+            "suffixes": [
+                "en",
+                "er"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: sweet\nSuffixes: 'er','en'\nOptions:\n1. sweeteren\n2. sweetener\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-54",
+            "root": "guile",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: guile\nSuffixes: 'ly','less'\nOptions:\n1. guilelyless\n2. guilelessly\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 204,
+                "total_tokens": 205
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-55",
+            "root": "fool",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: fool\nSuffixes: 'ness','ish'\nOptions:\n1. foolnessish\n2. foolishness\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-56",
+            "root": "distinct",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: distinct\nSuffixes: 'ive','ness'\nOptions:\n1. distinctnessive\n2. distinctiveness\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-57",
+            "root": "norm",
+            "suffixes": [
+                "al",
+                "ize"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: norm\nSuffixes: 'al','ize'\nOptions:\n1. normizeal\n2. normalize\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 200,
+                "total_tokens": 201
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-58",
+            "root": "articul",
+            "suffixes": [
+                "ate",
+                "ness"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: articul\nSuffixes: 'ate','ness'\nOptions:\n1. articulateness\n2. articulnessate\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 205,
+                "total_tokens": 206
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-59",
+            "root": "forget",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: forget\nSuffixes: 'ness','ful'\nOptions:\n1. forgetfulness\n2. forgetnessful\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-60",
+            "root": "putr",
+            "suffixes": [
+                "efac",
+                "tive"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: putr\nSuffixes: 'tive','efac'\nOptions:\n1. putrefactive\n2. putrtiveefac\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 207,
+                "total_tokens": 208
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-61",
+            "root": "condition",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: condition\nSuffixes: 'ly','al'\nOptions:\n1. conditionally\n2. conditionlyal\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-62",
+            "root": "shame",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: shame\nSuffixes: 'ness','ful'\nOptions:\n1. shamefulness\n2. shamenessful\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-63",
+            "root": "vel",
+            "suffixes": [
+                "ar",
+                "ize"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: vel\nSuffixes: 'ize','ar'\nOptions:\n1. velarize\n2. velizear\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 202,
+                "total_tokens": 203
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-64",
+            "root": "senti",
+            "suffixes": [
+                "ment",
+                "al",
+                "ist"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: phys\nSuffixes: 'al','ness','ic'\nOptions:\n1. physnessical\n2. physicalness\n3. physicnessal\n4. physalicness\n5. physalnessic\n6. physnessalic\nAnswer: 2\n\nExample 2:\nWord root: transit\nSuffixes: 'al','ion','ly'\nOptions:\n1. transitlyional\n2. transitionally\n3. transitlyalion\n4. transitalionly\n5. transitionlyal\n6. transitallyion\nAnswer: 2\n\nExample 3:\nWord root: hyster\nSuffixes: 'ic','al','ly'\nOptions:\n1. hysterically\n2. hysteralicly\n3. hysterlyalic\n4. hysterlyical\n5. hystericlyal\n6. hysterallyic\nAnswer: 1\n\nExample 4:\nWord root: senti\nSuffixes: 'ment','al','ist'\nOptions:\n1. sentiistmental\n2. sentimentalist\n3. sentialistment\n4. sentiistalment\n5. sentialmentist\n6. sentimentistal\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 317,
+                "total_tokens": 318
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-65",
+            "root": "bliss",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: bliss\nSuffixes: 'ly','ful'\nOptions:\n1. blisslyful\n2. blissfully\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-66",
+            "root": "tear",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: tear\nSuffixes: 'ly','less'\nOptions:\n1. tearlyless\n2. tearlessly\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-67",
+            "root": "lect",
+            "suffixes": [
+                "ure",
+                "ship"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: lect\nSuffixes: 'ure','ship'\nOptions:\n1. lectshipure\n2. lectureship\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-68",
+            "root": "liturgic",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: liturgic\nSuffixes: 'ly','al'\nOptions:\n1. liturgiclyal\n2. liturgically\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 206,
+                "total_tokens": 207
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-69",
+            "root": "gener",
+            "suffixes": [
+                "al",
+                "issimo"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: gener\nSuffixes: 'al','issimo'\nOptions:\n1. generalissimo\n2. generissimoal\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 204,
+                "total_tokens": 205
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-70",
+            "root": "help",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: help\nSuffixes: 'less','ness'\nOptions:\n1. helpnessless\n2. helplessness\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-71",
+            "root": "intuit",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: intuit\nSuffixes: 'ive','ly'\nOptions:\n1. intuitively\n2. intuitlyive\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-72",
+            "root": "bash",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: bash\nSuffixes: 'ful','ly'\nOptions:\n1. bashfully\n2. bashlyful\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-73",
+            "root": "select",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: select\nSuffixes: 'ive','ness'\nOptions:\n1. selectiveness\n2. selectnessive\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-74",
+            "root": "join",
+            "suffixes": [
+                "t",
+                "ure"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: join\nSuffixes: 't','ure'\nOptions:\n1. jointure\n2. joinuret\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-75",
+            "root": "period",
+            "suffixes": [
+                "ic",
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: phys\nSuffixes: 'ness','al','ic'\nOptions:\n1. physnessalic\n2. physicalness\n3. physnessical\n4. physalicness\n5. physicnessal\n6. physalnessic\nAnswer: 2\n\nExample 2:\nWord root: transit\nSuffixes: 'ion','ly','al'\nOptions:\n1. transitlyalion\n2. transitlyional\n3. transitionlyal\n4. transitallyion\n5. transitalionly\n6. transitionally\nAnswer: 6\n\nExample 3:\nWord root: hyster\nSuffixes: 'al','ic','ly'\nOptions:\n1. hysterallyic\n2. hystericlyal\n3. hysterically\n4. hysterlyical\n5. hysteralicly\n6. hysterlyalic\nAnswer: 3\n\nExample 4:\nWord root: period\nSuffixes: 'ly','ic','al'\nOptions:\n1. periodically\n2. periodalicly\n3. periodlyical\n4. periodiclyal\n5. periodallyic\n6. periodlyalic\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 310,
+                "total_tokens": 311
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-76",
+            "root": "self",
+            "suffixes": [
+                "ish",
+                "ly"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: self\nSuffixes: 'ly','ish'\nOptions:\n1. selfishly\n2. selflyish\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-77",
+            "root": "obstruct",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: obstruct\nSuffixes: 'ive','ness'\nOptions:\n1. obstructiveness\n2. obstructnessive\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-78",
+            "root": "dole",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: dole\nSuffixes: 'ful','ly'\nOptions:\n1. dolefully\n2. dolelyful\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 204,
+                "total_tokens": 205
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-79",
+            "root": "opt",
+            "suffixes": [
+                "ion",
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: phys\nSuffixes: 'ness','ic','al'\nOptions:\n1. physicalness\n2. physalnessic\n3. physnessalic\n4. physicnessal\n5. physalicness\n6. physnessical\nAnswer: 1\n\nExample 2:\nWord root: transit\nSuffixes: 'al','ly','ion'\nOptions:\n1. transitlyalion\n2. transitionlyal\n3. transitalionly\n4. transitionally\n5. transitallyion\n6. transitlyional\nAnswer: 4\n\nExample 3:\nWord root: hyster\nSuffixes: 'ly','al','ic'\nOptions:\n1. hysteralicly\n2. hysterlyical\n3. hysterallyic\n4. hysterically\n5. hysterlyalic\n6. hystericlyal\nAnswer: 4\n\nExample 4:\nWord root: opt\nSuffixes: 'ly','ion','al'\nOptions:\n1. optlyional\n2. optionlyal\n3. optionally\n4. optallyion\n5. optlyalion\n6. optalionly\nAnswer: ",
+            "reference": 3,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 310,
+                "total_tokens": 311
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-80",
+            "root": "precoc",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: precoc\nSuffixes: 'ious','ness'\nOptions:\n1. precociousness\n2. precocnessious\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 204,
+                "total_tokens": 205
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-81",
+            "root": "pract",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: pract\nSuffixes: 'al','ic'\nOptions:\n1. practical\n2. practalic\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 199,
+                "total_tokens": 200
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-82",
+            "root": "perpetu",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: perpetu\nSuffixes: 'al','ly'\nOptions:\n1. perpetually\n2. perpetulyal\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 202,
+                "total_tokens": 203
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-83",
+            "root": "faith",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: faith\nSuffixes: 'ful','ness'\nOptions:\n1. faithfulness\n2. faithnessful\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-84",
+            "root": "origin",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: origin\nSuffixes: 'ly','al'\nOptions:\n1. originlyal\n2. originally\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 200,
+                "total_tokens": 201
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-85",
+            "root": "nation",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: nation\nSuffixes: 'ist','al'\nOptions:\n1. nationalist\n2. nationistal\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 200,
+                "total_tokens": 201
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-86",
+            "root": "govern",
+            "suffixes": [
+                "ment",
+                "al"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: govern\nSuffixes: 'ment','al'\nOptions:\n1. governmental\n2. governalment\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 200,
+                "total_tokens": 201
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-87",
+            "root": "militar",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: militar\nSuffixes: 'ic','ist'\nOptions:\n1. militaricist\n2. militaristic\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-88",
+            "root": "taste",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: taste\nSuffixes: 'ful','ly'\nOptions:\n1. tastelyful\n2. tastefully\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-89",
+            "root": "weigh",
+            "suffixes": [
+                "t",
+                "less"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: weigh\nSuffixes: 't','less'\nOptions:\n1. weighlesst\n2. weightless\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-90",
+            "root": "frig",
+            "suffixes": [
+                "id",
+                "ly"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: frig\nSuffixes: 'id','ly'\nOptions:\n1. friglyid\n2. frigidly\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 204,
+                "total_tokens": 205
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-91",
+            "root": "protect",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: protect\nSuffixes: 'ly','ive'\nOptions:\n1. protectively\n2. protectlyive\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-92",
+            "root": "magister",
+            "suffixes": [
+                "iall",
+                "y"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: magister\nSuffixes: 'y','iall'\nOptions:\n1. magisteryiall\n2. magisterially\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 206,
+                "total_tokens": 207
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-93",
+            "root": "elf",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: elf\nSuffixes: 'ness','ish'\nOptions:\n1. elfishness\n2. elfnessish\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 202,
+                "total_tokens": 203
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-94",
+            "root": "cybernetic",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: cybernetic\nSuffixes: 'ly','al'\nOptions:\n1. cybernetically\n2. cyberneticlyal\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 206,
+                "total_tokens": 207
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-95",
+            "root": "cens",
+            "suffixes": [
+                "or",
+                "ious",
+                "ness"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: phys\nSuffixes: 'ness','ic','al'\nOptions:\n1. physnessalic\n2. physalnessic\n3. physicnessal\n4. physicalness\n5. physnessical\n6. physalicness\nAnswer: 4\n\nExample 2:\nWord root: transit\nSuffixes: 'ly','al','ion'\nOptions:\n1. transitallyion\n2. transitalionly\n3. transitlyalion\n4. transitionally\n5. transitlyional\n6. transitionlyal\nAnswer: 4\n\nExample 3:\nWord root: hyster\nSuffixes: 'ic','al','ly'\nOptions:\n1. hysterlyalic\n2. hystericlyal\n3. hysteralicly\n4. hysterallyic\n5. hysterlyical\n6. hysterically\nAnswer: 6\n\nExample 4:\nWord root: cens\nSuffixes: 'or','ious','ness'\nOptions:\n1. censornessious\n2. censnessorious\n3. censiousorness\n4. censoriousness\n5. censnessiousor\n6. censiousnessor\nAnswer: ",
+            "reference": 4,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 322,
+                "total_tokens": 323
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-96",
+            "root": "journ",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissistic\n2. narcissicist\nAnswer: 1\n\nExample 4:\nWord root: journ\nSuffixes: 'al','ist'\nOptions:\n1. journistal\n2. journalist\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 202,
+                "total_tokens": 203
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-97",
+            "root": "sheep",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'ion','al'\nOptions:\n1. directalion\n2. directional\nAnswer: 2\n\nExample 2:\nWord root: shift\nSuffixes: 'less','ness'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: sheep\nSuffixes: 'ness','ish'\nOptions:\n1. sheepishness\n2. sheepnessish\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 202,
+                "total_tokens": 203
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-98",
+            "root": "use",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftlessness\n2. shiftnessless\nAnswer: 1\n\nExample 3:\nWord root: narciss\nSuffixes: 'ic','ist'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: use\nSuffixes: 'less','ly'\nOptions:\n1. uselyless\n2. uselessly\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-99",
+            "root": "pain",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in English that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: direct\nSuffixes: 'al','ion'\nOptions:\n1. directional\n2. directalion\nAnswer: 1\n\nExample 2:\nWord root: shift\nSuffixes: 'ness','less'\nOptions:\n1. shiftnessless\n2. shiftlessness\nAnswer: 2\n\nExample 3:\nWord root: narciss\nSuffixes: 'ist','ic'\nOptions:\n1. narcissicist\n2. narcissistic\nAnswer: 2\n\nExample 4:\nWord root: pain\nSuffixes: 'less','ly'\nOptions:\n1. painlessly\n2. painlyless\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 201,
+                "total_tokens": 202
+            },
+            "correct": true,
+            "faithful": true
+        }
+    ]
+}
