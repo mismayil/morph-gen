@@ -1,6 +1,6 @@
 import argparse
 import time
-from openai import OpenAI, APITimeoutError, APIConnectionError, RateLimitError, InternalServerError
+from openai import OpenAI, AzureOpenAI, APITimeoutError, APIConnectionError, RateLimitError, InternalServerError
 import os
 from tqdm import tqdm
 import pathlib
@@ -64,6 +64,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-d", "--datapath", type=str, help="Path to evaluation data in json", required=True)
     parser.add_argument("-k", "--openai-key", type=str, help="OpenAI API Key")
+    parser.add_argument("-ia", "--is-openai-azure", type=bool, help="If OpenAI on Azure", default=True)
     parser.add_argument("-m", "--model", type=str, help="Model to use for evaluation", default="gpt-3.5-turbo")
     parser.add_argument("-t", "--temperature", type=float, help="Temperature for generation", default=0.3)
     parser.add_argument("-g", "--max-tokens", type=int, help="Max tokens for generation", default=40)
@@ -75,9 +76,16 @@ def main():
     parser.add_argument("-i", "--ignore-path", type=str, help="Path to already evaluated data", default=None)
     
     args = parser.parse_args()
-    
-    client = OpenAI(api_key=args.openai_key if args.openai_key is not None else os.getenv("OPENAI_API_KEY"))
-
+    if args.is_openai_azure:
+        endpoint = 'https://sigturk-openai.openai.azure.com/'
+        client = AzureOpenAI(
+            api_key = args.openai_key if args.openai_key is not None else os.getenv("AZURE_OPENAI_KEY"),
+            api_version = '2024-02-15-preview',
+            azure_endpoint=endpoint
+        )
+    else:
+        client = OpenAI(api_key=args.openai_key if args.openai_key is not None else os.getenv("OPENAI_API_KEY"))
+        
     input_data = read_json(args.datapath)
     data = input_data["data"]
     
