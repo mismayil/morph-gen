@@ -1,0 +1,2149 @@
+{
+    "metadata": {
+        "datapath": "../experiments/data/tr/btwd/temp_en/v6/btwd_prep_post_sample_morph_eval_morph_disc_en_s3.json",
+        "model": "gpt-4",
+        "temperature": 0.3,
+        "max_tokens": 40,
+        "top_p": 1,
+        "frequency_penalty": 0,
+        "presence_penalty": 0
+    },
+    "metrics": {
+        "usage": {
+            "prompt_tokens": 33484,
+            "completion_tokens": 100,
+            "total_tokens": 33584
+        },
+        "cost": {
+            "input": 1.00452,
+            "output": 0.006,
+            "total": 1.01052
+        },
+        "accuracy": 0.93,
+        "faithful_accuracy": 1.0,
+        "accuracy_by_suffix_len": {
+            "2": 0.9714285714285714,
+            "3": 0.9210526315789473,
+            "4": 0.7692307692307693,
+            "5": 1.0,
+            "6": 1.0
+        },
+        "num_samples_by_suffix_len": {
+            "2": 35,
+            "3": 38,
+            "4": 13,
+            "5": 12,
+            "6": 2
+        }
+    },
+    "data": [
+        {
+            "id": "btwd-0",
+            "root": "dol",
+            "suffixes": [
+                "an",
+                "mış"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: omuz\nSuffixes: 'lar','ı'\nOptions:\n1. omuzları\n2. omuzılar\nAnswer: 1\n\nExample 2:\nWord root: enerji\nSuffixes: 'e','m'\nOptions:\n1. enerjime\n2. enerjiem\nAnswer: 1\n\nExample 3:\nWord root: il\nSuffixes: 'ne','ki'\nOptions:\n1. ilneki\n2. ilkine\nAnswer: 2\n\nExample 4:\nWord root: dol\nSuffixes: 'mış','an'\nOptions:\n1. dolanmış\n2. dolmışan\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 210,
+                "total_tokens": 211
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-1",
+            "root": "omuz",
+            "suffixes": [
+                "lar",
+                "ı"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: dol\nSuffixes: 'an','mış'\nOptions:\n1. dolanmış\n2. dolmışan\nAnswer: 1\n\nExample 2:\nWord root: enerji\nSuffixes: 'm','e'\nOptions:\n1. enerjime\n2. enerjiem\nAnswer: 1\n\nExample 3:\nWord root: il\nSuffixes: 'ne','ki'\nOptions:\n1. ilneki\n2. ilkine\nAnswer: 2\n\nExample 4:\nWord root: omuz\nSuffixes: 'ı','lar'\nOptions:\n1. omuzılar\n2. omuzları\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 210,
+                "total_tokens": 211
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-2",
+            "root": "kaldır",
+            "suffixes": [
+                "abil",
+                "mek",
+                "tir"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: koş\nSuffixes: 'tur','ur','um'\nOptions:\n1. koşumturur\n2. koşumurtur\n3. koştururum\n4. koşurumtur\n5. koşurturum\n6. koşturumur\nAnswer: 3\n\nExample 2:\nWord root: ağabey\nSuffixes: 'i','imiz','ler'\nOptions:\n1. ağabeyilerimiz\n2. ağabeyimiziler\n3. ağabeyleriimiz\n4. ağabeyimizleri\n5. ağabeylerimizi\n6. ağabeyiimizler\nAnswer: 5\n\nExample 3:\nWord root: sahil\nSuffixes: 'ni','ler','i'\nOptions:\n1. sahillerini\n2. sahilnileri\n3. sahilniiler\n4. sahililerni\n5. sahillernii\n6. sahiliniler\nAnswer: 1\n\nExample 4:\nWord root: kaldır\nSuffixes: 'mek','tir','abil'\nOptions:\n1. kaldırmektirabil\n2. kaldırtirabilmek\n3. kaldırtirmekabil\n4. kaldırabilmektir\n5. kaldırabiltirmek\n6. kaldırmekabiltir\nAnswer: ",
+            "reference": 4,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 389,
+                "total_tokens": 390
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-3",
+            "root": "enerji",
+            "suffixes": [
+                "m",
+                "e"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nOptions:\n1. dolanmış\n2. dolmışan\nAnswer: 1\n\nExample 2:\nWord root: omuz\nSuffixes: 'ı','lar'\nOptions:\n1. omuzları\n2. omuzılar\nAnswer: 1\n\nExample 3:\nWord root: il\nSuffixes: 'ki','ne'\nOptions:\n1. ilkine\n2. ilneki\nAnswer: 1\n\nExample 4:\nWord root: enerji\nSuffixes: 'e','m'\nOptions:\n1. enerjiem\n2. enerjime\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 210,
+                "total_tokens": 211
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-4",
+            "root": "iş",
+            "suffixes": [
+                "le",
+                "me",
+                "ci",
+                "liğ",
+                "i"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: at\nSuffixes: 'ıl','yacağ','ma','nı','ı'\nOptions:\n1. atyacağmanıııl\n2. atnııılyacağma\n3. atyacağılnımaı\n4. atılmayacağını\n5. atıyacağnımaıl\n6. atnımaılıyacağ\nAnswer: 4\n\nExample 2:\nWord root: gel\nSuffixes: 'i','tir','diğ','iş','im'\nOptions:\n1. gelimitirişdiğ\n2. geltirimidiğiş\n3. gelişdiğiimtir\n4. geltirişimidiğ\n5. geliştirdiğimi\n6. geltirimişidiğ\nAnswer: 5\n\nExample 3:\nWord root: soru\nSuffixes: 'lar','m','suz','luk','ı'\nOptions:\n1. sorumluklarısuz\n2. sorusuzılarmluk\n3. sorusuzmlukları\n4. sorusuzlarımluk\n5. sorumsuzlukları\n6. sorusuzlarmlukı\nAnswer: 5\n\nExample 4:\nWord root: iş\nSuffixes: 'liğ','le','ci','i','me'\nOptions:\n1. işicimeliğle\n2. işlemeciliği\n3. işliğcimeile\n4. işleiliğmeci\n5. işliğmecilei\n6. işiciliğmele\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 426,
+                "total_tokens": 427
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-5",
+            "root": "il",
+            "suffixes": [
+                "ki",
+                "ne"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: dol\nSuffixes: 'an','mış'\nOptions:\n1. dolanmış\n2. dolmışan\nAnswer: 1\n\nExample 2:\nWord root: omuz\nSuffixes: 'lar','ı'\nOptions:\n1. omuzları\n2. omuzılar\nAnswer: 1\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nOptions:\n1. enerjiem\n2. enerjime\nAnswer: 2\n\nExample 4:\nWord root: il\nSuffixes: 'ki','ne'\nOptions:\n1. ilkine\n2. ilneki\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 210,
+                "total_tokens": 211
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-6",
+            "root": "tut",
+            "suffixes": [
+                "umuz",
+                "u"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: dol\nSuffixes: 'an','mış'\nOptions:\n1. dolanmış\n2. dolmışan\nAnswer: 1\n\nExample 2:\nWord root: omuz\nSuffixes: 'lar','ı'\nOptions:\n1. omuzları\n2. omuzılar\nAnswer: 1\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nOptions:\n1. enerjime\n2. enerjiem\nAnswer: 1\n\nExample 4:\nWord root: tut\nSuffixes: 'u','umuz'\nOptions:\n1. tutumuzu\n2. tutuumuz\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 212,
+                "total_tokens": 213
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-7",
+            "root": "ver",
+            "suffixes": [
+                "me",
+                "miş"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: dol\nSuffixes: 'an','mış'\nOptions:\n1. dolanmış\n2. dolmışan\nAnswer: 1\n\nExample 2:\nWord root: omuz\nSuffixes: 'lar','ı'\nOptions:\n1. omuzılar\n2. omuzları\nAnswer: 2\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nOptions:\n1. enerjime\n2. enerjiem\nAnswer: 1\n\nExample 4:\nWord root: ver\nSuffixes: 'miş','me'\nOptions:\n1. vermemiş\n2. vermişme\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 213,
+                "total_tokens": 214
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-8",
+            "root": "koş",
+            "suffixes": [
+                "tur",
+                "ur",
+                "um"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'tir','abil','mek'\nOptions:\n1. kaldırmektirabil\n2. kaldırabiltirmek\n3. kaldırmekabiltir\n4. kaldırtirmekabil\n5. kaldırtirabilmek\n6. kaldırabilmektir\nAnswer: 6\n\nExample 2:\nWord root: ağabey\nSuffixes: 'imiz','i','ler'\nOptions:\n1. ağabeyilerimiz\n2. ağabeyleriimiz\n3. ağabeylerimizi\n4. ağabeyimizleri\n5. ağabeyimiziler\n6. ağabeyiimizler\nAnswer: 3\n\nExample 3:\nWord root: sahil\nSuffixes: 'i','ni','ler'\nOptions:\n1. sahililerni\n2. sahilniiler\n3. sahilnileri\n4. sahiliniler\n5. sahillerini\n6. sahillernii\nAnswer: 5\n\nExample 4:\nWord root: koş\nSuffixes: 'tur','um','ur'\nOptions:\n1. koşumurtur\n2. koşurturum\n3. koştururum\n4. koşumturur\n5. koşturumur\n6. koşurumtur\nAnswer: ",
+            "reference": 3,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 389,
+                "total_tokens": 390
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-9",
+            "root": "at",
+            "suffixes": [
+                "ıl",
+                "ma",
+                "yacağ",
+                "ı",
+                "nı"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: iş\nSuffixes: 'me','i','liğ','le','ci'\nOptions:\n1. işlemeciliği\n2. işicimeliğle\n3. işleiliğmeci\n4. işliğcimeile\n5. işliğmecilei\n6. işiciliğmele\nAnswer: 1\n\nExample 2:\nWord root: gel\nSuffixes: 'diğ','tir','i','iş','im'\nOptions:\n1. gelişdiğiimtir\n2. geliştirdiğimi\n3. geltirimişidiğ\n4. geltirişimidiğ\n5. gelimitirişdiğ\n6. geltirimidiğiş\nAnswer: 2\n\nExample 3:\nWord root: soru\nSuffixes: 'lar','suz','luk','ı','m'\nOptions:\n1. sorumsuzlukları\n2. sorusuzmlukları\n3. sorusuzlarmlukı\n4. sorusuzılarmluk\n5. sorusuzlarımluk\n6. sorumluklarısuz\nAnswer: 1\n\nExample 4:\nWord root: at\nSuffixes: 'nı','ı','ıl','ma','yacağ'\nOptions:\n1. atılmayacağını\n2. atyacağmanıııl\n3. atyacağılnımaı\n4. atnııılyacağma\n5. atıyacağnımaıl\n6. atnımaılıyacağ\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 426,
+                "total_tokens": 427
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-10",
+            "root": "ağabey",
+            "suffixes": [
+                "ler",
+                "imiz",
+                "i"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'abil','tir','mek'\nOptions:\n1. kaldırmekabiltir\n2. kaldırtirabilmek\n3. kaldırabiltirmek\n4. kaldırtirmekabil\n5. kaldırmektirabil\n6. kaldırabilmektir\nAnswer: 6\n\nExample 2:\nWord root: koş\nSuffixes: 'tur','ur','um'\nOptions:\n1. koşturumur\n2. koşumturur\n3. koşurturum\n4. koşumurtur\n5. koşurumtur\n6. koştururum\nAnswer: 6\n\nExample 3:\nWord root: sahil\nSuffixes: 'ler','ni','i'\nOptions:\n1. sahiliniler\n2. sahillerini\n3. sahilniiler\n4. sahilnileri\n5. sahililerni\n6. sahillernii\nAnswer: 2\n\nExample 4:\nWord root: ağabey\nSuffixes: 'imiz','i','ler'\nOptions:\n1. ağabeylerimizi\n2. ağabeyilerimiz\n3. ağabeyleriimiz\n4. ağabeyimiziler\n5. ağabeyimizleri\n6. ağabeyiimizler\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 389,
+                "total_tokens": 390
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-11",
+            "root": "karşı",
+            "suffixes": [
+                "ya",
+                "dır"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nOptions:\n1. dolmışan\n2. dolanmış\nAnswer: 2\n\nExample 2:\nWord root: omuz\nSuffixes: 'lar','ı'\nOptions:\n1. omuzları\n2. omuzılar\nAnswer: 1\n\nExample 3:\nWord root: enerji\nSuffixes: 'm','e'\nOptions:\n1. enerjime\n2. enerjiem\nAnswer: 1\n\nExample 4:\nWord root: karşı\nSuffixes: 'ya','dır'\nOptions:\n1. karşıyadır\n2. karşıdırya\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 218,
+                "total_tokens": 219
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-12",
+            "root": "gel",
+            "suffixes": [
+                "iş",
+                "tir",
+                "diğ",
+                "im",
+                "i"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: iş\nSuffixes: 'le','i','ci','liğ','me'\nOptions:\n1. işicimeliğle\n2. işlemeciliği\n3. işliğcimeile\n4. işliğmecilei\n5. işleiliğmeci\n6. işiciliğmele\nAnswer: 2\n\nExample 2:\nWord root: at\nSuffixes: 'nı','ıl','ı','ma','yacağ'\nOptions:\n1. atyacağılnımaı\n2. atıyacağnımaıl\n3. atılmayacağını\n4. atnııılyacağma\n5. atnımaılıyacağ\n6. atyacağmanıııl\nAnswer: 3\n\nExample 3:\nWord root: soru\nSuffixes: 'luk','m','lar','ı','suz'\nOptions:\n1. sorusuzılarmluk\n2. sorusuzmlukları\n3. sorumsuzlukları\n4. sorumluklarısuz\n5. sorusuzlarmlukı\n6. sorusuzlarımluk\nAnswer: 3\n\nExample 4:\nWord root: gel\nSuffixes: 'i','iş','tir','diğ','im'\nOptions:\n1. geliştirdiğimi\n2. geltirişimidiğ\n3. geltirimidiğiş\n4. gelişdiğiimtir\n5. gelimitirişdiğ\n6. geltirimişidiğ\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 426,
+                "total_tokens": 427
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-13",
+            "root": "sahil",
+            "suffixes": [
+                "ler",
+                "i",
+                "ni"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'tir','abil','mek'\nOptions:\n1. kaldırtirabilmek\n2. kaldırtirmekabil\n3. kaldırabilmektir\n4. kaldırabiltirmek\n5. kaldırmektirabil\n6. kaldırmekabiltir\nAnswer: 3\n\nExample 2:\nWord root: koş\nSuffixes: 'ur','tur','um'\nOptions:\n1. koşumurtur\n2. koşturumur\n3. koşurumtur\n4. koştururum\n5. koşurturum\n6. koşumturur\nAnswer: 4\n\nExample 3:\nWord root: ağabey\nSuffixes: 'ler','imiz','i'\nOptions:\n1. ağabeyleriimiz\n2. ağabeylerimizi\n3. ağabeyimizleri\n4. ağabeyiimizler\n5. ağabeyilerimiz\n6. ağabeyimiziler\nAnswer: 2\n\nExample 4:\nWord root: sahil\nSuffixes: 'ler','i','ni'\nOptions:\n1. sahillerini\n2. sahilniiler\n3. sahilnileri\n4. sahillernii\n5. sahiliniler\n6. sahililerni\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 389,
+                "total_tokens": 390
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-14",
+            "root": "soru",
+            "suffixes": [
+                "m",
+                "suz",
+                "luk",
+                "lar",
+                "ı"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: iş\nSuffixes: 'le','ci','me','liğ','i'\nOptions:\n1. işlemeciliği\n2. işleiliğmeci\n3. işliğcimeile\n4. işicimeliğle\n5. işliğmecilei\n6. işiciliğmele\nAnswer: 1\n\nExample 2:\nWord root: at\nSuffixes: 'yacağ','ma','nı','ı','ıl'\nOptions:\n1. atıyacağnımaıl\n2. atnııılyacağma\n3. atılmayacağını\n4. atyacağılnımaı\n5. atnımaılıyacağ\n6. atyacağmanıııl\nAnswer: 3\n\nExample 3:\nWord root: gel\nSuffixes: 'iş','tir','i','im','diğ'\nOptions:\n1. gelimitirişdiğ\n2. geliştirdiğimi\n3. gelişdiğiimtir\n4. geltirimidiğiş\n5. geltirişimidiğ\n6. geltirimişidiğ\nAnswer: 2\n\nExample 4:\nWord root: soru\nSuffixes: 'm','lar','suz','luk','ı'\nOptions:\n1. sorusuzılarmluk\n2. sorumluklarısuz\n3. sorumsuzlukları\n4. sorusuzlarmlukı\n5. sorusuzmlukları\n6. sorusuzlarımluk\nAnswer: ",
+            "reference": 3,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 426,
+                "total_tokens": 427
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-15",
+            "root": "gurur",
+            "suffixes": [
+                "un",
+                "un"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nOptions:\n1. dolmışan\n2. dolanmış\nAnswer: 2\n\nExample 2:\nWord root: omuz\nSuffixes: 'ı','lar'\nOptions:\n1. omuzları\n2. omuzılar\nAnswer: 1\n\nExample 3:\nWord root: enerji\nSuffixes: 'm','e'\nOptions:\n1. enerjime\n2. enerjiem\nAnswer: 1\n\nExample 4:\nWord root: gurur\nSuffixes: 'un','un'\nOptions:\n1. gururunun\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 209,
+                "total_tokens": 210
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-16",
+            "root": "iste",
+            "suffixes": [
+                "me",
+                "dik",
+                "ler",
+                "i",
+                "ni"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: iş\nSuffixes: 'i','ci','me','liğ','le'\nOptions:\n1. işleiliğmeci\n2. işlemeciliği\n3. işliğcimeile\n4. işicimeliğle\n5. işliğmecilei\n6. işiciliğmele\nAnswer: 2\n\nExample 2:\nWord root: at\nSuffixes: 'ı','ma','ıl','nı','yacağ'\nOptions:\n1. atılmayacağını\n2. atyacağılnımaı\n3. atyacağmanıııl\n4. atıyacağnımaıl\n5. atnımaılıyacağ\n6. atnııılyacağma\nAnswer: 1\n\nExample 3:\nWord root: gel\nSuffixes: 'iş','tir','diğ','im','i'\nOptions:\n1. gelimitirişdiğ\n2. geltirimidiğiş\n3. geliştirdiğimi\n4. gelişdiğiimtir\n5. geltirişimidiğ\n6. geltirimişidiğ\nAnswer: 3\n\nExample 4:\nWord root: iste\nSuffixes: 'dik','ni','me','ler','i'\nOptions:\n1. istemediklerini\n2. isteimediklerni\n3. istenilermeidik\n4. isteidikmeniler\n5. isteniilermedik\n6. isteinimelerdik\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 421,
+                "total_tokens": 422
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-17",
+            "root": "yarım",
+            "suffixes": [
+                "lar",
+                "ımız"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nOptions:\n1. dolanmış\n2. dolmışan\nAnswer: 1\n\nExample 2:\nWord root: omuz\nSuffixes: 'lar','ı'\nOptions:\n1. omuzları\n2. omuzılar\nAnswer: 1\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nOptions:\n1. enerjime\n2. enerjiem\nAnswer: 1\n\nExample 4:\nWord root: yarım\nSuffixes: 'ımız','lar'\nOptions:\n1. yarımlarımız\n2. yarımımızlar\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 220,
+                "total_tokens": 221
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-18",
+            "root": "kukla",
+            "suffixes": [
+                "lar",
+                "ı",
+                "ydı"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'tir','mek','abil'\nOptions:\n1. kaldırabilmektir\n2. kaldırmektirabil\n3. kaldırabiltirmek\n4. kaldırtirmekabil\n5. kaldırmekabiltir\n6. kaldırtirabilmek\nAnswer: 1\n\nExample 2:\nWord root: koş\nSuffixes: 'ur','um','tur'\nOptions:\n1. koşurturum\n2. koşumturur\n3. koşumurtur\n4. koşurumtur\n5. koşturumur\n6. koştururum\nAnswer: 6\n\nExample 3:\nWord root: ağabey\nSuffixes: 'ler','i','imiz'\nOptions:\n1. ağabeyilerimiz\n2. ağabeyimiziler\n3. ağabeyimizleri\n4. ağabeyleriimiz\n5. ağabeyiimizler\n6. ağabeylerimizi\nAnswer: 6\n\nExample 4:\nWord root: kukla\nSuffixes: 'ydı','ı','lar'\nOptions:\n1. kuklaydıları\n2. kuklaydıılar\n3. kuklaıydılar\n4. kuklalarıydı\n5. kuklaılarydı\n6. kuklalarydıı\nAnswer: ",
+            "reference": 4,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 399,
+                "total_tokens": 400
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-19",
+            "root": "kendi",
+            "suffixes": [
+                "ler",
+                "i",
+                "dir"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'abil','tir','mek'\nOptions:\n1. kaldırmekabiltir\n2. kaldırtirmekabil\n3. kaldırabiltirmek\n4. kaldırtirabilmek\n5. kaldırabilmektir\n6. kaldırmektirabil\nAnswer: 5\n\nExample 2:\nWord root: koş\nSuffixes: 'um','tur','ur'\nOptions:\n1. koştururum\n2. koşumurtur\n3. koşumturur\n4. koşturumur\n5. koşurumtur\n6. koşurturum\nAnswer: 1\n\nExample 3:\nWord root: ağabey\nSuffixes: 'imiz','i','ler'\nOptions:\n1. ağabeyimizleri\n2. ağabeyilerimiz\n3. ağabeylerimizi\n4. ağabeyimiziler\n5. ağabeyleriimiz\n6. ağabeyiimizler\nAnswer: 3\n\nExample 4:\nWord root: kendi\nSuffixes: 'ler','i','dir'\nOptions:\n1. kendilerdiri\n2. kendiidirler\n3. kendidirleri\n4. kendileridir\n5. kendidiriler\n6. kendiilerdir\nAnswer: ",
+            "reference": 4,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 388,
+                "total_tokens": 389
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-20",
+            "root": "eş",
+            "suffixes": [
+                "in",
+                "in"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nOptions:\n1. dolanmış\n2. dolmışan\nAnswer: 1\n\nExample 2:\nWord root: omuz\nSuffixes: 'lar','ı'\nOptions:\n1. omuzları\n2. omuzılar\nAnswer: 1\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nOptions:\n1. enerjiem\n2. enerjime\nAnswer: 2\n\nExample 4:\nWord root: eş\nSuffixes: 'in','in'\nOptions:\n1. eşinin\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 206,
+                "total_tokens": 207
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-21",
+            "root": "yaz",
+            "suffixes": [
+                "mış",
+                "tı",
+                "m"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'abil','tir','mek'\nOptions:\n1. kaldırmektirabil\n2. kaldırabilmektir\n3. kaldırmekabiltir\n4. kaldırtirabilmek\n5. kaldırabiltirmek\n6. kaldırtirmekabil\nAnswer: 2\n\nExample 2:\nWord root: koş\nSuffixes: 'ur','um','tur'\nOptions:\n1. koşurumtur\n2. koştururum\n3. koşturumur\n4. koşumurtur\n5. koşumturur\n6. koşurturum\nAnswer: 2\n\nExample 3:\nWord root: ağabey\nSuffixes: 'i','ler','imiz'\nOptions:\n1. ağabeyiimizler\n2. ağabeyleriimiz\n3. ağabeylerimizi\n4. ağabeyilerimiz\n5. ağabeyimiziler\n6. ağabeyimizleri\nAnswer: 3\n\nExample 4:\nWord root: yaz\nSuffixes: 'm','mış','tı'\nOptions:\n1. yazmtımış\n2. yaztımışm\n3. yazmmıştı\n4. yazmıştım\n5. yaztımmış\n6. yazmışmtı\nAnswer: ",
+            "reference": 4,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 393,
+                "total_tokens": 394
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-22",
+            "root": "hücre",
+            "suffixes": [
+                "miz",
+                "de"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nOptions:\n1. dolmışan\n2. dolanmış\nAnswer: 2\n\nExample 2:\nWord root: omuz\nSuffixes: 'lar','ı'\nOptions:\n1. omuzları\n2. omuzılar\nAnswer: 1\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nOptions:\n1. enerjime\n2. enerjiem\nAnswer: 1\n\nExample 4:\nWord root: hücre\nSuffixes: 'miz','de'\nOptions:\n1. hücremizde\n2. hücredemiz\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 219,
+                "total_tokens": 220
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-23",
+            "root": "düzel",
+            "suffixes": [
+                "t",
+                "mek",
+                "te"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'tir','abil','mek'\nOptions:\n1. kaldırabiltirmek\n2. kaldırtirmekabil\n3. kaldırtirabilmek\n4. kaldırmekabiltir\n5. kaldırabilmektir\n6. kaldırmektirabil\nAnswer: 5\n\nExample 2:\nWord root: koş\nSuffixes: 'um','ur','tur'\nOptions:\n1. koştururum\n2. koşumurtur\n3. koşurturum\n4. koşturumur\n5. koşurumtur\n6. koşumturur\nAnswer: 1\n\nExample 3:\nWord root: ağabey\nSuffixes: 'ler','imiz','i'\nOptions:\n1. ağabeyleriimiz\n2. ağabeyilerimiz\n3. ağabeyiimizler\n4. ağabeyimizleri\n5. ağabeylerimizi\n6. ağabeyimiziler\nAnswer: 5\n\nExample 4:\nWord root: düzel\nSuffixes: 't','te','mek'\nOptions:\n1. düzelmektte\n2. düzelttemek\n3. düzelmektet\n4. düzeltmekte\n5. düzeltetmek\n6. düzeltemekt\nAnswer: ",
+            "reference": 4,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 392,
+                "total_tokens": 393
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-24",
+            "root": "tuğla",
+            "suffixes": [
+                "lar",
+                "ın",
+                "ı"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'tir','mek','abil'\nOptions:\n1. kaldırtirabilmek\n2. kaldırmekabiltir\n3. kaldırtirmekabil\n4. kaldırabilmektir\n5. kaldırabiltirmek\n6. kaldırmektirabil\nAnswer: 4\n\nExample 2:\nWord root: koş\nSuffixes: 'tur','ur','um'\nOptions:\n1. koşumurtur\n2. koşumturur\n3. koştururum\n4. koşurturum\n5. koşurumtur\n6. koşturumur\nAnswer: 3\n\nExample 3:\nWord root: ağabey\nSuffixes: 'i','imiz','ler'\nOptions:\n1. ağabeyilerimiz\n2. ağabeyiimizler\n3. ağabeylerimizi\n4. ağabeyimizleri\n5. ağabeyimiziler\n6. ağabeyleriimiz\nAnswer: 3\n\nExample 4:\nWord root: tuğla\nSuffixes: 'ı','lar','ın'\nOptions:\n1. tuğlaıınlar\n2. tuğlalarıın\n3. tuğlaınılar\n4. tuğlalarını\n5. tuğlaıların\n6. tuğlaınları\nAnswer: ",
+            "reference": 4,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 396,
+                "total_tokens": 397
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-25",
+            "root": "bas",
+            "suffixes": [
+                "tır",
+                "dığ",
+                "ı",
+                "nda"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: kazan\nSuffixes: 'du','ıyor','m','dır'\nOptions:\n1. kazanıyordırdum\n2. kazanduıyormdır\n3. kazandırmıyordu\n4. kazanıyordırmdu\n5. kazanmdırıyordu\n6. kazandırduıyorm\nAnswer: 3\n\nExample 2:\nWord root: etki\nSuffixes: 'i','ydi','yeceğ','le'\nOptions:\n1. etkileyeceğiydi\n2. etkiydiileyeceğ\n3. etkiyeceğiydile\n4. etkileydiiyeceğ\n5. etkiyeceğydilei\n6. etkiydileyeceği\nAnswer: 1\n\nExample 3:\nWord root: kur\nSuffixes: 'ma','a','z','dı'\nOptions:\n1. kurmazdıa\n2. kurzamadı\n3. kurzmaadı\n4. kuradımaz\n5. kurmadıza\n6. kuramazdı\nAnswer: 6\n\nExample 4:\nWord root: bas\nSuffixes: 'tır','nda','dığ','ı'\nOptions:\n1. bastırdığında\n2. basdığndatırı\n3. basıtırndadığ\n4. basıdığndatır\n5. basdığtırında\n6. basndaıtırdığ\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 413,
+                "total_tokens": 414
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-26",
+            "root": "ferah",
+            "suffixes": [
+                "la",
+                "t",
+                "abil",
+                "eceğ",
+                "im",
+                "i"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: de\nSuffixes: 'me','si','n','e','me','nden'\nOptions:\n1. desimemenenden\n2. dememendenensi\n3. deendennmemesi\n4. denememesinden\n5. demeendenmesin\n6. desinmeemenden\nAnswer: 4\n\nExample 2:\nWord root: ferah\nSuffixes: 't','la','i','abil','im','eceğ'\nOptions:\n1. feraheceğlaabilimit\n2. ferahimeceğlaiabilt\n3. ferahitabileceğlaim\n4. feraheceğimlaiabilt\n5. ferahlatabileceğimi\n6. feraheceğtabilimlai\nAnswer: ",
+            "reference": 5,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 243,
+                "total_tokens": 244
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-27",
+            "root": "unut",
+            "suffixes": [
+                "ma",
+                "sınlar"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nOptions:\n1. dolmışan\n2. dolanmış\nAnswer: 2\n\nExample 2:\nWord root: omuz\nSuffixes: 'lar','ı'\nOptions:\n1. omuzları\n2. omuzılar\nAnswer: 1\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nOptions:\n1. enerjime\n2. enerjiem\nAnswer: 1\n\nExample 4:\nWord root: unut\nSuffixes: 'ma','sınlar'\nOptions:\n1. unutsınlarma\n2. unutmasınlar\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 218,
+                "total_tokens": 219
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-28",
+            "root": "bark",
+            "suffixes": [
+                "ın",
+                "dan"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nOptions:\n1. dolanmış\n2. dolmışan\nAnswer: 1\n\nExample 2:\nWord root: omuz\nSuffixes: 'lar','ı'\nOptions:\n1. omuzılar\n2. omuzları\nAnswer: 2\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nOptions:\n1. enerjiem\n2. enerjime\nAnswer: 2\n\nExample 4:\nWord root: bark\nSuffixes: 'dan','ın'\nOptions:\n1. barkdanın\n2. barkından\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 210,
+                "total_tokens": 211
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-29",
+            "root": "yaz",
+            "suffixes": [
+                "ma",
+                "l",
+                "ım"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'abil','mek','tir'\nOptions:\n1. kaldırabilmektir\n2. kaldırtirmekabil\n3. kaldırmekabiltir\n4. kaldırmektirabil\n5. kaldırabiltirmek\n6. kaldırtirabilmek\nAnswer: 1\n\nExample 2:\nWord root: koş\nSuffixes: 'um','tur','ur'\nOptions:\n1. koşturumur\n2. koşumturur\n3. koşumurtur\n4. koştururum\n5. koşurumtur\n6. koşurturum\nAnswer: 4\n\nExample 3:\nWord root: ağabey\nSuffixes: 'ler','i','imiz'\nOptions:\n1. ağabeyilerimiz\n2. ağabeylerimizi\n3. ağabeyimizleri\n4. ağabeyiimizler\n5. ağabeyleriimiz\n6. ağabeyimiziler\nAnswer: 2\n\nExample 4:\nWord root: yaz\nSuffixes: 'l','ım','ma'\nOptions:\n1. yazımlma\n2. yazımmal\n3. yazlımma\n4. yazlmaım\n5. yazmaıml\n6. yazmalım\nAnswer: ",
+            "reference": 6,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 384,
+                "total_tokens": 385
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-30",
+            "root": "kazan",
+            "suffixes": [
+                "dır",
+                "m",
+                "ıyor",
+                "du"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: bas\nSuffixes: 'ı','nda','tır','dığ'\nOptions:\n1. basıtırndadığ\n2. basndaıtırdığ\n3. basıdığndatır\n4. basdığtırında\n5. basdığndatırı\n6. bastırdığında\nAnswer: 6\n\nExample 2:\nWord root: etki\nSuffixes: 'i','yeceğ','le','ydi'\nOptions:\n1. etkiyeceğydilei\n2. etkiyeceğiydile\n3. etkileydiiyeceğ\n4. etkileyeceğiydi\n5. etkiydileyeceği\n6. etkiydiileyeceğ\nAnswer: 4\n\nExample 3:\nWord root: kur\nSuffixes: 'a','dı','ma','z'\nOptions:\n1. kurmazdıa\n2. kurmadıza\n3. kurzmaadı\n4. kurzamadı\n5. kuramazdı\n6. kuradımaz\nAnswer: 5\n\nExample 4:\nWord root: kazan\nSuffixes: 'dır','du','ıyor','m'\nOptions:\n1. kazanduıyormdır\n2. kazanıyordırmdu\n3. kazandırduıyorm\n4. kazandırmıyordu\n5. kazanıyordırdum\n6. kazanmdırıyordu\nAnswer: ",
+            "reference": 4,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 413,
+                "total_tokens": 414
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-31",
+            "root": "büyü",
+            "suffixes": [
+                "ye",
+                "me",
+                "dik"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'abil','mek','tir'\nOptions:\n1. kaldırtirmekabil\n2. kaldırabilmektir\n3. kaldırmekabiltir\n4. kaldırabiltirmek\n5. kaldırmektirabil\n6. kaldırtirabilmek\nAnswer: 2\n\nExample 2:\nWord root: koş\nSuffixes: 'um','ur','tur'\nOptions:\n1. koşumurtur\n2. koşumturur\n3. koşurumtur\n4. koşturumur\n5. koştururum\n6. koşurturum\nAnswer: 5\n\nExample 3:\nWord root: ağabey\nSuffixes: 'imiz','i','ler'\nOptions:\n1. ağabeyleriimiz\n2. ağabeylerimizi\n3. ağabeyilerimiz\n4. ağabeyimizleri\n5. ağabeyimiziler\n6. ağabeyiimizler\nAnswer: 2\n\nExample 4:\nWord root: büyü\nSuffixes: 'ye','dik','me'\nOptions:\n1. büyüdikmeye\n2. büyüdikyeme\n3. büyümedikye\n4. büyüyedikme\n5. büyüyemedik\n6. büyümeyedik\nAnswer: ",
+            "reference": 5,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 403,
+                "total_tokens": 404
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-32",
+            "root": "yaka",
+            "suffixes": [
+                "lar",
+                "ken"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nOptions:\n1. dolmışan\n2. dolanmış\nAnswer: 2\n\nExample 2:\nWord root: omuz\nSuffixes: 'ı','lar'\nOptions:\n1. omuzılar\n2. omuzları\nAnswer: 2\n\nExample 3:\nWord root: enerji\nSuffixes: 'm','e'\nOptions:\n1. enerjiem\n2. enerjime\nAnswer: 2\n\nExample 4:\nWord root: yaka\nSuffixes: 'lar','ken'\nOptions:\n1. yakalarken\n2. yakakenlar\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 213,
+                "total_tokens": 214
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-33",
+            "root": "duvar",
+            "suffixes": [
+                "ın",
+                "da",
+                "ki"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'tir','mek','abil'\nOptions:\n1. kaldırtirmekabil\n2. kaldırtirabilmek\n3. kaldırmektirabil\n4. kaldırmekabiltir\n5. kaldırabilmektir\n6. kaldırabiltirmek\nAnswer: 5\n\nExample 2:\nWord root: koş\nSuffixes: 'tur','um','ur'\nOptions:\n1. koşurturum\n2. koştururum\n3. koşumturur\n4. koşumurtur\n5. koşturumur\n6. koşurumtur\nAnswer: 2\n\nExample 3:\nWord root: ağabey\nSuffixes: 'ler','imiz','i'\nOptions:\n1. ağabeylerimizi\n2. ağabeyimizleri\n3. ağabeyimiziler\n4. ağabeyilerimiz\n5. ağabeyiimizler\n6. ağabeyleriimiz\nAnswer: 1\n\nExample 4:\nWord root: duvar\nSuffixes: 'ki','ın','da'\nOptions:\n1. duvarkidaın\n2. duvarınkida\n3. duvardakiın\n4. duvarındaki\n5. duvardaınki\n6. duvarkiında\nAnswer: ",
+            "reference": 4,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 391,
+                "total_tokens": 392
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-34",
+            "root": "kavra",
+            "suffixes": [
+                "ya",
+                "ma",
+                "z",
+                "dı",
+                "m"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: iş\nSuffixes: 'i','le','ci','liğ','me'\nOptions:\n1. işicimeliğle\n2. işleiliğmeci\n3. işlemeciliği\n4. işliğmecilei\n5. işliğcimeile\n6. işiciliğmele\nAnswer: 3\n\nExample 2:\nWord root: at\nSuffixes: 'ı','ma','yacağ','nı','ıl'\nOptions:\n1. atıyacağnımaıl\n2. atılmayacağını\n3. atyacağılnımaı\n4. atyacağmanıııl\n5. atnııılyacağma\n6. atnımaılıyacağ\nAnswer: 2\n\nExample 3:\nWord root: gel\nSuffixes: 'tir','diğ','i','iş','im'\nOptions:\n1. geltirişimidiğ\n2. gelişdiğiimtir\n3. gelimitirişdiğ\n4. geltirimişidiğ\n5. geltirimidiğiş\n6. geliştirdiğimi\nAnswer: 6\n\nExample 4:\nWord root: kavra\nSuffixes: 'z','ya','dı','m','ma'\nOptions:\n1. kavrayazmmadı\n2. kavrayamazdım\n3. kavramazdıyam\n4. kavradımmazya\n5. kavrazyadımam\n6. kavradızyamam\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 429,
+                "total_tokens": 430
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-35",
+            "root": "etki",
+            "suffixes": [
+                "le",
+                "yeceğ",
+                "i",
+                "ydi"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: bas\nSuffixes: 'nda','ı','tır','dığ'\nOptions:\n1. bastırdığında\n2. basndaıtırdığ\n3. basıdığndatır\n4. basıtırndadığ\n5. basdığtırında\n6. basdığndatırı\nAnswer: 1\n\nExample 2:\nWord root: kazan\nSuffixes: 'du','ıyor','m','dır'\nOptions:\n1. kazandırduıyorm\n2. kazanduıyormdır\n3. kazanmdırıyordu\n4. kazandırmıyordu\n5. kazanıyordırdum\n6. kazanıyordırmdu\nAnswer: 4\n\nExample 3:\nWord root: kur\nSuffixes: 'a','ma','dı','z'\nOptions:\n1. kuramazdı\n2. kurzamadı\n3. kurmazdıa\n4. kurzmaadı\n5. kurmadıza\n6. kuradımaz\nAnswer: 1\n\nExample 4:\nWord root: etki\nSuffixes: 'i','le','ydi','yeceğ'\nOptions:\n1. etkiyeceğiydile\n2. etkiydiileyeceğ\n3. etkiyeceğydilei\n4. etkileyeceğiydi\n5. etkiydileyeceği\n6. etkileydiiyeceğ\nAnswer: ",
+            "reference": 4,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 413,
+                "total_tokens": 414
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-36",
+            "root": "somya",
+            "suffixes": [
+                "n",
+                "ın"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nOptions:\n1. dolmışan\n2. dolanmış\nAnswer: 2\n\nExample 2:\nWord root: omuz\nSuffixes: 'ı','lar'\nOptions:\n1. omuzılar\n2. omuzları\nAnswer: 2\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nOptions:\n1. enerjime\n2. enerjiem\nAnswer: 1\n\nExample 4:\nWord root: somya\nSuffixes: 'n','ın'\nOptions:\n1. somyanın\n2. somyaınn\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 213,
+                "total_tokens": 214
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-37",
+            "root": "kur",
+            "suffixes": [
+                "a",
+                "ma",
+                "z",
+                "dı"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: bas\nSuffixes: 'nda','ı','dığ','tır'\nOptions:\n1. basıdığndatır\n2. bastırdığında\n3. basıtırndadığ\n4. basdığndatırı\n5. basndaıtırdığ\n6. basdığtırında\nAnswer: 2\n\nExample 2:\nWord root: kazan\nSuffixes: 'm','dır','du','ıyor'\nOptions:\n1. kazandırduıyorm\n2. kazanıyordırdum\n3. kazandırmıyordu\n4. kazanduıyormdır\n5. kazanıyordırmdu\n6. kazanmdırıyordu\nAnswer: 3\n\nExample 3:\nWord root: etki\nSuffixes: 'i','yeceğ','ydi','le'\nOptions:\n1. etkiyeceğydilei\n2. etkiyeceğiydile\n3. etkileydiiyeceğ\n4. etkiydiileyeceğ\n5. etkileyeceğiydi\n6. etkiydileyeceği\nAnswer: 5\n\nExample 4:\nWord root: kur\nSuffixes: 'dı','a','z','ma'\nOptions:\n1. kuramazdı\n2. kurzamadı\n3. kuradımaz\n4. kurmazdıa\n5. kurmadıza\n6. kurzmaadı\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 413,
+                "total_tokens": 414
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-38",
+            "root": "yer",
+            "suffixes": [
+                "leş",
+                "in"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: dol\nSuffixes: 'an','mış'\nOptions:\n1. dolmışan\n2. dolanmış\nAnswer: 2\n\nExample 2:\nWord root: omuz\nSuffixes: 'lar','ı'\nOptions:\n1. omuzılar\n2. omuzları\nAnswer: 2\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nOptions:\n1. enerjime\n2. enerjiem\nAnswer: 1\n\nExample 4:\nWord root: yer\nSuffixes: 'leş','in'\nOptions:\n1. yerinleş\n2. yerleşin\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 214,
+                "total_tokens": 215
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-39",
+            "root": "oku",
+            "suffixes": [
+                "r",
+                "un",
+                "a"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'tir','mek','abil'\nOptions:\n1. kaldırabilmektir\n2. kaldırtirabilmek\n3. kaldırmekabiltir\n4. kaldırtirmekabil\n5. kaldırabiltirmek\n6. kaldırmektirabil\nAnswer: 1\n\nExample 2:\nWord root: koş\nSuffixes: 'ur','tur','um'\nOptions:\n1. koşturumur\n2. koşurumtur\n3. koşumturur\n4. koşurturum\n5. koşumurtur\n6. koştururum\nAnswer: 6\n\nExample 3:\nWord root: ağabey\nSuffixes: 'imiz','i','ler'\nOptions:\n1. ağabeyilerimiz\n2. ağabeyiimizler\n3. ağabeylerimizi\n4. ağabeyleriimiz\n5. ağabeyimiziler\n6. ağabeyimizleri\nAnswer: 3\n\nExample 4:\nWord root: oku\nSuffixes: 'r','a','un'\nOptions:\n1. okuraun\n2. okuunar\n3. okuunra\n4. okuruna\n5. okuarun\n6. okuaunr\nAnswer: ",
+            "reference": 4,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 383,
+                "total_tokens": 384
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-40",
+            "root": "birey",
+            "suffixes": [
+                "sel",
+                "ci",
+                "liğ",
+                "i"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: bas\nSuffixes: 'tır','nda','ı','dığ'\nOptions:\n1. basdığtırında\n2. basıtırndadığ\n3. basıdığndatır\n4. bastırdığında\n5. basdığndatırı\n6. basndaıtırdığ\nAnswer: 4\n\nExample 2:\nWord root: kazan\nSuffixes: 'ıyor','dır','m','du'\nOptions:\n1. kazanduıyormdır\n2. kazandırduıyorm\n3. kazanıyordırmdu\n4. kazandırmıyordu\n5. kazanmdırıyordu\n6. kazanıyordırdum\nAnswer: 4\n\nExample 3:\nWord root: etki\nSuffixes: 'le','i','ydi','yeceğ'\nOptions:\n1. etkiydiileyeceğ\n2. etkiydileyeceği\n3. etkileydiiyeceğ\n4. etkiyeceğiydile\n5. etkiyeceğydilei\n6. etkileyeceğiydi\nAnswer: 6\n\nExample 4:\nWord root: birey\nSuffixes: 'sel','ci','i','liğ'\nOptions:\n1. bireyseliliğci\n2. bireyiliğselci\n3. bireyliğselici\n4. bireyseliciliğ\n5. bireyselciliği\n6. bireyliğicisel\nAnswer: ",
+            "reference": 5,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 429,
+                "total_tokens": 430
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-41",
+            "root": "fincan",
+            "suffixes": [
+                "ın",
+                "da"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nOptions:\n1. dolmışan\n2. dolanmış\nAnswer: 2\n\nExample 2:\nWord root: omuz\nSuffixes: 'lar','ı'\nOptions:\n1. omuzılar\n2. omuzları\nAnswer: 2\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nOptions:\n1. enerjime\n2. enerjiem\nAnswer: 1\n\nExample 4:\nWord root: fincan\nSuffixes: 'ın','da'\nOptions:\n1. fincandaın\n2. fincanında\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 213,
+                "total_tokens": 214
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-42",
+            "root": "ağla",
+            "suffixes": [
+                "r",
+                "ı"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nOptions:\n1. dolmışan\n2. dolanmış\nAnswer: 2\n\nExample 2:\nWord root: omuz\nSuffixes: 'lar','ı'\nOptions:\n1. omuzılar\n2. omuzları\nAnswer: 2\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nOptions:\n1. enerjime\n2. enerjiem\nAnswer: 1\n\nExample 4:\nWord root: ağla\nSuffixes: 'r','ı'\nOptions:\n1. ağlaır\n2. ağları\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 214,
+                "total_tokens": 215
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-43",
+            "root": "san",
+            "suffixes": [
+                "ıl",
+                "sa"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nOptions:\n1. dolmışan\n2. dolanmış\nAnswer: 2\n\nExample 2:\nWord root: omuz\nSuffixes: 'ı','lar'\nOptions:\n1. omuzılar\n2. omuzları\nAnswer: 2\n\nExample 3:\nWord root: enerji\nSuffixes: 'm','e'\nOptions:\n1. enerjiem\n2. enerjime\nAnswer: 2\n\nExample 4:\nWord root: san\nSuffixes: 'sa','ıl'\nOptions:\n1. sanılsa\n2. sansaıl\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 211,
+                "total_tokens": 212
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-44",
+            "root": "oluş",
+            "suffixes": [
+                "tur",
+                "abil",
+                "ir",
+                "im"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: bas\nSuffixes: 'tır','ı','nda','dığ'\nOptions:\n1. basdığndatırı\n2. basndaıtırdığ\n3. basıdığndatır\n4. basdığtırında\n5. bastırdığında\n6. basıtırndadığ\nAnswer: 5\n\nExample 2:\nWord root: kazan\nSuffixes: 'ıyor','m','dır','du'\nOptions:\n1. kazanıyordırmdu\n2. kazandırmıyordu\n3. kazanmdırıyordu\n4. kazanduıyormdır\n5. kazanıyordırdum\n6. kazandırduıyorm\nAnswer: 2\n\nExample 3:\nWord root: etki\nSuffixes: 'yeceğ','le','ydi','i'\nOptions:\n1. etkiyeceğydilei\n2. etkiydileyeceği\n3. etkileydiiyeceğ\n4. etkiyeceğiydile\n5. etkileyeceğiydi\n6. etkiydiileyeceğ\nAnswer: 5\n\nExample 4:\nWord root: oluş\nSuffixes: 'ir','tur','abil','im'\nOptions:\n1. oluşirimturabil\n2. oluşturabilimir\n3. oluşturabilirim\n4. oluşimirabiltur\n5. oluşturimabilir\n6. oluşimturirabil\nAnswer: ",
+            "reference": 3,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 421,
+                "total_tokens": 422
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-45",
+            "root": "bulun",
+            "suffixes": [
+                "muş",
+                "tur"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nOptions:\n1. dolmışan\n2. dolanmış\nAnswer: 2\n\nExample 2:\nWord root: omuz\nSuffixes: 'ı','lar'\nOptions:\n1. omuzılar\n2. omuzları\nAnswer: 2\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nOptions:\n1. enerjiem\n2. enerjime\nAnswer: 2\n\nExample 4:\nWord root: bulun\nSuffixes: 'muş','tur'\nOptions:\n1. bulunturmuş\n2. bulunmuştur\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 217,
+                "total_tokens": 218
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-46",
+            "root": "kıl",
+            "suffixes": [
+                "mak",
+                "tı"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nOptions:\n1. dolmışan\n2. dolanmış\nAnswer: 2\n\nExample 2:\nWord root: omuz\nSuffixes: 'ı','lar'\nOptions:\n1. omuzları\n2. omuzılar\nAnswer: 1\n\nExample 3:\nWord root: enerji\nSuffixes: 'm','e'\nOptions:\n1. enerjime\n2. enerjiem\nAnswer: 1\n\nExample 4:\nWord root: kıl\nSuffixes: 'tı','mak'\nOptions:\n1. kıltımak\n2. kılmaktı\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 217,
+                "total_tokens": 218
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-47",
+            "root": "a",
+            "suffixes": [
+                "n",
+                "laş",
+                "ıl",
+                "dı",
+                "m"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: iş\nSuffixes: 'me','i','le','ci','liğ'\nOptions:\n1. işliğcimeile\n2. işlemeciliği\n3. işicimeliğle\n4. işleiliğmeci\n5. işiciliğmele\n6. işliğmecilei\nAnswer: 2\n\nExample 2:\nWord root: at\nSuffixes: 'ıl','ı','ma','yacağ','nı'\nOptions:\n1. atılmayacağını\n2. atyacağılnımaı\n3. atnııılyacağma\n4. atyacağmanıııl\n5. atnımaılıyacağ\n6. atıyacağnımaıl\nAnswer: 1\n\nExample 3:\nWord root: gel\nSuffixes: 'iş','diğ','i','im','tir'\nOptions:\n1. geltirişimidiğ\n2. geltirimidiğiş\n3. gelimitirişdiğ\n4. geltirimişidiğ\n5. geliştirdiğimi\n6. gelişdiğiimtir\nAnswer: 5\n\nExample 4:\nWord root: a\nSuffixes: 'dı','m','n','ıl','laş'\nOptions:\n1. amnıllaşdı\n2. alaşmnıldı\n3. aıllaşdınm\n4. adılaşnılm\n5. adımnıllaş\n6. anlaşıldım\nAnswer: ",
+            "reference": 6,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 426,
+                "total_tokens": 427
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-48",
+            "root": "kır",
+            "suffixes": [
+                "ma",
+                "yın"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nOptions:\n1. dolmışan\n2. dolanmış\nAnswer: 2\n\nExample 2:\nWord root: omuz\nSuffixes: 'lar','ı'\nOptions:\n1. omuzılar\n2. omuzları\nAnswer: 2\n\nExample 3:\nWord root: enerji\nSuffixes: 'm','e'\nOptions:\n1. enerjime\n2. enerjiem\nAnswer: 1\n\nExample 4:\nWord root: kır\nSuffixes: 'ma','yın'\nOptions:\n1. kırmayın\n2. kıryınma\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 217,
+                "total_tokens": 218
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-49",
+            "root": "duy",
+            "suffixes": [
+                "ma",
+                "m",
+                "ı"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'abil','tir','mek'\nOptions:\n1. kaldırtirabilmek\n2. kaldırmektirabil\n3. kaldırabiltirmek\n4. kaldırmekabiltir\n5. kaldırabilmektir\n6. kaldırtirmekabil\nAnswer: 5\n\nExample 2:\nWord root: koş\nSuffixes: 'tur','ur','um'\nOptions:\n1. koşumturur\n2. koştururum\n3. koşurumtur\n4. koşurturum\n5. koşumurtur\n6. koşturumur\nAnswer: 2\n\nExample 3:\nWord root: ağabey\nSuffixes: 'i','ler','imiz'\nOptions:\n1. ağabeyimizleri\n2. ağabeyimiziler\n3. ağabeyiimizler\n4. ağabeylerimizi\n5. ağabeyilerimiz\n6. ağabeyleriimiz\nAnswer: 4\n\nExample 4:\nWord root: duy\nSuffixes: 'ı','m','ma'\nOptions:\n1. duymıma\n2. duymamı\n3. duyımma\n4. duymmaı\n5. duymaım\n6. duyımam\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 387,
+                "total_tokens": 388
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-50",
+            "root": "iş",
+            "suffixes": [
+                "i",
+                "ni"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nOptions:\n1. dolmışan\n2. dolanmış\nAnswer: 2\n\nExample 2:\nWord root: omuz\nSuffixes: 'lar','ı'\nOptions:\n1. omuzları\n2. omuzılar\nAnswer: 1\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nOptions:\n1. enerjime\n2. enerjiem\nAnswer: 1\n\nExample 4:\nWord root: iş\nSuffixes: 'ni','i'\nOptions:\n1. işnii\n2. işini\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 210,
+                "total_tokens": 211
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-51",
+            "root": "in",
+            "suffixes": [
+                "er",
+                "iz"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: dol\nSuffixes: 'an','mış'\nOptions:\n1. dolmışan\n2. dolanmış\nAnswer: 2\n\nExample 2:\nWord root: omuz\nSuffixes: 'lar','ı'\nOptions:\n1. omuzılar\n2. omuzları\nAnswer: 2\n\nExample 3:\nWord root: enerji\nSuffixes: 'm','e'\nOptions:\n1. enerjiem\n2. enerjime\nAnswer: 2\n\nExample 4:\nWord root: in\nSuffixes: 'iz','er'\nOptions:\n1. ineriz\n2. inizer\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 210,
+                "total_tokens": 211
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-52",
+            "root": "güven",
+            "suffixes": [
+                "siz",
+                "liğ",
+                "in",
+                "den"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: bas\nSuffixes: 'dığ','tır','nda','ı'\nOptions:\n1. basndaıtırdığ\n2. basdığndatırı\n3. bastırdığında\n4. basıdığndatır\n5. basıtırndadığ\n6. basdığtırında\nAnswer: 3\n\nExample 2:\nWord root: kazan\nSuffixes: 'm','dır','du','ıyor'\nOptions:\n1. kazandırmıyordu\n2. kazanmdırıyordu\n3. kazanduıyormdır\n4. kazanıyordırdum\n5. kazandırduıyorm\n6. kazanıyordırmdu\nAnswer: 1\n\nExample 3:\nWord root: etki\nSuffixes: 'yeceğ','le','i','ydi'\nOptions:\n1. etkileydiiyeceğ\n2. etkileyeceğiydi\n3. etkiyeceğiydile\n4. etkiyeceğydilei\n5. etkiydiileyeceğ\n6. etkiydileyeceği\nAnswer: 2\n\nExample 4:\nWord root: güven\nSuffixes: 'liğ','den','in','siz'\nOptions:\n1. güvenliğinsizden\n2. güvensizdeninliğ\n3. güvensizliğinden\n4. güveninliğsizden\n5. güvenindenliğsiz\n6. güvenliğsizinden\nAnswer: ",
+            "reference": 3,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 430,
+                "total_tokens": 431
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-53",
+            "root": "sek",
+            "suffixes": [
+                "iz",
+                "e"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nOptions:\n1. dolmışan\n2. dolanmış\nAnswer: 2\n\nExample 2:\nWord root: omuz\nSuffixes: 'ı','lar'\nOptions:\n1. omuzılar\n2. omuzları\nAnswer: 2\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nOptions:\n1. enerjiem\n2. enerjime\nAnswer: 2\n\nExample 4:\nWord root: sek\nSuffixes: 'iz','e'\nOptions:\n1. sekize\n2. sekeiz\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 210,
+                "total_tokens": 211
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-54",
+            "root": "gökdelen",
+            "suffixes": [
+                "ler",
+                "imiz",
+                "e"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'mek','tir','abil'\nOptions:\n1. kaldırtirmekabil\n2. kaldırabiltirmek\n3. kaldırmekabiltir\n4. kaldırmektirabil\n5. kaldırabilmektir\n6. kaldırtirabilmek\nAnswer: 5\n\nExample 2:\nWord root: koş\nSuffixes: 'um','tur','ur'\nOptions:\n1. koşurturum\n2. koşumurtur\n3. koşumturur\n4. koşturumur\n5. koşurumtur\n6. koştururum\nAnswer: 6\n\nExample 3:\nWord root: ağabey\nSuffixes: 'i','ler','imiz'\nOptions:\n1. ağabeyimizleri\n2. ağabeyilerimiz\n3. ağabeylerimizi\n4. ağabeyiimizler\n5. ağabeyleriimiz\n6. ağabeyimiziler\nAnswer: 3\n\nExample 4:\nWord root: gökdelen\nSuffixes: 'imiz','e','ler'\nOptions:\n1. gökdelenelerimiz\n2. gökdeleneimizler\n3. gökdelenimizeler\n4. gökdelenlereimiz\n5. gökdelenlerimize\n6. gökdelenimizlere\nAnswer: ",
+            "reference": 5,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 403,
+                "total_tokens": 404
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-55",
+            "root": "gün",
+            "suffixes": [
+                "lük",
+                "ten"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nOptions:\n1. dolanmış\n2. dolmışan\nAnswer: 1\n\nExample 2:\nWord root: omuz\nSuffixes: 'ı','lar'\nOptions:\n1. omuzılar\n2. omuzları\nAnswer: 2\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nOptions:\n1. enerjiem\n2. enerjime\nAnswer: 2\n\nExample 4:\nWord root: gün\nSuffixes: 'ten','lük'\nOptions:\n1. güntenlük\n2. günlükten\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 214,
+                "total_tokens": 215
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-56",
+            "root": "okul",
+            "suffixes": [
+                "umuz",
+                "a"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nOptions:\n1. dolmışan\n2. dolanmış\nAnswer: 2\n\nExample 2:\nWord root: omuz\nSuffixes: 'lar','ı'\nOptions:\n1. omuzılar\n2. omuzları\nAnswer: 2\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nOptions:\n1. enerjime\n2. enerjiem\nAnswer: 1\n\nExample 4:\nWord root: okul\nSuffixes: 'umuz','a'\nOptions:\n1. okulumuza\n2. okulaumuz\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 215,
+                "total_tokens": 216
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-57",
+            "root": "burk",
+            "suffixes": [
+                "ul",
+                "ma",
+                "dan"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'tir','abil','mek'\nOptions:\n1. kaldırabiltirmek\n2. kaldırtirabilmek\n3. kaldırmektirabil\n4. kaldırmekabiltir\n5. kaldırabilmektir\n6. kaldırtirmekabil\nAnswer: 5\n\nExample 2:\nWord root: koş\nSuffixes: 'um','ur','tur'\nOptions:\n1. koşturumur\n2. koşurturum\n3. koşurumtur\n4. koşumturur\n5. koştururum\n6. koşumurtur\nAnswer: 5\n\nExample 3:\nWord root: ağabey\nSuffixes: 'imiz','i','ler'\nOptions:\n1. ağabeyiimizler\n2. ağabeyleriimiz\n3. ağabeyimiziler\n4. ağabeylerimizi\n5. ağabeyimizleri\n6. ağabeyilerimiz\nAnswer: 4\n\nExample 4:\nWord root: burk\nSuffixes: 'ul','dan','ma'\nOptions:\n1. burkmadanul\n2. burkuldanma\n3. burkulmadan\n4. burkdanmaul\n5. burkmauldan\n6. burkdanulma\nAnswer: ",
+            "reference": 3,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 390,
+                "total_tokens": 391
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-58",
+            "root": "çuvalla",
+            "suffixes": [
+                "ma",
+                "mız",
+                "a"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'mek','abil','tir'\nOptions:\n1. kaldırmektirabil\n2. kaldırtirabilmek\n3. kaldırtirmekabil\n4. kaldırabilmektir\n5. kaldırmekabiltir\n6. kaldırabiltirmek\nAnswer: 4\n\nExample 2:\nWord root: koş\nSuffixes: 'um','ur','tur'\nOptions:\n1. koşumturur\n2. koştururum\n3. koşturumur\n4. koşurturum\n5. koşurumtur\n6. koşumurtur\nAnswer: 2\n\nExample 3:\nWord root: ağabey\nSuffixes: 'imiz','ler','i'\nOptions:\n1. ağabeylerimizi\n2. ağabeyleriimiz\n3. ağabeyimiziler\n4. ağabeyilerimiz\n5. ağabeyimizleri\n6. ağabeyiimizler\nAnswer: 1\n\nExample 4:\nWord root: çuvalla\nSuffixes: 'mız','a','ma'\nOptions:\n1. çuvallaamamız\n2. çuvallamızama\n3. çuvallamaamız\n4. çuvallamızmaa\n5. çuvallamamıza\n6. çuvallaamızma\nAnswer: ",
+            "reference": 5,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 403,
+                "total_tokens": 404
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-59",
+            "root": "de",
+            "suffixes": [
+                "n",
+                "e",
+                "me",
+                "me",
+                "si",
+                "nden"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: ferah\nSuffixes: 'eceğ','la','i','abil','im','t'\nOptions:\n1. ferahimeceğlaiabilt\n2. feraheceğlaabilimit\n3. feraheceğtabilimlai\n4. ferahlatabileceğimi\n5. ferahitabileceğlaim\n6. feraheceğimlaiabilt\nAnswer: 4\n\nExample 2:\nWord root: de\nSuffixes: 'e','n','me','nden','si','me'\nOptions:\n1. deendennmemesi\n2. demeendenmesin\n3. desinmeemenden\n4. denememesinden\n5. desimemenenden\n6. dememendenensi\nAnswer: ",
+            "reference": 4,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 243,
+                "total_tokens": 244
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-60",
+            "root": "galaksi",
+            "suffixes": [
+                "n",
+                "in"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nOptions:\n1. dolanmış\n2. dolmışan\nAnswer: 1\n\nExample 2:\nWord root: omuz\nSuffixes: 'lar','ı'\nOptions:\n1. omuzılar\n2. omuzları\nAnswer: 2\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nOptions:\n1. enerjiem\n2. enerjime\nAnswer: 2\n\nExample 4:\nWord root: galaksi\nSuffixes: 'n','in'\nOptions:\n1. galaksiinn\n2. galaksinin\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 212,
+                "total_tokens": 213
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-61",
+            "root": "inan",
+            "suffixes": [
+                "ma",
+                "sa",
+                "n"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'abil','tir','mek'\nOptions:\n1. kaldırabilmektir\n2. kaldırtirabilmek\n3. kaldırabiltirmek\n4. kaldırmekabiltir\n5. kaldırtirmekabil\n6. kaldırmektirabil\nAnswer: 1\n\nExample 2:\nWord root: koş\nSuffixes: 'um','tur','ur'\nOptions:\n1. koşurturum\n2. koşturumur\n3. koşumurtur\n4. koşurumtur\n5. koşumturur\n6. koştururum\nAnswer: 6\n\nExample 3:\nWord root: ağabey\nSuffixes: 'ler','i','imiz'\nOptions:\n1. ağabeyimiziler\n2. ağabeyleriimiz\n3. ağabeylerimizi\n4. ağabeyiimizler\n5. ağabeyimizleri\n6. ağabeyilerimiz\nAnswer: 3\n\nExample 4:\nWord root: inan\nSuffixes: 'n','sa','ma'\nOptions:\n1. inanmansa\n2. inannsama\n3. inanmasan\n4. inansaman\n5. inansanma\n6. inannmasa\nAnswer: ",
+            "reference": 3,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 386,
+                "total_tokens": 387
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-62",
+            "root": "tanı",
+            "suffixes": [
+                "n",
+                "ma",
+                "dığ",
+                "ı"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: bas\nSuffixes: 'dığ','nda','tır','ı'\nOptions:\n1. basdığtırında\n2. basndaıtırdığ\n3. bastırdığında\n4. basdığndatırı\n5. basıtırndadığ\n6. basıdığndatır\nAnswer: 3\n\nExample 2:\nWord root: kazan\nSuffixes: 'dır','ıyor','du','m'\nOptions:\n1. kazanıyordırdum\n2. kazanduıyormdır\n3. kazanmdırıyordu\n4. kazanıyordırmdu\n5. kazandırmıyordu\n6. kazandırduıyorm\nAnswer: 5\n\nExample 3:\nWord root: etki\nSuffixes: 'yeceğ','i','le','ydi'\nOptions:\n1. etkiydiileyeceğ\n2. etkiyeceğiydile\n3. etkiydileyeceği\n4. etkileyeceğiydi\n5. etkileydiiyeceğ\n6. etkiyeceğydilei\nAnswer: 4\n\nExample 4:\nWord root: tanı\nSuffixes: 'ı','ma','n','dığ'\nOptions:\n1. tanıımadığn\n2. tanımanıdığ\n3. tanıdığnmaı\n4. tanındığıma\n5. tanınmadığı\n6. tanıdığıman\nAnswer: ",
+            "reference": 5,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 419,
+                "total_tokens": 420
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-63",
+            "root": "çık",
+            "suffixes": [
+                "ma",
+                "yış",
+                "ı"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'mek','abil','tir'\nOptions:\n1. kaldırabiltirmek\n2. kaldırtirmekabil\n3. kaldırabilmektir\n4. kaldırmektirabil\n5. kaldırmekabiltir\n6. kaldırtirabilmek\nAnswer: 3\n\nExample 2:\nWord root: koş\nSuffixes: 'ur','um','tur'\nOptions:\n1. koşumturur\n2. koşturumur\n3. koşurumtur\n4. koşurturum\n5. koştururum\n6. koşumurtur\nAnswer: 5\n\nExample 3:\nWord root: ağabey\nSuffixes: 'imiz','ler','i'\nOptions:\n1. ağabeyilerimiz\n2. ağabeyleriimiz\n3. ağabeylerimizi\n4. ağabeyimiziler\n5. ağabeyimizleri\n6. ağabeyiimizler\nAnswer: 3\n\nExample 4:\nWord root: çık\nSuffixes: 'ı','yış','ma'\nOptions:\n1. çıkyışıma\n2. çıkyışmaı\n3. çıkıyışma\n4. çıkımayış\n5. çıkmaıyış\n6. çıkmayışı\nAnswer: ",
+            "reference": 6,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 399,
+                "total_tokens": 400
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-64",
+            "root": "pay",
+            "suffixes": [
+                "laş",
+                "tığ",
+                "ı",
+                "nı"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: bas\nSuffixes: 'nda','dığ','ı','tır'\nOptions:\n1. bastırdığında\n2. basıdığndatır\n3. basndaıtırdığ\n4. basdığndatırı\n5. basdığtırında\n6. basıtırndadığ\nAnswer: 1\n\nExample 2:\nWord root: kazan\nSuffixes: 'm','du','ıyor','dır'\nOptions:\n1. kazandırduıyorm\n2. kazanmdırıyordu\n3. kazanduıyormdır\n4. kazanıyordırmdu\n5. kazanıyordırdum\n6. kazandırmıyordu\nAnswer: 6\n\nExample 3:\nWord root: etki\nSuffixes: 'le','yeceğ','i','ydi'\nOptions:\n1. etkiyeceğydilei\n2. etkiydiileyeceğ\n3. etkiyeceğiydile\n4. etkiydileyeceği\n5. etkileydiiyeceğ\n6. etkileyeceğiydi\nAnswer: 6\n\nExample 4:\nWord root: pay\nSuffixes: 'laş','nı','ı','tığ'\nOptions:\n1. payılaştığnı\n2. paynıılaştığ\n3. paytığılaşnı\n4. paynılaştığı\n5. paylaştığını\n6. paylaştığnıı\nAnswer: ",
+            "reference": 5,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 427,
+                "total_tokens": 428
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-65",
+            "root": "figüran",
+            "suffixes": [
+                "lar",
+                "ın",
+                "dan"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'mek','tir','abil'\nOptions:\n1. kaldırtirabilmek\n2. kaldırmekabiltir\n3. kaldırabilmektir\n4. kaldırtirmekabil\n5. kaldırmektirabil\n6. kaldırabiltirmek\nAnswer: 3\n\nExample 2:\nWord root: koş\nSuffixes: 'ur','um','tur'\nOptions:\n1. koşumturur\n2. koşumurtur\n3. koşurumtur\n4. koştururum\n5. koşurturum\n6. koşturumur\nAnswer: 4\n\nExample 3:\nWord root: ağabey\nSuffixes: 'i','imiz','ler'\nOptions:\n1. ağabeyiimizler\n2. ağabeyleriimiz\n3. ağabeyilerimiz\n4. ağabeyimiziler\n5. ağabeyimizleri\n6. ağabeylerimizi\nAnswer: 6\n\nExample 4:\nWord root: figüran\nSuffixes: 'ın','lar','dan'\nOptions:\n1. figüranındanlar\n2. figürandanların\n3. figüranlarından\n4. figüranlardanın\n5. figürandanınlar\n6. figüranınlardan\nAnswer: ",
+            "reference": 3,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 398,
+                "total_tokens": 399
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-66",
+            "root": "do",
+            "suffixes": [
+                "st",
+                "lar",
+                "ınız"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'abil','tir','mek'\nOptions:\n1. kaldırabilmektir\n2. kaldırmekabiltir\n3. kaldırtirabilmek\n4. kaldırabiltirmek\n5. kaldırmektirabil\n6. kaldırtirmekabil\nAnswer: 1\n\nExample 2:\nWord root: koş\nSuffixes: 'um','ur','tur'\nOptions:\n1. koştururum\n2. koşumurtur\n3. koşurumtur\n4. koşurturum\n5. koşumturur\n6. koşturumur\nAnswer: 1\n\nExample 3:\nWord root: ağabey\nSuffixes: 'i','ler','imiz'\nOptions:\n1. ağabeyimizleri\n2. ağabeyleriimiz\n3. ağabeyimiziler\n4. ağabeyiimizler\n5. ağabeyilerimiz\n6. ağabeylerimizi\nAnswer: 6\n\nExample 4:\nWord root: do\nSuffixes: 'st','lar','ınız'\nOptions:\n1. dolarınızst\n2. dostınızlar\n3. dolarstınız\n4. dostlarınız\n5. doınızstlar\n6. doınızlarst\nAnswer: ",
+            "reference": 4,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 391,
+                "total_tokens": 392
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-67",
+            "root": "ye",
+            "suffixes": [
+                "r",
+                "i",
+                "nde"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'mek','abil','tir'\nOptions:\n1. kaldırmektirabil\n2. kaldırtirmekabil\n3. kaldırmekabiltir\n4. kaldırabilmektir\n5. kaldırtirabilmek\n6. kaldırabiltirmek\nAnswer: 4\n\nExample 2:\nWord root: koş\nSuffixes: 'ur','um','tur'\nOptions:\n1. koşturumur\n2. koşumturur\n3. koşurturum\n4. koşumurtur\n5. koşurumtur\n6. koştururum\nAnswer: 6\n\nExample 3:\nWord root: ağabey\nSuffixes: 'i','imiz','ler'\nOptions:\n1. ağabeyimiziler\n2. ağabeylerimizi\n3. ağabeyleriimiz\n4. ağabeyilerimiz\n5. ağabeyiimizler\n6. ağabeyimizleri\nAnswer: 2\n\nExample 4:\nWord root: ye\nSuffixes: 'r','nde','i'\nOptions:\n1. yerinde\n2. yerndei\n3. yendeir\n4. yeinder\n5. yenderi\n6. yeirnde\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 378,
+                "total_tokens": 379
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-68",
+            "root": "kusur",
+            "suffixes": [
+                "lar",
+                "ım",
+                "ı"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'abil','tir','mek'\nOptions:\n1. kaldırmekabiltir\n2. kaldırabiltirmek\n3. kaldırmektirabil\n4. kaldırtirmekabil\n5. kaldırtirabilmek\n6. kaldırabilmektir\nAnswer: 6\n\nExample 2:\nWord root: koş\nSuffixes: 'tur','ur','um'\nOptions:\n1. koşurturum\n2. koşumurtur\n3. koşumturur\n4. koştururum\n5. koşurumtur\n6. koşturumur\nAnswer: 4\n\nExample 3:\nWord root: ağabey\nSuffixes: 'imiz','ler','i'\nOptions:\n1. ağabeyilerimiz\n2. ağabeyleriimiz\n3. ağabeyiimizler\n4. ağabeyimizleri\n5. ağabeyimiziler\n6. ağabeylerimizi\nAnswer: 6\n\nExample 4:\nWord root: kusur\nSuffixes: 'ım','ı','lar'\nOptions:\n1. kusurlarıım\n2. kusurılarım\n3. kusurımılar\n4. kusurımları\n5. kusurlarımı\n6. kusurıımlar\nAnswer: ",
+            "reference": 5,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 400,
+                "total_tokens": 401
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-69",
+            "root": "getir",
+            "suffixes": [
+                "t",
+                "en"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: dol\nSuffixes: 'an','mış'\nOptions:\n1. dolanmış\n2. dolmışan\nAnswer: 1\n\nExample 2:\nWord root: omuz\nSuffixes: 'lar','ı'\nOptions:\n1. omuzları\n2. omuzılar\nAnswer: 1\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nOptions:\n1. enerjiem\n2. enerjime\nAnswer: 2\n\nExample 4:\nWord root: getir\nSuffixes: 't','en'\nOptions:\n1. getirent\n2. getirten\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 212,
+                "total_tokens": 213
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-70",
+            "root": "an",
+            "suffixes": [
+                "laş",
+                "ma",
+                "lar",
+                "a"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: bas\nSuffixes: 'nda','ı','tır','dığ'\nOptions:\n1. basıtırndadığ\n2. basdığtırında\n3. basıdığndatır\n4. basdığndatırı\n5. bastırdığında\n6. basndaıtırdığ\nAnswer: 5\n\nExample 2:\nWord root: kazan\nSuffixes: 'dır','du','m','ıyor'\nOptions:\n1. kazanıyordırdum\n2. kazandırmıyordu\n3. kazanıyordırmdu\n4. kazanmdırıyordu\n5. kazanduıyormdır\n6. kazandırduıyorm\nAnswer: 2\n\nExample 3:\nWord root: etki\nSuffixes: 'yeceğ','le','ydi','i'\nOptions:\n1. etkiydiileyeceğ\n2. etkileydiiyeceğ\n3. etkiyeceğydilei\n4. etkiyeceğiydile\n5. etkiydileyeceği\n6. etkileyeceğiydi\nAnswer: 6\n\nExample 4:\nWord root: an\nSuffixes: 'a','ma','laş','lar'\nOptions:\n1. analaşlarma\n2. anlaralaşma\n3. anlarlaşama\n4. anlarmaalaş\n5. analarmalaş\n6. anlaşmalara\nAnswer: ",
+            "reference": 6,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 415,
+                "total_tokens": 416
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-71",
+            "root": "ek",
+            "suffixes": [
+                "le",
+                "yeceğ",
+                "iz"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'mek','abil','tir'\nOptions:\n1. kaldırmekabiltir\n2. kaldırabiltirmek\n3. kaldırabilmektir\n4. kaldırmektirabil\n5. kaldırtirabilmek\n6. kaldırtirmekabil\nAnswer: 3\n\nExample 2:\nWord root: koş\nSuffixes: 'ur','um','tur'\nOptions:\n1. koştururum\n2. koşurturum\n3. koşurumtur\n4. koşumurtur\n5. koşturumur\n6. koşumturur\nAnswer: 1\n\nExample 3:\nWord root: ağabey\nSuffixes: 'imiz','i','ler'\nOptions:\n1. ağabeyimiziler\n2. ağabeyimizleri\n3. ağabeyleriimiz\n4. ağabeyiimizler\n5. ağabeyilerimiz\n6. ağabeylerimizi\nAnswer: 6\n\nExample 4:\nWord root: ek\nSuffixes: 'iz','le','yeceğ'\nOptions:\n1. ekleyeceğiz\n2. ekyeceğleiz\n3. ekleizyeceğ\n4. ekizyeceğle\n5. ekyeceğizle\n6. ekizleyeceğ\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 398,
+                "total_tokens": 399
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-72",
+            "root": "bisiklet",
+            "suffixes": [
+                "im",
+                "le"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nOptions:\n1. dolanmış\n2. dolmışan\nAnswer: 1\n\nExample 2:\nWord root: omuz\nSuffixes: 'ı','lar'\nOptions:\n1. omuzları\n2. omuzılar\nAnswer: 1\n\nExample 3:\nWord root: enerji\nSuffixes: 'm','e'\nOptions:\n1. enerjime\n2. enerjiem\nAnswer: 1\n\nExample 4:\nWord root: bisiklet\nSuffixes: 'im','le'\nOptions:\n1. bisikletleim\n2. bisikletimle\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 217,
+                "total_tokens": 218
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-73",
+            "root": "kok",
+            "suffixes": [
+                "la",
+                "yabil",
+                "iyor",
+                "du",
+                "m"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: iş\nSuffixes: 'liğ','le','me','i','ci'\nOptions:\n1. işicimeliğle\n2. işliğmecilei\n3. işliğcimeile\n4. işiciliğmele\n5. işlemeciliği\n6. işleiliğmeci\nAnswer: 5\n\nExample 2:\nWord root: at\nSuffixes: 'ma','ı','ıl','yacağ','nı'\nOptions:\n1. atyacağılnımaı\n2. atyacağmanıııl\n3. atnııılyacağma\n4. atnımaılıyacağ\n5. atıyacağnımaıl\n6. atılmayacağını\nAnswer: 6\n\nExample 3:\nWord root: gel\nSuffixes: 'i','diğ','iş','im','tir'\nOptions:\n1. gelimitirişdiğ\n2. gelişdiğiimtir\n3. geltirimidiğiş\n4. geltirişimidiğ\n5. geltirimişidiğ\n6. geliştirdiğimi\nAnswer: 6\n\nExample 4:\nWord root: kok\nSuffixes: 'du','m','la','yabil','iyor'\nOptions:\n1. kokyabilduiyormla\n2. koklamduiyoryabil\n3. kokiyoryabildulam\n4. koklayabiliyordum\n5. koklamiyoryabildu\n6. kokyabillaiyordum\nAnswer: ",
+            "reference": 4,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 430,
+                "total_tokens": 431
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-74",
+            "root": "yeni",
+            "suffixes": [
+                "len",
+                "me",
+                "ler",
+                "i"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: bas\nSuffixes: 'ı','nda','tır','dığ'\nOptions:\n1. basıdığndatır\n2. basıtırndadığ\n3. basdığtırında\n4. basndaıtırdığ\n5. bastırdığında\n6. basdığndatırı\nAnswer: 5\n\nExample 2:\nWord root: kazan\nSuffixes: 'dır','du','ıyor','m'\nOptions:\n1. kazanmdırıyordu\n2. kazandırduıyorm\n3. kazandırmıyordu\n4. kazanduıyormdır\n5. kazanıyordırdum\n6. kazanıyordırmdu\nAnswer: 3\n\nExample 3:\nWord root: etki\nSuffixes: 'i','yeceğ','le','ydi'\nOptions:\n1. etkileydiiyeceğ\n2. etkiyeceğydilei\n3. etkileyeceğiydi\n4. etkiydiileyeceğ\n5. etkiydileyeceği\n6. etkiyeceğiydile\nAnswer: 3\n\nExample 4:\nWord root: yeni\nSuffixes: 'ler','len','me','i'\nOptions:\n1. yeniilerlenme\n2. yenilerimelen\n3. yenilenmeleri\n4. yeniimelerlen\n5. yenilerlenmei\n6. yenimelenleri\nAnswer: ",
+            "reference": 3,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 411,
+                "total_tokens": 412
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-75",
+            "root": "süpür",
+            "suffixes": [
+                "müş",
+                "tür"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: dol\nSuffixes: 'an','mış'\nOptions:\n1. dolmışan\n2. dolanmış\nAnswer: 2\n\nExample 2:\nWord root: omuz\nSuffixes: 'lar','ı'\nOptions:\n1. omuzları\n2. omuzılar\nAnswer: 1\n\nExample 3:\nWord root: enerji\nSuffixes: 'm','e'\nOptions:\n1. enerjime\n2. enerjiem\nAnswer: 1\n\nExample 4:\nWord root: süpür\nSuffixes: 'tür','müş'\nOptions:\n1. süpürtürmüş\n2. süpürmüştür\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 225,
+                "total_tokens": 226
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-76",
+            "root": "şefi",
+            "suffixes": [
+                "miz",
+                "in"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nOptions:\n1. dolmışan\n2. dolanmış\nAnswer: 2\n\nExample 2:\nWord root: omuz\nSuffixes: 'ı','lar'\nOptions:\n1. omuzılar\n2. omuzları\nAnswer: 2\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nOptions:\n1. enerjiem\n2. enerjime\nAnswer: 2\n\nExample 4:\nWord root: şefi\nSuffixes: 'miz','in'\nOptions:\n1. şefimizin\n2. şefiinmiz\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 218,
+                "total_tokens": 219
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-77",
+            "root": "konuş",
+            "suffixes": [
+                "abil",
+                "di",
+                "m"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'abil','mek','tir'\nOptions:\n1. kaldırtirmekabil\n2. kaldırabilmektir\n3. kaldırabiltirmek\n4. kaldırmekabiltir\n5. kaldırtirabilmek\n6. kaldırmektirabil\nAnswer: 2\n\nExample 2:\nWord root: koş\nSuffixes: 'ur','tur','um'\nOptions:\n1. koşturumur\n2. koşumurtur\n3. koşurturum\n4. koşumturur\n5. koştururum\n6. koşurumtur\nAnswer: 5\n\nExample 3:\nWord root: ağabey\nSuffixes: 'ler','i','imiz'\nOptions:\n1. ağabeyilerimiz\n2. ağabeyimiziler\n3. ağabeyiimizler\n4. ağabeylerimizi\n5. ağabeyimizleri\n6. ağabeyleriimiz\nAnswer: 4\n\nExample 4:\nWord root: konuş\nSuffixes: 'm','abil','di'\nOptions:\n1. konuşmabildi\n2. konuşabildim\n3. konuşdiabilm\n4. konuşabilmdi\n5. konuşmdiabil\n6. konuşdimabil\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 391,
+                "total_tokens": 392
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-78",
+            "root": "toparla",
+            "suffixes": [
+                "ma",
+                "m",
+                "dan"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'mek','abil','tir'\nOptions:\n1. kaldırmektirabil\n2. kaldırtirabilmek\n3. kaldırmekabiltir\n4. kaldırtirmekabil\n5. kaldırabiltirmek\n6. kaldırabilmektir\nAnswer: 6\n\nExample 2:\nWord root: koş\nSuffixes: 'ur','tur','um'\nOptions:\n1. koşurturum\n2. koştururum\n3. koşumurtur\n4. koşturumur\n5. koşumturur\n6. koşurumtur\nAnswer: 2\n\nExample 3:\nWord root: ağabey\nSuffixes: 'ler','imiz','i'\nOptions:\n1. ağabeyleriimiz\n2. ağabeyilerimiz\n3. ağabeylerimizi\n4. ağabeyimiziler\n5. ağabeyimizleri\n6. ağabeyiimizler\nAnswer: 3\n\nExample 4:\nWord root: toparla\nSuffixes: 'm','ma','dan'\nOptions:\n1. toparlamdanma\n2. toparlamamdan\n3. toparlamadanm\n4. toparladanmam\n5. toparlammadan\n6. toparladanmma\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 395,
+                "total_tokens": 396
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-79",
+            "root": "dola",
+            "suffixes": [
+                "n",
+                "abil",
+                "iyor",
+                "um"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: bas\nSuffixes: 'dığ','tır','nda','ı'\nOptions:\n1. basndaıtırdığ\n2. basıtırndadığ\n3. basdığndatırı\n4. bastırdığında\n5. basdığtırında\n6. basıdığndatır\nAnswer: 4\n\nExample 2:\nWord root: kazan\nSuffixes: 'ıyor','m','du','dır'\nOptions:\n1. kazanıyordırdum\n2. kazanmdırıyordu\n3. kazandırduıyorm\n4. kazandırmıyordu\n5. kazanduıyormdır\n6. kazanıyordırmdu\nAnswer: 4\n\nExample 3:\nWord root: etki\nSuffixes: 'le','ydi','i','yeceğ'\nOptions:\n1. etkiydiileyeceğ\n2. etkiyeceğiydile\n3. etkileyeceğiydi\n4. etkiyeceğydilei\n5. etkileydiiyeceğ\n6. etkiydileyeceği\nAnswer: 3\n\nExample 4:\nWord root: dola\nSuffixes: 'abil','n','iyor','um'\nOptions:\n1. dolaiyornumabil\n2. dolaumabilniyor\n3. dolaabilnumiyor\n4. dolaiyorumabiln\n5. dolanabiliyorum\n6. dolaiyornabilum\nAnswer: ",
+            "reference": 5,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 421,
+                "total_tokens": 422
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-80",
+            "root": "daya",
+            "suffixes": [
+                "t",
+                "ma",
+                "da"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'mek','abil','tir'\nOptions:\n1. kaldırmekabiltir\n2. kaldırmektirabil\n3. kaldırtirabilmek\n4. kaldırtirmekabil\n5. kaldırabilmektir\n6. kaldırabiltirmek\nAnswer: 5\n\nExample 2:\nWord root: koş\nSuffixes: 'um','tur','ur'\nOptions:\n1. koşurturum\n2. koşumturur\n3. koşumurtur\n4. koşurumtur\n5. koştururum\n6. koşturumur\nAnswer: 5\n\nExample 3:\nWord root: ağabey\nSuffixes: 'i','imiz','ler'\nOptions:\n1. ağabeyilerimiz\n2. ağabeyimizleri\n3. ağabeylerimizi\n4. ağabeyleriimiz\n5. ağabeyimiziler\n6. ağabeyiimizler\nAnswer: 3\n\nExample 4:\nWord root: daya\nSuffixes: 'ma','da','t'\nOptions:\n1. dayamatda\n2. dayamadat\n3. dayatdama\n4. dayatmada\n5. dayadamat\n6. dayadatma\nAnswer: ",
+            "reference": 4,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 385,
+                "total_tokens": 386
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-81",
+            "root": "yelten",
+            "suffixes": [
+                "miş",
+                "ler",
+                "dir"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'mek','tir','abil'\nOptions:\n1. kaldırabilmektir\n2. kaldırmektirabil\n3. kaldırmekabiltir\n4. kaldırabiltirmek\n5. kaldırtirmekabil\n6. kaldırtirabilmek\nAnswer: 1\n\nExample 2:\nWord root: koş\nSuffixes: 'ur','tur','um'\nOptions:\n1. koşurumtur\n2. koştururum\n3. koşumturur\n4. koşurturum\n5. koşturumur\n6. koşumurtur\nAnswer: 2\n\nExample 3:\nWord root: ağabey\nSuffixes: 'imiz','ler','i'\nOptions:\n1. ağabeyimizleri\n2. ağabeyimiziler\n3. ağabeylerimizi\n4. ağabeyilerimiz\n5. ağabeyleriimiz\n6. ağabeyiimizler\nAnswer: 3\n\nExample 4:\nWord root: yelten\nSuffixes: 'dir','ler','miş'\nOptions:\n1. yeltenlerdirmiş\n2. yeltenmişdirler\n3. yeltenlermişdir\n4. yeltenmişlerdir\n5. yeltendirlermiş\n6. yeltendirmişler\nAnswer: ",
+            "reference": 4,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 405,
+                "total_tokens": 406
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-82",
+            "root": "dinle",
+            "suffixes": [
+                "diğ",
+                "im",
+                "in"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'tir','abil','mek'\nOptions:\n1. kaldırabiltirmek\n2. kaldırmekabiltir\n3. kaldırtirabilmek\n4. kaldırtirmekabil\n5. kaldırabilmektir\n6. kaldırmektirabil\nAnswer: 5\n\nExample 2:\nWord root: koş\nSuffixes: 'ur','tur','um'\nOptions:\n1. koşurumtur\n2. koşumurtur\n3. koşturumur\n4. koşumturur\n5. koştururum\n6. koşurturum\nAnswer: 5\n\nExample 3:\nWord root: ağabey\nSuffixes: 'imiz','ler','i'\nOptions:\n1. ağabeyiimizler\n2. ağabeyimiziler\n3. ağabeylerimizi\n4. ağabeyilerimiz\n5. ağabeyleriimiz\n6. ağabeyimizleri\nAnswer: 3\n\nExample 4:\nWord root: dinle\nSuffixes: 'in','diğ','im'\nOptions:\n1. dinlediğimin\n2. dinlediğinim\n3. dinleimindiğ\n4. dinleinimdiğ\n5. dinleimdiğin\n6. dinleindiğim\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 396,
+                "total_tokens": 397
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-83",
+            "root": "do",
+            "suffixes": [
+                "lan",
+                "dı",
+                "m"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'abil','tir','mek'\nOptions:\n1. kaldırmektirabil\n2. kaldırabilmektir\n3. kaldırtirmekabil\n4. kaldırabiltirmek\n5. kaldırtirabilmek\n6. kaldırmekabiltir\nAnswer: 2\n\nExample 2:\nWord root: koş\nSuffixes: 'tur','ur','um'\nOptions:\n1. koşumurtur\n2. koşurturum\n3. koşurumtur\n4. koştururum\n5. koşumturur\n6. koşturumur\nAnswer: 4\n\nExample 3:\nWord root: ağabey\nSuffixes: 'imiz','i','ler'\nOptions:\n1. ağabeyimiziler\n2. ağabeylerimizi\n3. ağabeyiimizler\n4. ağabeyimizleri\n5. ağabeyilerimiz\n6. ağabeyleriimiz\nAnswer: 2\n\nExample 4:\nWord root: do\nSuffixes: 'm','dı','lan'\nOptions:\n1. dodımlan\n2. domlandı\n3. dolanmdı\n4. dodılanm\n5. domdılan\n6. dolandım\nAnswer: ",
+            "reference": 6,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 385,
+                "total_tokens": 386
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-84",
+            "root": "yar",
+            "suffixes": [
+                "ış",
+                "ıyor"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: dol\nSuffixes: 'an','mış'\nOptions:\n1. dolmışan\n2. dolanmış\nAnswer: 2\n\nExample 2:\nWord root: omuz\nSuffixes: 'lar','ı'\nOptions:\n1. omuzları\n2. omuzılar\nAnswer: 1\n\nExample 3:\nWord root: enerji\nSuffixes: 'm','e'\nOptions:\n1. enerjiem\n2. enerjime\nAnswer: 2\n\nExample 4:\nWord root: yar\nSuffixes: 'ıyor','ış'\nOptions:\n1. yarışıyor\n2. yarıyorış\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 216,
+                "total_tokens": 217
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-85",
+            "root": "tart",
+            "suffixes": [
+                "ış",
+                "ıl",
+                "mış"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'mek','abil','tir'\nOptions:\n1. kaldırtirmekabil\n2. kaldırabiltirmek\n3. kaldırabilmektir\n4. kaldırmektirabil\n5. kaldırtirabilmek\n6. kaldırmekabiltir\nAnswer: 3\n\nExample 2:\nWord root: koş\nSuffixes: 'um','ur','tur'\nOptions:\n1. koşumturur\n2. koşumurtur\n3. koşurturum\n4. koşturumur\n5. koşurumtur\n6. koştururum\nAnswer: 6\n\nExample 3:\nWord root: ağabey\nSuffixes: 'ler','imiz','i'\nOptions:\n1. ağabeyimiziler\n2. ağabeyleriimiz\n3. ağabeyimizleri\n4. ağabeylerimizi\n5. ağabeyilerimiz\n6. ağabeyiimizler\nAnswer: 4\n\nExample 4:\nWord root: tart\nSuffixes: 'ış','mış','ıl'\nOptions:\n1. tartışılmış\n2. tartmışışıl\n3. tartışmışıl\n4. tartılışmış\n5. tartmışılış\n6. tartılmışış\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 393,
+                "total_tokens": 394
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-86",
+            "root": "an",
+            "suffixes": [
+                "la",
+                "m",
+                "ıyor",
+                "lar",
+                "dır"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: iş\nSuffixes: 'me','liğ','i','le','ci'\nOptions:\n1. işlemeciliği\n2. işliğcimeile\n3. işiciliğmele\n4. işliğmecilei\n5. işicimeliğle\n6. işleiliğmeci\nAnswer: 1\n\nExample 2:\nWord root: at\nSuffixes: 'ıl','yacağ','nı','ı','ma'\nOptions:\n1. atnımaılıyacağ\n2. atnııılyacağma\n3. atyacağılnımaı\n4. atyacağmanıııl\n5. atılmayacağını\n6. atıyacağnımaıl\nAnswer: 5\n\nExample 3:\nWord root: gel\nSuffixes: 'i','iş','diğ','im','tir'\nOptions:\n1. geltirimişidiğ\n2. geliştirdiğimi\n3. gelimitirişdiğ\n4. geltirişimidiğ\n5. gelişdiğiimtir\n6. geltirimidiğiş\nAnswer: 2\n\nExample 4:\nWord root: an\nSuffixes: 'ıyor','la','dır','lar','m'\nOptions:\n1. andırlarıyorlam\n2. anlamıyorlardır\n3. andırmlalarıyor\n4. anmıyorlarladır\n5. anladırmlarıyor\n6. anmıyorlalardır\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 427,
+                "total_tokens": 428
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-87",
+            "root": "yaklaş",
+            "suffixes": [
+                "tır",
+                "ma",
+                "dığ",
+                "ım"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: bas\nSuffixes: 'ı','dığ','tır','nda'\nOptions:\n1. basdığtırında\n2. basdığndatırı\n3. basıtırndadığ\n4. basıdığndatır\n5. basndaıtırdığ\n6. bastırdığında\nAnswer: 6\n\nExample 2:\nWord root: kazan\nSuffixes: 'ıyor','dır','m','du'\nOptions:\n1. kazanmdırıyordu\n2. kazanduıyormdır\n3. kazanıyordırmdu\n4. kazanıyordırdum\n5. kazandırduıyorm\n6. kazandırmıyordu\nAnswer: 6\n\nExample 3:\nWord root: etki\nSuffixes: 'le','ydi','yeceğ','i'\nOptions:\n1. etkileydiiyeceğ\n2. etkileyeceğiydi\n3. etkiyeceğydilei\n4. etkiydileyeceği\n5. etkiyeceğiydile\n6. etkiydiileyeceğ\nAnswer: 2\n\nExample 4:\nWord root: yaklaş\nSuffixes: 'dığ','tır','ma','ım'\nOptions:\n1. yaklaşmadığımtır\n2. yaklaşımtırdığma\n3. yaklaştırmadığım\n4. yaklaşmaımdığtır\n5. yaklaşmatırımdığ\n6. yaklaşdığmatırım\nAnswer: ",
+            "reference": 3,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 437,
+                "total_tokens": 438
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-88",
+            "root": "alın",
+            "suffixes": [
+                "a",
+                "ma",
+                "yan"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'tir','abil','mek'\nOptions:\n1. kaldırmekabiltir\n2. kaldırabiltirmek\n3. kaldırabilmektir\n4. kaldırtirabilmek\n5. kaldırtirmekabil\n6. kaldırmektirabil\nAnswer: 3\n\nExample 2:\nWord root: koş\nSuffixes: 'um','tur','ur'\nOptions:\n1. koşurumtur\n2. koştururum\n3. koşurturum\n4. koşturumur\n5. koşumturur\n6. koşumurtur\nAnswer: 2\n\nExample 3:\nWord root: ağabey\nSuffixes: 'i','imiz','ler'\nOptions:\n1. ağabeyilerimiz\n2. ağabeylerimizi\n3. ağabeyleriimiz\n4. ağabeyiimizler\n5. ağabeyimiziler\n6. ağabeyimizleri\nAnswer: 2\n\nExample 4:\nWord root: alın\nSuffixes: 'a','yan','ma'\nOptions:\n1. alınyanmaa\n2. alınayanma\n3. alınmayana\n4. alınyanama\n5. alınamayan\n6. alınmaayan\nAnswer: ",
+            "reference": 5,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 390,
+                "total_tokens": 391
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-89",
+            "root": "din",
+            "suffixes": [
+                "le",
+                "ye",
+                "me",
+                "me",
+                "ye"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: iş\nSuffixes: 'le','me','ci','i','liğ'\nOptions:\n1. işliğmecilei\n2. işlemeciliği\n3. işliğcimeile\n4. işiciliğmele\n5. işicimeliğle\n6. işleiliğmeci\nAnswer: 2\n\nExample 2:\nWord root: at\nSuffixes: 'ma','yacağ','ıl','nı','ı'\nOptions:\n1. atılmayacağını\n2. atıyacağnımaıl\n3. atyacağılnımaı\n4. atyacağmanıııl\n5. atnımaılıyacağ\n6. atnııılyacağma\nAnswer: 1\n\nExample 3:\nWord root: gel\nSuffixes: 'iş','diğ','i','im','tir'\nOptions:\n1. gelimitirişdiğ\n2. geltirimişidiğ\n3. geliştirdiğimi\n4. geltirimidiğiş\n5. geltirişimidiğ\n6. gelişdiğiimtir\nAnswer: 3\n\nExample 4:\nWord root: din\nSuffixes: 'ye','me','le','me','ye'\nOptions:\n1. dinyemeleyeme\n2. dinyemelemeye\n3. dinleyememeye\n4. dinmeleyemeye\n5. dinyememeleye\n6. dinmeleyeyeme\nAnswer: ",
+            "reference": 3,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 416,
+                "total_tokens": 417
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-90",
+            "root": "hapsol",
+            "suffixes": [
+                "muş",
+                "lar",
+                "dı"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'abil','tir','mek'\nOptions:\n1. kaldırabiltirmek\n2. kaldırtirabilmek\n3. kaldırmekabiltir\n4. kaldırabilmektir\n5. kaldırmektirabil\n6. kaldırtirmekabil\nAnswer: 4\n\nExample 2:\nWord root: koş\nSuffixes: 'um','ur','tur'\nOptions:\n1. koşturumur\n2. koşurumtur\n3. koştururum\n4. koşurturum\n5. koşumurtur\n6. koşumturur\nAnswer: 3\n\nExample 3:\nWord root: ağabey\nSuffixes: 'i','imiz','ler'\nOptions:\n1. ağabeylerimizi\n2. ağabeyimiziler\n3. ağabeyleriimiz\n4. ağabeyimizleri\n5. ağabeyilerimiz\n6. ağabeyiimizler\nAnswer: 1\n\nExample 4:\nWord root: hapsol\nSuffixes: 'dı','muş','lar'\nOptions:\n1. hapsoldılarmuş\n2. hapsollarmuşdı\n3. hapsolmuşdılar\n4. hapsoldımuşlar\n5. hapsolmuşlardı\n6. hapsollardımuş\nAnswer: ",
+            "reference": 5,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 409,
+                "total_tokens": 410
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-91",
+            "root": "kamp",
+            "suffixes": [
+                "ım",
+                "dan"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nOptions:\n1. dolanmış\n2. dolmışan\nAnswer: 1\n\nExample 2:\nWord root: omuz\nSuffixes: 'lar','ı'\nOptions:\n1. omuzılar\n2. omuzları\nAnswer: 2\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nOptions:\n1. enerjime\n2. enerjiem\nAnswer: 1\n\nExample 4:\nWord root: kamp\nSuffixes: 'ım','dan'\nOptions:\n1. kampımdan\n2. kampdanım\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 215,
+                "total_tokens": 216
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-92",
+            "root": "gez",
+            "suffixes": [
+                "im",
+                "de",
+                "ki"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'tir','abil','mek'\nOptions:\n1. kaldırtirabilmek\n2. kaldırabiltirmek\n3. kaldırmekabiltir\n4. kaldırmektirabil\n5. kaldırabilmektir\n6. kaldırtirmekabil\nAnswer: 5\n\nExample 2:\nWord root: koş\nSuffixes: 'tur','um','ur'\nOptions:\n1. koşturumur\n2. koşumurtur\n3. koşurturum\n4. koştururum\n5. koşurumtur\n6. koşumturur\nAnswer: 4\n\nExample 3:\nWord root: ağabey\nSuffixes: 'i','ler','imiz'\nOptions:\n1. ağabeylerimizi\n2. ağabeyimiziler\n3. ağabeyleriimiz\n4. ağabeyimizleri\n5. ağabeyilerimiz\n6. ağabeyiimizler\nAnswer: 1\n\nExample 4:\nWord root: gez\nSuffixes: 'de','ki','im'\nOptions:\n1. gezdekiim\n2. gezkiimde\n3. gezimdeki\n4. gezkideim\n5. gezimkide\n6. gezdeimki\nAnswer: ",
+            "reference": 3,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 386,
+                "total_tokens": 387
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-93",
+            "root": "erte",
+            "suffixes": [
+                "le",
+                "me",
+                "miş"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'abil','mek','tir'\nOptions:\n1. kaldırmektirabil\n2. kaldırabiltirmek\n3. kaldırabilmektir\n4. kaldırmekabiltir\n5. kaldırtirabilmek\n6. kaldırtirmekabil\nAnswer: 3\n\nExample 2:\nWord root: koş\nSuffixes: 'tur','um','ur'\nOptions:\n1. koştururum\n2. koşumurtur\n3. koşurumtur\n4. koşurturum\n5. koşumturur\n6. koşturumur\nAnswer: 1\n\nExample 3:\nWord root: ağabey\nSuffixes: 'i','ler','imiz'\nOptions:\n1. ağabeylerimizi\n2. ağabeyimizleri\n3. ağabeyiimizler\n4. ağabeyleriimiz\n5. ağabeyimiziler\n6. ağabeyilerimiz\nAnswer: 1\n\nExample 4:\nWord root: erte\nSuffixes: 'miş','le','me'\nOptions:\n1. ertelemişme\n2. ertemelemiş\n3. ertemişmele\n4. ertememişle\n5. ertelememiş\n6. ertemişleme\nAnswer: ",
+            "reference": 5,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 397,
+                "total_tokens": 398
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-94",
+            "root": "sağ",
+            "suffixes": [
+                "la",
+                "ya",
+                "m",
+                "ıyor",
+                "sa"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: iş\nSuffixes: 'liğ','le','me','ci','i'\nOptions:\n1. işleiliğmeci\n2. işiciliğmele\n3. işicimeliğle\n4. işliğcimeile\n5. işliğmecilei\n6. işlemeciliği\nAnswer: 6\n\nExample 2:\nWord root: at\nSuffixes: 'ma','ıl','nı','ı','yacağ'\nOptions:\n1. atıyacağnımaıl\n2. atyacağılnımaı\n3. atılmayacağını\n4. atnııılyacağma\n5. atyacağmanıııl\n6. atnımaılıyacağ\nAnswer: 3\n\nExample 3:\nWord root: gel\nSuffixes: 'im','iş','i','diğ','tir'\nOptions:\n1. gelimitirişdiğ\n2. geltirimişidiğ\n3. geltirişimidiğ\n4. geltirimidiğiş\n5. geliştirdiğimi\n6. gelişdiğiimtir\nAnswer: 5\n\nExample 4:\nWord root: sağ\nSuffixes: 'm','sa','ya','ıyor','la'\nOptions:\n1. sağıyorsalamya\n2. sağsaıyoryalam\n3. sağmlaıyorsaya\n4. sağıyorsamyala\n5. sağlayamıyorsa\n6. sağyaıyormsala\nAnswer: ",
+            "reference": 5,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 425,
+                "total_tokens": 426
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-95",
+            "root": "işle",
+            "suffixes": [
+                "yen",
+                "ler",
+                "e"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'abil','tir','mek'\nOptions:\n1. kaldırtirabilmek\n2. kaldırabiltirmek\n3. kaldırtirmekabil\n4. kaldırmektirabil\n5. kaldırabilmektir\n6. kaldırmekabiltir\nAnswer: 5\n\nExample 2:\nWord root: koş\nSuffixes: 'tur','ur','um'\nOptions:\n1. koşumurtur\n2. koşumturur\n3. koştururum\n4. koşurumtur\n5. koşturumur\n6. koşurturum\nAnswer: 3\n\nExample 3:\nWord root: ağabey\nSuffixes: 'ler','imiz','i'\nOptions:\n1. ağabeyleriimiz\n2. ağabeylerimizi\n3. ağabeyimiziler\n4. ağabeyilerimiz\n5. ağabeyiimizler\n6. ağabeyimizleri\nAnswer: 2\n\nExample 4:\nWord root: işle\nSuffixes: 'e','yen','ler'\nOptions:\n1. işleyeneler\n2. işlelereyen\n3. işleeleryen\n4. işleleryene\n5. işleyenlere\n6. işleeyenler\nAnswer: ",
+            "reference": 5,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 392,
+                "total_tokens": 393
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-96",
+            "root": "yüksel",
+            "suffixes": [
+                "me",
+                "n",
+                "in"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'mek','abil','tir'\nOptions:\n1. kaldırtirabilmek\n2. kaldırtirmekabil\n3. kaldırabiltirmek\n4. kaldırmektirabil\n5. kaldırabilmektir\n6. kaldırmekabiltir\nAnswer: 5\n\nExample 2:\nWord root: koş\nSuffixes: 'ur','um','tur'\nOptions:\n1. koşumurtur\n2. koşurturum\n3. koşturumur\n4. koşumturur\n5. koştururum\n6. koşurumtur\nAnswer: 5\n\nExample 3:\nWord root: ağabey\nSuffixes: 'ler','imiz','i'\nOptions:\n1. ağabeylerimizi\n2. ağabeyleriimiz\n3. ağabeyiimizler\n4. ağabeyilerimiz\n5. ağabeyimiziler\n6. ağabeyimizleri\nAnswer: 1\n\nExample 4:\nWord root: yüksel\nSuffixes: 'in','me','n'\nOptions:\n1. yükselinmen\n2. yükselninme\n3. yükselnmein\n4. yükselinnme\n5. yükselmeinn\n6. yükselmenin\nAnswer: ",
+            "reference": 6,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 400,
+                "total_tokens": 401
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-97",
+            "root": "kon",
+            "suffixes": [
+                "uş",
+                "ma",
+                "yıp"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'mek','abil','tir'\nOptions:\n1. kaldırmektirabil\n2. kaldırabilmektir\n3. kaldırabiltirmek\n4. kaldırmekabiltir\n5. kaldırtirabilmek\n6. kaldırtirmekabil\nAnswer: 2\n\nExample 2:\nWord root: koş\nSuffixes: 'um','ur','tur'\nOptions:\n1. koşumurtur\n2. koşurturum\n3. koşumturur\n4. koşturumur\n5. koştururum\n6. koşurumtur\nAnswer: 5\n\nExample 3:\nWord root: ağabey\nSuffixes: 'imiz','i','ler'\nOptions:\n1. ağabeyiimizler\n2. ağabeyimiziler\n3. ağabeyilerimiz\n4. ağabeylerimizi\n5. ağabeyimizleri\n6. ağabeyleriimiz\nAnswer: 4\n\nExample 4:\nWord root: kon\nSuffixes: 'yıp','uş','ma'\nOptions:\n1. konuşyıpma\n2. konmayıpuş\n3. konyıpuşma\n4. konuşmayıp\n5. konmauşyıp\n6. konyıpmauş\nAnswer: ",
+            "reference": 4,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 398,
+                "total_tokens": 399
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-98",
+            "root": "ol",
+            "suffixes": [
+                "duk",
+                "la"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: dol\nSuffixes: 'an','mış'\nOptions:\n1. dolmışan\n2. dolanmış\nAnswer: 2\n\nExample 2:\nWord root: omuz\nSuffixes: 'ı','lar'\nOptions:\n1. omuzları\n2. omuzılar\nAnswer: 1\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nOptions:\n1. enerjime\n2. enerjiem\nAnswer: 1\n\nExample 4:\nWord root: ol\nSuffixes: 'la','duk'\nOptions:\n1. oldukla\n2. olladuk\nAnswer: ",
+            "reference": 1,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 212,
+                "total_tokens": 213
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-99",
+            "root": "anlam",
+            "suffixes": [
+                "lan",
+                "dır",
+                "ma",
+                "mız",
+                "ı"
+            ],
+            "prompt": "You are given a word root, a list of suffixes (separated by comma) and a list of words in Turkish that are derived from the given word root using the given suffixes. Your task is to select the grammatically correct option. Output only the correct option number.\n\nExample 1:\nWord root: iş\nSuffixes: 'ci','i','le','me','liğ'\nOptions:\n1. işliğmecilei\n2. işliğcimeile\n3. işleiliğmeci\n4. işicimeliğle\n5. işiciliğmele\n6. işlemeciliği\nAnswer: 6\n\nExample 2:\nWord root: at\nSuffixes: 'ı','ıl','ma','yacağ','nı'\nOptions:\n1. atnımaılıyacağ\n2. atıyacağnımaıl\n3. atnııılyacağma\n4. atılmayacağını\n5. atyacağılnımaı\n6. atyacağmanıııl\nAnswer: 4\n\nExample 3:\nWord root: gel\nSuffixes: 'i','diğ','iş','tir','im'\nOptions:\n1. geltirimidiğiş\n2. geltirişimidiğ\n3. geltirimişidiğ\n4. gelimitirişdiğ\n5. gelişdiğiimtir\n6. geliştirdiğimi\nAnswer: 6\n\nExample 4:\nWord root: anlam\nSuffixes: 'dır','lan','mız','ma','ı'\nOptions:\n1. anlamdırmızlanmaı\n2. anlamlandırmamızı\n3. anlammızlanımadır\n4. anlamlanmızmadırı\n5. anlamılandırmamız\n6. anlamlanmadırımız\nAnswer: ",
+            "reference": 2,
+            "template": "morph_disc_en",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 438,
+                "total_tokens": 439
+            },
+            "correct": true,
+            "faithful": true
+        }
+    ]
+}

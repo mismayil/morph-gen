@@ -1,0 +1,2043 @@
+{
+    "metadata": {
+        "datapath": "../experiments/data/en/morpholex/temp_tr/v6/MorphoLEX_en_prep_morph_sample_eval_morph_disc_tr_s5.json",
+        "model": "gpt-4",
+        "temperature": 0.3,
+        "max_tokens": 40,
+        "top_p": 1,
+        "frequency_penalty": 0,
+        "presence_penalty": 0
+    },
+    "metrics": {
+        "usage": {
+            "prompt_tokens": 37031,
+            "completion_tokens": 100,
+            "total_tokens": 37131
+        },
+        "cost": {
+            "input": 1.11093,
+            "output": 0.006,
+            "total": 1.11693
+        },
+        "accuracy": 1.0,
+        "faithful_accuracy": 1.0,
+        "accuracy_by_suffix_len": {
+            "2": 1.0,
+            "3": 1.0
+        },
+        "num_samples_by_suffix_len": {
+            "2": 92,
+            "3": 8
+        }
+    },
+    "data": [
+        {
+            "id": "morpholex-0",
+            "root": "direct",
+            "suffixes": [
+                "ion",
+                "al"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 2:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 3:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 4:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 5:\nKök: imp\nEkler: 'ish','ly'\nSeçenekler:\n1. implyish\n2. impishly\nCevap: 2\n\nÖrnek 6:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 355,
+                "total_tokens": 356
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-1",
+            "root": "shift",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 3:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 4:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 5:\nKök: imp\nEkler: 'ish','ly'\nSeçenekler:\n1. implyish\n2. impishly\nCevap: 2\n\nÖrnek 6:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 355,
+                "total_tokens": 356
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-2",
+            "root": "narciss",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 4:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 5:\nKök: imp\nEkler: 'ish','ly'\nSeçenekler:\n1. implyish\n2. impishly\nCevap: 2\n\nÖrnek 6:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissicist\n2. narcissistic\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 355,
+                "total_tokens": 356
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-3",
+            "root": "judic",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 5:\nKök: imp\nEkler: 'ly','ish'\nSeçenekler:\n1. implyish\n2. impishly\nCevap: 2\n\nÖrnek 6:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 355,
+                "total_tokens": 356
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-4",
+            "root": "ruth",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissicist\n2. narcissistic\nCevap: 2\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: imp\nEkler: 'ly','ish'\nSeçenekler:\n1. impishly\n2. implyish\nCevap: 1\n\nÖrnek 6:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 355,
+                "total_tokens": 356
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-5",
+            "root": "imp",
+            "suffixes": [
+                "ish",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: imp\nEkler: 'ly','ish'\nSeçenekler:\n1. implyish\n2. impishly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 355,
+                "total_tokens": 356
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-6",
+            "root": "rapac",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissicist\n2. narcissistic\nCevap: 2\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: rapac\nEkler: 'ness','ious'\nSeçenekler:\n1. rapacnessious\n2. rapaciousness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 359,
+                "total_tokens": 360
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-7",
+            "root": "pacif",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: pacif\nEkler: 'ic','ist'\nSeçenekler:\n1. pacificist\n2. pacifistic\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 358,
+                "total_tokens": 359
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-8",
+            "root": "art",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissicist\n2. narcissistic\nCevap: 2\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: art\nEkler: 'ly','less'\nSeçenekler:\n1. artlyless\n2. artlessly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-9",
+            "root": "verac",
+            "suffixes": [
+                "ious",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: verac\nEkler: 'ly','ious'\nSeçenekler:\n1. veraciously\n2. veraclyious\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 359,
+                "total_tokens": 360
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-10",
+            "root": "dread",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissicist\n2. narcissistic\nCevap: 2\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: dread\nEkler: 'ful','ly'\nSeçenekler:\n1. dreadlyful\n2. dreadfully\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-11",
+            "root": "abort",
+            "suffixes": [
+                "ion",
+                "ist"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: abort\nEkler: 'ist','ion'\nSeçenekler:\n1. abortistion\n2. abortionist\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-12",
+            "root": "categor",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: categor\nEkler: 'al','ic'\nSeçenekler:\n1. categorical\n2. categoralic\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 354,
+                "total_tokens": 355
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-13",
+            "root": "total",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: total\nEkler: 'ic','ist'\nSeçenekler:\n1. totalicist\n2. totalistic\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-14",
+            "root": "articul",
+            "suffixes": [
+                "ate",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: articul\nEkler: 'ly','ate'\nSeçenekler:\n1. articullyate\n2. articulately\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 358,
+                "total_tokens": 359
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-15",
+            "root": "electr",
+            "suffixes": [
+                "on",
+                "ics"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: electr\nEkler: 'ics','on'\nSeçenekler:\n1. electronics\n2. electricson\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 354,
+                "total_tokens": 355
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-16",
+            "root": "gener",
+            "suffixes": [
+                "al",
+                "ity"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: gener\nEkler: 'al','ity'\nSeçenekler:\n1. generality\n2. generityal\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-17",
+            "root": "green",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: green\nEkler: 'ness','ish'\nSeçenekler:\n1. greennessish\n2. greenishness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 357,
+                "total_tokens": 358
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-18",
+            "root": "favor",
+            "suffixes": [
+                "it",
+                "ism"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissicist\n2. narcissistic\nCevap: 2\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: favor\nEkler: 'it','ism'\nSeçenekler:\n1. favoritism\n2. favorismit\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 357,
+                "total_tokens": 358
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-19",
+            "root": "sin",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: sin\nEkler: 'less','ness'\nSeçenekler:\n1. sinlessness\n2. sinnessless\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-20",
+            "root": "palat",
+            "suffixes": [
+                "al",
+                "ize"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: palat\nEkler: 'ize','al'\nSeçenekler:\n1. palatalize\n2. palatizeal\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 359,
+                "total_tokens": 360
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-21",
+            "root": "taste",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: taste\nEkler: 'ness','ful'\nSeçenekler:\n1. tastenessful\n2. tastefulness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 357,
+                "total_tokens": 358
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-22",
+            "root": "origin",
+            "suffixes": [
+                "al",
+                "ity"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissicist\n2. narcissistic\nCevap: 2\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: origin\nEkler: 'ity','al'\nSeçenekler:\n1. originityal\n2. originality\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-23",
+            "root": "phys",
+            "suffixes": [
+                "ic",
+                "al",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: transit\nEkler: 'ion','al','ly'\nSeçenekler:\n1. transitionally\n2. transitallyion\n3. transitlyional\n4. transitionlyal\n5. transitalionly\n6. transitlyalion\nCevap: 1\n\nÖrnek 2:\nKök: hyster\nEkler: 'ly','al','ic'\nSeçenekler:\n1. hysterlyalic\n2. hysterically\n3. hysterlyical\n4. hysteralicly\n5. hysterallyic\n6. hystericlyal\nCevap: 2\n\nÖrnek 3:\nKök: senti\nEkler: 'ism','al','ment'\nSeçenekler:\n1. sentiismalment\n2. sentimentismal\n3. sentialismment\n4. sentimentalism\n5. sentiismmental\n6. sentialmentism\nCevap: 4\n\nÖrnek 4:\nKök: senti\nEkler: 'ist','al','ment'\nSeçenekler:\n1. sentiistalment\n2. sentialmentist\n3. sentimentistal\n4. sentimentalist\n5. sentiistmental\n6. sentialistment\nCevap: 4\n\nÖrnek 5:\nKök: period\nEkler: 'ic','ly','al'\nSeçenekler:\n1. periodlyalic\n2. periodically\n3. periodallyic\n4. periodalicly\n5. periodiclyal\n6. periodlyical\nCevap: 2\n\nÖrnek 6:\nKök: phys\nEkler: 'ness','al','ic'\nSeçenekler:\n1. physnessalic\n2. physicnessal\n3. physalnessic\n4. physnessical\n5. physalicness\n6. physicalness\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 526,
+                "total_tokens": 527
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-24",
+            "root": "blood",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: blood\nEkler: 'ness','less'\nSeçenekler:\n1. bloodnessless\n2. bloodlessness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-25",
+            "root": "list",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissicist\n2. narcissistic\nCevap: 2\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: list\nEkler: 'ly','less'\nSeçenekler:\n1. listlyless\n2. listlessly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-26",
+            "root": "transit",
+            "suffixes": [
+                "ion",
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: phys\nEkler: 'al','ic','ness'\nSeçenekler:\n1. physalnessic\n2. physalicness\n3. physicnessal\n4. physicalness\n5. physnessalic\n6. physnessical\nCevap: 4\n\nÖrnek 2:\nKök: hyster\nEkler: 'ic','ly','al'\nSeçenekler:\n1. hysterlyical\n2. hystericlyal\n3. hysteralicly\n4. hysterlyalic\n5. hysterically\n6. hysterallyic\nCevap: 5\n\nÖrnek 3:\nKök: senti\nEkler: 'ism','al','ment'\nSeçenekler:\n1. sentimentismal\n2. sentialmentism\n3. sentialismment\n4. sentimentalism\n5. sentiismmental\n6. sentiismalment\nCevap: 4\n\nÖrnek 4:\nKök: senti\nEkler: 'al','ment','ist'\nSeçenekler:\n1. sentiistalment\n2. sentimentistal\n3. sentialistment\n4. sentimentalist\n5. sentialmentist\n6. sentiistmental\nCevap: 4\n\nÖrnek 5:\nKök: period\nEkler: 'al','ly','ic'\nSeçenekler:\n1. periodallyic\n2. periodalicly\n3. periodiclyal\n4. periodically\n5. periodlyalic\n6. periodlyical\nCevap: 4\n\nÖrnek 6:\nKök: transit\nEkler: 'ion','ly','al'\nSeçenekler:\n1. transitionlyal\n2. transitionally\n3. transitallyion\n4. transitlyional\n5. transitalionly\n6. transitlyalion\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 526,
+                "total_tokens": 527
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-27",
+            "root": "noct",
+            "suffixes": [
+                "urn",
+                "al"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: noct\nEkler: 'urn','al'\nSeçenekler:\n1. nocturnal\n2. noctalurn\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-28",
+            "root": "academ",
+            "suffixes": [
+                "ic",
+                "ian"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: academ\nEkler: 'ian','ic'\nSeçenekler:\n1. academianic\n2. academician\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 358,
+                "total_tokens": 359
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-29",
+            "root": "hyster",
+            "suffixes": [
+                "ic",
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: phys\nEkler: 'al','ic','ness'\nSeçenekler:\n1. physicnessal\n2. physnessalic\n3. physalicness\n4. physnessical\n5. physicalness\n6. physalnessic\nCevap: 5\n\nÖrnek 2:\nKök: transit\nEkler: 'ion','ly','al'\nSeçenekler:\n1. transitionally\n2. transitalionly\n3. transitlyional\n4. transitionlyal\n5. transitallyion\n6. transitlyalion\nCevap: 1\n\nÖrnek 3:\nKök: senti\nEkler: 'ment','ism','al'\nSeçenekler:\n1. sentiismmental\n2. sentialmentism\n3. sentimentismal\n4. sentialismment\n5. sentiismalment\n6. sentimentalism\nCevap: 6\n\nÖrnek 4:\nKök: senti\nEkler: 'ist','ment','al'\nSeçenekler:\n1. sentimentistal\n2. sentiistmental\n3. sentialistment\n4. sentialmentist\n5. sentimentalist\n6. sentiistalment\nCevap: 5\n\nÖrnek 5:\nKök: period\nEkler: 'ly','ic','al'\nSeçenekler:\n1. periodically\n2. periodallyic\n3. periodlyalic\n4. periodiclyal\n5. periodlyical\n6. periodalicly\nCevap: 1\n\nÖrnek 6:\nKök: hyster\nEkler: 'ic','ly','al'\nSeçenekler:\n1. hysterlyalic\n2. hystericlyal\n3. hysteralicly\n4. hysterically\n5. hysterlyical\n6. hysterallyic\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 526,
+                "total_tokens": 527
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-30",
+            "root": "lust",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissicist\n2. narcissistic\nCevap: 2\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: lust\nEkler: 'ness','ful'\nSeçenekler:\n1. lustfulness\n2. lustnessful\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-31",
+            "root": "optim",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: optim\nEkler: 'ic','ist'\nSeçenekler:\n1. optimistic\n2. optimicist\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 355,
+                "total_tokens": 356
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-32",
+            "root": "aphor",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: aphor\nEkler: 'ic','ist'\nSeçenekler:\n1. aphoristic\n2. aphoricist\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 358,
+                "total_tokens": 359
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-33",
+            "root": "abort",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: abort\nEkler: 'ive','ly'\nSeçenekler:\n1. abortlyive\n2. abortively\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-34",
+            "root": "defence",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: defence\nEkler: 'less','ness'\nSeçenekler:\n1. defencelessness\n2. defencenessless\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 357,
+                "total_tokens": 358
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-35",
+            "root": "vorac",
+            "suffixes": [
+                "ious",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: vorac\nEkler: 'ious','ly'\nSeçenekler:\n1. voraclyious\n2. voraciously\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 359,
+                "total_tokens": 360
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-36",
+            "root": "ego",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissicist\n2. narcissistic\nCevap: 2\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: ego\nEkler: 'ist','ic'\nSeçenekler:\n1. egoistic\n2. egoicist\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-37",
+            "root": "waste",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: waste\nEkler: 'ness','ful'\nSeçenekler:\n1. wastefulness\n2. wastenessful\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 357,
+                "total_tokens": 358
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-38",
+            "root": "senti",
+            "suffixes": [
+                "ment",
+                "al",
+                "ism"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: phys\nEkler: 'al','ic','ness'\nSeçenekler:\n1. physalicness\n2. physalnessic\n3. physnessalic\n4. physnessical\n5. physicalness\n6. physicnessal\nCevap: 5\n\nÖrnek 2:\nKök: transit\nEkler: 'ion','al','ly'\nSeçenekler:\n1. transitionlyal\n2. transitionally\n3. transitlyional\n4. transitallyion\n5. transitalionly\n6. transitlyalion\nCevap: 2\n\nÖrnek 3:\nKök: hyster\nEkler: 'ly','ic','al'\nSeçenekler:\n1. hysteralicly\n2. hysterallyic\n3. hysterically\n4. hystericlyal\n5. hysterlyalic\n6. hysterlyical\nCevap: 3\n\nÖrnek 4:\nKök: senti\nEkler: 'ment','ist','al'\nSeçenekler:\n1. sentiistalment\n2. sentimentalist\n3. sentiistmental\n4. sentialistment\n5. sentimentistal\n6. sentialmentist\nCevap: 2\n\nÖrnek 5:\nKök: period\nEkler: 'ic','ly','al'\nSeçenekler:\n1. periodiclyal\n2. periodlyalic\n3. periodallyic\n4. periodically\n5. periodalicly\n6. periodlyical\nCevap: 4\n\nÖrnek 6:\nKök: senti\nEkler: 'ism','ment','al'\nSeçenekler:\n1. sentiismmental\n2. sentimentismal\n3. sentialismment\n4. sentialmentism\n5. sentiismalment\n6. sentimentalism\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 526,
+                "total_tokens": 527
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-39",
+            "root": "triumph",
+            "suffixes": [
+                "ant",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissicist\n2. narcissistic\nCevap: 2\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: triumph\nEkler: 'ly','ant'\nSeçenekler:\n1. triumphantly\n2. triumphlyant\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-40",
+            "root": "liber",
+            "suffixes": [
+                "al",
+                "ism"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissicist\n2. narcissistic\nCevap: 2\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: liber\nEkler: 'ism','al'\nSeçenekler:\n1. liberalism\n2. liberismal\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 355,
+                "total_tokens": 356
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-41",
+            "root": "period",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: period\nEkler: 'ic','al'\nSeçenekler:\n1. periodical\n2. periodalic\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 355,
+                "total_tokens": 356
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-42",
+            "root": "soul",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissicist\n2. narcissistic\nCevap: 2\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: soul\nEkler: 'less','ly'\nSeçenekler:\n1. soullessly\n2. soullyless\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-43",
+            "root": "preposition",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: preposition\nEkler: 'ly','al'\nSeçenekler:\n1. prepositionlyal\n2. prepositionally\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 359,
+                "total_tokens": 360
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-44",
+            "root": "protect",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissicist\n2. narcissistic\nCevap: 2\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: protect\nEkler: 'ive','ness'\nSeçenekler:\n1. protectiveness\n2. protectnessive\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-45",
+            "root": "cheer",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: cheer\nEkler: 'ful','ly'\nSeçenekler:\n1. cheerfully\n2. cheerlyful\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-46",
+            "root": "passion",
+            "suffixes": [
+                "ate",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: passion\nEkler: 'ate','ness'\nSeçenekler:\n1. passionnessate\n2. passionateness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 357,
+                "total_tokens": 358
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-47",
+            "root": "lingu",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: lingu\nEkler: 'ist','ic'\nSeçenekler:\n1. linguistic\n2. linguicist\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 355,
+                "total_tokens": 356
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-48",
+            "root": "hate",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: hate\nEkler: 'ful','ly'\nSeçenekler:\n1. hatefully\n2. hatelyful\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-49",
+            "root": "gorm",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissicist\n2. narcissistic\nCevap: 2\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: gorm\nEkler: 'less','ly'\nSeçenekler:\n1. gormlyless\n2. gormlessly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 359,
+                "total_tokens": 360
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-50",
+            "root": "feck",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissicist\n2. narcissistic\nCevap: 2\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: feck\nEkler: 'ness','less'\nSeçenekler:\n1. fecklessness\n2. fecknessless\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 359,
+                "total_tokens": 360
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-51",
+            "root": "real",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: real\nEkler: 'ic','ist'\nSeçenekler:\n1. realistic\n2. realicist\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 355,
+                "total_tokens": 356
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-52",
+            "root": "function",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: function\nEkler: 'ist','al'\nSeçenekler:\n1. functionistal\n2. functionalist\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-53",
+            "root": "sweet",
+            "suffixes": [
+                "en",
+                "er"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissicist\n2. narcissistic\nCevap: 2\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: sweet\nEkler: 'en','er'\nSeçenekler:\n1. sweetener\n2. sweeteren\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-54",
+            "root": "guile",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: guile\nEkler: 'less','ly'\nSeçenekler:\n1. guilelyless\n2. guilelessly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 359,
+                "total_tokens": 360
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-55",
+            "root": "fool",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: fool\nEkler: 'ish','ness'\nSeçenekler:\n1. foolishness\n2. foolnessish\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-56",
+            "root": "distinct",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissicist\n2. narcissistic\nCevap: 2\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: distinct\nEkler: 'ness','ive'\nSeçenekler:\n1. distinctiveness\n2. distinctnessive\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-57",
+            "root": "norm",
+            "suffixes": [
+                "al",
+                "ize"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: norm\nEkler: 'al','ize'\nSeçenekler:\n1. normalize\n2. normizeal\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 355,
+                "total_tokens": 356
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-58",
+            "root": "articul",
+            "suffixes": [
+                "ate",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: articul\nEkler: 'ness','ate'\nSeçenekler:\n1. articulnessate\n2. articulateness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 360,
+                "total_tokens": 361
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-59",
+            "root": "forget",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissicist\n2. narcissistic\nCevap: 2\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: forget\nEkler: 'ful','ness'\nSeçenekler:\n1. forgetfulness\n2. forgetnessful\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-60",
+            "root": "putr",
+            "suffixes": [
+                "efac",
+                "tive"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissicist\n2. narcissistic\nCevap: 2\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: putr\nEkler: 'tive','efac'\nSeçenekler:\n1. putrtiveefac\n2. putrefactive\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 362,
+                "total_tokens": 363
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-61",
+            "root": "condition",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissicist\n2. narcissistic\nCevap: 2\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: condition\nEkler: 'ly','al'\nSeçenekler:\n1. conditionally\n2. conditionlyal\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-62",
+            "root": "shame",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissicist\n2. narcissistic\nCevap: 2\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: shame\nEkler: 'ful','ness'\nSeçenekler:\n1. shamefulness\n2. shamenessful\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-63",
+            "root": "vel",
+            "suffixes": [
+                "ar",
+                "ize"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: vel\nEkler: 'ize','ar'\nSeçenekler:\n1. velizear\n2. velarize\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 357,
+                "total_tokens": 358
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-64",
+            "root": "senti",
+            "suffixes": [
+                "ment",
+                "al",
+                "ist"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: phys\nEkler: 'al','ness','ic'\nSeçenekler:\n1. physicalness\n2. physalicness\n3. physnessical\n4. physicnessal\n5. physnessalic\n6. physalnessic\nCevap: 1\n\nÖrnek 2:\nKök: transit\nEkler: 'al','ly','ion'\nSeçenekler:\n1. transitionally\n2. transitallyion\n3. transitlyalion\n4. transitlyional\n5. transitalionly\n6. transitionlyal\nCevap: 1\n\nÖrnek 3:\nKök: hyster\nEkler: 'ly','al','ic'\nSeçenekler:\n1. hysterically\n2. hysterlyalic\n3. hysterallyic\n4. hysteralicly\n5. hysterlyical\n6. hystericlyal\nCevap: 1\n\nÖrnek 4:\nKök: senti\nEkler: 'ment','al','ism'\nSeçenekler:\n1. sentialmentism\n2. sentialismment\n3. sentimentalism\n4. sentiismmental\n5. sentimentismal\n6. sentiismalment\nCevap: 3\n\nÖrnek 5:\nKök: period\nEkler: 'al','ly','ic'\nSeçenekler:\n1. periodalicly\n2. periodically\n3. periodlyalic\n4. periodallyic\n5. periodiclyal\n6. periodlyical\nCevap: 2\n\nÖrnek 6:\nKök: senti\nEkler: 'ment','al','ist'\nSeçenekler:\n1. sentiistmental\n2. sentiistalment\n3. sentialmentist\n4. sentimentalist\n5. sentimentistal\n6. sentialistment\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 526,
+                "total_tokens": 527
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-65",
+            "root": "bliss",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: bliss\nEkler: 'ful','ly'\nSeçenekler:\n1. blissfully\n2. blisslyful\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-66",
+            "root": "tear",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissicist\n2. narcissistic\nCevap: 2\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: tear\nEkler: 'ly','less'\nSeçenekler:\n1. tearlyless\n2. tearlessly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-67",
+            "root": "lect",
+            "suffixes": [
+                "ure",
+                "ship"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissicist\n2. narcissistic\nCevap: 2\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: lect\nEkler: 'ure','ship'\nSeçenekler:\n1. lectureship\n2. lectshipure\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-68",
+            "root": "liturgic",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: liturgic\nEkler: 'al','ly'\nSeçenekler:\n1. liturgically\n2. liturgiclyal\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 361,
+                "total_tokens": 362
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-69",
+            "root": "gener",
+            "suffixes": [
+                "al",
+                "issimo"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissicist\n2. narcissistic\nCevap: 2\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: gener\nEkler: 'al','issimo'\nSeçenekler:\n1. generissimoal\n2. generalissimo\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 359,
+                "total_tokens": 360
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-70",
+            "root": "help",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: help\nEkler: 'ness','less'\nSeçenekler:\n1. helpnessless\n2. helplessness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-71",
+            "root": "intuit",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: intuit\nEkler: 'ive','ly'\nSeçenekler:\n1. intuitlyive\n2. intuitively\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-72",
+            "root": "bash",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: bash\nEkler: 'ly','ful'\nSeçenekler:\n1. bashfully\n2. bashlyful\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-73",
+            "root": "select",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: select\nEkler: 'ive','ness'\nSeçenekler:\n1. selectiveness\n2. selectnessive\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-74",
+            "root": "join",
+            "suffixes": [
+                "t",
+                "ure"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: join\nEkler: 't','ure'\nSeçenekler:\n1. jointure\n2. joinuret\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-75",
+            "root": "period",
+            "suffixes": [
+                "ic",
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: phys\nEkler: 'ic','ness','al'\nSeçenekler:\n1. physicalness\n2. physalnessic\n3. physnessical\n4. physicnessal\n5. physnessalic\n6. physalicness\nCevap: 1\n\nÖrnek 2:\nKök: transit\nEkler: 'al','ly','ion'\nSeçenekler:\n1. transitallyion\n2. transitlyional\n3. transitionally\n4. transitionlyal\n5. transitlyalion\n6. transitalionly\nCevap: 3\n\nÖrnek 3:\nKök: hyster\nEkler: 'ic','al','ly'\nSeçenekler:\n1. hysteralicly\n2. hysterlyical\n3. hysterlyalic\n4. hysterically\n5. hystericlyal\n6. hysterallyic\nCevap: 4\n\nÖrnek 4:\nKök: senti\nEkler: 'al','ism','ment'\nSeçenekler:\n1. sentiismalment\n2. sentimentalism\n3. sentimentismal\n4. sentialmentism\n5. sentiismmental\n6. sentialismment\nCevap: 2\n\nÖrnek 5:\nKök: senti\nEkler: 'al','ist','ment'\nSeçenekler:\n1. sentiistalment\n2. sentimentistal\n3. sentialistment\n4. sentialmentist\n5. sentiistmental\n6. sentimentalist\nCevap: 6\n\nÖrnek 6:\nKök: period\nEkler: 'ly','al','ic'\nSeçenekler:\n1. periodalicly\n2. periodiclyal\n3. periodically\n4. periodallyic\n5. periodlyalic\n6. periodlyical\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 526,
+                "total_tokens": 527
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-76",
+            "root": "self",
+            "suffixes": [
+                "ish",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissicist\n2. narcissistic\nCevap: 2\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: self\nEkler: 'ly','ish'\nSeçenekler:\n1. selfishly\n2. selflyish\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-77",
+            "root": "obstruct",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissicist\n2. narcissistic\nCevap: 2\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: obstruct\nEkler: 'ive','ness'\nSeçenekler:\n1. obstructiveness\n2. obstructnessive\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-78",
+            "root": "dole",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissicist\n2. narcissistic\nCevap: 2\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: dole\nEkler: 'ly','ful'\nSeçenekler:\n1. dolefully\n2. dolelyful\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 359,
+                "total_tokens": 360
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-79",
+            "root": "opt",
+            "suffixes": [
+                "ion",
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: phys\nEkler: 'al','ness','ic'\nSeçenekler:\n1. physnessical\n2. physalnessic\n3. physalicness\n4. physicalness\n5. physicnessal\n6. physnessalic\nCevap: 4\n\nÖrnek 2:\nKök: transit\nEkler: 'ion','ly','al'\nSeçenekler:\n1. transitlyional\n2. transitionlyal\n3. transitionally\n4. transitlyalion\n5. transitalionly\n6. transitallyion\nCevap: 3\n\nÖrnek 3:\nKök: hyster\nEkler: 'ly','al','ic'\nSeçenekler:\n1. hysterically\n2. hystericlyal\n3. hysterlyical\n4. hysterallyic\n5. hysteralicly\n6. hysterlyalic\nCevap: 1\n\nÖrnek 4:\nKök: senti\nEkler: 'ment','ism','al'\nSeçenekler:\n1. sentimentalism\n2. sentimentismal\n3. sentiismmental\n4. sentialismment\n5. sentialmentism\n6. sentiismalment\nCevap: 1\n\nÖrnek 5:\nKök: senti\nEkler: 'ment','ist','al'\nSeçenekler:\n1. sentialistment\n2. sentiistmental\n3. sentimentistal\n4. sentimentalist\n5. sentiistalment\n6. sentialmentist\nCevap: 4\n\nÖrnek 6:\nKök: opt\nEkler: 'al','ion','ly'\nSeçenekler:\n1. optallyion\n2. optionlyal\n3. optalionly\n4. optionally\n5. optlyional\n6. optlyalion\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 526,
+                "total_tokens": 527
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-80",
+            "root": "precoc",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissicist\n2. narcissistic\nCevap: 2\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: precoc\nEkler: 'ness','ious'\nSeçenekler:\n1. precociousness\n2. precocnessious\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 359,
+                "total_tokens": 360
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-81",
+            "root": "pract",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissicist\n2. narcissistic\nCevap: 2\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: pract\nEkler: 'ic','al'\nSeçenekler:\n1. practical\n2. practalic\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 354,
+                "total_tokens": 355
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-82",
+            "root": "perpetu",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: perpetu\nEkler: 'al','ly'\nSeçenekler:\n1. perpetulyal\n2. perpetually\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 357,
+                "total_tokens": 358
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-83",
+            "root": "faith",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissicist\n2. narcissistic\nCevap: 2\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: faith\nEkler: 'ful','ness'\nSeçenekler:\n1. faithfulness\n2. faithnessful\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-84",
+            "root": "origin",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissicist\n2. narcissistic\nCevap: 2\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: origin\nEkler: 'ly','al'\nSeçenekler:\n1. originlyal\n2. originally\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 355,
+                "total_tokens": 356
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-85",
+            "root": "nation",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: nation\nEkler: 'ist','al'\nSeçenekler:\n1. nationistal\n2. nationalist\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 355,
+                "total_tokens": 356
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-86",
+            "root": "govern",
+            "suffixes": [
+                "ment",
+                "al"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: govern\nEkler: 'al','ment'\nSeçenekler:\n1. governalment\n2. governmental\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 355,
+                "total_tokens": 356
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-87",
+            "root": "militar",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: militar\nEkler: 'ic','ist'\nSeçenekler:\n1. militaricist\n2. militaristic\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-88",
+            "root": "taste",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissicist\n2. narcissistic\nCevap: 2\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: taste\nEkler: 'ly','ful'\nSeçenekler:\n1. tastefully\n2. tastelyful\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-89",
+            "root": "weigh",
+            "suffixes": [
+                "t",
+                "less"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: weigh\nEkler: 'less','t'\nSeçenekler:\n1. weighlesst\n2. weightless\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-90",
+            "root": "frig",
+            "suffixes": [
+                "id",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissicist\n2. narcissistic\nCevap: 2\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: frig\nEkler: 'id','ly'\nSeçenekler:\n1. friglyid\n2. frigidly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 359,
+                "total_tokens": 360
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-91",
+            "root": "protect",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissicist\n2. narcissistic\nCevap: 2\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: protect\nEkler: 'ive','ly'\nSeçenekler:\n1. protectlyive\n2. protectively\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-92",
+            "root": "magister",
+            "suffixes": [
+                "iall",
+                "y"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: magister\nEkler: 'y','iall'\nSeçenekler:\n1. magisteryiall\n2. magisterially\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 361,
+                "total_tokens": 362
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-93",
+            "root": "elf",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: elf\nEkler: 'ish','ness'\nSeçenekler:\n1. elfnessish\n2. elfishness\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 357,
+                "total_tokens": 358
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-94",
+            "root": "cybernetic",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'ness','less'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: cybernetic\nEkler: 'al','ly'\nSeçenekler:\n1. cybernetically\n2. cyberneticlyal\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 361,
+                "total_tokens": 362
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-95",
+            "root": "cens",
+            "suffixes": [
+                "or",
+                "ious",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: phys\nEkler: 'al','ness','ic'\nSeçenekler:\n1. physnessical\n2. physicnessal\n3. physalicness\n4. physalnessic\n5. physnessalic\n6. physicalness\nCevap: 6\n\nÖrnek 2:\nKök: transit\nEkler: 'ly','al','ion'\nSeçenekler:\n1. transitalionly\n2. transitlyalion\n3. transitionlyal\n4. transitallyion\n5. transitlyional\n6. transitionally\nCevap: 6\n\nÖrnek 3:\nKök: hyster\nEkler: 'ly','ic','al'\nSeçenekler:\n1. hysteralicly\n2. hysterically\n3. hysterlyical\n4. hystericlyal\n5. hysterlyalic\n6. hysterallyic\nCevap: 2\n\nÖrnek 4:\nKök: senti\nEkler: 'al','ism','ment'\nSeçenekler:\n1. sentiismalment\n2. sentimentalism\n3. sentialmentism\n4. sentiismmental\n5. sentialismment\n6. sentimentismal\nCevap: 2\n\nÖrnek 5:\nKök: senti\nEkler: 'ment','ist','al'\nSeçenekler:\n1. sentimentalist\n2. sentialistment\n3. sentiistmental\n4. sentialmentist\n5. sentiistalment\n6. sentimentistal\nCevap: 1\n\nÖrnek 6:\nKök: cens\nEkler: 'ious','or','ness'\nSeçenekler:\n1. censiousnessor\n2. censornessious\n3. censnessiousor\n4. censnessorious\n5. censoriousness\n6. censiousorness\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 538,
+                "total_tokens": 539
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-96",
+            "root": "journ",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ist','ic'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judiciousness\n2. judicnessious\nCevap: 1\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: journ\nEkler: 'al','ist'\nSeçenekler:\n1. journalist\n2. journistal\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 357,
+                "total_tokens": 358
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-97",
+            "root": "sheep",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'ion','al'\nSeçenekler:\n1. directalion\n2. directional\nCevap: 2\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ious','ness'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: sheep\nEkler: 'ish','ness'\nSeçenekler:\n1. sheepishness\n2. sheepnessish\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 357,
+                "total_tokens": 358
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-98",
+            "root": "use",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftnessless\n2. shiftlessness\nCevap: 2\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissicist\n2. narcissistic\nCevap: 2\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'less','ness'\nSeçenekler:\n1. ruthlessness\n2. ruthnessless\nCevap: 1\n\nÖrnek 6:\nKök: use\nEkler: 'less','ly'\nSeçenekler:\n1. uselyless\n2. uselessly\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-99",
+            "root": "pain",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: direct\nEkler: 'al','ion'\nSeçenekler:\n1. directional\n2. directalion\nCevap: 1\n\nÖrnek 2:\nKök: shift\nEkler: 'less','ness'\nSeçenekler:\n1. shiftlessness\n2. shiftnessless\nCevap: 1\n\nÖrnek 3:\nKök: narciss\nEkler: 'ic','ist'\nSeçenekler:\n1. narcissistic\n2. narcissicist\nCevap: 1\n\nÖrnek 4:\nKök: judic\nEkler: 'ness','ious'\nSeçenekler:\n1. judicnessious\n2. judiciousness\nCevap: 2\n\nÖrnek 5:\nKök: ruth\nEkler: 'ness','less'\nSeçenekler:\n1. ruthnessless\n2. ruthlessness\nCevap: 2\n\nÖrnek 6:\nKök: pain\nEkler: 'less','ly'\nSeçenekler:\n1. painlessly\n2. painlyless\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 356,
+                "total_tokens": 357
+            },
+            "correct": true,
+            "faithful": true
+        }
+    ]
+}
