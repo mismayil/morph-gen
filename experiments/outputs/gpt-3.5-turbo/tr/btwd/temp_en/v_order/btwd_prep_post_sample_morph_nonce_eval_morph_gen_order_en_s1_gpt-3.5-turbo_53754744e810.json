@@ -1,0 +1,2149 @@
+{
+    "metadata": {
+        "datapath": "../experiments/data/tr/btwd/temp_en/v_order/btwd_prep_post_sample_morph_nonce_eval_morph_gen_order_en_s1.json",
+        "model": "gpt-3.5-turbo",
+        "temperature": 0.3,
+        "max_tokens": 40,
+        "top_p": 1,
+        "frequency_penalty": 0,
+        "presence_penalty": 0
+    },
+    "metrics": {
+        "usage": {
+            "prompt_tokens": 20283,
+            "completion_tokens": 1169,
+            "total_tokens": 21452
+        },
+        "cost": {
+            "input": 0.0304245,
+            "output": 0.002338,
+            "total": 0.0327625
+        },
+        "accuracy": 0.2,
+        "faithful_accuracy": 1.0,
+        "accuracy_by_suffix_len": {
+            "2": 0.37142857142857144,
+            "3": 0.15789473684210525,
+            "4": 0.07692307692307693,
+            "5": 0.0,
+            "6": 0.0
+        },
+        "num_samples_by_suffix_len": {
+            "2": 35,
+            "3": 38,
+            "4": 13,
+            "5": 12,
+            "6": 2
+        }
+    },
+    "data": [
+        {
+            "id": "btwd-ood-0",
+            "root": "col",
+            "suffixes": [
+                "an",
+                "mış"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: akuz\nDefinition: 'akuz' means 'omuz' in Turkish.\nSuffixes: 1. 'lar', 2. 'ı'\nAnswer: 1,2\n\nExample 2:\nWord root: col\nDefinition: 'col' means 'dol' in Turkish.\nSuffixes: 1. 'mış', 2. 'an'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "dol",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 183,
+                "total_tokens": 186
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-1",
+            "root": "akuz",
+            "suffixes": [
+                "lar",
+                "ı"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: col\nDefinition: 'col' means 'dol' in Turkish.\nSuffixes: 1. 'an', 2. 'mış'\nAnswer: 1,2\n\nExample 2:\nWord root: akuz\nDefinition: 'akuz' means 'omuz' in Turkish.\nSuffixes: 1. 'lar', 2. 'ı'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "omuz",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 183,
+                "total_tokens": 186
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-2",
+            "root": "foyşır",
+            "suffixes": [
+                "abil",
+                "mek",
+                "tir"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: çoş\nDefinition: 'çoş' means 'koş' in Turkish.\nSuffixes: 1. 'um', 2. 'tur', 3. 'ur'\nAnswer: 2,3,1\n\nExample 2:\nWord root: foyşır\nDefinition: 'foyşır' means 'kaldır' in Turkish.\nSuffixes: 1. 'tir', 2. 'abil', 3. 'mek'\nAnswer: ",
+            "reference": "2,3,1",
+            "template": "morph_gen_order_en",
+            "original_root": "kaldır",
+            "model_output": "3,2,1",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 204,
+                "total_tokens": 209
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-3",
+            "root": "ügüfmi",
+            "suffixes": [
+                "m",
+                "e"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: col\nDefinition: 'col' means 'dol' in Turkish.\nSuffixes: 1. 'an', 2. 'mış'\nAnswer: 1,2\n\nExample 2:\nWord root: ügüfmi\nDefinition: 'ügüfmi' means 'enerji' in Turkish.\nSuffixes: 1. 'e', 2. 'm'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "enerji",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 189,
+                "total_tokens": 192
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-4",
+            "root": "sidiş",
+            "suffixes": [
+                "le",
+                "me",
+                "ci",
+                "liğ",
+                "i"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: mıcat\nDefinition: 'mıcat' means 'at' in Turkish.\nSuffixes: 1. 'nı', 2. 'yacağ', 3. 'ma', 4. 'ı', 5. 'ıl'\nAnswer: 5,3,2,4,1\n\nExample 2:\nWord root: sidiş\nDefinition: 'sidiş' means 'iş' in Turkish.\nSuffixes: 1. 'me', 2. 'le', 3. 'ci', 4. 'liğ', 5. 'i'\nAnswer: ",
+            "reference": "2,1,3,4,5",
+            "template": "morph_gen_order_en",
+            "original_root": "iş",
+            "model_output": "2,3,1,5,4",
+            "usage": {
+                "completion_tokens": 9,
+                "prompt_tokens": 232,
+                "total_tokens": 241
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-5",
+            "root": "kimil",
+            "suffixes": [
+                "ki",
+                "ne"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: col\nDefinition: 'col' means 'dol' in Turkish.\nSuffixes: 1. 'mış', 2. 'an'\nAnswer: 2,1\n\nExample 2:\nWord root: kimil\nDefinition: 'kimil' means 'il' in Turkish.\nSuffixes: 1. 'ne', 2. 'ki'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "il",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 182,
+                "total_tokens": 185
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-6",
+            "root": "yut",
+            "suffixes": [
+                "umuz",
+                "u"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: col\nDefinition: 'col' means 'dol' in Turkish.\nSuffixes: 1. 'mış', 2. 'an'\nAnswer: 2,1\n\nExample 2:\nWord root: yut\nDefinition: 'yut' means 'tut' in Turkish.\nSuffixes: 1. 'u', 2. 'umuz'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "tut",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 184,
+                "total_tokens": 187
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-7",
+            "root": "ger",
+            "suffixes": [
+                "me",
+                "miş"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: col\nDefinition: 'col' means 'dol' in Turkish.\nSuffixes: 1. 'mış', 2. 'an'\nAnswer: 2,1\n\nExample 2:\nWord root: ger\nDefinition: 'ger' means 'ver' in Turkish.\nSuffixes: 1. 'miş', 2. 'me'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "ver",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 181,
+                "total_tokens": 184
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-8",
+            "root": "çoş",
+            "suffixes": [
+                "tur",
+                "ur",
+                "um"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: foyşır\nDefinition: 'foyşır' means 'kaldır' in Turkish.\nSuffixes: 1. 'mek', 2. 'tir', 3. 'abil'\nAnswer: 3,1,2\n\nExample 2:\nWord root: çoş\nDefinition: 'çoş' means 'koş' in Turkish.\nSuffixes: 1. 'ur', 2. 'um', 3. 'tur'\nAnswer: ",
+            "reference": "3,1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "koş",
+            "model_output": "2,3,1",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 204,
+                "total_tokens": 209
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-9",
+            "root": "mıcat",
+            "suffixes": [
+                "ıl",
+                "ma",
+                "yacağ",
+                "ı",
+                "nı"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: sidiş\nDefinition: 'sidiş' means 'iş' in Turkish.\nSuffixes: 1. 'liğ', 2. 'ci', 3. 'i', 4. 'le', 5. 'me'\nAnswer: 4,5,2,1,3\n\nExample 2:\nWord root: mıcat\nDefinition: 'mıcat' means 'at' in Turkish.\nSuffixes: 1. 'ı', 2. 'yacağ', 3. 'ma', 4. 'nı', 5. 'ıl'\nAnswer: ",
+            "reference": "5,3,2,1,4",
+            "template": "morph_gen_order_en",
+            "original_root": "at",
+            "model_output": "3,2,5,1,4",
+            "usage": {
+                "completion_tokens": 9,
+                "prompt_tokens": 232,
+                "total_tokens": 241
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-10",
+            "root": "umıvey",
+            "suffixes": [
+                "ler",
+                "imiz",
+                "i"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: foyşır\nDefinition: 'foyşır' means 'kaldır' in Turkish.\nSuffixes: 1. 'tir', 2. 'abil', 3. 'mek'\nAnswer: 2,3,1\n\nExample 2:\nWord root: umıvey\nDefinition: 'umıvey' means 'ağabey' in Turkish.\nSuffixes: 1. 'ler', 2. 'imiz', 3. 'i'\nAnswer: ",
+            "reference": "1,2,3",
+            "template": "morph_gen_order_en",
+            "original_root": "ağabey",
+            "model_output": "3,1,2",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 208,
+                "total_tokens": 213
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-11",
+            "root": "roprı",
+            "suffixes": [
+                "ya",
+                "dır"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: col\nDefinition: 'col' means 'dol' in Turkish.\nSuffixes: 1. 'an', 2. 'mış'\nAnswer: 1,2\n\nExample 2:\nWord root: roprı\nDefinition: 'roprı' means 'karşı' in Turkish.\nSuffixes: 1. 'ya', 2. 'dır'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "karşı",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 186,
+                "total_tokens": 189
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-12",
+            "root": "pel",
+            "suffixes": [
+                "iş",
+                "tir",
+                "diğ",
+                "im",
+                "i"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: sidiş\nDefinition: 'sidiş' means 'iş' in Turkish.\nSuffixes: 1. 'le', 2. 'i', 3. 'me', 4. 'liğ', 5. 'ci'\nAnswer: 1,3,5,4,2\n\nExample 2:\nWord root: pel\nDefinition: 'pel' means 'gel' in Turkish.\nSuffixes: 1. 'iş', 2. 'i', 3. 'im', 4. 'diğ', 5. 'tir'\nAnswer: ",
+            "reference": "1,5,4,3,2",
+            "template": "morph_gen_order_en",
+            "original_root": "gel",
+            "model_output": "2,1,5,4,3",
+            "usage": {
+                "completion_tokens": 9,
+                "prompt_tokens": 227,
+                "total_tokens": 236
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-13",
+            "root": "şotil",
+            "suffixes": [
+                "ler",
+                "i",
+                "ni"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: foyşır\nDefinition: 'foyşır' means 'kaldır' in Turkish.\nSuffixes: 1. 'mek', 2. 'tir', 3. 'abil'\nAnswer: 3,1,2\n\nExample 2:\nWord root: şotil\nDefinition: 'şotil' means 'sahil' in Turkish.\nSuffixes: 1. 'ler', 2. 'i', 3. 'ni'\nAnswer: ",
+            "reference": "1,2,3",
+            "template": "morph_gen_order_en",
+            "original_root": "sahil",
+            "model_output": "2,3,1\n\nWord root: yarar\nDefinition: 'yarar' means 'fayda sağlar' in Turkish.\nSuffixes: 1. 'lı',",
+            "usage": {
+                "completion_tokens": 40,
+                "prompt_tokens": 206,
+                "total_tokens": 246
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-14",
+            "root": "kısu",
+            "suffixes": [
+                "m",
+                "suz",
+                "luk",
+                "lar",
+                "ı"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: sidiş\nDefinition: 'sidiş' means 'iş' in Turkish.\nSuffixes: 1. 'ci', 2. 'liğ', 3. 'le', 4. 'i', 5. 'me'\nAnswer: 3,5,1,2,4\n\nExample 2:\nWord root: kısu\nDefinition: 'kısu' means 'soru' in Turkish.\nSuffixes: 1. 'ı', 2. 'suz', 3. 'm', 4. 'lar', 5. 'luk'\nAnswer: ",
+            "reference": "3,2,5,4,1",
+            "template": "morph_gen_order_en",
+            "original_root": "soru",
+            "model_output": "3,1,4",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 232,
+                "total_tokens": 237
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-15",
+            "root": "tarur",
+            "suffixes": [
+                "un",
+                "un"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: col\nDefinition: 'col' means 'dol' in Turkish.\nSuffixes: 1. 'mış', 2. 'an'\nAnswer: 2,1\n\nExample 2:\nWord root: tarur\nDefinition: 'tarur' means 'gurur' in Turkish.\nSuffixes: 1. 'un', 2. 'un'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "gurur",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 184,
+                "total_tokens": 187
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-16",
+            "root": "öfse",
+            "suffixes": [
+                "me",
+                "dik",
+                "ler",
+                "i",
+                "ni"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: sidiş\nDefinition: 'sidiş' means 'iş' in Turkish.\nSuffixes: 1. 'liğ', 2. 'le', 3. 'me', 4. 'i', 5. 'ci'\nAnswer: 2,3,5,1,4\n\nExample 2:\nWord root: öfse\nDefinition: 'öfse' means 'iste' in Turkish.\nSuffixes: 1. 'me', 2. 'ni', 3. 'dik', 4. 'i', 5. 'ler'\nAnswer: ",
+            "reference": "1,3,5,4,2",
+            "template": "morph_gen_order_en",
+            "original_root": "iste",
+            "model_output": "1,4,2",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 230,
+                "total_tokens": 235
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-17",
+            "root": "zızım",
+            "suffixes": [
+                "lar",
+                "ımız"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: col\nDefinition: 'col' means 'dol' in Turkish.\nSuffixes: 1. 'an', 2. 'mış'\nAnswer: 1,2\n\nExample 2:\nWord root: zızım\nDefinition: 'zızım' means 'yarım' in Turkish.\nSuffixes: 1. 'lar', 2. 'ımız'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "yarım",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 186,
+                "total_tokens": 189
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-18",
+            "root": "tıcza",
+            "suffixes": [
+                "lar",
+                "ı",
+                "ydı"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: foyşır\nDefinition: 'foyşır' means 'kaldır' in Turkish.\nSuffixes: 1. 'abil', 2. 'tir', 3. 'mek'\nAnswer: 1,3,2\n\nExample 2:\nWord root: tıcza\nDefinition: 'tıcza' means 'kukla' in Turkish.\nSuffixes: 1. 'lar', 2. 'ydı', 3. 'ı'\nAnswer: ",
+            "reference": "1,3,2",
+            "template": "morph_gen_order_en",
+            "original_root": "kukla",
+            "model_output": "2,3,1\n\nExample 3:\nWord root: yurk\nDefinition: 'yurk' means 'ev' in Turkish.\nSuffixes: 1. 'de',",
+            "usage": {
+                "completion_tokens": 40,
+                "prompt_tokens": 207,
+                "total_tokens": 247
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-19",
+            "root": "şifği",
+            "suffixes": [
+                "ler",
+                "i",
+                "dir"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: foyşır\nDefinition: 'foyşır' means 'kaldır' in Turkish.\nSuffixes: 1. 'mek', 2. 'abil', 3. 'tir'\nAnswer: 2,1,3\n\nExample 2:\nWord root: şifği\nDefinition: 'şifği' means 'kendi' in Turkish.\nSuffixes: 1. 'ler', 2. 'i', 3. 'dir'\nAnswer: ",
+            "reference": "1,2,3",
+            "template": "morph_gen_order_en",
+            "original_root": "kendi",
+            "model_output": "2,3,1\n\nExample 3:\nWord root: çalık\nDefinition: 'çalık' means 'orman' in Turkish.\nSuffixes: 1. 'lar',",
+            "usage": {
+                "completion_tokens": 40,
+                "prompt_tokens": 205,
+                "total_tokens": 245
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-20",
+            "root": "nümeş",
+            "suffixes": [
+                "in",
+                "in"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: col\nDefinition: 'col' means 'dol' in Turkish.\nSuffixes: 1. 'mış', 2. 'an'\nAnswer: 2,1\n\nExample 2:\nWord root: nümeş\nDefinition: 'nümeş' means 'eş' in Turkish.\nSuffixes: 1. 'in', 2. 'in'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "eş",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 187,
+                "total_tokens": 190
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-21",
+            "root": "raz",
+            "suffixes": [
+                "mış",
+                "tı",
+                "m"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: foyşır\nDefinition: 'foyşır' means 'kaldır' in Turkish.\nSuffixes: 1. 'tir', 2. 'mek', 3. 'abil'\nAnswer: 3,2,1\n\nExample 2:\nWord root: raz\nDefinition: 'raz' means 'yaz' in Turkish.\nSuffixes: 1. 'm', 2. 'tı', 3. 'mış'\nAnswer: ",
+            "reference": "3,2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "yaz",
+            "model_output": "1,3,2",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 203,
+                "total_tokens": 208
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-22",
+            "root": "cöcşe",
+            "suffixes": [
+                "miz",
+                "de"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: col\nDefinition: 'col' means 'dol' in Turkish.\nSuffixes: 1. 'mış', 2. 'an'\nAnswer: 2,1\n\nExample 2:\nWord root: cöcşe\nDefinition: 'cöcşe' means 'hücre' in Turkish.\nSuffixes: 1. 'de', 2. 'miz'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "hücre",
+            "model_output": "1,2\n\nExample 3:\nWord root: yüşe\nDefinition: 'yüşe' means 'yüz' in Turkish.\nSuffixes: 1. 'ler",
+            "usage": {
+                "completion_tokens": 40,
+                "prompt_tokens": 191,
+                "total_tokens": 231
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-23",
+            "root": "pikel",
+            "suffixes": [
+                "t",
+                "mek",
+                "te"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: foyşır\nDefinition: 'foyşır' means 'kaldır' in Turkish.\nSuffixes: 1. 'tir', 2. 'mek', 3. 'abil'\nAnswer: 3,2,1\n\nExample 2:\nWord root: pikel\nDefinition: 'pikel' means 'düzel' in Turkish.\nSuffixes: 1. 'mek', 2. 't', 3. 'te'\nAnswer: ",
+            "reference": "2,1,3",
+            "template": "morph_gen_order_en",
+            "original_root": "düzel",
+            "model_output": "2,3,1",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 204,
+                "total_tokens": 209
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-24",
+            "root": "rıpga",
+            "suffixes": [
+                "lar",
+                "ın",
+                "ı"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: foyşır\nDefinition: 'foyşır' means 'kaldır' in Turkish.\nSuffixes: 1. 'tir', 2. 'abil', 3. 'mek'\nAnswer: 2,3,1\n\nExample 2:\nWord root: rıpga\nDefinition: 'rıpga' means 'tuğla' in Turkish.\nSuffixes: 1. 'ı', 2. 'lar', 3. 'ın'\nAnswer: ",
+            "reference": "2,3,1",
+            "template": "morph_gen_order_en",
+            "original_root": "tuğla",
+            "model_output": "3,1,2\n\nWord root: kıvılcım\nDefinition: 'kıvılcım' means 'ateş' in Turkish.\nSuffixes: 1.",
+            "usage": {
+                "completion_tokens": 40,
+                "prompt_tokens": 206,
+                "total_tokens": 246
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-25",
+            "root": "jas",
+            "suffixes": [
+                "tır",
+                "dığ",
+                "ı",
+                "nda"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: sucan\nDefinition: 'sucan' means 'kazan' in Turkish.\nSuffixes: 1. 'du', 2. 'dır', 3. 'ıyor', 4. 'm'\nAnswer: 2,4,3,1\n\nExample 2:\nWord root: jas\nDefinition: 'jas' means 'bas' in Turkish.\nSuffixes: 1. 'nda', 2. 'tır', 3. 'dığ', 4. 'ı'\nAnswer: ",
+            "reference": "2,3,4,1",
+            "template": "morph_gen_order_en",
+            "original_root": "bas",
+            "model_output": "4,2,1",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 216,
+                "total_tokens": 221
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-26",
+            "root": "ğümah",
+            "suffixes": [
+                "la",
+                "t",
+                "abil",
+                "eceğ",
+                "im",
+                "i"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: ğe\nDefinition: 'ğe' means 'de' in Turkish.\nSuffixes: 1. 'n', 2. 'e', 3. 'si', 4. 'me', 5. 'nden', 6. 'me'\nAnswer: 1,2,4,6,3,5\n\nExample 2:\nWord root: ğümah\nDefinition: 'ğümah' means 'ferah' in Turkish.\nSuffixes: 1. 'la', 2. 't', 3. 'i', 4. 'abil', 5. 'im', 6. 'eceğ'\nAnswer: ",
+            "reference": "1,2,4,6,5,3",
+            "template": "morph_gen_order_en",
+            "original_root": "ferah",
+            "model_output": "6,4,1,2,3,5",
+            "usage": {
+                "completion_tokens": 11,
+                "prompt_tokens": 245,
+                "total_tokens": 256
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-27",
+            "root": "ıput",
+            "suffixes": [
+                "ma",
+                "sınlar"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: col\nDefinition: 'col' means 'dol' in Turkish.\nSuffixes: 1. 'an', 2. 'mış'\nAnswer: 1,2\n\nExample 2:\nWord root: ıput\nDefinition: 'ıput' means 'unut' in Turkish.\nSuffixes: 1. 'sınlar', 2. 'ma'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "unut",
+            "model_output": "2,1\n\nExample 3:\nWord root: oku\nDefinition: 'oku' means 'read' in Turkish.\nSuffixes: 1. 'duk', 2. 'yor",
+            "usage": {
+                "completion_tokens": 40,
+                "prompt_tokens": 186,
+                "total_tokens": 226
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-28",
+            "root": "yark",
+            "suffixes": [
+                "ın",
+                "dan"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: col\nDefinition: 'col' means 'dol' in Turkish.\nSuffixes: 1. 'mış', 2. 'an'\nAnswer: 2,1\n\nExample 2:\nWord root: yark\nDefinition: 'yark' means 'bark' in Turkish.\nSuffixes: 1. 'ın', 2. 'dan'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "bark",
+            "model_output": "1,2\n\nExample 3:\nWord root: kitap\nDefinition: 'kitap' means 'book' in Turkish.\nSuffixes: 1. 'lar', 2. '",
+            "usage": {
+                "completion_tokens": 40,
+                "prompt_tokens": 183,
+                "total_tokens": 223
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-29",
+            "root": "maz",
+            "suffixes": [
+                "ma",
+                "l",
+                "ım"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: foyşır\nDefinition: 'foyşır' means 'kaldır' in Turkish.\nSuffixes: 1. 'tir', 2. 'mek', 3. 'abil'\nAnswer: 3,2,1\n\nExample 2:\nWord root: maz\nDefinition: 'maz' means 'yaz' in Turkish.\nSuffixes: 1. 'ım', 2. 'ma', 3. 'l'\nAnswer: ",
+            "reference": "2,3,1",
+            "template": "morph_gen_order_en",
+            "original_root": "yaz",
+            "model_output": "2,3,1\n\nExample 3:\nWord root: çık\nDefinition: 'çık' means 'git' in Turkish.\nSuffixes: 1. 'siz',",
+            "usage": {
+                "completion_tokens": 40,
+                "prompt_tokens": 203,
+                "total_tokens": 243
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-30",
+            "root": "sucan",
+            "suffixes": [
+                "dır",
+                "m",
+                "ıyor",
+                "du"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: jas\nDefinition: 'jas' means 'bas' in Turkish.\nSuffixes: 1. 'nda', 2. 'ı', 3. 'tır', 4. 'dığ'\nAnswer: 3,4,2,1\n\nExample 2:\nWord root: sucan\nDefinition: 'sucan' means 'kazan' in Turkish.\nSuffixes: 1. 'du', 2. 'dır', 3. 'ıyor', 4. 'm'\nAnswer: ",
+            "reference": "2,4,3,1",
+            "template": "morph_gen_order_en",
+            "original_root": "kazan",
+            "model_output": "4,2,1,3",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 216,
+                "total_tokens": 223
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-31",
+            "root": "çevü",
+            "suffixes": [
+                "ye",
+                "me",
+                "dik"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: foyşır\nDefinition: 'foyşır' means 'kaldır' in Turkish.\nSuffixes: 1. 'abil', 2. 'mek', 3. 'tir'\nAnswer: 1,2,3\n\nExample 2:\nWord root: çevü\nDefinition: 'çevü' means 'büyü' in Turkish.\nSuffixes: 1. 'me', 2. 'ye', 3. 'dik'\nAnswer: ",
+            "reference": "2,1,3",
+            "template": "morph_gen_order_en",
+            "original_root": "büyü",
+            "model_output": "2,1,3\n\nExample 3:\nWord root: sıvış\nDefinition: 'sıvış' means 'kaç' in Turkish.\nSuffixes: 1.",
+            "usage": {
+                "completion_tokens": 40,
+                "prompt_tokens": 208,
+                "total_tokens": 248
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-32",
+            "root": "joba",
+            "suffixes": [
+                "lar",
+                "ken"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: col\nDefinition: 'col' means 'dol' in Turkish.\nSuffixes: 1. 'an', 2. 'mış'\nAnswer: 1,2\n\nExample 2:\nWord root: joba\nDefinition: 'joba' means 'yaka' in Turkish.\nSuffixes: 1. 'ken', 2. 'lar'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "yaka",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 183,
+                "total_tokens": 186
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-33",
+            "root": "jofar",
+            "suffixes": [
+                "ın",
+                "da",
+                "ki"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: foyşır\nDefinition: 'foyşır' means 'kaldır' in Turkish.\nSuffixes: 1. 'abil', 2. 'tir', 3. 'mek'\nAnswer: 1,3,2\n\nExample 2:\nWord root: jofar\nDefinition: 'jofar' means 'duvar' in Turkish.\nSuffixes: 1. 'da', 2. 'ki', 3. 'ın'\nAnswer: ",
+            "reference": "3,1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "duvar",
+            "model_output": "3,1,2",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 205,
+                "total_tokens": 210
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-34",
+            "root": "juzşa",
+            "suffixes": [
+                "ya",
+                "ma",
+                "z",
+                "dı",
+                "m"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: sidiş\nDefinition: 'sidiş' means 'iş' in Turkish.\nSuffixes: 1. 'liğ', 2. 'ci', 3. 'le', 4. 'i', 5. 'me'\nAnswer: 3,5,2,1,4\n\nExample 2:\nWord root: juzşa\nDefinition: 'juzşa' means 'kavra' in Turkish.\nSuffixes: 1. 'ma', 2. 'ya', 3. 'm', 4. 'z', 5. 'dı'\nAnswer: ",
+            "reference": "2,1,4,5,3",
+            "template": "morph_gen_order_en",
+            "original_root": "kavra",
+            "model_output": "4,3,1,5,2",
+            "usage": {
+                "completion_tokens": 9,
+                "prompt_tokens": 233,
+                "total_tokens": 242
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-35",
+            "root": "ijci",
+            "suffixes": [
+                "le",
+                "yeceğ",
+                "i",
+                "ydi"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: jas\nDefinition: 'jas' means 'bas' in Turkish.\nSuffixes: 1. 'tır', 2. 'ı', 3. 'nda', 4. 'dığ'\nAnswer: 1,4,2,3\n\nExample 2:\nWord root: ijci\nDefinition: 'ijci' means 'etki' in Turkish.\nSuffixes: 1. 'ydi', 2. 'le', 3. 'i', 4. 'yeceğ'\nAnswer: ",
+            "reference": "2,4,3,1",
+            "template": "morph_gen_order_en",
+            "original_root": "etki",
+            "model_output": "4,3,2,1",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 215,
+                "total_tokens": 222
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-36",
+            "root": "yusra",
+            "suffixes": [
+                "n",
+                "ın"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: col\nDefinition: 'col' means 'dol' in Turkish.\nSuffixes: 1. 'an', 2. 'mış'\nAnswer: 1,2\n\nExample 2:\nWord root: yusra\nDefinition: 'yusra' means 'somya' in Turkish.\nSuffixes: 1. 'n', 2. 'ın'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "somya",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 184,
+                "total_tokens": 187
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-37",
+            "root": "jur",
+            "suffixes": [
+                "a",
+                "ma",
+                "z",
+                "dı"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: jas\nDefinition: 'jas' means 'bas' in Turkish.\nSuffixes: 1. 'dığ', 2. 'tır', 3. 'ı', 4. 'nda'\nAnswer: 2,1,3,4\n\nExample 2:\nWord root: jur\nDefinition: 'jur' means 'kur' in Turkish.\nSuffixes: 1. 'a', 2. 'z', 3. 'ma', 4. 'dı'\nAnswer: ",
+            "reference": "1,3,2,4",
+            "template": "morph_gen_order_en",
+            "original_root": "kur",
+            "model_output": "3,1,2,4",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 210,
+                "total_tokens": 217
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-38",
+            "root": "ger",
+            "suffixes": [
+                "leş",
+                "in"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: col\nDefinition: 'col' means 'dol' in Turkish.\nSuffixes: 1. 'mış', 2. 'an'\nAnswer: 2,1\n\nExample 2:\nWord root: ger\nDefinition: 'ger' means 'yer' in Turkish.\nSuffixes: 1. 'leş', 2. 'in'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "yer",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 181,
+                "total_tokens": 184
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-39",
+            "root": "ıhu",
+            "suffixes": [
+                "r",
+                "un",
+                "a"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: foyşır\nDefinition: 'foyşır' means 'kaldır' in Turkish.\nSuffixes: 1. 'abil', 2. 'mek', 3. 'tir'\nAnswer: 1,2,3\n\nExample 2:\nWord root: ıhu\nDefinition: 'ıhu' means 'oku' in Turkish.\nSuffixes: 1. 'r', 2. 'un', 3. 'a'\nAnswer: ",
+            "reference": "1,2,3",
+            "template": "morph_gen_order_en",
+            "original_root": "oku",
+            "model_output": "2,3,1\n\nExample 3:\nWord root: zıp\nDefinition: 'zıp' means 'atla' in Turkish.\nSuffixes: 1. 'in",
+            "usage": {
+                "completion_tokens": 40,
+                "prompt_tokens": 203,
+                "total_tokens": 243
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-40",
+            "root": "nevey",
+            "suffixes": [
+                "sel",
+                "ci",
+                "liğ",
+                "i"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: jas\nDefinition: 'jas' means 'bas' in Turkish.\nSuffixes: 1. 'tır', 2. 'ı', 3. 'nda', 4. 'dığ'\nAnswer: 1,4,2,3\n\nExample 2:\nWord root: nevey\nDefinition: 'nevey' means 'birey' in Turkish.\nSuffixes: 1. 'i', 2. 'liğ', 3. 'sel', 4. 'ci'\nAnswer: ",
+            "reference": "3,4,2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "birey",
+            "model_output": "4,3,1",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 214,
+                "total_tokens": 219
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-41",
+            "root": "vezsan",
+            "suffixes": [
+                "ın",
+                "da"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: col\nDefinition: 'col' means 'dol' in Turkish.\nSuffixes: 1. 'an', 2. 'mış'\nAnswer: 1,2\n\nExample 2:\nWord root: vezsan\nDefinition: 'vezsan' means 'fincan' in Turkish.\nSuffixes: 1. 'ın', 2. 'da'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "fincan",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 184,
+                "total_tokens": 187
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-42",
+            "root": "usma",
+            "suffixes": [
+                "r",
+                "ı"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: col\nDefinition: 'col' means 'dol' in Turkish.\nSuffixes: 1. 'an', 2. 'mış'\nAnswer: 1,2\n\nExample 2:\nWord root: usma\nDefinition: 'usma' means 'ağla' in Turkish.\nSuffixes: 1. 'r', 2. 'ı'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "ağla",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 184,
+                "total_tokens": 187
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-43",
+            "root": "pan",
+            "suffixes": [
+                "ıl",
+                "sa"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: col\nDefinition: 'col' means 'dol' in Turkish.\nSuffixes: 1. 'an', 2. 'mış'\nAnswer: 1,2\n\nExample 2:\nWord root: pan\nDefinition: 'pan' means 'san' in Turkish.\nSuffixes: 1. 'ıl', 2. 'sa'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "san",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 180,
+                "total_tokens": 183
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-44",
+            "root": "acuş",
+            "suffixes": [
+                "tur",
+                "abil",
+                "ir",
+                "im"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: jas\nDefinition: 'jas' means 'bas' in Turkish.\nSuffixes: 1. 'nda', 2. 'tır', 3. 'dığ', 4. 'ı'\nAnswer: 2,3,4,1\n\nExample 2:\nWord root: acuş\nDefinition: 'acuş' means 'oluş' in Turkish.\nSuffixes: 1. 'im', 2. 'abil', 3. 'tur', 4. 'ir'\nAnswer: ",
+            "reference": "3,2,4,1",
+            "template": "morph_gen_order_en",
+            "original_root": "oluş",
+            "model_output": "2,4,3,1",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 212,
+                "total_tokens": 219
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-45",
+            "root": "maşun",
+            "suffixes": [
+                "muş",
+                "tur"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: col\nDefinition: 'col' means 'dol' in Turkish.\nSuffixes: 1. 'mış', 2. 'an'\nAnswer: 2,1\n\nExample 2:\nWord root: maşun\nDefinition: 'maşun' means 'bulun' in Turkish.\nSuffixes: 1. 'tur', 2. 'muş'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "bulun",
+            "model_output": "1,2\n\nExample 3:\nWord root: yar\nDefinition: 'yar' means 'sev' in Turkish.\nSuffixes: 1. 'in', 2. '",
+            "usage": {
+                "completion_tokens": 40,
+                "prompt_tokens": 186,
+                "total_tokens": 226
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-46",
+            "root": "çıl",
+            "suffixes": [
+                "mak",
+                "tı"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: col\nDefinition: 'col' means 'dol' in Turkish.\nSuffixes: 1. 'an', 2. 'mış'\nAnswer: 1,2\n\nExample 2:\nWord root: çıl\nDefinition: 'çıl' means 'kıl' in Turkish.\nSuffixes: 1. 'tı', 2. 'mak'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "kıl",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 184,
+                "total_tokens": 187
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-47",
+            "root": "çava",
+            "suffixes": [
+                "n",
+                "laş",
+                "ıl",
+                "dı",
+                "m"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: sidiş\nDefinition: 'sidiş' means 'iş' in Turkish.\nSuffixes: 1. 'ci', 2. 'le', 3. 'i', 4. 'me', 5. 'liğ'\nAnswer: 2,4,1,5,3\n\nExample 2:\nWord root: çava\nDefinition: 'çava' means 'a' in Turkish.\nSuffixes: 1. 'laş', 2. 'm', 3. 'dı', 4. 'ıl', 5. 'n'\nAnswer: ",
+            "reference": "5,1,4,3,2",
+            "template": "morph_gen_order_en",
+            "original_root": "a",
+            "model_output": "2,1,5,4,3",
+            "usage": {
+                "completion_tokens": 9,
+                "prompt_tokens": 229,
+                "total_tokens": 238
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-48",
+            "root": "zır",
+            "suffixes": [
+                "ma",
+                "yın"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: col\nDefinition: 'col' means 'dol' in Turkish.\nSuffixes: 1. 'an', 2. 'mış'\nAnswer: 1,2\n\nExample 2:\nWord root: zır\nDefinition: 'zır' means 'kır' in Turkish.\nSuffixes: 1. 'yın', 2. 'ma'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "kır",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 184,
+                "total_tokens": 187
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-49",
+            "root": "fuy",
+            "suffixes": [
+                "ma",
+                "m",
+                "ı"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: foyşır\nDefinition: 'foyşır' means 'kaldır' in Turkish.\nSuffixes: 1. 'tir', 2. 'mek', 3. 'abil'\nAnswer: 3,2,1\n\nExample 2:\nWord root: fuy\nDefinition: 'fuy' means 'duy' in Turkish.\nSuffixes: 1. 'ı', 2. 'm', 3. 'ma'\nAnswer: ",
+            "reference": "3,2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "duy",
+            "model_output": "2,3,1",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 203,
+                "total_tokens": 208
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-50",
+            "root": "röçiş",
+            "suffixes": [
+                "i",
+                "ni"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: col\nDefinition: 'col' means 'dol' in Turkish.\nSuffixes: 1. 'an', 2. 'mış'\nAnswer: 1,2\n\nExample 2:\nWord root: röçiş\nDefinition: 'röçiş' means 'iş' in Turkish.\nSuffixes: 1. 'i', 2. 'ni'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "iş",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 186,
+                "total_tokens": 189
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-51",
+            "root": "fivin",
+            "suffixes": [
+                "er",
+                "iz"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: col\nDefinition: 'col' means 'dol' in Turkish.\nSuffixes: 1. 'an', 2. 'mış'\nAnswer: 1,2\n\nExample 2:\nWord root: fivin\nDefinition: 'fivin' means 'in' in Turkish.\nSuffixes: 1. 'iz', 2. 'er'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "in",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 184,
+                "total_tokens": 187
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-52",
+            "root": "yifen",
+            "suffixes": [
+                "siz",
+                "liğ",
+                "in",
+                "den"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: jas\nDefinition: 'jas' means 'bas' in Turkish.\nSuffixes: 1. 'nda', 2. 'dığ', 3. 'ı', 4. 'tır'\nAnswer: 4,2,3,1\n\nExample 2:\nWord root: yifen\nDefinition: 'yifen' means 'güven' in Turkish.\nSuffixes: 1. 'den', 2. 'in', 3. 'siz', 4. 'liğ'\nAnswer: ",
+            "reference": "3,4,2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "güven",
+            "model_output": "2,4,1,3",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 215,
+                "total_tokens": 222
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-53",
+            "root": "jek",
+            "suffixes": [
+                "iz",
+                "e"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: col\nDefinition: 'col' means 'dol' in Turkish.\nSuffixes: 1. 'an', 2. 'mış'\nAnswer: 1,2\n\nExample 2:\nWord root: jek\nDefinition: 'jek' means 'sek' in Turkish.\nSuffixes: 1. 'iz', 2. 'e'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "sek",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 182,
+                "total_tokens": 185
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-54",
+            "root": "peyhiben",
+            "suffixes": [
+                "ler",
+                "imiz",
+                "e"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: foyşır\nDefinition: 'foyşır' means 'kaldır' in Turkish.\nSuffixes: 1. 'mek', 2. 'abil', 3. 'tir'\nAnswer: 2,1,3\n\nExample 2:\nWord root: peyhiben\nDefinition: 'peyhiben' means 'gökdelen' in Turkish.\nSuffixes: 1. 'e', 2. 'imiz', 3. 'ler'\nAnswer: ",
+            "reference": "3,2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "gökdelen",
+            "model_output": "1,3,2",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 210,
+                "total_tokens": 215
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-55",
+            "root": "kün",
+            "suffixes": [
+                "lük",
+                "ten"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: col\nDefinition: 'col' means 'dol' in Turkish.\nSuffixes: 1. 'an', 2. 'mış'\nAnswer: 1,2\n\nExample 2:\nWord root: kün\nDefinition: 'kün' means 'gün' in Turkish.\nSuffixes: 1. 'lük', 2. 'ten'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "gün",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 184,
+                "total_tokens": 187
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-56",
+            "root": "utul",
+            "suffixes": [
+                "umuz",
+                "a"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: col\nDefinition: 'col' means 'dol' in Turkish.\nSuffixes: 1. 'an', 2. 'mış'\nAnswer: 1,2\n\nExample 2:\nWord root: utul\nDefinition: 'utul' means 'okul' in Turkish.\nSuffixes: 1. 'umuz', 2. 'a'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "okul",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 184,
+                "total_tokens": 187
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-57",
+            "root": "durk",
+            "suffixes": [
+                "ul",
+                "ma",
+                "dan"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: foyşır\nDefinition: 'foyşır' means 'kaldır' in Turkish.\nSuffixes: 1. 'mek', 2. 'abil', 3. 'tir'\nAnswer: 2,1,3\n\nExample 2:\nWord root: durk\nDefinition: 'durk' means 'burk' in Turkish.\nSuffixes: 1. 'ul', 2. 'ma', 3. 'dan'\nAnswer: ",
+            "reference": "1,2,3",
+            "template": "morph_gen_order_en",
+            "original_root": "burk",
+            "model_output": "2,1,3",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 203,
+                "total_tokens": 208
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-58",
+            "root": "sıyozza",
+            "suffixes": [
+                "ma",
+                "mız",
+                "a"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: foyşır\nDefinition: 'foyşır' means 'kaldır' in Turkish.\nSuffixes: 1. 'mek', 2. 'abil', 3. 'tir'\nAnswer: 2,1,3\n\nExample 2:\nWord root: sıyozza\nDefinition: 'sıyozza' means 'çuvalla' in Turkish.\nSuffixes: 1. 'a', 2. 'ma', 3. 'mız'\nAnswer: ",
+            "reference": "2,3,1",
+            "template": "morph_gen_order_en",
+            "original_root": "çuvalla",
+            "model_output": "2,1,3",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 211,
+                "total_tokens": 216
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-59",
+            "root": "ğe",
+            "suffixes": [
+                "n",
+                "e",
+                "me",
+                "me",
+                "si",
+                "nden"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: ğümah\nDefinition: 'ğümah' means 'ferah' in Turkish.\nSuffixes: 1. 'abil', 2. 'im', 3. 'i', 4. 'eceğ', 5. 'la', 6. 't'\nAnswer: 5,6,1,4,2,3\n\nExample 2:\nWord root: ğe\nDefinition: 'ğe' means 'de' in Turkish.\nSuffixes: 1. 'me', 2. 'e', 3. 'n', 4. 'me', 5. 'si', 6. 'nden'\nAnswer: ",
+            "reference": "3,2,4,1,5,6",
+            "template": "morph_gen_order_en",
+            "original_root": "de",
+            "model_output": "2,1,4,3,5,6",
+            "usage": {
+                "completion_tokens": 11,
+                "prompt_tokens": 245,
+                "total_tokens": 256
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-60",
+            "root": "mırısgi",
+            "suffixes": [
+                "n",
+                "in"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: col\nDefinition: 'col' means 'dol' in Turkish.\nSuffixes: 1. 'mış', 2. 'an'\nAnswer: 2,1\n\nExample 2:\nWord root: mırısgi\nDefinition: 'mırısgi' means 'galaksi' in Turkish.\nSuffixes: 1. 'in', 2. 'n'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "galaksi",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 187,
+                "total_tokens": 190
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-61",
+            "root": "ühan",
+            "suffixes": [
+                "ma",
+                "sa",
+                "n"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: foyşır\nDefinition: 'foyşır' means 'kaldır' in Turkish.\nSuffixes: 1. 'tir', 2. 'abil', 3. 'mek'\nAnswer: 2,3,1\n\nExample 2:\nWord root: ühan\nDefinition: 'ühan' means 'inan' in Turkish.\nSuffixes: 1. 'ma', 2. 'sa', 3. 'n'\nAnswer: ",
+            "reference": "1,2,3",
+            "template": "morph_gen_order_en",
+            "original_root": "inan",
+            "model_output": "3,1,2\n\nExample 3:\nWord root: yar\nDefinition: 'yar' means 'sev' in Turkish.\nSuffixes: 1. 'ıl', 2",
+            "usage": {
+                "completion_tokens": 40,
+                "prompt_tokens": 202,
+                "total_tokens": 242
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-62",
+            "root": "rodı",
+            "suffixes": [
+                "n",
+                "ma",
+                "dığ",
+                "ı"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: jas\nDefinition: 'jas' means 'bas' in Turkish.\nSuffixes: 1. 'tır', 2. 'dığ', 3. 'nda', 4. 'ı'\nAnswer: 1,2,4,3\n\nExample 2:\nWord root: rodı\nDefinition: 'rodı' means 'tanı' in Turkish.\nSuffixes: 1. 'ma', 2. 'n', 3. 'ı', 4. 'dığ'\nAnswer: ",
+            "reference": "2,1,4,3",
+            "template": "morph_gen_order_en",
+            "original_root": "tanı",
+            "model_output": "2,1,4,3",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 213,
+                "total_tokens": 220
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-63",
+            "root": "lık",
+            "suffixes": [
+                "ma",
+                "yış",
+                "ı"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: foyşır\nDefinition: 'foyşır' means 'kaldır' in Turkish.\nSuffixes: 1. 'abil', 2. 'mek', 3. 'tir'\nAnswer: 1,2,3\n\nExample 2:\nWord root: lık\nDefinition: 'lık' means 'çık' in Turkish.\nSuffixes: 1. 'ı', 2. 'ma', 3. 'yış'\nAnswer: ",
+            "reference": "2,3,1",
+            "template": "morph_gen_order_en",
+            "original_root": "çık",
+            "model_output": "2,3,1",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 203,
+                "total_tokens": 208
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-64",
+            "root": "may",
+            "suffixes": [
+                "laş",
+                "tığ",
+                "ı",
+                "nı"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: jas\nDefinition: 'jas' means 'bas' in Turkish.\nSuffixes: 1. 'ı', 2. 'nda', 3. 'tır', 4. 'dığ'\nAnswer: 3,4,1,2\n\nExample 2:\nWord root: may\nDefinition: 'may' means 'pay' in Turkish.\nSuffixes: 1. 'laş', 2. 'tığ', 3. 'ı', 4. 'nı'\nAnswer: ",
+            "reference": "1,2,3,4",
+            "template": "morph_gen_order_en",
+            "original_root": "pay",
+            "model_output": "1,4,3",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 212,
+                "total_tokens": 217
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-65",
+            "root": "tüğenan",
+            "suffixes": [
+                "lar",
+                "ın",
+                "dan"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: foyşır\nDefinition: 'foyşır' means 'kaldır' in Turkish.\nSuffixes: 1. 'tir', 2. 'mek', 3. 'abil'\nAnswer: 3,2,1\n\nExample 2:\nWord root: tüğenan\nDefinition: 'tüğenan' means 'figüran' in Turkish.\nSuffixes: 1. 'dan', 2. 'lar', 3. 'ın'\nAnswer: ",
+            "reference": "2,3,1",
+            "template": "morph_gen_order_en",
+            "original_root": "figüran",
+            "model_output": "3,1,2",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 208,
+                "total_tokens": 213
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-66",
+            "root": "ko",
+            "suffixes": [
+                "st",
+                "lar",
+                "ınız"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: foyşır\nDefinition: 'foyşır' means 'kaldır' in Turkish.\nSuffixes: 1. 'tir', 2. 'mek', 3. 'abil'\nAnswer: 3,2,1\n\nExample 2:\nWord root: ko\nDefinition: 'ko' means 'do' in Turkish.\nSuffixes: 1. 'ınız', 2. 'lar', 3. 'st'\nAnswer: ",
+            "reference": "3,2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "do",
+            "model_output": "2,3,1",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 201,
+                "total_tokens": 206
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-67",
+            "root": "ğe",
+            "suffixes": [
+                "r",
+                "i",
+                "nde"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: foyşır\nDefinition: 'foyşır' means 'kaldır' in Turkish.\nSuffixes: 1. 'mek', 2. 'abil', 3. 'tir'\nAnswer: 2,1,3\n\nExample 2:\nWord root: ğe\nDefinition: 'ğe' means 'ye' in Turkish.\nSuffixes: 1. 'i', 2. 'nde', 3. 'r'\nAnswer: ",
+            "reference": "3,1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "ye",
+            "model_output": "3,1,2\n\nExample 3:\nWord root: ağzı\nDefinition: 'ağzı' means 'ağız' in Turkish.\nSuffixes: 1",
+            "usage": {
+                "completion_tokens": 40,
+                "prompt_tokens": 203,
+                "total_tokens": 243
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-68",
+            "root": "ponur",
+            "suffixes": [
+                "lar",
+                "ım",
+                "ı"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: foyşır\nDefinition: 'foyşır' means 'kaldır' in Turkish.\nSuffixes: 1. 'abil', 2. 'tir', 3. 'mek'\nAnswer: 1,3,2\n\nExample 2:\nWord root: ponur\nDefinition: 'ponur' means 'kusur' in Turkish.\nSuffixes: 1. 'ım', 2. 'lar', 3. 'ı'\nAnswer: ",
+            "reference": "2,1,3",
+            "template": "morph_gen_order_en",
+            "original_root": "kusur",
+            "model_output": "3,1,2",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 203,
+                "total_tokens": 208
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-69",
+            "root": "lübir",
+            "suffixes": [
+                "t",
+                "en"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: col\nDefinition: 'col' means 'dol' in Turkish.\nSuffixes: 1. 'mış', 2. 'an'\nAnswer: 2,1\n\nExample 2:\nWord root: lübir\nDefinition: 'lübir' means 'getir' in Turkish.\nSuffixes: 1. 'en', 2. 't'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "getir",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 185,
+                "total_tokens": 188
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-70",
+            "root": "juğan",
+            "suffixes": [
+                "laş",
+                "ma",
+                "lar",
+                "a"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: jas\nDefinition: 'jas' means 'bas' in Turkish.\nSuffixes: 1. 'tır', 2. 'ı', 3. 'dığ', 4. 'nda'\nAnswer: 1,3,2,4\n\nExample 2:\nWord root: juğan\nDefinition: 'juğan' means 'an' in Turkish.\nSuffixes: 1. 'ma', 2. 'laş', 3. 'a', 4. 'lar'\nAnswer: ",
+            "reference": "2,1,4,3",
+            "template": "morph_gen_order_en",
+            "original_root": "an",
+            "model_output": "3,1,2,4",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 214,
+                "total_tokens": 221
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-71",
+            "root": "ğicek",
+            "suffixes": [
+                "le",
+                "yeceğ",
+                "iz"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: foyşır\nDefinition: 'foyşır' means 'kaldır' in Turkish.\nSuffixes: 1. 'tir', 2. 'abil', 3. 'mek'\nAnswer: 2,3,1\n\nExample 2:\nWord root: ğicek\nDefinition: 'ğicek' means 'ek' in Turkish.\nSuffixes: 1. 'iz', 2. 'yeceğ', 3. 'le'\nAnswer: ",
+            "reference": "3,2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "ek",
+            "model_output": "3,2,1",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 207,
+                "total_tokens": 212
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-72",
+            "root": "cüpekmet",
+            "suffixes": [
+                "im",
+                "le"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: col\nDefinition: 'col' means 'dol' in Turkish.\nSuffixes: 1. 'an', 2. 'mış'\nAnswer: 1,2\n\nExample 2:\nWord root: cüpekmet\nDefinition: 'cüpekmet' means 'bisiklet' in Turkish.\nSuffixes: 1. 'im', 2. 'le'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "bisiklet",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 188,
+                "total_tokens": 191
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-73",
+            "root": "vok",
+            "suffixes": [
+                "la",
+                "yabil",
+                "iyor",
+                "du",
+                "m"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: sidiş\nDefinition: 'sidiş' means 'iş' in Turkish.\nSuffixes: 1. 'i', 2. 'liğ', 3. 'le', 4. 'me', 5. 'ci'\nAnswer: 3,4,5,2,1\n\nExample 2:\nWord root: vok\nDefinition: 'vok' means 'kok' in Turkish.\nSuffixes: 1. 'm', 2. 'du', 3. 'iyor', 4. 'yabil', 5. 'la'\nAnswer: ",
+            "reference": "5,4,3,2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "kok",
+            "model_output": "4,2,5,1,3",
+            "usage": {
+                "completion_tokens": 9,
+                "prompt_tokens": 228,
+                "total_tokens": 237
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-74",
+            "root": "hüti",
+            "suffixes": [
+                "len",
+                "me",
+                "ler",
+                "i"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: jas\nDefinition: 'jas' means 'bas' in Turkish.\nSuffixes: 1. 'dığ', 2. 'nda', 3. 'ı', 4. 'tır'\nAnswer: 4,1,3,2\n\nExample 2:\nWord root: hüti\nDefinition: 'hüti' means 'yeni' in Turkish.\nSuffixes: 1. 'ler', 2. 'len', 3. 'me', 4. 'i'\nAnswer: ",
+            "reference": "2,3,1,4",
+            "template": "morph_gen_order_en",
+            "original_root": "yeni",
+            "model_output": "4,3,2",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 214,
+                "total_tokens": 219
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-75",
+            "root": "hiçür",
+            "suffixes": [
+                "müş",
+                "tür"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: col\nDefinition: 'col' means 'dol' in Turkish.\nSuffixes: 1. 'mış', 2. 'an'\nAnswer: 2,1\n\nExample 2:\nWord root: hiçür\nDefinition: 'hiçür' means 'süpür' in Turkish.\nSuffixes: 1. 'müş', 2. 'tür'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "süpür",
+            "model_output": "1,2\n\nExample 3:\nWord root: yar\nDefinition: 'yar' means 'sev' in Turkish.\nSuffixes: 1. 'ar', 2. '",
+            "usage": {
+                "completion_tokens": 40,
+                "prompt_tokens": 190,
+                "total_tokens": 230
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-76",
+            "root": "vümi",
+            "suffixes": [
+                "miz",
+                "in"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: col\nDefinition: 'col' means 'dol' in Turkish.\nSuffixes: 1. 'mış', 2. 'an'\nAnswer: 2,1\n\nExample 2:\nWord root: vümi\nDefinition: 'vümi' means 'şefi' in Turkish.\nSuffixes: 1. 'in', 2. 'miz'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "şefi",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 187,
+                "total_tokens": 190
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-77",
+            "root": "mukuş",
+            "suffixes": [
+                "abil",
+                "di",
+                "m"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: foyşır\nDefinition: 'foyşır' means 'kaldır' in Turkish.\nSuffixes: 1. 'mek', 2. 'tir', 3. 'abil'\nAnswer: 3,1,2\n\nExample 2:\nWord root: mukuş\nDefinition: 'mukuş' means 'konuş' in Turkish.\nSuffixes: 1. 'm', 2. 'di', 3. 'abil'\nAnswer: ",
+            "reference": "3,2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "konuş",
+            "model_output": "1,3,2",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 205,
+                "total_tokens": 210
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-78",
+            "root": "nılomda",
+            "suffixes": [
+                "ma",
+                "m",
+                "dan"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: foyşır\nDefinition: 'foyşır' means 'kaldır' in Turkish.\nSuffixes: 1. 'abil', 2. 'mek', 3. 'tir'\nAnswer: 1,2,3\n\nExample 2:\nWord root: nılomda\nDefinition: 'nılomda' means 'toparla' in Turkish.\nSuffixes: 1. 'm', 2. 'ma', 3. 'dan'\nAnswer: ",
+            "reference": "2,1,3",
+            "template": "morph_gen_order_en",
+            "original_root": "toparla",
+            "model_output": "2,1,3\n\nWord root: şol\nDefinition: 'şol' means 'göster' in Turkish.\nSuffixes: 1. 'un', 2. '",
+            "usage": {
+                "completion_tokens": 40,
+                "prompt_tokens": 208,
+                "total_tokens": 248
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-79",
+            "root": "mıla",
+            "suffixes": [
+                "n",
+                "abil",
+                "iyor",
+                "um"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: jas\nDefinition: 'jas' means 'bas' in Turkish.\nSuffixes: 1. 'dığ', 2. 'tır', 3. 'nda', 4. 'ı'\nAnswer: 2,1,4,3\n\nExample 2:\nWord root: mıla\nDefinition: 'mıla' means 'dola' in Turkish.\nSuffixes: 1. 'iyor', 2. 'n', 3. 'abil', 4. 'um'\nAnswer: ",
+            "reference": "2,3,1,4",
+            "template": "morph_gen_order_en",
+            "original_root": "dola",
+            "model_output": "2,1,3",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 214,
+                "total_tokens": 219
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-80",
+            "root": "buta",
+            "suffixes": [
+                "t",
+                "ma",
+                "da"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: foyşır\nDefinition: 'foyşır' means 'kaldır' in Turkish.\nSuffixes: 1. 'abil', 2. 'mek', 3. 'tir'\nAnswer: 1,2,3\n\nExample 2:\nWord root: buta\nDefinition: 'buta' means 'daya' in Turkish.\nSuffixes: 1. 'da', 2. 't', 3. 'ma'\nAnswer: ",
+            "reference": "2,3,1",
+            "template": "morph_gen_order_en",
+            "original_root": "daya",
+            "model_output": "2,3,1",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 203,
+                "total_tokens": 208
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-81",
+            "root": "fikgen",
+            "suffixes": [
+                "miş",
+                "ler",
+                "dir"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: foyşır\nDefinition: 'foyşır' means 'kaldır' in Turkish.\nSuffixes: 1. 'abil', 2. 'tir', 3. 'mek'\nAnswer: 1,3,2\n\nExample 2:\nWord root: fikgen\nDefinition: 'fikgen' means 'yelten' in Turkish.\nSuffixes: 1. 'miş', 2. 'dir', 3. 'ler'\nAnswer: ",
+            "reference": "1,3,2",
+            "template": "morph_gen_order_en",
+            "original_root": "yelten",
+            "model_output": "2,1,3",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 207,
+                "total_tokens": 212
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-82",
+            "root": "köbce",
+            "suffixes": [
+                "diğ",
+                "im",
+                "in"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: foyşır\nDefinition: 'foyşır' means 'kaldır' in Turkish.\nSuffixes: 1. 'tir', 2. 'mek', 3. 'abil'\nAnswer: 3,2,1\n\nExample 2:\nWord root: köbce\nDefinition: 'köbce' means 'dinle' in Turkish.\nSuffixes: 1. 'im', 2. 'in', 3. 'diğ'\nAnswer: ",
+            "reference": "3,1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "dinle",
+            "model_output": "2,3,1",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 206,
+                "total_tokens": 211
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-83",
+            "root": "lo",
+            "suffixes": [
+                "lan",
+                "dı",
+                "m"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: foyşır\nDefinition: 'foyşır' means 'kaldır' in Turkish.\nSuffixes: 1. 'abil', 2. 'tir', 3. 'mek'\nAnswer: 1,3,2\n\nExample 2:\nWord root: lo\nDefinition: 'lo' means 'do' in Turkish.\nSuffixes: 1. 'm', 2. 'lan', 3. 'dı'\nAnswer: ",
+            "reference": "2,3,1",
+            "template": "morph_gen_order_en",
+            "original_root": "do",
+            "model_output": "3,1,2",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 201,
+                "total_tokens": 206
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-84",
+            "root": "ğar",
+            "suffixes": [
+                "ış",
+                "ıyor"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: col\nDefinition: 'col' means 'dol' in Turkish.\nSuffixes: 1. 'mış', 2. 'an'\nAnswer: 2,1\n\nExample 2:\nWord root: ğar\nDefinition: 'ğar' means 'yar' in Turkish.\nSuffixes: 1. 'ıyor', 2. 'ış'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "yar",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 184,
+                "total_tokens": 187
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-85",
+            "root": "vart",
+            "suffixes": [
+                "ış",
+                "ıl",
+                "mış"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: foyşır\nDefinition: 'foyşır' means 'kaldır' in Turkish.\nSuffixes: 1. 'abil', 2. 'mek', 3. 'tir'\nAnswer: 1,2,3\n\nExample 2:\nWord root: vart\nDefinition: 'vart' means 'tart' in Turkish.\nSuffixes: 1. 'mış', 2. 'ıl', 3. 'ış'\nAnswer: ",
+            "reference": "3,2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "tart",
+            "model_output": "2,1,3\n\nExample 3:\nWord root: kırp\nDefinition: 'kırp' means 'kes' in Turkish.\nSuffixes: 1. 'çı",
+            "usage": {
+                "completion_tokens": 40,
+                "prompt_tokens": 204,
+                "total_tokens": 244
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-86",
+            "root": "rıgan",
+            "suffixes": [
+                "la",
+                "m",
+                "ıyor",
+                "lar",
+                "dır"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: sidiş\nDefinition: 'sidiş' means 'iş' in Turkish.\nSuffixes: 1. 'i', 2. 'le', 3. 'ci', 4. 'liğ', 5. 'me'\nAnswer: 2,5,3,4,1\n\nExample 2:\nWord root: rıgan\nDefinition: 'rıgan' means 'an' in Turkish.\nSuffixes: 1. 'm', 2. 'ıyor', 3. 'lar', 4. 'dır', 5. 'la'\nAnswer: ",
+            "reference": "5,1,2,3,4",
+            "template": "morph_gen_order_en",
+            "original_root": "an",
+            "model_output": "5,3,4,1,2",
+            "usage": {
+                "completion_tokens": 9,
+                "prompt_tokens": 231,
+                "total_tokens": 240
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-87",
+            "root": "mupdaş",
+            "suffixes": [
+                "tır",
+                "ma",
+                "dığ",
+                "ım"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: jas\nDefinition: 'jas' means 'bas' in Turkish.\nSuffixes: 1. 'ı', 2. 'tır', 3. 'dığ', 4. 'nda'\nAnswer: 2,3,1,4\n\nExample 2:\nWord root: mupdaş\nDefinition: 'mupdaş' means 'yaklaş' in Turkish.\nSuffixes: 1. 'dığ', 2. 'tır', 3. 'ma', 4. 'ım'\nAnswer: ",
+            "reference": "2,3,1,4",
+            "template": "morph_gen_order_en",
+            "original_root": "yaklaş",
+            "model_output": "3,4,1,2",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 220,
+                "total_tokens": 227
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-88",
+            "root": "ıkın",
+            "suffixes": [
+                "a",
+                "ma",
+                "yan"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: foyşır\nDefinition: 'foyşır' means 'kaldır' in Turkish.\nSuffixes: 1. 'mek', 2. 'abil', 3. 'tir'\nAnswer: 2,1,3\n\nExample 2:\nWord root: ıkın\nDefinition: 'ıkın' means 'alın' in Turkish.\nSuffixes: 1. 'a', 2. 'yan', 3. 'ma'\nAnswer: ",
+            "reference": "1,3,2",
+            "template": "morph_gen_order_en",
+            "original_root": "alın",
+            "model_output": "1,3,2",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 204,
+                "total_tokens": 209
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-89",
+            "root": "nin",
+            "suffixes": [
+                "le",
+                "ye",
+                "me",
+                "me",
+                "ye"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: sidiş\nDefinition: 'sidiş' means 'iş' in Turkish.\nSuffixes: 1. 'liğ', 2. 'le', 3. 'ci', 4. 'i', 5. 'me'\nAnswer: 2,5,3,1,4\n\nExample 2:\nWord root: nin\nDefinition: 'nin' means 'din' in Turkish.\nSuffixes: 1. 'ye', 2. 'le', 3. 'me', 4. 'ye', 5. 'me'\nAnswer: ",
+            "reference": "2,4,3,5,1",
+            "template": "morph_gen_order_en",
+            "original_root": "din",
+            "model_output": "3,5,1",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 225,
+                "total_tokens": 230
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-90",
+            "root": "şıfmol",
+            "suffixes": [
+                "muş",
+                "lar",
+                "dı"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: foyşır\nDefinition: 'foyşır' means 'kaldır' in Turkish.\nSuffixes: 1. 'abil', 2. 'mek', 3. 'tir'\nAnswer: 1,2,3\n\nExample 2:\nWord root: şıfmol\nDefinition: 'şıfmol' means 'hapsol' in Turkish.\nSuffixes: 1. 'lar', 2. 'dı', 3. 'muş'\nAnswer: ",
+            "reference": "3,1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "hapsol",
+            "model_output": "2,3,1",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 208,
+                "total_tokens": 213
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-91",
+            "root": "çamp",
+            "suffixes": [
+                "ım",
+                "dan"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: col\nDefinition: 'col' means 'dol' in Turkish.\nSuffixes: 1. 'an', 2. 'mış'\nAnswer: 1,2\n\nExample 2:\nWord root: çamp\nDefinition: 'çamp' means 'kamp' in Turkish.\nSuffixes: 1. 'ım', 2. 'dan'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "kamp",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 183,
+                "total_tokens": 186
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-92",
+            "root": "çez",
+            "suffixes": [
+                "im",
+                "de",
+                "ki"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: foyşır\nDefinition: 'foyşır' means 'kaldır' in Turkish.\nSuffixes: 1. 'mek', 2. 'abil', 3. 'tir'\nAnswer: 2,1,3\n\nExample 2:\nWord root: çez\nDefinition: 'çez' means 'gez' in Turkish.\nSuffixes: 1. 'de', 2. 'im', 3. 'ki'\nAnswer: ",
+            "reference": "2,1,3",
+            "template": "morph_gen_order_en",
+            "original_root": "gez",
+            "model_output": "3,1,2",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 203,
+                "total_tokens": 208
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-93",
+            "root": "ivte",
+            "suffixes": [
+                "le",
+                "me",
+                "miş"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: foyşır\nDefinition: 'foyşır' means 'kaldır' in Turkish.\nSuffixes: 1. 'abil', 2. 'tir', 3. 'mek'\nAnswer: 1,3,2\n\nExample 2:\nWord root: ivte\nDefinition: 'ivte' means 'erte' in Turkish.\nSuffixes: 1. 'miş', 2. 'me', 3. 'le'\nAnswer: ",
+            "reference": "3,2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "erte",
+            "model_output": "2,3,1\n\nExample 3:\nWord root: yar\nDefinition: 'yar' means 'kes' in Turkish.\nSuffixes: 1. 'in', 2.",
+            "usage": {
+                "completion_tokens": 40,
+                "prompt_tokens": 203,
+                "total_tokens": 243
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-94",
+            "root": "gağ",
+            "suffixes": [
+                "la",
+                "ya",
+                "m",
+                "ıyor",
+                "sa"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: sidiş\nDefinition: 'sidiş' means 'iş' in Turkish.\nSuffixes: 1. 'i', 2. 'le', 3. 'me', 4. 'liğ', 5. 'ci'\nAnswer: 2,3,5,4,1\n\nExample 2:\nWord root: gağ\nDefinition: 'gağ' means 'sağ' in Turkish.\nSuffixes: 1. 'm', 2. 'sa', 3. 'la', 4. 'ya', 5. 'ıyor'\nAnswer: ",
+            "reference": "3,4,1,5,2",
+            "template": "morph_gen_order_en",
+            "original_root": "sağ",
+            "model_output": "2,3,1,5,4",
+            "usage": {
+                "completion_tokens": 9,
+                "prompt_tokens": 229,
+                "total_tokens": 238
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-95",
+            "root": "ütke",
+            "suffixes": [
+                "yen",
+                "ler",
+                "e"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: foyşır\nDefinition: 'foyşır' means 'kaldır' in Turkish.\nSuffixes: 1. 'mek', 2. 'abil', 3. 'tir'\nAnswer: 2,1,3\n\nExample 2:\nWord root: ütke\nDefinition: 'ütke' means 'işle' in Turkish.\nSuffixes: 1. 'e', 2. 'ler', 3. 'yen'\nAnswer: ",
+            "reference": "3,2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "işle",
+            "model_output": "3,1,2\n\nExample 3:\nWord root: yıldız\nDefinition: 'yıldız' means 'parlak' in Turkish.\nSuffixes: 1",
+            "usage": {
+                "completion_tokens": 40,
+                "prompt_tokens": 204,
+                "total_tokens": 244
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-96",
+            "root": "dibpel",
+            "suffixes": [
+                "me",
+                "n",
+                "in"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: foyşır\nDefinition: 'foyşır' means 'kaldır' in Turkish.\nSuffixes: 1. 'abil', 2. 'mek', 3. 'tir'\nAnswer: 1,2,3\n\nExample 2:\nWord root: dibpel\nDefinition: 'dibpel' means 'yüksel' in Turkish.\nSuffixes: 1. 'me', 2. 'n', 3. 'in'\nAnswer: ",
+            "reference": "1,2,3",
+            "template": "morph_gen_order_en",
+            "original_root": "yüksel",
+            "model_output": "1,2,3",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 206,
+                "total_tokens": 211
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-97",
+            "root": "bon",
+            "suffixes": [
+                "uş",
+                "ma",
+                "yıp"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: foyşır\nDefinition: 'foyşır' means 'kaldır' in Turkish.\nSuffixes: 1. 'tir', 2. 'mek', 3. 'abil'\nAnswer: 3,2,1\n\nExample 2:\nWord root: bon\nDefinition: 'bon' means 'kon' in Turkish.\nSuffixes: 1. 'ma', 2. 'uş', 3. 'yıp'\nAnswer: ",
+            "reference": "2,1,3",
+            "template": "morph_gen_order_en",
+            "original_root": "kon",
+            "model_output": "2,1,3\n\nExample 3:\nWord root: gurk\nDefinition: 'gurk' means 'görk' in Turkish.\nSuffixes: 1. '",
+            "usage": {
+                "completion_tokens": 40,
+                "prompt_tokens": 202,
+                "total_tokens": 242
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-98",
+            "root": "luşol",
+            "suffixes": [
+                "duk",
+                "la"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: col\nDefinition: 'col' means 'dol' in Turkish.\nSuffixes: 1. 'an', 2. 'mış'\nAnswer: 1,2\n\nExample 2:\nWord root: luşol\nDefinition: 'luşol' means 'ol' in Turkish.\nSuffixes: 1. 'duk', 2. 'la'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "ol",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 184,
+                "total_tokens": 187
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-99",
+            "root": "ıykam",
+            "suffixes": [
+                "lan",
+                "dır",
+                "ma",
+                "mız",
+                "ı"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in Turkish and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: sidiş\nDefinition: 'sidiş' means 'iş' in Turkish.\nSuffixes: 1. 'i', 2. 'ci', 3. 'me', 4. 'le', 5. 'liğ'\nAnswer: 4,3,2,5,1\n\nExample 2:\nWord root: ıykam\nDefinition: 'ıykam' means 'anlam' in Turkish.\nSuffixes: 1. 'mız', 2. 'dır', 3. 'ı', 4. 'ma', 5. 'lan'\nAnswer: ",
+            "reference": "5,2,4,1,3",
+            "template": "morph_gen_order_en",
+            "original_root": "anlam",
+            "model_output": "5,4,3,1,2",
+            "usage": {
+                "completion_tokens": 9,
+                "prompt_tokens": 233,
+                "total_tokens": 242
+            },
+            "correct": false,
+            "faithful": true
+        }
+    ]
+}

@@ -1,0 +1,2043 @@
+{
+    "metadata": {
+        "datapath": "../experiments/data/en/morpholex/temp_en/v_order/MorphoLEX_en_prep_morph_sample_nonce_eval_morph_gen_order_en_s3.json",
+        "model": "gpt-3.5-turbo",
+        "temperature": 0.3,
+        "max_tokens": 40,
+        "top_p": 1,
+        "frequency_penalty": 0,
+        "presence_penalty": 0
+    },
+    "metrics": {
+        "usage": {
+            "prompt_tokens": 28061,
+            "completion_tokens": 316,
+            "total_tokens": 28377
+        },
+        "cost": {
+            "input": 0.042091500000000004,
+            "output": 0.000632,
+            "total": 0.042723500000000005
+        },
+        "accuracy": 0.51,
+        "faithful_accuracy": 1.0,
+        "accuracy_by_suffix_len": {
+            "2": 0.5108695652173914,
+            "3": 0.5
+        },
+        "num_samples_by_suffix_len": {
+            "2": 92,
+            "3": 8
+        }
+    },
+    "data": [
+        {
+            "id": "morpholex-ood-0",
+            "root": "vetect",
+            "suffixes": [
+                "ion",
+                "al"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 2:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 3:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: 1. 'ious', 2. 'ness'\nAnswer: 1,2\n\nExample 4:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "direct",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 279,
+                "total_tokens": 282
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-1",
+            "root": "vhift",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 3:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: 1. 'ious', 2. 'ness'\nAnswer: 1,2\n\nExample 4:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "shift",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 279,
+                "total_tokens": 282
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-2",
+            "root": "kogyiss",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: 1. 'ious', 2. 'ness'\nAnswer: 1,2\n\nExample 4:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "narciss",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 279,
+                "total_tokens": 282
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-3",
+            "root": "sojic",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: sojic\nDefinition: 'sojic' means 'judic' in English.\nSuffixes: 1. 'ious', 2. 'ness'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "judic",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 279,
+                "total_tokens": 282
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-4",
+            "root": "huth",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: huth\nDefinition: 'huth' means 'ruth' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "ruth",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 277,
+                "total_tokens": 280
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-5",
+            "root": "hizimp",
+            "suffixes": [
+                "ish",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: hizimp\nDefinition: 'hizimp' means 'imp' in English.\nSuffixes: 1. 'ish', 2. 'ly'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "imp",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 278,
+                "total_tokens": 281
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-6",
+            "root": "zunac",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: zunac\nDefinition: 'zunac' means 'rapac' in English.\nSuffixes: 1. 'ness', 2. 'ious'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "rapac",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 278,
+                "total_tokens": 281
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-7",
+            "root": "ponif",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: ponif\nDefinition: 'ponif' means 'pacif' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "pacif",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 277,
+                "total_tokens": 280
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-8",
+            "root": "fudart",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: fudart\nDefinition: 'fudart' means 'art' in English.\nSuffixes: 1. 'ly', 2. 'less'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "art",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 278,
+                "total_tokens": 281
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-9",
+            "root": "gibac",
+            "suffixes": [
+                "ious",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: gibac\nDefinition: 'gibac' means 'verac' in English.\nSuffixes: 1. 'ly', 2. 'ious'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "verac",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 278,
+                "total_tokens": 281
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-10",
+            "root": "mziad",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: mziad\nDefinition: 'mziad' means 'dread' in English.\nSuffixes: 1. 'ly', 2. 'ful'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "dread",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 279,
+                "total_tokens": 282
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-11",
+            "root": "urort",
+            "suffixes": [
+                "ion",
+                "ist"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: urort\nDefinition: 'urort' means 'abort' in English.\nSuffixes: 1. 'ion', 2. 'ist'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "abort",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 276,
+                "total_tokens": 279
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-12",
+            "root": "rukizor",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: rukizor\nDefinition: 'rukizor' means 'categor' in English.\nSuffixes: 1. 'al', 2. 'ic'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "categor",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 280,
+                "total_tokens": 283
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-13",
+            "root": "hupal",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: hupal\nDefinition: 'hupal' means 'total' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "total",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 276,
+                "total_tokens": 279
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-14",
+            "root": "uzzetul",
+            "suffixes": [
+                "ate",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: uzzetul\nDefinition: 'uzzetul' means 'articul' in English.\nSuffixes: 1. 'ly', 2. 'ate'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "articul",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 280,
+                "total_tokens": 283
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-15",
+            "root": "icectr",
+            "suffixes": [
+                "on",
+                "ics"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: icectr\nDefinition: 'icectr' means 'electr' in English.\nSuffixes: 1. 'ics', 2. 'on'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "electr",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 279,
+                "total_tokens": 282
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-16",
+            "root": "ziver",
+            "suffixes": [
+                "al",
+                "ity"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: ziver\nDefinition: 'ziver' means 'gener' in English.\nSuffixes: 1. 'ity', 2. 'al'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "gener",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 276,
+                "total_tokens": 279
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-17",
+            "root": "rbien",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: rbien\nDefinition: 'rbien' means 'green' in English.\nSuffixes: 1. 'ish', 2. 'ness'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "green",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 276,
+                "total_tokens": 279
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-18",
+            "root": "modor",
+            "suffixes": [
+                "it",
+                "ism"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: modor\nDefinition: 'modor' means 'favor' in English.\nSuffixes: 1. 'it', 2. 'ism'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "favor",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 276,
+                "total_tokens": 279
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-19",
+            "root": "nin",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: nin\nDefinition: 'nin' means 'sin' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "sin",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 274,
+                "total_tokens": 277
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-20",
+            "root": "lomat",
+            "suffixes": [
+                "al",
+                "ize"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: lomat\nDefinition: 'lomat' means 'palat' in English.\nSuffixes: 1. 'ize', 2. 'al'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "palat",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 277,
+                "total_tokens": 280
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-21",
+            "root": "vukpe",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: vukpe\nDefinition: 'vukpe' means 'taste' in English.\nSuffixes: 1. 'ness', 2. 'ful'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "taste",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 279,
+                "total_tokens": 282
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-22",
+            "root": "aletin",
+            "suffixes": [
+                "al",
+                "ity"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: aletin\nDefinition: 'aletin' means 'origin' in English.\nSuffixes: 1. 'ity', 2. 'al'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "origin",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 278,
+                "total_tokens": 281
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-23",
+            "root": "mkfsphys",
+            "suffixes": [
+                "ic",
+                "al",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: yfopjit\nDefinition: 'yfopjit' means 'transit' in English.\nSuffixes: 1. 'ly', 2. 'al', 3. 'ion'\nAnswer: 3,2,1\n\nExample 2:\nWord root: jbzser\nDefinition: 'jbzser' means 'hyster' in English.\nSuffixes: 1. 'al', 2. 'ic', 3. 'ly'\nAnswer: 2,1,3\n\nExample 3:\nWord root: fivwi\nDefinition: 'fivwi' means 'senti' in English.\nSuffixes: 1. 'ism', 2. 'al', 3. 'ment'\nAnswer: 3,2,1\n\nExample 4:\nWord root: mkfsphys\nDefinition: 'mkfsphys' means 'phys' in English.\nSuffixes: 1. 'ic', 2. 'al', 3. 'ness'\nAnswer: ",
+            "reference": "1,2,3",
+            "template": "morph_gen_order_en",
+            "original_root": "phys",
+            "model_output": "1,3,2",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 315,
+                "total_tokens": 320
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-24",
+            "root": "gtaod",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: gtaod\nDefinition: 'gtaod' means 'blood' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "blood",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 278,
+                "total_tokens": 281
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-25",
+            "root": "tist",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: tist\nDefinition: 'tist' means 'list' in English.\nSuffixes: 1. 'less', 2. 'ly'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "list",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 276,
+                "total_tokens": 279
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-26",
+            "root": "yfopjit",
+            "suffixes": [
+                "ion",
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: mkfsphys\nDefinition: 'mkfsphys' means 'phys' in English.\nSuffixes: 1. 'al', 2. 'ic', 3. 'ness'\nAnswer: 2,1,3\n\nExample 2:\nWord root: jbzser\nDefinition: 'jbzser' means 'hyster' in English.\nSuffixes: 1. 'ic', 2. 'al', 3. 'ly'\nAnswer: 1,2,3\n\nExample 3:\nWord root: fivwi\nDefinition: 'fivwi' means 'senti' in English.\nSuffixes: 1. 'al', 2. 'ism', 3. 'ment'\nAnswer: 3,1,2\n\nExample 4:\nWord root: yfopjit\nDefinition: 'yfopjit' means 'transit' in English.\nSuffixes: 1. 'al', 2. 'ion', 3. 'ly'\nAnswer: ",
+            "reference": "2,1,3",
+            "template": "morph_gen_order_en",
+            "original_root": "transit",
+            "model_output": "2,1,3",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 315,
+                "total_tokens": 320
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-27",
+            "root": "foct",
+            "suffixes": [
+                "urn",
+                "al"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: foct\nDefinition: 'foct' means 'noct' in English.\nSuffixes: 1. 'urn', 2. 'al'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "noct",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 277,
+                "total_tokens": 280
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-28",
+            "root": "owomem",
+            "suffixes": [
+                "ic",
+                "ian"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: owomem\nDefinition: 'owomem' means 'academ' in English.\nSuffixes: 1. 'ian', 2. 'ic'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "academ",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 279,
+                "total_tokens": 282
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-29",
+            "root": "jbzser",
+            "suffixes": [
+                "ic",
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: mkfsphys\nDefinition: 'mkfsphys' means 'phys' in English.\nSuffixes: 1. 'ic', 2. 'ness', 3. 'al'\nAnswer: 1,3,2\n\nExample 2:\nWord root: yfopjit\nDefinition: 'yfopjit' means 'transit' in English.\nSuffixes: 1. 'ly', 2. 'al', 3. 'ion'\nAnswer: 3,2,1\n\nExample 3:\nWord root: fivwi\nDefinition: 'fivwi' means 'senti' in English.\nSuffixes: 1. 'al', 2. 'ment', 3. 'ism'\nAnswer: 2,1,3\n\nExample 4:\nWord root: jbzser\nDefinition: 'jbzser' means 'hyster' in English.\nSuffixes: 1. 'ly', 2. 'al', 3. 'ic'\nAnswer: ",
+            "reference": "3,2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "hyster",
+            "model_output": "3,2,1",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 315,
+                "total_tokens": 320
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-30",
+            "root": "vust",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: vust\nDefinition: 'vust' means 'lust' in English.\nSuffixes: 1. 'ness', 2. 'ful'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "lust",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 276,
+                "total_tokens": 279
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-31",
+            "root": "ukfim",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: ukfim\nDefinition: 'ukfim' means 'optim' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "optim",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 278,
+                "total_tokens": 281
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-32",
+            "root": "onsor",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: onsor\nDefinition: 'onsor' means 'aphor' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "aphor",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 277,
+                "total_tokens": 280
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-33",
+            "root": "uwort",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: uwort\nDefinition: 'uwort' means 'abort' in English.\nSuffixes: 1. 'ive', 2. 'ly'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "abort",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 276,
+                "total_tokens": 279
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-34",
+            "root": "lilicje",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: lilicje\nDefinition: 'lilicje' means 'defence' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "defence",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 280,
+                "total_tokens": 283
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-35",
+            "root": "rutac",
+            "suffixes": [
+                "ious",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: rutac\nDefinition: 'rutac' means 'vorac' in English.\nSuffixes: 1. 'ious', 2. 'ly'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "vorac",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 277,
+                "total_tokens": 280
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-36",
+            "root": "ilo",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: ilo\nDefinition: 'ilo' means 'ego' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "ego",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 275,
+                "total_tokens": 278
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-37",
+            "root": "bupye",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: bupye\nDefinition: 'bupye' means 'waste' in English.\nSuffixes: 1. 'ness', 2. 'ful'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "waste",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 279,
+                "total_tokens": 282
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-38",
+            "root": "fivwi",
+            "suffixes": [
+                "ment",
+                "al",
+                "ism"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: mkfsphys\nDefinition: 'mkfsphys' means 'phys' in English.\nSuffixes: 1. 'al', 2. 'ic', 3. 'ness'\nAnswer: 2,1,3\n\nExample 2:\nWord root: yfopjit\nDefinition: 'yfopjit' means 'transit' in English.\nSuffixes: 1. 'ion', 2. 'al', 3. 'ly'\nAnswer: 1,2,3\n\nExample 3:\nWord root: jbzser\nDefinition: 'jbzser' means 'hyster' in English.\nSuffixes: 1. 'al', 2. 'ly', 3. 'ic'\nAnswer: 3,1,2\n\nExample 4:\nWord root: fivwi\nDefinition: 'fivwi' means 'senti' in English.\nSuffixes: 1. 'ment', 2. 'al', 3. 'ism'\nAnswer: ",
+            "reference": "1,2,3",
+            "template": "morph_gen_order_en",
+            "original_root": "senti",
+            "model_output": "2,1,3",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 315,
+                "total_tokens": 320
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-39",
+            "root": "fkeumph",
+            "suffixes": [
+                "ant",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: fkeumph\nDefinition: 'fkeumph' means 'triumph' in English.\nSuffixes: 1. 'ly', 2. 'ant'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "triumph",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 280,
+                "total_tokens": 283
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-40",
+            "root": "jeyer",
+            "suffixes": [
+                "al",
+                "ism"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: jeyer\nDefinition: 'jeyer' means 'liber' in English.\nSuffixes: 1. 'al', 2. 'ism'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "liber",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 277,
+                "total_tokens": 280
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-41",
+            "root": "higeod",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: higeod\nDefinition: 'higeod' means 'period' in English.\nSuffixes: 1. 'al', 2. 'ic'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "period",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 278,
+                "total_tokens": 281
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-42",
+            "root": "guul",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: guul\nDefinition: 'guul' means 'soul' in English.\nSuffixes: 1. 'less', 2. 'ly'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "soul",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 277,
+                "total_tokens": 280
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-43",
+            "root": "jjikuzeheon",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: jjikuzeheon\nDefinition: 'jjikuzeheon' means 'preposition' in English.\nSuffixes: 1. 'ly', 2. 'al'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "preposition",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 283,
+                "total_tokens": 286
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-44",
+            "root": "vmamect",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: vmamect\nDefinition: 'vmamect' means 'protect' in English.\nSuffixes: 1. 'ness', 2. 'ive'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "protect",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 278,
+                "total_tokens": 281
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-45",
+            "root": "jlier",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: jlier\nDefinition: 'jlier' means 'cheer' in English.\nSuffixes: 1. 'ful', 2. 'ly'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "cheer",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 277,
+                "total_tokens": 280
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-46",
+            "root": "sozyeon",
+            "suffixes": [
+                "ate",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: sozyeon\nDefinition: 'sozyeon' means 'passion' in English.\nSuffixes: 1. 'ate', 2. 'ness'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "passion",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 279,
+                "total_tokens": 282
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-47",
+            "root": "keblu",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: keblu\nDefinition: 'keblu' means 'lingu' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "lingu",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 279,
+                "total_tokens": 282
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-48",
+            "root": "wobe",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: wobe\nDefinition: 'wobe' means 'hate' in English.\nSuffixes: 1. 'ful', 2. 'ly'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "hate",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 277,
+                "total_tokens": 280
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-49",
+            "root": "morm",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: morm\nDefinition: 'morm' means 'gorm' in English.\nSuffixes: 1. 'ly', 2. 'less'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "gorm",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 276,
+                "total_tokens": 279
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-50",
+            "root": "ceck",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: ceck\nDefinition: 'ceck' means 'feck' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "feck",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 277,
+                "total_tokens": 280
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-51",
+            "root": "tial",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: tial\nDefinition: 'tial' means 'real' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "real",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 276,
+                "total_tokens": 279
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-52",
+            "root": "coltteon",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: coltteon\nDefinition: 'coltteon' means 'function' in English.\nSuffixes: 1. 'ist', 2. 'al'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "function",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 278,
+                "total_tokens": 281
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-53",
+            "root": "rniet",
+            "suffixes": [
+                "en",
+                "er"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: rniet\nDefinition: 'rniet' means 'sweet' in English.\nSuffixes: 1. 'er', 2. 'en'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "sweet",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 276,
+                "total_tokens": 279
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-54",
+            "root": "paele",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: paele\nDefinition: 'paele' means 'guile' in English.\nSuffixes: 1. 'less', 2. 'ly'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "guile",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 279,
+                "total_tokens": 282
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-55",
+            "root": "buol",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: buol\nDefinition: 'buol' means 'fool' in English.\nSuffixes: 1. 'ish', 2. 'ness'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "fool",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 277,
+                "total_tokens": 280
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-56",
+            "root": "tecpinct",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: tecpinct\nDefinition: 'tecpinct' means 'distinct' in English.\nSuffixes: 1. 'ive', 2. 'ness'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "distinct",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 278,
+                "total_tokens": 281
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-57",
+            "root": "korm",
+            "suffixes": [
+                "al",
+                "ize"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: korm\nDefinition: 'korm' means 'norm' in English.\nSuffixes: 1. 'ize', 2. 'al'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "norm",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 276,
+                "total_tokens": 279
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-58",
+            "root": "uzfetul",
+            "suffixes": [
+                "ate",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: uzfetul\nDefinition: 'uzfetul' means 'articul' in English.\nSuffixes: 1. 'ness', 2. 'ate'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "articul",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 281,
+                "total_tokens": 284
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-59",
+            "root": "wapjet",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: wapjet\nDefinition: 'wapjet' means 'forget' in English.\nSuffixes: 1. 'ful', 2. 'ness'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "forget",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 277,
+                "total_tokens": 280
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-60",
+            "root": "hutr",
+            "suffixes": [
+                "efac",
+                "tive"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: hutr\nDefinition: 'hutr' means 'putr' in English.\nSuffixes: 1. 'efac', 2. 'tive'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "putr",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 279,
+                "total_tokens": 282
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-61",
+            "root": "hacrepeon",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: hacrepeon\nDefinition: 'hacrepeon' means 'condition' in English.\nSuffixes: 1. 'al', 2. 'ly'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "condition",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 278,
+                "total_tokens": 281
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-62",
+            "root": "yfoce",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: yfoce\nDefinition: 'yfoce' means 'shame' in English.\nSuffixes: 1. 'ful', 2. 'ness'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "shame",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 279,
+                "total_tokens": 282
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-63",
+            "root": "pel",
+            "suffixes": [
+                "ar",
+                "ize"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: pel\nDefinition: 'pel' means 'vel' in English.\nSuffixes: 1. 'ar', 2. 'ize'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "vel",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 274,
+                "total_tokens": 277
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-64",
+            "root": "cinsi",
+            "suffixes": [
+                "ment",
+                "al",
+                "ist"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: mkfsphys\nDefinition: 'mkfsphys' means 'phys' in English.\nSuffixes: 1. 'ic', 2. 'ness', 3. 'al'\nAnswer: 1,3,2\n\nExample 2:\nWord root: yfopjit\nDefinition: 'yfopjit' means 'transit' in English.\nSuffixes: 1. 'al', 2. 'ly', 3. 'ion'\nAnswer: 3,1,2\n\nExample 3:\nWord root: jbzser\nDefinition: 'jbzser' means 'hyster' in English.\nSuffixes: 1. 'ic', 2. 'al', 3. 'ly'\nAnswer: 1,2,3\n\nExample 4:\nWord root: cinsi\nDefinition: 'cinsi' means 'senti' in English.\nSuffixes: 1. 'ist', 2. 'al', 3. 'ment'\nAnswer: ",
+            "reference": "3,2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "senti",
+            "model_output": "3,2,1",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 313,
+                "total_tokens": 318
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-65",
+            "root": "ptiss",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: ptiss\nDefinition: 'ptiss' means 'bliss' in English.\nSuffixes: 1. 'ful', 2. 'ly'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "bliss",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 277,
+                "total_tokens": 280
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-66",
+            "root": "giar",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: giar\nDefinition: 'giar' means 'tear' in English.\nSuffixes: 1. 'ly', 2. 'less'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "tear",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 277,
+                "total_tokens": 280
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-67",
+            "root": "wect",
+            "suffixes": [
+                "ure",
+                "ship"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: wect\nDefinition: 'wect' means 'lect' in English.\nSuffixes: 1. 'ship', 2. 'ure'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "lect",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 276,
+                "total_tokens": 279
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-68",
+            "root": "letagdic",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: letagdic\nDefinition: 'letagdic' means 'liturgic' in English.\nSuffixes: 1. 'al', 2. 'ly'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "liturgic",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 280,
+                "total_tokens": 283
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-69",
+            "root": "wiber",
+            "suffixes": [
+                "al",
+                "issimo"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: wiber\nDefinition: 'wiber' means 'gener' in English.\nSuffixes: 1. 'al', 2. 'issimo'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "gener",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 277,
+                "total_tokens": 280
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-70",
+            "root": "felp",
+            "suffixes": [
+                "less",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: felp\nDefinition: 'felp' means 'help' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "help",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 276,
+                "total_tokens": 279
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-71",
+            "root": "evjoit",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: evjoit\nDefinition: 'evjoit' means 'intuit' in English.\nSuffixes: 1. 'ive', 2. 'ly'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "intuit",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 279,
+                "total_tokens": 282
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-72",
+            "root": "zash",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: zash\nDefinition: 'zash' means 'bash' in English.\nSuffixes: 1. 'ful', 2. 'ly'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "bash",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 276,
+                "total_tokens": 279
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-73",
+            "root": "cimect",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: cimect\nDefinition: 'cimect' means 'select' in English.\nSuffixes: 1. 'ive', 2. 'ness'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "select",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 278,
+                "total_tokens": 281
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-74",
+            "root": "buin",
+            "suffixes": [
+                "t",
+                "ure"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: buin\nDefinition: 'buin' means 'join' in English.\nSuffixes: 1. 't', 2. 'ure'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "join",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 276,
+                "total_tokens": 279
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-75",
+            "root": "cikeod",
+            "suffixes": [
+                "ic",
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: mkfsphys\nDefinition: 'mkfsphys' means 'phys' in English.\nSuffixes: 1. 'ic', 2. 'al', 3. 'ness'\nAnswer: 1,2,3\n\nExample 2:\nWord root: yfopjit\nDefinition: 'yfopjit' means 'transit' in English.\nSuffixes: 1. 'al', 2. 'ion', 3. 'ly'\nAnswer: 2,1,3\n\nExample 3:\nWord root: jbzser\nDefinition: 'jbzser' means 'hyster' in English.\nSuffixes: 1. 'ic', 2. 'al', 3. 'ly'\nAnswer: 1,2,3\n\nExample 4:\nWord root: cikeod\nDefinition: 'cikeod' means 'period' in English.\nSuffixes: 1. 'al', 2. 'ly', 3. 'ic'\nAnswer: ",
+            "reference": "3,1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "period",
+            "model_output": "3,1,2",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 314,
+                "total_tokens": 319
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-76",
+            "root": "gelf",
+            "suffixes": [
+                "ish",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: gelf\nDefinition: 'gelf' means 'self' in English.\nSuffixes: 1. 'ly', 2. 'ish'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "self",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 276,
+                "total_tokens": 279
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-77",
+            "root": "ukjbduct",
+            "suffixes": [
+                "ive",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: ukjbduct\nDefinition: 'ukjbduct' means 'obstruct' in English.\nSuffixes: 1. 'ness', 2. 'ive'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "obstruct",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 279,
+                "total_tokens": 282
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-78",
+            "root": "gute",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: gute\nDefinition: 'gute' means 'dole' in English.\nSuffixes: 1. 'ly', 2. 'ful'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "dole",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 276,
+                "total_tokens": 279
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-79",
+            "root": "dupopt",
+            "suffixes": [
+                "ion",
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: mkfsphys\nDefinition: 'mkfsphys' means 'phys' in English.\nSuffixes: 1. 'al', 2. 'ness', 3. 'ic'\nAnswer: 3,1,2\n\nExample 2:\nWord root: yfopjit\nDefinition: 'yfopjit' means 'transit' in English.\nSuffixes: 1. 'ly', 2. 'al', 3. 'ion'\nAnswer: 3,2,1\n\nExample 3:\nWord root: jbzser\nDefinition: 'jbzser' means 'hyster' in English.\nSuffixes: 1. 'ly', 2. 'al', 3. 'ic'\nAnswer: 3,2,1\n\nExample 4:\nWord root: dupopt\nDefinition: 'dupopt' means 'opt' in English.\nSuffixes: 1. 'ion', 2. 'al', 3. 'ly'\nAnswer: ",
+            "reference": "1,2,3",
+            "template": "morph_gen_order_en",
+            "original_root": "opt",
+            "model_output": "1,3,2",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 312,
+                "total_tokens": 317
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-80",
+            "root": "bnijoc",
+            "suffixes": [
+                "ious",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: bnijoc\nDefinition: 'bnijoc' means 'precoc' in English.\nSuffixes: 1. 'ious', 2. 'ness'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "precoc",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 279,
+                "total_tokens": 282
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-81",
+            "root": "lract",
+            "suffixes": [
+                "ic",
+                "al"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: lract\nDefinition: 'lract' means 'pract' in English.\nSuffixes: 1. 'al', 2. 'ic'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "pract",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 277,
+                "total_tokens": 280
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-82",
+            "root": "zijdiwu",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: zijdiwu\nDefinition: 'zijdiwu' means 'perpetu' in English.\nSuffixes: 1. 'al', 2. 'ly'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "perpetu",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 281,
+                "total_tokens": 284
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-83",
+            "root": "coith",
+            "suffixes": [
+                "ful",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: coith\nDefinition: 'coith' means 'faith' in English.\nSuffixes: 1. 'ful', 2. 'ness'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "faith",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 276,
+                "total_tokens": 279
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-84",
+            "root": "acesin",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: acesin\nDefinition: 'acesin' means 'origin' in English.\nSuffixes: 1. 'al', 2. 'ly'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "origin",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 277,
+                "total_tokens": 280
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-85",
+            "root": "culeon",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: culeon\nDefinition: 'culeon' means 'nation' in English.\nSuffixes: 1. 'ist', 2. 'al'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "nation",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 278,
+                "total_tokens": 281
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-86",
+            "root": "wakern",
+            "suffixes": [
+                "ment",
+                "al"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: wakern\nDefinition: 'wakern' means 'govern' in English.\nSuffixes: 1. 'ment', 2. 'al'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "govern",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 279,
+                "total_tokens": 282
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-87",
+            "root": "nedesar",
+            "suffixes": [
+                "ist",
+                "ic"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: nedesar\nDefinition: 'nedesar' means 'militar' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "militar",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 278,
+                "total_tokens": 281
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-88",
+            "root": "modme",
+            "suffixes": [
+                "ful",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: modme\nDefinition: 'modme' means 'taste' in English.\nSuffixes: 1. 'ful', 2. 'ly'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "taste",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 277,
+                "total_tokens": 280
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-89",
+            "root": "piigh",
+            "suffixes": [
+                "t",
+                "less"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: piigh\nDefinition: 'piigh' means 'weigh' in English.\nSuffixes: 1. 't', 2. 'less'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "weigh",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 276,
+                "total_tokens": 279
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-90",
+            "root": "wyig",
+            "suffixes": [
+                "id",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: wyig\nDefinition: 'wyig' means 'frig' in English.\nSuffixes: 1. 'ly', 2. 'id'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "frig",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 277,
+                "total_tokens": 280
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-91",
+            "root": "nyuject",
+            "suffixes": [
+                "ive",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: nyuject\nDefinition: 'nyuject' means 'protect' in English.\nSuffixes: 1. 'ly', 2. 'ive'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "protect",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 278,
+                "total_tokens": 281
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-92",
+            "root": "hucetter",
+            "suffixes": [
+                "iall",
+                "y"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: hucetter\nDefinition: 'hucetter' means 'magister' in English.\nSuffixes: 1. 'y', 2. 'iall'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "magister",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 280,
+                "total_tokens": 283
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-93",
+            "root": "tibelf",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: tibelf\nDefinition: 'tibelf' means 'elf' in English.\nSuffixes: 1. 'ness', 2. 'ish'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "elf",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 278,
+                "total_tokens": 281
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-94",
+            "root": "bnkiylijic",
+            "suffixes": [
+                "al",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ist', 2. 'ic'\nAnswer: 1,2\n\nExample 4:\nWord root: bnkiylijic\nDefinition: 'bnkiylijic' means 'cybernetic' in English.\nSuffixes: 1. 'ly', 2. 'al'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "cybernetic",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 285,
+                "total_tokens": 288
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-95",
+            "root": "jens",
+            "suffixes": [
+                "or",
+                "ious",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: mkfsphys\nDefinition: 'mkfsphys' means 'phys' in English.\nSuffixes: 1. 'ic', 2. 'al', 3. 'ness'\nAnswer: 1,2,3\n\nExample 2:\nWord root: yfopjit\nDefinition: 'yfopjit' means 'transit' in English.\nSuffixes: 1. 'ion', 2. 'al', 3. 'ly'\nAnswer: 1,2,3\n\nExample 3:\nWord root: jbzser\nDefinition: 'jbzser' means 'hyster' in English.\nSuffixes: 1. 'ly', 2. 'ic', 3. 'al'\nAnswer: 2,3,1\n\nExample 4:\nWord root: jens\nDefinition: 'jens' means 'cens' in English.\nSuffixes: 1. 'ious', 2. 'ness', 3. 'or'\nAnswer: ",
+            "reference": "3,1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "cens",
+            "model_output": "2,3,1",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 313,
+                "total_tokens": 318
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-96",
+            "root": "faurn",
+            "suffixes": [
+                "al",
+                "ist"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: faurn\nDefinition: 'faurn' means 'journ' in English.\nSuffixes: 1. 'al', 2. 'ist'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "journ",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 277,
+                "total_tokens": 280
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-97",
+            "root": "mfiep",
+            "suffixes": [
+                "ish",
+                "ness"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'al', 2. 'ion'\nAnswer: 2,1\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: mfiep\nDefinition: 'mfiep' means 'sheep' in English.\nSuffixes: 1. 'ness', 2. 'ish'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "sheep",
+            "model_output": "1,2",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 279,
+                "total_tokens": 282
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-98",
+            "root": "ohe",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'ness', 2. 'less'\nAnswer: 2,1\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: ohe\nDefinition: 'ohe' means 'use' in English.\nSuffixes: 1. 'ly', 2. 'less'\nAnswer: ",
+            "reference": "2,1",
+            "template": "morph_gen_order_en",
+            "original_root": "use",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 276,
+                "total_tokens": 279
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "morpholex-ood-99",
+            "root": "toin",
+            "suffixes": [
+                "less",
+                "ly"
+            ],
+            "prompt": "You are given a novel word root with its definition and a list of suffixes (separated by comma) in English and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers.\n\nExample 1:\nWord root: vetect\nDefinition: 'vetect' means 'direct' in English.\nSuffixes: 1. 'ion', 2. 'al'\nAnswer: 1,2\n\nExample 2:\nWord root: vhift\nDefinition: 'vhift' means 'shift' in English.\nSuffixes: 1. 'less', 2. 'ness'\nAnswer: 1,2\n\nExample 3:\nWord root: kogyiss\nDefinition: 'kogyiss' means 'narciss' in English.\nSuffixes: 1. 'ic', 2. 'ist'\nAnswer: 2,1\n\nExample 4:\nWord root: toin\nDefinition: 'toin' means 'pain' in English.\nSuffixes: 1. 'less', 2. 'ly'\nAnswer: ",
+            "reference": "1,2",
+            "template": "morph_gen_order_en",
+            "original_root": "pain",
+            "model_output": "2,1",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 276,
+                "total_tokens": 279
+            },
+            "correct": false,
+            "faithful": true
+        }
+    ]
+}
