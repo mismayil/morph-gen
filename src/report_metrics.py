@@ -19,7 +19,7 @@ def get_prediction(ref_response, model_response, template):
     return pred
 
 def is_faithful(result, ref_response, model_response, template, separator=""):
-    if not template.startswith("morph_gen"):
+    if not template.startswith("morph_gen") or template.startswith("morph_gen_order"):
         return True
 
     if len(model_response) != len(ref_response):

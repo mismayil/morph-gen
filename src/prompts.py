@@ -68,3 +68,7 @@ Seçenekler:
 {options}
 Cevap: {answer}"""
 
+# Prompt templates when the target is order of suffixes
+MORPH_GEN_ORDER_EN_INSTRUCTION_TEMPLATE = "You are given a word root and a list of suffixes (separated by comma) in {language} and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers."
+
+MORPH_GEN_NONCE_ORDER_EN_INSTRUCTION_TEMPLATE = "You are given a novel word root with its definition and a list of suffixes (separated by comma) in {language} and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers."

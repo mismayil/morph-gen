@@ -29,7 +29,7 @@ def _read_en_dictionary():
             dictionary.append(line.strip())
     return dictionary
 
-def prepare_tr_pilot_data_for_morph(input_data, num_samples=None, separator="", *args, **kwargs):
+def prepare_tr_pilot_data_for_tasks(input_data, num_samples=None, separator="", *args, **kwargs):
     data = input_data["data"]
 
     if num_samples is not None:
@@ -81,7 +81,7 @@ def prepare_tr_pilot_data_for_morph(input_data, num_samples=None, separator="", 
     
     return morph_data
 
-def prepare_tr_data_for_morph(input_data, num_samples=None, separator="", *args, **kwargs):
+def prepare_tr_data_for_tasks(input_data, num_samples=None, separator="", *args, **kwargs):
     data = input_data["data"]
     
     morph_data = []
@@ -117,7 +117,7 @@ def prepare_tr_data_for_morph(input_data, num_samples=None, separator="", *args,
 
     return morph_data
 
-def prepare_tr_nonce_data_for_morph(input_data, num_samples=None, *args, **kwargs):
+def prepare_tr_nonce_data_for_tasks(input_data, num_samples=None, *args, **kwargs):
     dictionary = _read_tr_dictionary()
     data = input_data["data"]
     nonce_data = []
@@ -149,7 +149,7 @@ def prepare_tr_nonce_data_for_morph(input_data, num_samples=None, *args, **kwarg
     
     return nonce_data
 
-def prepare_en_data_for_morph(input_data, num_samples=None, separator="", *args, **kwargs):
+def prepare_en_data_for_tasks(input_data, num_samples=None, separator="", *args, **kwargs):
     data = input_data["data"]
     
     morph_data = []
@@ -185,7 +185,7 @@ def prepare_en_data_for_morph(input_data, num_samples=None, separator="", *args,
 
     return morph_data
 
-def prepare_en_nonce_data_for_morph(input_data, num_samples=None, *args, **kwargs):
+def prepare_en_nonce_data_for_tasks(input_data, num_samples=None, *args, **kwargs):
     dictionary = _read_en_dictionary()
     data = input_data["data"]
     nonce_data = []
@@ -218,11 +218,11 @@ def prepare_en_nonce_data_for_morph(input_data, num_samples=None, *args, **kwarg
     return nonce_data
 
 DATA_PROCESSOR_MAP = {
-    "tr_pilot_morph": (prepare_tr_pilot_data_for_morph, "_morph"),
-    "tr_morph": (prepare_tr_data_for_morph, "_morph"),
-    "tr_morph_nonce": (prepare_tr_nonce_data_for_morph, "_nonce"),
-    "en_morph": (prepare_en_data_for_morph, "_morph"),
-    "en_morph_nonce": (prepare_en_nonce_data_for_morph, "_nonce")
+    "tr_pilot_morph": (prepare_tr_pilot_data_for_tasks, "_morph"),
+    "tr_morph": (prepare_tr_data_for_tasks, "_morph"),
+    "tr_morph_nonce": (prepare_tr_nonce_data_for_tasks, "_nonce"),
+    "en_morph": (prepare_en_data_for_tasks, "_morph"),
+    "en_morph_nonce": (prepare_en_nonce_data_for_tasks, "_nonce")
 }
 
 def main():
