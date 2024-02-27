@@ -81,36 +81,43 @@ def prepare_tr_pilot_data_for_tasks(input_data, num_samples=None, separator="", 
     
     return morph_data
 
+def prepare_sample_for_tasks(sample, separator=""):
+    suffixes = sample["morphemes"] if "morphemes" in sample else sample["suffixes"]
+    ref_derivation = sample["root"] + separator + separator.join(suffixes)
+
+    if len(suffixes) > 1:
+        suffix_perms = list(permutations(suffixes))
+        options = set()
+
+        for suffix_perm in suffix_perms:
+            derivation = sample["root"] + separator + separator.join(suffix_perm)
+
+            if derivation != ref_derivation:
+                options.add(derivation)
+
+        options = random.sample(list(options), min(len(options), 5))
+
+        return {
+            "original_root": sample["original_root"] if "original_root" in sample else None,
+            "root": sample["root"],
+            "pos": sample["pos"],
+            "suffixes": suffixes,
+            "derivation": ref_derivation,
+            "options": [ref_derivation] + list(options),
+            "answer": 0
+        }
+    
+    return None
+
 def prepare_tr_data_for_tasks(input_data, num_samples=None, separator="", *args, **kwargs):
     data = input_data["data"]
     
     morph_data = []
 
-    for sample in tqdm(data, desc="Preparing data TR for Morph tasks"):
-        suffixes = sample["morphemes"] if "morphemes" in sample else sample["suffixes"]
-        ref_derivation = sample["root"] + separator + separator.join(sample["suffixes"])
-
-        if len(suffixes) > 1:
-            suffix_perms = list(permutations(suffixes))
-            options = set()
-
-            for suffix_perm in suffix_perms:
-                derivation = sample["root"] + separator + separator.join(suffix_perm)
-
-                if derivation != ref_derivation:
-                    options.add(derivation)
-
-            options = random.sample(list(options), min(len(options), 5))
-
-            morph_data.append({
-                "original_root": sample["original_root"] if "original_root" in sample else None,
-                "root": sample["root"],
-                "pos": sample["pos"],
-                "suffixes": suffixes,
-                "derivation": ref_derivation,
-                "options": [ref_derivation] + list(options),
-                "answer": 0
-            })
+    for i, sample in tqdm(enumerate(data), desc="Preparing data TR for Morph tasks"):
+        morph_sample = prepare_sample_for_tasks(sample, separator)
+        if morph_sample is not None:
+            morph_data.append({"id": f"tr-{i}", **morph_sample})
     
     if num_samples is not None:
         morph_data = random.sample(morph_data, num_samples)
@@ -122,7 +129,7 @@ def prepare_tr_nonce_data_for_tasks(input_data, num_samples=None, *args, **kwarg
     data = input_data["data"]
     nonce_data = []
 
-    for sample in tqdm(data, total=len(data), desc="Preparing TR nonce data for Morph tasks"):
+    for i, sample in tqdm(enumerate(data), total=len(data), desc="Preparing TR nonce data for Morph tasks"):
         root = sample["root"]
         pos = sample["pos"]
         suffixes = sample["suffixes"]
@@ -135,13 +142,15 @@ def prepare_tr_nonce_data_for_tasks(input_data, num_samples=None, *args, **kwarg
                 break
 
         nonce_data.append({
+            "id": f"tr-ood-{i}",
             "original_root": root,
             "root": nonce_word,
             "pos": pos,
             "suffixes": suffixes,
             "derivation": derivation.replace(root, nonce_word, 1),
             "options": [option.replace(root, nonce_word, 1) for option in options],
-            "answer": 0
+            "answer": 0,
+            "similar": sample.get("similar")
         })
     
     if num_samples is not None:
@@ -154,31 +163,10 @@ def prepare_en_data_for_tasks(input_data, num_samples=None, separator="", *args,
     
     morph_data = []
 
-    for sample in tqdm(data, desc="Preparing EN data for Morph tasks"):
-        suffixes = sample["morphemes"] if "morphemes" in sample else sample["suffixes"]
-        ref_derivation = sample["root"] + separator + separator.join(sample["suffixes"])
-
-        if len(suffixes) > 1:
-            suffix_perms = list(permutations(suffixes))
-            options = set()
-
-            for suffix_perm in suffix_perms:
-                derivation = sample["root"] + separator + separator.join(suffix_perm)
-
-                if derivation != ref_derivation:
-                    options.add(derivation)
-
-            options = random.sample(list(options), min(len(options), 5))
-
-            morph_data.append({
-                "original_root": sample["original_root"] if "original_root" in sample else None,
-                "root": sample["root"],
-                "pos": sample["pos"],
-                "suffixes": suffixes,
-                "derivation": ref_derivation,
-                "options": [ref_derivation] + list(options),
-                "answer": 0
-            })
+    for i, sample in tqdm(enumerate(data), desc="Preparing EN data for Morph tasks"):
+        morph_sample = prepare_sample_for_tasks(sample, separator)
+        if morph_sample is not None:
+            morph_data.append({"id": f"en-{i}", **morph_sample})
     
     if num_samples is not None:
         morph_data = random.sample(morph_data, num_samples)
@@ -190,7 +178,7 @@ def prepare_en_nonce_data_for_tasks(input_data, num_samples=None, *args, **kwarg
     data = input_data["data"]
     nonce_data = []
 
-    for sample in tqdm(data, total=len(data), desc="Preparing EN nonce data for Morph tasks"):
+    for i, sample in tqdm(enumerate(data), total=len(data), desc="Preparing EN nonce data for Morph tasks"):
         root = sample["root"]
         pos = sample["pos"]
         suffixes = sample["suffixes"]
@@ -203,6 +191,7 @@ def prepare_en_nonce_data_for_tasks(input_data, num_samples=None, *args, **kwarg
                 break
 
         nonce_data.append({
+            "id": f"en-ood-{i}"
             "original_root": root,
             "root": nonce_word,
             "pos": pos,
@@ -217,12 +206,43 @@ def prepare_en_nonce_data_for_tasks(input_data, num_samples=None, *args, **kwarg
     
     return nonce_data
 
+def prepare_tr_comp_data_for_tasks(input_data, num_samples=None, separator="", *args, **kwargs):
+    data = input_data["data"]
+    
+    morph_data = []
+
+    for i, samples in tqdm(enumerate(data), desc="Preparing comp data TR for Morph tasks"):
+        if len(samples) > 1:
+            ref_sample = samples[0]
+            similar_samples = []
+            seen_suffixes = [tuple(ref_sample["morphemes"])]
+
+            for subsample in samples[1:]:
+                if tuple(subsample["morphemes"]) not in seen_suffixes:
+                    morph_sample = prepare_sample_for_tasks(subsample, separator)
+                    if morph_sample is not None:
+                        similar_samples.append(morph_sample)
+                        seen_suffixes.append(tuple(subsample["morphemes"]))
+            
+            if len(similar_samples) > 0:
+                morph_data.append({
+                    "id": f"tr-comp-{i}",
+                    **prepare_sample_for_tasks(ref_sample, separator),
+                    "similar": similar_samples
+                })
+    
+    if num_samples is not None:
+        morph_data = random.sample(morph_data, num_samples)
+
+    return morph_data
+            
 DATA_PROCESSOR_MAP = {
     "tr_pilot_morph": (prepare_tr_pilot_data_for_tasks, "_morph"),
     "tr_morph": (prepare_tr_data_for_tasks, "_morph"),
     "tr_morph_nonce": (prepare_tr_nonce_data_for_tasks, "_nonce"),
     "en_morph": (prepare_en_data_for_tasks, "_morph"),
-    "en_morph_nonce": (prepare_en_nonce_data_for_tasks, "_nonce")
+    "en_morph_nonce": (prepare_en_nonce_data_for_tasks, "_nonce"),
+    "tr_comp_morph": (prepare_tr_comp_data_for_tasks, "_morph")
 }
 
 def main():

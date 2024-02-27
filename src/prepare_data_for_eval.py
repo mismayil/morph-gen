@@ -210,6 +210,9 @@ def main():
         if args.match_len:
             shot_samples = [shot for shot in input_data["data"] if len(shot["suffixes"]) == len(sample["suffixes"]) and shot["id"] != sample["id"]][:args.num_shots]
         
+        if sample.get("similar"):
+            shot_samples = sample["similar"]
+
         if shot_samples:
             eval_data.extend(prepare_sample_for_eval(sample, shot_samples, args.template, input_data["metadata"]["language"]))
 

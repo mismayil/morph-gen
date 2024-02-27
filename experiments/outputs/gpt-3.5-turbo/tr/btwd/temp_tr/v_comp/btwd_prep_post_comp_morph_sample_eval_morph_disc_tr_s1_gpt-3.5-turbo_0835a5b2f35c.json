@@ -1,0 +1,2228 @@
+{
+    "metadata": {
+        "datapath": "../experiments/data/tr/btwd/temp_tr/v_comp/btwd_prep_post_comp_morph_sample_eval_morph_disc_tr_s1.json",
+        "model": "gpt-3.5-turbo",
+        "temperature": 0.3,
+        "max_tokens": 40,
+        "top_p": 1,
+        "frequency_penalty": 0,
+        "presence_penalty": 0
+    },
+    "metrics": {
+        "usage": {
+            "prompt_tokens": 37548,
+            "completion_tokens": 750,
+            "total_tokens": 38298
+        },
+        "cost": {
+            "input": 0.056322000000000004,
+            "output": 0.0015,
+            "total": 0.057822000000000005
+        },
+        "accuracy": 0.63,
+        "faithful_accuracy": 1.0,
+        "accuracy_by_suffix_len": {
+            "2": 0.6,
+            "3": 0.6764705882352942,
+            "4": 0.6216216216216216,
+            "5": 0.47058823529411764,
+            "6": 0.8571428571428571
+        },
+        "num_samples_by_suffix_len": {
+            "2": 5,
+            "3": 34,
+            "4": 37,
+            "5": 17,
+            "6": 7
+        }
+    },
+    "data": [
+        {
+            "id": "tr-0",
+            "root": "düşün",
+            "suffixes": [
+                "ebil",
+                "ecek",
+                "ler",
+                "i",
+                "nin"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: al\nEkler: 'ler','nin','abil','i','ecek'\nSeçenekler:\n1. alabileceklerinin\n2. alninleriabilecek\n3. alninabililerecek\n4. alabililereceknin\n5. alninecekleriabil\n6. allerninecekabili\nCevap: 1\n\nÖrnek 2:\nKök: düşün\nEkler: 'ler','ecek','nin','i','ebil'\nSeçenekler:\n1. düşünlerecekebilinin\n2. düşünninecekleriebil\n3. düşünecekebililernin\n4. düşünebilieceklernin\n5. düşünninebililerecek\n6. düşünebileceklerinin\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 300,
+                "total_tokens": 301
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-1",
+            "root": "ol",
+            "suffixes": [
+                "duk",
+                "lar",
+                "ım",
+                "ın"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: de\nEkler: 'in','dik','ler','im'\nSeçenekler:\n1. delerindikim\n2. deimdiklerin\n3. dediklerimin\n4. dedikinlerim\n5. delerimindik\n6. dedikiminler\nCevap: 3\n\nÖrnek 2:\nKök: tanı\nEkler: 'ın','dık','ım','lar'\nSeçenekler:\n1. tanıımındıklar\n2. tanılarımındık\n3. tanıdıklarınım\n4. tanıdıklarımın\n5. tanıımınlardık\n6. tanılarınımdık\nCevap: 4\n\nÖrnek 3:\nKök: et\nEkler: 'tik','ler','in','im'\nSeçenekler:\n1. etinlerimtik\n2. etlerimtikin\n3. ettiklerimin\n4. etlertikinim\n5. ettikinlerim\n6. etimtiklerin\nCevap: 3\n\nÖrnek 4:\nKök: düşün\nEkler: 'dük','ler','in','im'\nSeçenekler:\n1. düşünimdüklerin\n2. düşündükimlerin\n3. düşündüklerimin\n4. düşünindüklerim\n5. düşünimindükler\n6. düşüninlerdükim\nCevap: 3\n\nÖrnek 5:\nKök: bırak\nEkler: 'ım','tık','lar','ın'\nSeçenekler:\n1. bırakınımtıklar\n2. bırakımtıkınlar\n3. bırakımlarıntık\n4. bırakımtıkların\n5. bıraktıklarımın\n6. bıraktıkınımlar\nCevap: 5\n\nÖrnek 6:\nKök: konuş\nEkler: 'tuk','ın','ım','lar'\nSeçenekler:\n1. konuşıntuklarım\n2. konuştuklarımın\n3. konuşlarıntukım\n4. konuşımtukınlar\n5. konuşımtukların\n6. konuştukımınlar\nCevap: 2\n\nÖrnek 7:\nKök: ol\nEkler: 'lar','ım','ın','duk'\nSeçenekler:\n1. oldukınlarım\n2. olınduklarım\n3. olınımduklar\n4. oldukımınlar\n5. olduklarımın\n6. ollarımınduk\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 743,
+                "total_tokens": 744
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-2",
+            "root": "oy",
+            "suffixes": [
+                "la",
+                "ma",
+                "sı",
+                "n",
+                "da"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: düzen\nEkler: 'si','de','n','le','me'\nSeçenekler:\n1. düzennlemeside\n2. düzenlemesinde\n3. düzensidenleme\n4. düzensidelenme\n5. düzensilemeden\n6. düzenlenmeside\nCevap: 2\n\nÖrnek 2:\nKök: oy\nEkler: 'n','ma','da','sı','la'\nSeçenekler:\n1. oysıdamalan\n2. oylamasında\n3. oyndamasıla\n4. oyndasımala\n5. oydalasınma\n6. oymasılanda\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 269,
+                "total_tokens": 270
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-3",
+            "root": "düş",
+            "suffixes": [
+                "ün",
+                "dür",
+                "se"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: nitele\nEkler: 'n','se','dir'\nSeçenekler:\n1. nitelesendir\n2. nitelendirse\n3. niteledirnse\n4. niteledirsen\n5. nitelesedirn\n6. nitelensedir\nCevap: 2\n\nÖrnek 2:\nKök: bula\nEkler: 'sa','dır','n'\nSeçenekler:\n1. bulasandır\n2. buladırsan\n3. bulasadırn\n4. bulansadır\n5. bulandırsa\n6. buladırnsa\nCevap: 5\n\nÖrnek 3:\nKök: düş\nEkler: 'dür','se','ün'\nSeçenekler:\n1. düşdürünse\n2. düşünsedür\n3. düşündürse\n4. düşseündür\n5. düşdürseün\n6. düşsedürün\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 343,
+                "total_tokens": 344
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-4",
+            "root": "kal",
+            "suffixes": [
+                "dır",
+                "ma",
+                "dı"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: bil\nEkler: 'di','dir','me'\nSeçenekler:\n1. bildirmedi\n2. bildidirme\n3. bildirdime\n4. bilmedidir\n5. bilmedirdi\n6. bildimedir\nCevap: 1\n\nÖrnek 2:\nKök: düşün\nEkler: 'me','di','dür'\nSeçenekler:\n1. düşündidürme\n2. düşünmedürdi\n3. düşündürmedi\n4. düşündimedür\n5. düşündürdime\n6. düşünmedidür\nCevap: 3\n\nÖrnek 3:\nKök: değiş\nEkler: 'di','me','tir'\nSeçenekler:\n1. değiştirmedi\n2. değiştirdime\n3. değişmeditir\n4. değişditirme\n5. değişmetirdi\n6. değişdimetir\nCevap: 1\n\nÖrnek 4:\nKök: unut\nEkler: 'ma','dı','tur'\nSeçenekler:\n1. unutmadıtur\n2. unutturmadı\n3. unutdıturma\n4. unutmaturdı\n5. unutdımatur\n6. unutturdıma\nCevap: 2\n\nÖrnek 5:\nKök: yarat\nEkler: 'ma','dı','tır'\nSeçenekler:\n1. yaratdımatır\n2. yaratdıtırma\n3. yaratmadıtır\n4. yaratmatırdı\n5. yarattırdıma\n6. yarattırmadı\nCevap: 6\n\nÖrnek 6:\nKök: kal\nEkler: 'dı','ma','dır'\nSeçenekler:\n1. kalmadırdı\n2. kaldırmadı\n3. kaldıdırma\n4. kalmadıdır\n5. kaldırdıma\n6. kaldımadır\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 612,
+                "total_tokens": 613
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "tr-5",
+            "root": "bek",
+            "suffixes": [
+                "le",
+                "yecek",
+                "si",
+                "n",
+                "iz"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: tekrar\nEkler: 'sı','yacak','n','la','ız'\nSeçenekler:\n1. tekrarlayacaksıızn\n2. tekrarlaızsıyacakn\n3. tekrarlayacaksınız\n4. tekrarnyacaksılaız\n5. tekrarsıyacaklanız\n6. tekraryacaknsıızla\nCevap: 3\n\nÖrnek 2:\nKök: bek\nEkler: 'yecek','n','iz','si','le'\nSeçenekler:\n1. bekleyeceksiniz\n2. beknleyecekizsi\n3. bekizleyeceksin\n4. beklensiyecekiz\n5. beksinizleyecek\n6. bekiznsileyecek\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1.",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 298,
+                "total_tokens": 300
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "tr-6",
+            "root": "kal",
+            "suffixes": [
+                "acağ",
+                "ı",
+                "nı"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: iste\nEkler: 'ni','yeceğ','i'\nSeçenekler:\n1. isteyeceğnii\n2. isteniiyeceğ\n3. isteiyeceğni\n4. isteniyeceği\n5. isteiniyeceğ\n6. isteyeceğini\nCevap: 6\n\nÖrnek 2:\nKök: ver\nEkler: 'ni','i','eceğ'\nSeçenekler:\n1. vernieceği\n2. vereceğnii\n3. verieceğni\n4. vereceğini\n5. verniieceğ\n6. verinieceğ\nCevap: 4\n\nÖrnek 3:\nKök: acı\nEkler: 'ı','yacağ','nı'\nSeçenekler:\n1. acıınıyacağ\n2. acıyacağını\n3. acınıyacağı\n4. acıyacağnıı\n5. acınııyacağ\n6. acııyacağnı\nCevap: 2\n\nÖrnek 4:\nKök: kal\nEkler: 'ı','acağ','nı'\nSeçenekler:\n1. kalıacağnı\n2. kalnııacağ\n3. kalacağnıı\n4. kalacağını\n5. kalnıacağı\n6. kalınıacağ\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 440,
+                "total_tokens": 442
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-7",
+            "root": "ölü",
+            "suffixes": [
+                "m",
+                "lü",
+                "ler",
+                "e"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: top\nEkler: 'm','lar','lu','a'\nSeçenekler:\n1. toplarmlua\n2. toplualarm\n3. topmalular\n4. toplumlara\n5. topalularm\n6. topalarlum\nCevap: 4\n\nÖrnek 2:\nKök: ölü\nEkler: 'lü','ler','e','m'\nSeçenekler:\n1. ölülümeler\n2. ölülermelü\n3. ölümlüeler\n4. ölülümlere\n5. ölümlülere\n6. ölülerelüm\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 262,
+                "total_tokens": 264
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "tr-8",
+            "root": "zayıf",
+            "suffixes": [
+                "la",
+                "t",
+                "an"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: geri\nEkler: 'le','t','en'\nSeçenekler:\n1. geritenle\n2. gerienlet\n3. gerileent\n4. geritleen\n5. gerientle\n6. gerileten\nCevap: 6\n\nÖrnek 2:\nKök: zayıf\nEkler: 'la','an','t'\nSeçenekler:\n1. zayıfantla\n2. zayıflaant\n3. zayıftlaan\n4. zayıfanlat\n5. zayıflatan\n6. zayıftanla\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 253,
+                "total_tokens": 255
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-9",
+            "root": "sığ",
+            "suffixes": [
+                "ın",
+                "ış",
+                "ı"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: uyarla\nEkler: 'ış','n','ı'\nSeçenekler:\n1. uyarlaıışn\n2. uyarlaınış\n3. uyarlanışı\n4. uyarlaışın\n5. uyarlanıış\n6. uyarlaışnı\nCevap: 3\n\nÖrnek 2:\nKök: doku\nEkler: 'uş','n','u'\nSeçenekler:\n1. dokunuşu\n2. dokuuşnu\n3. dokuunuş\n4. dokunuuş\n5. dokuuuşn\n6. dokuuşun\nCevap: 1\n\nÖrnek 3:\nKök: dire\nEkler: 'i','iş','n'\nSeçenekler:\n1. direniiş\n2. direişni\n3. direnişi\n4. direişin\n5. direiişn\n6. direiniş\nCevap: 3\n\nÖrnek 4:\nKök: sığ\nEkler: 'ış','ın','ı'\nSeçenekler:\n1. sığıışın\n2. sığışıın\n3. sığıınış\n4. sığınıış\n5. sığışını\n6. sığınışı\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 409,
+                "total_tokens": 411
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "tr-10",
+            "root": "izlem",
+            "suffixes": [
+                "e",
+                "m"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: ar\nEkler: 'm','a'\nSeçenekler:\n1. aram\n2. arma\nCevap: 1\n\nÖrnek 2:\nKök: sevi\nEkler: 'ye','m'\nSeçenekler:\n1. sevimye\n2. seviyem\nCevap: 2\n\nÖrnek 3:\nKök: izlem\nEkler: 'e','m'\nSeçenekler:\n1. izlemme\n2. izlemem\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 226,
+                "total_tokens": 228
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-11",
+            "root": "ol",
+            "suffixes": [
+                "un",
+                "an",
+                "a"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: de\nEkler: 'e','n','en'\nSeçenekler:\n1. deenen\n2. deneen\n3. deeenn\n4. denene\n5. deenne\nCevap: 4\n\nÖrnek 2:\nKök: izle\nEkler: 'e','in','yen'\nSeçenekler:\n1. izleyenine\n2. izleinyene\n3. izleineyen\n4. izleeyenin\n5. izleyenein\n6. izleeinyen\nCevap: 1\n\nÖrnek 3:\nKök: bil\nEkler: 'en','in','e'\nSeçenekler:\n1. bilenine\n2. bilinene\n3. bileenin\n4. bilenein\n5. bileinen\n6. bilineen\nCevap: 2\n\nÖrnek 4:\nKök: gel\nEkler: 'in','e','en'\nSeçenekler:\n1. gelenein\n2. geleenin\n3. gelinene\n4. gelenine\n5. geleinen\n6. gelineen\nCevap: 4\n\nÖrnek 5:\nKök: yaşa\nEkler: 'an','n','a'\nSeçenekler:\n1. yaşaanan\n2. yaşanaan\n3. yaşaanna\n4. yaşanana\n5. yaşaaann\nCevap: 4\n\nÖrnek 6:\nKök: gör\nEkler: 'ün','en','e'\nSeçenekler:\n1. görenüne\n2. göreneün\n3. görünene\n4. göreünen\n5. göreenün\n6. görüneen\nCevap: 3\n\nÖrnek 7:\nKök: çal\nEkler: 'ın','an','a'\nSeçenekler:\n1. çalınaan\n2. çalanaın\n3. çalaanın\n4. çalanına\n5. çalaınan\n6. çalınana\nCevap: 4\n\nÖrnek 8:\nKök: al\nEkler: 'an','ın','a'\nSeçenekler:\n1. alaanın\n2. alaınan\n3. alınaan\n4. alanaın\n5. alınana\n6. alanına\nCevap: 5\n\nÖrnek 9:\nKök: ol\nEkler: 'un','an','a'\nSeçenekler:\n1. olaunan\n2. olanuna\n3. olanaun\n4. olunana\n5. olunaan\n6. olaanun\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 723,
+                "total_tokens": 725
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "tr-12",
+            "root": "aş",
+            "suffixes": [
+                "ın",
+                "dır",
+                "dığ",
+                "ım"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: daya\nEkler: 'n','ım','dır','dığ'\nSeçenekler:\n1. dayadığımndır\n2. dayaımndığdır\n3. dayadırdığnım\n4. dayandırdığım\n5. dayadığdırnım\n6. dayaımndırdığ\nCevap: 4\n\nÖrnek 2:\nKök: aş\nEkler: 'dığ','ım','ın','dır'\nSeçenekler:\n1. aşdığdırımın\n2. aşınımdırdığ\n3. aşınımdığdır\n4. aşdırınımdığ\n5. aşdığındırım\n6. aşındırdığım\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 291,
+                "total_tokens": 292
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-13",
+            "root": "tanı",
+            "suffixes": [
+                "ş",
+                "a",
+                "ma",
+                "yan"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: değ\nEkler: 'e','iş','yen','me'\nSeçenekler:\n1. değyeneişme\n2. değişemeyen\n3. değmeyenişe\n4. değmeeişyen\n5. değeyenmeiş\n6. değmeeyeniş\nCevap: 2\n\nÖrnek 2:\nKök: gör\nEkler: 'yen','üş','me','e'\nSeçenekler:\n1. görüşmeeyen\n2. göryenüşeme\n3. görüşemeyen\n4. göreyenmeüş\n5. görüşmeyene\n6. görmeyeneüş\nCevap: 3\n\nÖrnek 3:\nKök: çal\nEkler: 'ış','ma','yan','a'\nSeçenekler:\n1. çalyanaışma\n2. çalamayanış\n3. çalyanışmaa\n4. çalamaışyan\n5. çalaışyanma\n6. çalışmayana\nCevap: 6\n\nÖrnek 4:\nKök: kon\nEkler: 'a','ma','yan','uş'\nSeçenekler:\n1. konyanuşmaa\n2. konayanmauş\n3. konauşyanma\n4. konuşamayan\n5. konamauşyan\n6. konuşayanma\nCevap: 4\n\nÖrnek 5:\nKök: tanı\nEkler: 'ma','a','yan','ş'\nSeçenekler:\n1. tanışamayan\n2. tanışyanama\n3. tanıyanşama\n4. tanımayanşa\n5. tanımaayanş\n6. tanımaaşyan\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 521,
+                "total_tokens": 522
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-14",
+            "root": "çık",
+            "suffixes": [
+                "agel",
+                "ip"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: sür\nEkler: 'ip','egel'\nSeçenekler:\n1. süripegel\n2. süregelip\nCevap: 2\n\nÖrnek 2:\nKök: çık\nEkler: 'ip','agel'\nSeçenekler:\n1. çıkagelip\n2. çıkipagel\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2\n\nKök: büyü\nEkler: 'üt','egel'\nSeçenekler:\n1. büyüegelüt\n2. büyütü",
+            "usage": {
+                "completion_tokens": 40,
+                "prompt_tokens": 192,
+                "total_tokens": 232
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "tr-15",
+            "root": "baş",
+            "suffixes": [
+                "la",
+                "mış",
+                "lar",
+                "dı"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: yük\nEkler: 'ler','le','miş','di'\nSeçenekler:\n1. yükmişlelerdi\n2. yükdimişlerle\n3. yükmişlerledi\n4. yüklemişlerdi\n5. yükledilermiş\n6. yüklerdimişle\nCevap: 4\n\nÖrnek 2:\nKök: baş\nEkler: 'lar','dı','la','mış'\nSeçenekler:\n1. başlamışlardı\n2. başmışlalardı\n3. başlarlamışdı\n4. başmışlarladı\n5. başlarladımış\n6. başlardımışla\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1. başlamışlardı",
+            "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 280,
+                "total_tokens": 288
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "tr-16",
+            "root": "kul",
+            "suffixes": [
+                "lan",
+                "ıl",
+                "abil",
+                "mek"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: kabul\nEkler: 'mek','len','il','ebil'\nSeçenekler:\n1. kabulebillenmekil\n2. kabullenmekebilil\n3. kabulilmekebillen\n4. kabulmekebillenil\n5. kabullenilebilmek\n6. kabulilmeklenebil\nCevap: 5\n\nÖrnek 2:\nKök: kul\nEkler: 'lan','ıl','mek','abil'\nSeçenekler:\n1. kulabillanmekıl\n2. kulıllanabilmek\n3. kulabilıllanmek\n4. kulmekılabillan\n5. kulıllanmekabil\n6. kullanılabilmek\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 278,
+                "total_tokens": 279
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-17",
+            "root": "gör",
+            "suffixes": [
+                "ül",
+                "ebil",
+                "ecek",
+                "ler",
+                "i"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: yap\nEkler: 'abil','ler','ecek','i','ıl'\nSeçenekler:\n1. yapilerecekılabil\n2. yapabiliıllerecek\n3. yapeceklerabiliıl\n4. yapiabillerılecek\n5. yapılabilecekleri\n6. yapılecekleriabil\nCevap: 5\n\nÖrnek 2:\nKök: gör\nEkler: 'ebil','ler','i','ül','ecek'\nSeçenekler:\n1. görülebilleriecek\n2. görülieceklerebil\n3. görülebilecekleri\n4. görebillereceküli\n5. görlerebiliecekül\n6. görecekilerülebil\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3\n\nKök: büyü\nEkler: 'ebil','ler','i','ül','ecek'\nSeçenekler:\n1. büyülebilecek",
+            "usage": {
+                "completion_tokens": 40,
+                "prompt_tokens": 287,
+                "total_tokens": 327
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "tr-18",
+            "root": "düş",
+            "suffixes": [
+                "ün",
+                "me",
+                "dik",
+                "ler",
+                "i",
+                "nden"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: bul\nEkler: 'un','ma','dık','ndan','lar','ı'\nSeçenekler:\n1. bulndanundıklarmaı\n2. bullarmandandıkunı\n3. buldıklarmaıunndan\n4. bulunmadıklarından\n5. bulunmadıkındanlar\n6. buldıklarndanmaunı\nCevap: 4\n\nÖrnek 2:\nKök: düş\nEkler: 'dik','ler','nden','ün','me','i'\nSeçenekler:\n1. düşlerndeniündikme\n2. düşünmediklerinden\n3. düşdikünlerimenden\n4. düşünleridikndenme\n5. düşmelerndeniündik\n6. düşdikndenimelerün\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2\n\nVerilen kök ve ekler kullanılarak oluşturulan kelime \"düşünmediklerinden\"dir. Bu seçenek doğru ce",
+            "usage": {
+                "completion_tokens": 40,
+                "prompt_tokens": 307,
+                "total_tokens": 347
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "tr-19",
+            "root": "anla",
+            "suffixes": [
+                "t",
+                "ma",
+                "sı",
+                "ydı"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: yönel\nEkler: 'ydi','t','me','si'\nSeçenekler:\n1. yöneltmesiydi\n2. yönelsitmeydi\n3. yönelydimetsi\n4. yönelmesitydi\n5. yönelmetydisi\n6. yönelmesiydit\nCevap: 1\n\nÖrnek 2:\nKök: anla\nEkler: 'sı','ma','ydı','t'\nSeçenekler:\n1. anlasıydımat\n2. anlaydıtması\n3. anlatmasıydı\n4. anlaydımatsı\n5. anlatsımaydı\n6. anlasıtydıma\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3\n\nKök: büyü\nEkler: 'me','cik','tir','siz'\nSeçenekler:\n1. büyütirsizme\n2",
+            "usage": {
+                "completion_tokens": 40,
+                "prompt_tokens": 278,
+                "total_tokens": 318
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "tr-20",
+            "root": "hava",
+            "suffixes": [
+                "lan",
+                "dır",
+                "dığ",
+                "ım"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: ödül\nEkler: 'diğ','im','dir','len'\nSeçenekler:\n1. ödüldirdiğimlen\n2. ödüldiğlendirim\n3. ödülimlendiğdir\n4. ödüldirimdiğlen\n5. ödüllendirdiğim\n6. ödüldiğimdirlen\nCevap: 5\n\nÖrnek 2:\nKök: hava\nEkler: 'dır','ım','dığ','lan'\nSeçenekler:\n1. havaımdığdırlan\n2. havadığımlandır\n3. havadırımdığlan\n4. havaımdığlandır\n5. havadığdırlanım\n6. havalandırdığım\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 302,
+                "total_tokens": 303
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-21",
+            "root": "ol",
+            "suffixes": [
+                "uş",
+                "tur",
+                "ur",
+                "sa",
+                "k"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: değ\nEkler: 'tir','k','ir','se','iş'\nSeçenekler:\n1. değsetirkiriş\n2. değtirkseiriş\n3. değirsektiriş\n4. değiştirirsek\n5. değseirktiriş\n6. değkirişsetir\nCevap: 4\n\nÖrnek 2:\nKök: çal\nEkler: 'sa','ış','ır','tır','k'\nSeçenekler:\n1. çalıştırırsak\n2. çalışırtırsak\n3. çaltırışkırsa\n4. çalkırsaıştır\n5. çalsaışkırtır\n6. çalırışktırsa\nCevap: 1\n\nÖrnek 3:\nKök: karşıla\nEkler: 'ş','ır','k','tır','sa'\nSeçenekler:\n1. karşılaırtırsaşk\n2. karşılatırksaırş\n3. karşılaştırırsak\n4. karşılaşktırırsa\n5. karşılasaşırtırk\n6. karşılaırtırksaş\nCevap: 3\n\nÖrnek 4:\nKök: ol\nEkler: 'sa','tur','uş','ur','k'\nSeçenekler:\n1. olsaturkuşur\n2. olkursaturuş\n3. olsakuşturur\n4. oluşturursak\n5. olsakuşurtur\n6. olsakuruştur\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 482,
+                "total_tokens": 483
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-22",
+            "root": "iş",
+            "suffixes": [
+                "siz",
+                "ler",
+                "di"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: umut\nEkler: 'dı','suz','lar'\nSeçenekler:\n1. umutsuzlardı\n2. umutsuzdılar\n3. umutdılarsuz\n4. umutlarsuzdı\n5. umutdısuzlar\n6. umutlardısuz\nCevap: 1\n\nÖrnek 2:\nKök: sabır\nEkler: 'dı','sız','lar'\nSeçenekler:\n1. sabırdısızlar\n2. sabırlardısız\n3. sabırsızdılar\n4. sabırdılarsız\n5. sabırlarsızdı\n6. sabırsızlardı\nCevap: 3\n\nÖrnek 3:\nKök: vicdan\nEkler: 'sız','dı','lar'\nSeçenekler:\n1. vicdanlardısız\n2. vicdansızlardı\n3. vicdanlarsızdı\n4. vicdandılarsız\n5. vicdansızdılar\n6. vicdandısızlar\nCevap: 2\n\nÖrnek 4:\nKök: iş\nEkler: 'ler','di','siz'\nSeçenekler:\n1. işlersizdi\n2. işsizdiler\n3. işsizlerdi\n4. işlerdisiz\n5. işdilersiz\n6. işdisizler\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 453,
+                "total_tokens": 454
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-23",
+            "root": "parça",
+            "suffixes": [
+                "sı",
+                "ydı",
+                "m"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: öğrenci\nEkler: 'm','ydi','si'\nSeçenekler:\n1. öğrenciydisim\n2. öğrencisimydi\n3. öğrenciydimsi\n4. öğrencimsiydi\n5. öğrencisiydim\n6. öğrencimydisi\nCevap: 5\n\nÖrnek 2:\nKök: parça\nEkler: 'ydı','sı','m'\nSeçenekler:\n1. parçaydımsı\n2. parçamydısı\n3. parçaydısım\n4. parçasımydı\n5. parçamsıydı\n6. parçasıydım\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 278,
+                "total_tokens": 279
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-24",
+            "root": "ol",
+            "suffixes": [
+                "a",
+                "ma",
+                "yacağ",
+                "ı"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: ver\nEkler: 'yeceğ','me','i','e'\nSeçenekler:\n1. vermeyeceğie\n2. vereyeceğime\n3. veremeyeceği\n4. vermeeiyeceğ\n5. veryeceğimee\n6. veriyeceğeme\nCevap: 3\n\nÖrnek 2:\nKök: oku\nEkler: 'ya','ma','ı','yacağ'\nSeçenekler:\n1. okumayacağıya\n2. okumaıyacağya\n3. okuyacağyamaı\n4. okumayaıyacağ\n5. okuyamayacağı\n6. okuyacağmaıya\nCevap: 5\n\nÖrnek 3:\nKök: öde\nEkler: 'yeceğ','i','ye','me'\nSeçenekler:\n1. ödemeyeceğyei\n2. ödeyeceğyemei\n3. ödeyeceğyeime\n4. ödeiyeceğmeye\n5. ödeyemeyeceği\n6. ödeyeceğiyeme\nCevap: 5\n\nÖrnek 4:\nKök: ol\nEkler: 'yacağ','ı','ma','a'\nSeçenekler:\n1. olayacağmaı\n2. olaıyacağma\n3. olıyacağmaa\n4. olıamayacağ\n5. olamayacağı\n6. olmayacağaı\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 473,
+                "total_tokens": 475
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-25",
+            "root": "üst",
+            "suffixes": [
+                "ünüz",
+                "de",
+                "dir"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: el\nEkler: 'iniz','de','dir'\nSeçenekler:\n1. eldirinizde\n2. elinizdedir\n3. eldirdeiniz\n4. eldeinizdir\n5. elinizdirde\n6. eldediriniz\nCevap: 2\n\nÖrnek 2:\nKök: yan\nEkler: 'da','ınız','dır'\nSeçenekler:\n1. yandırınızda\n2. yandırdaınız\n3. yanınızdırda\n4. yandadırınız\n5. yandaınızdır\n6. yanınızdadır\nCevap: 6\n\nÖrnek 3:\nKök: üst\nEkler: 'ünüz','dir','de'\nSeçenekler:\n1. üstdirünüzde\n2. üstdeünüzdir\n3. üstdedirünüz\n4. üstdirdeünüz\n5. üstünüzdirde\n6. üstünüzdedir\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 347,
+                "total_tokens": 348
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-26",
+            "root": "ol",
+            "suffixes": [
+                "abil",
+                "ir",
+                "di",
+                "k"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: izle\nEkler: 'yebil','k','di','ir'\nSeçenekler:\n1. izleirdiyebilk\n2. izlekdiyebilir\n3. izleyebilkdiir\n4. izleyebilirdik\n5. izleiryebildik\n6. izledikyebilir\nCevap: 4\n\nÖrnek 2:\nKök: ver\nEkler: 'k','ir','ebil','di'\nSeçenekler:\n1. verdiebilirk\n2. verirkdiebil\n3. verkirdiebil\n4. verdiirebilk\n5. verdikebilir\n6. verebilirdik\nCevap: 6\n\nÖrnek 3:\nKök: yaşa\nEkler: 'ir','di','k','yabil'\nSeçenekler:\n1. yaşadikyabilir\n2. yaşakdiyabilir\n3. yaşadiyabilirk\n4. yaşairyabilkdi\n5. yaşayabilirdik\n6. yaşairdikyabil\nCevap: 5\n\nÖrnek 4:\nKök: ol\nEkler: 'ir','abil','k','di'\nSeçenekler:\n1. oldiirkabil\n2. olirdikabil\n3. oldiirabilk\n4. olabilirkdi\n5. olirabildik\n6. olabilirdik\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 436,
+                "total_tokens": 438
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-27",
+            "root": "düş",
+            "suffixes": [
+                "ün",
+                "ür",
+                "ün",
+                "ün"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: sı\nEkler: 'ın','ır','ın','n'\nSeçenekler:\n1. sınırının\n2. sıınırnın\n3. sıınınırn\n4. sıınnınır\n5. sınınırın\n6. sıınnırın\nCevap: 1\n\nÖrnek 2:\nKök: düş\nEkler: 'ün','ün','ür'\nSeçenekler:\n1. düşünürün\n2. düşününür\n3. düşürünün\nCevap: 1\n\nÖrnek 3:\nKök: düş\nEkler: 'ün','ün','ür','ün'\nSeçenekler:\n1. düşününürün\n2. düşürününün\n3. düşünününür\n4. düşünürünün\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1\n\nSoru:\nKök: büyü\nEkler: 'me','me','me','me'\nSeçenekler:\n1. büyümememe\n2",
+            "usage": {
+                "completion_tokens": 40,
+                "prompt_tokens": 312,
+                "total_tokens": 352
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "tr-28",
+            "root": "kal",
+            "suffixes": [
+                "ma",
+                "ma"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: iste\nEkler: 'me','me'\nSeçenekler:\n1. istememe\nCevap: 1\n\nÖrnek 2:\nKök: kal\nEkler: 'ma','ma'\nSeçenekler:\n1. kalmama\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 171,
+                "total_tokens": 172
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-29",
+            "root": "düş",
+            "suffixes": [
+                "ün",
+                "düğ",
+                "ümüz",
+                "den"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: kaç\nEkler: 'dan','ımız','ın','dığ'\nSeçenekler:\n1. kaçınımızdandığ\n2. kaçımızdığından\n3. kaçımızdandığın\n4. kaçdığımızından\n5. kaçdığındanımız\n6. kaçındığımızdan\nCevap: 6\n\nÖrnek 2:\nKök: düş\nEkler: 'ümüz','ün','düğ','den'\nSeçenekler:\n1. düşdenümüzündüğ\n2. düşdendüğümüzün\n3. düşünümüzdüğden\n4. düşümüzündüğden\n5. düşündüğümüzden\n6. düşdüğdenünümüz\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 306,
+                "total_tokens": 308
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-30",
+            "root": "bit",
+            "suffixes": [
+                "ir",
+                "il",
+                "ebil",
+                "in",
+                "ir"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: de\nEkler: 'n','ebil','ir','il'\nSeçenekler:\n1. deilebilnir\n2. deirnilebil\n3. deebililnir\n4. denilebilir\n5. deirilebiln\n6. deebilniril\nCevap: 4\n\nÖrnek 2:\nKök: düş\nEkler: 'ebil','ün','ül','ir'\nSeçenekler:\n1. düşünülebilir\n2. düşirebilülün\n3. düşünebilülir\n4. düşirülebilün\n5. düşülünebilir\n6. düşülirebilün\nCevap: 1\n\nÖrnek 3:\nKök: yaşa\nEkler: 'ir','ıl','n','abil'\nSeçenekler:\n1. yaşairılabiln\n2. yaşanirabilıl\n3. yaşairılnabil\n4. yaşaılirabiln\n5. yaşanılabilir\n6. yaşaılabilirn\nCevap: 5\n\nÖrnek 4:\nKök: savun\nEkler: 'un','abil','ul','ir'\nSeçenekler:\n1. savunabilunirul\n2. savunirunulabil\n3. savunirulabilun\n4. savunirabilulun\n5. savunulunabilir\n6. savunirulunabil\nCevap: 5\n\nÖrnek 5:\nKök: bit\nEkler: 'in','ir','ebil','ir','il'\nSeçenekler:\n1. bitirinirilebil\n2. bitebiliriniril\n3. bitirilebilinir\n4. bitirirebililin\n5. bitirinirebilil\n6. bitirebililirin\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 544,
+                "total_tokens": 545
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "tr-31",
+            "root": "ol",
+            "suffixes": [
+                "un",
+                "acağ",
+                "ı"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: oku\nEkler: 'ı','n','acağ'\nSeçenekler:\n1. okuınacağ\n2. okunacağı\n3. okuıacağn\n4. okuacağın\n5. okuacağnı\n6. okunıacağ\nCevap: 2\n\nÖrnek 2:\nKök: düş\nEkler: 'eceğ','ün','i'\nSeçenekler:\n1. düşieceğün\n2. düşiüneceğ\n3. düşünieceğ\n4. düşeceğiün\n5. düşeceğüni\n6. düşüneceği\nCevap: 6\n\nÖrnek 3:\nKök: besle\nEkler: 'eceğ','i','n'\nSeçenekler:\n1. besleineceğ\n2. besleneceği\n3. beslenieceğ\n4. besleieceğn\n5. besleeceğin\n6. besleeceğni\nCevap: 2\n\nÖrnek 4:\nKök: sığ\nEkler: 'ın','acağ','ı'\nSeçenekler:\n1. sığacağını\n2. sığacağıın\n3. sığınıacağ\n4. sığınacağı\n5. sığıacağın\n6. sığıınacağ\nCevap: 4\n\nÖrnek 5:\nKök: yet\nEkler: 'i','eceğ','in'\nSeçenekler:\n1. yetieceğin\n2. yeteceğini\n3. yetiineceğ\n4. yeteceğiin\n5. yetineceği\n6. yetinieceğ\nCevap: 5\n\nÖrnek 6:\nKök: ol\nEkler: 'un','ı','acağ'\nSeçenekler:\n1. olıacağun\n2. olacağıun\n3. olunacağı\n4. olacağunı\n5. olıunacağ\n6. olunıacağ\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 590,
+                "total_tokens": 591
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-32",
+            "root": "değ",
+            "suffixes": [
+                "iş",
+                "tir",
+                "e",
+                "m",
+                "iyor",
+                "um"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: yak\nEkler: 'm','tır','um','a','ış','ıyor'\nSeçenekler:\n1. yakışmaumtırıyor\n2. yakıştıramıyorum\n3. yakatırmıyorışum\n4. yakışumıyormtıra\n5. yakumamıyortırış\n6. yakıyoramışumtır\nCevap: 2\n\nÖrnek 2:\nKök: dön\nEkler: 'um','e','üş','iyor','tür','m'\nSeçenekler:\n1. dönüşmetürumiyor\n2. döneiyortürüşumm\n3. döneüşumtürmiyor\n4. dönüştüremiyorum\n5. döntürmüşumeiyor\n6. döntüriyormumüşe\nCevap: 4\n\nÖrnek 3:\nKök: değ\nEkler: 'iyor','um','e','iş','tir','m'\nSeçenekler:\n1. değmişumtiriyore\n2. değiyorumtirmişe\n3. değiyormetirişum\n4. değiştiremiyorum\n5. değeumtiriyormiş\n6. değeumiyorişmtir\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 423,
+                "total_tokens": 425
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-33",
+            "root": "güç",
+            "suffixes": [
+                "len",
+                "dir",
+                "me",
+                "si",
+                "dir"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: din\nEkler: 'me','dir','si','me','len'\nSeçenekler:\n1. dinlenmemesidir\n2. dindirmemelensi\n3. dinmemedirlensi\n4. dinmelenmesidir\n5. dinmemedirsilen\n6. dindirmelenmesi\nCevap: 1\n\nÖrnek 2:\nKök: yaş\nEkler: 'ma','sı','ma','lan','dır'\nSeçenekler:\n1. yaşmasımadırlan\n2. yaşlandırmaması\n3. yaşmalansımadır\n4. yaşmasılanmadır\n5. yaşdırmamasılan\n6. yaşmamadırlansı\nCevap: 2\n\nÖrnek 3:\nKök: kul\nEkler: 'dır','ma','sı','lan','ma'\nSeçenekler:\n1. kulmalandırsıma\n2. kulmasımalandır\n3. kulsıdırlanmama\n4. kuldırlanmaması\n5. kulmadırsımalan\n6. kullanmamasıdır\nCevap: 6\n\nÖrnek 4:\nKök: güç\nEkler: 'len','si','dir','me'\nSeçenekler:\n1. güçlenmedirsi\n2. güçsidirlenme\n3. güçmesidirlen\n4. güçlendirmesi\n5. güçsidirmelen\n6. güçmelensidir\nCevap: 4\n\nÖrnek 5:\nKök: anlam\nEkler: 'sı','ma','lan','dır'\nSeçenekler:\n1. anlammasıdırlan\n2. anlamlansıdırma\n3. anlamsılanmadır\n4. anlamdırlansıma\n5. anlamlandırması\n6. anlamdırsımalan\nCevap: 5\n\nÖrnek 6:\nKök: vurgu\nEkler: 'sı','lan','dır','ma'\nSeçenekler:\n1. vurgudırsımalan\n2. vurgusıdırlanma\n3. vurgumalandırsı\n4. vurgudırlansıma\n5. vurgumasılandır\n6. vurgulanmasıdır\nCevap: 6\n\nÖrnek 7:\nKök: ince\nEkler: 'si','me','dir','len'\nSeçenekler:\n1. incelendirmesi\n2. incelenmesidir\n3. incedirsilenme\n4. incemedirsilen\n5. incedirsimelen\n6. incemesilendir\nCevap: 2\n\nÖrnek 8:\nKök: güç\nEkler: 'len','me','si','dir','dir'\nSeçenekler:\n1. güçlendirmesidir\n2. güçmedirdirsilen\n3. güçmedirdirlensi\n4. güçdirmelendirsi\n5. güçlendirdirmesi\n6. güçmedirlensidir\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 853,
+                "total_tokens": 855
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-34",
+            "root": "etki",
+            "suffixes": [
+                "le",
+                "yen",
+                "i",
+                "dir"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: çağ\nEkler: 'yan','la','ı','dır'\nSeçenekler:\n1. çağlayanıdır\n2. çağlaıdıryan\n3. çağyandırıla\n4. çağıyandırla\n5. çağyandırlaı\n6. çağyanlaıdır\nCevap: 1\n\nÖrnek 2:\nKök: etki\nEkler: 'dir','i','le','yen'\nSeçenekler:\n1. etkidiryenlei\n2. etkidiriyenle\n3. etkileyenidir\n4. etkiyeniledir\n5. etkiyenleidir\n6. etkiyendirile\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3\n\nKök: boy\nEkler: 'uncu','ca','la','lardır'\nSeçenekler:\n1. boyunculardırla\n2.",
+            "usage": {
+                "completion_tokens": 40,
+                "prompt_tokens": 281,
+                "total_tokens": 321
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "tr-35",
+            "root": "boğ",
+            "suffixes": [
+                "ul",
+                "ma",
+                "m",
+                "ız",
+                "a"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: yık\nEkler: 'a','ıl','ma','m','ız'\nSeçenekler:\n1. yıkamızmaıl\n2. yıkılmamıza\n3. yıkızmaamıl\n4. yıkmaızılma\n5. yıkmaaılmız\n6. yıkmılaızma\nCevap: 2\n\nÖrnek 2:\nKök: boğ\nEkler: 'ul','ız','m','ma','a'\nSeçenekler:\n1. boğulmamıza\n2. boğaızmaulm\n3. boğammaulız\n4. boğmulmaaız\n5. boğmaulaızm\n6. boğmmaızula\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 283,
+                "total_tokens": 285
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "tr-36",
+            "root": "kal",
+            "suffixes": [
+                "ma",
+                "dık",
+                "lar",
+                "ım"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: iste\nEkler: 'dik','ler','im','me'\nSeçenekler:\n1. isteimdiklerme\n2. istedikmelerim\n3. istemeimdikler\n4. istediklermeim\n5. istelerimmedik\n6. istemediklerim\nCevap: 6\n\nÖrnek 2:\nKök: kal\nEkler: 'lar','dık','ım','ma'\nSeçenekler:\n1. kallardıkmaım\n2. kalmadıklarım\n3. kaldıklarmaım\n4. kalımlardıkma\n5. kallarımdıkma\n6. kaldıkımlarma\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 273,
+                "total_tokens": 274
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-37",
+            "root": "iste",
+            "suffixes": [
+                "t",
+                "en"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: şaşır\nEkler: 'an','t'\nSeçenekler:\n1. şaşırant\n2. şaşırtan\nCevap: 2\n\nÖrnek 2:\nKök: iste\nEkler: 'en','t'\nSeçenekler:\n1. isteent\n2. isteten\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 189,
+                "total_tokens": 191
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-38",
+            "root": "bulun",
+            "suffixes": [
+                "dur",
+                "ma",
+                "ma",
+                "mız",
+                "ı"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: et\nEkler: 'tir','i','miz','me'\nSeçenekler:\n1. ettirmemizi\n2. ettirimizme\n3. etmemizitir\n4. etmizimetir\n5. etmizmetiri\n6. ettirimemiz\nCevap: 1\n\nÖrnek 2:\nKök: oluş\nEkler: 'ma','tur','ı','mız'\nSeçenekler:\n1. oluşturmamızı\n2. oluşımaturmız\n3. oluşmızmaıtur\n4. oluşturmaımız\n5. oluşımızmatur\n6. oluşmaıturmız\nCevap: 1\n\nÖrnek 3:\nKök: sür\nEkler: 'miz','i','dür','me'\nSeçenekler:\n1. sürdürmemizi\n2. sürdürimizme\n3. sürmeimizdür\n4. sürmizidürme\n5. sürmizmedüri\n6. sürmizimedür\nCevap: 1\n\nÖrnek 4:\nKök: sin\nEkler: 'i','miz','dir','me'\nSeçenekler:\n1. sinmeidirmiz\n2. sindirmizmei\n3. sindirimizme\n4. sindirmemizi\n5. sinmizmediri\n6. sinmizmeidir\nCevap: 4\n\nÖrnek 5:\nKök: uy\nEkler: 'ı','dur','mız','ma'\nSeçenekler:\n1. uymızmaıdur\n2. uyımamızdur\n3. uydurımızma\n4. uydurmızıma\n5. uydurmamızı\n6. uymamızdurı\nCevap: 5\n\nÖrnek 6:\nKök: bulun\nEkler: 'ma','dur','ı','mız','ma'\nSeçenekler:\n1. bulunımızmadurma\n2. bulunmadurmızmaı\n3. bulundurmamızmaı\n4. bulundurmamamızı\n5. bulunmadurımızma\n6. bulunmamızdurmaı\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 643,
+                "total_tokens": 645
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "tr-39",
+            "root": "ol",
+            "suffixes": [
+                "uyor",
+                "du",
+                "n"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: bil\nEkler: 'du','iyor','n'\nSeçenekler:\n1. bilnduiyor\n2. biliyordun\n3. bilduiyorn\n4. bilniyordu\n5. bilduniyor\n6. biliyorndu\nCevap: 2\n\nÖrnek 2:\nKök: uğraş\nEkler: 'du','n','ıyor'\nSeçenekler:\n1. uğraşdunıyor\n2. uğraşıyordun\n3. uğraşnıyordu\n4. uğraşduıyorn\n5. uğraşnduıyor\n6. uğraşıyorndu\nCevap: 2\n\nÖrnek 3:\nKök: yürü\nEkler: 'n','du','yor'\nSeçenekler:\n1. yürüyorndu\n2. yürüduyorn\n3. yürüdunyor\n4. yüründuyor\n5. yürünyordu\n6. yürüyordun\nCevap: 6\n\nÖrnek 4:\nKök: üş\nEkler: 'n','du','üyor'\nSeçenekler:\n1. üşnüyordu\n2. üşnduüyor\n3. üşdunüyor\n4. üşüyordun\n5. üşüyorndu\n6. üşduüyorn\nCevap: 4\n\nÖrnek 5:\nKök: ol\nEkler: 'n','uyor','du'\nSeçenekler:\n1. oluyorndu\n2. olnuyordu\n3. olduuyorn\n4. olnduuyor\n5. oluyordun\n6. oldunuyor\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 534,
+                "total_tokens": 535
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-40",
+            "root": "et",
+            "suffixes": [
+                "tir",
+                "e",
+                "me",
+                "me",
+                "n",
+                "in"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dur\nEkler: 'dur','n','ın','a','ma','ma'\nSeçenekler:\n1. durnınduramama\n2. durmanınmadura\n3. durnadurmamaın\n4. durnmaamadurın\n5. durduramamanın\n6. durdurmamaaınn\nCevap: 5\n\nÖrnek 2:\nKök: et\nEkler: 'tir','e','n','in','me','me'\nSeçenekler:\n1. ettirememeinn\n2. ettirinmemeen\n3. etinntirmeeme\n4. etmetirnineme\n5. ettirmeeinmen\n6. ettirememenin\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 279,
+                "total_tokens": 280
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-41",
+            "root": "de",
+            "suffixes": [
+                "me",
+                "z",
+                "siniz"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: tanı\nEkler: 'sınız','z','ma'\nSeçenekler:\n1. tanızmasınız\n2. tanımazsınız\n3. tanızsınızma\n4. tanısınızzma\n5. tanısınızmaz\n6. tanımasınızz\nCevap: 2\n\nÖrnek 2:\nKök: de\nEkler: 'siniz','me','z'\nSeçenekler:\n1. demezsiniz\n2. dezsinizme\n3. dezmesiniz\n4. desinizzme\n5. desinizmez\n6. demesinizz\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 256,
+                "total_tokens": 257
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "tr-42",
+            "root": "insan",
+            "suffixes": [
+                "laş",
+                "acak",
+                "tı"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: gerçek\nEkler: 'leş','ti','ecek'\nSeçenekler:\n1. gerçekleştiecek\n2. gerçektileşecek\n3. gerçekecekleşti\n4. gerçekleşecekti\n5. gerçektiecekleş\n6. gerçekecektileş\nCevap: 4\n\nÖrnek 2:\nKök: insan\nEkler: 'laş','tı','acak'\nSeçenekler:\n1. insanacaklaştı\n2. insantılaşacak\n3. insanacaktılaş\n4. insanlaşacaktı\n5. insanlaştıacak\n6. insantıacaklaş\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 282,
+                "total_tokens": 283
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-43",
+            "root": "tanı",
+            "suffixes": [
+                "ş",
+                "ıl",
+                "dığ",
+                "ı"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: çal\nEkler: 'ış','ı','ıl','dığ'\nSeçenekler:\n1. çalıldığıış\n2. çalışıldığı\n3. çalıdığılış\n4. çaldığıılış\n5. çalılışdığı\n6. çalılıışdığ\nCevap: 2\n\nÖrnek 2:\nKök: er\nEkler: 'diğ','iş','il','i'\nSeçenekler:\n1. erişidiğil\n2. erişdiğiil\n3. eriilişdiğ\n4. eridiğişil\n5. erişildiği\n6. erilidiğiş\nCevap: 5\n\nÖrnek 3:\nKök: kon\nEkler: 'u','ul','duğ','uş'\nSeçenekler:\n1. konuşuduğul\n2. konduğuşuul\n3. konuulduğuş\n4. konuduğuluş\n5. konuduğuşul\n6. konuşulduğu\nCevap: 6\n\nÖrnek 4:\nKök: tanı\nEkler: 'ı','dığ','ıl','ş'\nSeçenekler:\n1. tanıdığşılı\n2. tanışıldığı\n3. tanışıdığıl\n4. tanııılşdığ\n5. tanışdığılı\n6. tanıışdığıl\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 449,
+                "total_tokens": 450
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-44",
+            "root": "am",
+            "suffixes": [
+                "ca",
+                "lar",
+                "ı"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: ön\nEkler: 'i','ler','ce'\nSeçenekler:\n1. önceleri\n2. önlerice\n3. öniceler\n4. önilerce\n5. önlercei\n6. önceiler\nCevap: 1\n\nÖrnek 2:\nKök: gerek\nEkler: 'çe','ler','i'\nSeçenekler:\n1. gerekçeleri\n2. gerekçeiler\n3. gereklerçei\n4. gerekleriçe\n5. gerekilerçe\n6. gerekiçeler\nCevap: 1\n\nÖrnek 3:\nKök: am\nEkler: 'lar','ca','ı'\nSeçenekler:\n1. amılarca\n2. amlarcaı\n3. amıcalar\n4. amcaları\n5. amcaılar\n6. amlarıca\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 324,
+                "total_tokens": 325
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-45",
+            "root": "sev",
+            "suffixes": [
+                "il",
+                "dik",
+                "ler",
+                "in",
+                "i"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: üz\nEkler: 'ül','i','in','ler','dük'\nSeçenekler:\n1. üzleriüldükin\n2. üzdüküliniler\n3. üzdükilerinül\n4. üzindüklerüli\n5. üzüldüklerini\n6. üzdüklerinüli\nCevap: 5\n\nÖrnek 2:\nKök: kır\nEkler: 'lar','ıl','ı','dık','ın'\nSeçenekler:\n1. kırlarılıdıkın\n2. kırlarınııldık\n3. kırlarıdıkınıl\n4. kırıldıklarını\n5. kırıldıkınılar\n6. kırdıkıınlarıl\nCevap: 4\n\nÖrnek 3:\nKök: kon\nEkler: 'ul','lar','ın','ı','duk'\nSeçenekler:\n1. konlardukulıın\n2. konlardukıınul\n3. konlarınuldukı\n4. konulduklarını\n5. kondukınlarıul\n6. konullardukıın\nCevap: 4\n\nÖrnek 4:\nKök: sev\nEkler: 'dik','ler','il','i','in'\nSeçenekler:\n1. sevleriilindik\n2. sevdiklerinili\n3. sevildikinleri\n4. sevinlerdikili\n5. sevinleriildik\n6. sevildiklerini\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 481,
+                "total_tokens": 482
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-46",
+            "root": "ol",
+            "suffixes": [
+                "acak",
+                "sı",
+                "n",
+                "ız"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: ver\nEkler: 'n','ecek','si','iz'\nSeçenekler:\n1. verizeceksin\n2. vernizsiecek\n3. vereceksiniz\n4. vereceksiizn\n5. verizsiecekn\n6. versiecekizn\nCevap: 3\n\nÖrnek 2:\nKök: başla\nEkler: 'sı','ız','n','yacak'\nSeçenekler:\n1. başlansıyacakız\n2. başlaızsıyacakn\n3. başlayacaksınız\n4. başlaıznyacaksı\n5. başlayacakıznsı\n6. başlaızyacaknsı\nCevap: 3\n\nÖrnek 3:\nKök: dile\nEkler: 'n','iz','yecek','si'\nSeçenekler:\n1. dileyeceksiniz\n2. dileizyeceksin\n3. dileizyeceknsi\n4. dileyecekiznsi\n5. dilesinyecekiz\n6. dileiznyeceksi\nCevap: 1\n\nÖrnek 4:\nKök: ol\nEkler: 'sı','acak','n','ız'\nSeçenekler:\n1. olacaknızsı\n2. olacaksınız\n3. olızacaksın\n4. olızsınacak\n5. olnsıızacak\n6. olsınacakız\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2\n\nKök: ol\nEkler: 'sı','acak','n','ız'\nSeçenekler:\n1. olacaknızsı\n2. olacaks",
+            "usage": {
+                "completion_tokens": 40,
+                "prompt_tokens": 452,
+                "total_tokens": 492
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "tr-47",
+            "root": "bir",
+            "suffixes": [
+                "i",
+                "ler",
+                "i",
+                "yle"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: yaz\nEkler: 'lar','ı','yla','ı'\nSeçenekler:\n1. yazlarıylaı\n2. yazlarylaıı\n3. yazylaıılar\n4. yazıylaları\n5. yazııylalar\n6. yazılarıyla\nCevap: 6\n\nÖrnek 2:\nKök: kok\nEkler: 'yla','lar','ı','u'\nSeçenekler:\n1. kokıuylalar\n2. kokylaılaru\n3. kokylauılar\n4. kokıylaular\n5. kokuıylalar\n6. kokularıyla\nCevap: 6\n\nÖrnek 3:\nKök: akıl\nEkler: 'lar','yla','ı'\nSeçenekler:\n1. akıllarylaı\n2. akılylaları\n3. akılylaılar\n4. akıllarıyla\n5. akılılaryla\n6. akılıylalar\nCevap: 4\n\nÖrnek 4:\nKök: güzel\nEkler: 'yle','i','ler'\nSeçenekler:\n1. güzelyleleri\n2. güzelleriyle\n3. güzeliyleler\n4. güzelileryle\n5. güzellerylei\n6. güzelyleiler\nCevap: 2\n\nÖrnek 5:\nKök: an\nEkler: 'lar','la','ı'\nSeçenekler:\n1. anılarla\n2. anlaları\n3. anlarlaı\n4. anlaılar\n5. anılalar\n6. anlarıla\nCevap: 1\n\nÖrnek 6:\nKök: duy\nEkler: 'la','u','lar'\nSeçenekler:\n1. duylalaru\n2. duyularla\n3. duyulalar\n4. duylarula\n5. duylarlau\n6. duylaular\nCevap: 2\n\nÖrnek 7:\nKök: per\nEkler: 'le','ler','i'\nSeçenekler:\n1. perleleri\n2. perlerile\n3. perilerle\n4. perlerlei\n5. perileler\n6. perleiler\nCevap: 3\n\nÖrnek 8:\nKök: bir\nEkler: 'yle','i','i','ler'\nSeçenekler:\n1. birileriyle\n2. birylelerii\n3. birleryleii\n4. birleriiyle\n5. biryleileri\n6. biriileryle\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 724,
+                "total_tokens": 726
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "tr-48",
+            "root": "do",
+            "suffixes": [
+                "st",
+                "luk",
+                "tur"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dürü\nEkler: 'st','lük','tür'\nSeçenekler:\n1. dürüstlüktür\n2. dürülüktürst\n3. dürütürstlük\n4. dürüsttürlük\n5. dürülüksttür\n6. dürütürlükst\nCevap: 1\n\nÖrnek 2:\nKök: do\nEkler: 'luk','tur','st'\nSeçenekler:\n1. dolukturst\n2. dostluktur\n3. dostturluk\n4. doluksttur\n5. doturstluk\n6. doturlukst\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 262,
+                "total_tokens": 263
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-49",
+            "root": "anla",
+            "suffixes": [
+                "t",
+                "ma",
+                "dıkça"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: üre\nEkler: 'me','t','dikçe'\nSeçenekler:\n1. üredikçemet\n2. üremedikçet\n3. üretdikçeme\n4. üretmedikçe\n5. üremetdikçe\n6. üredikçetme\nCevap: 4\n\nÖrnek 2:\nKök: anla\nEkler: 'ma','t','dıkça'\nSeçenekler:\n1. anladıkçamat\n2. anladıkçatma\n3. anlatdıkçama\n4. anlatmadıkça\n5. anlamatdıkça\n6. anlamadıkçat\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4\n\nKök: boy\nEkler: 'un','ca','l'\nSeçenekler:\n1. boyunca\n2. boyca\n3. bolunca",
+            "usage": {
+                "completion_tokens": 40,
+                "prompt_tokens": 275,
+                "total_tokens": 315
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "tr-50",
+            "root": "iz",
+            "suffixes": [
+                "le",
+                "t",
+                "ti"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: baş\nEkler: 'tı','t','la'\nSeçenekler:\n1. başttıla\n2. baştıtla\n3. baştlatı\n4. baştılat\n5. başlatıt\n6. başlattı\nCevap: 6\n\nÖrnek 2:\nKök: iz\nEkler: 'ti','le','t'\nSeçenekler:\n1. iztitle\n2. izletit\n3. iztleti\n4. iztilet\n5. izletti\n6. izttile\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 242,
+                "total_tokens": 244
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-51",
+            "root": "kal",
+            "suffixes": [
+                "dır",
+                "a",
+                "ma",
+                "dığ",
+                "ı",
+                "nı"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: değiş\nEkler: 'i','diğ','tir','ni','me','e'\nSeçenekler:\n1. değiştirnimeiediğ\n2. değişimenietirdiğ\n3. değişniimediğetir\n4. değiştiremediğini\n5. değiştirnimeediği\n6. değişnidiğeimetir\nCevap: 4\n\nÖrnek 2:\nKök: sür\nEkler: 'e','dür','i','ni','me','diğ'\nSeçenekler:\n1. sürdüremediğini\n2. sürdürmeeinidiğ\n3. sürmeedürdiğini\n4. sürinimedürdiğe\n5. sürnieimediğdür\n6. süridürdiğenime\nCevap: 1\n\nÖrnek 3:\nKök: dol\nEkler: 'dığ','a','nı','ı','ma','dur'\nSeçenekler:\n1. dolmadığdurınıa\n2. doldığmadurınıa\n3. dolduramadığını\n4. dolmadurıdığanı\n5. dolıdığnıdurmaa\n6. dolıduramanıdığ\nCevap: 3\n\nÖrnek 4:\nKök: kal\nEkler: 'dığ','dır','nı','ma','a','ı'\nSeçenekler:\n1. kaldırmaınıadığ\n2. kaldıramadığını\n3. kaldığıanıdırma\n4. kalmadığnııdıra\n5. kalıadırmadığnı\n6. kalıamadığnıdır\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 528,
+                "total_tokens": 529
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-52",
+            "root": "değ",
+            "suffixes": [
+                "iş",
+                "me",
+                "si",
+                "n"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: dön\nEkler: 'üş','n','me','si'\nSeçenekler:\n1. dönmesiüşn\n2. dönüşmesin\n3. dönmeüşsin\n4. dönnüşmesi\n5. dönüşsinme\n6. dönnsimeüş\nCevap: 2\n\nÖrnek 2:\nKök: kar\nEkler: 'sı','n','ma','ış'\nSeçenekler:\n1. karsıışnma\n2. karnmasıış\n3. karnsımaış\n4. karışmasın\n5. karmanışsı\n6. karışmansı\nCevap: 4\n\nÖrnek 3:\nKök: karı\nEkler: 'sı','n','ş','ma'\nSeçenekler:\n1. karışmansı\n2. karımansış\n3. karısınmaş\n4. karınsımaş\n5. karınşması\n6. karışmasın\nCevap: 6\n\nÖrnek 4:\nKök: kon\nEkler: 'uş','sı','ma','n'\nSeçenekler:\n1. konnuşması\n2. konnmasıuş\n3. konuşmasın\n4. konsınuşma\n5. konnsıuşma\n6. konnuşsıma\nCevap: 3\n\nÖrnek 5:\nKök: daya\nEkler: 'sı','ma','n','ış'\nSeçenekler:\n1. dayanışması\n2. dayasıışman\n3. dayamaışsın\n4. dayansıışma\n5. dayamansıış\n6. dayansımaış\nCevap: 1\n\nÖrnek 6:\nKök: değ\nEkler: 'iş','si','me','n'\nSeçenekler:\n1. değişmesin\n2. değnişsime\n3. değmensiiş\n4. değsiişnme\n5. değmeişnsi\n6. değmesiniş\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 606,
+                "total_tokens": 608
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-53",
+            "root": "kal",
+            "suffixes": [
+                "ıcı",
+                "lık",
+                "ta"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: sürükle\nEkler: 'yici','lik','te'\nSeçenekler:\n1. sürükleyicilikte\n2. sürüklelikyicite\n3. sürükleteyicilik\n4. sürüklelikteyici\n5. sürükletelikyici\n6. sürükleyicitelik\nCevap: 1\n\nÖrnek 2:\nKök: kal\nEkler: 'lık','ıcı','ta'\nSeçenekler:\n1. kaltaıcılık\n2. kallıkıcıta\n3. kalıcıtalık\n4. kallıktaıcı\n5. kalıcılıkta\n6. kaltalıkıcı\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 276,
+                "total_tokens": 277
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-54",
+            "root": "kal",
+            "suffixes": [
+                "dır",
+                "ar",
+                "a",
+                "k"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: bil\nEkler: 'k','dir','er','e'\nSeçenekler:\n1. bilekerdir\n2. bileerdirk\n3. bildireerk\n4. bildirerek\n5. bileredirk\n6. bilkdireer\nCevap: 4\n\nÖrnek 2:\nKök: düşün\nEkler: 'e','dür','er','k'\nSeçenekler:\n1. düşünerkdüre\n2. düşündürerek\n3. düşünkeredür\n4. düşünerekdür\n5. düşünedürerk\n6. düşünekdürer\nCevap: 2\n\nÖrnek 3:\nKök: oluş\nEkler: 'a','k','ar','tur'\nSeçenekler:\n1. oluşkaartur\n2. oluşarturka\n3. oluşaraktur\n4. oluşkartura\n5. oluşakartur\n6. oluşturarak\nCevap: 6\n\nÖrnek 4:\nKök: yap\nEkler: 'tır','a','k','ar'\nSeçenekler:\n1. yapatırark\n2. yapaktırar\n3. yapakartır\n4. yaptıraark\n5. yaptırarak\n6. yaptırkara\nCevap: 5\n\nÖrnek 5:\nKök: değiş\nEkler: 'e','tir','k','er'\nSeçenekler:\n1. değiştirkeer\n2. değişktireer\n3. değişeerktir\n4. değiştirerek\n5. değişeretirk\n6. değiştirerke\nCevap: 4\n\nÖrnek 6:\nKök: dönüş\nEkler: 'k','er','tür','e'\nSeçenekler:\n1. dönüştürkeer\n2. dönüşkeertür\n3. dönüştüreker\n4. dönüşekertür\n5. dönüştürerek\n6. dönüşktüreer\nCevap: 5\n\nÖrnek 7:\nKök: dokun\nEkler: 'k','a','dur','ar'\nSeçenekler:\n1. dokunadurark\n2. dokunduraark\n3. dokunardurka\n4. dokunadurkar\n5. dokunaardurk\n6. dokundurarak\nCevap: 6\n\nÖrnek 8:\nKök: kal\nEkler: 'ar','a','k','dır'\nSeçenekler:\n1. kalaardırk\n2. kalakardır\n3. kaldırarak\n4. kalkaardır\n5. kalardırka\n6. kalkardıra\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 782,
+                "total_tokens": 783
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-55",
+            "root": "tanı",
+            "suffixes": [
+                "n",
+                "ır",
+                "dı",
+                "m"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: sev\nEkler: 'in','di','ir','m'\nSeçenekler:\n1. sevdiinmir\n2. sevinmdiir\n3. sevdimirin\n4. sevdiminir\n5. sevirdimin\n6. sevinirdim\nCevap: 6\n\nÖrnek 2:\nKök: düş\nEkler: 'm','ün','ür','dü'\nSeçenekler:\n1. düşdüünürm\n2. düşdüünmür\n3. düşündümür\n4. düşünürdüm\n5. düşdüürünm\n6. düşdüürmün\nCevap: 4\n\nÖrnek 3:\nKök: sığ\nEkler: 'ın','m','dı','ır'\nSeçenekler:\n1. sığmındıır\n2. sığırındım\n3. sığırmdıın\n4. sığdıırınm\n5. sığdıınırm\n6. sığınırdım\nCevap: 6\n\nÖrnek 4:\nKök: bul\nEkler: 'un','du','ur','m'\nSeçenekler:\n1. bulurduunm\n2. bulurdumun\n3. bulunurdum\n4. bulduurmun\n5. bulmurduun\n6. bulmduurun\nCevap: 3\n\nÖrnek 5:\nKök: öze\nEkler: 'm','n','di','ir'\nSeçenekler:\n1. özenmdiir\n2. özedinmir\n3. özenirdim\n4. özedimirn\n5. özediirmn\n6. özemndiir\nCevap: 3\n\nÖrnek 6:\nKök: tanı\nEkler: 'dı','n','ır','m'\nSeçenekler:\n1. tanıırdınm\n2. tanınırdım\n3. tanıırndım\n4. tanıırmndı\n5. tanımırndı\n6. tanındımır\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 609,
+                "total_tokens": 611
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-56",
+            "root": "tanı",
+            "suffixes": [
+                "ş",
+                "acağ",
+                "ı"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: değ\nEkler: 'iş','eceğ','i'\nSeçenekler:\n1. değeceğişi\n2. değiişeceğ\n3. değişieceğ\n4. değişeceği\n5. değeceğiiş\n6. değieceğiş\nCevap: 4\n\nÖrnek 2:\nKök: çal\nEkler: 'ış','acağ','ı'\nSeçenekler:\n1. çalacağıış\n2. çalıacağış\n3. çalacağışı\n4. çalışıacağ\n5. çalışacağı\n6. çalıışacağ\nCevap: 5\n\nÖrnek 3:\nKök: uy\nEkler: 'acağ','uş','ı'\nSeçenekler:\n1. uyuşıacağ\n2. uyıuşacağ\n3. uyuşacağı\n4. uyacağuşı\n5. uyıacağuş\n6. uyacağıuş\nCevap: 3\n\nÖrnek 4:\nKök: dön\nEkler: 'eceğ','üş','i'\nSeçenekler:\n1. dönüşieceğ\n2. dönieceğüş\n3. döneceğüşi\n4. döneceğiüş\n5. döniüşeceğ\n6. dönüşeceği\nCevap: 6\n\nÖrnek 5:\nKök: tanı\nEkler: 'ş','ı','acağ'\nSeçenekler:\n1. tanıacağşı\n2. tanııacağş\n3. tanışacağı\n4. tanışıacağ\n5. tanıacağış\n6. tanıışacağ\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 519,
+                "total_tokens": 520
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-57",
+            "root": "ol",
+            "suffixes": [
+                "abil",
+                "eceğ",
+                "im",
+                "in"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: yaşa\nEkler: 'yabil','in','eceğ','im'\nSeçenekler:\n1. yaşaeceğinyabilim\n2. yaşainimyabileceğ\n3. yaşayabileceğimin\n4. yaşainyabilimeceğ\n5. yaşaimeceğyabilin\n6. yaşaeceğimyabilin\nCevap: 3\n\nÖrnek 2:\nKök: öl\nEkler: 'ebil','in','im','eceğ'\nSeçenekler:\n1. ölinebileceğim\n2. ölebileceğimin\n3. ölinimeceğebil\n4. ölimineceğebil\n5. ölinimebileceğ\n6. öleceğinebilim\nCevap: 2\n\nÖrnek 3:\nKök: ol\nEkler: 'in','im','abil','eceğ'\nSeçenekler:\n1. oleceğinabilim\n2. olabileceğimin\n3. oleceğimabilin\n4. olimabilineceğ\n5. olabilimeceğin\n6. olineceğimabil\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 383,
+                "total_tokens": 384
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-58",
+            "root": "a",
+            "suffixes": [
+                "n",
+                "laş",
+                "mak"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: yak\nEkler: 'ın','laş','mak'\nSeçenekler:\n1. yakınlaşmak\n2. yakmaklaşın\n3. yaklaşmakın\n4. yakınmaklaş\n5. yaklaşınmak\n6. yakmakınlaş\nCevap: 1\n\nÖrnek 2:\nKök: yoğ\nEkler: 'mak','laş','un'\nSeçenekler:\n1. yoğmakunlaş\n2. yoğunlaşmak\n3. yoğlaşunmak\n4. yoğunmaklaş\n5. yoğmaklaşun\n6. yoğlaşmakun\nCevap: 2\n\nÖrnek 3:\nKök: özgü\nEkler: 'n','leş','mek'\nSeçenekler:\n1. özgümekleşn\n2. özgüleşnmek\n3. özgünmekleş\n4. özgünleşmek\n5. özgüleşmekn\n6. özgümeknleş\nCevap: 4\n\nÖrnek 4:\nKök: a\nEkler: 'mak','laş','n'\nSeçenekler:\n1. anlaşmak\n2. alaşmakn\n3. amaklaşn\n4. anmaklaş\n5. alaşnmak\n6. amaknlaş\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1\n\nKök: büyü\nEkler: 'mek','t','ü'\nSeçenekler:\n1. büyütmek\n2. büyütümek",
+            "usage": {
+                "completion_tokens": 40,
+                "prompt_tokens": 450,
+                "total_tokens": 490
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "tr-59",
+            "root": "ye",
+            "suffixes": [
+                "ş",
+                "il",
+                "in",
+                "in"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: yap\nEkler: 'ış','ın','ın','ıl'\nSeçenekler:\n1. yapınınışıl\n2. yapınılınış\n3. yapılınışın\n4. yapışınılın\n5. yapınışınıl\n6. yapılışının\nCevap: 6\n\nÖrnek 2:\nKök: kur\nEkler: 'un','un','uş','ul'\nSeçenekler:\n1. kuruşulunun\n2. kurunuluşun\n3. kuruluşunun\n4. kurununuluş\n5. kuruşununul\n6. kuruşunulun\nCevap: 3\n\nÖrnek 3:\nKök: ye\nEkler: 'ş','il','in','in'\nSeçenekler:\n1. yeşilinin\n2. yeininşil\n3. yeinilinş\n4. yeinşinil\n5. yeinilşin\n6. yeilşinin\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1\n\nKök: büyü\nEkler: 'me','me','me','me'\nSeçenekler:\n1. büyüme\n2. büyü",
+            "usage": {
+                "completion_tokens": 40,
+                "prompt_tokens": 344,
+                "total_tokens": 384
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "tr-60",
+            "root": "izle",
+            "suffixes": [
+                "t",
+                "ebil",
+                "ecek"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: şaşır\nEkler: 't','ecek','abil'\nSeçenekler:\n1. şaşırtecekabil\n2. şaşırtabilecek\n3. şaşırabilecekt\n4. şaşırecekabilt\n5. şaşırabiltecek\n6. şaşırecektabil\nCevap: 2\n\nÖrnek 2:\nKök: izle\nEkler: 'ecek','ebil','t'\nSeçenekler:\n1. izletecekebil\n2. izleebilecekt\n3. izleebiltecek\n4. izleecekebilt\n5. izletebilecek\n6. izleecektebil\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 277,
+                "total_tokens": 279
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-61",
+            "root": "ol",
+            "suffixes": [
+                "ma",
+                "yacağ",
+                "ım",
+                "ın"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: ver\nEkler: 'me','in','im','yeceğ'\nSeçenekler:\n1. veryeceğinmeim\n2. vermeiminyeceğ\n3. vermeyeceğinim\n4. verimmeyeceğin\n5. vermeyeceğimin\n6. veryeceğimmein\nCevap: 5\n\nÖrnek 2:\nKök: ol\nEkler: 'ma','ın','yacağ','ım'\nSeçenekler:\n1. olmaınımyacağ\n2. olımmaınyacağ\n3. olyacağınmaım\n4. olmayacağımın\n5. olımınyacağma\n6. olımmayacağın\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4\n\nKök: büyü\nEkler: 'me','in','t','ecek'\nSeçenekler:\n1. büyütmeinecek\n2. bü",
+            "usage": {
+                "completion_tokens": 40,
+                "prompt_tokens": 281,
+                "total_tokens": 321
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "tr-62",
+            "root": "etki",
+            "suffixes": [
+                "le",
+                "yici",
+                "liğ",
+                "i",
+                "yle"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: top\nEkler: 'yıcı','yla','la','lığ','ı'\nSeçenekler:\n1. toplayıcılığıyla\n2. toplaıylalığyıcı\n3. topylaılalığyıcı\n4. topyıcılığıylala\n5. topylalalığyıcıı\n6. topyıcılığylaıla\nCevap: 1\n\nÖrnek 2:\nKök: etki\nEkler: 'liğ','yici','yle','le','i'\nSeçenekler:\n1. etkiliğyleleiyici\n2. etkiliğiyleleyici\n3. etkileliğyiciiyle\n4. etkileyiciliğiyle\n5. etkiliğleyiciylei\n6. etkileyleiliğyici\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 302,
+                "total_tokens": 303
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-63",
+            "root": "a",
+            "suffixes": [
+                "la",
+                "lı",
+                "m"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: ge\nEkler: 'm','li','le'\nSeçenekler:\n1. gelilem\n2. gelimle\n3. gelelim\n4. gelemli\n5. gemleli\n6. gemlile\nCevap: 3\n\nÖrnek 2:\nKök: a\nEkler: 'la','m','lı'\nSeçenekler:\n1. alımla\n2. alalım\n3. alamlı\n4. amlıla\n5. alılam\n6. amlalı\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 236,
+                "total_tokens": 237
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-64",
+            "root": "batıl",
+            "suffixes": [
+                "ı",
+                "laş",
+                "ma",
+                "ma",
+                "n",
+                "ın"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: yak\nEkler: 'nın','laş','ma','ın','sı'\nSeçenekler:\n1. yaklaşnınmasıın\n2. yaksınınmalaşın\n3. yakmasınınınlaş\n4. yakınlaşmasının\n5. yaknınlaşınsıma\n6. yaklaşnınmaınsı\nCevap: 4\n\nÖrnek 2:\nKök: kut\nEkler: 'ma','ın','laş','u','n'\nSeçenekler:\n1. kutmaunınlaş\n2. kutınulaşman\n3. kutulaşmanın\n4. kutnınlaşuma\n5. kutmanlaşuın\n6. kutuınmanlaş\nCevap: 3\n\nÖrnek 3:\nKök: batıl\nEkler: 'ma','n','ı','laş','ın','ma'\nSeçenekler:\n1. batılınmamanılaş\n2. batılmaıınlaşnma\n3. batılnmamaıınlaş\n4. batıllaşıınmanma\n5. batılılaşmamanın\n6. batılınlaşnımama\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 395,
+                "total_tokens": 397
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-65",
+            "root": "an",
+            "suffixes": [
+                "ıl",
+                "mak",
+                "ta",
+                "ydı"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: süz\nEkler: 'ydi','mek','ül','te'\nSeçenekler:\n1. süzteydiülmek\n2. süzmekteydiül\n3. süzülmekteydi\n4. süzteülydimek\n5. süzmekteülydi\n6. süzydiülmekte\nCevap: 3\n\nÖrnek 2:\nKök: an\nEkler: 'ta','ıl','ydı','mak'\nSeçenekler:\n1. anılydıtamak\n2. anıltaydımak\n3. anmakydıtaıl\n4. anılmaktaydı\n5. anydıtaılmak\n6. antaılydımak\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 286,
+                "total_tokens": 287
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-66",
+            "root": "son",
+            "suffixes": [
+                "lan",
+                "acağ",
+                "ın",
+                "ın"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: etki\nEkler: 'eceğ','in','len','in'\nSeçenekler:\n1. etkiinleneceğin\n2. etkieceğleninin\n3. etkieceğininlen\n4. etkileneceğinin\n5. etkiininleneceğ\n6. etkiineceğinlen\nCevap: 4\n\nÖrnek 2:\nKök: son\nEkler: 'ın','ın','acağ','lan'\nSeçenekler:\n1. sonınlanınacağ\n2. sonlanınınacağ\n3. sonlanacağının\n4. sonınınlanacağ\n5. sonınacağlanın\n6. sonınacağınlan\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 276,
+                "total_tokens": 277
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "tr-67",
+            "root": "ak",
+            "suffixes": [
+                "ıcı",
+                "lığ",
+                "ın"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: tüket\nEkler: 'ici','liğ','in'\nSeçenekler:\n1. tüketinliğici\n2. tüketiciinliğ\n3. tüketliğinici\n4. tüketliğiciin\n5. tüketiniciliğ\n6. tüketiciliğin\nCevap: 6\n\nÖrnek 2:\nKök: ak\nEkler: 'lığ','ıcı','ın'\nSeçenekler:\n1. akıcılığın\n2. akıcıınlığ\n3. akınlığıcı\n4. aklığıcıın\n5. aklığınıcı\n6. akınıcılığ\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1\n\nKök: büyü\nEkler: 'me','dir','ici'\nSeçenekler:\n1. büyümedirici\n2. büyüdir",
+            "usage": {
+                "completion_tokens": 40,
+                "prompt_tokens": 275,
+                "total_tokens": 315
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "tr-68",
+            "root": "a",
+            "suffixes": [
+                "cı",
+                "lar",
+                "ımız",
+                "ın"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: sanat\nEkler: 'çı','lar','ın','ımız'\nSeçenekler:\n1. sanatlarınımızçı\n2. sanatçıınlarımız\n3. sanatınçıımızlar\n4. sanatınçılarımız\n5. sanatımızlarçıın\n6. sanatçılarımızın\nCevap: 6\n\nÖrnek 2:\nKök: emek\nEkler: 'çi','in','imiz','ler'\nSeçenekler:\n1. emekçiimizlerin\n2. emekinlerçiimiz\n3. emeklerinimizçi\n4. emekçiimizinler\n5. emeklerçiimizin\n6. emekçilerimizin\nCevap: 6\n\nÖrnek 3:\nKök: futbol\nEkler: 'ın','ımız','lar','cu'\nSeçenekler:\n1. futbolımızlarıncu\n2. futbolınlarımızcu\n3. futbollarıncuımız\n4. futbollarcuımızın\n5. futbolcularımızın\n6. futbolcularınımız\nCevap: 5\n\nÖrnek 4:\nKök: a\nEkler: 'ımız','cı','ın','lar'\nSeçenekler:\n1. acılarımızın\n2. aınlarcıımız\n3. alarınımızcı\n4. acılarınımız\n5. aınımızlarcı\n6. acıımızların\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 490,
+                "total_tokens": 491
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "tr-69",
+            "root": "hatır",
+            "suffixes": [
+                "lan",
+                "ır",
+                "sa",
+                "m"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: ses\nEkler: 'se','len','m','ir'\nSeçenekler:\n1. seslenirmse\n2. seslenirsem\n3. sesmirselen\n4. sesmlenseir\n5. sessemirlen\n6. sesmselenir\nCevap: 2\n\nÖrnek 2:\nKök: hatır\nEkler: 'ır','sa','m','lan'\nSeçenekler:\n1. hatırsaırmlan\n2. hatırsaırlanm\n3. hatırırmlansa\n4. hatırmlansaır\n5. hatırlanırsam\n6. hatırlansamır\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 263,
+                "total_tokens": 264
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-70",
+            "root": "an",
+            "suffixes": [
+                "ıl",
+                "ır",
+                "sa",
+                "k"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: yor\nEkler: 'ul','k','sa','ur'\nSeçenekler:\n1. yorulursak\n2. yorsaurulk\n3. yorksaulur\n4. yorulurksa\n5. yorkulursa\n6. yorursakul\nCevap: 1\n\nÖrnek 2:\nKök: göm\nEkler: 'se','ür','k','ül'\nSeçenekler:\n1. gömürsekül\n2. gömülürsek\n3. gömülkürse\n4. gömseülürk\n5. gömseürülk\n6. gömürülkse\nCevap: 2\n\nÖrnek 3:\nKök: an\nEkler: 'sa','ır','k','ıl'\nSeçenekler:\n1. ankılırsa\n2. anksaırıl\n3. ansaırılk\n4. anılırksa\n5. anılırsak\n6. ansakırıl\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 344,
+                "total_tokens": 345
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-71",
+            "root": "yaşa",
+            "suffixes": [
+                "n",
+                "abil",
+                "ecek",
+                "ler",
+                "i"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: sığ\nEkler: 'ler','ecek','abil','ın','i'\nSeçenekler:\n1. sığlerabiliınecek\n2. sığabilınlereceki\n3. sığınabililerecek\n4. sığecekiınlerabil\n5. sığınabilecekleri\n6. sığiabillerınecek\nCevap: 5\n\nÖrnek 2:\nKök: dire\nEkler: 'ler','ecek','n','ebil','i'\nSeçenekler:\n1. direieceknebiller\n2. direnebiliecekler\n3. direleriebilnecek\n4. direnebilecekleri\n5. direlerecekinebil\n6. direebilnleriecek\nCevap: 4\n\nÖrnek 3:\nKök: yaşa\nEkler: 'abil','i','n','ecek','ler'\nSeçenekler:\n1. yaşalerniabilecek\n2. yaşanlerecekiabil\n3. yaşaniabilecekler\n4. yaşanabilecekleri\n5. yaşanecekabililer\n6. yaşainlerabilecek\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 382,
+                "total_tokens": 383
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-72",
+            "root": "yaz",
+            "suffixes": [
+                "ı",
+                "lı",
+                "m"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: ok\nEkler: 'lu','u','m'\nSeçenekler:\n1. okulum\n2. oklumu\n3. okluum\n4. okumlu\n5. okmulu\n6. okmluu\nCevap: 1\n\nÖrnek 2:\nKök: bağı\nEkler: 'm','lı','sı'\nSeçenekler:\n1. bağısımlı\n2. bağımlısı\n3. bağılımsı\n4. bağımsılı\n5. bağısılım\n6. bağılısım\nCevap: 2\n\nÖrnek 3:\nKök: bağ\nEkler: 'sı','ım','lı'\nSeçenekler:\n1. bağlısıım\n2. bağsıımlı\n3. bağlıımsı\n4. bağımsılı\n5. bağımlısı\n6. bağsılıım\nCevap: 5\n\nÖrnek 4:\nKök: öd\nEkler: 'lü','ü','m'\nSeçenekler:\n1. ödülüm\n2. ödlüüm\n3. ödlümü\n4. ödmülü\n5. ödmlüü\n6. ödümlü\nCevap: 1\n\nÖrnek 5:\nKök: kef\nEkler: 'i','m','li'\nSeçenekler:\n1. kefmlii\n2. kefimli\n3. keflimi\n4. kefmili\n5. kefliim\n6. kefilim\nCevap: 6\n\nÖrnek 6:\nKök: yaz\nEkler: 'lı','ı','m'\nSeçenekler:\n1. yazmlıı\n2. yazılım\n3. yazlımı\n4. yazmılı\n5. yazımlı\n6. yazlıım\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 559,
+                "total_tokens": 561
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "tr-73",
+            "root": "anla",
+            "suffixes": [
+                "ş",
+                "abil",
+                "se",
+                "k"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: yar\nEkler: 'abil','se','k','ış'\nSeçenekler:\n1. yarışabilsek\n2. yarkışabilse\n3. yarabilsekış\n4. yarışkseabil\n5. yarseışabilk\n6. yarseışkabil\nCevap: 1\n\nÖrnek 2:\nKök: anla\nEkler: 'ş','abil','k','se'\nSeçenekler:\n1. anlaşkabilse\n2. anlaseabilşk\n3. anlaseşabilk\n4. anlaşabilsek\n5. anlakşabilse\n6. anlakşseabil\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 270,
+                "total_tokens": 272
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-74",
+            "root": "yer",
+            "suffixes": [
+                "leş",
+                "me",
+                "den"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: do\nEkler: 'laş','dan','ma'\nSeçenekler:\n1. dolaşdanma\n2. domadanlaş\n3. domalaşdan\n4. dodanmalaş\n5. dolaşmadan\n6. dodanlaşma\nCevap: 5\n\nÖrnek 2:\nKök: yer\nEkler: 'me','den','leş'\nSeçenekler:\n1. yerleşdenme\n2. yermeleşden\n3. yerdenmeleş\n4. yerleşmeden\n5. yerdenleşme\n6. yermedenleş\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 258,
+                "total_tokens": 259
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-75",
+            "root": "gir",
+            "suffixes": [
+                "eceğ",
+                "imiz",
+                "de"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: yap\nEkler: 'acağ','da','ımız'\nSeçenekler:\n1. yapacağdaımız\n2. yapdaımızacağ\n3. yapacağımızda\n4. yapımızacağda\n5. yapdaacağımız\n6. yapımızdaacağ\nCevap: 3\n\nÖrnek 2:\nKök: gir\nEkler: 'imiz','de','eceğ'\nSeçenekler:\n1. girimizeceğde\n2. girimizdeeceğ\n3. girdeimizeceğ\n4. girdeeceğimiz\n5. gireceğimizde\n6. gireceğdeimiz\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 274,
+                "total_tokens": 275
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-76",
+            "root": "sev",
+            "suffixes": [
+                "er",
+                "se",
+                "m"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: yaz\nEkler: 'm','sa','ar'\nSeçenekler:\n1. yazarmsa\n2. yazsamar\n3. yazsaarm\n4. yazmsaar\n5. yazmarsa\n6. yazarsam\nCevap: 6\n\nÖrnek 2:\nKök: sev\nEkler: 'er','se','m'\nSeçenekler:\n1. sevseerm\n2. sevmseer\n3. sevmerse\n4. sevsemer\n5. severmse\n6. seversem\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 237,
+                "total_tokens": 239
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-77",
+            "root": "şekil",
+            "suffixes": [
+                "len",
+                "dir",
+                "il",
+                "ip"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: ad\nEkler: 'lan','ıl','dır','ıp'\nSeçenekler:\n1. adıllandırıp\n2. adlandırılıp\n3. adlandırıpıl\n4. adlanıldırıp\n5. adıplandırıl\n6. adıplanıldır\nCevap: 2\n\nÖrnek 2:\nKök: şekil\nEkler: 'ip','len','dir','il'\nSeçenekler:\n1. şekildiripillen\n2. şekilillenipdir\n3. şekilillendirip\n4. şekillendirilip\n5. şekililipdirlen\n6. şekildirlenipil\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 276,
+                "total_tokens": 277
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-78",
+            "root": "düş",
+            "suffixes": [
+                "ün",
+                "me",
+                "yince"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: öde\nEkler: 'yince','n','me'\nSeçenekler:\n1. ödenmeyince\n2. ödemeyincen\n3. ödeyincemen\n4. ödenyinceme\n5. ödeyincenme\n6. ödemenyince\nCevap: 1\n\nÖrnek 2:\nKök: düş\nEkler: 'yince','ün','me'\nSeçenekler:\n1. düşyincemeün\n2. düşyinceünme\n3. düşmeyinceün\n4. düşünmeyince\n5. düşmeünyince\n6. düşünyinceme\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 268,
+                "total_tokens": 269
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-79",
+            "root": "a",
+            "suffixes": [
+                "n",
+                "laş",
+                "a",
+                "ma",
+                "mış"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: yak\nEkler: 'ma','a','ın','laş','mış'\nSeçenekler:\n1. yakmışlaşamaın\n2. yakmışalaşınma\n3. yakalaşınmışma\n4. yaklaşmaaınmış\n5. yakınlaşmaamış\n6. yakınlaşamamış\nCevap: 6\n\nÖrnek 2:\nKök: a\nEkler: 'laş','n','mış','a','ma'\nSeçenekler:\n1. alaşmaamışn\n2. amanmışlaşa\n3. amalaşamışn\n4. anlaşamamış\n5. amışlaşnmaa\n6. alaşmanamış\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4\n\nKök: Türk\nEkler: 'çe','le','i','e','im'\nSeçenekler:\n1. Türkçeleim\n2. Tür",
+            "usage": {
+                "completion_tokens": 40,
+                "prompt_tokens": 292,
+                "total_tokens": 332
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "tr-80",
+            "root": "an",
+            "suffixes": [
+                "laş",
+                "a",
+                "ma",
+                "dık",
+                "lar",
+                "ı"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: yüz\nEkler: 'e','dik','me','leş','i','ler'\nSeçenekler:\n1. yüzdikleşleremei\n2. yüzemeleşilerdik\n3. yüzleşemedikleri\n4. yüzleşdikiemeler\n5. yüzimeediklerleş\n6. yüzielermeleşdik\nCevap: 3\n\nÖrnek 2:\nKök: an\nEkler: 'ı','laş','dık','a','ma','lar'\nSeçenekler:\n1. anlarmaaılaşdık\n2. anlarlaşmaaıdık\n3. anlarlaşıadıkma\n4. anmalarlaşaıdık\n5. anlaşamadıkları\n6. anlardıklaşıama\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 312,
+                "total_tokens": 313
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-81",
+            "root": "sağ",
+            "suffixes": [
+                "lan",
+                "abil",
+                "mek",
+                "te",
+                "dir"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: gözlem\nEkler: 'ebil','len','dir','te','mek'\nSeçenekler:\n1. gözlemdirtemeklenebil\n2. gözlemlenebilmektedir\n3. gözlemmekebiltelendir\n4. gözlemebildirmeklente\n5. gözlemlendirmekteebil\n6. gözlemlenmekebiltedir\nCevap: 2\n\nÖrnek 2:\nKök: sağ\nEkler: 'te','mek','lan','abil','dir'\nSeçenekler:\n1. sağmeklanabildirte\n2. sağmekabildirtelan\n3. sağlanabilmektedir\n4. sağabillantemekdir\n5. sağdirteabillanmek\n6. sağdirabilmektelan\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 303,
+                "total_tokens": 304
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-82",
+            "root": "tanı",
+            "suffixes": [
+                "ş",
+                "tır",
+                "ır",
+                "ım"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: değ\nEkler: 'im','ir','iş','tir'\nSeçenekler:\n1. değtirişimir\n2. değtirimiriş\n3. değiştirimir\n4. değiştiririm\n5. değişimtirir\n6. değtiririmiş\nCevap: 4\n\nÖrnek 2:\nKök: tut\nEkler: 'tur','um','uş','ur'\nSeçenekler:\n1. tutumturuşur\n2. tutuştururum\n3. tuturuşturum\n4. tutumuruştur\n5. tuturumuştur\n6. tuttururumuş\nCevap: 2\n\nÖrnek 3:\nKök: yat\nEkler: 'ış','tır','ım','ır'\nSeçenekler:\n1. yatıştırırım\n2. yattırışımır\n3. yattırırımış\n4. yattırışırım\n5. yatışımırtır\n6. yatımıştırır\nCevap: 1\n\nÖrnek 4:\nKök: tanı\nEkler: 'ş','tır','ır','ım'\nSeçenekler:\n1. tanıımştırır\n2. tanışımırtır\n3. tanıımırştır\n4. tanıtırşımır\n5. tanıımşırtır\n6. tanıştırırım\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 454,
+                "total_tokens": 455
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-83",
+            "root": "de",
+            "suffixes": [
+                "niz",
+                "li"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: ak\nEkler: 'lı','nız'\nSeçenekler:\n1. aklınız\n2. aknızlı\nCevap: 1\n\nÖrnek 2:\nKök: sevgi\nEkler: 'li','niz'\nSeçenekler:\n1. sevginizli\n2. sevgiliniz\nCevap: 2\n\nÖrnek 3:\nKök: gön\nEkler: 'nüz','lü'\nSeçenekler:\n1. gönnüzlü\n2. gönlünüz\nCevap: 2\n\nÖrnek 4:\nKök: de\nEkler: 'niz','li'\nSeçenekler:\n1. deliniz\n2. denizli\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 284,
+                "total_tokens": 286
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "tr-84",
+            "root": "söz",
+            "suffixes": [
+                "cük",
+                "ler",
+                "in"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: bağ\nEkler: 'ın','lar','cık'\nSeçenekler:\n1. bağıncıklar\n2. bağcıkınlar\n3. bağlarcıkın\n4. bağınlarcık\n5. bağlarıncık\n6. bağcıkların\nCevap: 6\n\nÖrnek 2:\nKök: tomur\nEkler: 'ın','cuk','lar'\nSeçenekler:\n1. tomurlarıncuk\n2. tomurcukların\n3. tomurcukınlar\n4. tomurıncuklar\n5. tomurlarcukın\n6. tomurınlarcuk\nCevap: 2\n\nÖrnek 3:\nKök: söz\nEkler: 'cük','ler','in'\nSeçenekler:\n1. sözlerincük\n2. sözcüklerin\n3. sözincükler\n4. sözcükinler\n5. sözlercükin\n6. sözinlercük\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 353,
+                "total_tokens": 354
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-85",
+            "root": "düş",
+            "suffixes": [
+                "ün",
+                "düğ",
+                "üm",
+                "den"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: çek\nEkler: 'diğ','in','den','im'\nSeçenekler:\n1. çekindiğimden\n2. çekinimdiğden\n3. çekimdiğinden\n4. çekdenimindiğ\n5. çekdeninimdiğ\n6. çekdiğinimden\nCevap: 1\n\nÖrnek 2:\nKök: bul\nEkler: 'un','duğ','dan','um'\nSeçenekler:\n1. bulumunduğdan\n2. bulunduğumdan\n3. bulduğumdanun\n4. bulundanumduğ\n5. bulunumduğdan\n6. bulduğdanunum\nCevap: 2\n\nÖrnek 3:\nKök: düş\nEkler: 'den','üm','ün','düğ'\nSeçenekler:\n1. düşümündendüğ\n2. düşümdüğdenün\n3. düşündüğümden\n4. düşümdenündüğ\n5. düşünümdüğden\n6. düşdüğündenüm\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 384,
+                "total_tokens": 385
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-86",
+            "root": "sev",
+            "suffixes": [
+                "il",
+                "me",
+                "me",
+                "yi"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: aç\nEkler: 'ma','ma','ıl','yı'\nSeçenekler:\n1. açmamayııl\n2. açmaılyıma\n3. açılmayıma\n4. açılyımama\n5. açılmamayı\n6. açyıılmama\nCevap: 5\n\nÖrnek 2:\nKök: sar\nEkler: 'ma','ıl','yı'\nSeçenekler:\n1. sarılmayı\n2. saryımaıl\n3. sarmaılyı\n4. sarmayııl\n5. sarılyıma\n6. saryıılma\nCevap: 1\n\nÖrnek 3:\nKök: ver\nEkler: 'me','il','yi'\nSeçenekler:\n1. veryiilme\n2. vermeilyi\n3. vermeyiil\n4. veryimeil\n5. verilyime\n6. verilmeyi\nCevap: 6\n\nÖrnek 4:\nKök: düşün\nEkler: 'me','yi','ül'\nSeçenekler:\n1. düşünülyime\n2. düşünmeülyi\n3. düşünyiülme\n4. düşünmeyiül\n5. düşünyimeül\n6. düşünülmeyi\nCevap: 6\n\nÖrnek 5:\nKök: unut\nEkler: 'ul','yı','ma'\nSeçenekler:\n1. unutulyıma\n2. unutyıulma\n3. unutmayıul\n4. unutmaulyı\n5. unutulmayı\n6. unutyımaul\nCevap: 5\n\nÖrnek 6:\nKök: sev\nEkler: 'il','yi','me','me'\nSeçenekler:\n1. sevyimeilme\n2. sevilmemeyi\n3. sevilmeyime\n4. sevilyimeme\n5. sevmeyimeil\n6. sevmeyiilme\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 606,
+                "total_tokens": 608
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "tr-87",
+            "root": "o",
+            "suffixes": [
+                "da",
+                "lar",
+                "a"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: de\nEkler: 'ler','de','e'\nSeçenekler:\n1. delerede\n2. deedeler\n3. dedeeler\n4. deelerde\n5. delerdee\n6. dedelere\nCevap: 6\n\nÖrnek 2:\nKök: pas\nEkler: 'a','ta','lar'\nSeçenekler:\n1. paslartaa\n2. pasatalar\n3. paslarata\n4. pasalarta\n5. pastaalar\n6. pastalara\nCevap: 6\n\nÖrnek 3:\nKök: o\nEkler: 'a','da','lar'\nSeçenekler:\n1. odaalar\n2. olardaa\n3. oadalar\n4. odalara\n5. oalarda\n6. olarada\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 303,
+                "total_tokens": 305
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-88",
+            "root": "bir",
+            "suffixes": [
+                "leş",
+                "tik",
+                "ler",
+                "i",
+                "nde"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: karşı\nEkler: 'ı','lar','tık','nda','laş'\nSeçenekler:\n1. karşılaştıklarında\n2. karşılaşlarıtıknda\n3. karşındaılartıklaş\n4. karşılaşılarndatık\n5. karşııtıklaşndalar\n6. karşılartıklaşndaı\nCevap: 1\n\nÖrnek 2:\nKök: bir\nEkler: 'i','tik','nde','ler','leş'\nSeçenekler:\n1. birleştikndeleri\n2. birndetikleşleri\n3. birleştiklerinde\n4. biritiklerleşnde\n5. birtikleşindeler\n6. birndelerleşitik\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3\n\nKök: Türk\nEkler: 'çe','ler','tik','ni','leş'\nSeçenekler:\n1. Türkçetiklerle",
+            "usage": {
+                "completion_tokens": 40,
+                "prompt_tokens": 301,
+                "total_tokens": 341
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "tr-89",
+            "root": "iz",
+            "suffixes": [
+                "ler",
+                "ler",
+                "di"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: do\nEkler: 'lar','lar','dı'\nSeçenekler:\n1. dolarlardı\n2. dodılarlar\n3. dolardılar\nCevap: 1\n\nÖrnek 2:\nKök: güzel\nEkler: 'di','ler'\nSeçenekler:\n1. güzellerdi\n2. güzeldiler\nCevap: 1\n\nÖrnek 3:\nKök: kal\nEkler: 'dı','lar'\nSeçenekler:\n1. kaldılar\n2. kallardı\nCevap: 1\n\nÖrnek 4:\nKök: kadın\nEkler: 'dı','lar'\nSeçenekler:\n1. kadındılar\n2. kadınlardı\nCevap: 2\n\nÖrnek 5:\nKök: et\nEkler: 'ti','ler'\nSeçenekler:\n1. etlerti\n2. ettiler\nCevap: 2\n\nÖrnek 6:\nKök: değil\nEkler: 'di','ler'\nSeçenekler:\n1. değildiler\n2. değillerdi\nCevap: 1\n\nÖrnek 7:\nKök: kişi\nEkler: 'ydi','ler'\nSeçenekler:\n1. kişilerydi\n2. kişiydiler\nCevap: 2\n\nÖrnek 8:\nKök: düşün\nEkler: 'dü','ler'\nSeçenekler:\n1. düşündüler\n2. düşünlerdü\nCevap: 1\n\nÖrnek 9:\nKök: düş\nEkler: 'ler','tü'\nSeçenekler:\n1. düşlertü\n2. düştüler\nCevap: 2\n\nÖrnek 10:\nKök: do\nEkler: 'lar','ydu'\nSeçenekler:\n1. doydular\n2. dolarydu\nCevap: 1\n\nÖrnek 11:\nKök: ulaş\nEkler: 'lar','tı'\nSeçenekler:\n1. ulaşlartı\n2. ulaştılar\nCevap: 2\n\nÖrnek 12:\nKök: yok\nEkler: 'tu','lar'\nSeçenekler:\n1. yoklartu\n2. yoktular\nCevap: 2\n\nÖrnek 13:\nKök: zorunda\nEkler: 'ydı','lar'\nSeçenekler:\n1. zorundalarydı\n2. zorundaydılar\nCevap: 2\n\nÖrnek 14:\nKök: olur\nEkler: 'du','lar'\nSeçenekler:\n1. olurdular\n2. olurlardu\nCevap: 1\n\nÖrnek 15:\nKök: iz\nEkler: 'ler','di','ler'\nSeçenekler:\n1. izdilerler\n2. izlerlerdi\n3. izlerdiler\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 827,
+                "total_tokens": 828
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "tr-90",
+            "root": "karşı",
+            "suffixes": [
+                "la",
+                "yabil",
+                "iyor",
+                "du"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: tetik\nEkler: 'du','yebil','iyor','le'\nSeçenekler:\n1. tetikyebilleiyordu\n2. tetikduleyebiliyor\n3. tetikleiyorduyebil\n4. tetikyebilleduiyor\n5. tetikyebilduleiyor\n6. tetikleyebiliyordu\nCevap: 6\n\nÖrnek 2:\nKök: karşı\nEkler: 'la','du','yabil','iyor'\nSeçenekler:\n1. karşıiyorladuyabil\n2. karşılayabiliyordu\n3. karşıiyoryabildula\n4. karşıladuyabiliyor\n5. karşıduiyorlayabil\n6. karşıyabildulaiyor\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 294,
+                "total_tokens": 295
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-91",
+            "root": "a",
+            "suffixes": [
+                "n",
+                "laş",
+                "ır",
+                "sı",
+                "n",
+                "ız"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: do\nEkler: 'ız','laş','ır','sı','n'\nSeçenekler:\n1. doızsılaşırn\n2. donızsılaşır\n3. doızsılaşnır\n4. dolaşırsınız\n5. doırlaşsıızn\n6. doızsıırlaşn\nCevap: 4\n\nÖrnek 2:\nKök: yüz\nEkler: 'si','iz','leş','ir','n'\nSeçenekler:\n1. yüzleşirsiniz\n2. yüznleşsiiriz\n3. yüzizsileşirn\n4. yüznizsiirleş\n5. yüzleşnirsiiz\n6. yüzsinleşiriz\nCevap: 1\n\nÖrnek 3:\nKök: a\nEkler: 'n','sı','ız','ır','laş','n'\nSeçenekler:\n1. asıırnlaşnız\n2. anlaşırsınız\n3. aırnlaşıznsı\n4. anıznsılaşır\n5. anızırlaşnsı\n6. aırıznsılaşn\nCevap: ",
+            "reference": 2,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "2",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 408,
+                "total_tokens": 409
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-92",
+            "root": "kal",
+            "suffixes": [
+                "a",
+                "ma",
+                "mış",
+                "tı",
+                "k"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: gel\nEkler: 'me','ti','miş','k','e'\nSeçenekler:\n1. gelmiştiemek\n2. gelkmemişeti\n3. gelmişmeekti\n4. gelmemişktie\n5. gelemiştimek\n6. gelememiştik\nCevap: 6\n\nÖrnek 2:\nKök: yaşa\nEkler: 'mış','k','ya','ma','tı'\nSeçenekler:\n1. yaşaktıyamamış\n2. yaşamayamışktı\n3. yaşayamamıştık\n4. yaşamamışyatık\n5. yaşatıyamamışk\n6. yaşatımamışyak\nCevap: 3\n\nÖrnek 3:\nKök: kal\nEkler: 'k','a','ma','tı','mış'\nSeçenekler:\n1. kalamamıştık\n2. kalamışktıma\n3. kalamışmatık\n4. kalmaktıamış\n5. kalamıştıkma\n6. kalkamışmatı\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1. kalamamıştık",
+            "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 377,
+                "total_tokens": 385
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "tr-93",
+            "root": "düş",
+            "suffixes": [
+                "ür",
+                "ül",
+                "e",
+                "n"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: piş\nEkler: 'il','ir','e','n'\nSeçenekler:\n1. pişneilir\n2. pişnireil\n3. pişirilen\n4. pişilenir\n5. pişeniril\n6. pişeilnir\nCevap: 3\n\nÖrnek 2:\nKök: düş\nEkler: 'n','ül','ür','e'\nSeçenekler:\n1. düşnürüle\n2. düşnüreül\n3. düşeürnül\n4. düşürülen\n5. düşürneül\n6. düşnülüre\nCevap: ",
+            "reference": 4,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4\n\nVerilen kök \"düş\" ve eklerle türetilmiş doğru kelime \"düşürülen\"dir.",
+            "usage": {
+                "completion_tokens": 35,
+                "prompt_tokens": 265,
+                "total_tokens": 300
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "tr-94",
+            "root": "ye",
+            "suffixes": [
+                "n",
+                "il",
+                "me",
+                "z",
+                "ler"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: kaç\nEkler: 'z','lar','ma','ıl','ın'\nSeçenekler:\n1. kaçınzlarmaıl\n2. kaçınılmazlar\n3. kaçzmalarılın\n4. kaçzmalarınıl\n5. kaçmazlarılın\n6. kaçmaıllarzın\nCevap: 2\n\nÖrnek 2:\nKök: ye\nEkler: 'me','n','ler','il','z'\nSeçenekler:\n1. yenilmezler\n2. yenmeziller\n3. yemenzleril\n4. yeilmelernz\n5. yenzilmeler\n6. yeillermenz\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "1\n\nVerilen kök ve ekler kullanılarak türetilmiş kelime \"yenilmezler\"dir.",
+            "usage": {
+                "completion_tokens": 29,
+                "prompt_tokens": 272,
+                "total_tokens": 301
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "tr-95",
+            "root": "bir",
+            "suffixes": [
+                "leş",
+                "tir",
+                "iyor",
+                "uz"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: zor\nEkler: 'tır','uz','laş','ıyor'\nSeçenekler:\n1. zorlaşuztırıyor\n2. zortırlaşıyoruz\n3. zorlaştırıyoruz\n4. zorıyorlaştıruz\n5. zortıruzlaşıyor\n6. zortırıyoruzlaş\nCevap: 3\n\nÖrnek 2:\nKök: uzak\nEkler: 'dur','ıyor','uz','laş'\nSeçenekler:\n1. uzakuzdurlaşıyor\n2. uzakıyorlaşduruz\n3. uzaklaşıyoruzdur\n4. uzakıyoruzdurlaş\n5. uzakuzlaşıyordur\n6. uzaklaşıyorduruz\nCevap: 3\n\nÖrnek 3:\nKök: bir\nEkler: 'leş','uz','iyor','tir'\nSeçenekler:\n1. birtiriyoruzleş\n2. biriyoruzleştir\n3. biriyortirleşuz\n4. birtirleşiyoruz\n5. birleşuztiriyor\n6. birleştiriyoruz\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "6",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 399,
+                "total_tokens": 400
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "tr-96",
+            "root": "karşı",
+            "suffixes": [
+                "ya",
+                "sınız",
+                "dır"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: trend\nEkler: 'e','siniz','dir'\nSeçenekler:\n1. trenddiresiniz\n2. trendesinizdir\n3. trendsinizdire\n4. trendsinizedir\n5. trenddirsinize\n6. trendedirsiniz\nCevap: 2\n\nÖrnek 2:\nKök: karşı\nEkler: 'dır','sınız','ya'\nSeçenekler:\n1. karşıdıryasınız\n2. karşısınızdırya\n3. karşıyadırsınız\n4. karşısınızyadır\n5. karşıdırsınızya\n6. karşıyasınızdır\nCevap: ",
+            "reference": 6,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 273,
+                "total_tokens": 275
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "tr-97",
+            "root": "yeter",
+            "suffixes": [
+                "li",
+                "lik",
+                "te"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: yaş\nEkler: 'ta','lı','lık'\nSeçenekler:\n1. yaşlıktalı\n2. yaşlıtalık\n3. yaşlılıkta\n4. yaştalıklı\n5. yaştalılık\n6. yaşlıklıta\nCevap: 3\n\nÖrnek 2:\nKök: top\nEkler: 'luk','lu','ta'\nSeçenekler:\n1. toplukluta\n2. toptaluklu\n3. toplutaluk\n4. topluktalu\n5. toptaluluk\n6. toplulukta\nCevap: 6\n\nÖrnek 3:\nKök: yeter\nEkler: 'te','lik','li'\nSeçenekler:\n1. yeterlilikte\n2. yetertelilik\n3. yetertelikli\n4. yeterlitelik\n5. yeterlikteli\n6. yeterliklite\nCevap: ",
+            "reference": 1,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "5",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 337,
+                "total_tokens": 338
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "tr-98",
+            "root": "yaşa",
+            "suffixes": [
+                "t",
+                "ma",
+                "ya",
+                "lım"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: delir\nEkler: 'lim','ye','me','t'\nSeçenekler:\n1. delirtmeyelim\n2. delirlimtmeye\n3. deliryetmelim\n4. deliryemetlim\n5. delirlimyemet\n6. delirlimtyeme\nCevap: 1\n\nÖrnek 2:\nKök: yaşa\nEkler: 'ma','lım','t','ya'\nSeçenekler:\n1. yaşayatlımma\n2. yaşalımyamat\n3. yaşayamalımt\n4. yaşamayatlım\n5. yaşatmayalım\n6. yaşamayalımt\nCevap: ",
+            "reference": 5,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "4",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 267,
+                "total_tokens": 268
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "tr-99",
+            "root": "birey",
+            "suffixes": [
+                "sel",
+                "ci",
+                "lik"
+            ],
+            "prompt": "Size Türkçe bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak verilen kökten türetilmiş kelimelerin bir listesi verilecek. Sizden doğru seçeneği seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin.\n\nÖrnek 1:\nKök: toplum\nEkler: 'cı','lık','sal'\nSeçenekler:\n1. toplumlıksalcı\n2. toplumlıkcısal\n3. toplumsalcılık\n4. toplumcısallık\n5. toplumsallıkcı\n6. toplumcılıksal\nCevap: 3\n\nÖrnek 2:\nKök: birey\nEkler: 'ci','lik','sel'\nSeçenekler:\n1. bireylikselci\n2. bireycisellik\n3. bireyselcilik\n4. bireyciliksel\n5. bireylikcisel\n6. bireysellikci\nCevap: ",
+            "reference": 3,
+            "template": "morph_disc_tr",
+            "original_root": null,
+            "model_output": "3",
+            "usage": {
+                "completion_tokens": 1,
+                "prompt_tokens": 280,
+                "total_tokens": 281
+            },
+            "correct": true,
+            "faithful": true
+        }
+    ]
+}

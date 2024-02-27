@@ -64,7 +64,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-d", "--datapath", type=str, help="Path to evaluation data in json", required=True)
     parser.add_argument("-k", "--openai-key", type=str, help="OpenAI API Key")
-    parser.add_argument("-ia", "--is-openai-azure", type=bool, help="If OpenAI on Azure", default=True)
+    parser.add_argument("-ia", "--is-openai-azure", action="store_true", help="If OpenAI on Azure")
     parser.add_argument("-m", "--model", type=str, help="Model to use for evaluation", default="gpt-3.5-turbo")
     parser.add_argument("-t", "--temperature", type=float, help="Temperature for generation", default=0.3)
     parser.add_argument("-g", "--max-tokens", type=int, help="Max tokens for generation", default=40)
