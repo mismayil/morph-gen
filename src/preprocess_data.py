@@ -166,11 +166,31 @@ def preprocess_en_morpholex_data(datapath, num_samples=None):
 
     return words
 
+def prepare_comp_data(datapath, num_samples=None):
+    input_data = read_json(datapath)
+    data = input_data["data"]
+    comp_map = {}
+
+    if num_samples is not None:
+        data = random.sample(data, num_samples)
+
+    data = sorted(data, key=lambda x: len(x["meta_morphemes"]), reverse=True)
+
+    for sample in tqdm(data, total=len(data), desc="Preparing TR compositional data for Morph tasks"):
+        morphemes_key = frozenset(sample["meta_morphemes"])
+        if morphemes_key not in comp_map:
+            comp_map[morphemes_key] = []
+        
+        comp_map[morphemes_key].append(sample)
+    
+    return list(comp_map.values())
+
 DATA_PROCESSOR_MAP = {
     "tr_btwd_json": (prepare_tr_btwd_json_data, ""), 
     "tr_btwd_prep": (preprocess_tr_btwd_data, "_prep"),
     "tr_btwd_post": (postprocess_tr_btwd_data, "_post"),
-    "en_morpholex_prep": (preprocess_en_morpholex_data, "_prep")
+    "en_morpholex_prep": (preprocess_en_morpholex_data, "_prep"),
+    "tr_comp_prep": (prepare_comp_data, "_comp")
 }
 
 def main():
