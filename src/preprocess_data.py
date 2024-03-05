@@ -8,7 +8,7 @@ import numpy as np
 from collections import defaultdict
 import re
 
-from utils import read_json, write_json
+from utils import read_json, write_json, concatenate_lists
 from morphology import decompose_tr
 
 LANGUAGES = ["tr", "en"]
@@ -185,12 +185,39 @@ def prepare_comp_data(datapath, num_samples=None):
     
     return list(comp_map.values())
 
+def prepare_tr_btwd_balanced_sample_data(datapath, num_samples=None):
+    input_data = read_json(datapath)
+    data = input_data["data"]
+    seen_roots = set()
+    suffix_comb_map = {i+1: set() for i in range(10)}
+    balanced_data = {i+1: [] for i in range(10)}
+    balanced_data_extra = {i+1: [] for i in range(10)}
+
+    for sample in tqdm(data, total=len(data), desc="Preparing TR BTWD sample data"):
+        if sample["root"] not in seen_roots:
+            num_suffixes = len(sample["morphemes"])
+            suffix_comb_set = suffix_comb_map[num_suffixes]
+            if len(suffix_comb_set) < 50:
+                if len(sample["root"]) > 3 and tuple(sample["morphemes"]) not in suffix_comb_set:
+                    balanced_data[num_suffixes].append(sample)
+                    seen_roots.add(sample["root"])
+                    suffix_comb_set.add(tuple(sample["morphemes"]))
+                else:
+                    balanced_data_extra[num_suffixes].append(sample)
+    
+    for num_suffixes, extra_samples in balanced_data_extra.items():
+        if len(balanced_data[num_suffixes]) < 50:
+            balanced_data[num_suffixes].extend(extra_samples[:50-len(balanced_data[num_suffixes])])
+    
+    return concatenate_lists(list(balanced_data.values()))
+
 DATA_PROCESSOR_MAP = {
     "tr_btwd_json": (prepare_tr_btwd_json_data, ""), 
     "tr_btwd_prep": (preprocess_tr_btwd_data, "_prep"),
     "tr_btwd_post": (postprocess_tr_btwd_data, "_post"),
     "en_morpholex_prep": (preprocess_en_morpholex_data, "_prep"),
-    "tr_comp_prep": (prepare_comp_data, "_comp")
+    "tr_comp_prep": (prepare_comp_data, "_comp"),
+    "tr_btwd_balanced": (prepare_tr_btwd_balanced_sample_data, "_balanced")
 }
 
 def main():

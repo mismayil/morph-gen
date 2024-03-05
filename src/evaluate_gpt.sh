@@ -2,7 +2,7 @@
 
 openai_api_key=$1
 model=${2:-"gpt-3.5-turbo"}
-version=_comp
+version=_balanced
 data_dir="../experiments/data"
 outputs_dir="../experiments/outputs"
 

@@ -40,3 +40,6 @@ def find_json_files(directory):
             if file.endswith(".json"):
                 json_files.append(os.path.join(root, file))
     return json_files
+
+def concatenate_lists(lists):
+    return [item for sublist in lists for item in sublist]

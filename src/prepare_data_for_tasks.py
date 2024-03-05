@@ -85,7 +85,7 @@ def prepare_sample_for_tasks(sample, separator=""):
     suffixes = sample["morphemes"] if "morphemes" in sample else sample["suffixes"]
     ref_derivation = sample["root"] + separator + separator.join(suffixes)
 
-    if len(suffixes) > 1:
+    if len(suffixes) > 0:
         suffix_perms = list(permutations(suffixes))
         options = set()
 
@@ -114,10 +114,10 @@ def prepare_tr_data_for_tasks(input_data, num_samples=None, separator="", *args,
     
     morph_data = []
 
-    for i, sample in tqdm(enumerate(data), desc="Preparing data TR for Morph tasks"):
+    for i, sample in tqdm(enumerate(data), total=len(data), desc="Preparing data TR for Morph tasks"):
         morph_sample = prepare_sample_for_tasks(sample, separator)
         if morph_sample is not None:
-            morph_data.append({"id": f"tr-{i}", **morph_sample})
+            morph_data.append({"id": f"tr-btwd-id-{i}", **morph_sample})
     
     if num_samples is not None:
         morph_data = random.sample(morph_data, num_samples)
@@ -132,7 +132,7 @@ def prepare_tr_nonce_data_for_tasks(input_data, num_samples=None, *args, **kwarg
     for i, sample in tqdm(enumerate(data), total=len(data), desc="Preparing TR nonce data for Morph tasks"):
         root = sample["root"]
         pos = sample["pos"]
-        suffixes = sample["suffixes"]
+        suffixes = sample["morphemes"] if "morphemes" in sample else sample["suffixes"]
         derivation = sample["derivation"]
         options = sample["options"]
 
@@ -142,7 +142,7 @@ def prepare_tr_nonce_data_for_tasks(input_data, num_samples=None, *args, **kwarg
                 break
 
         nonce_data.append({
-            "id": f"tr-ood-{i}",
+            "id": f"tr-btwd-ood-{i}",
             "original_root": root,
             "root": nonce_word,
             "pos": pos,
@@ -166,7 +166,7 @@ def prepare_en_data_for_tasks(input_data, num_samples=None, separator="", *args,
     for i, sample in tqdm(enumerate(data), desc="Preparing EN data for Morph tasks"):
         morph_sample = prepare_sample_for_tasks(sample, separator)
         if morph_sample is not None:
-            morph_data.append({"id": f"en-{i}", **morph_sample})
+            morph_data.append({"id": f"en-morpholex-id-{i}", **morph_sample})
     
     if num_samples is not None:
         morph_data = random.sample(morph_data, num_samples)
@@ -191,7 +191,7 @@ def prepare_en_nonce_data_for_tasks(input_data, num_samples=None, *args, **kwarg
                 break
 
         nonce_data.append({
-            "id": f"en-ood-{i}"
+            "id": f"en-morpholex-ood-{i}",
             "original_root": root,
             "root": nonce_word,
             "pos": pos,
