@@ -19,18 +19,22 @@ def get_prediction(ref_response, model_response, template):
     return pred
 
 def is_faithful(result, ref_response, model_response, template, separator=""):
-    if not template.startswith("morph_gen") or template.startswith("morph_gen_order"):
+    if template.startswith("morph_disc"):
+        pass
+    
+    if template.startswith("morph_gen_order"):
         return True
 
-    if len(model_response) != len(ref_response):
-        return False
-    
-    suffix_perms = list(permutations(result["suffixes"]))
-    
-    for suffix_perm in suffix_perms:
-        root_derivation = result["root"] + separator + separator.join(suffix_perm)
-        if root_derivation == model_response:
-            return True
+    if template.startswith("morph_gen"):
+        if len(model_response) != len(ref_response):
+            return False
+        
+        suffix_perms = list(permutations(result["suffixes"]))
+        
+        for suffix_perm in suffix_perms:
+            root_derivation = result["root"] + separator + separator.join(suffix_perm)
+            if root_derivation == model_response:
+                return True
     
     return False
 
@@ -113,7 +117,7 @@ def compute_metrics(results, compute_usage=False, separator=""):
     metrics["accuracy"] = accuracy_score(references, predictions)
     # metrics["precision"] = precision_score(references, predictions, average='macro')
     # metrics["recall"] = recall_score(references, predictions, average='macro')
-    metrics["faithful_accuracy"] = sum([1 for result in results["data"] if result["faithful"]]) / len(results["data"])
+    metrics["faithful_accuracy"] = sum([1 for result in results["data"] if result.get("faithful")]) / len(results["data"])
     # sort len_suffix_accuracy by suffix length
     len_suffix_accuracy = dict(sorted(len_suffix_accuracy.items(), key=lambda item: item[0]))
     metrics["accuracy_by_suffix_len"] = {k: sum(v) / len(v) for k, v in len_suffix_accuracy.items()}
