@@ -1,9 +1,10 @@
 import argparse
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+from sklearn.metrics import accuracy_score
 from tqdm import tqdm
 import pathlib
 from itertools import permutations
 from collections import defaultdict
+import re
 
 from utils import read_json, write_json, find_json_files, MODEL_COSTS, num_tokens_from_string
 
@@ -11,8 +12,13 @@ def get_prediction(ref_response, model_response, template):
     if template in ["bfill"]:
         model_response = [word.strip().strip("'").strip('"').strip() for word in model_response.strip("[]").split(",")]
         pred = 1 if str(ref_response) == str(model_response) else 0
-    elif template.startswith("morph_gen") or template.startswith("morph_disc"):
+    elif template.startswith("morph_gen"):
         pred = 1 if str(ref_response) == str(model_response).strip() else 0
+    elif template.startswith("morph_disc"):
+        res = model_response.strip()
+        if re.fullmatch(r"\d+\s*\..*", model_response.strip()):
+            res = model_response.split(".")[0].strip()
+        pred = 1 if str(ref_response) == res else 0
     else:
         raise ValueError(f"Template {template} not supported for evaluation.")
 
@@ -20,10 +26,14 @@ def get_prediction(ref_response, model_response, template):
 
 def is_faithful(result, ref_response, model_response, template, separator=""):
     if template.startswith("morph_disc"):
-        pass
+        if re.fullmatch(r"\d+", model_response.strip()):
+            return True
+        return False
     
     if template.startswith("morph_gen_order"):
-        return True
+        if re.fullmatch(r"(\d+,\s*)+\d+", model_response.strip()):
+            return True
+        return False
 
     if template.startswith("morph_gen"):
         if len(model_response) != len(ref_response):
@@ -86,6 +96,7 @@ def compute_metrics(results, compute_usage=False, separator=""):
     }
 
     len_suffix_accuracy = defaultdict(list)
+    len_suffix_faithful = defaultdict(list)
 
     for result in results["data"]:
         gold_response_attr = "reference"
@@ -99,6 +110,7 @@ def compute_metrics(results, compute_usage=False, separator=""):
             result["correct"] = ref == pred
             result["faithful"] = is_faithful(result, result[gold_response_attr], result[model_response_attr], result["template"], separator=separator)
             len_suffix_accuracy[len(result["suffixes"])].append(result["correct"])
+            len_suffix_faithful[len(result["suffixes"])].append(result["faithful"])
 
             if compute_usage:
                 sample_usage, sample_cost = compute_usage(result, results["metadata"]["model"])
@@ -113,14 +125,14 @@ def compute_metrics(results, compute_usage=False, separator=""):
                     cost["output"] += sample_cost["output"]
                     cost["total"] += sample_cost["total"]
 
-    # metrics["macro_f1"] = f1_score(references, predictions, average='macro')
     metrics["accuracy"] = accuracy_score(references, predictions)
-    # metrics["precision"] = precision_score(references, predictions, average='macro')
-    # metrics["recall"] = recall_score(references, predictions, average='macro')
-    metrics["faithful_accuracy"] = sum([1 for result in results["data"] if result.get("faithful")]) / len(results["data"])
-    # sort len_suffix_accuracy by suffix length
+    metrics["faithfulness"] = sum([1 for result in results["data"] if result.get("faithful")]) / len(results["data"])
+    
     len_suffix_accuracy = dict(sorted(len_suffix_accuracy.items(), key=lambda item: item[0]))
+    len_suffix_faithful = dict(sorted(len_suffix_faithful.items(), key=lambda item: item[0]))
+    
     metrics["accuracy_by_suffix_len"] = {k: sum(v) / len(v) for k, v in len_suffix_accuracy.items()}
+    metrics["faithfulness_by_suffix_len"] = {k: sum(v) / len(v) for k, v in len_suffix_faithful.items()}
     metrics["num_samples_by_suffix_len"] = {k: len(v) for k, v in len_suffix_accuracy.items()}
 
     if compute_usage:
@@ -130,7 +142,7 @@ def compute_metrics(results, compute_usage=False, separator=""):
     return metrics
 
 def report_metrics(results_files, compute_usage=False, separator=""):
-    for results_file in tqdm(results_files, total=len(results_files)):
+    for results_file in tqdm(results_files, total=len(results_files), desc="Reporting metrics"):
         results = read_json(results_file)
         
         try:
