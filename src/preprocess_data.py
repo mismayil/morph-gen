@@ -141,10 +141,8 @@ def preprocess_tr_btwd_data(datapath, num_samples=None):
     return preprocessed_data
 
 def preprocess_en_morpholex_data(datapath, num_samples=None):
-    data1 = pd.read_excel(datapath, sheet_name="0-1-2")
-    data2 = pd.read_excel(datapath, sheet_name="0-1-3")
-    data3 = pd.read_excel(datapath, sheet_name="0-1-4")
-    data = pd.concat([data1, data2, data3])
+    data = pd.read_excel(datapath, sheet_name=["0-1-1", "0-1-2", "0-1-3", "0-1-4", "0-2-1", "0-2-2", "0-2-3", "0-3-1"])
+    data = pd.concat([data[sheet] for sheet in data.keys()])
 
     if num_samples is not None:
         data = data.sample(num_samples)
@@ -193,7 +191,7 @@ def prepare_tr_btwd_balanced_sample_data(datapath, num_samples=None):
     balanced_data = {i+1: [] for i in range(10)}
     balanced_data_extra = {i+1: [] for i in range(10)}
 
-    for sample in tqdm(data, total=len(data), desc="Preparing TR BTWD sample data"):
+    for sample in tqdm(data, total=len(data), desc="Preparing TR BTWD balanced sample data"):
         if sample["root"] not in seen_roots:
             num_suffixes = len(sample["morphemes"])
             suffix_comb_set = suffix_comb_map[num_suffixes]
@@ -209,7 +207,33 @@ def prepare_tr_btwd_balanced_sample_data(datapath, num_samples=None):
         if len(balanced_data[num_suffixes]) < 50:
             balanced_data[num_suffixes].extend(extra_samples[:50-len(balanced_data[num_suffixes])])
     
-    return concatenate_lists(list(balanced_data.values()))
+    return concatenate_lists(list([lst for lst in balanced_data.values() if len(lst) > 0]))
+
+def prepare_en_morpholex_balanced_sample_data(datapath, num_samples=None):
+    input_data = read_json(datapath)
+    data = input_data["data"]
+    seen_roots = set()
+    suffix_comb_map = {i+1: set() for i in range(10)}
+    balanced_data = {i+1: [] for i in range(10)}
+    balanced_data_extra = {i+1: [] for i in range(10)}
+
+    for sample in tqdm(data, total=len(data), desc="Preparing EN MorphoLex balanced sample data"):
+        if sample["root"] not in seen_roots:
+            num_suffixes = len(sample["morphemes"])
+            suffix_comb_set = suffix_comb_map[num_suffixes]
+            if len(suffix_comb_set) < 25:
+                if tuple(sample["morphemes"]) not in suffix_comb_set:
+                    balanced_data[num_suffixes].append(sample)
+                    seen_roots.add(sample["root"])
+                    suffix_comb_set.add(tuple(sample["morphemes"]))
+                else:
+                    balanced_data_extra[num_suffixes].append(sample)
+    
+    for num_suffixes, extra_samples in balanced_data_extra.items():
+        if len(balanced_data[num_suffixes]) < 25:
+            balanced_data[num_suffixes].extend(extra_samples[:25-len(balanced_data[num_suffixes])])
+    
+    return concatenate_lists(list([lst for lst in balanced_data.values() if len(lst) > 0]))
 
 DATA_PROCESSOR_MAP = {
     "tr_btwd_json": (prepare_tr_btwd_json_data, ""), 
@@ -217,7 +241,8 @@ DATA_PROCESSOR_MAP = {
     "tr_btwd_post": (postprocess_tr_btwd_data, "_post"),
     "en_morpholex_prep": (preprocess_en_morpholex_data, "_prep"),
     "tr_comp_prep": (prepare_comp_data, "_comp"),
-    "tr_btwd_balanced": (prepare_tr_btwd_balanced_sample_data, "_balanced")
+    "tr_btwd_balanced": (prepare_tr_btwd_balanced_sample_data, "_balanced"),
+    "en_morpholex_balanced": (prepare_en_morpholex_balanced_sample_data, "_balanced")
 }
 
 def main():
