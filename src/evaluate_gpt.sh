@@ -6,29 +6,29 @@ version=_balanced
 data_dir="../experiments/data"
 outputs_dir="../experiments/outputs"
 
-for jsonfile in ${data_dir}/tr/btwd/temp_en/v${version}/*.json
-do
-    echo "Evaluating ${jsonfile}"
-    python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_en/v${version} -k ${openai_api_key} -m ${model}
-done
-
-for jsonfile in ${data_dir}/tr/btwd/temp_tr/v${version}/*.json
-do
-    echo "Evaluating ${jsonfile}"
-    python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_tr/v${version} -k ${openai_api_key} -m ${model}
-done
-
-# for jsonfile in ${data_dir}/en/morpholex/temp_en/v${version}/*.json
+# for jsonfile in ${data_dir}/tr/btwd/temp_en/v${version}/*.json
 # do
 #     echo "Evaluating ${jsonfile}"
-#     python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/${model}/en/morpholex/temp_en/v${version} -k ${openai_api_key} -m ${model}
+#     python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_en/v${version} -k ${openai_api_key} -m ${model}
 # done
 
-# for jsonfile in ${data_dir}/en/morpholex/temp_tr/v${version}/*.json
+# for jsonfile in ${data_dir}/tr/btwd/temp_tr/v${version}/*.json
 # do
 #     echo "Evaluating ${jsonfile}"
-#     python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/${model}/en/morpholex/temp_tr/v${version} -k ${openai_api_key} -m ${model}
+#     python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_tr/v${version} -k ${openai_api_key} -m ${model}
 # done
+
+for jsonfile in ${data_dir}/en/morpholex/temp_en/v${version}/*.json
+do
+    echo "Evaluating ${jsonfile}"
+    python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/${model}/en/morpholex/temp_en/v${version} -k ${openai_api_key} -m ${model}
+done
+
+for jsonfile in ${data_dir}/en/morpholex/temp_tr/v${version}/*.json
+do
+    echo "Evaluating ${jsonfile}"
+    python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/${model}/en/morpholex/temp_tr/v${version} -k ${openai_api_key} -m ${model}
+done
 
 # shots=(1 3 5)
 # for shot in "${shots[@]}"
