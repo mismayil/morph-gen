@@ -3,7 +3,7 @@ from itertools import product
 import tiktoken
 
 from turkish_morphology import decompose, analyze
-from utils import MODEL_ENCODINGS
+from utils import MODEL_ENCODINGS, levenshtein_distance
 
 TURKISH_MORPH_MAP = {
     "A": ["", "a", "e"],
@@ -202,8 +202,27 @@ def generate_nonce_word_en(word):
     nonce_word = prefix + immutable_part
     return nonce_word
 
-def segment_by_tokenizer(text, model):
+def segment_by_tokenizer(text, model, root, return_tokens=False):
     encoding_name = MODEL_ENCODINGS[model]
     encoding = tiktoken.get_encoding(encoding_name)
     encodings = encoding.encode(text)
-    return [encoding.decode_single_token_bytes(enc).decode("utf-8") for enc in encodings]
+    tokens = [encoding.decode_single_token_bytes(enc).decode("utf-8") for enc in encodings]
+    root_end_idx = 0
+    best_diff = len(root)
+
+    for i in range(len(tokens)):
+        cand_root = "".join(tokens[:i+1])
+        root_diff = levenshtein_distance(cand_root, root)
+        if root_diff < best_diff:
+            root_end_idx = i+1
+            best_diff = root_diff
+    
+    segmentation = ["".join(tokens[:root_end_idx])] + tokens[root_end_idx:]
+
+    if len(segmentation) == 1:
+        segmentation = tokens
+
+    if return_tokens:
+        return segmentation, tokens
+    
+    return segmentation

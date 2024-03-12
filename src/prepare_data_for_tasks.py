@@ -242,20 +242,27 @@ def prepare_aligned_tok_data_for_tasks(input_data, num_samples=None, separator="
 
     for i, sample in tqdm(enumerate(data), total=len(data), desc="Preparing aligned tokenization data for tasks"):
         ref_derivation = sample["derivation"]
-        tokens = segment_by_tokenizer(ref_derivation, model)
-        token_perms = list(permutations(tokens))
+        tokens = segment_by_tokenizer(ref_derivation, model, sample["root"])
+        root_token = tokens[0]
+        token_perms = permutations(tokens[1:])
         options = set()
 
         for token_perm in token_perms:
-            derivation = separator.join(token_perm)
+            derivation = root_token + separator + separator.join(token_perm)
 
             if derivation != ref_derivation:
                 options.add(derivation)
+            
+            if len(options) >= 5:
+                break
 
-        options = random.sample(list(options), min(len(options), 5))
+        options = random.sample(list(options), len(options))
         aligned_tok_data.append({
             **sample,
-            "tokens": tokens,
+            "ref_root": sample["root"],
+            "ref_suffixes": sample["suffixes"],
+            "root": root_token,
+            "suffixes": tokens[1:],
             "options": [ref_derivation] + list(options),
             "answer": 0
         })
