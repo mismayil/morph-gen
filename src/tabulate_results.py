@@ -36,7 +36,7 @@ def tabulate_results(results_files):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-r", "--results-path", type=str, help="Path to evaluation results file in json or directory", required=True)
-    parser.add_argument("-o", "--output-path", type=str, help="Path to save tabulated results", required=True)
+    parser.add_argument("-o", "--output-path", type=str, help="Path to save tabulated results")
     parser.add_argument("-f", "--output-format", type=str, choices=["csv", "json"], default="csv", help="Format to write results in.")
 
     args = parser.parse_args()
@@ -50,17 +50,24 @@ def main():
     else:
         files_to_process.extend(find_json_files(args.results_path))
 
-    pathlib.Path(args.output_path).parent.mkdir(parents=True, exist_ok=True)
+    if not args.output_path:
+        if results_path.is_file():
+            output_path = results_path.parent / f"tab_results.{args.output_format}"
+        else:
+            output_path = results_path / f"tab_results.{args.output_format}"
+    else:
+        output_path = pathlib.Path(args.output_path)
+        output_path.parent.mkdir(parents=True, exist_ok=True)
 
     tab_results = tabulate_results(files_to_process)
 
     if args.output_format == "csv":
-        with open(args.output_path, "w") as f:
+        with open(output_path, "w") as f:
             writer = csv.DictWriter(f, fieldnames=["task", "is_ood", "num_shots", "num_suffixes", "accuracy", "faithfulness"])
             writer.writeheader()
             writer.writerows(tab_results)
     elif args.output_format == "json":
-        write_json(tab_results, args.output_path)
+        write_json(tab_results, output_path)
     else:
         raise ValueError(f"Invalid output format: {args.output_format}")
 
