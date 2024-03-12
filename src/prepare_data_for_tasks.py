@@ -7,7 +7,7 @@ from itertools import permutations
 import json
 
 from utils import read_json, write_json
-from morphology import generate_nonce_word_tr, generate_nonce_word_en
+from morphology import generate_nonce_word_tr, generate_nonce_word_en, segment_by_tokenizer
 
 TR_DICTIONARY_PATH = "../data/tr/gts.json"
 EN_DICTIONARY_PATH = "../data/en/words_alpha.txt"
@@ -235,14 +235,51 @@ def prepare_tr_comp_data_for_tasks(input_data, num_samples=None, separator="", *
         morph_data = random.sample(morph_data, num_samples)
 
     return morph_data
+
+def prepare_aligned_tok_data_for_tasks(input_data, num_samples=None, separator="", model="gpt-4", *args, **kwargs):
+    data = input_data["data"]
+    aligned_tok_data = []
+
+    for i, sample in tqdm(enumerate(data), total=len(data), desc="Preparing aligned tokenization data for tasks"):
+        ref_derivation = sample["derivation"]
+        tokens = segment_by_tokenizer(ref_derivation, model, sample["root"])
+        root_token = tokens[0]
+        token_perms = permutations(tokens[1:])
+        options = set()
+
+        for token_perm in token_perms:
+            derivation = root_token + separator + separator.join(token_perm)
+
+            if derivation != ref_derivation:
+                options.add(derivation)
             
+            if len(options) >= 5:
+                break
+
+        options = random.sample(list(options), len(options))
+        aligned_tok_data.append({
+            **sample,
+            "ref_root": sample["root"],
+            "ref_suffixes": sample["suffixes"],
+            "root": root_token,
+            "suffixes": tokens[1:],
+            "options": [ref_derivation] + list(options),
+            "answer": 0
+        })
+    
+    if num_samples is not None:
+        aligned_tok_data = random.sample(aligned_tok_data, num_samples)
+
+    return aligned_tok_data
+
 DATA_PROCESSOR_MAP = {
     "tr_pilot_morph": (prepare_tr_pilot_data_for_tasks, "_morph"),
     "tr_morph": (prepare_tr_data_for_tasks, "_morph"),
     "tr_morph_nonce": (prepare_tr_nonce_data_for_tasks, "_nonce"),
     "en_morph": (prepare_en_data_for_tasks, "_morph"),
     "en_morph_nonce": (prepare_en_nonce_data_for_tasks, "_nonce"),
-    "tr_comp_morph": (prepare_tr_comp_data_for_tasks, "_morph")
+    "tr_comp_morph": (prepare_tr_comp_data_for_tasks, "_morph"),
+    "aligned_tok": (prepare_aligned_tok_data_for_tasks, "_aligned_tok")
 }
 
 def main():
