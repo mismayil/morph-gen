@@ -1,7 +1,9 @@
 import random
 from itertools import product
+import tiktoken
 
 from turkish_morphology import decompose, analyze
+from utils import MODEL_ENCODINGS
 
 TURKISH_MORPH_MAP = {
     "A": ["", "a", "e"],
@@ -199,3 +201,9 @@ def generate_nonce_word_en(word):
     
     nonce_word = prefix + immutable_part
     return nonce_word
+
+def segment_by_tokenizer(text, model):
+    encoding_name = MODEL_ENCODINGS[model]
+    encoding = tiktoken.get_encoding(encoding_name)
+    encodings = encoding.encode(text)
+    return [encoding.decode_single_token_bytes(enc).decode("utf-8") for enc in encodings]
