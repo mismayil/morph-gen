@@ -7,6 +7,7 @@ from utils import read_json, write_json, find_json_files
 
 def tabulate_results(results_files):
     tab_results = []
+    tab_results_by_freq = []
 
     for results_file in tqdm(results_files, total=len(results_files), desc="Tabulating results"):
         results = read_json(results_file)
@@ -18,6 +19,10 @@ def tabulate_results(results_files):
                 num_shots = int(re.search(r"_s(\d+)_", results_file).group(1))
                 accuracy_metrics = results["metrics"]["accuracy_by_suffix_len"]
                 faithful_metrics = results["metrics"]["faithfulness_by_suffix_len"]
+                accuracy_by_freq = results["metrics"].get("accuracy_by_frequency")
+                faithful_by_freq = results["metrics"].get("faithfulness_by_frequency")
+                num_samples_by_freq = results["metrics"].get("num_samples_by_frequency")
+
                 for suffix_len in accuracy_metrics.keys():
                     tab_results.append({
                         "task": task,
@@ -27,16 +32,30 @@ def tabulate_results(results_files):
                         "accuracy": accuracy_metrics[suffix_len],
                         "faithfulness": faithful_metrics[suffix_len]
                     })
+                
+                if accuracy_by_freq and faithful_by_freq and num_samples_by_freq:
+                    for freq_bin, freq_res in num_samples_by_freq.items():
+                        for suffix_len, num_samples_by_slen in freq_res.items():
+                            tab_results_by_freq.append({
+                                "task": task,
+                                "is_ood": is_ood,
+                                "num_shots": num_shots,
+                                "freq_bin": freq_bin,
+                                "num_suffixes": suffix_len,
+                                "num_samples": num_samples_by_slen,
+                                "accuracy": accuracy_by_freq[freq_bin],
+                                "faithfulness": faithful_by_freq[freq_bin]
+                            })
         except Exception as e:
             print(results_file)
             raise e
     
-    return tab_results
+    return {"tab_results": tab_results, "tab_results_by_freq": tab_results_by_freq}
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-r", "--results-path", type=str, help="Path to evaluation results file in json or directory", required=True)
-    parser.add_argument("-o", "--output-path", type=str, help="Path to save tabulated results")
+    parser.add_argument("-o", "--output-dir", type=str, help="Output directory to save tabulated results")
     parser.add_argument("-f", "--output-format", type=str, choices=["csv", "json"], default="csv", help="Format to write results in.")
 
     args = parser.parse_args()
@@ -50,26 +69,30 @@ def main():
     else:
         files_to_process.extend(find_json_files(args.results_path))
 
-    if not args.output_path:
+    if not args.output_dir:
         if results_path.is_file():
-            output_path = results_path.parent / f"tab_results.{args.output_format}"
+            output_dir = results_path.parent
         else:
-            output_path = results_path / f"tab_results.{args.output_format}"
+            output_dir = results_path
     else:
-        output_path = pathlib.Path(args.output_path)
-        output_path.parent.mkdir(parents=True, exist_ok=True)
+        output_dir = pathlib.Path(args.output_dir)
+        output_dir.mkdir(parents=True, exist_ok=True)
 
-    tab_results = tabulate_results(files_to_process)
+    results_map = tabulate_results(files_to_process)
 
-    if args.output_format == "csv":
-        with open(output_path, "w") as f:
-            writer = csv.DictWriter(f, fieldnames=["task", "is_ood", "num_shots", "num_suffixes", "accuracy", "faithfulness"])
-            writer.writeheader()
-            writer.writerows(tab_results)
-    elif args.output_format == "json":
-        write_json(tab_results, output_path)
-    else:
-        raise ValueError(f"Invalid output format: {args.output_format}")
+    for result_key, results in results_map.items():
+        if results:
+            if args.output_format == "csv":
+                output_path = output_dir / f"{result_key}.csv"
+                with open(output_path, "w") as f:
+                    writer = csv.DictWriter(f, fieldnames=results[0].keys())
+                    writer.writeheader()
+                    writer.writerows(results)
+            elif args.output_format == "json":
+                output_path = output_dir / f"{result_key}.json"
+                write_json(results, output_path)
+            else:
+                raise ValueError(f"Invalid output format: {args.output_format}")
 
 if __name__ == "__main__":
     main()

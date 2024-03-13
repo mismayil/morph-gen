@@ -13,7 +13,7 @@ ABBR_METRICS = {
     "accuracy": "acc"
 }
 
-def plot_results(tab_results, output_dir, output_format="png", language="en", template="en", model="gpt-3.5-turbo",  metric="accuracy", task="morph-gen", is_ood=False):
+def plot_results(tab_results, output_dir, output_format="png", language="en", template="en", model="gpt-3.5-turbo", metric="accuracy", task="morph-gen", is_ood=False):
     results = tab_results.query(f"is_ood == {is_ood} & task == '{task}'")
     if len(results) > 0:
         plt.ioff()
@@ -27,6 +27,28 @@ def plot_results(tab_results, output_dir, output_format="png", language="en", te
         print(f"Saving figure to {plot_path}")
         plt.savefig(plot_path)
 
+def plot_results_by_freq(tab_results, output_dir, output_format="png", language="en", template="en", model="gpt-3.5-turbo", metric="accuracy", task="morph-gen", is_ood=False):
+    results = tab_results.query(f"is_ood == {is_ood} & task == '{task}'")
+    if len(results) > 0:
+        plt.ioff()
+        fig, axes = plt.subplots(figsize=(16, 8), nrows=1, ncols=2)
+        
+        axes[0].set_title(f"{metric.capitalize()} by frequency \n [lang={language}, temp={template}, model={model}] \n [dist={'OOD' if is_ood else 'ID'}, task={task}]")
+        axes[0].set_xlabel("Frequency of words")
+        axes[0].set_ylabel(metric.capitalize())
+        axes[0].title.set_size(20)
+        sns.barplot(data=results, x="freq_bin", y=metric, hue="num_shots", ax=axes[0])
+
+        axes[1].set_title(f"Number of samples by suffix length and frequency \n [lang={language}, temp={template}, model={model}] \n [dist={'OOD' if is_ood else 'ID'}, task={task}]")
+        axes[1].set_xlabel("Frequency of words")
+        axes[1].set_ylabel("Number of samples")
+        axes[1].title.set_size(20)
+        sns.barplot(data=results, x="freq_bin", y="num_samples", hue="num_suffixes", ax=axes[1])
+
+        plot_path = f"{output_dir}/fig_{ABBR_METRICS[metric]}_by_freq_{task}_{'ood' if is_ood else 'id'}.{output_format}"
+        print(f"Saving figure to {plot_path}")
+        plt.savefig(plot_path)
+    
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-r", "--tab-results-path", type=str, help="Path to tabulated results file", required=True)
@@ -41,10 +63,14 @@ def main():
 
     results_path = pathlib.Path(args.tab_results_path)
 
-    if results_path.suffix == ".csv":
-        tab_results = pd.read_csv(results_path)
-    else:
-        raise ValueError("Tabulated results extension not supported.")
+    try:
+        if results_path.suffix == ".csv":
+            tab_results = pd.read_csv(results_path)
+        else:
+            raise ValueError("Tabulated results extension not supported.")
+    except FileNotFoundError:
+        print(f"Skipping. Tabulated results file not found at {results_path}")
+        return
 
     output_dir = pathlib.Path(args.output_dir) / f"figs_{args.language}_{args.template}_{args.model}"
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -52,7 +78,18 @@ def main():
     for metric in args.metrics:
         for task in ["morph-disc", "morph-gen"]:
             for is_ood in [False, True]:
-                plot_results(tab_results, 
+                if "freq_bin" in tab_results.columns:
+                    plot_results_by_freq(tab_results, 
+                                         output_dir=output_dir, 
+                                         output_format=args.output_format, 
+                                         language=args.language, 
+                                         template=args.template,
+                                         model=args.model,
+                                         metric=metric,
+                                         task=task,
+                                         is_ood=is_ood)
+                else:
+                    plot_results(tab_results, 
                              output_dir=output_dir, 
                              output_format=args.output_format, 
                              language=args.language, 
