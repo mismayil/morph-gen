@@ -7,7 +7,9 @@ from utils import read_json, write_json, find_json_files
 
 def tabulate_results(results_files):
     tab_results = []
-    tab_results_by_freq = []
+    tab_results_by_unigram_freq = []
+    tab_results_by_suffix_freq = []
+    tab_results_by_meta_suffix_freq = []
 
     for results_file in tqdm(results_files, total=len(results_files), desc="Tabulating results"):
         results = read_json(results_file)
@@ -17,11 +19,35 @@ def tabulate_results(results_files):
                 task = "morph-gen" if "_morph_gen_" in results_file else "morph-disc"
                 is_ood = "_nonce_" in results_file
                 num_shots = int(re.search(r"_s(\d+)_", results_file).group(1))
+                
                 accuracy_metrics = results["metrics"]["accuracy_by_suffix_len"]
                 faithful_metrics = results["metrics"]["faithfulness_by_suffix_len"]
-                accuracy_by_freq = results["metrics"].get("accuracy_by_frequency")
-                faithful_by_freq = results["metrics"].get("faithfulness_by_frequency")
-                num_samples_by_freq = results["metrics"].get("num_samples_by_frequency")
+                
+                accuracy_by_unigram_freq = results["metrics"].get("accuracy_by_unigram_freq")
+                faithful_by_unigram_freq = results["metrics"].get("faithfulness_by_unigram_freq")
+                num_samples_by_unigram_freq = results["metrics"].get("num_samples_by_unigram_freq")
+
+                accuracy_by_suffix_freq = results["metrics"].get("accuracy_by_suffix_freq")
+                faithful_by_suffix_freq = results["metrics"].get("faithfulness_by_suffix_freq")
+                num_samples_by_suffix_freq = results["metrics"].get("num_samples_by_suffix_freq")
+
+                accuracy_by_meta_suffix_freq = results["metrics"].get("accuracy_by_meta_suffix_freq")
+                faithful_by_meta_suffix_freq = results["metrics"].get("faithfulness_by_meta_suffix_freq")
+                num_samples_by_meta_suffix_freq = results["metrics"].get("num_samples_by_meta_suffix_freq")
+
+                def _add_by_freq_results(results_by_freq, accuracy_by_freq, faithful_by_freq, num_samples_by_freq):
+                    for freq_bin, freq_res in num_samples_by_freq.items():
+                        for suffix_len, num_samples_by_slen in freq_res.items():
+                            results_by_freq.append({
+                                "task": task,
+                                "is_ood": is_ood,
+                                "num_shots": num_shots,
+                                "freq_bin": freq_bin,
+                                "num_suffixes": suffix_len,
+                                "num_samples": num_samples_by_slen,
+                                "accuracy": accuracy_by_freq[freq_bin],
+                                "faithfulness": faithful_by_freq[freq_bin]
+                            })
 
                 for suffix_len in accuracy_metrics.keys():
                     tab_results.append({
@@ -33,24 +59,25 @@ def tabulate_results(results_files):
                         "faithfulness": faithful_metrics[suffix_len]
                     })
                 
-                if accuracy_by_freq and faithful_by_freq and num_samples_by_freq:
-                    for freq_bin, freq_res in num_samples_by_freq.items():
-                        for suffix_len, num_samples_by_slen in freq_res.items():
-                            tab_results_by_freq.append({
-                                "task": task,
-                                "is_ood": is_ood,
-                                "num_shots": num_shots,
-                                "freq_bin": freq_bin,
-                                "num_suffixes": suffix_len,
-                                "num_samples": num_samples_by_slen,
-                                "accuracy": accuracy_by_freq[freq_bin],
-                                "faithfulness": faithful_by_freq[freq_bin]
-                            })
+                if accuracy_by_unigram_freq:
+                    _add_by_freq_results(tab_results_by_unigram_freq, accuracy_by_unigram_freq, faithful_by_unigram_freq, num_samples_by_unigram_freq)
+                
+                if accuracy_by_suffix_freq:
+                    _add_by_freq_results(tab_results_by_suffix_freq, accuracy_by_suffix_freq, faithful_by_suffix_freq, num_samples_by_suffix_freq)
+                
+                if accuracy_by_meta_suffix_freq:
+                    _add_by_freq_results(tab_results_by_meta_suffix_freq, accuracy_by_meta_suffix_freq, faithful_by_meta_suffix_freq, num_samples_by_meta_suffix_freq)
+
         except Exception as e:
             print(results_file)
             raise e
     
-    return {"tab_results": tab_results, "tab_results_by_freq": tab_results_by_freq}
+    return {
+        "tab_results": tab_results, 
+        "tab_results_by_unigram_freq": tab_results_by_unigram_freq, 
+        "tab_results_by_suffix_freq": tab_results_by_suffix_freq, 
+        "tab_results_by_meta_suffix_freq": tab_results_by_meta_suffix_freq
+    }
 
 def main():
     parser = argparse.ArgumentParser()

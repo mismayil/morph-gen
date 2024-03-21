@@ -29,58 +29,6 @@ def _read_en_dictionary():
             dictionary.append(line.strip())
     return dictionary
 
-def prepare_tr_pilot_data_for_tasks(input_data, num_samples=None, separator="", *args, **kwargs):
-    data = input_data["data"]
-
-    if num_samples is not None:
-        data = random.sample(data, num_samples)
-    
-    morph_data = []
-
-    for sample in tqdm(data, desc="Preparing pilot data for Morph tasks"):
-        root = sample["root"]
-        alt_root = sample["alt_root"]
-        suffixes = sample["suffixes"]
-        derivation = sample["root"] + separator + separator.join(suffixes)
-        alt_derivation = sample["derivation"].replace(root, alt_root)
-
-        suffix_perms = list(permutations(suffixes))
-        root_options = set()
-        alt_root_options = set()
-
-        for suffix_perm in suffix_perms:
-            root_derivation = root + separator + separator.join(suffix_perm)
-            alt_root_derivation = alt_root + separator + separator.join(suffix_perm)
-
-            if root_derivation != derivation:
-                root_options.add(root_derivation)
-            
-            if alt_root_derivation != alt_derivation:
-                alt_root_options.add(alt_root_derivation)
-
-        root_options = random.sample(list(root_options), min(len(root_options), 5))
-        alt_root_options = random.sample(list(alt_root_options), min(len(alt_root_options), 5))
-
-        morph_data.append({
-            "root": root,
-            "pos": sample["pos"],
-            "suffixes": suffixes,
-            "derivation": derivation,
-            "options": [derivation] + list(root_options),
-            "answer": 0
-        })
-
-        morph_data.append({
-            "root": alt_root,
-            "pos": sample["pos"],
-            "suffixes": suffixes,
-            "derivation": alt_derivation,
-            "options": [alt_derivation] + list(alt_root_options),
-            "answer": 0
-        })
-    
-    return morph_data
-
 def prepare_sample_for_tasks(sample, separator=""):
     suffixes = sample["morphemes"] if "morphemes" in sample else sample["suffixes"]
     ref_derivation = sample["root"] + separator + separator.join(suffixes)
@@ -104,7 +52,8 @@ def prepare_sample_for_tasks(sample, separator=""):
             "suffixes": suffixes,
             "derivation": ref_derivation,
             "options": [ref_derivation] + list(options),
-            "answer": 0
+            "answer": 0,
+            "meta_suffixes": sample.get("meta_morphemes"),
         }
     
     return None
@@ -150,7 +99,8 @@ def prepare_tr_nonce_data_for_tasks(input_data, num_samples=None, *args, **kwarg
             "derivation": derivation.replace(root, nonce_word, 1),
             "options": [option.replace(root, nonce_word, 1) for option in options],
             "answer": 0,
-            "similar": sample.get("similar")
+            "similar": sample.get("similar"),
+            "meta_suffixes": sample.get("meta_morphemes") if "meta_morphemes" in sample else sample.get("meta_suffixes")
         })
     
     if num_samples is not None:
@@ -198,7 +148,8 @@ def prepare_en_nonce_data_for_tasks(input_data, num_samples=None, *args, **kwarg
             "suffixes": suffixes,
             "derivation": derivation.replace(root, nonce_word, 1),
             "options": [option.replace(root, nonce_word, 1) for option in options],
-            "answer": 0
+            "answer": 0,
+            "meta_suffixes": sample.get("meta_morphemes") if "meta_morphemes" in sample else sample.get("meta_suffixes")
         })
     
     if num_samples is not None:
@@ -261,6 +212,7 @@ def prepare_aligned_tok_data_for_tasks(input_data, num_samples=None, separator="
             **sample,
             "ref_root": sample["root"],
             "ref_suffixes": sample["suffixes"],
+            "ref_meta_suffixes": sample.get("meta_morphemes"),
             "root": root_token,
             "suffixes": tokens[1:],
             "options": [ref_derivation] + list(options),
@@ -273,7 +225,6 @@ def prepare_aligned_tok_data_for_tasks(input_data, num_samples=None, separator="
     return aligned_tok_data
 
 DATA_PROCESSOR_MAP = {
-    "tr_pilot_morph": (prepare_tr_pilot_data_for_tasks, "_morph"),
     "tr_morph": (prepare_tr_data_for_tasks, "_morph"),
     "tr_morph_nonce": (prepare_tr_nonce_data_for_tasks, "_nonce"),
     "en_morph": (prepare_en_data_for_tasks, "_morph"),

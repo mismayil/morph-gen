@@ -185,7 +185,8 @@ def prepare_sample_for_eval(sample, shot_samples, template, language):
         "prompt": prompt,
         "reference": final_answer,
         "template": template,
-        "original_root": sample["original_root"] if "original_root" in sample else None
+        "original_root": sample["original_root"] if "original_root" in sample else None,
+        "meta_suffixes": sample.get("meta_suffixes", None)
     })
 
     return eval_data

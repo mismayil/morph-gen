@@ -27,25 +27,25 @@ def plot_results(tab_results, output_dir, output_format="png", language="en", te
         print(f"Saving figure to {plot_path}")
         plt.savefig(plot_path)
 
-def plot_results_by_freq(tab_results, output_dir, output_format="png", language="en", template="en", model="gpt-3.5-turbo", metric="accuracy", task="morph-gen", is_ood=False):
+def plot_results_by_freq(tab_results, output_dir, output_format="png", language="en", template="en", model="gpt-3.5-turbo", metric="accuracy", task="morph-gen", is_ood=False, keyword="unigram"):
     results = tab_results.query(f"is_ood == {is_ood} & task == '{task}'")
     if len(results) > 0:
         plt.ioff()
         fig, axes = plt.subplots(figsize=(16, 8), nrows=1, ncols=2)
         
         axes[0].set_title(f"{metric.capitalize()} by frequency \n [lang={language}, temp={template}, model={model}] \n [dist={'OOD' if is_ood else 'ID'}, task={task}]")
-        axes[0].set_xlabel("Frequency of words")
+        axes[0].set_xlabel(f"{keyword.capitalize()} frequency")
         axes[0].set_ylabel(metric.capitalize())
         axes[0].title.set_size(20)
         sns.barplot(data=results, x="freq_bin", y=metric, hue="num_shots", ax=axes[0])
 
         axes[1].set_title(f"Number of samples by suffix length and frequency \n [lang={language}, temp={template}, model={model}] \n [dist={'OOD' if is_ood else 'ID'}, task={task}]")
-        axes[1].set_xlabel("Frequency of words")
+        axes[1].set_xlabel(f"{keyword.capitalize()} frequency")
         axes[1].set_ylabel("Number of samples")
         axes[1].title.set_size(20)
         sns.barplot(data=results, x="freq_bin", y="num_samples", hue="num_suffixes", ax=axes[1])
 
-        plot_path = f"{output_dir}/fig_{ABBR_METRICS[metric]}_by_freq_{task}_{'ood' if is_ood else 'id'}.{output_format}"
+        plot_path = f"{output_dir}/fig_{ABBR_METRICS[metric]}_by_{keyword}_freq_{task}_{'ood' if is_ood else 'id'}.{output_format}"
         print(f"Saving figure to {plot_path}")
         plt.savefig(plot_path)
     
@@ -79,6 +79,12 @@ def main():
         for task in ["morph-disc", "morph-gen"]:
             for is_ood in [False, True]:
                 if "freq_bin" in tab_results.columns:
+                    keyword = "unigram" 
+                    if "meta_suffix" in results_path.name:
+                        keyword = "meta suffix"
+                    elif "suffix" in results_path.name:
+                        keyword = "suffix"
+
                     plot_results_by_freq(tab_results, 
                                          output_dir=output_dir, 
                                          output_format=args.output_format, 
@@ -87,7 +93,8 @@ def main():
                                          model=args.model,
                                          metric=metric,
                                          task=task,
-                                         is_ood=is_ood)
+                                         is_ood=is_ood,
+                                         keyword=keyword)
                 else:
                     plot_results(tab_results, 
                              output_dir=output_dir, 

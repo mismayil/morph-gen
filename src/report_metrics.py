@@ -78,7 +78,7 @@ def compute_usage(sample, model):
         "total": input_cost + output_cost
     }
 
-def compute_metrics(results, compute_usage=False, separator="", frequency_path=None):
+def compute_metrics(results, compute_usage=False, separator="", unigram_freq_path=None, suffix_freq_path=None, meta_suffix_freq_path=None):
     metrics = {}
     predictions = []
     references = []
@@ -98,14 +98,50 @@ def compute_metrics(results, compute_usage=False, separator="", frequency_path=N
     len_suffix_accuracy = defaultdict(list)
     len_suffix_faithful = defaultdict(list)
     freq_bins = [(0, 10), (10, 100), (100, 1000), (1000,)]
-    freq_accuracy = defaultdict(list)
-    freq_faithful = defaultdict(list)
-    num_freq_samples = defaultdict(dict)
+    
+    unigram_freq_accuracy = defaultdict(list)
+    unigram_freq_faithful = defaultdict(list)
+    num_unigram_freq_samples = defaultdict(dict)
 
-    frequencies = None
+    suffix_freq_accuracy = defaultdict(list)
+    suffix_freq_faithful = defaultdict(list)
+    num_suffix_freq_samples = defaultdict(dict)
 
-    if frequency_path:
-        frequencies = read_json(frequency_path)
+    meta_suffix_freq_accuracy = defaultdict(list)
+    meta_suffix_freq_faithful = defaultdict(list)
+    num_meta_suffix_freq_samples = defaultdict(dict)
+
+    unigram_freqs = None
+    suffix_freqs = None
+    meta_suffix_freqs = None
+
+    if unigram_freq_path:
+        unigram_freqs = read_json(unigram_freq_path)
+    
+    if suffix_freq_path:
+        suffix_freqs = read_json(suffix_freq_path)
+    
+    if meta_suffix_freq_path:
+        meta_suffix_freqs = read_json(meta_suffix_freq_path)
+
+    def _update_freq_metrics(freq, freq_accuracy, freq_faithful, num_freq_samples, result):
+        for freq_bin in freq_bins:
+            if freq >= freq_bin[0] and (len(freq_bin) == 1 or freq < freq_bin[1]):
+                freq_accuracy[str(freq_bin)].append(result["correct"])
+                freq_faithful[str(freq_bin)].append(result["faithful"])
+                if len(result["suffixes"]) not in num_freq_samples[str(freq_bin)]:
+                    num_freq_samples[str(freq_bin)][len(result["suffixes"])] = 0
+                num_freq_samples[str(freq_bin)][len(result["suffixes"])] += 1
+                break
+    
+    def _add_freq_metrics(metrics, freq_accuracy, freq_faithful, num_freq_samples, keyword="unigram"):
+        freq_accuracy = dict(sorted(freq_accuracy.items(), key=lambda item: item[0]))
+        freq_faithful = dict(sorted(freq_faithful.items(), key=lambda item: item[0]))
+        metrics[f"accuracy_by_{keyword}_freq"] = {k: sum(v) / len(v) for k, v in freq_accuracy.items()}
+        metrics[f"faithfulness_by_{keyword}_freq"] = {k: sum(v) / len(v) for k, v in freq_faithful.items()}
+        num_freq_samples = dict(sorted(num_freq_samples.items(), key=lambda item: item[0]))
+        num_freq_samples = {k: dict(sorted(v.items(), key=lambda item: item[0])) for k, v in num_freq_samples.items()}
+        metrics[f"num_samples_by_{keyword}_freq"] = num_freq_samples
 
     for result in results["data"]:
         gold_response_attr = "reference"
@@ -121,16 +157,17 @@ def compute_metrics(results, compute_usage=False, separator="", frequency_path=N
             len_suffix_accuracy[len(result["suffixes"])].append(result["correct"])
             len_suffix_faithful[len(result["suffixes"])].append(result["faithful"])
 
-            if frequencies:
-                word_freq = frequencies.get("".join([result["root"]]+result["suffixes"]), 0)
-                for freq_bin in freq_bins:
-                    if word_freq >= freq_bin[0] and (len(freq_bin) == 1 or word_freq < freq_bin[1]):
-                        freq_accuracy[str(freq_bin)].append(result["correct"])
-                        freq_faithful[str(freq_bin)].append(result["faithful"])
-                        if len(result["suffixes"]) not in num_freq_samples[str(freq_bin)]:
-                            num_freq_samples[str(freq_bin)][len(result["suffixes"])] = 0
-                        num_freq_samples[str(freq_bin)][len(result["suffixes"])] += 1
-                        break
+            if unigram_freqs:
+                word_freq = unigram_freqs.get("".join([result["root"]]+result["suffixes"]), 0)
+                _update_freq_metrics(word_freq, unigram_freq_accuracy, unigram_freq_faithful, num_unigram_freq_samples, result)
+
+            if suffix_freqs:
+                suffix_freq = suffix_freqs.get("".join(result["suffixes"]), 0)
+                _update_freq_metrics(suffix_freq, suffix_freq_accuracy, suffix_freq_faithful, num_suffix_freq_samples, result)
+            
+            if meta_suffix_freqs:
+                meta_suffix_freq = meta_suffix_freqs.get("".join(result["meta_suffixes"]), 0)
+                _update_freq_metrics(meta_suffix_freq, meta_suffix_freq_accuracy, meta_suffix_freq_faithful, num_meta_suffix_freq_samples, result)
 
             if compute_usage:
                 sample_usage, sample_cost = compute_usage(result, results["metadata"]["model"])
@@ -155,14 +192,14 @@ def compute_metrics(results, compute_usage=False, separator="", frequency_path=N
     metrics["faithfulness_by_suffix_len"] = {k: sum(v) / len(v) for k, v in len_suffix_faithful.items()}
     metrics["num_samples_by_suffix_len"] = {k: len(v) for k, v in len_suffix_accuracy.items()}
     
-    if frequencies:
-        freq_accuracy = dict(sorted(freq_accuracy.items(), key=lambda item: item[0]))
-        freq_faithful = dict(sorted(freq_faithful.items(), key=lambda item: item[0]))
-        metrics["accuracy_by_frequency"] = {k: sum(v) / len(v) for k, v in freq_accuracy.items()}
-        metrics["faithfulness_by_frequency"] = {k: sum(v) / len(v) for k, v in freq_faithful.items()}
-        num_freq_samples = dict(sorted(num_freq_samples.items(), key=lambda item: item[0]))
-        num_freq_samples = {k: dict(sorted(v.items(), key=lambda item: item[0])) for k, v in num_freq_samples.items()}
-        metrics["num_samples_by_frequency"] = num_freq_samples
+    if unigram_freqs:
+        _add_freq_metrics(metrics, unigram_freq_accuracy, unigram_freq_faithful, num_unigram_freq_samples, keyword="unigram")
+    
+    if suffix_freqs:
+        _add_freq_metrics(metrics, suffix_freq_accuracy, suffix_freq_faithful, num_suffix_freq_samples, keyword="suffix")
+    
+    if meta_suffix_freqs:
+        _add_freq_metrics(metrics, meta_suffix_freq_accuracy, meta_suffix_freq_faithful, num_meta_suffix_freq_samples, keyword="meta_suffix")
 
     if compute_usage:
         metrics["usage"] = usage
@@ -170,13 +207,16 @@ def compute_metrics(results, compute_usage=False, separator="", frequency_path=N
 
     return metrics
 
-def report_metrics(results_files, compute_usage=False, separator="", frequency_path=None):
+def report_metrics(results_files, compute_usage=False, separator="", unigram_freq_path=None, suffix_freq_path=None, meta_suffix_freq_path=None):
     for results_file in tqdm(results_files, total=len(results_files), desc="Reporting metrics"):
         results = read_json(results_file)
         
         try:
             if "data" in results:
-                metrics = compute_metrics(results, compute_usage=compute_usage, separator=separator, frequency_path=frequency_path)
+                metrics = compute_metrics(results, compute_usage=compute_usage, separator=separator,
+                                          unigram_freq_path=unigram_freq_path, 
+                                          suffix_freq_path=suffix_freq_path, 
+                                          meta_suffix_freq_path=meta_suffix_freq_path)
                 results["metrics"].update(metrics)
                 write_json(results, results_file, ensure_ascii=False)
         except Exception as e:
@@ -188,7 +228,9 @@ def main():
     parser.add_argument("-r", "--results-path", type=str, help="Path to evaluation results file in json or directory", required=True)
     parser.add_argument("-u", "--compute-usage", action="store_true", help="Compute usage metrics", default=False)
     parser.add_argument("-t", "--separator", type=str, default="", help="Separator to use between morphemes. Defaults to empty string.")
-    parser.add_argument("-f", "--frequency-path", type=str, help="Path to unigram frequency file", default=None)
+    parser.add_argument("-uf", "--unigram-freq-path", type=str, help="Path to unigram frequency file", default=None)
+    parser.add_argument("-sf", "--suffix-freq-path", type=str, help="Path to suffix frequency file", default=None)
+    parser.add_argument("-mf", "--meta-suffix-freq-path", type=str, help="Path to meta suffix frequency file", default=None)
 
     args = parser.parse_args()
 
@@ -201,7 +243,7 @@ def main():
     else:
         files_to_process.extend(find_json_files(args.results_path))
 
-    report_metrics(files_to_process, args.compute_usage, args.separator, args.frequency_path)
+    report_metrics(files_to_process, args.compute_usage, args.separator, args.unigram_freq_path, args.suffix_freq_path, args.meta_suffix_freq_path)
 
 if __name__ == "__main__":
     main()
