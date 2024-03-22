@@ -55,7 +55,7 @@ def prepare_sample_for_tasks(sample, separator=""):
             "options": [ref_derivation] + list(options),
             "answer": 0,
             "meta_suffixes": sample.get("meta_morphemes"),
-            "sentence": sentence.replace(ref_derivation, "___") if sentence else None
+            "sentence": sentence.lower().replace(ref_derivation, "___") if sentence else None
         }
     
     return None
