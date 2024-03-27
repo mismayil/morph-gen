@@ -4,6 +4,7 @@ from openai import OpenAI, AzureOpenAI, APITimeoutError, APIConnectionError, Rat
 import os
 from tqdm import tqdm
 import pathlib
+import traceback
 
 from utils import read_json, write_json, generate_unique_id, MODEL_COSTS
 
@@ -127,46 +128,54 @@ def main():
 
     pathlib.Path(args.output_dir).mkdir(parents=True, exist_ok=True)
     datapath = pathlib.Path(args.datapath)
-    
-    output_path = os.path.join(args.output_dir, f"{datapath.stem}_{args.model}_{generate_unique_id()}.json")
+    unique_id = generate_unique_id()
+    output_path = os.path.join(args.output_dir, f"{datapath.stem}_{args.model}_{unique_id}.json")
+    error_path = os.path.join(args.output_dir, f"{datapath.stem}_{args.model}_{unique_id}_errors.txt")
+
     print(f"Writing to {output_path}")
     
     for sample in tqdm(data, total=len(data)):
-        if "id" in sample and sample["id"] in ignore_map:
-            ignore_instance = ignore_map[sample["id"]]
-            if "model_output" in ignore_instance:
-                sample.update(ignore_instance)
-                continue
-    
-        if "model_output" in sample:
-            continue
-
-        if args.model in CHAT_COMPLETION_MODELS:
-            response, usage = chat_completion(client, [{"role": "user", "content": sample["prompt"].strip()}], model=args.model, return_text=True, return_usage=True, model_args={
-                "temperature": args.temperature,
-                "max_tokens": args.max_tokens,
-                "top_p": args.top_p,
-                "frequency_penalty": args.frequency_penalty,
-                "presence_penalty": args.presence_penalty
-            })
-        elif args.model in TEXT_COMPLETION_MODELS:
-            response, usage = text_completion(client, sample["prompt"].strip(), model=args.model, return_text=True, return_usage=True, model_args={
-                "temperature": args.temperature,
-                "max_tokens": args.max_tokens,
-                "top_p": args.top_p,
-                "frequency_penalty": args.frequency_penalty,
-                "presence_penalty": args.presence_penalty
-            })
-        else:
-            raise ValueError(f"Model {args.model} not supported for evaluation.")
-
-        sample["model_output"] = response
-        sample["usage"] = usage
-        outputs["metrics"]["usage"]["prompt_tokens"] += usage["prompt_tokens"]
-        outputs["metrics"]["usage"]["completion_tokens"] += usage["completion_tokens"]
-        outputs["metrics"]["usage"]["total_tokens"] += usage["total_tokens"]
+        try:
+            if "id" in sample and sample["id"] in ignore_map:
+                ignore_instance = ignore_map[sample["id"]]
+                if "model_output" in ignore_instance:
+                    sample.update(ignore_instance)
+                    continue
         
-        write_json(outputs, output_path, ensure_ascii=False)
+            if "model_output" in sample:
+                continue
+
+            if args.model in CHAT_COMPLETION_MODELS:
+                response, usage = chat_completion(client, [{"role": "user", "content": sample["prompt"].strip()}], model=args.model, return_text=True, return_usage=True, model_args={
+                    "temperature": args.temperature,
+                    "max_tokens": args.max_tokens,
+                    "top_p": args.top_p,
+                    "frequency_penalty": args.frequency_penalty,
+                    "presence_penalty": args.presence_penalty
+                })
+            elif args.model in TEXT_COMPLETION_MODELS:
+                response, usage = text_completion(client, sample["prompt"].strip(), model=args.model, return_text=True, return_usage=True, model_args={
+                    "temperature": args.temperature,
+                    "max_tokens": args.max_tokens,
+                    "top_p": args.top_p,
+                    "frequency_penalty": args.frequency_penalty,
+                    "presence_penalty": args.presence_penalty
+                })
+            else:
+                raise ValueError(f"Model {args.model} not supported for evaluation.")
+
+            sample["model_output"] = response
+            sample["usage"] = usage
+            outputs["metrics"]["usage"]["prompt_tokens"] += usage["prompt_tokens"]
+            outputs["metrics"]["usage"]["completion_tokens"] += usage["completion_tokens"]
+            outputs["metrics"]["usage"]["total_tokens"] += usage["total_tokens"]
+            
+            write_json(outputs, output_path, ensure_ascii=False)
+        except Exception as e:
+            with open(error_path, "a") as error_file:
+                error_file.write(f"Error for sample {sample['id']}: {str(e)}\n")
+                error_file.write(traceback.format_exc())
+                error_file.write("\n")
 
     outputs["metrics"]["cost"]["input"] = outputs["metrics"]["usage"]["prompt_tokens"] * MODEL_COSTS[args.model]["input"]
     outputs["metrics"]["cost"]["output"] = outputs["metrics"]["usage"]["completion_tokens"] * MODEL_COSTS[args.model]["output"]

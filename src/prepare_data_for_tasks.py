@@ -44,6 +44,7 @@ def prepare_sample_for_tasks(sample, separator=""):
                 options.add(derivation)
 
         options = random.sample(list(options), min(len(options), 5))
+        sentence = sample.get("sentence")
 
         return {
             "original_root": sample["original_root"] if "original_root" in sample else None,
@@ -54,6 +55,7 @@ def prepare_sample_for_tasks(sample, separator=""):
             "options": [ref_derivation] + list(options),
             "answer": 0,
             "meta_suffixes": sample.get("meta_morphemes"),
+            "sentence": sentence.lower().replace(ref_derivation, "___") if sentence else None
         }
     
     return None
@@ -89,18 +91,22 @@ def prepare_tr_nonce_data_for_tasks(input_data, num_samples=None, *args, **kwarg
             nonce_word = generate_nonce_word_tr(root)
             if nonce_word not in dictionary:
                 break
+        
+        nonce_derivation = derivation.replace(root, nonce_word, 1)
 
         nonce_data.append({
             "id": f"tr-btwd-ood-{i}",
             "original_root": root,
+            "original_derivation": derivation,
             "root": nonce_word,
             "pos": pos,
             "suffixes": suffixes,
-            "derivation": derivation.replace(root, nonce_word, 1),
+            "derivation": nonce_derivation,
             "options": [option.replace(root, nonce_word, 1) for option in options],
             "answer": 0,
             "similar": sample.get("similar"),
-            "meta_suffixes": sample.get("meta_morphemes") if "meta_morphemes" in sample else sample.get("meta_suffixes")
+            "meta_suffixes": sample.get("meta_morphemes") if "meta_morphemes" in sample else sample.get("meta_suffixes"),
+            "sentence": sample.get("sentence")
         })
     
     if num_samples is not None:
@@ -139,17 +145,21 @@ def prepare_en_nonce_data_for_tasks(input_data, num_samples=None, *args, **kwarg
             nonce_word = generate_nonce_word_en(root)
             if nonce_word not in dictionary:
                 break
-
+        
+        nonce_derivation = derivation.replace(root, nonce_word, 1)
+    
         nonce_data.append({
             "id": f"en-morpholex-ood-{i}",
             "original_root": root,
+            "original_derivation": derivation,
             "root": nonce_word,
             "pos": pos,
             "suffixes": suffixes,
-            "derivation": derivation.replace(root, nonce_word, 1),
+            "derivation": nonce_derivation,
             "options": [option.replace(root, nonce_word, 1) for option in options],
             "answer": 0,
-            "meta_suffixes": sample.get("meta_morphemes") if "meta_morphemes" in sample else sample.get("meta_suffixes")
+            "meta_suffixes": sample.get("meta_morphemes") if "meta_morphemes" in sample else sample.get("meta_suffixes"),
+            "sentence": sample.get("sentence")
         })
     
     if num_samples is not None:

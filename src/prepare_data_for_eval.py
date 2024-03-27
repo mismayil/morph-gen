@@ -28,7 +28,15 @@ INSTRUCTION_TEMPLATES = {
     "nonce_morph_gen_tr": MORPH_GEN_NONCE_TR_INSTRUCTION_TEMPLATE,
     "nonce_morph_disc_tr": MORPH_DISC_NONCE_TR_INSTRUCTION_TEMPLATE,
     "morph_gen_order_en": MORPH_GEN_ORDER_EN_INSTRUCTION_TEMPLATE,
-    "nonce_morph_gen_order_en": MORPH_GEN_NONCE_ORDER_EN_INSTRUCTION_TEMPLATE
+    "nonce_morph_gen_order_en": MORPH_GEN_NONCE_ORDER_EN_INSTRUCTION_TEMPLATE,
+    "morph_gen_sent_en": MORPH_GEN_SENT_EN_INSTRUCTION_TEMPLATE,
+    "morph_disc_sent_en": MORPH_DISC_SENT_EN_INSTRUCTION_TEMPLATE,
+    "nonce_morph_gen_sent_en": MORPH_GEN_NONCE_SENT_EN_INSTRUCTION_TEMPLATE,
+    "nonce_morph_disc_sent_en": MORPH_DISC_NONCE_SENT_EN_INSTRUCTION_TEMPLATE,
+    "morph_gen_sent_tr": MORPH_GEN_SENT_TR_INSTRUCTION_TEMPLATE,
+    "morph_disc_sent_tr": MORPH_DISC_SENT_TR_INSTRUCTION_TEMPLATE,
+    "nonce_morph_gen_sent_tr": MORPH_GEN_NONCE_SENT_TR_INSTRUCTION_TEMPLATE,
+    "nonce_morph_disc_sent_tr": MORPH_DISC_NONCE_SENT_TR_INSTRUCTION_TEMPLATE
 }
 
 SHOT_TEMPLATES = {
@@ -41,7 +49,15 @@ SHOT_TEMPLATES = {
     "nonce_morph_gen_tr": MORPH_GEN_NONCE_TR_SHOT_TEMPLATE,
     "nonce_morph_disc_tr": MORPH_DISC_NONCE_TR_SHOT_TEMPLATE,
     "morph_gen_order_en": MORPH_GEN_EN_SHOT_TEMPLATE,
-    "nonce_morph_gen_order_en": MORPH_GEN_NONCE_EN_SHOT_TEMPLATE
+    "nonce_morph_gen_order_en": MORPH_GEN_NONCE_EN_SHOT_TEMPLATE,
+    "morph_gen_sent_en": MORPH_GEN_SENT_EN_SHOT_TEMPLATE,
+    "morph_disc_sent_en": MORPH_DISC_SENT_EN_SHOT_TEMPLATE,
+    "nonce_morph_gen_sent_en": MORPH_GEN_NONCE_SENT_EN_SHOT_TEMPLATE,
+    "nonce_morph_disc_sent_en": MORPH_DISC_NONCE_SENT_EN_SHOT_TEMPLATE,
+    "morph_gen_sent_tr": MORPH_GEN_SENT_TR_SHOT_TEMPLATE,
+    "morph_disc_sent_tr": MORPH_DISC_SENT_TR_SHOT_TEMPLATE,
+    "nonce_morph_gen_sent_tr": MORPH_GEN_NONCE_SENT_TR_SHOT_TEMPLATE,
+    "nonce_morph_disc_sent_tr": MORPH_DISC_NONCE_SENT_TR_SHOT_TEMPLATE
 }
 
 def _is_ood_sample(sample):
@@ -62,22 +78,23 @@ def prepare_shot_for_morph_gen(idx, sample, template, language, is_final=False):
     suffixes_str = ", ".join([f"'{s}'" for s in suffixes])
     answer = sample["derivation"]
 
+    format_args = {
+        "index": idx+1,
+        "root": sample["root"],
+        "suffixes": suffixes_str,
+        "answer": "" if is_final else answer
+    }
+    shot_template = SHOT_TEMPLATES[template]
+    
     if _is_ood_sample(sample):
         definition = _get_sample_definition(sample, language, template_lang)
-        shot = SHOT_TEMPLATES[f"nonce_{template}"].format(
-            index=idx+1,
-            root=sample["root"],
-            definition=definition,
-            suffixes=suffixes_str,
-            answer="" if is_final else answer,
-        )
-    else:
-        shot = SHOT_TEMPLATES[template].format(
-            index=idx+1,
-            root=sample["root"],
-            suffixes=suffixes_str,
-            answer="" if is_final else answer,
-        )
+        format_args["definition"] = definition
+        shot_template = SHOT_TEMPLATES[f"nonce_{template}"]
+    
+    if "sent" in template:
+        format_args["sentence"] = sample["sentence"]
+
+    shot = shot_template.format(**format_args)
     
     return shot, answer
 
@@ -87,22 +104,23 @@ def prepare_shot_for_morph_gen_order(idx, sample, template, language, is_final=F
     suffixes_str = ", ".join([f"{i+1}. '{s[1]}'" for i, s in enumerate(suffixes)])
     answer = ",".join([str(idx[1]) for idx in sorted(zip([i_s[0] for i_s in suffixes], range(1, len(suffixes)+1)), key=lambda x: x[0])])
 
+    format_args = {
+        "index": idx+1,
+        "root": sample["root"],
+        "suffixes": suffixes_str,
+        "answer": "" if is_final else answer
+    }
+    shot_template = SHOT_TEMPLATES[template]
+
     if _is_ood_sample(sample):
         definition = _get_sample_definition(sample, language, template_lang)
-        shot = SHOT_TEMPLATES[f"nonce_{template}"].format(
-            index=idx+1,
-            root=sample["root"],
-            definition=definition,
-            suffixes=suffixes_str,
-            answer="" if is_final else answer,
-        )
-    else:
-        shot = SHOT_TEMPLATES[template].format(
-            index=idx+1,
-            root=sample["root"],
-            suffixes=suffixes_str,
-            answer="" if is_final else answer,
-        )
+        format_args["definition"] = definition
+        shot_template = SHOT_TEMPLATES[f"nonce_{template}"]
+
+    if "sent" in template:
+        format_args["sentence"] = sample["sentence"]
+
+    shot = shot_template.format(**format_args)
     
     return shot, answer
 
@@ -123,24 +141,24 @@ def prepare_shot_for_morph_disc(idx, sample, template, language, is_final=False)
     options_str = "\n".join([f"{o_index+1}. {option}" for o_index, option in enumerate(options)])
     answer = options.index(sample["derivation"])+1
 
+    format_args = {
+        "index": idx+1,
+        "root": sample["root"],
+        "suffixes": suffixes_str,
+        "options": options_str,
+        "answer": "" if is_final else answer
+    }
+    shot_template = SHOT_TEMPLATES[template]
+
     if _is_ood_sample(sample):
         definition = _get_sample_definition(sample, language, template_lang)
-        shot = SHOT_TEMPLATES[f"nonce_{template}"].format(
-            index=idx+1,
-            root=sample["root"],
-            definition=definition,
-            suffixes=suffixes_str,
-            options=options_str,
-            answer="" if is_final else answer,
-        )
-    else:
-        shot = SHOT_TEMPLATES[template].format(
-            index=idx+1,
-            root=sample["root"],
-            suffixes=suffixes_str,
-            options=options_str,
-            answer="" if is_final else answer,
-        )
+        format_args["definition"] = definition
+        shot_template = SHOT_TEMPLATES[f"nonce_{template}"]
+
+    if "sent" in template:
+        format_args["sentence"] = sample["sentence"]
+
+    shot = shot_template.format(**format_args)
     
     return shot, answer
 
@@ -150,6 +168,10 @@ INSTRUCTION_PROCESSORS = {
     "morph_gen_tr": prepare_instruction_for_morph_gen_disc,
     "morph_disc_tr": prepare_instruction_for_morph_gen_disc,
     "morph_gen_order_en": prepare_instruction_for_morph_gen_disc,
+    "morph_gen_sent_en": prepare_instruction_for_morph_gen_disc,
+    "morph_disc_sent_en": prepare_instruction_for_morph_gen_disc,
+    "morph_gen_sent_tr": prepare_instruction_for_morph_gen_disc,
+    "morph_disc_sent_tr": prepare_instruction_for_morph_gen_disc
 }
 
 SHOT_PROCESSORS = {
@@ -158,6 +180,10 @@ SHOT_PROCESSORS = {
     "morph_gen_tr": prepare_shot_for_morph_gen,
     "morph_disc_tr": prepare_shot_for_morph_disc,
     "morph_gen_order_en": prepare_shot_for_morph_gen_order,
+    "morph_gen_sent_en": prepare_shot_for_morph_gen,
+    "morph_disc_sent_en": prepare_shot_for_morph_disc,
+    "morph_gen_sent_tr": prepare_shot_for_morph_gen,
+    "morph_disc_sent_tr": prepare_shot_for_morph_disc
 }
 
 def prepare_sample_for_eval(sample, shot_samples, template, language):
@@ -186,7 +212,9 @@ def prepare_sample_for_eval(sample, shot_samples, template, language):
         "reference": final_answer,
         "template": template,
         "original_root": sample["original_root"] if "original_root" in sample else None,
-        "meta_suffixes": sample.get("meta_suffixes", None)
+        "original_derivation": sample["original_derivation"] if "original_derivation" in sample else None,
+        "meta_suffixes": sample.get("meta_suffixes", None),
+        "sentence": sample.get("sentence", None),
     })
 
     return eval_data
