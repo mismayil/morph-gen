@@ -45,7 +45,7 @@ def plot_results_by_freq(tab_results, output_dir, output_format="png", language=
         axes[1].title.set_size(20)
         sns.barplot(data=results, x="freq_bin", y="num_samples", hue="num_suffixes", ax=axes[1])
 
-        plot_path = f"{output_dir}/fig_{ABBR_METRICS[metric]}_by_{keyword}_freq_{task}_{'ood' if is_ood else 'id'}.{output_format}"
+        plot_path = f"{output_dir}/fig_{ABBR_METRICS[metric]}_by_{keyword.replace(' ', '_')}_freq_{task}_{'ood' if is_ood else 'id'}.{output_format}"
         print(f"Saving figure to {plot_path}")
         plt.savefig(plot_path)
     
