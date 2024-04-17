@@ -197,9 +197,9 @@ def prepare_tr_comp_data_for_tasks(input_data, num_samples=None, separator="", *
 
     return morph_data
 
-def prepare_aligned_tok_data_for_tasks(input_data, num_samples=None, separator="", model="gpt-4", *args, **kwargs):
+def prepare_tok_aligned_data_for_tasks(input_data, num_samples=None, separator="", model="gpt-4", *args, **kwargs):
     data = input_data["data"]
-    aligned_tok_data = []
+    tok_aligned_data = []
 
     for i, sample in tqdm(enumerate(data), total=len(data), desc="Preparing aligned tokenization data for tasks"):
         ref_derivation = sample["derivation"]
@@ -218,7 +218,7 @@ def prepare_aligned_tok_data_for_tasks(input_data, num_samples=None, separator="
                 break
 
         options = random.sample(list(options), len(options))
-        aligned_tok_data.append({
+        tok_aligned_data.append({
             **sample,
             "ref_root": sample["root"],
             "ref_suffixes": sample["suffixes"],
@@ -230,9 +230,9 @@ def prepare_aligned_tok_data_for_tasks(input_data, num_samples=None, separator="
         })
     
     if num_samples is not None:
-        aligned_tok_data = random.sample(aligned_tok_data, num_samples)
+        tok_aligned_data = random.sample(tok_aligned_data, num_samples)
 
-    return aligned_tok_data
+    return tok_aligned_data
 
 DATA_PROCESSOR_MAP = {
     "tr_morph": (prepare_tr_data_for_tasks, "_morph"),
@@ -240,7 +240,7 @@ DATA_PROCESSOR_MAP = {
     "en_morph": (prepare_en_data_for_tasks, "_morph"),
     "en_morph_nonce": (prepare_en_nonce_data_for_tasks, "_nonce"),
     "tr_comp_morph": (prepare_tr_comp_data_for_tasks, "_morph"),
-    "aligned_tok": (prepare_aligned_tok_data_for_tasks, "_aligned_tok")
+    "tok_aligned": (prepare_tok_aligned_data_for_tasks, "_tok_aligned")
 }
 
 def main():

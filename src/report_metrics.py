@@ -111,6 +111,20 @@ def compute_metrics(results, compute_usage=False, separator="", unigram_freq_pat
     meta_suffix_freq_faithful = defaultdict(list)
     num_meta_suffix_freq_samples = defaultdict(dict)
 
+    suffix_freq_by_len_accuracy = defaultdict(dict)
+    suffix_freq_by_len_faithful = defaultdict(dict)
+    suffix_freq_by_len_samples = defaultdict(dict)
+
+    meta_suffix_freq_by_len_accuracy = defaultdict(dict)
+    meta_suffix_freq_by_len_faithful = defaultdict(dict)
+    meta_suffix_freq_by_len_samples = defaultdict(dict)
+
+    suffix_len_by_freq_accuracy = defaultdict(dict)
+    suffix_len_by_freq_faithful = defaultdict(dict)
+
+    meta_suffix_len_by_freq_accuracy = defaultdict(dict)
+    meta_suffix_len_by_freq_faithful = defaultdict(dict)
+
     unigram_freqs = None
     suffix_freqs = None
     meta_suffix_freqs = None
@@ -124,16 +138,56 @@ def compute_metrics(results, compute_usage=False, separator="", unigram_freq_pat
     if meta_suffix_freq_path:
         meta_suffix_freqs = read_json(meta_suffix_freq_path)
 
-    def _update_freq_metrics(freq, freq_accuracy, freq_faithful, num_freq_samples, result):
+    def _update_freq_metrics(freq, freq_accuracy, freq_faithful, num_freq_samples, result, suffix_key="suffixes"):
         for freq_bin in freq_bins:
             if freq >= freq_bin[0] and (len(freq_bin) == 1 or freq < freq_bin[1]):
-                freq_accuracy[str(freq_bin)].append(result["correct"])
-                freq_faithful[str(freq_bin)].append(result["faithful"])
-                if len(result["suffixes"]) not in num_freq_samples[str(freq_bin)]:
-                    num_freq_samples[str(freq_bin)][len(result["suffixes"])] = 0
-                num_freq_samples[str(freq_bin)][len(result["suffixes"])] += 1
+                suffix_len = len(result[suffix_key])
+                freq_bin = str(freq_bin)
+
+                freq_accuracy[freq_bin].append(result["correct"])
+                freq_faithful[freq_bin].append(result["faithful"])
+                
+                if suffix_len not in num_freq_samples[freq_bin]:
+                    num_freq_samples[freq_bin][suffix_len] = 0
+                num_freq_samples[freq_bin][suffix_len] += 1
+                
                 break
-    
+
+    def _update_freq_by_len_metrics(freq, freq_by_len_accuracy, freq_by_len_faithful, num_freq_by_len_samples, result, suffix_key="suffixes"):
+        for freq_bin in freq_bins:
+            if freq >= freq_bin[0] and (len(freq_bin) == 1 or freq < freq_bin[1]):
+                suffix_len = len(result[suffix_key])
+                freq_bin = str(freq_bin)
+
+                if suffix_len not in freq_by_len_accuracy:
+                    freq_by_len_accuracy[suffix_len] = defaultdict(list)
+                    freq_by_len_faithful[suffix_len] = defaultdict(list)
+                    num_freq_by_len_samples[suffix_len] = defaultdict(int)
+
+                freq_by_len_accuracy[suffix_len][freq_bin].append(result["correct"])
+                freq_by_len_faithful[suffix_len][freq_bin].append(result["faithful"])
+                
+                if freq_bin not in num_freq_by_len_samples[suffix_len]:
+                    num_freq_by_len_samples[suffix_len][freq_bin] = 0
+                num_freq_by_len_samples[suffix_len][freq_bin] += 1
+                
+                break
+
+    def _update_len_by_freq_metrics(freq, len_by_freq_accuracy, len_by_freq_faithful, result, suffix_key="suffixes"):
+        for freq_bin in freq_bins:
+            if freq >= freq_bin[0] and (len(freq_bin) == 1 or freq < freq_bin[1]):
+                suffix_len = len(result[suffix_key])
+                freq_bin = str(freq_bin)
+
+                if freq_bin not in len_by_freq_accuracy:
+                    len_by_freq_accuracy[freq_bin] = defaultdict(list)
+                    len_by_freq_faithful[freq_bin] = defaultdict(list)
+
+                len_by_freq_accuracy[freq_bin][suffix_len].append(result["correct"])
+                len_by_freq_faithful[freq_bin][suffix_len].append(result["faithful"])
+                
+                break
+
     def _add_freq_metrics(metrics, freq_accuracy, freq_faithful, num_freq_samples, keyword="unigram"):
         freq_accuracy = dict(sorted(freq_accuracy.items(), key=lambda item: item[0]))
         freq_faithful = dict(sorted(freq_faithful.items(), key=lambda item: item[0]))
@@ -142,6 +196,25 @@ def compute_metrics(results, compute_usage=False, separator="", unigram_freq_pat
         num_freq_samples = dict(sorted(num_freq_samples.items(), key=lambda item: item[0]))
         num_freq_samples = {k: dict(sorted(v.items(), key=lambda item: item[0])) for k, v in num_freq_samples.items()}
         metrics[f"num_samples_by_{keyword}_freq"] = num_freq_samples
+
+    def _add_freq_by_len_metrics(metrics, freq_by_len_accuracy, freq_by_len_faithful, num_freq_by_len_samples, keyword="unigram"):
+        freq_by_len_accuracy = dict(sorted(freq_by_len_accuracy.items(), key=lambda item: item[0]))
+        freq_by_len_accuracy = {k: dict(sorted(v.items(), key=lambda item: item[0])) for k, v in freq_by_len_accuracy.items()}
+        freq_by_len_faithful = dict(sorted(freq_by_len_faithful.items(), key=lambda item: item[0]))
+        freq_by_len_faithful = {k: dict(sorted(v.items(), key=lambda item: item[0])) for k, v in freq_by_len_faithful.items()}
+        metrics[f"accuracy_by_{keyword}_freq_by_len"] = {k: {k2: sum(v2) / len(v2) for k2, v2 in v.items()} for k, v in freq_by_len_accuracy.items()}
+        metrics[f"faithfulness_by_{keyword}_freq_by_len"] = {k: {k2: sum(v2) / len(v2) for k2, v2 in v.items()} for k, v in freq_by_len_faithful.items()}
+        num_freq_by_len_samples = dict(sorted(num_freq_by_len_samples.items(), key=lambda item: item[0]))
+        num_freq_by_len_samples = {k: dict(sorted(v.items(), key=lambda item: item[0])) for k, v in num_freq_by_len_samples.items()}
+        metrics[f"num_samples_by_{keyword}_freq_by_len"] = num_freq_by_len_samples
+
+    def _add_len_by_freq_metrics(metrics, len_by_freq_accuracy, len_by_freq_faithful, keyword="unigram"):
+        len_by_freq_accuracy = dict(sorted(len_by_freq_accuracy.items(), key=lambda item: item[0]))
+        len_by_freq_accuracy = {k: dict(sorted(v.items(), key=lambda item: item[0])) for k, v in len_by_freq_accuracy.items()}
+        len_by_freq_faithful = dict(sorted(len_by_freq_faithful.items(), key=lambda item: item[0]))
+        len_by_freq_faithful = {k: dict(sorted(v.items(), key=lambda item: item[0])) for k, v in len_by_freq_faithful.items()}
+        metrics[f"accuracy_by_{keyword}_len_by_freq"] = {k: {k2: sum(v2) / len(v2) for k2, v2 in v.items()} for k, v in len_by_freq_accuracy.items()}
+        metrics[f"faithfulness_by_{keyword}_len_by_freq"] = {k: {k2: sum(v2) / len(v2) for k2, v2 in v.items()} for k, v in len_by_freq_faithful.items()}
 
     for result in results["data"]:
         gold_response_attr = "reference"
@@ -164,10 +237,14 @@ def compute_metrics(results, compute_usage=False, separator="", unigram_freq_pat
             if suffix_freqs:
                 suffix_freq = suffix_freqs.get("".join(result["suffixes"]), 0)
                 _update_freq_metrics(suffix_freq, suffix_freq_accuracy, suffix_freq_faithful, num_suffix_freq_samples, result)
+                _update_freq_by_len_metrics(suffix_freq, suffix_freq_by_len_accuracy, suffix_freq_by_len_faithful, suffix_freq_by_len_samples, result)
+                _update_len_by_freq_metrics(suffix_freq, suffix_len_by_freq_accuracy, suffix_len_by_freq_faithful, result)
             
             if meta_suffix_freqs:
                 meta_suffix_freq = meta_suffix_freqs.get("".join(result["meta_suffixes"]), 0)
-                _update_freq_metrics(meta_suffix_freq, meta_suffix_freq_accuracy, meta_suffix_freq_faithful, num_meta_suffix_freq_samples, result)
+                _update_freq_metrics(meta_suffix_freq, meta_suffix_freq_accuracy, meta_suffix_freq_faithful, num_meta_suffix_freq_samples, result, suffix_key="meta_suffixes")
+                _update_freq_by_len_metrics(meta_suffix_freq, meta_suffix_freq_by_len_accuracy, meta_suffix_freq_by_len_faithful, meta_suffix_freq_by_len_samples, result, suffix_key="meta_suffixes")
+                _update_len_by_freq_metrics(meta_suffix_freq, meta_suffix_len_by_freq_accuracy, meta_suffix_len_by_freq_faithful, result, suffix_key="meta_suffixes")
 
             if compute_usage:
                 sample_usage, sample_cost = compute_usage(result, results["metadata"]["model"])
@@ -197,9 +274,13 @@ def compute_metrics(results, compute_usage=False, separator="", unigram_freq_pat
     
     if suffix_freqs:
         _add_freq_metrics(metrics, suffix_freq_accuracy, suffix_freq_faithful, num_suffix_freq_samples, keyword="suffix")
+        _add_freq_by_len_metrics(metrics, suffix_freq_by_len_accuracy, suffix_freq_by_len_faithful, suffix_freq_by_len_samples, keyword="suffix")
+        _add_len_by_freq_metrics(metrics, suffix_len_by_freq_accuracy, suffix_len_by_freq_faithful, keyword="suffix")
     
     if meta_suffix_freqs:
         _add_freq_metrics(metrics, meta_suffix_freq_accuracy, meta_suffix_freq_faithful, num_meta_suffix_freq_samples, keyword="meta_suffix")
+        _add_freq_by_len_metrics(metrics, meta_suffix_freq_by_len_accuracy, meta_suffix_freq_by_len_faithful, meta_suffix_freq_by_len_samples, keyword="meta_suffix")
+        _add_len_by_freq_metrics(metrics, meta_suffix_len_by_freq_accuracy, meta_suffix_len_by_freq_faithful, keyword="meta_suffix")
 
     if compute_usage:
         metrics["usage"] = usage

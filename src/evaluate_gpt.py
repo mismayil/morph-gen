@@ -42,7 +42,7 @@ def text_completion(client, prompt, model="text-davinci-003", return_text=True, 
 
     while True:
         try:
-            response = client.completion.create(model=model, prompt=prompt, **model_args)
+            response = client.completions.create(model=model, prompt=prompt, **model_args)
             text = response.choices[0].text.strip()
             usage = response.usage
 

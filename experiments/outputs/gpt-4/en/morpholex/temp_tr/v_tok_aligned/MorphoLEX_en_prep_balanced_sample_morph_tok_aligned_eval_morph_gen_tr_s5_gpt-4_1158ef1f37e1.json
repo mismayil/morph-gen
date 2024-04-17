@@ -1,0 +1,1959 @@
+{
+    "metadata": {
+        "datapath": "../experiments/data/en/morpholex/temp_tr/v_tok_aligned/MorphoLEX_en_prep_balanced_sample_morph_tok_aligned_eval_morph_gen_tr_s5.json",
+        "model": "gpt-4",
+        "temperature": 0.3,
+        "max_tokens": 40,
+        "top_p": 1,
+        "frequency_penalty": 0,
+        "presence_penalty": 0
+    },
+    "metrics": {
+        "usage": {
+            "prompt_tokens": 25509,
+            "completion_tokens": 269,
+            "total_tokens": 25778
+        },
+        "cost": {
+            "input": 0.76527,
+            "output": 0.01614,
+            "total": 0.78141
+        },
+        "accuracy": 0.98989898989899,
+        "faithfulness": 0.98989898989899,
+        "accuracy_by_suffix_len": {
+            "1": 0.9852941176470589,
+            "2": 1.0,
+            "3": 1.0
+        },
+        "faithfulness_by_suffix_len": {
+            "1": 0.9852941176470589,
+            "2": 1.0,
+            "3": 1.0
+        },
+        "num_samples_by_suffix_len": {
+            "1": 68,
+            "2": 28,
+            "3": 3
+        },
+        "accuracy_by_frequency": {},
+        "faithfulness_by_frequency": {}
+    },
+    "data": [
+        {
+            "id": "en-morpholex-id-0",
+            "root": "algorithm",
+            "suffixes": [
+                "ic"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 2:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 3:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 4:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 5:\nKök: ambass\nEkler: 'adress'\nCevap: ambassadress\n\nÖrnek 6:\nKök: algorithm\nEkler: 'ic'\nCevap: ",
+            "reference": "algorithmic",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "algorithmic",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 256,
+                "total_tokens": 258
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-1",
+            "root": "alien",
+            "suffixes": [
+                "ist"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 3:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 4:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 5:\nKök: ambass\nEkler: 'adress'\nCevap: ambassadress\n\nÖrnek 6:\nKök: alien\nEkler: 'ist'\nCevap: ",
+            "reference": "alienist",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "alienist",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 256,
+                "total_tokens": 258
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-2",
+            "root": "aloof",
+            "suffixes": [
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 4:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 5:\nKök: ambass\nEkler: 'adress'\nCevap: ambassadress\n\nÖrnek 6:\nKök: aloof\nEkler: 'ly'\nCevap: ",
+            "reference": "aloofly",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "aloofly",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 255,
+                "total_tokens": 258
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-3",
+            "root": "alter",
+            "suffixes": [
+                "able"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 5:\nKök: ambass\nEkler: 'adress'\nCevap: ambassadress\n\nÖrnek 6:\nKök: alter\nEkler: 'able'\nCevap: ",
+            "reference": "alterable",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "alterable",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 256,
+                "total_tokens": 258
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-4",
+            "root": "amateur",
+            "suffixes": [
+                "ism"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: ambass\nEkler: 'adress'\nCevap: ambassadress\n\nÖrnek 6:\nKök: amateur\nEkler: 'ism'\nCevap: ",
+            "reference": "amateurism",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "amateurism",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 256,
+                "total_tokens": 259
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-5",
+            "root": "ambass",
+            "suffixes": [
+                "adress"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: ambass\nEkler: 'adress'\nCevap: ",
+            "reference": "ambassadress",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "ambassador",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 255,
+                "total_tokens": 257
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "en-morpholex-id-6",
+            "root": "amorous",
+            "suffixes": [
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: amorous\nEkler: 'ness'\nCevap: ",
+            "reference": "amorousness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "amorousness",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 255,
+                "total_tokens": 258
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-7",
+            "root": "analog",
+            "suffixes": [
+                "ize"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: analog\nEkler: 'ize'\nCevap: ",
+            "reference": "analogize",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "analogize",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 254,
+                "total_tokens": 257
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-8",
+            "root": "ab",
+            "suffixes": [
+                "atement"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: ab\nEkler: 'atement'\nCevap: ",
+            "reference": "abatement",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "abatement",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 254,
+                "total_tokens": 256
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-9",
+            "root": "wolf",
+            "suffixes": [
+                "ish"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: wolf\nEkler: 'ish'\nCevap: ",
+            "reference": "wolfish",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "wolfish",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 254,
+                "total_tokens": 256
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-10",
+            "root": "woo",
+            "suffixes": [
+                "er"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: woo\nEkler: 'er'\nCevap: ",
+            "reference": "wooer",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "wooer",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 254,
+                "total_tokens": 256
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-11",
+            "root": "wrist",
+            "suffixes": [
+                "let"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: wrist\nEkler: 'let'\nCevap: ",
+            "reference": "wristlet",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "wristlet",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 254,
+                "total_tokens": 257
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-12",
+            "root": "yellow",
+            "suffixes": [
+                "est"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: yellow\nEkler: 'est'\nCevap: ",
+            "reference": "yellowest",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "yellowest",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 254,
+                "total_tokens": 256
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-13",
+            "root": "zenith",
+            "suffixes": [
+                "al"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: zenith\nEkler: 'al'\nCevap: ",
+            "reference": "zenithal",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "zenithal",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 254,
+                "total_tokens": 257
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-14",
+            "root": "whe",
+            "suffixes": [
+                "aten"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: whe\nEkler: 'aten'\nCevap: ",
+            "reference": "wheaten",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "wheaten",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 254,
+                "total_tokens": 257
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-15",
+            "root": "whiff",
+            "suffixes": [
+                "y"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: whiff\nEkler: 'y'\nCevap: ",
+            "reference": "whiffy",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "whiffy",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 255,
+                "total_tokens": 258
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-16",
+            "root": "vor",
+            "suffixes": [
+                "acity"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: vor\nEkler: 'acity'\nCevap: ",
+            "reference": "voracity",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "voracity",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 254,
+                "total_tokens": 256
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-17",
+            "root": "vote",
+            "suffixes": [
+                "less"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: vote\nEkler: 'less'\nCevap: ",
+            "reference": "voteless",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "voteless",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 254,
+                "total_tokens": 256
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-18",
+            "root": "vulg",
+            "suffixes": [
+                "arian"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: vulg\nEkler: 'arian'\nCevap: ",
+            "reference": "vulgarian",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "vulgarian",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 255,
+                "total_tokens": 258
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-19",
+            "root": "vel",
+            "suffixes": [
+                "ar"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: vel\nEkler: 'ar'\nCevap: ",
+            "reference": "velar",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "velar",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 254,
+                "total_tokens": 256
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-20",
+            "root": "verte",
+            "suffixes": [
+                "bra"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: verte\nEkler: 'bra'\nCevap: ",
+            "reference": "vertebra",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "vertebra",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 254,
+                "total_tokens": 256
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-21",
+            "root": "warrant",
+            "suffixes": [
+                "or"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: warrant\nEkler: 'or'\nCevap: ",
+            "reference": "warrantor",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "warrantor",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 254,
+                "total_tokens": 257
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-22",
+            "root": "usher",
+            "suffixes": [
+                "ette"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: usher\nEkler: 'ette'\nCevap: ",
+            "reference": "usherette",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "usherette",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 254,
+                "total_tokens": 256
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-23",
+            "root": "trust",
+            "suffixes": [
+                "ful"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: trust\nEkler: 'ful'\nCevap: ",
+            "reference": "trustful",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "trustful",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 254,
+                "total_tokens": 256
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-24",
+            "root": "trape",
+            "suffixes": [
+                "zia"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: trape\nEkler: 'zia'\nCevap: ",
+            "reference": "trapezia",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "trapezia",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 255,
+                "total_tokens": 258
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-25",
+            "root": "enorm",
+            "suffixes": [
+                "ous",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: amb\nEkler: 'ness', 'itious'\nCevap: ambitiousness\n\nÖrnek 2:\nKök: wood\nEkler: 'en', 'ly'\nCevap: woodenly\n\nÖrnek 3:\nKök: work\nEkler: 'leness', 'ab'\nCevap: workableness\n\nÖrnek 4:\nKök: wholes\nEkler: 'ess', 'omen'\nCevap: wholesomeness\n\nÖrnek 5:\nKök: wins\nEkler: 'ely', 'om'\nCevap: winsomely\n\nÖrnek 6:\nKök: enorm\nEkler: 'ness', 'ous'\nCevap: ",
+            "reference": "enormousness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "enormousness",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 273,
+                "total_tokens": 277
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-26",
+            "root": "algebra",
+            "suffixes": [
+                "ical"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: algebra\nEkler: 'ical'\nCevap: ",
+            "reference": "algebraical",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "algebraical",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 254,
+                "total_tokens": 257
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-27",
+            "root": "altru",
+            "suffixes": [
+                "istic"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: altru\nEkler: 'istic'\nCevap: ",
+            "reference": "altruistic",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "altruistic",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 254,
+                "total_tokens": 257
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-28",
+            "root": "amb",
+            "suffixes": [
+                "itious",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: enorm\nEkler: 'ous', 'ness'\nCevap: enormousness\n\nÖrnek 2:\nKök: wood\nEkler: 'en', 'ly'\nCevap: woodenly\n\nÖrnek 3:\nKök: work\nEkler: 'leness', 'ab'\nCevap: workableness\n\nÖrnek 4:\nKök: wholes\nEkler: 'omen', 'ess'\nCevap: wholesomeness\n\nÖrnek 5:\nKök: wins\nEkler: 'om', 'ely'\nCevap: winsomely\n\nÖrnek 6:\nKök: amb\nEkler: 'ness', 'itious'\nCevap: ",
+            "reference": "ambitiousness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "ambitiousness",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 273,
+                "total_tokens": 276
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-29",
+            "root": "wood",
+            "suffixes": [
+                "en",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: enorm\nEkler: 'ous', 'ness'\nCevap: enormousness\n\nÖrnek 2:\nKök: amb\nEkler: 'itious', 'ness'\nCevap: ambitiousness\n\nÖrnek 3:\nKök: work\nEkler: 'ab', 'leness'\nCevap: workableness\n\nÖrnek 4:\nKök: wholes\nEkler: 'ess', 'omen'\nCevap: wholesomeness\n\nÖrnek 5:\nKök: wins\nEkler: 'om', 'ely'\nCevap: winsomely\n\nÖrnek 6:\nKök: wood\nEkler: 'en', 'ly'\nCevap: ",
+            "reference": "woodenly",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "woodenly",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 273,
+                "total_tokens": 276
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-30",
+            "root": "word",
+            "suffixes": [
+                "lessly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: word\nEkler: 'lessly'\nCevap: ",
+            "reference": "wordlessly",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "wordlessly",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 254,
+                "total_tokens": 256
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-31",
+            "root": "work",
+            "suffixes": [
+                "ab",
+                "leness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: enorm\nEkler: 'ous', 'ness'\nCevap: enormousness\n\nÖrnek 2:\nKök: amb\nEkler: 'itious', 'ness'\nCevap: ambitiousness\n\nÖrnek 3:\nKök: wood\nEkler: 'ly', 'en'\nCevap: woodenly\n\nÖrnek 4:\nKök: wholes\nEkler: 'omen', 'ess'\nCevap: wholesomeness\n\nÖrnek 5:\nKök: wins\nEkler: 'ely', 'om'\nCevap: winsomely\n\nÖrnek 6:\nKök: work\nEkler: 'leness', 'ab'\nCevap: ",
+            "reference": "workableness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "workableness",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 272,
+                "total_tokens": 275
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-32",
+            "root": "wrath",
+            "suffixes": [
+                "fully"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: wrath\nEkler: 'fully'\nCevap: ",
+            "reference": "wrathfully",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "wrathfully",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 254,
+                "total_tokens": 257
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-33",
+            "root": "youth",
+            "suffixes": [
+                "fulness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: youth\nEkler: 'fulness'\nCevap: ",
+            "reference": "youthfulness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "youthfulness",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 254,
+                "total_tokens": 257
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-34",
+            "root": "wholes",
+            "suffixes": [
+                "omen",
+                "ess"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: enorm\nEkler: 'ness', 'ous'\nCevap: enormousness\n\nÖrnek 2:\nKök: amb\nEkler: 'itious', 'ness'\nCevap: ambitiousness\n\nÖrnek 3:\nKök: wood\nEkler: 'ly', 'en'\nCevap: woodenly\n\nÖrnek 4:\nKök: work\nEkler: 'leness', 'ab'\nCevap: workableness\n\nÖrnek 5:\nKök: wins\nEkler: 'om', 'ely'\nCevap: winsomely\n\nÖrnek 6:\nKök: wholes\nEkler: 'omen', 'ess'\nCevap: ",
+            "reference": "wholesomeness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "wholesomeness",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 272,
+                "total_tokens": 276
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-35",
+            "root": "wins",
+            "suffixes": [
+                "om",
+                "ely"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: enorm\nEkler: 'ness', 'ous'\nCevap: enormousness\n\nÖrnek 2:\nKök: amb\nEkler: 'ness', 'itious'\nCevap: ambitiousness\n\nÖrnek 3:\nKök: wood\nEkler: 'en', 'ly'\nCevap: woodenly\n\nÖrnek 4:\nKök: work\nEkler: 'ab', 'leness'\nCevap: workableness\n\nÖrnek 5:\nKök: wholes\nEkler: 'ess', 'omen'\nCevap: wholesomeness\n\nÖrnek 6:\nKök: wins\nEkler: 'om', 'ely'\nCevap: ",
+            "reference": "winsomely",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "winsomely",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 272,
+                "total_tokens": 275
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-36",
+            "root": "wit",
+            "suffixes": [
+                "lessness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: wit\nEkler: 'lessness'\nCevap: ",
+            "reference": "witlessness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "witlessness",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 254,
+                "total_tokens": 256
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-37",
+            "root": "wasp",
+            "suffixes": [
+                "ishly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: wasp\nEkler: 'ishly'\nCevap: ",
+            "reference": "waspishly",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "waspishly",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 255,
+                "total_tokens": 258
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-38",
+            "root": "verac",
+            "suffixes": [
+                "iously"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: verac\nEkler: 'iously'\nCevap: ",
+            "reference": "veraciously",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "veraciously",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 255,
+                "total_tokens": 258
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-39",
+            "root": "verb",
+            "suffixes": [
+                "os",
+                "ely"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: enorm\nEkler: 'ous', 'ness'\nCevap: enormousness\n\nÖrnek 2:\nKök: amb\nEkler: 'itious', 'ness'\nCevap: ambitiousness\n\nÖrnek 3:\nKök: wood\nEkler: 'en', 'ly'\nCevap: woodenly\n\nÖrnek 4:\nKök: work\nEkler: 'leness', 'ab'\nCevap: workableness\n\nÖrnek 5:\nKök: wholes\nEkler: 'omen', 'ess'\nCevap: wholesomeness\n\nÖrnek 6:\nKök: verb\nEkler: 'ely', 'os'\nCevap: ",
+            "reference": "verbosely",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "verbosely",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 272,
+                "total_tokens": 275
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-40",
+            "root": "vibr",
+            "suffixes": [
+                "antly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: vibr\nEkler: 'antly'\nCevap: ",
+            "reference": "vibrantly",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "vibrantly",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 254,
+                "total_tokens": 257
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-41",
+            "root": "tutel",
+            "suffixes": [
+                "ary"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: tutel\nEkler: 'ary'\nCevap: ",
+            "reference": "tutelary",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "tutelary",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 255,
+                "total_tokens": 259
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-42",
+            "root": "transit",
+            "suffixes": [
+                "ively"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: transit\nEkler: 'ively'\nCevap: ",
+            "reference": "transitively",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "transitively",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 254,
+                "total_tokens": 257
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-43",
+            "root": "trop",
+            "suffixes": [
+                "ically"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: trop\nEkler: 'ically'\nCevap: ",
+            "reference": "tropically",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "tropically",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 254,
+                "total_tokens": 257
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-44",
+            "root": "top",
+            "suffixes": [
+                "ical",
+                "ity"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: enorm\nEkler: 'ness', 'ous'\nCevap: enormousness\n\nÖrnek 2:\nKök: amb\nEkler: 'ness', 'itious'\nCevap: ambitiousness\n\nÖrnek 3:\nKök: wood\nEkler: 'ly', 'en'\nCevap: woodenly\n\nÖrnek 4:\nKök: work\nEkler: 'leness', 'ab'\nCevap: workableness\n\nÖrnek 5:\nKök: wholes\nEkler: 'omen', 'ess'\nCevap: wholesomeness\n\nÖrnek 6:\nKök: top\nEkler: 'ity', 'ical'\nCevap: ",
+            "reference": "topicality",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "topicality",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 272,
+                "total_tokens": 275
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-45",
+            "root": "temper",
+            "suffixes": [
+                "aten",
+                "ess"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: enorm\nEkler: 'ous', 'ness'\nCevap: enormousness\n\nÖrnek 2:\nKök: amb\nEkler: 'itious', 'ness'\nCevap: ambitiousness\n\nÖrnek 3:\nKök: wood\nEkler: 'en', 'ly'\nCevap: woodenly\n\nÖrnek 4:\nKök: work\nEkler: 'leness', 'ab'\nCevap: workableness\n\nÖrnek 5:\nKök: wholes\nEkler: 'omen', 'ess'\nCevap: wholesomeness\n\nÖrnek 6:\nKök: temper\nEkler: 'ess', 'aten'\nCevap: ",
+            "reference": "temperateness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "temperateness",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 272,
+                "total_tokens": 276
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-46",
+            "root": "t",
+            "suffixes": [
+                "enth",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: enorm\nEkler: 'ous', 'ness'\nCevap: enormousness\n\nÖrnek 2:\nKök: amb\nEkler: 'itious', 'ness'\nCevap: ambitiousness\n\nÖrnek 3:\nKök: wood\nEkler: 'en', 'ly'\nCevap: woodenly\n\nÖrnek 4:\nKök: work\nEkler: 'ab', 'leness'\nCevap: workableness\n\nÖrnek 5:\nKök: wholes\nEkler: 'omen', 'ess'\nCevap: wholesomeness\n\nÖrnek 6:\nKök: t\nEkler: 'enth', 'ly'\nCevap: ",
+            "reference": "tenthly",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "tenthly",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 272,
+                "total_tokens": 275
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-47",
+            "root": "sweet",
+            "suffixes": [
+                "ener"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: sweet\nEkler: 'ener'\nCevap: ",
+            "reference": "sweetener",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "sweetener",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 254,
+                "total_tokens": 256
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-48",
+            "root": "synd",
+            "suffixes": [
+                "ical",
+                "ism"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: enorm\nEkler: 'ous', 'ness'\nCevap: enormousness\n\nÖrnek 2:\nKök: amb\nEkler: 'itious', 'ness'\nCevap: ambitiousness\n\nÖrnek 3:\nKök: wood\nEkler: 'en', 'ly'\nCevap: woodenly\n\nÖrnek 4:\nKök: work\nEkler: 'leness', 'ab'\nCevap: workableness\n\nÖrnek 5:\nKök: wholes\nEkler: 'omen', 'ess'\nCevap: wholesomeness\n\nÖrnek 6:\nKök: synd\nEkler: 'ism', 'ical'\nCevap: ",
+            "reference": "syndicalism",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "syndicalism",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 272,
+                "total_tokens": 276
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-49",
+            "root": "station",
+            "suffixes": [
+                "er"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: station\nEkler: 'er'\nCevap: ",
+            "reference": "stationer",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "stationer",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 254,
+                "total_tokens": 256
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-50",
+            "root": "allegor",
+            "suffixes": [
+                "ically"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: allegor\nEkler: 'ically'\nCevap: ",
+            "reference": "allegorically",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "allegorically",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 255,
+                "total_tokens": 259
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-51",
+            "root": "weight",
+            "suffixes": [
+                "lessly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: weight\nEkler: 'lessly'\nCevap: ",
+            "reference": "weightlessly",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "weightlessly",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 254,
+                "total_tokens": 256
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-52",
+            "root": "spect",
+            "suffixes": [
+                "acular",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: enorm\nEkler: 'ness', 'ous'\nCevap: enormousness\n\nÖrnek 2:\nKök: amb\nEkler: 'itious', 'ness'\nCevap: ambitiousness\n\nÖrnek 3:\nKök: wood\nEkler: 'en', 'ly'\nCevap: woodenly\n\nÖrnek 4:\nKök: work\nEkler: 'leness', 'ab'\nCevap: workableness\n\nÖrnek 5:\nKök: wholes\nEkler: 'ess', 'omen'\nCevap: wholesomeness\n\nÖrnek 6:\nKök: spect\nEkler: 'ly', 'acular'\nCevap: ",
+            "reference": "spectacularly",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "spectacularly",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 272,
+                "total_tokens": 275
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-53",
+            "root": "section",
+            "suffixes": [
+                "al",
+                "ism"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: enorm\nEkler: 'ness', 'ous'\nCevap: enormousness\n\nÖrnek 2:\nKök: amb\nEkler: 'ness', 'itious'\nCevap: ambitiousness\n\nÖrnek 3:\nKök: wood\nEkler: 'en', 'ly'\nCevap: woodenly\n\nÖrnek 4:\nKök: work\nEkler: 'ab', 'leness'\nCevap: workableness\n\nÖrnek 5:\nKök: wholes\nEkler: 'omen', 'ess'\nCevap: wholesomeness\n\nÖrnek 6:\nKök: section\nEkler: 'ism', 'al'\nCevap: ",
+            "reference": "sectionalism",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "sectionalism",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 272,
+                "total_tokens": 275
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-54",
+            "root": "sent",
+            "suffixes": [
+                "iment",
+                "al",
+                "ism"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: stand\nEkler: 'off', 'ness', 'ish'\nCevap: standoffishness\n\nÖrnek 2:\nKök: south\nEkler: 'ester', 'ly', 'w'\nCevap: southwesterly\n\nÖrnek 3:\nKök: sent\nEkler: 'ism', 'al', 'iment'\nCevap: ",
+            "reference": "sentimentalism",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "sentimentalism",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 201,
+                "total_tokens": 205
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-55",
+            "root": "put",
+            "suffixes": [
+                "ref",
+                "actively"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: enorm\nEkler: 'ous', 'ness'\nCevap: enormousness\n\nÖrnek 2:\nKök: amb\nEkler: 'ness', 'itious'\nCevap: ambitiousness\n\nÖrnek 3:\nKök: wood\nEkler: 'en', 'ly'\nCevap: woodenly\n\nÖrnek 4:\nKök: work\nEkler: 'ab', 'leness'\nCevap: workableness\n\nÖrnek 5:\nKök: wholes\nEkler: 'omen', 'ess'\nCevap: wholesomeness\n\nÖrnek 6:\nKök: put\nEkler: 'actively', 'ref'\nCevap: ",
+            "reference": "putrefactively",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "putrefactively",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 272,
+                "total_tokens": 275
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-56",
+            "root": "",
+            "suffixes": [
+                "option",
+                "ally"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: enorm\nEkler: 'ness', 'ous'\nCevap: enormousness\n\nÖrnek 2:\nKök: amb\nEkler: 'itious', 'ness'\nCevap: ambitiousness\n\nÖrnek 3:\nKök: wood\nEkler: 'ly', 'en'\nCevap: woodenly\n\nÖrnek 4:\nKök: work\nEkler: 'ab', 'leness'\nCevap: workableness\n\nÖrnek 5:\nKök: wholes\nEkler: 'omen', 'ess'\nCevap: wholesomeness\n\nÖrnek 6:\nKök: \nEkler: 'ally', 'option'\nCevap: ",
+            "reference": "optionally",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "optionally",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 271,
+                "total_tokens": 273
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-57",
+            "root": "noct",
+            "suffixes": [
+                "urn",
+                "ally"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: enorm\nEkler: 'ous', 'ness'\nCevap: enormousness\n\nÖrnek 2:\nKök: amb\nEkler: 'itious', 'ness'\nCevap: ambitiousness\n\nÖrnek 3:\nKök: wood\nEkler: 'en', 'ly'\nCevap: woodenly\n\nÖrnek 4:\nKök: work\nEkler: 'leness', 'ab'\nCevap: workableness\n\nÖrnek 5:\nKök: wholes\nEkler: 'omen', 'ess'\nCevap: wholesomeness\n\nÖrnek 6:\nKök: noct\nEkler: 'urn', 'ally'\nCevap: ",
+            "reference": "nocturnally",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "nocturnally",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 272,
+                "total_tokens": 276
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-58",
+            "root": "modern",
+            "suffixes": [
+                "istically"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: modern\nEkler: 'istically'\nCevap: ",
+            "reference": "modernistically",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "modernistically",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 254,
+                "total_tokens": 256
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-59",
+            "root": "journal",
+            "suffixes": [
+                "istic"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: journal\nEkler: 'istic'\nCevap: ",
+            "reference": "journalistic",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "journalistic",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 254,
+                "total_tokens": 256
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-60",
+            "root": "environment",
+            "suffixes": [
+                "ally"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: environment\nEkler: 'ally'\nCevap: ",
+            "reference": "environmentally",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "environmentally",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 254,
+                "total_tokens": 256
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-61",
+            "root": "censor",
+            "suffixes": [
+                "iously"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: censor\nEkler: 'iously'\nCevap: ",
+            "reference": "censoriously",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "censoriously",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 254,
+                "total_tokens": 257
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-62",
+            "root": "soph",
+            "suffixes": [
+                "istic",
+                "ate"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: enorm\nEkler: 'ness', 'ous'\nCevap: enormousness\n\nÖrnek 2:\nKök: amb\nEkler: 'itious', 'ness'\nCevap: ambitiousness\n\nÖrnek 3:\nKök: wood\nEkler: 'en', 'ly'\nCevap: woodenly\n\nÖrnek 4:\nKök: work\nEkler: 'leness', 'ab'\nCevap: workableness\n\nÖrnek 5:\nKök: wholes\nEkler: 'ess', 'omen'\nCevap: wholesomeness\n\nÖrnek 6:\nKök: soph\nEkler: 'ate', 'istic'\nCevap: ",
+            "reference": "sophisticate",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "sophisticate",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 272,
+                "total_tokens": 276
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-63",
+            "root": "pr",
+            "suffixes": [
+                "actical",
+                "ity"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: enorm\nEkler: 'ous', 'ness'\nCevap: enormousness\n\nÖrnek 2:\nKök: amb\nEkler: 'ness', 'itious'\nCevap: ambitiousness\n\nÖrnek 3:\nKök: wood\nEkler: 'ly', 'en'\nCevap: woodenly\n\nÖrnek 4:\nKök: work\nEkler: 'ab', 'leness'\nCevap: workableness\n\nÖrnek 5:\nKök: wholes\nEkler: 'ess', 'omen'\nCevap: wholesomeness\n\nÖrnek 6:\nKök: pr\nEkler: 'actical', 'ity'\nCevap: ",
+            "reference": "practicality",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "practicality",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 272,
+                "total_tokens": 275
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-64",
+            "root": "",
+            "suffixes": [
+                "physical",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: enorm\nEkler: 'ous', 'ness'\nCevap: enormousness\n\nÖrnek 2:\nKök: amb\nEkler: 'itious', 'ness'\nCevap: ambitiousness\n\nÖrnek 3:\nKök: wood\nEkler: 'ly', 'en'\nCevap: woodenly\n\nÖrnek 4:\nKök: work\nEkler: 'leness', 'ab'\nCevap: workableness\n\nÖrnek 5:\nKök: wholes\nEkler: 'omen', 'ess'\nCevap: wholesomeness\n\nÖrnek 6:\nKök: \nEkler: 'physical', 'ness'\nCevap: ",
+            "reference": "physicalness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "physicalness",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 271,
+                "total_tokens": 273
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-65",
+            "root": "jur",
+            "suffixes": [
+                "id",
+                "ical"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: enorm\nEkler: 'ness', 'ous'\nCevap: enormousness\n\nÖrnek 2:\nKök: amb\nEkler: 'ness', 'itious'\nCevap: ambitiousness\n\nÖrnek 3:\nKök: wood\nEkler: 'ly', 'en'\nCevap: woodenly\n\nÖrnek 4:\nKök: work\nEkler: 'ab', 'leness'\nCevap: workableness\n\nÖrnek 5:\nKök: wholes\nEkler: 'omen', 'ess'\nCevap: wholesomeness\n\nÖrnek 6:\nKök: jur\nEkler: 'id', 'ical'\nCevap: ",
+            "reference": "juridical",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "juridical",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 272,
+                "total_tokens": 275
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-66",
+            "root": "fiction",
+            "suffixes": [
+                "al",
+                "ize"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: enorm\nEkler: 'ness', 'ous'\nCevap: enormousness\n\nÖrnek 2:\nKök: amb\nEkler: 'ness', 'itious'\nCevap: ambitiousness\n\nÖrnek 3:\nKök: wood\nEkler: 'en', 'ly'\nCevap: woodenly\n\nÖrnek 4:\nKök: work\nEkler: 'ab', 'leness'\nCevap: workableness\n\nÖrnek 5:\nKök: wholes\nEkler: 'ess', 'omen'\nCevap: wholesomeness\n\nÖrnek 6:\nKök: fiction\nEkler: 'al', 'ize'\nCevap: ",
+            "reference": "fictionalize",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "fictionalize",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 272,
+                "total_tokens": 275
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-67",
+            "root": "evangel",
+            "suffixes": [
+                "ical",
+                "ism"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: enorm\nEkler: 'ness', 'ous'\nCevap: enormousness\n\nÖrnek 2:\nKök: amb\nEkler: 'itious', 'ness'\nCevap: ambitiousness\n\nÖrnek 3:\nKök: wood\nEkler: 'en', 'ly'\nCevap: woodenly\n\nÖrnek 4:\nKök: work\nEkler: 'leness', 'ab'\nCevap: workableness\n\nÖrnek 5:\nKök: wholes\nEkler: 'omen', 'ess'\nCevap: wholesomeness\n\nÖrnek 6:\nKök: evangel\nEkler: 'ism', 'ical'\nCevap: ",
+            "reference": "evangelicalism",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "evangelicalism",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 272,
+                "total_tokens": 276
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-68",
+            "root": "direction",
+            "suffixes": [
+                "ality"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: direction\nEkler: 'ality'\nCevap: ",
+            "reference": "directionality",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "directionality",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 254,
+                "total_tokens": 256
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-69",
+            "root": "academ",
+            "suffixes": [
+                "icians",
+                "hip"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: enorm\nEkler: 'ous', 'ness'\nCevap: enormousness\n\nÖrnek 2:\nKök: amb\nEkler: 'itious', 'ness'\nCevap: ambitiousness\n\nÖrnek 3:\nKök: wood\nEkler: 'en', 'ly'\nCevap: woodenly\n\nÖrnek 4:\nKök: work\nEkler: 'leness', 'ab'\nCevap: workableness\n\nÖrnek 5:\nKök: wholes\nEkler: 'omen', 'ess'\nCevap: wholesomeness\n\nÖrnek 6:\nKök: academ\nEkler: 'hip', 'icians'\nCevap: ",
+            "reference": "academicianship",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "academicianship",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 273,
+                "total_tokens": 277
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-70",
+            "root": "zo",
+            "suffixes": [
+                "ological"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: zo\nEkler: 'ological'\nCevap: ",
+            "reference": "zoological",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "zoological",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 254,
+                "total_tokens": 256
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-71",
+            "root": "typ",
+            "suffixes": [
+                "ographical"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: typ\nEkler: 'ographical'\nCevap: ",
+            "reference": "typographical",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "typographical",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 254,
+                "total_tokens": 256
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-72",
+            "root": "the",
+            "suffixes": [
+                "osoph",
+                "ical"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: enorm\nEkler: 'ness', 'ous'\nCevap: enormousness\n\nÖrnek 2:\nKök: amb\nEkler: 'itious', 'ness'\nCevap: ambitiousness\n\nÖrnek 3:\nKök: wood\nEkler: 'ly', 'en'\nCevap: woodenly\n\nÖrnek 4:\nKök: work\nEkler: 'leness', 'ab'\nCevap: workableness\n\nÖrnek 5:\nKök: wholes\nEkler: 'ess', 'omen'\nCevap: wholesomeness\n\nÖrnek 6:\nKök: the\nEkler: 'ical', 'osoph'\nCevap: ",
+            "reference": "theosophical",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "theosophical",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 272,
+                "total_tokens": 275
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-73",
+            "root": "stand",
+            "suffixes": [
+                "off",
+                "ish",
+                "ness"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: sent\nEkler: 'ism', 'al', 'iment'\nCevap: sentimentalism\n\nÖrnek 2:\nKök: south\nEkler: 'ly', 'w', 'ester'\nCevap: southwesterly\n\nÖrnek 3:\nKök: stand\nEkler: 'ish', 'ness', 'off'\nCevap: ",
+            "reference": "standoffishness",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "standoffishness",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 200,
+                "total_tokens": 204
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-74",
+            "root": "south",
+            "suffixes": [
+                "w",
+                "ester",
+                "ly"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: sent\nEkler: 'al', 'iment', 'ism'\nCevap: sentimentalism\n\nÖrnek 2:\nKök: stand\nEkler: 'ness', 'ish', 'off'\nCevap: standoffishness\n\nÖrnek 3:\nKök: south\nEkler: 'w', 'ester', 'ly'\nCevap: ",
+            "reference": "southwesterly",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "southwesterly",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 199,
+                "total_tokens": 203
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-75",
+            "root": "top",
+            "suffixes": [
+                "ographically"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: top\nEkler: 'ographically'\nCevap: ",
+            "reference": "topographically",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "topographically",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 254,
+                "total_tokens": 256
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-76",
+            "root": "phil",
+            "suffixes": [
+                "ologically"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: phil\nEkler: 'ologically'\nCevap: ",
+            "reference": "philologically",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "philologically",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 254,
+                "total_tokens": 256
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-77",
+            "root": "hydro",
+            "suffixes": [
+                "electric",
+                "ally"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: enorm\nEkler: 'ous', 'ness'\nCevap: enormousness\n\nÖrnek 2:\nKök: amb\nEkler: 'ness', 'itious'\nCevap: ambitiousness\n\nÖrnek 3:\nKök: wood\nEkler: 'en', 'ly'\nCevap: woodenly\n\nÖrnek 4:\nKök: work\nEkler: 'ab', 'leness'\nCevap: workableness\n\nÖrnek 5:\nKök: wholes\nEkler: 'ess', 'omen'\nCevap: wholesomeness\n\nÖrnek 6:\nKök: hydro\nEkler: 'ally', 'electric'\nCevap: ",
+            "reference": "hydroelectrically",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "hydroelectrically",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 272,
+                "total_tokens": 275
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-78",
+            "root": "paren",
+            "suffixes": [
+                "th",
+                "etically"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: enorm\nEkler: 'ous', 'ness'\nCevap: enormousness\n\nÖrnek 2:\nKök: amb\nEkler: 'ness', 'itious'\nCevap: ambitiousness\n\nÖrnek 3:\nKök: wood\nEkler: 'en', 'ly'\nCevap: woodenly\n\nÖrnek 4:\nKök: work\nEkler: 'ab', 'leness'\nCevap: workableness\n\nÖrnek 5:\nKök: wholes\nEkler: 'ess', 'omen'\nCevap: wholesomeness\n\nÖrnek 6:\nKök: paren\nEkler: 'th', 'etically'\nCevap: ",
+            "reference": "parenthetically",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "parenthetically",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 272,
+                "total_tokens": 275
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-79",
+            "root": "tele",
+            "suffixes": [
+                "graph",
+                "ically"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: enorm\nEkler: 'ous', 'ness'\nCevap: enormousness\n\nÖrnek 2:\nKök: amb\nEkler: 'itious', 'ness'\nCevap: ambitiousness\n\nÖrnek 3:\nKök: wood\nEkler: 'en', 'ly'\nCevap: woodenly\n\nÖrnek 4:\nKök: work\nEkler: 'leness', 'ab'\nCevap: workableness\n\nÖrnek 5:\nKök: wholes\nEkler: 'omen', 'ess'\nCevap: wholesomeness\n\nÖrnek 6:\nKök: tele\nEkler: 'ically', 'graph'\nCevap: ",
+            "reference": "telegraphically",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "telegraphically",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 272,
+                "total_tokens": 275
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-80",
+            "root": "path",
+            "suffixes": [
+                "ologically"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: path\nEkler: 'ologically'\nCevap: ",
+            "reference": "pathologically",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "pathologically",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 254,
+                "total_tokens": 256
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-81",
+            "root": "pale",
+            "suffixes": [
+                "ographically"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: pale\nEkler: 'ographically'\nCevap: ",
+            "reference": "paleographically",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "paleographically",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 254,
+                "total_tokens": 257
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-82",
+            "root": "orth",
+            "suffixes": [
+                "ographically"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: orth\nEkler: 'ographically'\nCevap: ",
+            "reference": "orthographically",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "orthographically",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 254,
+                "total_tokens": 256
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-83",
+            "root": "lith",
+            "suffixes": [
+                "ographically"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: lith\nEkler: 'ographically'\nCevap: ",
+            "reference": "lithographically",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "lithographically",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 254,
+                "total_tokens": 257
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-84",
+            "root": "ide",
+            "suffixes": [
+                "ologically"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: ide\nEkler: 'ologically'\nCevap: ",
+            "reference": "ideologically",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "ideologically",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 254,
+                "total_tokens": 256
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-85",
+            "root": "ge",
+            "suffixes": [
+                "ologically"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: ge\nEkler: 'ologically'\nCevap: ",
+            "reference": "geologically",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "geologically",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 254,
+                "total_tokens": 256
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-86",
+            "root": "etym",
+            "suffixes": [
+                "ologically"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: etym\nEkler: 'ologically'\nCevap: ",
+            "reference": "etymologically",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "etymologically",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 255,
+                "total_tokens": 258
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-87",
+            "root": "ec",
+            "suffixes": [
+                "ologically"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: ec\nEkler: 'ologically'\nCevap: ",
+            "reference": "ecologically",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "ecologically",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 254,
+                "total_tokens": 256
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-88",
+            "root": "bi",
+            "suffixes": [
+                "ographically"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: bi\nEkler: 'ographically'\nCevap: ",
+            "reference": "biographically",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "biographically",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 254,
+                "total_tokens": 256
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-89",
+            "root": "astro",
+            "suffixes": [
+                "log",
+                "ically"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: enorm\nEkler: 'ness', 'ous'\nCevap: enormousness\n\nÖrnek 2:\nKök: amb\nEkler: 'ness', 'itious'\nCevap: ambitiousness\n\nÖrnek 3:\nKök: wood\nEkler: 'en', 'ly'\nCevap: woodenly\n\nÖrnek 4:\nKök: work\nEkler: 'leness', 'ab'\nCevap: workableness\n\nÖrnek 5:\nKök: wholes\nEkler: 'omen', 'ess'\nCevap: wholesomeness\n\nÖrnek 6:\nKök: astro\nEkler: 'log', 'ically'\nCevap: ",
+            "reference": "astrologically",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "astrologically",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 272,
+                "total_tokens": 275
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-90",
+            "root": "anthrop",
+            "suffixes": [
+                "ologically"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: anthrop\nEkler: 'ologically'\nCevap: ",
+            "reference": "anthropologically",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "anthropologically",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 254,
+                "total_tokens": 257
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-91",
+            "root": "archae",
+            "suffixes": [
+                "ologically"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: archae\nEkler: 'ologically'\nCevap: ",
+            "reference": "archaeologically",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "archaeologically",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 254,
+                "total_tokens": 257
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-92",
+            "root": "soci",
+            "suffixes": [
+                "ologically"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: soci\nEkler: 'ologically'\nCevap: ",
+            "reference": "sociologically",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "sociologically",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 254,
+                "total_tokens": 257
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-93",
+            "root": "psych",
+            "suffixes": [
+                "ologically"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: psych\nEkler: 'ologically'\nCevap: ",
+            "reference": "psychologically",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "psychologically",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 254,
+                "total_tokens": 256
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-94",
+            "root": "phot",
+            "suffixes": [
+                "ographically"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: phot\nEkler: 'ographically'\nCevap: ",
+            "reference": "photographically",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "photographically",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 254,
+                "total_tokens": 256
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-95",
+            "root": "ont",
+            "suffixes": [
+                "ologically"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: ont\nEkler: 'ologically'\nCevap: ",
+            "reference": "ontologically",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "ontologically",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 254,
+                "total_tokens": 256
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-96",
+            "root": "ge",
+            "suffixes": [
+                "ographically"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: ge\nEkler: 'ographically'\nCevap: ",
+            "reference": "geographically",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "geographically",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 254,
+                "total_tokens": 256
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-97",
+            "root": "chron",
+            "suffixes": [
+                "ologically"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: chron\nEkler: 'ologically'\nCevap: ",
+            "reference": "chronologically",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "chronologically",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 254,
+                "total_tokens": 256
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "en-morpholex-id-98",
+            "root": "bi",
+            "suffixes": [
+                "ologically"
+            ],
+            "prompt": "Size İngilizce bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: algorithm\nEkler: 'ic'\nCevap: algorithmic\n\nÖrnek 2:\nKök: alien\nEkler: 'ist'\nCevap: alienist\n\nÖrnek 3:\nKök: aloof\nEkler: 'ly'\nCevap: aloofly\n\nÖrnek 4:\nKök: alter\nEkler: 'able'\nCevap: alterable\n\nÖrnek 5:\nKök: amateur\nEkler: 'ism'\nCevap: amateurism\n\nÖrnek 6:\nKök: bi\nEkler: 'ologically'\nCevap: ",
+            "reference": "biologically",
+            "template": "morph_gen_tr",
+            "original_root": null,
+            "model_output": "biologically",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 254,
+                "total_tokens": 256
+            },
+            "correct": true,
+            "faithful": true
+        }
+    ]
+}
