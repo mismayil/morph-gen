@@ -201,7 +201,7 @@ def prepare_tok_aligned_data_for_tasks(input_data, num_samples=None, separator="
     data = input_data["data"]
     tok_aligned_data = []
 
-    for i, sample in tqdm(enumerate(data), total=len(data), desc="Preparing aligned tokenization data for tasks"):
+    for i, sample in tqdm(enumerate(data), total=len(data), desc="Preparing tokenization aligned data for tasks"):
         ref_derivation = sample["derivation"]
         tokens = segment_by_tokenizer(ref_derivation, model, sample["root"])
         root_token = tokens[0]

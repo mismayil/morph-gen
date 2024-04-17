@@ -26,7 +26,7 @@ def read_json(path):
         data = json.load(f)
     return data
 
-def write_json(data, path, ensure_ascii=True, indent=4):
+def write_json(data, path, ensure_ascii=False, indent=4):
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=indent, ensure_ascii=ensure_ascii)
 
