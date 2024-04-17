@@ -48,6 +48,25 @@ def is_faithful(result, ref_response, model_response, template, separator=""):
     
     return False
 
+def get_soft_accuracy(result, ref_response, model_response, template):
+    # TODO: Fix this
+    if template.startswith("morph_gen"):
+        if ref_response == model_response:
+            return 1
+        
+        points = 0
+
+        if model_response.startswith(result["root"]):
+            for i, suffix in enumerate(result["suffixes"]):
+                if model_response.startswith(result["root"] + "".join(result["suffixes"][:i+1])):
+                    points += 1
+                else:
+                    points = 0
+                    break
+        return points / len(result["suffixes"])
+
+    return 1
+
 def compute_usage(sample, model):
     if model not in MODEL_COSTS:
         return None, None
@@ -227,20 +246,21 @@ def compute_metrics(results, compute_usage=False, separator="", unigram_freq_pat
             predictions.append(pred)
             result["correct"] = ref == pred
             result["faithful"] = is_faithful(result, result[gold_response_attr], result[model_response_attr], result["template"], separator=separator)
+            # result["soft_accuracy"] = get_soft_accuracy(result, result[gold_response_attr], result[model_response_attr], result["template"])
             len_suffix_accuracy[len(result["suffixes"])].append(result["correct"])
             len_suffix_faithful[len(result["suffixes"])].append(result["faithful"])
 
-            if unigram_freqs:
+            if unigram_freqs and result.get("root"):
                 word_freq = unigram_freqs.get("".join([result["root"]]+result["suffixes"]), 0)
                 _update_freq_metrics(word_freq, unigram_freq_accuracy, unigram_freq_faithful, num_unigram_freq_samples, result)
 
-            if suffix_freqs:
+            if suffix_freqs and result.get("suffixes"):
                 suffix_freq = suffix_freqs.get("".join(result["suffixes"]), 0)
                 _update_freq_metrics(suffix_freq, suffix_freq_accuracy, suffix_freq_faithful, num_suffix_freq_samples, result)
                 _update_freq_by_len_metrics(suffix_freq, suffix_freq_by_len_accuracy, suffix_freq_by_len_faithful, suffix_freq_by_len_samples, result)
                 _update_len_by_freq_metrics(suffix_freq, suffix_len_by_freq_accuracy, suffix_len_by_freq_faithful, result)
             
-            if meta_suffix_freqs:
+            if meta_suffix_freqs and result.get("meta_suffixes"):
                 meta_suffix_freq = meta_suffix_freqs.get("".join(result["meta_suffixes"]), 0)
                 _update_freq_metrics(meta_suffix_freq, meta_suffix_freq_accuracy, meta_suffix_freq_faithful, num_meta_suffix_freq_samples, result, suffix_key="meta_suffixes")
                 _update_freq_by_len_metrics(meta_suffix_freq, meta_suffix_freq_by_len_accuracy, meta_suffix_freq_by_len_faithful, meta_suffix_freq_by_len_samples, result, suffix_key="meta_suffixes")
@@ -261,12 +281,14 @@ def compute_metrics(results, compute_usage=False, separator="", unigram_freq_pat
 
     metrics["accuracy"] = accuracy_score(references, predictions)
     metrics["faithfulness"] = sum([1 for result in results["data"] if result.get("faithful")]) / len(results["data"])
+    metrics["soft_accuracy"] = sum([result.get("soft_accuracy", 0) for result in results["data"]]) / len(results["data"])
     
     len_suffix_accuracy = dict(sorted(len_suffix_accuracy.items(), key=lambda item: item[0]))
     len_suffix_faithful = dict(sorted(len_suffix_faithful.items(), key=lambda item: item[0]))
     
     metrics["accuracy_by_suffix_len"] = {k: sum(v) / len(v) for k, v in len_suffix_accuracy.items()}
     metrics["faithfulness_by_suffix_len"] = {k: sum(v) / len(v) for k, v in len_suffix_faithful.items()}
+    # metrics["soft_accuracy_by_suffix_len"] = {k: sum([result.get("soft_accuracy", 0) for result in results["data"] if len(result["suffixes"]) == k]) / len([result for result in results["data"] if len(result["suffixes"]) == k]) for k in len_suffix_accuracy}
     metrics["num_samples_by_suffix_len"] = {k: len(v) for k, v in len_suffix_accuracy.items()}
     
     if unigram_freqs:
