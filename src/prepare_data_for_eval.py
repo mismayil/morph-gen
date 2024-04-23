@@ -36,7 +36,11 @@ INSTRUCTION_TEMPLATES = {
     "morph_gen_sent_tr": MORPH_GEN_SENT_TR_INSTRUCTION_TEMPLATE,
     "morph_disc_sent_tr": MORPH_DISC_SENT_TR_INSTRUCTION_TEMPLATE,
     "nonce_morph_gen_sent_tr": MORPH_GEN_NONCE_SENT_TR_INSTRUCTION_TEMPLATE,
-    "nonce_morph_disc_sent_tr": MORPH_DISC_NONCE_SENT_TR_INSTRUCTION_TEMPLATE
+    "nonce_morph_disc_sent_tr": MORPH_DISC_NONCE_SENT_TR_INSTRUCTION_TEMPLATE,
+    "morph_gen_sense_en": MORPH_GEN_SENSE_EN_INSTRUCTION_TEMPLATE,
+    "morph_disc_sense_en": MORPH_DISC_SENSE_EN_INSTRUCTION_TEMPLATE,
+    "morph_gen_sense_tr": MORPH_GEN_SENSE_TR_INSTRUCTION_TEMPLATE,
+    "morph_disc_sense_tr": MORPH_DISC_SENSE_TR_INSTRUCTION_TEMPLATE,
 }
 
 SHOT_TEMPLATES = {
@@ -57,13 +61,26 @@ SHOT_TEMPLATES = {
     "morph_gen_sent_tr": MORPH_GEN_SENT_TR_SHOT_TEMPLATE,
     "morph_disc_sent_tr": MORPH_DISC_SENT_TR_SHOT_TEMPLATE,
     "nonce_morph_gen_sent_tr": MORPH_GEN_NONCE_SENT_TR_SHOT_TEMPLATE,
-    "nonce_morph_disc_sent_tr": MORPH_DISC_NONCE_SENT_TR_SHOT_TEMPLATE
+    "nonce_morph_disc_sent_tr": MORPH_DISC_NONCE_SENT_TR_SHOT_TEMPLATE,
+    "morph_gen_sense_en": MORPH_GEN_SENSE_EN_SHOT_TEMPLATE,
+    "morph_disc_sense_en": MORPH_DISC_SENSE_EN_SHOT_TEMPLATE,
+    "morph_gen_sense_tr": MORPH_GEN_SENSE_TR_SHOT_TEMPLATE,
+    "morph_disc_sense_tr": MORPH_DISC_SENSE_TR_SHOT_TEMPLATE,
 }
 
 def _is_ood_sample(sample):
     return sample.get("original_root", None) is not None
 
-def _get_sample_definition(sample, language, template_lang):
+def _is_sense_task(template):
+    return "sense" in template
+
+def _is_sent_task(template):
+    return "sent" in template
+
+def _get_sample_definition(sample, language, template, template_lang):
+    if _is_sense_task(template):
+        return sample["meaning"]
+
     if template_lang == "en":
         return f"'{sample['root']}' means '{sample['original_root']}' in {LANGUAGE_MAP[language][template_lang]}."
     elif template_lang == "tr":
@@ -87,12 +104,16 @@ def prepare_shot_for_morph_gen(idx, sample, template, language, is_final=False):
     shot_template = SHOT_TEMPLATES[template]
     
     if _is_ood_sample(sample):
-        definition = _get_sample_definition(sample, language, template_lang)
+        definition = _get_sample_definition(sample, language, template, template_lang)
         format_args["definition"] = definition
         shot_template = SHOT_TEMPLATES[f"nonce_{template}"]
-    
-    if "sent" in template:
+
+    if _is_sent_task(template):
         format_args["sentence"] = sample["sentence"]
+
+    if _is_sense_task(template):
+        definition = _get_sample_definition(sample, language, template, template_lang)
+        format_args["definition"] = definition
 
     shot = shot_template.format(**format_args)
     
@@ -113,12 +134,16 @@ def prepare_shot_for_morph_gen_order(idx, sample, template, language, is_final=F
     shot_template = SHOT_TEMPLATES[template]
 
     if _is_ood_sample(sample):
-        definition = _get_sample_definition(sample, language, template_lang)
+        definition = _get_sample_definition(sample, language, template, template_lang)
         format_args["definition"] = definition
         shot_template = SHOT_TEMPLATES[f"nonce_{template}"]
 
-    if "sent" in template:
+    if _is_sent_task(template):
         format_args["sentence"] = sample["sentence"]
+
+    if _is_sense_task(template):
+        definition = _get_sample_definition(sample, language, template, template_lang)
+        format_args["definition"] = definition
 
     shot = shot_template.format(**format_args)
     
@@ -151,44 +176,34 @@ def prepare_shot_for_morph_disc(idx, sample, template, language, is_final=False)
     shot_template = SHOT_TEMPLATES[template]
 
     if _is_ood_sample(sample):
-        definition = _get_sample_definition(sample, language, template_lang)
+        definition = _get_sample_definition(sample, language, template, template_lang)
         format_args["definition"] = definition
         shot_template = SHOT_TEMPLATES[f"nonce_{template}"]
 
-    if "sent" in template:
+    if _is_sent_task(template):
         format_args["sentence"] = sample["sentence"]
+
+    if _is_sense_task(template):
+        definition = _get_sample_definition(sample, language, template, template_lang)
+        format_args["definition"] = definition
 
     shot = shot_template.format(**format_args)
     
     return shot, answer
 
 INSTRUCTION_PROCESSORS = {
-    "morph_gen_en": prepare_instruction_for_morph_gen_disc,
-    "morph_disc_en": prepare_instruction_for_morph_gen_disc,
-    "morph_gen_tr": prepare_instruction_for_morph_gen_disc,
-    "morph_disc_tr": prepare_instruction_for_morph_gen_disc,
-    "morph_gen_order_en": prepare_instruction_for_morph_gen_disc,
-    "morph_gen_sent_en": prepare_instruction_for_morph_gen_disc,
-    "morph_disc_sent_en": prepare_instruction_for_morph_gen_disc,
-    "morph_gen_sent_tr": prepare_instruction_for_morph_gen_disc,
-    "morph_disc_sent_tr": prepare_instruction_for_morph_gen_disc
+    "default": prepare_instruction_for_morph_gen_disc
 }
 
 SHOT_PROCESSORS = {
-    "morph_gen_en": prepare_shot_for_morph_gen,
-    "morph_disc_en": prepare_shot_for_morph_disc,
-    "morph_gen_tr": prepare_shot_for_morph_gen,
-    "morph_disc_tr": prepare_shot_for_morph_disc,
-    "morph_gen_order_en": prepare_shot_for_morph_gen_order,
-    "morph_gen_sent_en": prepare_shot_for_morph_gen,
-    "morph_disc_sent_en": prepare_shot_for_morph_disc,
-    "morph_gen_sent_tr": prepare_shot_for_morph_gen,
-    "morph_disc_sent_tr": prepare_shot_for_morph_disc
+    "default_gen": prepare_shot_for_morph_gen,
+    "default_disc": prepare_shot_for_morph_disc,
+    "morph_gen_order_en": prepare_shot_for_morph_gen_order
 }
 
 def prepare_sample_for_eval(sample, shot_samples, template, language):
-    shot_processor = SHOT_PROCESSORS[template]
-    instruction_processor = INSTRUCTION_PROCESSORS[template]
+    shot_processor = SHOT_PROCESSORS.get(template, SHOT_PROCESSORS["default_gen"] if template.startswith("morph_gen") else SHOT_PROCESSORS["default_disc"])
+    instruction_processor = INSTRUCTION_PROCESSORS.get(template, INSTRUCTION_PROCESSORS["default"])
 
     shots = []
     for idx, shot_sample in enumerate(shot_samples):
@@ -215,6 +230,7 @@ def prepare_sample_for_eval(sample, shot_samples, template, language):
         "original_derivation": sample["original_derivation"] if "original_derivation" in sample else None,
         "meta_suffixes": sample.get("meta_suffixes", None),
         "sentence": sample.get("sentence", None),
+        "meaning": sample.get("meaning", None),
     })
 
     return eval_data

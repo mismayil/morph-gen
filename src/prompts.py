@@ -73,7 +73,24 @@ Options:
 {options}
 Answer: {answer}"""
 
+# Prompt templates for sense understanding tasks
+MORPH_GEN_SENSE_EN_INSTRUCTION_TEMPLATE = "You are given a word root, a list of suffixes (separated by comma) and a definition in {language} and your task is to generate a word that fits the given definition by using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word."
 
+MORPH_GEN_SENSE_EN_SHOT_TEMPLATE = """Example {index}:
+Word root: {root}
+Suffixes: {suffixes}
+Definition: {definition}
+Answer: {answer}"""
+
+MORPH_DISC_SENSE_EN_INSTRUCTION_TEMPLATE = "You are given a word root, a list of suffixes (separated by comma), a definition and a list of words in {language} that are derived from the given word root using the given suffixes. Your task is to select the word that fits the given definition. Output only the correct option number."
+
+MORPH_DISC_SENSE_EN_SHOT_TEMPLATE = """Example {index}:
+Word root: {root}
+Suffixes: {suffixes}
+Definition: {definition}
+Options:
+{options}
+Answer: {answer}"""
 
 # Prompt templates in Turkish
 MORPH_GEN_TR_INSTRUCTION_TEMPLATE = "Size {language} bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin."
@@ -154,3 +171,22 @@ Cevap: {answer}"""
 MORPH_GEN_ORDER_EN_INSTRUCTION_TEMPLATE = "You are given a word root and a list of suffixes (separated by comma) in {language} and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers."
 
 MORPH_GEN_NONCE_ORDER_EN_INSTRUCTION_TEMPLATE = "You are given a novel word root with its definition and a list of suffixes (separated by comma) in {language} and your task is to output the correct order of all suffixes such that if suffixes are applied in this order to the given root, it results in a grammatically correct word. You are allowed to use only the given suffixes and each suffix only once. Answer with only the order of suffixes indicated by their numbers."
+
+# Prompt templates for sense understanding in Turkish
+MORPH_GEN_SENSE_TR_INSTRUCTION_TEMPLATE = "Size {language} bir kök, bir ek listesi (virgülle ayrılmış) ve bir tanım verilecek ve sizden bu tanıma uyan bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin."
+
+MORPH_GEN_SENSE_TR_SHOT_TEMPLATE = """Örnek {index}:
+Kök: {root}
+Ekler: {suffixes}
+Tanım: {definition}
+Cevap: {answer}"""
+
+MORPH_DISC_SENSE_TR_INSTRUCTION_TEMPLATE = "Size {language} bir kök, bir ek listesi (virgülle ayrılmış), bir tanım ve bu ekleri kullanarak türetilmiş kelimelerin bir listesi verilecek. Sizden tanıma uyan doğru kelimeyi seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin."
+
+MORPH_DISC_SENSE_TR_SHOT_TEMPLATE = """Örnek {index}:
+Kök: {root}
+Ekler: {suffixes}
+Tanım: {definition}
+Seçenekler:
+{options}
+Cevap: {answer}"""

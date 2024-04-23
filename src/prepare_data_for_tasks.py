@@ -234,13 +234,31 @@ def prepare_tok_aligned_data_for_tasks(input_data, num_samples=None, separator="
 
     return tok_aligned_data
 
+def prepare_tr_sense_data_for_tasks(input_data, num_samples=None, separator="", *args, **kwargs):
+    data = input_data["data"]
+    
+    morph_data = []
+
+    for i, sample in tqdm(enumerate(data), total=len(data), desc="Preparing data TR for Morph tasks"):
+        morph_sample = prepare_sample_for_tasks(sample, separator)
+        if morph_sample is not None:
+            meanings = [m for m in sample["meanings"] if len(m.split()) > 1]
+            if meanings:
+                morph_data.append({"id": sample.get("id", f"tr-sense-{i}"), **morph_sample, "meaning": sample["meanings"][0]})
+    
+    if num_samples is not None:
+        morph_data = random.sample(morph_data, num_samples)
+
+    return morph_data
+
 DATA_PROCESSOR_MAP = {
     "tr_morph": (prepare_tr_data_for_tasks, "_morph"),
     "tr_morph_nonce": (prepare_tr_nonce_data_for_tasks, "_nonce"),
     "en_morph": (prepare_en_data_for_tasks, "_morph"),
     "en_morph_nonce": (prepare_en_nonce_data_for_tasks, "_nonce"),
     "tr_comp_morph": (prepare_tr_comp_data_for_tasks, "_morph"),
-    "tok_aligned": (prepare_tok_aligned_data_for_tasks, "_tok_aligned")
+    "tok_aligned": (prepare_tok_aligned_data_for_tasks, "_tok_aligned"),
+    "tr_sense": (prepare_tr_sense_data_for_tasks, "_sense")
 }
 
 def main():

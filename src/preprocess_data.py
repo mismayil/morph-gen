@@ -9,7 +9,7 @@ from collections import defaultdict
 import re
 
 from utils import read_json, write_json, concatenate_lists
-from morphology import decompose_tr
+from morphology import decompose_tr, get_valid_decompositions_tr
 
 LANGUAGES = ["tr", "en"]
 
@@ -68,40 +68,8 @@ def postprocess_tr_btwd_data(datapath, num_samples=None):
                     })
                     continue
             
-            valid_decompositions = []
-
-            for decomposition in decompositions:
-                if not decomposition["meta_morphemes"]:
-                    continue
-                
-                morpheme_tuples = [(decomposition["meta_morphemes"][i], decomposition["meta_morphemes"][i+1]) for i in range(len(decomposition["meta_morphemes"])-1)]
-                morpheme_triples = [(decomposition["meta_morphemes"][i], decomposition["meta_morphemes"][i+1], decomposition["meta_morphemes"][i+2]) for i in range(len(decomposition["meta_morphemes"])-2)]
-
-                if "s" in decomposition["morphemes"]:
-                    s_index = decomposition["morphemes"].index("s")
-                    meta_s = decomposition["meta_morphemes"][s_index]
-                    if meta_s == "sH" or meta_s == "SH":
-                        continue
-                
-                if "lArH" in decomposition["meta_morphemes"]:
-                    continue
-                
-                if ("lAr", "Hm", "YHz") in morpheme_triples or ("lAr", "Hn", "YHz") in morpheme_triples:
-                    alt_la = any([("HmHz" in decomp["meta_morphemes"] or "HnHz" in decomp["meta_morphemes"]) for decomp in decompositions])
-                    if alt_la:
-                        continue
-
-                if ("lA", "Hr") in morpheme_tuples or ("lA", "Hn") in morpheme_tuples or ("lA", "Hş") in morpheme_tuples:
-                    alt_la = any([("lAr" in decomp["meta_morphemes"] or "lAn" in decomp["meta_morphemes"] or "lAş" in decomp["meta_morphemes"]) for decomp in decompositions])
-                    if alt_la:
-                        continue
-                
-                for decomp in valid_decompositions:
-                    if decomp["root"] == decomposition["root"] and decomp["pos"] == decomposition["pos"] and decomp["morphemes"] == decomposition["morphemes"] and decomp["meta_morphemes"] == decomposition["meta_morphemes"]:
-                        continue
-
-                valid_decompositions.append(decomposition)
-            
+            valid_decompositions = get_valid_decompositions_tr(word, decompositions)
+        
             if valid_decompositions:
                 postprocessed_data.append({
                     "root": root,
@@ -235,14 +203,66 @@ def prepare_en_morpholex_balanced_sample_data(datapath, num_samples=None):
     
     return concatenate_lists(list([lst for lst in balanced_data.values() if len(lst) > 0]))
 
+def preprocess_tr_sense_data(datapath, num_samples=None):
+    data = read_json(datapath)
+    prep_data = []
+
+    for i, sample in tqdm(enumerate(data), total=len(data), desc="Preprocessing TR sense data"):
+        words = sample["word"].split()
+        
+        if len(words) == 1:
+            word = words[0].strip().lower()
+            decompositions = [decomp.to_json() for decomp in decompose_tr(word)]
+            decompositions = get_valid_decompositions_tr(word, decompositions)
+            if decompositions:
+                prep_data.append({
+                    "id": f"tr-sense-{i}",
+                    "root": decompositions[0]["root"],
+                    "pos": decompositions[0]["pos"],
+                    "derivation": word,
+                    "morphemes": decompositions[0]["morphemes"],
+                    "meta_morphemes": decompositions[0]["meta_morphemes"],
+                    "meanings": sample["meanings"]
+                })
+    
+    return prep_data
+
+def prepare_tr_sense_balanced_sample_data(datapath, num_samples=None):
+    input_data = read_json(datapath)
+    data = random.sample(input_data["data"], len(input_data["data"]))
+    seen_roots = set()
+    suffix_comb_map = {i+1: set() for i in range(10)}
+    balanced_data = {i+1: [] for i in range(10)}
+    balanced_data_extra = {i+1: [] for i in range(10)}
+
+    for sample in tqdm(data, total=len(data), desc="Preparing TR sense balanced sample data"):
+        if sample["root"] not in seen_roots:
+            num_suffixes = len(sample["morphemes"])
+            suffix_comb_set = suffix_comb_map[num_suffixes]
+            if len(suffix_comb_set) < 50:
+                if len(sample["root"]) > 3 and tuple(sample["morphemes"]) not in suffix_comb_set and (len(sample["morphemes"]) > 1 or len(sample["morphemes"][0]) > 1):
+                    balanced_data[num_suffixes].append(sample)
+                    seen_roots.add(sample["root"])
+                    suffix_comb_set.add(tuple(sample["morphemes"]))
+                else:
+                    balanced_data_extra[num_suffixes].append(sample)
+    
+    for num_suffixes, extra_samples in balanced_data_extra.items():
+        if len(balanced_data[num_suffixes]) < 50:
+            balanced_data[num_suffixes].extend(extra_samples[:50-len(balanced_data[num_suffixes])])
+    
+    return concatenate_lists(list([lst for lst in balanced_data.values() if len(lst) > 0]))
+
 DATA_PROCESSOR_MAP = {
     "tr_btwd_json": (prepare_tr_btwd_json_data, ""), 
     "tr_btwd_prep": (preprocess_tr_btwd_data, "_prep"),
     "tr_btwd_post": (postprocess_tr_btwd_data, "_post"),
     "en_morpholex_prep": (preprocess_en_morpholex_data, "_prep"),
     "tr_comp_prep": (prepare_comp_data, "_comp"),
-    "tr_btwd_balanced": (prepare_tr_btwd_balanced_sample_data, "_balanced"),
-    "en_morpholex_balanced": (prepare_en_morpholex_balanced_sample_data, "_balanced")
+    "tr_btwd_balanced": (prepare_tr_btwd_balanced_sample_data, "_balanced_sample"),
+    "en_morpholex_balanced": (prepare_en_morpholex_balanced_sample_data, "_balanced_sample"),
+    "tr_sense_prep": (preprocess_tr_sense_data, "_prep"),
+    "tr_sense_balanced": (prepare_tr_sense_balanced_sample_data, "_balanced_sample")
 }
 
 def main():
@@ -267,7 +287,8 @@ def main():
         "metadata": {
             "source": args.datapath,
             "processor": args.processor,
-            "language": args.language
+            "language": args.language,
+            "size": len(preprocessed_data)
         },
         "data": preprocessed_data
     }

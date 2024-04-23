@@ -226,3 +226,40 @@ def segment_by_tokenizer(text, model, root, return_tokens=False):
         return segmentation, tokens
     
     return segmentation
+
+def get_valid_decompositions_tr(word, decompositions):
+    valid_decompositions = []
+
+    for decomposition in decompositions:
+        if not decomposition["meta_morphemes"]:
+            continue
+        
+        morpheme_tuples = [(decomposition["meta_morphemes"][i], decomposition["meta_morphemes"][i+1]) for i in range(len(decomposition["meta_morphemes"])-1)]
+        morpheme_triples = [(decomposition["meta_morphemes"][i], decomposition["meta_morphemes"][i+1], decomposition["meta_morphemes"][i+2]) for i in range(len(decomposition["meta_morphemes"])-2)]
+
+        if "s" in decomposition["morphemes"]:
+            s_index = decomposition["morphemes"].index("s")
+            meta_s = decomposition["meta_morphemes"][s_index]
+            if meta_s == "sH" or meta_s == "SH":
+                continue
+        
+        if "lArH" in decomposition["meta_morphemes"]:
+            continue
+        
+        if ("lAr", "Hm", "YHz") in morpheme_triples or ("lAr", "Hn", "YHz") in morpheme_triples:
+            alt_la = any([("HmHz" in decomp["meta_morphemes"] or "HnHz" in decomp["meta_morphemes"]) for decomp in decompositions])
+            if alt_la:
+                continue
+
+        if ("lA", "Hr") in morpheme_tuples or ("lA", "Hn") in morpheme_tuples or ("lA", "Hş") in morpheme_tuples:
+            alt_la = any([("lAr" in decomp["meta_morphemes"] or "lAn" in decomp["meta_morphemes"] or "lAş" in decomp["meta_morphemes"]) for decomp in decompositions])
+            if alt_la:
+                continue
+        
+        for decomp in valid_decompositions:
+            if decomp["root"] == decomposition["root"] and decomp["pos"] == decomposition["pos"] and decomp["morphemes"] == decomposition["morphemes"] and decomp["meta_morphemes"] == decomposition["meta_morphemes"]:
+                continue
+
+        valid_decompositions.append(decomposition)
+    
+    return valid_decompositions
