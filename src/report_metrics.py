@@ -11,9 +11,9 @@ from utils import read_json, write_json, find_json_files, MODEL_COSTS, num_token
 def get_prediction(ref_response, model_response, template):
     if template in ["bfill"]:
         model_response = [word.strip().strip("'").strip('"').strip() for word in model_response.strip("[]").split(",")]
-        pred = 1 if str(ref_response) == str(model_response) else 0
+        pred = 1 if str(ref_response).lower() == str(model_response).lower() else 0
     elif template.startswith("morph_gen"):
-        pred = 1 if str(ref_response) == str(model_response).strip() else 0
+        pred = 1 if str(ref_response).lower() == str(model_response).strip().lower() else 0
     elif template.startswith("morph_disc"):
         res = model_response.strip()
         if re.fullmatch(r"\d+\s*\..*", model_response.strip()):

@@ -41,6 +41,10 @@ INSTRUCTION_TEMPLATES = {
     "morph_disc_sense_en": MORPH_DISC_SENSE_EN_INSTRUCTION_TEMPLATE,
     "morph_gen_sense_tr": MORPH_GEN_SENSE_TR_INSTRUCTION_TEMPLATE,
     "morph_disc_sense_tr": MORPH_DISC_SENSE_TR_INSTRUCTION_TEMPLATE,
+    "nonce_morph_gen_sense_en": MORPH_GEN_NONCE_SENSE_EN_INSTRUCTION_TEMPLATE,
+    "nonce_morph_disc_sense_en": MORPH_DISC_NONCE_SENSE_EN_INSTRUCTION_TEMPLATE,
+    "nonce_morph_gen_sense_tr": MORPH_GEN_NONCE_SENSE_TR_INSTRUCTION_TEMPLATE,
+    "nonce_morph_disc_sense_tr": MORPH_DISC_NONCE_SENSE_TR_INSTRUCTION_TEMPLATE,
 }
 
 SHOT_TEMPLATES = {
@@ -66,6 +70,10 @@ SHOT_TEMPLATES = {
     "morph_disc_sense_en": MORPH_DISC_SENSE_EN_SHOT_TEMPLATE,
     "morph_gen_sense_tr": MORPH_GEN_SENSE_TR_SHOT_TEMPLATE,
     "morph_disc_sense_tr": MORPH_DISC_SENSE_TR_SHOT_TEMPLATE,
+    "nonce_morph_gen_sense_en": MORPH_GEN_NONCE_SENSE_EN_SHOT_TEMPLATE,
+    "nonce_morph_disc_sense_en": MORPH_DISC_NONCE_SENSE_EN_SHOT_TEMPLATE,
+    "nonce_morph_gen_sense_tr": MORPH_GEN_NONCE_SENSE_TR_SHOT_TEMPLATE,
+    "nonce_morph_disc_sense_tr": MORPH_DISC_NONCE_SENSE_TR_SHOT_TEMPLATE,
 }
 
 def _is_ood_sample(sample):
@@ -77,14 +85,14 @@ def _is_sense_task(template):
 def _is_sent_task(template):
     return "sent" in template
 
-def _get_sample_definition(sample, language, template, template_lang):
-    if _is_sense_task(template):
-        return sample["meaning"]
-
+def _get_root_definition(sample, language, template, template_lang):
     if template_lang == "en":
         return f"'{sample['root']}' means '{sample['original_root']}' in {LANGUAGE_MAP[language][template_lang]}."
     elif template_lang == "tr":
         return f"'{sample['root']}' {LANGUAGE_MAP[language][template_lang]} '{sample['original_root']}' anlamına gelir."
+
+def _get_target_definition(sample, language, template, template_lang):
+    return sample.get("meaning", None)
 
 def _get_template_lang(template):
     return template.split("_")[-1]
@@ -104,16 +112,16 @@ def prepare_shot_for_morph_gen(idx, sample, template, language, is_final=False):
     shot_template = SHOT_TEMPLATES[template]
     
     if _is_ood_sample(sample):
-        definition = _get_sample_definition(sample, language, template, template_lang)
-        format_args["definition"] = definition
+        definition = _get_root_definition(sample, language, template, template_lang)
+        format_args["root_definition"] = definition
         shot_template = SHOT_TEMPLATES[f"nonce_{template}"]
 
     if _is_sent_task(template):
         format_args["sentence"] = sample["sentence"]
 
     if _is_sense_task(template):
-        definition = _get_sample_definition(sample, language, template, template_lang)
-        format_args["definition"] = definition
+        definition = _get_target_definition(sample, language, template, template_lang)
+        format_args["target_definition"] = definition
 
     shot = shot_template.format(**format_args)
     
@@ -134,16 +142,16 @@ def prepare_shot_for_morph_gen_order(idx, sample, template, language, is_final=F
     shot_template = SHOT_TEMPLATES[template]
 
     if _is_ood_sample(sample):
-        definition = _get_sample_definition(sample, language, template, template_lang)
-        format_args["definition"] = definition
+        definition = _get_root_definition(sample, language, template, template_lang)
+        format_args["root_definition"] = definition
         shot_template = SHOT_TEMPLATES[f"nonce_{template}"]
 
     if _is_sent_task(template):
         format_args["sentence"] = sample["sentence"]
 
     if _is_sense_task(template):
-        definition = _get_sample_definition(sample, language, template, template_lang)
-        format_args["definition"] = definition
+        definition = _get_target_definition(sample, language, template, template_lang)
+        format_args["target_definition"] = definition
 
     shot = shot_template.format(**format_args)
     
@@ -176,16 +184,16 @@ def prepare_shot_for_morph_disc(idx, sample, template, language, is_final=False)
     shot_template = SHOT_TEMPLATES[template]
 
     if _is_ood_sample(sample):
-        definition = _get_sample_definition(sample, language, template, template_lang)
-        format_args["definition"] = definition
+        definition = _get_root_definition(sample, language, template, template_lang)
+        format_args["root_definition"] = definition
         shot_template = SHOT_TEMPLATES[f"nonce_{template}"]
 
     if _is_sent_task(template):
         format_args["sentence"] = sample["sentence"]
 
     if _is_sense_task(template):
-        definition = _get_sample_definition(sample, language, template, template_lang)
-        format_args["definition"] = definition
+        definition = _get_target_definition(sample, language, template, template_lang)
+        format_args["target_definition"] = definition
 
     shot = shot_template.format(**format_args)
     

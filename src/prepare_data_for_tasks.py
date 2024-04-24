@@ -55,7 +55,8 @@ def prepare_sample_for_tasks(sample, separator=""):
             "options": [ref_derivation] + list(options),
             "answer": 0,
             "meta_suffixes": sample.get("meta_morphemes"),
-            "sentence": sentence.lower().replace(ref_derivation, "___") if sentence else None
+            "sentence": sentence.lower().replace(ref_derivation, "___") if sentence else None,
+            "meaning": sample.get("meaning"),
         }
     
     return None
@@ -106,7 +107,8 @@ def prepare_tr_nonce_data_for_tasks(input_data, num_samples=None, *args, **kwarg
             "answer": 0,
             "similar": sample.get("similar"),
             "meta_suffixes": sample.get("meta_morphemes") if "meta_morphemes" in sample else sample.get("meta_suffixes"),
-            "sentence": sample.get("sentence")
+            "sentence": sample.get("sentence"),
+            "meaning": sample.get("meaning")
         })
     
     if num_samples is not None:
@@ -159,7 +161,8 @@ def prepare_en_nonce_data_for_tasks(input_data, num_samples=None, *args, **kwarg
             "options": [option.replace(root, nonce_word, 1) for option in options],
             "answer": 0,
             "meta_suffixes": sample.get("meta_morphemes") if "meta_morphemes" in sample else sample.get("meta_suffixes"),
-            "sentence": sample.get("sentence")
+            "sentence": sample.get("sentence"),
+            "meaning": sample.get("meaning"),
         })
     
     if num_samples is not None:

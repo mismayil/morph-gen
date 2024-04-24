@@ -19,7 +19,7 @@ MORPH_GEN_NONCE_EN_INSTRUCTION_TEMPLATE = "You are given a novel word root with 
 
 MORPH_GEN_NONCE_EN_SHOT_TEMPLATE = """Example {index}:
 Word root: {root}
-Definition: {definition}
+Definition: {root_definition}
 Suffixes: {suffixes}
 Answer: {answer}"""
 
@@ -27,7 +27,7 @@ MORPH_DISC_NONCE_EN_INSTRUCTION_TEMPLATE = "You are given a novel word root with
 
 MORPH_DISC_NONCE_EN_SHOT_TEMPLATE = """Example {index}:
 Word root: {root}
-Definition: {definition}
+Definition: {root_definition}
 Suffixes: {suffixes}
 Options:
 {options}
@@ -57,7 +57,7 @@ MORPH_GEN_NONCE_SENT_EN_INSTRUCTION_TEMPLATE = "You are given a novel word root 
 
 MORPH_GEN_NONCE_SENT_EN_SHOT_TEMPLATE = """Example {index}:
 Word root: {root}
-Definition: {definition}
+Definition: {root_definition}
 Suffixes: {suffixes}
 Sentence: {sentence}
 Answer: {answer}"""
@@ -66,7 +66,7 @@ MORPH_DISC_NONCE_SENT_EN_INSTRUCTION_TEMPLATE = "You are given a novel word root
 
 MORPH_DISC_NONCE_SENT_EN_SHOT_TEMPLATE = """Example {index}:
 Word root: {root}
-Definition: {definition}
+Definition: {root_definition}
 Suffixes: {suffixes}
 Sentence: {sentence}
 Options:
@@ -79,7 +79,7 @@ MORPH_GEN_SENSE_EN_INSTRUCTION_TEMPLATE = "You are given a word root, a list of 
 MORPH_GEN_SENSE_EN_SHOT_TEMPLATE = """Example {index}:
 Word root: {root}
 Suffixes: {suffixes}
-Definition: {definition}
+Definition: {target_definition}
 Answer: {answer}"""
 
 MORPH_DISC_SENSE_EN_INSTRUCTION_TEMPLATE = "You are given a word root, a list of suffixes (separated by comma), a definition and a list of words in {language} that are derived from the given word root using the given suffixes. Your task is to select the word that fits the given definition. Output only the correct option number."
@@ -87,10 +87,29 @@ MORPH_DISC_SENSE_EN_INSTRUCTION_TEMPLATE = "You are given a word root, a list of
 MORPH_DISC_SENSE_EN_SHOT_TEMPLATE = """Example {index}:
 Word root: {root}
 Suffixes: {suffixes}
-Definition: {definition}
+Definition: {target_definition}
 Options:
 {options}
 Answer: {answer}"""
+
+MORPH_GEN_NONCE_SENSE_EN_INSTRUCTION_TEMPLATE = "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a target word definition in {language} and your task is to generate a word that fits the given target definition by using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word."
+
+MORPH_GEN_NONCE_SENSE_EN_SHOT_TEMPLATE = """Example {index}:
+Word root: {root} (definition: {root_definition})
+Suffixes: {suffixes}
+Target definition: {target_definition}
+Answer: {answer}"""
+
+MORPH_DISC_NONCE_SENSE_EN_INSTRUCTION_TEMPLATE = "You are given a novel word root with its definition, a list of suffixes (separated by comma), a target word definition and a list of words in {language} that are derived from the given word root using the given suffixes. Your task is to select the word that fits the given target definition. Output only the correct option number."
+
+MORPH_DISC_NONCE_SENSE_EN_SHOT_TEMPLATE = """Example {index}:
+Word root: {root} (definition: {root_definition})
+Suffixes: {suffixes}
+Target definition: {target_definition}
+Options:
+{options}
+Answer: {answer}"""
+
 
 # Prompt templates in Turkish
 MORPH_GEN_TR_INSTRUCTION_TEMPLATE = "Size {language} bir kök ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin."
@@ -113,7 +132,7 @@ MORPH_GEN_NONCE_TR_INSTRUCTION_TEMPLATE = "Size {language} yeni bir kök, onun t
 
 MORPH_GEN_NONCE_TR_SHOT_TEMPLATE = """Örnek {index}:
 Kök: {root}
-Tanım: {definition}
+Tanım: {root_definition}
 Ekler: {suffixes}
 Cevap: {answer}"""
 
@@ -121,7 +140,7 @@ MORPH_DISC_NONCE_TR_INSTRUCTION_TEMPLATE = "Size {language} yeni bir kök, onun 
 
 MORPH_DISC_NONCE_TR_SHOT_TEMPLATE = """Örnek {index}:
 Kök: {root}
-Tanım: {definition}
+Tanım: {root_definition}
 Ekler: {suffixes}
 Seçenekler:
 {options}
@@ -150,7 +169,7 @@ MORPH_GEN_NONCE_SENT_TR_INSTRUCTION_TEMPLATE = "Size {language} yeni bir kök, o
 
 MORPH_GEN_NONCE_SENT_TR_SHOT_TEMPLATE = """Örnek {index}:
 Kök: {root}
-Tanım: {definition}
+Tanım: {root_definition}
 Ekler: {suffixes}
 Cümle: {sentence}
 Cevap: {answer}"""
@@ -159,7 +178,7 @@ MORPH_DISC_NONCE_SENT_TR_INSTRUCTION_TEMPLATE = "Size {language} yeni bir kök, 
 
 MORPH_DISC_NONCE_SENT_TR_SHOT_TEMPLATE = """Örnek {index}:
 Kök: {root}
-Tanım: {definition}
+Tanım: {root_definition}
 Ekler: {suffixes}
 Cümle: {sentence}
 Seçenekler:
@@ -178,7 +197,7 @@ MORPH_GEN_SENSE_TR_INSTRUCTION_TEMPLATE = "Size {language} bir kök, bir ek list
 MORPH_GEN_SENSE_TR_SHOT_TEMPLATE = """Örnek {index}:
 Kök: {root}
 Ekler: {suffixes}
-Tanım: {definition}
+Tanım: {root_definition}
 Cevap: {answer}"""
 
 MORPH_DISC_SENSE_TR_INSTRUCTION_TEMPLATE = "Size {language} bir kök, bir ek listesi (virgülle ayrılmış), bir tanım ve bu ekleri kullanarak türetilmiş kelimelerin bir listesi verilecek. Sizden tanıma uyan doğru kelimeyi seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin."
@@ -186,7 +205,25 @@ MORPH_DISC_SENSE_TR_INSTRUCTION_TEMPLATE = "Size {language} bir kök, bir ek lis
 MORPH_DISC_SENSE_TR_SHOT_TEMPLATE = """Örnek {index}:
 Kök: {root}
 Ekler: {suffixes}
-Tanım: {definition}
+Tanım: {root_definition}
+Seçenekler:
+{options}
+Cevap: {answer}"""
+
+MORPH_GEN_NONCE_SENSE_TR_INSTRUCTION_TEMPLATE = "Size {language} yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bir hedef kelime tanımı verilecek ve sizden bu hedef tanıma uyan bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin."
+
+MORPH_GEN_NONCE_SENSE_TR_SHOT_TEMPLATE = """Örnek {index}:
+Kök: {root} (tanım: {root_definition})
+Ekler: {suffixes}
+Hedef tanım: {target_definition}
+Cevap: {answer}"""
+
+MORPH_DISC_NONCE_SENSE_TR_INSTRUCTION_TEMPLATE = "Size {language} yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış), bir hedef kelime tanımı ve bu ekleri kullanarak türetilmiş kelimelerin bir listesi verilecek. Sizden hedef tanıma uyan doğru kelimeyi seçmeniz istenecek. Sadece doğru seçeneğin numarasını çıktı olarak verin."
+
+MORPH_DISC_NONCE_SENSE_TR_SHOT_TEMPLATE = """Örnek {index}:
+Kök: {root} (tanım: {root_definition})
+Ekler: {suffixes}
+Hedef tanım: {target_definition}
 Seçenekler:
 {options}
 Cevap: {answer}"""
