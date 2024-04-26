@@ -20,14 +20,18 @@ outputs_dir="../experiments/outputs"
 
 for jsonfile in ${data_dir}/tr/sense/eval/temp_en/${experiment}/*.json
 do
-    echo "Evaluating ${jsonfile}"
-    python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/sense/temp_en/${experiment} -k ${openai_api_key} -m ${model} -ia
+    if [[ $jsonfile == *"nonce"* ]]; then
+        echo "Evaluating ${jsonfile}"
+        python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/sense/temp_en/${experiment} -k ${openai_api_key} -m ${model} -ia
+    fi
 done
 
 for jsonfile in ${data_dir}/tr/sense/eval/temp_tr/${experiment}/*.json
 do
-    echo "Evaluating ${jsonfile}"
-    python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/sense/temp_tr/${experiment} -k ${openai_api_key} -m ${model} -ia
+    if [[ $jsonfile == *"nonce"* ]]; then
+        echo "Evaluating ${jsonfile}"
+        python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/sense/temp_tr/${experiment} -k ${openai_api_key} -m ${model} -ia
+    fi
 done
 
 # for jsonfile in ${data_dir}/en/morpholex/eval/temp_en/${experiment}/*.json
