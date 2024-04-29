@@ -1,6 +1,7 @@
 import random
 from itertools import product
 import tiktoken
+import json
 
 from turkish_morphology import decompose, analyze
 from utils import MODEL_ENCODINGS, levenshtein_distance
@@ -26,6 +27,26 @@ POS_MAP = {
     "Postp": "postposition",
     "Det": "determiner"
 }
+
+TR_DICTIONARY_PATH = "../data/tr/gts.json"
+EN_DICTIONARY_PATH = "../data/en/words_alpha.txt"
+
+def read_tr_dictionary():
+    dictionary = []
+    with open(TR_DICTIONARY_PATH, "r") as f:
+        lines = f.readlines()
+        for line in lines:
+            json_line = json.loads(line)
+            dictionary.append(json_line["madde"])
+    return dictionary
+
+def read_en_dictionary():
+    dictionary = []
+    with open(EN_DICTIONARY_PATH, "r") as f:
+        lines = f.readlines()
+        for line in lines:
+            dictionary.append(line.strip())
+    return dictionary
 
 class Decomposition:
     def __init__(self, root, pos, meta_morphemes, morphemes=None):
@@ -227,13 +248,20 @@ def segment_by_tokenizer(text, model, root, return_tokens=False):
     
     return segmentation
 
-def filter_decompositions_tr(word, decompositions):
-    valid_decompositions = []
+def infinitive_tr(verb):
+    hard_vowels = ["a", "o", "u"]
+    soft_vowels = ["e", "i"]
 
-    for decomposition in decompositions:
-        if not decomposition["meta_morphemes"]:
-            continue
-        
+    for char in verb[::-1]:
+        if char in hard_vowels:
+            return f"{verb}mak"
+        if char in soft_vowels:
+            return f"{verb}mek"
+
+def infer_best_decomposition(word, decompositions, dictionary=None):
+    best_decompositions = []
+
+    for decomposition in decompositions:        
         morpheme_tuples = [(decomposition["meta_morphemes"][i], decomposition["meta_morphemes"][i+1]) for i in range(len(decomposition["meta_morphemes"])-1)]
         morpheme_triples = [(decomposition["meta_morphemes"][i], decomposition["meta_morphemes"][i+1], decomposition["meta_morphemes"][i+2]) for i in range(len(decomposition["meta_morphemes"])-2)]
 
@@ -256,10 +284,34 @@ def filter_decompositions_tr(word, decompositions):
             if alt_la:
                 continue
         
-        for decomp in valid_decompositions:
+        for decomp in best_decompositions:
             if decomp["root"] == decomposition["root"] and decomp["pos"] == decomposition["pos"] and decomp["morphemes"] == decomposition["morphemes"] and decomp["meta_morphemes"] == decomposition["meta_morphemes"]:
                 continue
 
-        valid_decompositions.append(decomposition)
+        best_decompositions.append(decomposition)
     
-    return valid_decompositions
+    if dictionary:
+        dict_decomps = []
+        verb_decomps = []
+
+        for decomp in best_decompositions:
+            root = decomp["root"]
+
+            if root in dictionary:
+                dict_decomps.append(decomp)
+            
+            if infinitive_tr(root) in dictionary:
+                verb_decomps.append(decomp)
+        
+        if dict_decomps:
+            best_decompositions = dict_decomps
+        
+        if verb_decomps:
+            best_decompositions = verb_decomps
+
+    best_decompositions = sorted(best_decompositions, key=lambda decomp: len(decomp["root"]))
+    
+    if best_decompositions:
+        return best_decompositions[0]
+
+    return None

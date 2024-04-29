@@ -7,27 +7,7 @@ from itertools import permutations
 import json
 
 from utils import read_json, write_json
-from morphology import generate_nonce_word_tr, generate_nonce_word_en, segment_by_tokenizer
-
-TR_DICTIONARY_PATH = "../data/tr/gts.json"
-EN_DICTIONARY_PATH = "../data/en/words_alpha.txt"
-
-def _read_tr_dictionary():
-    dictionary = []
-    with open(TR_DICTIONARY_PATH, "r") as f:
-        lines = f.readlines()
-        for line in lines:
-            json_line = json.loads(line)
-            dictionary.append(json_line["madde"])
-    return dictionary
-
-def _read_en_dictionary():
-    dictionary = []
-    with open(EN_DICTIONARY_PATH, "r") as f:
-        lines = f.readlines()
-        for line in lines:
-            dictionary.append(line.strip())
-    return dictionary
+from morphology import generate_nonce_word_tr, generate_nonce_word_en, segment_by_tokenizer, read_en_dictionary, read_tr_dictionary
 
 def prepare_sample_for_tasks(sample, separator=""):
     suffixes = sample["morphemes"] if "morphemes" in sample else sample["suffixes"]
@@ -77,7 +57,7 @@ def prepare_tr_data_for_tasks(input_data, num_samples=None, separator="", *args,
     return morph_data
 
 def prepare_tr_nonce_data_for_tasks(input_data, num_samples=None, *args, **kwargs):
-    dictionary = _read_tr_dictionary()
+    dictionary = read_tr_dictionary()
     data = input_data["data"]
     nonce_data = []
 
@@ -132,7 +112,7 @@ def prepare_en_data_for_tasks(input_data, num_samples=None, separator="", *args,
     return morph_data
 
 def prepare_en_nonce_data_for_tasks(input_data, num_samples=None, *args, **kwargs):
-    dictionary = _read_en_dictionary()
+    dictionary = read_en_dictionary()
     data = input_data["data"]
     nonce_data = []
 

@@ -98,6 +98,7 @@ WORKDIR ${HOME}
 # Setup github repo dependencies
 COPY --chown=${USER_NAME} ./docker/docker-requirements.txt .
 RUN ${CONDA} run -n ${CONDA_ENV} pip install -r ./docker-requirements.txt
+RUN ${CONDA} run -n ${CONDA_ENV} pip install ipykernel ipywidgets
 
 COPY --chown=${USER_NAME} ./docker/entrypoint.sh .
 RUN chmod +x ./entrypoint.sh
