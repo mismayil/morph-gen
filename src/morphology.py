@@ -227,7 +227,7 @@ def segment_by_tokenizer(text, model, root, return_tokens=False):
     
     return segmentation
 
-def get_valid_decompositions_tr(word, decompositions):
+def filter_decompositions_tr(word, decompositions):
     valid_decompositions = []
 
     for decomposition in decompositions:

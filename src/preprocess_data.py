@@ -9,7 +9,7 @@ from collections import defaultdict
 import re
 
 from utils import read_json, write_json, concatenate_lists
-from morphology import decompose_tr, get_valid_decompositions_tr
+from morphology import decompose_tr, filter_decompositions_tr
 
 LANGUAGES = ["tr", "en"]
 
@@ -68,7 +68,7 @@ def postprocess_tr_btwd_data(datapath, num_samples=None):
                     })
                     continue
             
-            valid_decompositions = get_valid_decompositions_tr(word, decompositions)
+            valid_decompositions = filter_decompositions_tr(word, decompositions)
         
             if valid_decompositions:
                 postprocessed_data.append({
@@ -213,7 +213,7 @@ def preprocess_tr_sense_data(datapath, num_samples=None):
         if len(words) == 1:
             word = words[0].strip().lower()
             decompositions = [decomp.to_json() for decomp in decompose_tr(word)]
-            decompositions = get_valid_decompositions_tr(word, decompositions)
+            decompositions = filter_decompositions_tr(word, decompositions)
             if decompositions:
                 prep_data.append({
                     "id": f"tr-sense-{i}",
