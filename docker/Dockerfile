@@ -84,12 +84,13 @@ RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -
 RUN bash miniconda.sh -b -p ${CONDA_PREFIX}
 RUN ${CONDA} config --set auto_activate_base false
 RUN ${CONDA} init bash
-RUN ${CONDA} create -y --name ${CONDA_ENV} python=3.9
+RUN ${CONDA} create -y --name bazel_env python=3.9
+RUN ${CONDA} create -y --name ${CONDA_ENV} python=3.10
 
 # Set up turkish morphology repo
 RUN git clone https://github.com/google-research/turkish-morphology.git
 WORKDIR ${HOME}/turkish-morphology
-RUN ${CONDA} run -n ${CONDA_ENV} bazel build //... 
+RUN ${CONDA} run -n bazel_env bazel build //... 
 RUN ${CONDA} run -n ${CONDA_ENV} bazel-bin/setup install
 RUN ${CONDA} run -n ${CONDA_ENV} protoc --python_out=. turkish_morphology/analysis.proto
 
