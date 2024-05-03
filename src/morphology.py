@@ -258,7 +258,7 @@ def infinitive_tr(verb):
         if char in soft_vowels:
             return f"{verb}mek"
 
-def infer_best_decomposition(word, decompositions, dictionary=None):
+def infer_best_decomposition_tr(word, decompositions, dictionary=None):
     best_decompositions = []
 
     for decomposition in decompositions:        
