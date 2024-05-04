@@ -90,7 +90,10 @@ RUN ${CONDA} create -y --name ${CONDA_ENV} python=3.10
 # Set up turkish morphology repo
 RUN git clone https://github.com/google-research/turkish-morphology.git
 WORKDIR ${HOME}/turkish-morphology
-RUN ${CONDA} run -n bazel_env bazel build //... 
+RUN ${CONDA} run -n bazel_env bazel build //...
+RUN ${CONDA} run -n bazel_env bazel-bin/setup install
+RUN ${CONDA} run -n ${CONDA_ENV} python -c "from turkish_morphology import decompose, analyze"
+RUN ${CONDA} run -n ${CONDA_ENV} bazel build //... 
 RUN ${CONDA} run -n ${CONDA_ENV} bazel-bin/setup install
 RUN ${CONDA} run -n ${CONDA_ENV} protoc --python_out=. turkish_morphology/analysis.proto
 
