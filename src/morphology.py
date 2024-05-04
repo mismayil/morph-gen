@@ -2,6 +2,8 @@ import random
 from itertools import product
 import tiktoken
 import json
+import networkx as nx
+import re
 
 from turkish_morphology import decompose, analyze
 from utils import MODEL_ENCODINGS, levenshtein_distance
@@ -315,3 +317,57 @@ def infer_best_decomposition_tr(word, decompositions, dictionary=None):
         return best_decompositions[0]
 
     return None
+
+def create_morph_graph():
+    G = nx.MultiDiGraph(root=False)
+    return G
+
+def has_edge(G, source, target, edge_key):
+    edge_data = G.get_edge_data(source, target)
+    if edge_data:
+        for key, edge in edge_data.items():
+            if key == edge_key:
+                return edge
+
+def update_morph_graph(G, root, meta_morphemes, morphemes):
+    G.add_node(root, root=True)
+    last_edge_key = root
+    last_node = root
+
+    for i, (meta_morph, morph) in enumerate(zip(meta_morphemes, morphemes)):
+        morph_node = f"+{meta_morph}"
+        G.add_node(morph_node)
+        edge_key = f"{last_edge_key}+{morph}"
+        existing_edge = has_edge(G, last_node, morph_node, edge_key)
+        is_leaf = i == len(meta_morphemes) - 1
+        if existing_edge:
+            existing_edge["count"] += 1
+            existing_edge["leaf"] += int(is_leaf)
+        else:
+            G.add_edge(last_node, morph_node, key=edge_key, count=1, leaf=int(is_leaf))
+        last_edge_key = edge_key
+        last_node = morph_node
+
+def merge_morph_graphs(G, H):
+    GH = nx.compose(G, H)
+    count_edge_data = {
+        e: G.edges[e]["count"] + H.edges[e]["count"] for e in G.edges & H.edges
+    }
+    leaf_edge_data = {
+        e: G.edges[e]["leaf"] + H.edges[e]["leaf"] for e in G.edges & H.edges
+    }
+    nx.set_edge_attributes(GH, count_edge_data, "count")
+    nx.set_edge_attributes(GH, leaf_edge_data, "leaf")
+    return GH
+
+def read_morph_graph(path):
+    G = nx.read_gml(path, force_multigraph=True, node_type=str, edge_key_type=str)
+    return G
+
+def write_morph_graph(G, path):
+    nx.write_gml(G, path, named_key_ids=True)
+
+def get_words(text):
+    words = re.findall(r"\b[^\d\W]+\b", text)
+    words = [word.lower() for word in words]
+    return words

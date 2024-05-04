@@ -1,6 +1,9 @@
 import pathlib
+import json
+from typing import IO, Callable
 
-from datatrove.pipeline.readers import IpcReader
+from datatrove.io import DataFolderLike
+from datatrove.pipeline.readers import IpcReader, JsonlReader
 from datatrove.executor import LocalPipelineExecutor
 from datatrove.data import DocumentsPipeline
 from langdetect import detect_langs
@@ -8,7 +11,10 @@ from datatrove.data import Document
 from datatrove.pipeline.filters.base_filter import BaseFilter
 from datatrove.pipeline.writers.disk_base import DiskWriter
 from datatrove.pipeline.writers.jsonl import JsonlWriter
+from datatrove.pipeline.base import PipelineStep
+from datatrove.data import DocumentsPipeline
 
+from morphology import decompose_tr, create_morph_graph, read_morph_graph, write_morph_graph, merge_morph_graphs, update_morph_graph, get_words
 
 DATA_DIR = "/mnt/nlpdata1/share/datasets/allenai___c4/tr/0.0.0/1588ec454efa1a09f29cd18ddd04fe05fc8653a2"
 DUMP_DATA_DIR = "/mnt/nlpdata1/home/ismayilz/morph-gen-c4"
@@ -51,17 +57,73 @@ class TRLanguageFilter(BaseFilter):
         
         doc.metadata["tr_score"] = tr_score
         return tr_score > self.language_threshold
-    
+
+class MorphSegmentation(PipelineStep): 
+    def __init__(self):
+        super().__init__()
+
+    def run(self, data: DocumentsPipeline, rank: int = 0, world_size: int = 1) -> DocumentsPipeline:
+        for document in data:
+            with self.track_time():
+                G = create_morph_graph()
+                words = get_words(document.text)
+                for word in words:
+                    decompositions = decompose_tr(word)
+                    for decomposition in decompositions:
+                        update_morph_graph(G, root=decomposition.root, meta_morphemes=decomposition.meta_morphemes, morphemes=decomposition.morphemes)
+                self.stat_update("num_words", value=len(words))
+                document.metadata["graph"] = G
+            yield document
+
+class MorphGraphWriter(DiskWriter):
+    """Write data to datafolder (local or remote) in GML format
+
+    Args:
+        output_folder: a str, tuple or DataFolder where data should be saved
+        output_filename: the filename to use when saving data, including extension. Can contain placeholders such as `${rank}` or metadata tags `${tag}`
+        adapter: a custom function to "adapt" the Document format to the desired output format
+    """
+
+    default_output_filename: str = "${rank}.gml.gz"
+    name = "🐿 GML"
+
+    def __init__(
+        self,
+        output_folder: DataFolderLike,
+        output_filename: str = None,
+        compression: str | None = "gzip",
+        adapter: Callable = None,
+    ):
+        super().__init__(output_folder, output_filename=output_filename, compression=compression, adapter=adapter)
+
+    def _write(self, document: dict, file_handler: IO, _filename: str):
+        G = read_morph_graph(file_handler)
+        H = document["graph"]
+        GH = merge_morph_graphs(G, H)
+        write_morph_graph(GH, file_handler)
+
 preprocessing = LocalPipelineExecutor(
     pipeline=[
         IpcReader(DATA_DIR, stream=True, progress=True, glob_pattern="*.arrow", adapter=preprocessing_adapter),
         TRLanguageFilter(exclusion_writer=JsonlWriter(f"{DUMP_DATA_DIR}/lang_filter_removed", "${file_stem}_${rank}.jsonl")),
         JsonlWriter(f"{DUMP_DATA_DIR}/lang_filtered", "${file_stem}_${rank}.jsonl")
     ],
-    logging_dir=f"{DUMP_DATA_DIR}/logs/",
+    logging_dir=f"{DUMP_DATA_DIR}/preprocessing_logs/",
+    tasks=600,
+    workers=64
+)
+
+morph_segmentation = LocalPipelineExecutor(
+    pipeline=[
+        JsonlReader(f"{DUMP_DATA_DIR}/lang_filtered", progress=True, glob_pattern="*validation*.jsonl.gz"),
+        MorphSegmentation(),
+        MorphGraphWriter(f"{DUMP_DATA_DIR}/morph_graphs", "${file_stem}_${rank}.gml.gz")
+    ],
+    logging_dir=f"{DUMP_DATA_DIR}/morph_logs/",
     tasks=600,
     workers=64
 )
 
 if __name__ == "__main__":
-    preprocessing.run()
+    # preprocessing.run()
+    morph_segmentation.run()
