@@ -115,7 +115,6 @@ class MorphGraphWriter(DiskWriter):
             GH = merge_morph_graphs(G, H)
 
         write_morph_graph(GH, merged_path)
-        print(GH.nodes)
         self._graph_init = True
 
 preprocessing = LocalPipelineExecutor(

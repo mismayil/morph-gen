@@ -6,7 +6,7 @@ import random
 from itertools import permutations
 import json
 
-from utils import read_json, write_json
+from utils import read_json, write_json, levenshtein_distance
 from morphology import generate_nonce_word_tr, generate_nonce_word_en, segment_by_tokenizer, read_en_dictionary, read_tr_dictionary
 
 def prepare_sample_for_tasks(sample, separator=""):
@@ -23,7 +23,8 @@ def prepare_sample_for_tasks(sample, separator=""):
             if derivation != ref_derivation:
                 options.add(derivation)
 
-        options = random.sample(list(options), min(len(options), 5))
+        # options = random.sample(list(options), min(len(options), 5))
+        options = sorted(list(options), key=lambda x: levenshtein_distance(x, ref_derivation))[:5]
         sentence = sample.get("sentence")
 
         return {
