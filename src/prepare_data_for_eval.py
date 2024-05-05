@@ -45,6 +45,10 @@ INSTRUCTION_TEMPLATES = {
     "nonce_morph_disc_sense_en": MORPH_DISC_NONCE_SENSE_EN_INSTRUCTION_TEMPLATE,
     "nonce_morph_gen_sense_tr": MORPH_GEN_NONCE_SENSE_TR_INSTRUCTION_TEMPLATE,
     "nonce_morph_disc_sense_tr": MORPH_DISC_NONCE_SENSE_TR_INSTRUCTION_TEMPLATE,
+    "morph_disc_bin_en": MORPH_DISC_BIN_EN_INSTRUCTION_TEMPLATE,
+    "morph_disc_bin_tr": MORPH_DISC_BIN_TR_INSTRUCTION_TEMPLATE,
+    "nonce_morph_disc_bin_en": MORPH_DISC_NONCE_BIN_EN_INSTRUCTION_TEMPLATE,
+    "nonce_morph_disc_bin_tr": MORPH_DISC_NONCE_BIN_TR_INSTRUCTION_TEMPLATE,
 }
 
 SHOT_TEMPLATES = {
@@ -74,6 +78,10 @@ SHOT_TEMPLATES = {
     "nonce_morph_disc_sense_en": MORPH_DISC_NONCE_SENSE_EN_SHOT_TEMPLATE,
     "nonce_morph_gen_sense_tr": MORPH_GEN_NONCE_SENSE_TR_SHOT_TEMPLATE,
     "nonce_morph_disc_sense_tr": MORPH_DISC_NONCE_SENSE_TR_SHOT_TEMPLATE,
+    "morph_disc_bin_en": MORPH_DISC_BIN_EN_SHOT_TEMPLATE,
+    "morph_disc_bin_tr": MORPH_DISC_BIN_TR_SHOT_TEMPLATE,
+    "nonce_morph_disc_bin_en": MORPH_DISC_NONCE_BIN_EN_SHOT_TEMPLATE,
+    "nonce_morph_disc_bin_tr": MORPH_DISC_NONCE_BIN_TR_SHOT_TEMPLATE,
 }
 
 def _is_ood_sample(sample):
@@ -96,6 +104,13 @@ def _get_target_definition(sample, language, template, template_lang):
 
 def _get_template_lang(template):
     return template.split("_")[-1]
+
+def _get_answer(option, reference, template_lang):
+    correct = option == reference
+    if template_lang == "en":
+        return "Yes" if correct else "No"
+    elif template_lang == "tr":
+        return "Evet" if correct else "Hayır"
 
 def prepare_shot_for_morph_gen(idx, sample, template, language, is_final=False):
     template_lang = _get_template_lang(template)
@@ -199,6 +214,45 @@ def prepare_shot_for_morph_disc(idx, sample, template, language, is_final=False)
     
     return shot, answer
 
+def prepare_shots_for_morph_disc_bin(idx, sample, template, language, is_final=False):
+    options = random.sample(sample["options"], len(sample["options"]))
+    suffixes = random.sample(sample["suffixes"], len(sample["suffixes"]))
+    template_lang = _get_template_lang(template)
+    suffixes_str = ",".join([f"'{s}'" for s in suffixes])
+
+    shots = []
+    answers = []
+
+    for option in options:
+        answer = _get_answer(option, sample["derivation"], template_lang)
+        format_args = {
+            "index": idx+1,
+            "root": sample["root"],
+            "suffixes": suffixes_str,
+            "derived_word": option,
+            "answer": "" if is_final else answer
+        }
+        shot_template = SHOT_TEMPLATES[template]
+
+        if _is_ood_sample(sample):
+            definition = _get_root_definition(sample, language, template, template_lang)
+            format_args["root_definition"] = definition
+            shot_template = SHOT_TEMPLATES[f"nonce_{template}"]
+
+        if _is_sent_task(template):
+            format_args["sentence"] = sample["sentence"]
+
+        if _is_sense_task(template):
+            definition = _get_target_definition(sample, language, template, template_lang)
+            format_args["target_definition"] = definition
+
+        shot = shot_template.format(**format_args)
+        
+        shots.append(shot)
+        answers.append(answer)
+    
+    return shots, answers
+
 INSTRUCTION_PROCESSORS = {
     "default": prepare_instruction_for_morph_gen_disc
 }
@@ -206,40 +260,67 @@ INSTRUCTION_PROCESSORS = {
 SHOT_PROCESSORS = {
     "default_gen": prepare_shot_for_morph_gen,
     "default_disc": prepare_shot_for_morph_disc,
-    "morph_gen_order_en": prepare_shot_for_morph_gen_order
+    "morph_gen_order_en": prepare_shot_for_morph_gen_order,
+    "morph_disc_bin_en": prepare_shots_for_morph_disc_bin,
+    "morph_disc_bin_tr": prepare_shots_for_morph_disc_bin
 }
 
+def _choose_answer_based_on_template(template_lang, idx):
+    if template_lang == "en":
+        return ["Yes", "No"][idx%2]
+    elif template_lang == "tr":
+        return ["Evet", "Hayır"][idx%2]
+
+def _choose_shot_based_on_answer(shots, answers, chosen_answer):
+    for shot, answer in zip(shots, answers):
+        if answer == chosen_answer:
+            return shot, answer
+    return shots[0], answers[0]
+ 
 def prepare_sample_for_eval(sample, shot_samples, template, language):
     shot_processor = SHOT_PROCESSORS.get(template, SHOT_PROCESSORS["default_gen"] if template.startswith("morph_gen") else SHOT_PROCESSORS["default_disc"])
     instruction_processor = INSTRUCTION_PROCESSORS.get(template, INSTRUCTION_PROCESSORS["default"])
 
     shots = []
     for idx, shot_sample in enumerate(shot_samples):
-        shot, _ = shot_processor(idx, shot_sample, template, language)
-        shots.append(shot)
+        shot, answer = shot_processor(idx, shot_sample, template, language)
+        if isinstance(shot, list):
+            chosen_answer = _choose_answer_based_on_template(_get_template_lang(template), idx)
+            chosen_shot, _ = _choose_shot_based_on_answer(shot, answer, chosen_answer)
+            shots.append(chosen_shot)
+        else:
+            shots.append(shot)
 
     shots_prompt = "\n\n".join(shots)
 
     final_shot, final_answer = shot_processor(len(shot_samples), sample, template, language, is_final=True)
     
-    instruction = instruction_processor(sample, template, language)
-
-    prompt = f"{instruction}\n\n{shots_prompt}\n\n{final_shot}"
+    if not isinstance(final_shot, list):
+        final_shot = [final_shot]
+    
+    if not isinstance(final_answer, list):
+        final_answer = [final_answer]
     
     eval_data = []
-    eval_data.append({
-        "id": sample["id"],
-        "root": sample["root"],
-        "suffixes": sample["suffixes"],
-        "prompt": prompt,
-        "reference": final_answer,
-        "template": template,
-        "original_root": sample["original_root"] if "original_root" in sample else None,
-        "original_derivation": sample["original_derivation"] if "original_derivation" in sample else None,
-        "meta_suffixes": sample.get("meta_suffixes", None),
-        "sentence": sample.get("sentence", None),
-        "meaning": sample.get("meaning", None),
-    })
+        
+    for final_sh, final_ans in zip(final_shot, final_answer):
+        instruction = instruction_processor(sample, template, language)
+
+        prompt = f"{instruction}\n\n{shots_prompt}\n\n{final_sh}"
+
+        eval_data.append({
+            "id": sample["id"],
+            "root": sample["root"],
+            "suffixes": sample["suffixes"],
+            "prompt": prompt,
+            "reference": final_ans,
+            "template": template,
+            "original_root": sample["original_root"] if "original_root" in sample else None,
+            "original_derivation": sample["original_derivation"] if "original_derivation" in sample else None,
+            "meta_suffixes": sample.get("meta_suffixes", None),
+            "sentence": sample.get("sentence", None),
+            "meaning": sample.get("meaning", None),
+        })
 
     return eval_data
 

@@ -227,3 +227,39 @@ Hedef tanım: {target_definition}
 Seçenekler:
 {options}
 Cevap: {answer}"""
+
+# Prompt templates for morphological discriminatation tasks (binary) in English
+MORPH_DISC_BIN_EN_INSTRUCTION_TEMPLATE = "You are given a word root, a list of suffixes (separated by comma) and a word in {language} that is derived from the given word root using the given suffixes. Your task is to determine whether the derived word is grammatically correct. Answer only with Yes or No."
+
+MORPH_DISC_BIN_EN_SHOT_TEMPLATE = """Example {index}:
+Word root: {root}
+Suffixes: {suffixes}
+Derived word: {derived_word}
+Answer: {answer}"""
+
+MORPH_DISC_NONCE_BIN_EN_INSTRUCTION_TEMPLATE = "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a word in {language} that is derived from the given word root using the given suffixes. Your task is to determine whether the derived word is grammatically correct. Answer only with Yes or No."
+
+MORPH_DISC_NONCE_BIN_EN_SHOT_TEMPLATE = """Example {index}:
+Word root: {root}
+Definition: {root_definition}
+Suffixes: {suffixes}
+Derived word: {derived_word}
+Answer: {answer}"""
+
+# Prompt templates for morphological discriminatation tasks (binary) in Turkish
+MORPH_DISC_BIN_TR_INSTRUCTION_TEMPLATE = "Size {language} bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak türetilmiş bir kelime verilecek. Sizden bu kelimenin dilbilgisel olarak doğru olup olmadığını belirlemeniz istenecek. Sadece Evet veya Hayır ile cevap verin."
+
+MORPH_DISC_BIN_TR_SHOT_TEMPLATE = """Örnek {index}:
+Kök: {root}
+Ekler: {suffixes}
+Türetilmiş kelime: {derived_word}
+Cevap: {answer}"""
+
+MORPH_DISC_NONCE_BIN_TR_INSTRUCTION_TEMPLATE = "Size {language} yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak türetilmiş bir kelime verilecek. Sizden bu kelimenin dilbilgisel olarak doğru olup olmadığını belirlemeniz istenecek. Sadece Evet veya Hayır ile cevap verin."
+
+MORPH_DISC_NONCE_BIN_TR_SHOT_TEMPLATE = """Örnek {index}:
+Kök: {root}
+Tanım: {root_definition}
+Ekler: {suffixes}
+Türetilmiş kelime: {derived_word}
+Cevap: {answer}"""
