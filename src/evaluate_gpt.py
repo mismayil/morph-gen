@@ -166,9 +166,6 @@ def main():
 
             sample["model_output"] = response
             sample["usage"] = usage
-            outputs["metrics"]["usage"]["prompt_tokens"] += usage["prompt_tokens"]
-            outputs["metrics"]["usage"]["completion_tokens"] += usage["completion_tokens"]
-            outputs["metrics"]["usage"]["total_tokens"] += usage["total_tokens"]
             
             write_json(outputs, output_path, ensure_ascii=False)
         except Exception as e:
@@ -177,6 +174,9 @@ def main():
                 error_file.write(traceback.format_exc())
                 error_file.write("\n")
 
+    outputs["metrics"]["usage"]["prompt_tokens"] = sum([usage["prompt_tokens"] for usage in outputs["data"]])
+    outputs["metrics"]["usage"]["completion_tokens"] = sum([usage["completion_tokens"] for usage in outputs["data"]])
+    outputs["metrics"]["usage"]["total_tokens"] = outputs["metrics"]["usage"]["prompt_tokens"] + outputs["metrics"]["usage"]["completion_tokens"]
     outputs["metrics"]["cost"]["input"] = outputs["metrics"]["usage"]["prompt_tokens"] * MODEL_COSTS[args.model]["input"]
     outputs["metrics"]["cost"]["output"] = outputs["metrics"]["usage"]["completion_tokens"] * MODEL_COSTS[args.model]["output"]
     outputs["metrics"]["cost"]["total"] = outputs["metrics"]["cost"]["input"] + outputs["metrics"]["cost"]["output"]
