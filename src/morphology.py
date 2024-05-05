@@ -30,6 +30,39 @@ POS_MAP = {
     "Det": "determiner"
 }
 
+# https://gist.github.com/yasinkuyu/07d4afc0665421c5f3b0
+TURKISH_LETTER_FREQ = {
+	'A': 11.92,
+	'B': 2.844,
+	'C': 0.963,
+	'Ç': 1.156,
+	'D': 4.706,
+	'E': 8.912,
+	'F': 0.461,
+	'G': 1.253,
+	'Ğ': 1.125,
+	'H': 1.212,
+	'I': 5.114,
+	'İ': 8.6,
+	'J': 0.034,
+	'K': 4.683,
+	'L': 5.922,
+	'M': 3.752,
+	'N': 4.487,
+	'O': 2.476,
+	'Ö': 0.777,
+	'P': 0.886,
+	'R': 6.722,
+	'S': 3.014,
+	'Ş': 1.78,
+	'T': 3.014,
+	'U': 3.235,
+	'Ü': 1.854,
+	'V': 0.959,
+	'Y': 3.336,
+	'Z': 1.5
+};
+
 TR_DICTIONARY_PATH = "../data/tr/gts.json"
 EN_DICTIONARY_PATH = "../data/en/words_alpha.txt"
 
@@ -151,12 +184,17 @@ def decompose_tr(word):
 
     return valid_decompositions
 
+def get_random_letter_tr(letters, weighted=True):
+    if weighted:
+        return random.choices(letters, weights=[TURKISH_LETTER_FREQ[c.upper()] for c in letters])[0]
+    return random.choice(letters)
+
 def generate_nonce_word_tr(word):
     word = word.lower()
 
     hard_vowels = ["a", "ı", "o", "u"]
     soft_vowels = ["e", "i", "ö", "ü"]
-    consonants = ["b", "c", "ç", "d", "f", "g", "ğ", "h", "j", "k", "l", "m", "n", "p", "r", "s", "ş", "t", "v", "y", "z"]
+    consonants = ["b", "c", "ç", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "r", "s", "ş", "t", "v", "y", "z"]
 
     last_vowel_index = None
 
@@ -171,19 +209,19 @@ def generate_nonce_word_tr(word):
         prefix = ""
         for i in range(3):
             if i % 2 == 0:
-                prefix += random.choice(consonants)
+                prefix += get_random_letter_tr(consonants)
             else:
-                prefix += random.choice(soft_vowels) if immutable_part[0] in soft_vowels else random.choice(hard_vowels)
+                prefix += get_random_letter_tr(soft_vowels) if immutable_part[0] in soft_vowels else get_random_letter_tr(hard_vowels)
     else:
         prefix = ""
 
         for char in mutable_part:
             if char in hard_vowels:
-                prefix += random.choice(list(set(hard_vowels)-set([char])))
+                prefix += get_random_letter_tr(list(set(hard_vowels)-set([char])))
             elif char in soft_vowels:
-                prefix += random.choice(list(set(soft_vowels)-set([char])))
+                prefix += get_random_letter_tr(list(set(soft_vowels)-set([char])))
             else:
-                prefix += random.choice(consonants)
+                prefix += get_random_letter_tr(consonants)
     
     nonce_word = prefix + immutable_part
     return nonce_word

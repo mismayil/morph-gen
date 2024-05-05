@@ -149,33 +149,57 @@ def prepare_comp_data(datapath, num_samples=None):
     
     return list(comp_map.values())
 
-def prepare_tr_btwd_balanced_sample_data(datapath, num_samples=None):
+def prepare_tr_btwd_balanced_data(datapath, num_samples=50):
     input_data = read_json(datapath)
     data = input_data["data"]
-    seen_roots = set()
+    seen_roots = {i+1: set() for i in range(10)}
     suffix_comb_map = {i+1: set() for i in range(10)}
     balanced_data = {i+1: [] for i in range(10)}
     balanced_data_extra = {i+1: [] for i in range(10)}
+    balanced_data_root_extra = {i+1: [] for i in range(10)}
 
-    for sample in tqdm(data, total=len(data), desc="Preparing TR BTWD balanced sample data"):
-        if sample["root"] not in seen_roots:
-            num_suffixes = len(sample["morphemes"])
-            suffix_comb_set = suffix_comb_map[num_suffixes]
-            if len(suffix_comb_set) < 50:
-                if len(sample["root"]) > 3 and tuple(sample["morphemes"]) not in suffix_comb_set:
-                    balanced_data[num_suffixes].append(sample)
-                    seen_roots.add(sample["root"])
-                    suffix_comb_set.add(tuple(sample["morphemes"]))
-                else:
-                    balanced_data_extra[num_suffixes].append(sample)
+    for sample in tqdm(data, total=len(data), desc="Preparing TR BTWD balanced data"):
+        num_suffixes = len(sample["morphemes"])
+        if num_suffixes > 0:
+            if sample["root"] not in seen_roots[num_suffixes]:
+                suffix_comb_set = suffix_comb_map[num_suffixes]
+                if len(suffix_comb_set) < num_samples:
+                    if len(sample["root"]) > 3 and tuple(sample["morphemes"]) not in suffix_comb_set:
+                        balanced_data[num_suffixes].append(sample)
+                        seen_roots[num_suffixes].add(sample["root"])
+                        suffix_comb_set.add(tuple(sample["morphemes"]))
+                    else:
+                        balanced_data_extra[num_suffixes].append(sample)
+            else:
+                balanced_data_root_extra[num_suffixes].append(sample)
     
+    print([len(lst) for lst in balanced_data.values()])
+
+    extra_seen_roots = {i+1: set() for i in range(10)}
+
     for num_suffixes, extra_samples in balanced_data_extra.items():
-        if len(balanced_data[num_suffixes]) < 50:
-            balanced_data[num_suffixes].extend(extra_samples[:50-len(balanced_data[num_suffixes])])
+        while len(balanced_data[num_suffixes]) < num_samples and extra_samples:
+            extra_sample = extra_samples.pop()
+            if extra_sample["root"] not in extra_seen_roots[num_suffixes]:
+                balanced_data[num_suffixes].append(extra_sample)
+                extra_seen_roots[num_suffixes].add(extra_sample["root"])
     
-    return concatenate_lists(list([lst for lst in balanced_data.values() if len(lst) > 0]))
+    print([len(lst) for lst in balanced_data.values()])
+    
+    extra_seen_suffix_combs = {i+1: set() for i in range(10)}
 
-def prepare_en_morpholex_balanced_sample_data(datapath, num_samples=None):
+    for num_suffixes, extra_samples in balanced_data_root_extra.items():
+        while len(balanced_data[num_suffixes]) < num_samples and extra_samples:
+            extra_sample = extra_samples.pop()
+            if tuple(extra_sample["morphemes"]) not in extra_seen_suffix_combs[num_suffixes]:
+                balanced_data[num_suffixes].append(extra_sample)
+                extra_seen_suffix_combs[num_suffixes].add(tuple(extra_sample["morphemes"]))
+    
+    print([len(lst) for lst in balanced_data.values()])
+    
+    return concatenate_lists(list([lst for lst in balanced_data.values() if len(lst) > int(num_samples/2)]))
+
+def prepare_en_morpholex_balanced_data(datapath, num_samples=25):
     input_data = read_json(datapath)
     data = input_data["data"]
     seen_roots = set()
@@ -183,11 +207,11 @@ def prepare_en_morpholex_balanced_sample_data(datapath, num_samples=None):
     balanced_data = {i+1: [] for i in range(10)}
     balanced_data_extra = {i+1: [] for i in range(10)}
 
-    for sample in tqdm(data, total=len(data), desc="Preparing EN MorphoLex balanced sample data"):
-        if sample["root"] not in seen_roots:
-            num_suffixes = len(sample["morphemes"])
+    for sample in tqdm(data, total=len(data), desc="Preparing EN MorphoLex balanced data"):
+        num_suffixes = len(sample["morphemes"])
+        if sample["root"] not in seen_roots and num_suffixes > 0:
             suffix_comb_set = suffix_comb_map[num_suffixes]
-            if len(suffix_comb_set) < 25:
+            if len(suffix_comb_set) < num_samples:
                 if tuple(sample["morphemes"]) not in suffix_comb_set:
                     balanced_data[num_suffixes].append(sample)
                     seen_roots.add(sample["root"])
@@ -196,10 +220,10 @@ def prepare_en_morpholex_balanced_sample_data(datapath, num_samples=None):
                     balanced_data_extra[num_suffixes].append(sample)
     
     for num_suffixes, extra_samples in balanced_data_extra.items():
-        if len(balanced_data[num_suffixes]) < 25:
-            balanced_data[num_suffixes].extend(extra_samples[:25-len(balanced_data[num_suffixes])])
+        if len(balanced_data[num_suffixes]) < num_samples:
+            balanced_data[num_suffixes].extend(extra_samples[:num_samples-len(balanced_data[num_suffixes])])
     
-    return concatenate_lists(list([lst for lst in balanced_data.values() if len(lst) > 0]))
+    return concatenate_lists(list([lst for lst in balanced_data.values() if len(lst) > int(num_samples/2)]))
 
 def preprocess_tr_sense_data(datapath, num_samples=None):
     data = read_json(datapath)
@@ -225,7 +249,7 @@ def preprocess_tr_sense_data(datapath, num_samples=None):
     
     return prep_data
 
-def prepare_tr_sense_balanced_sample_data(datapath, num_samples=None):
+def prepare_tr_sense_balanced_data(datapath, num_samples=50):
     input_data = read_json(datapath)
     data = random.sample(input_data["data"], len(input_data["data"]))
     seen_roots = set()
@@ -233,11 +257,11 @@ def prepare_tr_sense_balanced_sample_data(datapath, num_samples=None):
     balanced_data = {i+1: [] for i in range(10)}
     balanced_data_extra = {i+1: [] for i in range(10)}
 
-    for sample in tqdm(data, total=len(data), desc="Preparing TR sense balanced sample data"):
-        if sample["root"] not in seen_roots:
-            num_suffixes = len(sample["morphemes"])
+    for sample in tqdm(data, total=len(data), desc="Preparing TR sense balanced data"):
+        num_suffixes = len(sample["morphemes"])
+        if sample["root"] not in seen_roots and num_suffixes > 0:
             suffix_comb_set = suffix_comb_map[num_suffixes]
-            if len(suffix_comb_set) < 50:
+            if len(suffix_comb_set) < num_samples:
                 if len(sample["root"]) > 3 and tuple(sample["morphemes"]) not in suffix_comb_set and (len(sample["morphemes"]) > 1 or len(sample["morphemes"][0]) > 1):
                     balanced_data[num_suffixes].append(sample)
                     seen_roots.add(sample["root"])
@@ -246,10 +270,10 @@ def prepare_tr_sense_balanced_sample_data(datapath, num_samples=None):
                     balanced_data_extra[num_suffixes].append(sample)
     
     for num_suffixes, extra_samples in balanced_data_extra.items():
-        if len(balanced_data[num_suffixes]) < 50:
-            balanced_data[num_suffixes].extend(extra_samples[:50-len(balanced_data[num_suffixes])])
+        if len(balanced_data[num_suffixes]) < num_samples:
+            balanced_data[num_suffixes].extend(extra_samples[:num_samples-len(balanced_data[num_suffixes])])
     
-    return concatenate_lists(list([lst for lst in balanced_data.values() if len(lst) > 0]))
+    return concatenate_lists(list([lst for lst in balanced_data.values() if len(lst) > int(num_samples/2)]))
 
 DATA_PROCESSOR_MAP = {
     "tr_btwd_json": (prepare_tr_btwd_json_data, ""), 
@@ -257,10 +281,10 @@ DATA_PROCESSOR_MAP = {
     "tr_btwd_post": (postprocess_tr_btwd_data, "_post"),
     "en_morpholex_prep": (preprocess_en_morpholex_data, "_prep"),
     "tr_comp_prep": (prepare_comp_data, "_comp"),
-    "tr_btwd_balanced": (prepare_tr_btwd_balanced_sample_data, "_balanced_sample"),
-    "en_morpholex_balanced": (prepare_en_morpholex_balanced_sample_data, "_balanced_sample"),
+    "tr_btwd_balanced": (prepare_tr_btwd_balanced_data, "_balanced"),
+    "en_morpholex_balanced": (prepare_en_morpholex_balanced_data, "_balanced"),
     "tr_sense_prep": (preprocess_tr_sense_data, "_prep"),
-    "tr_sense_balanced": (prepare_tr_sense_balanced_sample_data, "_balanced_sample")
+    "tr_sense_balanced": (prepare_tr_sense_balanced_data, "_balanced")
 }
 
 def main():
