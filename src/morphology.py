@@ -361,11 +361,11 @@ def merge_morph_graphs(G, H):
     return GH
 
 def read_morph_graph(path):
-    G = nx.read_gml(path, force_multigraph=True, node_type=str, edge_key_type=str)
+    G = nx.read_gml(path)
     return G
 
 def write_morph_graph(G, path):
-    nx.write_gml(G, path, named_key_ids=True)
+    nx.write_gml(G, path)
 
 def get_words(text):
     words = re.findall(r"\b[^\d\W]+\b", text)

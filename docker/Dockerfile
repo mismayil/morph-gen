@@ -13,7 +13,7 @@ ENV CONDA_ENV=morphgen
 WORKDIR /
 
 # Install dependencies
-RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/3bf863cc.pub
+RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/3bf863cc.pub
 RUN apt update && apt install -y --allow-downgrades --allow-change-held-packages --no-install-recommends \
         build-essential \
         gcc-8 \
@@ -84,24 +84,31 @@ RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -
 RUN bash miniconda.sh -b -p ${CONDA_PREFIX}
 RUN ${CONDA} config --set auto_activate_base false
 RUN ${CONDA} init bash
-RUN ${CONDA} create -y --name bazel_env python=3.9
-RUN ${CONDA} create -y --name ${CONDA_ENV} python=3.10
+RUN ${CONDA} create -y --name ${CONDA_ENV} python=3.9
 
 # Set up turkish morphology repo
-RUN git clone https://github.com/google-research/turkish-morphology.git
+# modified MANIFEST.in
+RUN git clone git@github.com:mismayil/turkish-morphology.git
 WORKDIR ${HOME}/turkish-morphology
-RUN ${CONDA} run -n bazel_env bazel build //...
-RUN ${CONDA} run -n bazel_env bazel-bin/setup install
-RUN ${CONDA} run -n ${CONDA_ENV} python -c "from turkish_morphology import decompose, analyze"
-RUN ${CONDA} run -n ${CONDA_ENV} bazel build //... 
+RUN ${CONDA} run -n ${CONDA_ENV} bazel build //...
 RUN ${CONDA} run -n ${CONDA_ENV} bazel-bin/setup install
-RUN ${CONDA} run -n ${CONDA_ENV} protoc --python_out=. turkish_morphology/analysis.proto
+
+WORKDIR ${HOME}
+
+# Check if turkish morphology correctly installed
+RUN ${CONDA} run -n ${CONDA_ENV} python -c "from turkish_morphology import decompose, analyze"
+
+# Set up datatrove
+# downgraded to 3.9
+RUN git clone git@github.com:mismayil/datatrove.git
+WORKDIR ${HOME}/datatrove
+RUN ${CONDA} run -n ${CONDA_ENV} pip install -e ".[dev]"
 
 WORKDIR ${HOME}
 
 # Setup github repo dependencies
-COPY --chown=${USER_NAME} ./docker/docker-requirements.txt .
-RUN ${CONDA} run -n ${CONDA_ENV} pip install -r ./docker-requirements.txt
+COPY --chown=${USER_NAME} ./requirements.txt .
+RUN ${CONDA} run -n ${CONDA_ENV} pip install -r ./requirements.txt
 RUN ${CONDA} run -n ${CONDA_ENV} pip install ipykernel ipywidgets
 
 COPY --chown=${USER_NAME} ./docker/entrypoint.sh .

@@ -1,8 +1,10 @@
 import pathlib
 import json
 from typing import IO, Callable
+from io import UnsupportedOperation
+import networkx as nx
 
-from datatrove.io import DataFolderLike
+from datatrove.io import DataFolderLike, get_datafolder
 from datatrove.pipeline.readers import IpcReader, JsonlReader
 from datatrove.executor import LocalPipelineExecutor
 from datatrove.data import DocumentsPipeline
@@ -14,6 +16,7 @@ from datatrove.pipeline.writers.jsonl import JsonlWriter
 from datatrove.pipeline.base import PipelineStep
 from datatrove.data import DocumentsPipeline
 
+from utils import generate_unique_id
 from morphology import decompose_tr, create_morph_graph, read_morph_graph, write_morph_graph, merge_morph_graphs, update_morph_graph, get_words
 
 DATA_DIR = "/mnt/nlpdata1/share/datasets/allenai___c4/tr/0.0.0/1588ec454efa1a09f29cd18ddd04fe05fc8653a2"
@@ -59,8 +62,9 @@ class TRLanguageFilter(BaseFilter):
         return tr_score > self.language_threshold
 
 class MorphSegmentation(PipelineStep): 
-    def __init__(self):
+    def __init__(self, output_folder: str = "./outputs"):
         super().__init__()
+        self.output_folder = output_folder
 
     def run(self, data: DocumentsPipeline, rank: int = 0, world_size: int = 1) -> DocumentsPipeline:
         for document in data:
@@ -72,7 +76,11 @@ class MorphSegmentation(PipelineStep):
                     for decomposition in decompositions:
                         update_morph_graph(G, root=decomposition.root, meta_morphemes=decomposition.meta_morphemes, morphemes=decomposition.morphemes)
                 self.stat_update("num_words", value=len(words))
-                document.metadata["graph"] = G
+                output_dir = f"{self.output_folder}/{document.metadata['file_stem']}"
+                pathlib.Path(output_dir).mkdir(parents=True, exist_ok=True)
+                graph_path = f"{output_dir}/{generate_unique_id()}.gml"
+                nx.write_gml(G, graph_path)
+                document.metadata["graph_path"] = graph_path
             yield document
 
 class MorphGraphWriter(DiskWriter):
@@ -83,24 +91,32 @@ class MorphGraphWriter(DiskWriter):
         output_filename: the filename to use when saving data, including extension. Can contain placeholders such as `${rank}` or metadata tags `${tag}`
         adapter: a custom function to "adapt" the Document format to the desired output format
     """
-
-    default_output_filename: str = "${rank}.gml.gz"
     name = "🐿 GML"
 
     def __init__(
         self,
         output_folder: DataFolderLike,
         output_filename: str = None,
-        compression: str | None = "gzip",
+        compression: str = None,
         adapter: Callable = None,
     ):
-        super().__init__(output_folder, output_filename=output_filename, compression=compression, adapter=adapter)
+        super().__init__(output_folder, output_filename=output_filename, compression=compression, adapter=adapter, mode="wb")
+        self.output_folder = output_folder
+        self._graph_init = False
 
     def _write(self, document: dict, file_handler: IO, _filename: str):
-        G = read_morph_graph(file_handler)
-        H = document["graph"]
-        GH = merge_morph_graphs(G, H)
-        write_morph_graph(GH, file_handler)
+        pathlib.Path(self.output_folder).mkdir(parents=True, exist_ok=True)
+        merged_path = f"{self.output_folder}/{_filename}"
+        G = read_morph_graph(document["metadata"]["graph_path"])
+        GH = G
+
+        if self._graph_init:
+            H = read_morph_graph(merged_path)
+            GH = merge_morph_graphs(G, H)
+
+        write_morph_graph(GH, merged_path)
+        print(GH.nodes)
+        self._graph_init = True
 
 preprocessing = LocalPipelineExecutor(
     pipeline=[
@@ -115,13 +131,13 @@ preprocessing = LocalPipelineExecutor(
 
 morph_segmentation = LocalPipelineExecutor(
     pipeline=[
-        JsonlReader(f"{DUMP_DATA_DIR}/lang_filtered", progress=True, glob_pattern="*validation*.jsonl.gz"),
-        MorphSegmentation(),
-        MorphGraphWriter(f"{DUMP_DATA_DIR}/morph_graphs", "${file_stem}_${rank}.gml.gz")
+        JsonlReader(f"{DUMP_DATA_DIR}/lang_filtered", progress=True, glob_pattern="c4-validation_00545.jsonl.gz"),
+        MorphSegmentation(output_folder=f"{DUMP_DATA_DIR}/morph_graphs"),
+        MorphGraphWriter(f"{DUMP_DATA_DIR}/morph_graphs_merged", "${file_stem}_${rank}.gml")
     ],
     logging_dir=f"{DUMP_DATA_DIR}/morph_logs/",
-    tasks=600,
-    workers=64
+    tasks=1,
+    workers=1
 )
 
 if __name__ == "__main__":
