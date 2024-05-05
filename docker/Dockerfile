@@ -88,7 +88,7 @@ RUN ${CONDA} create -y --name ${CONDA_ENV} python=3.9
 
 # Set up turkish morphology repo
 # modified MANIFEST.in
-RUN git clone git@github.com:mismayil/turkish-morphology.git
+RUN git clone https://github.com/mismayil/turkish-morphology.git
 WORKDIR ${HOME}/turkish-morphology
 RUN ${CONDA} run -n ${CONDA_ENV} bazel build //...
 RUN ${CONDA} run -n ${CONDA_ENV} bazel-bin/setup install
@@ -100,7 +100,7 @@ RUN ${CONDA} run -n ${CONDA_ENV} python -c "from turkish_morphology import decom
 
 # Set up datatrove
 # downgraded to 3.9
-RUN git clone git@github.com:mismayil/datatrove.git
+RUN git clone https://github.com/mismayil/datatrove.git
 WORKDIR ${HOME}/datatrove
 RUN ${CONDA} run -n ${CONDA_ENV} pip install -e ".[dev]"
 

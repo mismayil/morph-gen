@@ -61,7 +61,9 @@ class TRLanguageFilter(BaseFilter):
         doc.metadata["tr_score"] = tr_score
         return tr_score > self.language_threshold
 
-class MorphSegmentation(PipelineStep): 
+class MorphSegmentation(PipelineStep):
+    name = "🐿 Morph Segmenter"
+
     def __init__(self, output_folder: str = "./outputs"):
         super().__init__()
         self.output_folder = output_folder
@@ -78,7 +80,7 @@ class MorphSegmentation(PipelineStep):
                 self.stat_update("num_words", value=len(words))
                 output_dir = f"{self.output_folder}/{document.metadata['file_stem']}"
                 pathlib.Path(output_dir).mkdir(parents=True, exist_ok=True)
-                graph_path = f"{output_dir}/{generate_unique_id()}.gml"
+                graph_path = f"{output_dir}/{generate_unique_id()}_{rank}.gml"
                 nx.write_gml(G, graph_path)
                 document.metadata["graph_path"] = graph_path
             yield document
@@ -115,7 +117,6 @@ class MorphGraphWriter(DiskWriter):
             GH = merge_morph_graphs(G, H)
 
         write_morph_graph(GH, merged_path)
-        print(GH.nodes)
         self._graph_init = True
 
 preprocessing = LocalPipelineExecutor(
@@ -131,13 +132,13 @@ preprocessing = LocalPipelineExecutor(
 
 morph_segmentation = LocalPipelineExecutor(
     pipeline=[
-        JsonlReader(f"{DUMP_DATA_DIR}/lang_filtered", progress=True, glob_pattern="c4-validation_00545.jsonl.gz"),
+        JsonlReader(f"{DUMP_DATA_DIR}/lang_filtered", progress=True, glob_pattern="*.jsonl.gz"),
         MorphSegmentation(output_folder=f"{DUMP_DATA_DIR}/morph_graphs"),
         MorphGraphWriter(f"{DUMP_DATA_DIR}/morph_graphs_merged", "${file_stem}_${rank}.gml")
     ],
     logging_dir=f"{DUMP_DATA_DIR}/morph_logs/",
-    tasks=1,
-    workers=1
+    tasks=550,
+    workers=64
 )
 
 if __name__ == "__main__":
