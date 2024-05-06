@@ -3,25 +3,26 @@
 openai_api_key=$1
 model=${2:-"gpt-3.5-turbo"}
 experiment=${3:-"v_sent"}
+input_dir=${4:-${experiment}}
 data_dir="../experiments/data"
 outputs_dir="../experiments/outputs"
 
-mkdir -p ./logs
+# mkdir -p ./logs
 
-for jsonfile in ${data_dir}/tr/btwd/eval/temp_en/${experiment}/*.json
+for jsonfile in ${data_dir}/tr/btwd/eval/temp_en/${input_dir}/*.json
 do
     echo "Evaluating ${jsonfile}"
     # python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_en/${experiment} -k ${openai_api_key} -m ${model} -ia > ./logs/$(basename ${jsonfile}).log 2>&1 &
     python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_en/${experiment} -k ${openai_api_key} -m ${model} -ia --temperature 0.0
 done
 
-# for jsonfile in ${data_dir}/tr/btwd/eval/temp_tr/${experiment}/*.json
+# for jsonfile in ${data_dir}/tr/btwd/eval/temp_tr/${input_dir}/*.json
 # do
 #     echo "Evaluating ${jsonfile}"
 #     python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_tr/${experiment} -k ${openai_api_key} -m ${model} -ia > ./logs/$(basename ${jsonfile}).log 2>&1 &
 # done
 
-# for jsonfile in ${data_dir}/tr/sense/eval/temp_en/${experiment}/*.json
+# for jsonfile in ${data_dir}/tr/sense/eval/temp_en/${input_dir}/*.json
 # do
 #     if [[ $jsonfile == *"nonce"* ]]; then
 #         echo "Evaluating ${jsonfile}"
@@ -29,7 +30,7 @@ done
 #     fi
 # done
 
-# for jsonfile in ${data_dir}/tr/sense/eval/temp_tr/${experiment}/*.json
+# for jsonfile in ${data_dir}/tr/sense/eval/temp_tr/${input_dir}/*.json
 # do
 #     if [[ $jsonfile == *"nonce"* ]]; then
 #         echo "Evaluating ${jsonfile}"
@@ -37,13 +38,13 @@ done
 #     fi
 # done
 
-# for jsonfile in ${data_dir}/en/morpholex/eval/temp_en/${experiment}/*.json
+# for jsonfile in ${data_dir}/en/morpholex/eval/temp_en/${input_dir}/*.json
 # do
 #     echo "Evaluating ${jsonfile}"
 #     python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/${model}/en/morpholex/temp_en/${experiment} -k ${openai_api_key} -m ${model} -ia
 # done
 
-# for jsonfile in ${data_dir}/en/morpholex/eval/temp_tr/${experiment}/*.json
+# for jsonfile in ${data_dir}/en/morpholex/eval/temp_tr/${input_dir}/*.json
 # do
 #     echo "Evaluating ${jsonfile}"
 #     python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/${model}/en/morpholex/temp_tr/${experiment} -k ${openai_api_key} -m ${model} -ia
