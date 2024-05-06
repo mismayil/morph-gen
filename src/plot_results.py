@@ -6,16 +6,19 @@ import matplotlib.pyplot as plt
 
 sns.set_theme(style="whitegrid")
 
-METRICS = ["faithfulness", "accuracy"]
+METRICS = ["faithfulness", "accuracy", "f1", "coherence"]
 
 ABBR_METRICS = {
     "faithfulness": "faith",
-    "accuracy": "acc"
+    "accuracy": "acc",
+    "f1": "f1",
+    "coherence": "coh"
 }
 
-def plot_results(tab_results, output_dir, output_format="png", language="en", template="en", model="gpt-3.5-turbo", metric="accuracy", task="morph-gen", is_ood=False):
-    results = tab_results.query(f"is_ood == {is_ood} & task == '{task}'")
-    if len(results) > 0:
+def plot_results(tab_results, output_dir, output_format="png", language="en", template="en",
+                 model="gpt-3.5-turbo", metric="accuracy", task="morph-gen", is_ood=False, max_suffix_length=10):
+    results = tab_results.query(f"is_ood == {is_ood} & task == '{task}' & num_suffixes <= {max_suffix_length}")
+    if len(results) > 0 and any(results[metric] > 0):
         plt.ioff()
         fig, ax = plt.subplots(figsize=(16, 8))
         ax.set_title(f"{metric.capitalize()} \n [lang={language}, temp={template}, model={model}, dist={'OOD' if is_ood else 'ID'}, task={task}]")
@@ -27,9 +30,10 @@ def plot_results(tab_results, output_dir, output_format="png", language="en", te
         print(f"Saving figure to {plot_path}")
         plt.savefig(plot_path)
 
-def plot_results_by_freq(tab_results, output_dir, output_format="png", language="en", template="en", model="gpt-3.5-turbo", metric="accuracy", task="morph-gen", is_ood=False, keyword="unigram"):
-    results = tab_results.query(f"is_ood == {is_ood} & task == '{task}'")
-    if len(results) > 0:
+def plot_results_by_freq(tab_results, output_dir, output_format="png", language="en", template="en",
+                         model="gpt-3.5-turbo", metric="accuracy", task="morph-gen", is_ood=False, keyword="unigram", max_suffix_length=10):
+    results = tab_results.query(f"is_ood == {is_ood} & task == '{task}' & num_suffixes <= {max_suffix_length}")
+    if len(results) > 0 and any(results[metric] > 0):
         plt.ioff()
         fig, axes = plt.subplots(figsize=(16, 8), nrows=1, ncols=2)
         
@@ -48,6 +52,21 @@ def plot_results_by_freq(tab_results, output_dir, output_format="png", language=
         plot_path = f"{output_dir}/fig_{ABBR_METRICS[metric]}_by_{keyword.replace(' ', '_')}_freq_{task}_{'ood' if is_ood else 'id'}.{output_format}"
         print(f"Saving figure to {plot_path}")
         plt.savefig(plot_path)
+
+def plot_results_id_vs_ood(tab_results, output_dir, output_format="png", language="en", template="en",
+                           model="gpt-3.5-turbo", metric="accuracy", task="morph-gen", max_suffix_length=10, num_shots=5):
+    results = tab_results.query(f"task == '{task}' & num_suffixes <= {max_suffix_length} & num_shots == {num_shots}")
+    if len(results) > 0 and any(results[metric] > 0):
+        plt.ioff()
+        fig, ax = plt.subplots(figsize=(16, 8))
+        ax.set_title(f"{metric.capitalize()} \n [lang={language}, temp={template}, model={model}, num_shots={num_shots}, task={task}]")
+        ax.set_xlabel("Number of suffixes")
+        ax.set_ylabel(metric.capitalize())
+        ax.title.set_size(20)
+        sns.barplot(data=results, x="num_suffixes", y=metric, hue="is_ood", ax=ax, errorbar=None, palette="rocket")
+        plot_path = f"{output_dir}/fig_{ABBR_METRICS[metric]}_{task}_s{num_shots}.{output_format}"
+        print(f"Saving figure to {plot_path}")
+        plt.savefig(plot_path)
     
 def main():
     parser = argparse.ArgumentParser()
@@ -58,6 +77,8 @@ def main():
     parser.add_argument("-m", "--model", type=str, help="Experiment model", required=True)
     parser.add_argument("-e", "--metrics", type=str, choices=METRICS, default=METRICS, help="Metrics to show results for.")
     parser.add_argument("-f", "--output-format", type=str, choices=["png", "pdf"], default="png", help="Format to save the plots in.")
+    parser.add_argument("-msl", "--max-suffix-length", type=int, help="Maximum suffix length to consider", default=7)
+    parser.add_argument("-ns", "--num-shots", type=int, help="Number of shots to consider", default=5)
 
     args = parser.parse_args()
 
@@ -77,6 +98,16 @@ def main():
 
     for metric in args.metrics:
         for task in ["morph-disc", "morph-gen"]:
+            plot_results_id_vs_ood(tab_results,
+                                    output_dir=output_dir,
+                                    output_format=args.output_format,
+                                    language=args.language,
+                                    template=args.template,
+                                    model=args.model,
+                                    metric=metric,
+                                    task=task,
+                                    max_suffix_length=args.max_suffix_length,
+                                    num_shots=args.num_shots)
             for is_ood in [False, True]:
                 if "freq_bin" in tab_results.columns:
                     keyword = "unigram" 
@@ -94,7 +125,8 @@ def main():
                                          metric=metric,
                                          task=task,
                                          is_ood=is_ood,
-                                         keyword=keyword)
+                                         keyword=keyword,
+                                         max_suffix_length=args.max_suffix_length)
                 else:
                     plot_results(tab_results, 
                              output_dir=output_dir, 
@@ -104,7 +136,8 @@ def main():
                              model=args.model,
                              metric=metric,
                              task=task,
-                             is_ood=is_ood)
+                             is_ood=is_ood,
+                             max_suffix_length=args.max_suffix_length)
 
 if __name__ == "__main__":
     main()

@@ -22,6 +22,8 @@ def tabulate_results(results_files):
                 
                 accuracy_metrics = results["metrics"]["accuracy_by_suffix_len"]
                 faithful_metrics = results["metrics"]["faithfulness_by_suffix_len"]
+                f1_metrics = results["metrics"].get("f1_by_suffix_len")
+                coherence_metrics = results["metrics"].get("coherence_by_suffix_len")
                 
                 accuracy_by_unigram_freq = results["metrics"].get("accuracy_by_unigram_freq")
                 faithful_by_unigram_freq = results["metrics"].get("faithfulness_by_unigram_freq")
@@ -56,7 +58,9 @@ def tabulate_results(results_files):
                         "num_shots": num_shots,
                         "num_suffixes": suffix_len,
                         "accuracy": accuracy_metrics[suffix_len],
-                        "faithfulness": faithful_metrics[suffix_len]
+                        "faithfulness": faithful_metrics[suffix_len],
+                        "f1": f1_metrics[suffix_len] if f1_metrics else 0,
+                        "coherence": coherence_metrics[suffix_len] if coherence_metrics else 0
                     })
                 
                 if accuracy_by_unigram_freq:
