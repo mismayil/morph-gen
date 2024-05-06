@@ -56,7 +56,6 @@ RUN --mount=type=secret,id=my_env source /run/secrets/my_env && \
 # Install OpenSSH for MPI to communicate between containers
 RUN apt-get update && apt-get install -y --no-install-recommends openssh-client openssh-server && \
     mkdir -p /var/run/sshd
-# RUN echo 'root:root' | chpasswd
 RUN sed -i 's/#*PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config
 # SSH login fix. Otherwise user is kicked off after login
 RUN sed -i 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' /etc/pam.d/sshd
@@ -115,6 +114,8 @@ COPY --chown=${USER_NAME} ./docker/entrypoint.sh .
 RUN chmod +x ./entrypoint.sh
 
 USER root
+
+RUN echo 'root:root' | chpasswd
 
 # ENTRYPOINT ["./entrypoint.sh"]
 # ENTRYPOINT [ "sleep", "infinity" ]
