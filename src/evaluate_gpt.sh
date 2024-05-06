@@ -9,7 +9,7 @@ outputs_dir="../experiments/outputs"
 
 # mkdir -p ./logs
 
-for jsonfile in ${data_dir}/tr/btwd/eval/temp_en/${input_dir}/*gen*.json
+for jsonfile in ${data_dir}/tr/btwd/eval/temp_en/${input_dir}/*.json
 do
     echo "Evaluating ${jsonfile}"
     # python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_en/${experiment} -k ${openai_api_key} -m ${model} -ia > ./logs/$(basename ${jsonfile}).log 2>&1 &
