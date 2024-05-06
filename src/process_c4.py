@@ -71,18 +71,20 @@ class MorphSegmentation(PipelineStep):
     def run(self, data: DocumentsPipeline, rank: int = 0, world_size: int = 1) -> DocumentsPipeline:
         for document in data:
             with self.track_time():
-                G = create_morph_graph()
-                words = get_words(document.text)
-                for word in words:
-                    decompositions = decompose_tr(word)
-                    for decomposition in decompositions:
-                        update_morph_graph(G, root=decomposition.root, meta_morphemes=decomposition.meta_morphemes, morphemes=decomposition.morphemes)
-                self.stat_update("num_words", value=len(words))
-                output_dir = f"{self.output_folder}/{document.metadata['file_stem']}"
-                pathlib.Path(output_dir).mkdir(parents=True, exist_ok=True)
-                graph_path = f"{output_dir}/{generate_unique_id()}_{rank}.gml"
-                nx.write_gml(G, graph_path)
-                document.metadata["graph_path"] = graph_path
+                output_dir = pathlib.Path(f"{self.output_folder}/{document.metadata['file_stem']}")
+                output_dir.mkdir(parents=True, exist_ok=True)
+                graph_path = output_dir / f"{document.id}.gml"
+
+                if not graph_path.exists():
+                    G = create_morph_graph()
+                    words = get_words(document.text)
+                    for word in words:
+                        decompositions = decompose_tr(word)
+                        for decomposition in decompositions:
+                            update_morph_graph(G, root=decomposition.root, meta_morphemes=decomposition.meta_morphemes, morphemes=decomposition.morphemes)
+                    self.stat_update("num_words", value=len(words))
+                    nx.write_gml(G, str(graph_path))
+                document.metadata["graph_path"] = str(graph_path)
             yield document
 
 class MorphGraphWriter(DiskWriter):
@@ -133,14 +135,25 @@ preprocessing = LocalPipelineExecutor(
 morph_segmentation = LocalPipelineExecutor(
     pipeline=[
         JsonlReader(f"{DUMP_DATA_DIR}/lang_filtered", progress=True, glob_pattern="*.jsonl.gz"),
-        MorphSegmentation(output_folder=f"{DUMP_DATA_DIR}/morph_graphs"),
-        MorphGraphWriter(f"{DUMP_DATA_DIR}/morph_graphs_merged", "${file_stem}_${rank}.gml")
+        MorphSegmentation(output_folder=f"{DUMP_DATA_DIR}/morph_graphs")
     ],
-    logging_dir=f"{DUMP_DATA_DIR}/morph_logs/",
+    logging_dir=f"{DUMP_DATA_DIR}/morph_segment_logs/",
     tasks=550,
     workers=64
 )
 
+# morph_merging = LocalPipelineExecutor(
+#     pipeline=[
+#         JsonlReader(f"{DUMP_DATA_DIR}/lang_filtered", progress=True, glob_pattern="*.jsonl.gz"),
+#         MorphSegmentation(output_folder=f"{DUMP_DATA_DIR}/morph_graphs"),
+#         MorphGraphWriter(f"{DUMP_DATA_DIR}/morph_graphs_merged", "${file_stem}_${rank}.gml")
+#     ],
+#     logging_dir=f"{DUMP_DATA_DIR}/morph_merge_logs/",
+#     tasks=550,
+#     workers=64
+# )
+
 if __name__ == "__main__":
     # preprocessing.run()
     morph_segmentation.run()
+    # morph_merging.run()
