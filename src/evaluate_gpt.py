@@ -174,8 +174,8 @@ def main():
                 error_file.write(traceback.format_exc())
                 error_file.write("\n")
 
-    outputs["metrics"]["usage"]["prompt_tokens"] = sum([usage["prompt_tokens"] for usage in outputs["data"]])
-    outputs["metrics"]["usage"]["completion_tokens"] = sum([usage["completion_tokens"] for usage in outputs["data"]])
+    outputs["metrics"]["usage"]["prompt_tokens"] = sum([sample["usage"]["prompt_tokens"] for sample in outputs["data"]])
+    outputs["metrics"]["usage"]["completion_tokens"] = sum([sample["usage"]["completion_tokens"] for sample in outputs["data"]])
     outputs["metrics"]["usage"]["total_tokens"] = outputs["metrics"]["usage"]["prompt_tokens"] + outputs["metrics"]["usage"]["completion_tokens"]
     outputs["metrics"]["cost"]["input"] = outputs["metrics"]["usage"]["prompt_tokens"] * MODEL_COSTS[args.model]["input"]
     outputs["metrics"]["cost"]["output"] = outputs["metrics"]["usage"]["completion_tokens"] * MODEL_COSTS[args.model]["output"]

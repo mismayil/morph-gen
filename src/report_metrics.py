@@ -1,5 +1,5 @@
 import argparse
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import recall_score, precision_score, f1_score
 from tqdm import tqdm
 import pathlib
 from itertools import permutations
@@ -8,21 +8,35 @@ import re
 
 from utils import read_json, write_json, find_json_files, MODEL_COSTS, num_tokens_from_string
 
-def get_prediction(ref_response, model_response, template):
-    if template in ["bfill"]:
-        model_response = [word.strip().strip("'").strip('"').strip() for word in model_response.strip("[]").split(",")]
-        pred = 1 if str(ref_response).lower() == str(model_response).lower() else 0
-    elif template.startswith("morph_gen"):
-        pred = 1 if str(ref_response).lower() == str(model_response).strip().lower() else 0
-    elif template.startswith("morph_disc"):
-        res = model_response.strip()
+ANSWER_MAP = {
+    "en": {"yes": 1, "no": 0},
+    "tr": {"evet": 1, "hayır": 0}
+}
+
+def _get_template_lang(template):
+    return template.split("_")[-1]
+
+def get_prediction(model_response, template):
+    pred = str(model_response).strip().lower()
+    
+    if template.startswith("morph_disc_bin"):
+        return ANSWER_MAP[_get_template_lang(template)][pred]
+
+    if template.startswith("morph_disc"):
+        pred = model_response.strip()
         if re.fullmatch(r"\d+\s*\..*", model_response.strip()):
-            res = model_response.split(".")[0].strip()
-        pred = 1 if str(ref_response) == res else 0
-    else:
-        raise ValueError(f"Template {template} not supported for evaluation.")
+            pred = model_response.split(".")[0].strip()
+        return pred
 
     return pred
+
+def get_reference(ref_response, template):
+    ref = str(ref_response).strip().lower()
+    
+    if template.startswith("morph_disc_bin"):
+        return ANSWER_MAP[_get_template_lang(template)][ref]
+
+    return ref
 
 def is_faithful(result, ref_response, model_response, template, separator=""):
     if template.startswith("morph_disc"):
@@ -97,10 +111,9 @@ def compute_usage(sample, model):
         "total": input_cost + output_cost
     }
 
-def compute_metrics(results, compute_usage=False, separator="", unigram_freq_path=None, suffix_freq_path=None, meta_suffix_freq_path=None):
+def compute_metrics(results, report_usage=False, separator="", unigram_freq_path=None, suffix_freq_path=None, meta_suffix_freq_path=None):
     metrics = {}
-    predictions = []
-    references = []
+    results_by_suffix_len = defaultdict(dict)
 
     usage = {
         "prompt_tokens": 0,
@@ -236,19 +249,25 @@ def compute_metrics(results, compute_usage=False, separator="", unigram_freq_pat
         metrics[f"faithfulness_by_{keyword}_len_by_freq"] = {k: {k2: sum(v2) / len(v2) for k2, v2 in v.items()} for k, v in len_by_freq_faithful.items()}
 
     for result in results["data"]:
-        gold_response_attr = "reference"
+        num_suffixes = len(result["suffixes"])
+        ref_response_attr = "reference"
         model_response_attr = "model_output"
 
         if model_response_attr in result:
-            ref = 1
-            pred = get_prediction(result[gold_response_attr], result[model_response_attr], result["template"])
-            references.append(ref)
-            predictions.append(pred)
+            ref = get_reference(result[ref_response_attr], result["template"])
+            pred = get_prediction(result[model_response_attr], result["template"])
+            
+            if result["template"].startswith("morph_disc_bin"):
+                if result["id"] not in results_by_suffix_len[num_suffixes]:
+                    results_by_suffix_len[num_suffixes][result["id"]] = {"references": [], "predictions": []}
+                results_by_suffix_len[num_suffixes][result["id"]]["references"].append(ref)
+                results_by_suffix_len[num_suffixes][result["id"]]["predictions"].append(pred)
+
             result["correct"] = ref == pred
-            result["faithful"] = is_faithful(result, result[gold_response_attr], result[model_response_attr], result["template"], separator=separator)
-            # result["soft_accuracy"] = get_soft_accuracy(result, result[gold_response_attr], result[model_response_attr], result["template"])
-            len_suffix_accuracy[len(result["suffixes"])].append(result["correct"])
-            len_suffix_faithful[len(result["suffixes"])].append(result["faithful"])
+            result["faithful"] = is_faithful(result, result[ref_response_attr], result[model_response_attr], result["template"], separator=separator)
+            # result["soft_accuracy"] = get_soft_accuracy(result, result[ref_response_attr], result[model_response_attr], result["template"])
+            len_suffix_accuracy[num_suffixes].append(result["correct"])
+            len_suffix_faithful[num_suffixes].append(result["faithful"])
 
             if unigram_freqs and result.get("root"):
                 word_freq = unigram_freqs.get("".join([result["root"]]+result["suffixes"]), 0)
@@ -266,7 +285,7 @@ def compute_metrics(results, compute_usage=False, separator="", unigram_freq_pat
                 _update_freq_by_len_metrics(meta_suffix_freq, meta_suffix_freq_by_len_accuracy, meta_suffix_freq_by_len_faithful, meta_suffix_freq_by_len_samples, result, suffix_key="meta_suffixes")
                 _update_len_by_freq_metrics(meta_suffix_freq, meta_suffix_len_by_freq_accuracy, meta_suffix_len_by_freq_faithful, result, suffix_key="meta_suffixes")
 
-            if compute_usage:
+            if report_usage:
                 sample_usage, sample_cost = compute_usage(result, results["metadata"]["model"])
 
                 if sample_usage:
@@ -279,9 +298,39 @@ def compute_metrics(results, compute_usage=False, separator="", unigram_freq_pat
                     cost["output"] += sample_cost["output"]
                     cost["total"] += sample_cost["total"]
 
-    metrics["accuracy"] = accuracy_score(references, predictions)
+    metrics["accuracy"] = sum([1 for result in results["data"] if result.get("correct")]) / len(results["data"])
     metrics["faithfulness"] = sum([1 for result in results["data"] if result.get("faithful")]) / len(results["data"])
-    metrics["soft_accuracy"] = sum([result.get("soft_accuracy", 0) for result in results["data"]]) / len(results["data"])
+
+    def _compute_metric(results_by_id, metric):
+        return {result_id: metric(result["references"], result["predictions"], average="macro", zero_division=0) for result_id, result in results_by_id.items()}
+
+    def _compute_coherence(results_by_id):
+        coherence = {result_id: result["references"] == result["predictions"] for result_id, result in results_by_id.items()}
+        return sum(coherence.values()) / len(coherence)
+
+    if results_by_suffix_len:
+        recall_by_suffix_len = {suffix_len: _compute_metric(results_by_suffix_len[suffix_len], recall_score) for suffix_len in results_by_suffix_len}
+        precision_by_suffix_len = {suffix_len: _compute_metric(results_by_suffix_len[suffix_len], precision_score) for suffix_len in results_by_suffix_len}
+        f1_by_suffix_len = {suffix_len: _compute_metric(results_by_suffix_len[suffix_len], f1_score) for suffix_len in results_by_suffix_len}
+        
+        metrics["recall_by_suffix_len"] = {suffix_len: sum(recall_by_suffix_len[suffix_len].values()) / len(recall_by_suffix_len[suffix_len]) for suffix_len in recall_by_suffix_len}
+        metrics["recall_by_suffix_len"] = dict(sorted(metrics["recall_by_suffix_len"].items(), key=lambda item: item[0]))
+        
+        metrics["precision_by_suffix_len"] = {suffix_len: sum(precision_by_suffix_len[suffix_len].values()) / len(precision_by_suffix_len[suffix_len]) for suffix_len in precision_by_suffix_len}
+        metrics["precision_by_suffix_len"] = dict(sorted(metrics["precision_by_suffix_len"].items(), key=lambda item: item[0]))
+        
+        metrics["f1_by_suffix_len"] = {suffix_len: sum(f1_by_suffix_len[suffix_len].values()) / len(f1_by_suffix_len[suffix_len]) for suffix_len in f1_by_suffix_len}
+        metrics["f1_by_suffix_len"] = dict(sorted(metrics["f1_by_suffix_len"].items(), key=lambda item: item[0]))
+
+        metrics["recall"] = sum(metrics["recall_by_suffix_len"].values()) / len(metrics["recall_by_suffix_len"])
+        metrics["precision"] = sum(metrics["precision_by_suffix_len"].values()) / len(metrics["precision_by_suffix_len"])
+        metrics["f1"] = sum(metrics["f1_by_suffix_len"].values()) / len(metrics["f1_by_suffix_len"])
+
+        metrics["coherence_by_suffix_len"] = {suffix_len: _compute_coherence(results_by_suffix_len[suffix_len]) for suffix_len in results_by_suffix_len}
+        metrics["coherence_by_suffix_len"] = dict(sorted(metrics["coherence_by_suffix_len"].items(), key=lambda item: item[0]))
+        metrics["coherence"] = sum(metrics["coherence_by_suffix_len"].values()) / len(metrics["coherence_by_suffix_len"])
+
+    # metrics["soft_accuracy"] = sum([result.get("soft_accuracy", 0) for result in results["data"]]) / len(results["data"])
     
     len_suffix_accuracy = dict(sorted(len_suffix_accuracy.items(), key=lambda item: item[0]))
     len_suffix_faithful = dict(sorted(len_suffix_faithful.items(), key=lambda item: item[0]))
@@ -304,19 +353,19 @@ def compute_metrics(results, compute_usage=False, separator="", unigram_freq_pat
         _add_freq_by_len_metrics(metrics, meta_suffix_freq_by_len_accuracy, meta_suffix_freq_by_len_faithful, meta_suffix_freq_by_len_samples, keyword="meta_suffix")
         _add_len_by_freq_metrics(metrics, meta_suffix_len_by_freq_accuracy, meta_suffix_len_by_freq_faithful, keyword="meta_suffix")
 
-    if compute_usage:
+    if report_usage:
         metrics["usage"] = usage
         metrics["cost"] = cost
 
     return metrics
 
-def report_metrics(results_files, compute_usage=False, separator="", unigram_freq_path=None, suffix_freq_path=None, meta_suffix_freq_path=None):
+def report_metrics(results_files, report_usage=False, separator="", unigram_freq_path=None, suffix_freq_path=None, meta_suffix_freq_path=None):
     for results_file in tqdm(results_files, total=len(results_files), desc="Reporting metrics"):
         results = read_json(results_file)
         
         try:
             if "data" in results:
-                metrics = compute_metrics(results, compute_usage=compute_usage, separator=separator,
+                metrics = compute_metrics(results, report_usage=report_usage, separator=separator,
                                           unigram_freq_path=unigram_freq_path, 
                                           suffix_freq_path=suffix_freq_path, 
                                           meta_suffix_freq_path=meta_suffix_freq_path)
@@ -329,7 +378,7 @@ def report_metrics(results_files, compute_usage=False, separator="", unigram_fre
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-r", "--results-path", type=str, help="Path to evaluation results file in json or directory", required=True)
-    parser.add_argument("-u", "--compute-usage", action="store_true", help="Compute usage metrics", default=False)
+    parser.add_argument("-u", "--report-usage", action="store_true", help="Report usage metrics", default=False)
     parser.add_argument("-t", "--separator", type=str, default="", help="Separator to use between morphemes. Defaults to empty string.")
     parser.add_argument("-uf", "--unigram-freq-path", type=str, help="Path to unigram frequency file", default=None)
     parser.add_argument("-sf", "--suffix-freq-path", type=str, help="Path to suffix frequency file", default=None)
@@ -346,7 +395,7 @@ def main():
     else:
         files_to_process.extend(find_json_files(args.results_path))
 
-    report_metrics(files_to_process, args.compute_usage, args.separator, args.unigram_freq_path, args.suffix_freq_path, args.meta_suffix_freq_path)
+    report_metrics(files_to_process, args.report_usage, args.separator, args.unigram_freq_path, args.suffix_freq_path, args.meta_suffix_freq_path)
 
 if __name__ == "__main__":
     main()
