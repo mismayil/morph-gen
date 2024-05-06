@@ -19,21 +19,24 @@ def _get_template_lang(template):
 def get_prediction(model_response, template):
     pred = str(model_response).strip().lower()
     
-    if template.startswith("morph_disc_bin"):
-        return ANSWER_MAP[_get_template_lang(template)][pred]
-
-    if template.startswith("morph_disc"):
+    if template.startswith("morph_disc_mcq"):
         pred = model_response.strip()
         if re.fullmatch(r"\d+\s*\..*", model_response.strip()):
             pred = model_response.split(".")[0].strip()
         return pred
+    
+    if template.startswith("morph_disc_bin") or template.startswith("morph_disc"):
+        return ANSWER_MAP[_get_template_lang(template)][pred]
 
     return pred
 
 def get_reference(ref_response, template):
     ref = str(ref_response).strip().lower()
     
-    if template.startswith("morph_disc_bin"):
+    if template.startswith("morph_disc_mcq"):
+        return ref
+
+    if template.startswith("morph_disc_bin") or template.startswith("morph_disc"):
         return ANSWER_MAP[_get_template_lang(template)][ref]
 
     return ref
@@ -257,7 +260,7 @@ def compute_metrics(results, report_usage=False, separator="", unigram_freq_path
             ref = get_reference(result[ref_response_attr], result["template"])
             pred = get_prediction(result[model_response_attr], result["template"])
             
-            if result["template"].startswith("morph_disc_bin"):
+            if result["template"].startswith("morph_disc") and not result["template"].startswith("morph_disc_mcq"):
                 if result["id"] not in results_by_suffix_len[num_suffixes]:
                     results_by_suffix_len[num_suffixes][result["id"]] = {"references": [], "predictions": []}
                 results_by_suffix_len[num_suffixes][result["id"]]["references"].append(ref)

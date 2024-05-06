@@ -45,10 +45,10 @@ INSTRUCTION_TEMPLATES = {
     "nonce_morph_disc_sense_en": MORPH_DISC_NONCE_SENSE_EN_INSTRUCTION_TEMPLATE,
     "nonce_morph_gen_sense_tr": MORPH_GEN_NONCE_SENSE_TR_INSTRUCTION_TEMPLATE,
     "nonce_morph_disc_sense_tr": MORPH_DISC_NONCE_SENSE_TR_INSTRUCTION_TEMPLATE,
-    "morph_disc_bin_en": MORPH_DISC_BIN_EN_INSTRUCTION_TEMPLATE,
-    "morph_disc_bin_tr": MORPH_DISC_BIN_TR_INSTRUCTION_TEMPLATE,
-    "nonce_morph_disc_bin_en": MORPH_DISC_NONCE_BIN_EN_INSTRUCTION_TEMPLATE,
-    "nonce_morph_disc_bin_tr": MORPH_DISC_NONCE_BIN_TR_INSTRUCTION_TEMPLATE,
+    "morph_disc_mcq_en": MORPH_DISC_MCQ_EN_INSTRUCTION_TEMPLATE,
+    "morph_disc_mcq_tr": MORPH_DISC_MCQ_TR_INSTRUCTION_TEMPLATE,
+    "nonce_morph_disc_mcq_en": MORPH_DISC_MCQ_NONCE_EN_INSTRUCTION_TEMPLATE,
+    "nonce_morph_disc_mcq_tr": MORPH_DISC_MCQ_NONCE_TR_INSTRUCTION_TEMPLATE,
 }
 
 SHOT_TEMPLATES = {
@@ -78,10 +78,10 @@ SHOT_TEMPLATES = {
     "nonce_morph_disc_sense_en": MORPH_DISC_NONCE_SENSE_EN_SHOT_TEMPLATE,
     "nonce_morph_gen_sense_tr": MORPH_GEN_NONCE_SENSE_TR_SHOT_TEMPLATE,
     "nonce_morph_disc_sense_tr": MORPH_DISC_NONCE_SENSE_TR_SHOT_TEMPLATE,
-    "morph_disc_bin_en": MORPH_DISC_BIN_EN_SHOT_TEMPLATE,
-    "morph_disc_bin_tr": MORPH_DISC_BIN_TR_SHOT_TEMPLATE,
-    "nonce_morph_disc_bin_en": MORPH_DISC_NONCE_BIN_EN_SHOT_TEMPLATE,
-    "nonce_morph_disc_bin_tr": MORPH_DISC_NONCE_BIN_TR_SHOT_TEMPLATE,
+    "morph_disc_mcq_en": MORPH_DISC_MCQ_EN_SHOT_TEMPLATE,
+    "morph_disc_mcq_tr": MORPH_DISC_MCQ_TR_SHOT_TEMPLATE,
+    "nonce_morph_disc_mcq_en": MORPH_DISC_MCQ_NONCE_EN_SHOT_TEMPLATE,
+    "nonce_morph_disc_mcq_tr": MORPH_DISC_MCQ_NONCE_TR_SHOT_TEMPLATE,
 }
 
 def _is_ood_sample(sample):
@@ -95,9 +95,9 @@ def _is_sent_task(template):
 
 def _get_root_definition(sample, language, template, template_lang):
     if template_lang == "en":
-        return f"'{sample['root']}' means '{sample['original_root']}' in {LANGUAGE_MAP[language][template_lang]}."
+        return f"{sample['root']} means {sample['original_root']} in {LANGUAGE_MAP[language][template_lang]}."
     elif template_lang == "tr":
-        return f"'{sample['root']}' {LANGUAGE_MAP[language][template_lang]} '{sample['original_root']}' anlamına gelir."
+        return f"{sample['root']} {LANGUAGE_MAP[language][template_lang]} {sample['original_root']} anlamına gelir."
 
 def _get_target_definition(sample, language, template, template_lang):
     return sample.get("meaning", None)
@@ -115,7 +115,7 @@ def _get_answer(option, reference, template_lang):
 def prepare_shot_for_morph_gen(idx, sample, template, language, is_final=False):
     template_lang = _get_template_lang(template)
     suffixes = random.sample(sample["suffixes"], len(sample["suffixes"]))
-    suffixes_str = ", ".join([f"'{s}'" for s in suffixes])
+    suffixes_str = ", ".join([f"{s}" for s in suffixes])
     answer = sample["derivation"]
 
     format_args = {
@@ -145,7 +145,7 @@ def prepare_shot_for_morph_gen(idx, sample, template, language, is_final=False):
 def prepare_shot_for_morph_gen_order(idx, sample, template, language, is_final=False):
     template_lang = _get_template_lang(template)
     suffixes = random.sample([(i, s) for i, s in enumerate(sample["suffixes"])], len(sample["suffixes"]))
-    suffixes_str = ", ".join([f"{i+1}. '{s[1]}'" for i, s in enumerate(suffixes)])
+    suffixes_str = ", ".join([f"{i+1}. {s[1]}" for i, s in enumerate(suffixes)])
     answer = ",".join([str(idx[1]) for idx in sorted(zip([i_s[0] for i_s in suffixes], range(1, len(suffixes)+1)), key=lambda x: x[0])])
 
     format_args = {
@@ -181,11 +181,11 @@ def prepare_instruction_for_morph_gen_disc(sample, template, language):
 
     return instruction_template.format(language=LANGUAGE_MAP[language][template_lang])
 
-def prepare_shot_for_morph_disc(idx, sample, template, language, is_final=False):
+def prepare_shot_for_morph_disc_mcq(idx, sample, template, language, is_final=False):
     options = random.sample(sample["options"], len(sample["options"]))
     suffixes = random.sample(sample["suffixes"], len(sample["suffixes"]))
     template_lang = _get_template_lang(template)
-    suffixes_str = ",".join([f"'{s}'" for s in suffixes])
+    suffixes_str = ",".join([f"{s}" for s in suffixes])
     options_str = "\n".join([f"{o_index+1}. {option}" for o_index, option in enumerate(options)])
     answer = options.index(sample["derivation"])+1
 
@@ -214,11 +214,11 @@ def prepare_shot_for_morph_disc(idx, sample, template, language, is_final=False)
     
     return shot, answer
 
-def prepare_shots_for_morph_disc_bin(idx, sample, template, language, is_final=False):
+def prepare_shots_for_morph_disc(idx, sample, template, language, is_final=False):
     options = random.sample(sample["options"], len(sample["options"]))
     suffixes = random.sample(sample["suffixes"], len(sample["suffixes"]))
     template_lang = _get_template_lang(template)
-    suffixes_str = ",".join([f"'{s}'" for s in suffixes])
+    suffixes_str = ",".join([f"{s}" for s in suffixes])
 
     shots = []
     answers = []
@@ -259,10 +259,10 @@ INSTRUCTION_PROCESSORS = {
 
 SHOT_PROCESSORS = {
     "default_gen": prepare_shot_for_morph_gen,
-    "default_disc": prepare_shot_for_morph_disc,
+    "default_disc": prepare_shots_for_morph_disc,
     "morph_gen_order_en": prepare_shot_for_morph_gen_order,
-    "morph_disc_bin_en": prepare_shots_for_morph_disc_bin,
-    "morph_disc_bin_tr": prepare_shots_for_morph_disc_bin
+    "morph_disc_mcq_en": prepare_shot_for_morph_disc_mcq,
+    "morph_disc_mcq_tr": prepare_shot_for_morph_disc_mcq
 }
 
 def _choose_answer_based_on_template(template_lang, idx):
