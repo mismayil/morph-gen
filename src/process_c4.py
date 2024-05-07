@@ -3,6 +3,7 @@ import json
 from typing import IO, Callable
 from io import UnsupportedOperation
 import networkx as nx
+import hashlib
 
 from datatrove.io import DataFolderLike, get_datafolder
 from datatrove.pipeline.readers import IpcReader, JsonlReader
@@ -73,7 +74,7 @@ class MorphSegmentation(PipelineStep):
             with self.track_time():
                 output_dir = pathlib.Path(f"{self.output_folder}/{document.metadata['file_stem']}")
                 output_dir.mkdir(parents=True, exist_ok=True)
-                _, document_id = document.id.split("/")
+                document_id = hashlib.sha256(str(document.id).encode()).hexdigest()
                 graph_path = output_dir / f"{document_id}.gml"
 
                 if not graph_path.exists():
