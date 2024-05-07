@@ -73,7 +73,8 @@ class MorphSegmentation(PipelineStep):
             with self.track_time():
                 output_dir = pathlib.Path(f"{self.output_folder}/{document.metadata['file_stem']}")
                 output_dir.mkdir(parents=True, exist_ok=True)
-                graph_path = output_dir / f"{document.id}.gml"
+                _, document_id = document.id.split("/")
+                graph_path = output_dir / f"{document_id}.gml"
 
                 if not graph_path.exists():
                     G = create_morph_graph()

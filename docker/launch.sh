@@ -3,7 +3,7 @@
 MY_IMAGE="ic-registry.epfl.ch/nlp/mete/project-morphgen"
 
 arg_job_prefix="project-morphgen"
-arg_job_suffix="c4-0"
+arg_job_suffix="c4-1"
 arg_job_name="$arg_job_prefix-$arg_job_suffix"
 
 command=$1
