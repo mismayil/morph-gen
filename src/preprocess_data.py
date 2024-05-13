@@ -152,22 +152,25 @@ def prepare_comp_data(datapath, num_samples=None):
 def prepare_tr_btwd_balanced_data(datapath, num_samples=50):
     input_data = read_json(datapath)
     data = input_data["data"]
-    seen_roots = {i+1: set() for i in range(10)}
-    suffix_comb_map = {i+1: set() for i in range(10)}
+    
     balanced_data = {i+1: [] for i in range(10)}
+
+    seen_roots = {i+1: set() for i in range(10)}
+    meta_suffix_comb_map = {i+1: set() for i in range(10)}
     balanced_data_extra = {i+1: [] for i in range(10)}
     balanced_data_root_extra = {i+1: [] for i in range(10)}
-
+    
+    # prioritize samples with unseen meta morphemes
     for sample in tqdm(data, total=len(data), desc="Preparing TR BTWD balanced data"):
         num_suffixes = len(sample["morphemes"])
         if num_suffixes > 0:
             if sample["root"] not in seen_roots[num_suffixes]:
-                suffix_comb_set = suffix_comb_map[num_suffixes]
+                suffix_comb_set = meta_suffix_comb_map[num_suffixes]
                 if len(suffix_comb_set) < num_samples:
-                    if len(sample["root"]) > 3 and tuple(sample["morphemes"]) not in suffix_comb_set:
+                    if len(sample["root"]) > 3 and tuple(sample["meta_morphemes"]) not in suffix_comb_set:
                         balanced_data[num_suffixes].append(sample)
                         seen_roots[num_suffixes].add(sample["root"])
-                        suffix_comb_set.add(tuple(sample["morphemes"]))
+                        suffix_comb_set.add(tuple(sample["meta_morphemes"]))
                     else:
                         balanced_data_extra[num_suffixes].append(sample)
             else:
@@ -175,9 +178,26 @@ def prepare_tr_btwd_balanced_data(datapath, num_samples=50):
     
     print([len(lst) for lst in balanced_data.values()])
 
+    suffix_comb_map = {i+1: set() for i in range(10)}
+    extra_morpheme_data = {i+1: [] for i in range(10)}
+    
+    # prioritize samples with unseen morphemes
+    for num_suffixes, extra_samples in balanced_data_extra.items():
+        while len(balanced_data[num_suffixes]) < num_samples and extra_samples:
+            extra_sample = extra_samples.pop()
+            suffix_comb_set = suffix_comb_map[num_suffixes]
+            if tuple(sample["morphemes"]) not in suffix_comb_set:
+                balanced_data[num_suffixes].append(extra_sample)
+                suffix_comb_map[num_suffixes].add(tuple(sample["morphemes"]))
+            else:
+                extra_morpheme_data[num_suffixes].append(extra_sample)
+    
+    print([len(lst) for lst in balanced_data.values()])
+
     extra_seen_roots = {i+1: set() for i in range(10)}
 
-    for num_suffixes, extra_samples in balanced_data_extra.items():
+    # prioritize samples with unseen roots
+    for num_suffixes, extra_samples in extra_morpheme_data.items():
         while len(balanced_data[num_suffixes]) < num_samples and extra_samples:
             extra_sample = extra_samples.pop()
             if extra_sample["root"] not in extra_seen_roots[num_suffixes]:
@@ -187,7 +207,8 @@ def prepare_tr_btwd_balanced_data(datapath, num_samples=50):
     print([len(lst) for lst in balanced_data.values()])
     
     extra_seen_suffix_combs = {i+1: set() for i in range(10)}
-
+    
+    # add the rest
     for num_suffixes, extra_samples in balanced_data_root_extra.items():
         while len(balanced_data[num_suffixes]) < num_samples and extra_samples:
             extra_sample = extra_samples.pop()
