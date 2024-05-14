@@ -69,10 +69,14 @@ def prepare_tr_nonce_data_for_tasks(input_data, num_samples=None, *args, **kwarg
         derivation = sample["derivation"]
         options = sample["options"]
 
+        attempt = 0
         while True:
+            print(f"Generating nonce word for {root}")
             nonce_word = generate_nonce_word_tr(root)
             if nonce_word not in dictionary:
                 break
+            attempt += 1
+            print(f"Attempt {attempt} failed. Trying again.")
         
         nonce_derivation = derivation.replace(root, nonce_word, 1)
 
