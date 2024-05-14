@@ -114,7 +114,7 @@ Word root: hüdin
 Definition: {root_definition}
 Suffixes: ken, ir
 Derived word: hüdinirken
-Thought:  First, ir then ken is applied to the root birlikte. According to Turkish grammar rules, this order of suffixes is allowed, leading to the conclusion that the derived word is grammatically incorrect.
+Thought:  First, ir then ken is applied to the root birlikte. According to Turkish grammar rules, this order of suffixes is allowed, leading to the conclusion that the derived word is grammatically correct.
 
 Answer: <Yes>"""
 ############################################################################################
@@ -125,7 +125,7 @@ MORPH_GEN_TR_INSTRUCTION_TEMPLATE = "Size {language} bir kök ve bir ek listesi 
 MORPH_GEN_TR_SHOT_TEMPLATE = """Örnek {index}:
 Kök: birlikte
 Ekler: liğ, imiz
-Düşünce: {düşūnce}
+Düşünce: Verilen ekler liğ ve imiz'dir. Birlikte köküne liğ ve imiz eklerini ekleyerek birlikteliğimiz kelimesini elde ederiz. Verilen ekler liğ ve imiz sadece bir kez kullanılmıştır. Ekstra ekler dahil edilmemiştir. Birlikteliğimiz kelimesi dilbilgisi açısından doğrudur ve tüm kurallara uygundur.
 Cevap: <birlikteliğimiz>"""
 
 MORPH_DISC_TR_INSTRUCTION_TEMPLATE = "Size {language} bir kök, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak türetilmiş bir kelime verilecek. Sizden bu kelimenin dilbilgisel olarak doğru olup olmadığını belirlemeniz istenecek. Önce, eklerin kök kelimeyle nasıl etkileşime girdiğini analiz edin. Sonra, eklerin uygulandığı sırayı değerlendirin ve bu sıranın dilin kurallarına uygun olup olmadığını doğrulayın. Kelime oluşumu sırasında kök veya eklerde meydana gelen değişiklikleri (örn., fonetik değişiklikler, kök yapısında değişiklikler) inceleyin. Cevabınızı Evet veya Hayır olarak verin, yanıtınızı açılı parantez içine alın. Örnek: <Evet> veya <Hayır>.​"
@@ -134,7 +134,8 @@ MORPH_DISC_TR_SHOT_TEMPLATE = """Örnek {index}:
 Kök: birlikte
 Ekler: liğ, imiz
 Türetilmiş kelime: birlikteimizliğ
-Düşünce: {düşūnce}
+Düşünce: 
+Önce imiz, sonra liğ birlikte köküne uygulanmıştır. Türkçe dilbilgisi kurallarına göre, bu ek sırasına izin verilmez ve bundan dolayi türetilen kelimenin dilbilgisi açısından yanlış olduğu sonucuna götürür.
 Cevap: <Hayir>"""
 
 MORPH_GEN_NONCE_TR_INSTRUCTION_TEMPLATE = "Size {language} yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Bir kelime oluşturduktan sonra, o kelimenin oluşturulmasında kullanılan her eki listeyin ve kurallara uygunluğunu doğrulayın. Aşağıdakileri kontrol edin: Hiçbir ek birden fazla kullanılmamalı, tüm verilen ekler kullanılmalı, listeye dahil olmayan ekler eklenmemeli. Eğer kelime yukarıdaki kriterleri ihlal ederse: kelimenin oluşumunu düzeltin ve tüm kurallara uygun bir kelime oluşturulana kadar doğrulamayı tekrarlayın. Doğru şekilde oluşturulmuş kelimeyi açılı parantezler içinde sunun. Örnek: <doğrukelime>"
@@ -143,7 +144,7 @@ MORPH_GEN_NONCE_TR_SHOT_TEMPLATE = """Örnek {index}:
 Kök: hüdin
 Tanım: {root_definition}
 Ekler:  ken, ir
-Düşünce: {düşūnce}
+Düşünce: Verilen ekler ken ve ir dir. Hüdin köküne ken ve ir eklerini ekleyerek hüdinkenir kelimesini elde ederiz. Verilen ekler ken ve ir sadece bir kez kullanılır. Ekstra ekler dahil edilmemiştir ancak kelime dilbilgisi açısından doğru değildir. Başka bir sıra deneyelim. Hüdin köküne ir ve ken eklerini ekleyerek hüdinirken kelimesini elde ederiz. Verilen ekler ken ve ir sadece bir kez kullanılır. Ekstra ekler dahil edilmemiştir. Hüdinirken kelimesi dilbilgisi açısından doğrudur ve tüm kurallara uygundur.
 Cevap: <hüdinirken>"""
 
 MORPH_DISC_NONCE_TR_INSTRUCTION_TEMPLATE = "Size {language} yeni bir kök, onun tanımlaması, bir ek listesi (virgülle ayrılmış) ve bu ekleri kullanarak türetilmiş bir kelime verilecek. Sizden bu kelimenin dilbilgisel olarak doğru olup olmadığını belirlemeniz istenecek. Önce, eklerin kök kelimeyle nasıl etkileşime girdiğini analiz edin. Sonra, eklerin uygulandığı sırayı değerlendirin ve bu sıranın dilin kurallarına uygun olup olmadığını doğrulayın. Kelime oluşumu sırasında kök veya eklerde meydana gelen değişiklikleri (örn., fonetik değişiklikler, kök yapısında değişiklikler) inceleyin. Cevabınızı Evet veya Hayır olarak verin, yanıtınızı açılı parantez içine alın. Örnek: <Evet> veya <Hayır>"
@@ -153,7 +154,7 @@ Kök: hüdin
 Tanım: {root_definition}
 Ekler:  ken, ir
 Türetilmiş kelime: hüdinirken
-Düşünce: {düşūnce}
+Düşünce: Önce ir, sonra ken birlikte köküne uygulanır. Türkçe dilbilgisi kurallarına göre, bu ek sırası izin verilir, bu da türetilen kelimenin dilbilgisi açısından doğru olduğu sonucuna götürür.
 Cevap: <Evet>"""
 ####################################################################################################################################
 
