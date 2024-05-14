@@ -41,7 +41,7 @@ def find_json_files(directory):
                 json_files.append(os.path.join(root, file))
     return json_files
 
-def concatenate_lists(lists):
+def concatenate(lists):
     return [item for sublist in lists for item in sublist]
 
 def levenshtein_distance(s, t):

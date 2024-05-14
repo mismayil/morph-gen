@@ -190,6 +190,7 @@ def get_random_letter_tr(letters, weighted=True):
     return random.choice(letters)
 
 def generate_nonce_word_tr(word):
+    random.seed(random.randint(1, 100))
     word = word.lower()
 
     hard_vowels = ["a", "ı", "o", "u"]
@@ -205,7 +206,7 @@ def generate_nonce_word_tr(word):
     immutable_part = word[last_vowel_index:]
     mutable_part = word[:last_vowel_index]
 
-    if not mutable_part:
+    if len(mutable_part) < 2:
         prefix = ""
         for i in range(3):
             if i % 2 == 0:

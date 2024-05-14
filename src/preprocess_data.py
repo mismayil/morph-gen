@@ -8,7 +8,7 @@ import numpy as np
 from collections import defaultdict
 import re
 
-from utils import read_json, write_json, concatenate_lists
+from utils import read_json, write_json, concatenate
 from morphology import decompose_tr, infer_best_decomposition_tr, read_tr_dictionary
 
 LANGUAGES = ["tr", "en"]
@@ -152,22 +152,25 @@ def prepare_comp_data(datapath, num_samples=None):
 def prepare_tr_btwd_balanced_data(datapath, num_samples=50):
     input_data = read_json(datapath)
     data = input_data["data"]
-    seen_roots = {i+1: set() for i in range(10)}
-    suffix_comb_map = {i+1: set() for i in range(10)}
+    
     balanced_data = {i+1: [] for i in range(10)}
+
+    seen_roots = {i+1: set() for i in range(10)}
+    meta_suffix_comb_map = {i+1: set() for i in range(10)}
     balanced_data_extra = {i+1: [] for i in range(10)}
     balanced_data_root_extra = {i+1: [] for i in range(10)}
-
+    
+    # prioritize samples with unseen meta morphemes
     for sample in tqdm(data, total=len(data), desc="Preparing TR BTWD balanced data"):
         num_suffixes = len(sample["morphemes"])
         if num_suffixes > 0:
             if sample["root"] not in seen_roots[num_suffixes]:
-                suffix_comb_set = suffix_comb_map[num_suffixes]
+                suffix_comb_set = meta_suffix_comb_map[num_suffixes]
                 if len(suffix_comb_set) < num_samples:
-                    if len(sample["root"]) > 3 and tuple(sample["morphemes"]) not in suffix_comb_set:
+                    if len(sample["root"]) > 3 and tuple(sample["meta_morphemes"]) not in suffix_comb_set:
                         balanced_data[num_suffixes].append(sample)
                         seen_roots[num_suffixes].add(sample["root"])
-                        suffix_comb_set.add(tuple(sample["morphemes"]))
+                        suffix_comb_set.add(tuple(sample["meta_morphemes"]))
                     else:
                         balanced_data_extra[num_suffixes].append(sample)
             else:
@@ -175,9 +178,26 @@ def prepare_tr_btwd_balanced_data(datapath, num_samples=50):
     
     print([len(lst) for lst in balanced_data.values()])
 
+    suffix_comb_map = {i+1: set() for i in range(10)}
+    extra_morpheme_data = {i+1: [] for i in range(10)}
+    
+    # prioritize samples with unseen morphemes
+    for num_suffixes, extra_samples in balanced_data_extra.items():
+        while len(balanced_data[num_suffixes]) < num_samples and extra_samples:
+            extra_sample = extra_samples.pop()
+            suffix_comb_set = suffix_comb_map[num_suffixes]
+            if tuple(sample["morphemes"]) not in suffix_comb_set:
+                balanced_data[num_suffixes].append(extra_sample)
+                suffix_comb_map[num_suffixes].add(tuple(sample["morphemes"]))
+            else:
+                extra_morpheme_data[num_suffixes].append(extra_sample)
+    
+    print([len(lst) for lst in balanced_data.values()])
+
     extra_seen_roots = {i+1: set() for i in range(10)}
 
-    for num_suffixes, extra_samples in balanced_data_extra.items():
+    # prioritize samples with unseen roots
+    for num_suffixes, extra_samples in extra_morpheme_data.items():
         while len(balanced_data[num_suffixes]) < num_samples and extra_samples:
             extra_sample = extra_samples.pop()
             if extra_sample["root"] not in extra_seen_roots[num_suffixes]:
@@ -187,7 +207,8 @@ def prepare_tr_btwd_balanced_data(datapath, num_samples=50):
     print([len(lst) for lst in balanced_data.values()])
     
     extra_seen_suffix_combs = {i+1: set() for i in range(10)}
-
+    
+    # add the rest
     for num_suffixes, extra_samples in balanced_data_root_extra.items():
         while len(balanced_data[num_suffixes]) < num_samples and extra_samples:
             extra_sample = extra_samples.pop()
@@ -197,7 +218,7 @@ def prepare_tr_btwd_balanced_data(datapath, num_samples=50):
     
     print([len(lst) for lst in balanced_data.values()])
     
-    return concatenate_lists(list([lst for lst in balanced_data.values() if len(lst) > int(num_samples/2)]))
+    return concatenate(list([lst for lst in balanced_data.values() if len(lst) > int(num_samples/2)]))
 
 def prepare_en_morpholex_balanced_data(datapath, num_samples=25):
     input_data = read_json(datapath)
@@ -223,7 +244,7 @@ def prepare_en_morpholex_balanced_data(datapath, num_samples=25):
         if len(balanced_data[num_suffixes]) < num_samples:
             balanced_data[num_suffixes].extend(extra_samples[:num_samples-len(balanced_data[num_suffixes])])
     
-    return concatenate_lists(list([lst for lst in balanced_data.values() if len(lst) > int(num_samples/2)]))
+    return concatenate(list([lst for lst in balanced_data.values() if len(lst) > int(num_samples/2)]))
 
 def preprocess_tr_sense_data(datapath, num_samples=None):
     data = read_json(datapath)
@@ -273,7 +294,44 @@ def prepare_tr_sense_balanced_data(datapath, num_samples=50):
         if len(balanced_data[num_suffixes]) < num_samples:
             balanced_data[num_suffixes].extend(extra_samples[:num_samples-len(balanced_data[num_suffixes])])
     
-    return concatenate_lists(list([lst for lst in balanced_data.values() if len(lst) > int(num_samples/2)]))
+    return concatenate(list([lst for lst in balanced_data.values() if len(lst) > int(num_samples/2)]))
+
+def prepare_tr_btwd_final_data(datapath, btwd_datapath):
+    def _get_sentence(sample, btwd_data):
+        for btwd_sample in btwd_data:
+            for sentence in btwd_sample["sentences"]:
+                words = sentence.lower().split()
+                if words.count(sample["derivation"]) == 1:
+                    return sentence
+
+    btwd_data = read_json(btwd_datapath)
+    input_data = read_json(datapath)
+    data_map = {}
+    final_data = {i+1: [] for i in range(10)}
+
+    for sample in tqdm(input_data["data"], total=len(input_data["data"]), desc="Preparing TR BTWD final data"):
+        assert sample["pos"] in ["N", "V", "P", "PP", "Adj", "Adv", "NUM"], f"Invalid POS tag for sample: {sample}"
+        assert len(sample["morphemes"]) == len(sample["meta_morphemes"]), f"Morpheme and meta morpheme lengths do not match for sample: {sample}"
+        seen_sample = data_map.get(sample["derivation"], None)
+        
+        if not seen_sample:
+            data_map[sample["derivation"]] = sample
+        else:
+            if sample["root"] == seen_sample["root"] and sample["pos"] == seen_sample["pos"] and sample["morphemes"] == seen_sample["morphemes"] and sample["meta_morphemes"] == seen_sample["meta_morphemes"]:
+                print(f"Skipping duplicate sample: {sample}\n")
+            else:
+                print("Duplicate sample with different values:")
+                print(sample)
+                print(seen_sample)
+                print()
+        
+        sample["sentence"] = _get_sentence(sample, btwd_data)
+        if sample["sentence"] is None:
+            print(f"Could not find sentence for sample: {sample}")
+
+        final_data[len(sample["morphemes"])].append(sample)
+    
+    return concatenate([final_data[i+1] for i in range(10)])
 
 DATA_PROCESSOR_MAP = {
     "tr_btwd_json": (prepare_tr_btwd_json_data, ""), 
@@ -284,7 +342,8 @@ DATA_PROCESSOR_MAP = {
     "tr_btwd_balanced": (prepare_tr_btwd_balanced_data, "_balanced"),
     "en_morpholex_balanced": (prepare_en_morpholex_balanced_data, "_balanced"),
     "tr_sense_prep": (preprocess_tr_sense_data, "_prep"),
-    "tr_sense_balanced": (prepare_tr_sense_balanced_data, "_balanced")
+    "tr_sense_balanced": (prepare_tr_sense_balanced_data, "_balanced"),
+    "tr_btwd_final": (prepare_tr_btwd_final_data, "_final")
 }
 
 def main():
@@ -295,10 +354,16 @@ def main():
     parser.add_argument("-n", "--num-samples", type=int, default=None, help="Number of samples to process")
     parser.add_argument("-s", "--suffix", type=str, default="", help="Custom suffix for output file path.")
     parser.add_argument("-o", "--output-dir", type=str, default=None, help="Output directory path. Defaults to input directory path.")
+    parser.add_argument("-b", "--btwd-datapath", type=str, default=None, help="Path to BTWD data for final data preparation")
 
     args = parser.parse_args()
 
-    preprocessed_data = DATA_PROCESSOR_MAP[args.processor][0](args.datapath, args.num_samples)
+    if args.processor == "tr_btwd_final":
+        if args.btwd_datapath is None:
+            raise ValueError("BTWD data path is required for final data preparation")
+        preprocessed_data = DATA_PROCESSOR_MAP[args.processor][0](args.datapath, args.btwd_datapath)
+    else:
+        preprocessed_data = DATA_PROCESSOR_MAP[args.processor][0](args.datapath, args.num_samples)
 
     datapath = pathlib.Path(args.datapath)
     output_dir = pathlib.Path(args.output_dir) if args.output_dir is not None else datapath.parent
