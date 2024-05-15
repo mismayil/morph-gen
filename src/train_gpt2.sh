@@ -9,7 +9,6 @@ if ! [ -d ${MNT_POINT} ]; then
     MNT_POINT=/mnt
 fi
 
-export CUDA_VISIBLE_DEVICES=1
 export WANDB_API_KEY=$(cat ${MNT_POINT}/nlpdata1/home/ismayilz/.wandb.key)
 export WANDB_PROJECT=project-morphgen
 
@@ -18,9 +17,9 @@ python run_clm.py \
     --dataset_name wikimedia/wikipedia \
     --dataset_config_name 20231101.tr \
     --num_train_epochs 1 \
-    --block_size 512 \
-    --per_device_train_batch_size 32 \
-    --per_device_eval_batch_size 32 \
+    --block_size 256 \
+    --per_device_train_batch_size 64 \
+    --per_device_eval_batch_size 64 \
     --prediction_loss_only \
     --dataloader_num_workers 32 \
     --preprocessing_num_workers 32 \
