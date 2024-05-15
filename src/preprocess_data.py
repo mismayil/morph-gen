@@ -9,7 +9,7 @@ from collections import defaultdict
 import re
 
 from utils import read_json, write_json, concatenate
-from morphology import decompose_tr, infer_best_decomposition_tr, read_tr_dictionary
+from morphology import decompose_tr, infer_best_decompositions_tr, read_tr_dictionary
 
 LANGUAGES = ["tr", "en"]
 
@@ -66,15 +66,15 @@ def postprocess_tr_btwd_data(datapath, num_samples=None):
                     })
                     continue
             
-            best_decomposition = infer_best_decomposition_tr(word, decompositions, tr_dictionary)
+            best_decompositions = infer_best_decompositions_tr(word, decompositions, tr_dictionary)
         
-            if best_decomposition:
+            if best_decompositions:
                 postprocessed_data.append({
                     "root": root,
-                    "pos": best_decomposition["pos"],
+                    "pos": best_decompositions[0]["pos"],
                     "derivation": word,
-                    "morphemes": best_decomposition["morphemes"],
-                    "meta_morphemes": best_decomposition["meta_morphemes"]
+                    "morphemes": best_decompositions[0]["morphemes"],
+                    "meta_morphemes": best_decompositions[0]["meta_morphemes"]
                 })
     
     return postprocessed_data
@@ -256,7 +256,7 @@ def preprocess_tr_sense_data(datapath, num_samples=None):
         if len(words) == 1:
             word = words[0].strip().lower()
             decompositions = [decomp.to_json() for decomp in decompose_tr(word)]
-            decompositions = infer_best_decomposition_tr(word, decompositions)
+            decompositions = infer_best_decompositions_tr(word, decompositions)
             if decompositions:
                 prep_data.append({
                     "id": f"tr-sense-{i}",

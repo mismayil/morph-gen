@@ -94,7 +94,7 @@ class Decomposition:
         return f"Decomposition(root={self.root}, pos={self.pos}, meta_morphemes={self.meta_morphemes}, morphemes={self.morphemes})"
 
     def __str__(self):
-        return f"{self.root} + {self.meta_decomposition} = {self.decomposition}" 
+        return f"{self.root} + {self.meta_morphemes} = {self.morphemes}" 
     
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, Decomposition):
@@ -299,46 +299,72 @@ def infinitive_tr(verb):
         if char in soft_vowels:
             return f"{verb}mek"
 
-def infer_best_decomposition_tr(word, decompositions, dictionary=None):
+def infer_best_decompositions_tr(word, decompositions, dictionary=None):
     best_decompositions = []
 
     for decomposition in decompositions:        
         morpheme_tuples = [(decomposition["meta_morphemes"][i], decomposition["meta_morphemes"][i+1]) for i in range(len(decomposition["meta_morphemes"])-1)]
         morpheme_triples = [(decomposition["meta_morphemes"][i], decomposition["meta_morphemes"][i+1], decomposition["meta_morphemes"][i+2]) for i in range(len(decomposition["meta_morphemes"])-2)]
 
-        if len(decomp["root"]) == 1:
-            if decomp["root"].lower() != "o":
+        # skip alphabet pronounciations except for o
+        if len(decomposition["root"]) == 1:
+            if decomposition["root"].lower() != "o":
                 continue
             else:
                 alt_o = any([decomp["root"].lower() != "o" for decomp in decompositions])
                 if alt_o:
                     continue
         
-        if decomp["root"].lower() in ["be", "ce", "çe", "fe", "ge", "he", "je", "ke", "ka", "le", "me", "pe", "re", "se", "şe", "te", "ve", "ze"]:
+        # skip alphabet pronounciations except for de, ne, ye
+        if decomposition["root"].lower() in ["be", "ce", "çe", "fe", "ge", "he", "je", "ke", "ka", "le", "me", "pe", "re", "se", "şe", "te", "ve", "ze"]:
             continue
-
+        
+        # skip individual s
         if "s" in decomposition["morphemes"]:
             s_index = decomposition["morphemes"].index("s")
             meta_s = decomposition["meta_morphemes"][s_index]
             if meta_s == "sH" or meta_s == "SH":
                 continue
         
+        # skip [lar, im, iz] or [lar, in, iz] if possible
         if ("lAr", "Hm", "YHz") in morpheme_triples or ("lAr", "Hn", "YHz") in morpheme_triples:
             alt_la = any([("HmHz" in decomp["meta_morphemes"] or "HnHz" in decomp["meta_morphemes"]) for decomp in decompositions])
             if alt_la:
                 continue
-
+        
+        # skip [la, r] or [la, n] or  [la, s] if possible
         if ("lA", "Hr") in morpheme_tuples or ("lA", "Hn") in morpheme_tuples or ("lA", "Hş") in morpheme_tuples:
             alt_la = any([("lAr" in decomp["meta_morphemes"] or "lAn" in decomp["meta_morphemes"] or "lAş" in decomp["meta_morphemes"]) for decomp in decompositions])
             if alt_la:
                 continue
+            
+        # skip individual n if possible
+        if "n" in decomposition["morphemes"]:
+            n_index = decomposition["morphemes"].index("n")
+            if n_index > 1:
+                prev_meta_morpheme = decomposition["meta_morphemes"][n_index-1]
+                if prev_meta_morpheme in ["sH", "SH", "YA"]:
+                    continue
+
+            if n_index < len(decomposition["meta_morphemes"])-1:
+                next_meta_morpheme = decomposition["meta_morphemes"][n_index+1]
+                if next_meta_morpheme in ["NDA", "NDAn", "NHn", "NA"]:
+                    continue
         
-        for decomp in best_decompositions:
-            if decomp["root"] == decomposition["root"] and decomp["pos"] == decomposition["pos"] and decomp["morphemes"] == decomposition["morphemes"] and decomp["meta_morphemes"] == decomposition["meta_morphemes"]:
+        # skip individual si if possible
+        if ("sH", "HnHz") in morpheme_tuples or ("SH", "HnHz") in morpheme_tuples:
+            alt_snz = any(["sHnHz" in decomp["meta_morphemes"] for decomp in decompositions])
+            if alt_snz:
                 continue
+        
+        # skip duplicates
+        seen_decomps = [decomp for decomp in best_decompositions if decomp["root"] == decomposition["root"] and decomp["morphemes"] == decomposition["morphemes"]]
+        if seen_decomps:
+            continue
 
         best_decompositions.append(decomposition)
     
+    # check in dictionary
     if dictionary:
         dict_decomps = []
         verb_decomps = []
@@ -355,15 +381,14 @@ def infer_best_decomposition_tr(word, decompositions, dictionary=None):
         if dict_decomps:
             best_decompositions = dict_decomps
         
+        # prioritize verbs
         if verb_decomps:
             best_decompositions = verb_decomps
 
+    # prioritize shorter roots
     best_decompositions = sorted(best_decompositions, key=lambda decomp: len(decomp["root"]))
     
-    if best_decompositions:
-        return best_decompositions[0]
-
-    return None
+    return best_decompositions
 
 def create_morph_graph():
     G = nx.MultiDiGraph(root=False)
