@@ -17,7 +17,9 @@ from datatrove.data import DocumentsPipeline
 from datatrove.pipeline.tokens.counter import TokensCounter
 from datatrove.pipeline.writers.parquet import ParquetWriter
 
-from morphology import decompose_tr, create_morph_graph, read_morph_graph, write_morph_graph, merge_morph_graphs, update_morph_graph, get_words
+from morphology import decompose_tr, create_morph_graph, read_morph_graph, write_morph_graph, merge_morph_graphs, update_morph_graph, get_words, infer_best_decompositions_tr, read_tr_dictionary
+
+TR_DICTIONARY = read_tr_dictionary()
 
 MNT_DIR = "/mnt/u14157_ic_nlp_001_files_nfs"
 
@@ -25,7 +27,7 @@ if not pathlib.Path(MNT_DIR).exists():
     MNT_DIR = "/mnt"
 
 DATA_DIR = f"{MNT_DIR}/nlpdata1/share/datasets/wikimedia___wikipedia/20231101.tr/0.0.0/b04c8d1ceb2f5cd4588862100d08de323dccfbaa"
-DUMP_DATA_DIR = f"{MNT_DIR}/nlpdata1/home/ismayilz/projet-morphgen/morph-gen-wiki"
+DUMP_DATA_DIR = f"{MNT_DIR}/nlpdata1/home/ismayilz/project-morphgen/morph-gen-wiki"
 
 def preprocessing_adapter(document: Document, source_file: str, id_in_file: str = None) -> DocumentsPipeline:
     return {
@@ -56,9 +58,10 @@ class MorphSegmentation(PipelineStep):
                     G = create_morph_graph()
                     words = get_words(document.text.lower())
                     for word in words:
-                        decompositions = decompose_tr(word)
+                        decompositions = [d.to_json() for d in decompose_tr(word)]
+                        decompositions = infer_best_decompositions_tr(word, decompositions, TR_DICTIONARY)
                         for decomposition in decompositions:
-                            update_morph_graph(G, root=decomposition.root, meta_morphemes=decomposition.meta_morphemes, morphemes=decomposition.morphemes)
+                            update_morph_graph(G, root=decomposition["root"], meta_morphemes=decomposition["meta_morphemes"], morphemes=decomposition["morphemes"])
                     self.stat_update("num_words", value=len(words))
                     nx.write_gml(G, str(graph_path))
                 document.metadata["graph_path"] = str(graph_path)
@@ -130,6 +133,6 @@ morph_segmentation = LocalPipelineExecutor(
 # )
 
 if __name__ == "__main__":
-    preprocessing.run()
-    # morph_segmentation.run()
+    # preprocessing.run()
+    morph_segmentation.run()
     # morph_merging.run()
