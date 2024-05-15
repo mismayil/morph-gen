@@ -14,8 +14,7 @@ export WANDB_PROJECT=project-morphgen
 
 python run_clm.py \
     --model_name_or_path ${modelname} \
-    --dataset_name wikimedia/wikipedia \
-    --dataset_config_name 20231101.tr \
+    --dataset_name mismayil/tr_wikipedia \
     --num_train_epochs 1 \
     --block_size 256 \
     --per_device_train_batch_size 64 \
@@ -37,4 +36,5 @@ python run_clm.py \
     --do_eval \
     --output_dir "${MNT_POINT}/nlpdata1/home/ismayilz/project-morphgen/morph-gen-wiki/models/${modelname}" \
     --cache_dir "${MNT_POINT}/nlpdata1/home/ismayilz/.cache" \
-    --report_to wandb
+    --report_to wandb \
+    --seed 42
