@@ -306,14 +306,22 @@ def infer_best_decomposition_tr(word, decompositions, dictionary=None):
         morpheme_tuples = [(decomposition["meta_morphemes"][i], decomposition["meta_morphemes"][i+1]) for i in range(len(decomposition["meta_morphemes"])-1)]
         morpheme_triples = [(decomposition["meta_morphemes"][i], decomposition["meta_morphemes"][i+1], decomposition["meta_morphemes"][i+2]) for i in range(len(decomposition["meta_morphemes"])-2)]
 
+        if len(decomp["root"]) == 1:
+            if decomp["root"].lower() != "o":
+                continue
+            else:
+                alt_o = any([decomp["root"].lower() != "o" for decomp in decompositions])
+                if alt_o:
+                    continue
+        
+        if decomp["root"].lower() in ["be", "ce", "çe", "fe", "ge", "he", "je", "ke", "ka", "le", "me", "pe", "re", "se", "şe", "te", "ve", "ze"]:
+            continue
+
         if "s" in decomposition["morphemes"]:
             s_index = decomposition["morphemes"].index("s")
             meta_s = decomposition["meta_morphemes"][s_index]
             if meta_s == "sH" or meta_s == "SH":
                 continue
-        
-        if "lArH" in decomposition["meta_morphemes"]:
-            continue
         
         if ("lAr", "Hm", "YHz") in morpheme_triples or ("lAr", "Hn", "YHz") in morpheme_triples:
             alt_la = any([("HmHz" in decomp["meta_morphemes"] or "HnHz" in decomp["meta_morphemes"]) for decomp in decompositions])
