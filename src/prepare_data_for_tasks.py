@@ -9,10 +9,16 @@ import json
 from utils import read_json, write_json, levenshtein_distance
 from morphology import generate_nonce_word_tr, generate_nonce_word_en, segment_by_tokenizer, read_en_dictionary, read_tr_dictionary
 
-def prepare_sample_for_tasks(sample, separator=""):
+NONCE_GENERATOR = {
+    "tr": generate_nonce_word_tr,
+    "en": generate_nonce_word_en
+}
+
+def prepare_sample_for_tasks(sample, separator="", language="tr", verbose=False):
+    dictionary = read_en_dictionary()
     suffixes = sample["morphemes"] if "morphemes" in sample else sample["suffixes"]
     ref_derivation = sample["root"] + separator + separator.join(suffixes)
-
+    
     if len(suffixes) > 0:
         suffix_perms = list(permutations(suffixes))
         options = set()
@@ -27,13 +33,30 @@ def prepare_sample_for_tasks(sample, separator=""):
         options = sorted(list(options), key=lambda x: levenshtein_distance(x, ref_derivation))[:5]
         sentence = sample.get("sentence")
 
+        attempt = 0
+        while True:
+            if verbose:
+                print(f"Generating nonce word for {sample['root']}")
+            
+            nonce_generator = NONCE_GENERATOR[language]
+            nonce_word = nonce_generator(sample["root"])
+            if nonce_word not in dictionary:
+                break
+            attempt += 1
+            
+            if verbose:
+                print(f"Attempt {attempt} failed. Trying again.")
+    
         return {
-            "original_root": sample["original_root"] if "original_root" in sample else None,
+            "id": sample["id"],
+            "id_root": sample["root"],
+            "ood_root": nonce_word,
             "root": sample["root"],
             "pos": sample["pos"],
             "suffixes": suffixes,
             "derivation": ref_derivation,
-            "options": [ref_derivation] + list(options),
+            "positive_options": [ref_derivation],
+            "negative_options": list(options),
             "answer": 0,
             "meta_suffixes": sample.get("meta_morphemes"),
             "sentence": sentence.lower().replace(ref_derivation, "___") if sentence else None,
@@ -42,112 +65,53 @@ def prepare_sample_for_tasks(sample, separator=""):
     
     return None
 
-def prepare_tr_data_for_tasks(input_data, num_samples=None, separator="", *args, **kwargs):
+def prepare_data_for_tasks(input_data, num_samples=None, separator="", verbose=False, *args, **kwargs):
     data = input_data["data"]
-    
+    language = input_data["metadata"]["language"]
+
     morph_data = []
 
     for i, sample in tqdm(enumerate(data), total=len(data), desc="Preparing data TR for Morph tasks"):
-        morph_sample = prepare_sample_for_tasks(sample, separator)
+        morph_sample = prepare_sample_for_tasks(sample, separator, language=language, verbose=verbose)
         if morph_sample is not None:
-            morph_data.append({"id": f"tr-btwd-id-{i}", **morph_sample})
+            morph_data.append(morph_sample)
     
     if num_samples is not None:
         morph_data = random.sample(morph_data, num_samples)
 
     return morph_data
 
-def prepare_tr_nonce_data_for_tasks(input_data, num_samples=None, *args, **kwargs):
-    dictionary = read_tr_dictionary()
+def prepare_nonce_data_for_tasks(input_data, num_samples=None, *args, **kwargs):
     data = input_data["data"]
     nonce_data = []
 
     for i, sample in tqdm(enumerate(data), total=len(data), desc="Preparing TR nonce data for Morph tasks"):
-        root = sample["root"]
+        id_root = sample["id_root"]
         pos = sample["pos"]
         suffixes = sample["morphemes"] if "morphemes" in sample else sample["suffixes"]
         derivation = sample["derivation"]
-        options = sample["options"]
+        positive_options = sample["positive_options"]
+        negative_options = sample["negative_options"]
+        ood_root = sample["ood_root"]
 
-        attempt = 0
-        while True:
-            print(f"Generating nonce word for {root}")
-            nonce_word = generate_nonce_word_tr(root)
-            if nonce_word not in dictionary:
-                break
-            attempt += 1
-            print(f"Attempt {attempt} failed. Trying again.")
-        
-        nonce_derivation = derivation.replace(root, nonce_word, 1)
+        nonce_derivation = derivation.replace(id_root, ood_root, 1)
 
         nonce_data.append({
-            "id": f"tr-btwd-ood-{i}",
-            "original_root": root,
-            "original_derivation": derivation,
-            "root": nonce_word,
+            "id": f"{sample['id']}-ood",
+            "id_root": sample["id_root"],
+            "id_derivation": derivation,
+            "ood_root": ood_root,
+            "root": ood_root,
             "pos": pos,
             "suffixes": suffixes,
             "derivation": nonce_derivation,
-            "options": [option.replace(root, nonce_word, 1) for option in options],
+            "positive_options": [option.replace(id_root, ood_root, 1) for option in positive_options],
+            "negative_options": [option.replace(id_root, ood_root, 1) for option in negative_options],
             "answer": 0,
             "similar": sample.get("similar"),
             "meta_suffixes": sample.get("meta_morphemes") if "meta_morphemes" in sample else sample.get("meta_suffixes"),
             "sentence": sample.get("sentence"),
             "meaning": sample.get("meaning")
-        })
-    
-    if num_samples is not None:
-        nonce_data = random.sample(nonce_data, num_samples)
-    
-    return nonce_data
-
-def prepare_en_data_for_tasks(input_data, num_samples=None, separator="", *args, **kwargs):
-    data = input_data["data"]
-    
-    morph_data = []
-
-    for i, sample in tqdm(enumerate(data), total=len(data), desc="Preparing EN data for Morph tasks"):
-        morph_sample = prepare_sample_for_tasks(sample, separator)
-        if morph_sample is not None:
-            morph_data.append({"id": f"en-morpholex-id-{i}", **morph_sample})
-    
-    if num_samples is not None:
-        morph_data = random.sample(morph_data, num_samples)
-
-    return morph_data
-
-def prepare_en_nonce_data_for_tasks(input_data, num_samples=None, *args, **kwargs):
-    dictionary = read_en_dictionary()
-    data = input_data["data"]
-    nonce_data = []
-
-    for i, sample in tqdm(enumerate(data), total=len(data), desc="Preparing EN nonce data for Morph tasks"):
-        root = sample["root"]
-        pos = sample["pos"]
-        suffixes = sample["morphemes"] if "morphemes" in sample else sample["suffixes"]
-        derivation = sample["derivation"]
-        options = sample["options"]
-
-        while True:
-            nonce_word = generate_nonce_word_en(root)
-            if nonce_word not in dictionary:
-                break
-        
-        nonce_derivation = derivation.replace(root, nonce_word, 1)
-    
-        nonce_data.append({
-            "id": f"en-morpholex-ood-{i}",
-            "original_root": root,
-            "original_derivation": derivation,
-            "root": nonce_word,
-            "pos": pos,
-            "suffixes": suffixes,
-            "derivation": nonce_derivation,
-            "options": [option.replace(root, nonce_word, 1) for option in options],
-            "answer": 0,
-            "meta_suffixes": sample.get("meta_morphemes") if "meta_morphemes" in sample else sample.get("meta_suffixes"),
-            "sentence": sample.get("sentence"),
-            "meaning": sample.get("meaning"),
         })
     
     if num_samples is not None:
@@ -240,10 +204,8 @@ def prepare_tr_sense_data_for_tasks(input_data, num_samples=None, separator="", 
     return morph_data
 
 DATA_PROCESSOR_MAP = {
-    "tr_morph": (prepare_tr_data_for_tasks, "_morph"),
-    "tr_morph_nonce": (prepare_tr_nonce_data_for_tasks, "_nonce"),
-    "en_morph": (prepare_en_data_for_tasks, "_morph"),
-    "en_morph_nonce": (prepare_en_nonce_data_for_tasks, "_nonce"),
+    "morph": (prepare_data_for_tasks, "_morph"),
+    "morph_nonce": (prepare_nonce_data_for_tasks, "_nonce"),
     "tr_comp_morph": (prepare_tr_comp_data_for_tasks, "_morph"),
     "tok_aligned": (prepare_tok_aligned_data_for_tasks, "_tok_aligned"),
     "tr_sense": (prepare_tr_sense_data_for_tasks, "_sense")
@@ -257,10 +219,11 @@ def main():
     parser.add_argument("-s", "--suffix", type=str, default="", help="Custom suffix for output file path.")
     parser.add_argument("-o", "--output-dir", type=str, default=None, help="Output directory path. Defaults to input directory path.")
     parser.add_argument("-t", "--separator", type=str, default="", help="Separator to use between morphemes. Defaults to empty string.")
+    parser.add_argument("-v", "--verbose", action="store_true", help="Verbose mode")
 
     args = parser.parse_args()
     input_data = read_json(args.datapath)
-    morph_data = DATA_PROCESSOR_MAP[args.processor][0](input_data, args.num_samples, separator=args.separator)
+    morph_data = DATA_PROCESSOR_MAP[args.processor][0](input_data, args.num_samples, separator=args.separator, verbose=args.verbose)
 
     datapath = pathlib.Path(args.datapath)
     output_dir = pathlib.Path(args.output_dir) if args.output_dir is not None else datapath.parent
