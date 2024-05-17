@@ -85,7 +85,7 @@ SHOT_TEMPLATES = {
 }
 
 def _is_ood_sample(sample):
-    return sample.get("original_root", None) is not None
+    return sample["root"] == sample["ood_root"]
 
 def _is_sense_task(template):
     return "sense" in template
@@ -95,9 +95,9 @@ def _is_sent_task(template):
 
 def _get_root_definition(sample, language, template, template_lang):
     if template_lang == "en":
-        return f"{sample['root']} means {sample['original_root']} in {LANGUAGE_MAP[language][template_lang]}."
+        return f"{sample['root']} means {sample['id_root']} in {LANGUAGE_MAP[language][template_lang]}."
     elif template_lang == "tr":
-        return f"{sample['root']} {LANGUAGE_MAP[language][template_lang]} {sample['original_root']} anlamına gelir."
+        return f"{sample['root']} {LANGUAGE_MAP[language][template_lang]} {sample['id_root']} anlamına gelir."
 
 def _get_target_definition(sample, language, template, template_lang):
     return sample.get("meaning", None)
@@ -315,8 +315,8 @@ def prepare_sample_for_eval(sample, shot_samples, template, language):
             "prompt": prompt,
             "reference": final_ans,
             "template": template,
-            "original_root": sample["original_root"] if "original_root" in sample else None,
-            "original_derivation": sample["original_derivation"] if "original_derivation" in sample else None,
+            "id_root": sample["original_root"] if "id_root" in sample else None,
+            "id_derivation": sample["id_derivation"] if "id_derivation" in sample else None,
             "meta_suffixes": sample.get("meta_suffixes", None),
             "sentence": sample.get("sentence", None),
             "meaning": sample.get("meaning", None),
@@ -331,7 +331,6 @@ def main():
     parser.add_argument("-n", "--num-shots", type=int, default=1)
     parser.add_argument("-s", "--suffix", type=str, default="", help="Custom suffix for output file path.")
     parser.add_argument("-o", "--output-dir", type=str, default=None, help="Output directory path. Defaults to input directory path.")
-    parser.add_argument("-m", "--match-len", action="store_true", help="Match length of suffixes in shots and prompts.")
 
     args = parser.parse_args()
     input_data = read_json(args.datapath)
@@ -341,8 +340,7 @@ def main():
     shot_samples = input_data["data"][:args.num_shots]
 
     for sample in tqdm(input_data["data"], desc="Preparing input_data for evaluation"):
-        if args.match_len:
-            shot_samples = [shot for shot in input_data["data"] if len(shot["suffixes"]) == len(sample["suffixes"]) and shot["id"] != sample["id"]][:args.num_shots]
+        shot_samples = [shot for shot in input_data["data"] if len(shot["suffixes"]) == len(sample["suffixes"]) and shot["id"] != sample["id"]][:args.num_shots]
         
         if sample.get("similar"):
             shot_samples = sample["similar"]
