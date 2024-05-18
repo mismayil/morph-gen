@@ -17,6 +17,7 @@ if [ "$command" == "run" ]; then
 	runai submit $arg_job_name \
 		-i $MY_IMAGE \
 		--cpu $num_cpu \
+		--gpu $num_gpu \
 		--pvc runai-nlp-ismayilz-nlpdata1:/mnt/nlpdata1 \
 		--pvc runai-nlp-ismayilz-scratch:/mnt/scratch \
 		--command -- bash entrypoint.sh
