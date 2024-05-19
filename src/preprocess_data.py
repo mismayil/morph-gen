@@ -9,7 +9,7 @@ from collections import defaultdict
 import re
 
 from utils import read_json, write_json, concatenate
-from morphology import decompose_tr, infer_best_decompositions_tr, read_tr_dictionary
+from morphology import decompose_tr, infer_best_decompositions_tr, read_tr_dictionary, read_en_dictionary
 
 LANGUAGES = ["tr", "en"]
 
@@ -107,28 +107,36 @@ def preprocess_tr_btwd_data(datapath, num_samples=None):
     return preprocessed_data
 
 def preprocess_en_morpholex_data(datapath, num_samples=None):
-    data = pd.read_excel(datapath, sheet_name=["0-1-1", "0-1-2", "0-1-3", "0-1-4", "0-2-1", "0-2-2", "0-2-3", "0-3-1"])
-    data = pd.concat([data[sheet] for sheet in data.keys()])
+    data = pd.read_excel(datapath, sheet_name=None)
+    morph_data = []
 
-    if num_samples is not None:
-        data = data.sample(num_samples)
+    for sheet in data.keys():
+        if "MorphoLexSegm" in data[sheet].columns:
+            morph_data.append(data[sheet])
 
-    words = []
+    prep_data = []
 
-    for i, row in data.iterrows():
-        word = row["Word"]
-        segmentation = row["MorphoLexSegm"]
-        morphemes = re.findall(r"[A-Za-z]+", segmentation)
-        if word == "".join(morphemes):
-            words.append({
-                "root": morphemes[0],
-                "pos": row["POS"],
-                "derivation": word,
-                "morphemes": morphemes[1:],
-                "meta_morphemes": None
-            })
+    for sheet in data.keys():
+        sheet_data = data[sheet]
+        if "MorphoLexSegm" in data[sheet].columns:
+            for i, row in tqdm(sheet_data.iterrows(), total=len(sheet_data), desc="Preprocessing EN MorphoLex data"):
+                word = str(row["Word"]).lower()
+                segmentation = str(row["MorphoLexSegm"])
+                roots = re.findall(r"\([A-Za-z]+\)", segmentation)
+                prefixes = re.findall(r"<[A-Za-z]+<", segmentation)
+                suffixes = re.findall(r">[A-Za-z]+>", segmentation)
+                
+                prep_data.append({
+                    "id": f"en-morpholex-{row['ELP_ItemID']}",
+                    "roots": [root.strip("()") for root in roots],
+                    "pos": row["POS"],
+                    "derivation": word,
+                    "prefixes": [prefix.strip("<") for prefix in prefixes],
+                    "suffixes": [suffix.strip(">") for suffix in suffixes],
+                    "form": row["PRS_signature"],
+                })
 
-    return words
+    return prep_data
 
 def prepare_comp_data(datapath, num_samples=None):
     input_data = read_json(datapath)
@@ -220,31 +228,42 @@ def prepare_tr_btwd_balanced_data(datapath, num_samples=50):
     
     return concatenate(list([lst for lst in balanced_data.values() if len(lst) > int(num_samples/2)]))
 
-def prepare_en_morpholex_balanced_data(datapath, num_samples=25):
+def prepare_en_morpholex_balanced_data(datapath, num_samples=50):
+    dictionary = read_en_dictionary()
     input_data = read_json(datapath)
     data = input_data["data"]
-    seen_roots = set()
-    suffix_comb_map = {i+1: set() for i in range(10)}
-    balanced_data = {i+1: [] for i in range(10)}
-    balanced_data_extra = {i+1: [] for i in range(10)}
+    form_map = defaultdict(list)
+    balanced_data = defaultdict(list)
+    extra_data = defaultdict(list)
+    final_balanced_data = []
 
     for sample in tqdm(data, total=len(data), desc="Preparing EN MorphoLex balanced data"):
-        num_suffixes = len(sample["morphemes"])
-        if sample["root"] not in seen_roots and num_suffixes > 0:
-            suffix_comb_set = suffix_comb_map[num_suffixes]
-            if len(suffix_comb_set) < num_samples:
-                if tuple(sample["morphemes"]) not in suffix_comb_set:
-                    balanced_data[num_suffixes].append(sample)
-                    seen_roots.add(sample["root"])
-                    suffix_comb_set.add(tuple(sample["morphemes"]))
-                else:
-                    balanced_data_extra[num_suffixes].append(sample)
+        num_roots = len(sample["roots"])
+        num_prefixes = len(sample["prefixes"])
+        num_suffixes = len(sample["suffixes"])
+
+        if num_roots > 1 or num_suffixes > 0 or num_prefixes > 0:
+            form_data = form_map[sample["form"]]
+
+            if num_suffixes > 0 or num_prefixes > 0:
+                morphemes = tuple([tuple(sample["prefixes"]), tuple(sample["suffixes"])])
+            else:
+                morphemes = tuple(sample["roots"])
+            if morphemes not in form_data and any([root in dictionary for root in sample["roots"]]):
+                balanced_data[sample["form"]].append(sample)
+                form_map[sample["form"]].append(morphemes)
+            else:
+                extra_data[sample["form"]].append(sample)
     
-    for num_suffixes, extra_samples in balanced_data_extra.items():
-        if len(balanced_data[num_suffixes]) < num_samples:
-            balanced_data[num_suffixes].extend(extra_samples[:num_samples-len(balanced_data[num_suffixes])])
+    for form, extra_samples in extra_data.items():
+        if len(balanced_data[form]) < num_samples:
+            final_balanced_data.extend(balanced_data[form] + extra_samples[:num_samples-len(balanced_data[form])])
+        else:
+            final_balanced_data.extend(random.sample(balanced_data[form], num_samples))
     
-    return concatenate(list([lst for lst in balanced_data.values() if len(lst) > int(num_samples/2)]))
+    print({k: len(v) for k, v in form_map.items()})
+
+    return final_balanced_data
 
 def preprocess_tr_sense_data(datapath, num_samples=None):
     data = read_json(datapath)
