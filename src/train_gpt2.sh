@@ -6,26 +6,30 @@ if ! [ -d ${MNT_POINT} ]; then
     MNT_POINT=/mnt
 fi
 
-export WANDB_API_KEY=$(cat ${MNT_POINT}/nlpdata1/home/ismayilz/.wandb.key)
+# export WANDB_API_KEY=$(cat ${MNT_POINT}/nlpdata1/home/ismayilz/.wandb.key)
 export WANDB_PROJECT=project-morphgen
 
-modelname=gpt2
-output_dir="${MNT_POINT}/nlpdata1/home/ismayilz/project-morphgen/morph-gen-wiki/models/${modelname}"
-cache_dir="${MNT_POINT}/nlpdata1/home/ismayilz/.cache"
+model_path=gpt2
+tokenizer_path=mismayil/tr_gpt2_tokenizer
+# model_path=${HOME}/tr_gpt2_pretrained
+# output_dir="${MNT_POINT}/nlpdata1/home/ismayilz/project-morphgen/morph-gen-wiki/models/${modelname}"
+output_dir=${HOME}/tr_gpt2_pretrained4
+# cache_dir="${MNT_POINT}/nlpdata1/home/ismayilz/.cache"
+cache_dir=${HOME}/.cache
 
 python run_clm.py \
-    --model_name_or_path ${modelname} \
+    --model_name_or_path ${model_path} \
     --dataset_name mismayil/tr_wikipedia \
-    --tokenizer_name mismayil/tr_gpt2_tokenizer \
-    --num_train_epochs 3 \
-    --block_size 512 \
+    --tokenizer_name ${tokenizer_path} \
+    --num_train_epochs 1 \
+    --block_size 256 \
     --per_device_train_batch_size 64 \
     --per_device_eval_batch_size 64 \
     --prediction_loss_only \
     --dataloader_num_workers 32 \
     --preprocessing_num_workers 32 \
     --gradient_accumulation_steps 2 \
-    --learning_rate 0.0005 \
+    --learning_rate 0.00005 \
     --warmup_steps 500 \
     --save_total_limit 2 \
     --save_steps 1000 \
