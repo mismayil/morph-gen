@@ -439,6 +439,8 @@ def main():
             "You can do it from another script, save it, and load it from here, using --tokenizer_name."
         )
 
+    config.update({"eos_token_id": tokenizer.eos_token_id, "bos_token_id": tokenizer.bos_token_id})
+
     if model_args.model_name_or_path and model_args.load_pretrained:
         torch_dtype = (
             model_args.torch_dtype
