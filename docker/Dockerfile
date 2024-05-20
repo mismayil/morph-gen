@@ -117,6 +117,8 @@ USER root
 
 RUN echo 'root:root' | chpasswd
 
+#USER ${USER_NAME}
+
 # ENTRYPOINT ["./entrypoint.sh"]
 # ENTRYPOINT [ "sleep", "infinity" ]
 ENTRYPOINT ["/usr/sbin/sshd", "-D"] 

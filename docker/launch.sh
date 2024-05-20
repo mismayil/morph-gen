@@ -20,7 +20,7 @@ if [ "$command" == "run" ]; then
 		--gpu $num_gpu \
 		--pvc runai-nlp-ismayilz-nlpdata1:/mnt/nlpdata1 \
 		--pvc runai-nlp-ismayilz-scratch:/mnt/scratch \
-		--command -- bash entrypoint.sh
+		--command -- su -l -s bash -c "bash entrypoint.sh" ismayilz
 	exit 0
 fi
 

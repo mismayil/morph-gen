@@ -29,6 +29,9 @@ if not pathlib.Path(MNT_DIR).exists():
 DATA_DIR = f"{MNT_DIR}/nlpdata1/share/datasets/wikimedia___wikipedia/20231101.tr/0.0.0/b04c8d1ceb2f5cd4588862100d08de323dccfbaa"
 DUMP_DATA_DIR = f"{MNT_DIR}/nlpdata1/home/ismayilz/project-morphgen/morph-gen-wiki"
 
+# morphological analyzer apparently goes into infinite loop for these words :D
+PROBLEMATIC_WORDS = ["çekoslovakyalılaştıramadıklarımızdan", "muvaffakiyetsizleştiricileştirilmeyi", "muvaffakiyetsizleştiricileştiriverebileceğini"]
+
 def preprocessing_adapter(document: Document, source_file: str, id_in_file: str = None) -> DocumentsPipeline:
     return {
         "id": id_in_file,
@@ -58,6 +61,9 @@ class MorphSegmentation(PipelineStep):
                     G = create_morph_graph()
                     words = get_words(document.text.lower())
                     for word in words:
+                        if word in PROBLEMATIC_WORDS:
+                            continue
+                        # print(f"decomposing {word}")
                         decompositions = [d.to_json() for d in decompose_tr(word)]
                         decompositions = infer_best_decompositions_tr(word, decompositions, TR_DICTIONARY)
                         for decomposition in decompositions:
