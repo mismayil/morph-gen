@@ -8,7 +8,7 @@ import numpy as np
 from collections import defaultdict
 import re
 
-from utils import read_json, write_json, concatenate
+from utils import read_json, write_json, concatenate, read_jsonl
 from morphology import decompose_tr, infer_best_decompositions_tr, read_tr_dictionary, read_en_dictionary
 
 LANGUAGES = ["tr", "en"]
@@ -265,31 +265,41 @@ def prepare_en_morpholex_balanced_data(datapath, num_samples=50):
 
     return final_balanced_data
 
-def preprocess_tr_sense_data(datapath, num_samples=None):
-    data = read_json(datapath)
+def preprocess_tr_gts_data(datapath, num_samples=None):
+    data = read_jsonl(datapath)
     prep_data = []
+    tr_dictionary = read_tr_dictionary()
 
-    for i, sample in tqdm(enumerate(data), total=len(data), desc="Preprocessing TR sense data"):
-        words = sample["word"].split()
+    for i, sample in tqdm(enumerate(data), total=len(data), desc="Preprocessing TR gts data"):
+        words = sample["madde"].split()
         
-        if len(words) == 1:
-            word = words[0].strip().lower()
-            decompositions = [decomp.to_json() for decomp in decompose_tr(word)]
-            decompositions = infer_best_decompositions_tr(word, decompositions)
-            if decompositions:
-                prep_data.append({
-                    "id": f"tr-sense-{i}",
-                    "root": decompositions[0]["root"],
-                    "pos": decompositions[0]["pos"],
-                    "derivation": word,
-                    "morphemes": decompositions[0]["morphemes"],
-                    "meta_morphemes": decompositions[0]["meta_morphemes"],
-                    "meanings": sample["meanings"]
-                })
+        try:
+            if len(words) == 1:
+                word = words[0].strip().lower()
+                if "anlamlarListe" in sample:
+                    definitions = [a["anlam"] for a in sample["anlamlarListe"]]
+                    good_definitions = sorted([definition for definition in definitions if word not in definition.lower()], key=lambda x: len(x), reverse=True)
+
+                    if good_definitions:
+                        decompositions = [decomp.to_json() for decomp in decompose_tr(word)]
+                        decompositions = infer_best_decompositions_tr(word, decompositions, tr_dictionary)
+                        if decompositions:
+                            prep_data.append({
+                                "id": f"tr-gts-{sample['madde_id']}",
+                                "root": decompositions[0]["root"],
+                                "pos": decompositions[0]["pos"],
+                                "derivation": word,
+                                "morphemes": decompositions[0]["morphemes"],
+                                "meta_morphemes": decompositions[0]["meta_morphemes"],
+                                "definition": good_definitions[0]
+                            })
+        except Exception as e:
+            print(f"Error processing sample {i}: {sample}")
+            print(e)
     
     return prep_data
 
-def prepare_tr_sense_balanced_data(datapath, num_samples=50):
+def prepare_tr_gts_balanced_data(datapath, num_samples=50):
     input_data = read_json(datapath)
     data = random.sample(input_data["data"], len(input_data["data"]))
     seen_roots = set()
@@ -360,8 +370,8 @@ DATA_PROCESSOR_MAP = {
     "tr_comp_prep": (prepare_comp_data, "_comp"),
     "tr_btwd_balanced": (prepare_tr_btwd_balanced_data, "_balanced"),
     "en_morpholex_balanced": (prepare_en_morpholex_balanced_data, "_balanced"),
-    "tr_sense_prep": (preprocess_tr_sense_data, "_prep"),
-    "tr_sense_balanced": (prepare_tr_sense_balanced_data, "_balanced"),
+    "tr_gts_prep": (preprocess_tr_gts_data, "_prep"),
+    "tr_gts_balanced": (prepare_tr_gts_balanced_data, "_balanced"),
     "tr_btwd_final": (prepare_tr_btwd_final_data, "_final")
 }
 

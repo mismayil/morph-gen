@@ -63,8 +63,8 @@ TURKISH_LETTER_FREQ = {
 	'Z': 1.5
 };
 
-TR_DICTIONARY_PATH = "../data/tr/gts.json"
-EN_DICTIONARY_PATH = "../data/en/words_alpha.txt"
+TR_DICTIONARY_PATH = "../data/tr/tdk/gts.json"
+EN_DICTIONARY_PATH = "../data/en/en_dictionary.txt"
 
 def read_tr_dictionary():
     dictionary = []

@@ -26,6 +26,11 @@ def read_json(path):
         data = json.load(f)
     return data
 
+def read_jsonl(path):
+    with open(path, "r", encoding="utf-8") as f:
+        data = [json.loads(line) for line in f]
+    return data
+
 def write_json(data, path, ensure_ascii=False, indent=4):
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=indent, ensure_ascii=ensure_ascii)
