@@ -6,7 +6,7 @@ from itertools import permutations
 from collections import defaultdict
 import re
 
-from utils import read_json, write_json, find_json_files, MODEL_COSTS, num_tokens_from_string
+from utils import read_json, write_json, find_files, MODEL_COSTS, num_tokens_from_string
 
 ANSWER_MAP = {
     "en": {"yes": 1, "no": 0},
@@ -396,7 +396,7 @@ def main():
     if results_path.is_file():
         files_to_process.append(args.results_path)
     else:
-        files_to_process.extend(find_json_files(args.results_path))
+        files_to_process.extend(find_files(args.results_path))
 
     report_metrics(files_to_process, args.report_usage, args.separator, args.unigram_freq_path, args.suffix_freq_path, args.meta_suffix_freq_path)
 

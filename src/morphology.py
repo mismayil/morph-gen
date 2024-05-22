@@ -4,6 +4,7 @@ import tiktoken
 import json
 import networkx as nx
 import re
+import matplotlib.pyplot as plt
 
 from turkish_morphology import decompose, analyze
 from utils import MODEL_ENCODINGS, levenshtein_distance
@@ -401,7 +402,7 @@ def has_edge(G, source, target, edge_key):
             if key == edge_key:
                 return edge
 
-def update_morph_graph(G, root, meta_morphemes, morphemes):
+def update_morph_graph(G, root, meta_morphemes, morphemes, update_stats=True):
     G.add_node(root, root=True)
     last_edge_key = root
     last_node = root
@@ -413,10 +414,17 @@ def update_morph_graph(G, root, meta_morphemes, morphemes):
         existing_edge = has_edge(G, last_node, morph_node, edge_key)
         is_leaf = i == len(meta_morphemes) - 1
         if existing_edge:
-            existing_edge["count"] += 1
-            existing_edge["leaf"] += int(is_leaf)
+            if update_stats:
+                existing_edge["count"] += 1
+                existing_edge["leaf"] += int(is_leaf)
         else:
-            G.add_edge(last_node, morph_node, key=edge_key, count=1, leaf=int(is_leaf))
+            if update_stats:
+                count = 1
+                is_leaf = int(is_leaf)
+            else:
+                count = 0
+                is_leaf = 0
+            G.add_edge(last_node, morph_node, key=edge_key, count=count, leaf=is_leaf)
         last_edge_key = edge_key
         last_node = morph_node
 
@@ -443,3 +451,6 @@ def get_words(text):
     words = re.findall(r"\b[^\d\W]+\b", text)
     words = [word.lower() for word in words]
     return words
+
+def visualize_morph_graph(G):
+    nx.draw(G, with_labels=True, font_weight='bold')

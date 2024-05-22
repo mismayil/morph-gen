@@ -3,20 +3,21 @@ import json
 from typing import IO, Callable
 import networkx as nx
 import hashlib
+from collections import Counter
+from itertools import chain
+from tqdm import tqdm
 
-from datatrove.io import DataFolderLike, get_datafolder
+from datatrove.io import DataFolderLike
 from datatrove.pipeline.readers import IpcReader, JsonlReader
 from datatrove.executor import LocalPipelineExecutor
 from datatrove.data import DocumentsPipeline
 from datatrove.data import Document
-from datatrove.pipeline.filters.base_filter import BaseFilter
 from datatrove.pipeline.writers.disk_base import DiskWriter
-from datatrove.pipeline.writers.jsonl import JsonlWriter
 from datatrove.pipeline.base import PipelineStep
 from datatrove.data import DocumentsPipeline
 from datatrove.pipeline.tokens.counter import TokensCounter
-from datatrove.pipeline.writers.parquet import ParquetWriter
 
+from utils import read_json, write_json, find_files
 from morphology import decompose_tr, create_morph_graph, read_morph_graph, write_morph_graph, merge_morph_graphs, update_morph_graph, get_words, infer_best_decompositions_tr, read_tr_dictionary
 
 TR_DICTIONARY = read_tr_dictionary()
@@ -73,7 +74,7 @@ class MorphSegmentation(PipelineStep):
                 document.metadata["graph_path"] = str(graph_path)
             yield document
 
-class MorphGraphWriter(DiskWriter):
+class MorphGraphMerger(DiskWriter):
     """Write data to datafolder (local or remote) in GML format
 
     Args:
@@ -129,7 +130,7 @@ morph_segmentation = LocalPipelineExecutor(
 
 # morph_merging = LocalPipelineExecutor(
 #     pipeline=[
-#         JsonlReader(f"{DUMP_DATA_DIR}/lang_filtered", progress=True, glob_pattern="*.jsonl.gz"),
+#         JsonlReader(f"{DUMP_DATA_DIR}/morph_graphs", progress=True, glob_pattern="*.jsonl.gz"),
 #         MorphSegmentation(output_folder=f"{DUMP_DATA_DIR}/morph_graphs"),
 #         MorphGraphWriter(f"{DUMP_DATA_DIR}/morph_graphs_merged", "${file_stem}_${rank}.gml")
 #     ],
@@ -138,7 +139,54 @@ morph_segmentation = LocalPipelineExecutor(
 #     workers=64
 # )
 
+def process_wiki_for_btwd(btwd_path):
+    btwd_path = pathlib.Path(btwd_path)
+    btwd_data = read_json(btwd_path)
+    btwd_graph = create_morph_graph()
+
+    for sample in btwd_data["data"]:
+        update_morph_graph(btwd_graph, sample["root"], sample["meta_morphemes"], sample["morphemes"], update_stats=False)
+    
+    write_morph_graph(btwd_graph, btwd_path.with_suffix(".gml"))
+
+    btwd_frequency = {
+        "roots": Counter(set([sample["root"] for sample in btwd_data["data"]])),
+        "meta_morphemes": Counter(set(list(chain(*[sample["meta_morphemes"] for sample in btwd_data["data"]])))),
+        "morphemes": Counter(set(list(chain(*[sample["morphemes"] for sample in btwd_data["data"]]))))
+    }
+
+    train_files = find_files(f"{DUMP_DATA_DIR}/morph_graphs", extension="gml")
+    train_files = [file for file in train_files if not any([str(i).zfill(5) in file for i in range(530, 535)])]
+
+    with open("train_files.txt", "w") as f:
+        f.writelines([file+"\n" for file in train_files])
+
+    for i, train_file in tqdm(enumerate(train_files[:100]), total=len(train_files), desc="Processing train files"):
+        train_graph = read_morph_graph(train_file)
+        intersection = nx.intersection(btwd_graph, train_graph)
+
+        for node in intersection.nodes:
+            if node.startswith("+"):
+                btwd_frequency["meta_morphemes"].update([node[1:]])
+            else:
+                btwd_frequency["roots"].update([node])
+    
+        for edge in intersection.edges:
+            derivation = edge[2]
+            morphemes = derivation.split("+")
+            num_meta_morphemes = sum([1 for i in range(2) if edge[i].startswith("+")])
+            morphemes = morphemes[-num_meta_morphemes:]
+            btwd_frequency["morphemes"].update(morphemes)
+            nx.set_edge_attributes(btwd_graph, {edge: {"count": 1}})
+        
+        if i % 10 == 0:
+            write_json(btwd_frequency, btwd_path.parent / f"{btwd_path.stem}_freq.json")
+            write_morph_graph(btwd_graph, btwd_path.with_suffix(".gml"))
+
+    write_json(btwd_frequency, btwd_path.parent / f"{btwd_path.stem}_freq.json")
+    write_morph_graph(btwd_graph, btwd_path.with_suffix(".gml"))
+
 if __name__ == "__main__":
     # preprocessing.run()
-    morph_segmentation.run()
-    # morph_merging.run()
+    # morph_segmentation.run()
+    process_wiki_for_btwd("../data/tr/bilkent-turkish-writings/btwd_default_final.json")

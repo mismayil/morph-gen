@@ -3,7 +3,7 @@ from tqdm import tqdm
 import pathlib
 import re, csv
 
-from utils import read_json, write_json, find_json_files
+from utils import read_json, write_json, find_files
 
 def tabulate_results(results_files):
     tab_results = []
@@ -98,7 +98,7 @@ def main():
     if results_path.is_file():
         files_to_process.append(args.results_path)
     else:
-        files_to_process.extend(find_json_files(args.results_path))
+        files_to_process.extend(find_files(args.results_path))
 
     if not args.output_dir:
         if results_path.is_file():

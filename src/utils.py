@@ -2,6 +2,7 @@ import json
 import tiktoken
 import uuid
 import os
+import glob
 
 MODEL_COSTS = {
     "gpt-3.5-turbo": {'input': 0.0000015, 'output': 0.000002},
@@ -38,13 +39,8 @@ def write_json(data, path, ensure_ascii=False, indent=4):
 def generate_unique_id():
     return str(uuid.uuid4()).split("-")[-1]
 
-def find_json_files(directory):
-    json_files = []
-    for root, dirs, files in os.walk(directory):
-        for file in files:
-            if file.endswith(".json"):
-                json_files.append(os.path.join(root, file))
-    return json_files
+def find_files(directory, extension="json"):
+    return glob.glob(f"{directory}/**/*.{extension}", recursive=True)
 
 def concatenate(lists):
     return [item for sublist in lists for item in sublist]
