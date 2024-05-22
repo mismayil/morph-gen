@@ -161,7 +161,7 @@ def process_wiki_for_btwd(btwd_path):
     with open("train_files.txt", "w") as f:
         f.writelines([file+"\n" for file in train_files])
 
-    for i, train_file in tqdm(enumerate(train_files[:100]), total=len(train_files), desc="Processing train files"):
+    for i, train_file in tqdm(enumerate(train_files), total=len(train_files), desc="Processing train files"):
         train_graph = read_morph_graph(train_file)
         intersection = nx.intersection(btwd_graph, train_graph)
 
@@ -179,7 +179,7 @@ def process_wiki_for_btwd(btwd_path):
             btwd_frequency["morphemes"].update(morphemes)
             nx.set_edge_attributes(btwd_graph, {edge: {"count": 1}})
         
-        if i % 10 == 0:
+        if i % 1000 == 0:
             write_json(btwd_frequency, btwd_path.parent / f"{btwd_path.stem}_freq.json")
             write_morph_graph(btwd_graph, btwd_path.with_suffix(".gml"))
 
