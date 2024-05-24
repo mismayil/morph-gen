@@ -6,6 +6,7 @@ from itertools import permutations
 from collections import defaultdict
 import re
 import numpy as np
+from statistics import mean
 
 from utils import read_json, write_json, find_files, MODEL_COSTS, num_tokens_from_string
 
@@ -137,6 +138,7 @@ def compute_metrics(results, report_usage=False, separator="", unigram_freq_path
     len_suffix_accuracy = defaultdict(list)
     len_suffix_faithful = defaultdict(list)
     freq_bins = [(0, 10), (10, 100), (100, 1000), (1000,)]
+    ood_bins = [(0, 25), (25, 50), (50, 75), (75, 100)]
     
     unigram_freq_accuracy = defaultdict(list)
     unigram_freq_faithful = defaultdict(list)
@@ -226,7 +228,7 @@ def compute_metrics(results, report_usage=False, separator="", unigram_freq_path
                 len_by_freq_faithful[freq_bin][suffix_len].append(result["faithful"])
                 
                 break
-
+        
     def _add_freq_metrics(metrics, freq_accuracy, freq_faithful, num_freq_samples, keyword="unigram"):
         freq_accuracy = dict(sorted(freq_accuracy.items(), key=lambda item: item[0]))
         freq_faithful = dict(sorted(freq_faithful.items(), key=lambda item: item[0]))
@@ -256,11 +258,13 @@ def compute_metrics(results, report_usage=False, separator="", unigram_freq_path
         metrics[f"faithfulness_by_{keyword}_len_by_freq"] = {k: {k2: sum(v2) / len(v2) for k2, v2 in v.items()} for k, v in len_by_freq_faithful.items()}
 
     template = results["data"][0]["template"]
+    result_map = {}
 
     for result in results["data"]:
         num_suffixes = len(result["suffixes"])
         ref_response_attr = "reference"
         model_response_attr = "model_output"
+        result_map[result["id"]] = result
 
         if model_response_attr in result:
             ref = get_reference(result, result[ref_response_attr], result["template"])
@@ -316,13 +320,18 @@ def compute_metrics(results, report_usage=False, separator="", unigram_freq_path
         for result_id, result in results_by_id.items():
             references = result["references"]
             predictions = result["predictions"]
-    
+            ood_bin = ood_bins[0]
+
             if template.startswith("morph_disc_pp"):
                 predictions = [0] * len(references)
                 min_pp_index = np.argmin(result["predictions"])
                 predictions[min_pp_index] = 1
+                full_result = result_map[result_id]
+                ood_pct = full_result.get("ood_pct", 0)
+                ood_bin_index = [obin[0] <= ood_pct <= obin[1] for obin in ood_bins].index(True)
+                ood_bin = ood_bins[ood_bin_index]
 
-            result_by_id_metrics[result_id] = metric(references, predictions, average="macro", zero_division=0)
+            result_by_id_metrics[(result_id, str(ood_bin))] = metric(references, predictions, average="macro", zero_division=0)
         
         return result_by_id_metrics
 
@@ -340,29 +349,48 @@ def compute_metrics(results, report_usage=False, separator="", unigram_freq_path
 
             coherence[result_id] = int(references == predictions)
         
-        return sum(coherence.values()) / len(coherence)
+        return mean(coherence.values())
+
+    def _aggregate_by_ood_bin(metric_results):
+        ood_results = {}
+        for obin in ood_bins:
+            ood_bin_values = [value for (result_id, ood_bin), value in metric_results.items() if str(ood_bin) == str(obin)]
+            ood_results[str(obin)] = mean(ood_bin_values) if ood_bin_values else 0
+        return ood_results
+
+    def _sort_by_key(results_by_key):
+        return dict(sorted(results_by_key.items(), key=lambda item: item[0]))
 
     if results_by_suffix_len:
         recall_by_suffix_len = {suffix_len: _compute_metric(results_by_suffix_len[suffix_len], recall_score) for suffix_len in results_by_suffix_len}
         precision_by_suffix_len = {suffix_len: _compute_metric(results_by_suffix_len[suffix_len], precision_score) for suffix_len in results_by_suffix_len}
         f1_by_suffix_len = {suffix_len: _compute_metric(results_by_suffix_len[suffix_len], f1_score) for suffix_len in results_by_suffix_len}
         
-        metrics["recall_by_suffix_len"] = {suffix_len: sum(recall_by_suffix_len[suffix_len].values()) / len(recall_by_suffix_len[suffix_len]) for suffix_len in recall_by_suffix_len}
-        metrics["recall_by_suffix_len"] = dict(sorted(metrics["recall_by_suffix_len"].items(), key=lambda item: item[0]))
+        metrics["recall_by_suffix_len"] = {suffix_len: mean(recall_by_suffix_len[suffix_len].values()) for suffix_len in recall_by_suffix_len}
+        metrics["recall_by_suffix_len"] = _sort_by_key(metrics["recall_by_suffix_len"])
         
-        metrics["precision_by_suffix_len"] = {suffix_len: sum(precision_by_suffix_len[suffix_len].values()) / len(precision_by_suffix_len[suffix_len]) for suffix_len in precision_by_suffix_len}
-        metrics["precision_by_suffix_len"] = dict(sorted(metrics["precision_by_suffix_len"].items(), key=lambda item: item[0]))
+        metrics["precision_by_suffix_len"] = {suffix_len: mean(precision_by_suffix_len[suffix_len].values()) for suffix_len in precision_by_suffix_len}
+        metrics["precision_by_suffix_len"] = _sort_by_key(metrics["precision_by_suffix_len"])
         
-        metrics["f1_by_suffix_len"] = {suffix_len: sum(f1_by_suffix_len[suffix_len].values()) / len(f1_by_suffix_len[suffix_len]) for suffix_len in f1_by_suffix_len}
-        metrics["f1_by_suffix_len"] = dict(sorted(metrics["f1_by_suffix_len"].items(), key=lambda item: item[0]))
+        metrics["f1_by_suffix_len"] = {suffix_len: mean(f1_by_suffix_len[suffix_len].values()) for suffix_len in f1_by_suffix_len}
+        metrics["f1_by_suffix_len"] = _sort_by_key(metrics["f1_by_suffix_len"])
 
-        metrics["recall"] = sum(metrics["recall_by_suffix_len"].values()) / len(metrics["recall_by_suffix_len"])
-        metrics["precision"] = sum(metrics["precision_by_suffix_len"].values()) / len(metrics["precision_by_suffix_len"])
-        metrics["f1"] = sum(metrics["f1_by_suffix_len"].values()) / len(metrics["f1_by_suffix_len"])
+        metrics["recall"] = mean(metrics["recall_by_suffix_len"].values())
+        metrics["precision"] = mean(metrics["precision_by_suffix_len"].values())
+        metrics["f1"] = mean(metrics["f1_by_suffix_len"].values())
+
+        metrics["recall_by_ood_bin_by_suffix_len"] = {suffix_len: _aggregate_by_ood_bin(recall_by_suffix_len[suffix_len]) for suffix_len in recall_by_suffix_len}
+        metrics["recall_by_ood_bin_by_suffix_len"] = _sort_by_key(metrics["recall_by_ood_bin_by_suffix_len"])
+
+        metrics["precision_by_ood_bin_by_suffix_len"] = {suffix_len: _aggregate_by_ood_bin(precision_by_suffix_len[suffix_len]) for suffix_len in precision_by_suffix_len}
+        metrics["precision_by_ood_bin_by_suffix_len"] = _sort_by_key(metrics["precision_by_ood_bin_by_suffix_len"])
+
+        metrics["f1_by_ood_bin_by_suffix_len"] = {suffix_len: _aggregate_by_ood_bin(f1_by_suffix_len[suffix_len]) for suffix_len in f1_by_suffix_len}
+        metrics["f1_by_ood_bin_by_suffix_len"] = _sort_by_key(metrics["f1_by_ood_bin_by_suffix_len"])
 
         metrics["coherence_by_suffix_len"] = {suffix_len: _compute_coherence(results_by_suffix_len[suffix_len]) for suffix_len in results_by_suffix_len}
-        metrics["coherence_by_suffix_len"] = dict(sorted(metrics["coherence_by_suffix_len"].items(), key=lambda item: item[0]))
-        metrics["coherence"] = sum(metrics["coherence_by_suffix_len"].values()) / len(metrics["coherence_by_suffix_len"])
+        metrics["coherence_by_suffix_len"] = _sort_by_key(metrics["coherence_by_suffix_len"])
+        metrics["coherence"] = mean(metrics["coherence_by_suffix_len"].values())
 
     # metrics["soft_accuracy"] = sum([result.get("soft_accuracy", 0) for result in results["data"]]) / len(results["data"])
     
