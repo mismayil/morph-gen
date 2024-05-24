@@ -14,7 +14,7 @@ NONCE_GENERATOR = {
     "en": generate_nonce_word_en
 }
 
-def prepare_sample_for_tasks(sample, separator="", language="tr", verbose=False):
+def prepare_sample_for_tasks(sample, separator="", language="tr", verbose=False, no_nonce=False):
     dictionary = read_en_dictionary()
     suffixes = sample["morphemes"] if "morphemes" in sample else sample["suffixes"]
     ref_derivation = sample["root"] + separator + separator.join(suffixes)
@@ -34,18 +34,21 @@ def prepare_sample_for_tasks(sample, separator="", language="tr", verbose=False)
         sentence = sample.get("sentence")
 
         attempt = 0
-        while True:
-            if verbose:
-                print(f"Generating nonce word for {sample['root']}")
-            
-            nonce_generator = NONCE_GENERATOR[language]
-            nonce_word = nonce_generator(sample["root"])
-            if nonce_word not in dictionary:
-                break
-            attempt += 1
-            
-            if verbose:
-                print(f"Attempt {attempt} failed. Trying again.")
+        nonce_word = None
+
+        if not no_nonce:
+            while True:
+                if verbose:
+                    print(f"Generating nonce word for {sample['root']}")
+                
+                nonce_generator = NONCE_GENERATOR[language]
+                nonce_word = nonce_generator(sample["root"])
+                if nonce_word not in dictionary:
+                    break
+                attempt += 1
+                
+                if verbose:
+                    print(f"Attempt {attempt} failed. Trying again.")
     
         return {
             "id": sample["id"],
@@ -65,14 +68,14 @@ def prepare_sample_for_tasks(sample, separator="", language="tr", verbose=False)
     
     return None
 
-def prepare_data_for_tasks(input_data, num_samples=None, separator="", verbose=False, *args, **kwargs):
+def prepare_data_for_tasks(input_data, num_samples=None, separator="", verbose=False, no_nonce=False, *args, **kwargs):
     data = input_data["data"]
     language = input_data["metadata"]["language"]
 
     morph_data = []
 
     for i, sample in tqdm(enumerate(data), total=len(data), desc="Preparing data TR for Morph tasks"):
-        morph_sample = prepare_sample_for_tasks(sample, separator, language=language, verbose=verbose)
+        morph_sample = prepare_sample_for_tasks(sample, separator, language=language, verbose=verbose, no_nonce=no_nonce)
         if morph_sample is not None:
             morph_data.append(morph_sample)
     
@@ -220,10 +223,11 @@ def main():
     parser.add_argument("-o", "--output-dir", type=str, default=None, help="Output directory path. Defaults to input directory path.")
     parser.add_argument("-t", "--separator", type=str, default="", help="Separator to use between morphemes. Defaults to empty string.")
     parser.add_argument("-v", "--verbose", action="store_true", help="Verbose mode")
+    parser.add_argument("-nn", "--no-nonce", action="store_true", help="Do not generate nonce words")
 
     args = parser.parse_args()
     input_data = read_json(args.datapath)
-    morph_data = DATA_PROCESSOR_MAP[args.processor][0](input_data, args.num_samples, separator=args.separator, verbose=args.verbose)
+    morph_data = DATA_PROCESSOR_MAP[args.processor][0](input_data, args.num_samples, separator=args.separator, verbose=args.verbose, no_nonce=args.no_nonce)
 
     datapath = pathlib.Path(args.datapath)
     output_dir = pathlib.Path(args.output_dir) if args.output_dir is not None else datapath.parent

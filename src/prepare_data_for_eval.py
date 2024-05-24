@@ -49,6 +49,7 @@ INSTRUCTION_TEMPLATES = {
     "morph_disc_mcq_tr": MORPH_DISC_MCQ_TR_INSTRUCTION_TEMPLATE,
     "nonce_morph_disc_mcq_en": MORPH_DISC_MCQ_NONCE_EN_INSTRUCTION_TEMPLATE,
     "nonce_morph_disc_mcq_tr": MORPH_DISC_MCQ_NONCE_TR_INSTRUCTION_TEMPLATE,
+    "morph_disc_pp_en": MORPH_DISC_PP_EN_INSTRUCTION_TEMPLATE,
 }
 
 SHOT_TEMPLATES = {
@@ -82,6 +83,7 @@ SHOT_TEMPLATES = {
     "morph_disc_mcq_tr": MORPH_DISC_MCQ_TR_SHOT_TEMPLATE,
     "nonce_morph_disc_mcq_en": MORPH_DISC_MCQ_NONCE_EN_SHOT_TEMPLATE,
     "nonce_morph_disc_mcq_tr": MORPH_DISC_MCQ_NONCE_TR_SHOT_TEMPLATE,
+    "morph_disc_pp_en": MORPH_DISC_PP_EN_SHOT_TEMPLATE,
 }
 
 def _is_ood_sample(sample):
@@ -215,7 +217,8 @@ def prepare_shot_for_morph_disc_mcq(idx, sample, template, language, is_final=Fa
     return shot, answer
 
 def prepare_shots_for_morph_disc(idx, sample, template, language, is_final=False):
-    options = random.sample(sample["options"], len(sample["options"]))
+    options = [sample["positive_options"][0]] + sample["negative_options"]
+    options = random.sample(options, len(options))
     suffixes = random.sample(sample["suffixes"], len(sample["suffixes"]))
     template_lang = _get_template_lang(template)
     suffixes_str = ",".join([f"{s}" for s in suffixes])
@@ -225,13 +228,18 @@ def prepare_shots_for_morph_disc(idx, sample, template, language, is_final=False
 
     for option in options:
         answer = _get_answer(option, sample["derivation"], template_lang)
-        format_args = {
-            "index": idx+1,
-            "root": sample["root"],
-            "suffixes": suffixes_str,
-            "derived_word": option,
-            "answer": "" if is_final else answer
-        }
+        if template.startswith("morph_disc_pp"):
+            format_args = {
+                "text": option
+            }
+        else:
+            format_args = {
+                "index": idx+1,
+                "root": sample["root"],
+                "suffixes": suffixes_str,
+                "derived_word": option,
+                "answer": "" if is_final else answer
+            }
         shot_template = SHOT_TEMPLATES[template]
 
         if _is_ood_sample(sample):
@@ -312,10 +320,11 @@ def prepare_sample_for_eval(sample, shot_samples, template, language):
             "id": sample["id"],
             "root": sample["root"],
             "suffixes": sample["suffixes"],
-            "prompt": prompt,
+            "derivation": sample["derivation"],
+            "prompt": prompt.strip(),
             "reference": final_ans,
             "template": template,
-            "id_root": sample["original_root"] if "id_root" in sample else None,
+            "id_root": sample["id_root"] if "id_root" in sample else None,
             "id_derivation": sample["id_derivation"] if "id_derivation" in sample else None,
             "meta_suffixes": sample.get("meta_suffixes", None),
             "sentence": sample.get("sentence", None),
@@ -345,7 +354,7 @@ def main():
         if sample.get("similar"):
             shot_samples = sample["similar"]
 
-        if shot_samples:
+        if len(shot_samples) == args.num_shots:
             eval_data.extend(prepare_sample_for_eval(sample, shot_samples, args.template, input_data["metadata"]["language"]))
 
     datapath = pathlib.Path(args.datapath)

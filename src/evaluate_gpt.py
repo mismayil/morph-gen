@@ -5,11 +5,14 @@ import os
 from tqdm import tqdm
 import pathlib
 import traceback
+from transformers import AutoTokenizer, AutoModelForCausalLM
+import torch
 
 from utils import read_json, write_json, generate_unique_id, MODEL_COSTS
 
 CHAT_COMPLETION_MODELS = ["gpt-3.5-turbo", "gpt-4"]
 TEXT_COMPLETION_MODELS = ["text-davinci-003"]
+API_MODELS = CHAT_COMPLETION_MODELS + TEXT_COMPLETION_MODELS
 
 def chat_completion(client, messages, model="gpt-3.5-turbo", return_text=True, return_usage=True, model_args=None):
     if model_args is None:
@@ -61,6 +64,31 @@ def text_completion(client, prompt, model="text-davinci-003", return_text=True, 
             time.sleep(60)
             continue
 
+@torch.no_grad()
+def compute_perplexity(text, model, tokenizer, device="cuda"):
+    input_ids = tokenizer.encode(text, return_tensors="pt")
+    input_logprobs = []
+    logits = model(input_ids.to(device)).logits
+    all_logprobs = torch.log_softmax(logits.double(), dim=2)
+
+    for k in range(input_ids.shape[1]):
+        input_logprobs.append(all_logprobs[0, k-1, input_ids[0, k]].cpu())
+
+    perplexity = 2 ** -torch.mean(input_logprobs)
+
+    return perplexity.item()
+
+def evaluate_lm(prompt, model_path="gpt-2", model_args=None, cache_dir="~/.cache"):
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+    tokenizer = AutoTokenizer.from_pretrained(model_path)
+    model = AutoModelForCausalLM.from_pretrained(model_path, cache_dir=cache_dir).to(device)
+    model.eval()
+
+    perplexity = compute_perplexity(prompt, model, tokenizer, device=device)
+
+    return perplexity
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-d", "--datapath", type=str, help="Path to evaluation data in json", required=True)
@@ -75,17 +103,20 @@ def main():
     parser.add_argument("-o", "--output-dir", type=str, help="Output directory for evaluation results", default="outputs")
     parser.add_argument("-n", "--num-samples", type=int, help="Number of samples to evaluate", default=0)
     parser.add_argument("-i", "--ignore-path", type=str, help="Path to already evaluated data", default=None)
+    parser.add_argument("-c", "--cache-dir", type=str, help="Cache directory for model", default="~/.cache")
     
     args = parser.parse_args()
-    if args.is_openai_azure:
-        endpoint = 'https://sigturk-openai.openai.azure.com/'
-        client = AzureOpenAI(
-            api_key = args.openai_key if args.openai_key is not None else os.getenv("AZURE_OPENAI_KEY"),
-            api_version = '2024-02-15-preview',
-            azure_endpoint=endpoint
-        )
-    else:
-        client = OpenAI(api_key=args.openai_key if args.openai_key is not None else os.getenv("OPENAI_API_KEY"))
+    
+    if args.model in API_MODELS:
+        if args.is_openai_azure:
+            endpoint = 'https://sigturk-openai.openai.azure.com/'
+            client = AzureOpenAI(
+                api_key = args.openai_key if args.openai_key is not None else os.getenv("AZURE_OPENAI_KEY"),
+                api_version = '2024-02-15-preview',
+                azure_endpoint=endpoint
+            )
+        else:
+            client = OpenAI(api_key=args.openai_key if args.openai_key is not None else os.getenv("OPENAI_API_KEY"))
         
     input_data = read_json(args.datapath)
     data = input_data["data"]
@@ -162,7 +193,10 @@ def main():
                     "presence_penalty": args.presence_penalty
                 })
             else:
-                raise ValueError(f"Model {args.model} not supported for evaluation.")
+                perplexity = evaluate_lm(sample["prompt"], model_path=args.model, cache_dir=args.cache_dir)
+                response = None
+                usage = None
+                sample["perplexity"] = perplexity
 
             sample["model_output"] = response
             sample["usage"] = usage
@@ -174,12 +208,13 @@ def main():
                 error_file.write(traceback.format_exc())
                 error_file.write("\n")
 
-    outputs["metrics"]["usage"]["prompt_tokens"] = sum([sample["usage"]["prompt_tokens"] for sample in outputs["data"]])
-    outputs["metrics"]["usage"]["completion_tokens"] = sum([sample["usage"]["completion_tokens"] for sample in outputs["data"]])
-    outputs["metrics"]["usage"]["total_tokens"] = outputs["metrics"]["usage"]["prompt_tokens"] + outputs["metrics"]["usage"]["completion_tokens"]
-    outputs["metrics"]["cost"]["input"] = outputs["metrics"]["usage"]["prompt_tokens"] * MODEL_COSTS[args.model]["input"]
-    outputs["metrics"]["cost"]["output"] = outputs["metrics"]["usage"]["completion_tokens"] * MODEL_COSTS[args.model]["output"]
-    outputs["metrics"]["cost"]["total"] = outputs["metrics"]["cost"]["input"] + outputs["metrics"]["cost"]["output"]
+    if args.model in API_MODELS:
+        outputs["metrics"]["usage"]["prompt_tokens"] = sum([sample["usage"]["prompt_tokens"] for sample in outputs["data"]])
+        outputs["metrics"]["usage"]["completion_tokens"] = sum([sample["usage"]["completion_tokens"] for sample in outputs["data"]])
+        outputs["metrics"]["usage"]["total_tokens"] = outputs["metrics"]["usage"]["prompt_tokens"] + outputs["metrics"]["usage"]["completion_tokens"]
+        outputs["metrics"]["cost"]["input"] = outputs["metrics"]["usage"]["prompt_tokens"] * MODEL_COSTS[args.model]["input"]
+        outputs["metrics"]["cost"]["output"] = outputs["metrics"]["usage"]["completion_tokens"] * MODEL_COSTS[args.model]["output"]
+        outputs["metrics"]["cost"]["total"] = outputs["metrics"]["cost"]["input"] + outputs["metrics"]["cost"]["output"]
 
     write_json(outputs, output_path, ensure_ascii=False)
 
