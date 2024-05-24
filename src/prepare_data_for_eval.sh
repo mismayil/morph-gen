@@ -5,6 +5,7 @@ shots=(1 3 5)
 data_dir="../experiments/data"
 
 python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_id_morph.json -t morph_disc_pp_en -n 0 -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}
+python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_ood_morph.json -t morph_disc_pp_en -n 0 -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}
 
 # for shot in "${shots[@]}"
 # do

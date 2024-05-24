@@ -9,12 +9,19 @@ outputs_dir="../experiments/outputs"
 
 # mkdir -p ./logs
 
-for jsonfile in ${data_dir}/tr/btwd/eval/temp_en/${input_dir}/*.json
+for jsonfile in ${data_dir}/tr/btwd/final/eval/temp_en/${input_dir}/*.json
 do
     echo "Evaluating ${jsonfile}"
     # python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_en/${experiment} -k ${openai_api_key} -m ${model} -ia > ./logs/$(basename ${jsonfile}).log 2>&1 &
-    python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_en/${experiment} -k ${openai_api_key} -m ${model}
+    python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/gpt-2/tr/btwd/temp_en/${experiment} -m ${model} -mp mismayil/tr_gpt2 -tp gpt2 -c /mnt/u14157_ic_nlp_001_files_nfs/nlpdata1/home/ismayilz/.cache/huggingface
 done
+
+# for jsonfile in ${data_dir}/tr/btwd/eval/temp_en/${input_dir}/*.json
+# do
+#     echo "Evaluating ${jsonfile}"
+#     # python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_en/${experiment} -k ${openai_api_key} -m ${model} -ia > ./logs/$(basename ${jsonfile}).log 2>&1 &
+#     python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_en/${experiment} -k ${openai_api_key} -m ${model}
+# done
 
 # for jsonfile in ${data_dir}/tr/btwd/eval/temp_tr/${input_dir}/*.json
 # do

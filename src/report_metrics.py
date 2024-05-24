@@ -5,6 +5,7 @@ import pathlib
 from itertools import permutations
 from collections import defaultdict
 import re
+import numpy as np
 
 from utils import read_json, write_json, find_files, MODEL_COSTS, num_tokens_from_string
 
@@ -16,7 +17,7 @@ ANSWER_MAP = {
 def _get_template_lang(template):
     return template.split("_")[-1]
 
-def get_prediction(model_response, template):
+def get_prediction(sample, model_response, template):
     pred = str(model_response).strip().lower()
     
     if template.startswith("morph_disc_mcq"):
@@ -25,12 +26,15 @@ def get_prediction(model_response, template):
             pred = model_response.split(".")[0].strip()
         return pred
     
+    if template.startswith("morph_disc_pp"):
+        return sample["perplexity"]
+
     if template.startswith("morph_disc_bin") or template.startswith("morph_disc"):
         return ANSWER_MAP[_get_template_lang(template)][pred]
 
     return pred
 
-def get_reference(ref_response, template):
+def get_reference(sample, ref_response, template):
     ref = str(ref_response).strip().lower()
     
     if template.startswith("morph_disc_mcq"):
@@ -43,17 +47,17 @@ def get_reference(ref_response, template):
 
 def is_faithful(result, ref_response, model_response, template, separator=""):
     if template.startswith("morph_disc"):
-        if re.fullmatch(r"\d+", model_response.strip()):
+        if model_response and re.fullmatch(r"\d+", model_response.strip()):
             return True
         return False
     
     if template.startswith("morph_gen_order"):
-        if re.fullmatch(r"(\d+,\s*)+\d+", model_response.strip()):
+        if model_response and re.fullmatch(r"(\d+,\s*)+\d+", model_response.strip()):
             return True
         return False
 
     if template.startswith("morph_gen"):
-        if len(model_response) != len(ref_response):
+        if model_response and len(model_response) != len(ref_response):
             return False
         
         suffix_perms = list(permutations(result["suffixes"]))
@@ -251,14 +255,16 @@ def compute_metrics(results, report_usage=False, separator="", unigram_freq_path
         metrics[f"accuracy_by_{keyword}_len_by_freq"] = {k: {k2: sum(v2) / len(v2) for k2, v2 in v.items()} for k, v in len_by_freq_accuracy.items()}
         metrics[f"faithfulness_by_{keyword}_len_by_freq"] = {k: {k2: sum(v2) / len(v2) for k2, v2 in v.items()} for k, v in len_by_freq_faithful.items()}
 
+    template = results["data"][0]["template"]
+
     for result in results["data"]:
         num_suffixes = len(result["suffixes"])
         ref_response_attr = "reference"
         model_response_attr = "model_output"
 
         if model_response_attr in result:
-            ref = get_reference(result[ref_response_attr], result["template"])
-            pred = get_prediction(result[model_response_attr], result["template"])
+            ref = get_reference(result, result[ref_response_attr], result["template"])
+            pred = get_prediction(result, result[model_response_attr], result["template"])
             
             if result["template"].startswith("morph_disc") and not result["template"].startswith("morph_disc_mcq"):
                 if result["id"] not in results_by_suffix_len[num_suffixes]:
@@ -305,10 +311,35 @@ def compute_metrics(results, report_usage=False, separator="", unigram_freq_path
     metrics["faithfulness"] = sum([1 for result in results["data"] if result.get("faithful")]) / len(results["data"])
 
     def _compute_metric(results_by_id, metric):
-        return {result_id: metric(result["references"], result["predictions"], average="macro", zero_division=0) for result_id, result in results_by_id.items()}
+        result_by_id_metrics = {}
+
+        for result_id, result in results_by_id.items():
+            references = result["references"]
+            predictions = result["predictions"]
+    
+            if template.startswith("morph_disc_pp"):
+                predictions = [0] * len(references)
+                min_pp_index = np.argmin(result["predictions"])
+                predictions[min_pp_index] = 1
+
+            result_by_id_metrics[result_id] = metric(references, predictions, average="macro", zero_division=0)
+        
+        return result_by_id_metrics
 
     def _compute_coherence(results_by_id):
-        coherence = {result_id: result["references"] == result["predictions"] for result_id, result in results_by_id.items()}
+        coherence = {}
+
+        for result_id, result in results_by_id.items():
+            references = result["references"]
+            predictions = result["predictions"]
+    
+            if template.startswith("morph_disc_pp"):
+                predictions = [0] * len(references)
+                min_pp_index = np.argmin(result["predictions"])
+                predictions[min_pp_index] = 1
+
+            coherence[result_id] = int(references == predictions)
+        
         return sum(coherence.values()) / len(coherence)
 
     if results_by_suffix_len:

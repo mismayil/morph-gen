@@ -74,19 +74,18 @@ def compute_perplexity(text, model, tokenizer, device="cuda"):
     for k in range(input_ids.shape[1]):
         input_logprobs.append(all_logprobs[0, k-1, input_ids[0, k]].cpu())
 
-    perplexity = 2 ** -torch.mean(input_logprobs)
+    perplexity = 2 ** -torch.mean(torch.tensor(input_logprobs))
 
     return perplexity.item()
 
-def evaluate_lm(prompt, model_path="gpt-2", model_args=None, cache_dir="~/.cache"):
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
-    tokenizer = AutoTokenizer.from_pretrained(model_path)
+def load_model(model_path="gpt2", tokenizer_path="gpt2", model_args=None, cache_dir="~/.cache", device="cuda"):
+    tokenizer = AutoTokenizer.from_pretrained(tokenizer_path, cache_dir=cache_dir)
     model = AutoModelForCausalLM.from_pretrained(model_path, cache_dir=cache_dir).to(device)
     model.eval()
+    return model, tokenizer
 
+def evaluate_lm(prompt, model, tokenizer, model_args=None, device="cuda"):
     perplexity = compute_perplexity(prompt, model, tokenizer, device=device)
-
     return perplexity
 
 def main():
@@ -95,7 +94,7 @@ def main():
     parser.add_argument("-k", "--openai-key", type=str, help="OpenAI API Key")
     parser.add_argument("-ia", "--is-openai-azure", action="store_true", help="If OpenAI on Azure")
     parser.add_argument("-m", "--model", type=str, help="Model to use for evaluation", default="gpt-3.5-turbo")
-    parser.add_argument("-t", "--temperature", type=float, help="Temperature for generation", default=0.3)
+    parser.add_argument("-t", "--temperature", type=float, help="Temperature for generation", default=0.0)
     parser.add_argument("-g", "--max-tokens", type=int, help="Max tokens for generation", default=40)
     parser.add_argument("-p", "--top-p", type=float, help="Top p for generation", default=1)
     parser.add_argument("-fp", "--frequency-penalty", type=float, help="Frequency penalty for generation", default=0)
@@ -104,6 +103,8 @@ def main():
     parser.add_argument("-n", "--num-samples", type=int, help="Number of samples to evaluate", default=0)
     parser.add_argument("-i", "--ignore-path", type=str, help="Path to already evaluated data", default=None)
     parser.add_argument("-c", "--cache-dir", type=str, help="Cache directory for model", default="~/.cache")
+    parser.add_argument("-mp", "--model-path", type=str, help="Model path to use for evaluation", default="gpt2")
+    parser.add_argument("-tp", "--tokenizer-path", type=str, help="Tokenizer path to use for evaluation", default="gpt2")
     
     args = parser.parse_args()
     
@@ -165,6 +166,11 @@ def main():
 
     print(f"Writing to {output_path}")
     
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+    if args.model_path:
+        model, tokenizer = load_model(model_path=args.model_path, tokenizer_path=args.tokenizer_path, cache_dir=args.cache_dir, device=device)
+
     for sample in tqdm(data, total=len(data)):
         try:
             if "id" in sample and sample["id"] in ignore_map:
@@ -193,7 +199,7 @@ def main():
                     "presence_penalty": args.presence_penalty
                 })
             else:
-                perplexity = evaluate_lm(sample["prompt"], model_path=args.model, cache_dir=args.cache_dir)
+                perplexity = evaluate_lm(sample["prompt"], model, tokenizer, device=device)
                 response = None
                 usage = None
                 sample["perplexity"] = perplexity
