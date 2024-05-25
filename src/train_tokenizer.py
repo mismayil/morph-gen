@@ -8,8 +8,8 @@ def main():
     parser.add_argument("-m", "--model", type=str, default="gpt2")
     parser.add_argument("-o", "--output", type=str, default="tokenizer")
     parser.add_argument("-d", "--dataset", type=str, default="mismayil/tr_wikipedia")
-    parser.add_argument("-c", "--cache_dir", type=str, default=".cache")
-    parser.add_argument("-v", "--vocab-size", type=int, default=52000)
+    parser.add_argument("-c", "--cache_dir", type=str, default="/home/azureuser/.cache")
+    parser.add_argument("-v", "--vocab-size", type=int, default=50257)
 
     args = parser.parse_args()
     

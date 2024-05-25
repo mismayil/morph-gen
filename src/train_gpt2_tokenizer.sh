@@ -8,8 +8,15 @@ fi
 
 model=gpt2
 
+# python train_tokenizer.py \
+#     -m ${model} \
+#     -o ${MNT_POINT}/nlpdata1/home/ismayilz/project-morphgen/morph-gen-wiki/tokenizers/${model} \
+#     -d mismayil/tr_wikipedia \
+#     -c ${MNT_POINT}/nlpdata1/home/ismayilz/.cache
+
 python train_tokenizer.py \
     -m ${model} \
-    -o ${MNT_POINT}/nlpdata1/home/ismayilz/project-morphgen/morph-gen-wiki/tokenizers/${model} \
+    -o /home/azureuser/morph-gen-artifacts/tr_gpt2_tokenizer_v32k \
     -d mismayil/tr_wikipedia \
-    -c ${MNT_POINT}/nlpdata1/home/ismayilz/.cache
+    -c /home/azureuser/.cache \
+    -v 32000

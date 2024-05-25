@@ -78,7 +78,7 @@ def compute_perplexity(text, model, tokenizer, device="cuda"):
 
     return perplexity.item()
 
-def load_model(model_path="gpt2", tokenizer_path="gpt2", model_args=None, cache_dir="~/.cache", device="cuda"):
+def load_model(model_path="gpt2", tokenizer_path="gpt2", model_args=None, cache_dir=None, device="cuda"):
     tokenizer = AutoTokenizer.from_pretrained(tokenizer_path, cache_dir=cache_dir)
     model = AutoModelForCausalLM.from_pretrained(model_path, cache_dir=cache_dir).to(device)
     model.eval()

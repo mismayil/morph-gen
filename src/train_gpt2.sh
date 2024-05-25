@@ -10,10 +10,12 @@ fi
 export WANDB_PROJECT=project-morphgen
 
 model_path=gpt2
-tokenizer_path=mismayil/tr_gpt2_tokenizer
+tokenizer_path=${HOME}/morph-gen-artifacts/tr_gpt2_tokenizer_v32k
+# tokenizer_path=mismayil/tr_gpt2_tokenizer
+# tokenizer_path=gpt2
 # model_path=${HOME}/tr_gpt2_pretrained
 # output_dir="${MNT_POINT}/nlpdata1/home/ismayilz/project-morphgen/morph-gen-wiki/models/${modelname}"
-output_dir=${HOME}/tr_gpt2_pretrained4
+output_dir=${HOME}/morph-gen-artifacts/tr_gpt2_pretrained7
 # cache_dir="${MNT_POINT}/nlpdata1/home/ismayilz/.cache"
 cache_dir=${HOME}/.cache
 
@@ -29,7 +31,7 @@ python run_clm.py \
     --dataloader_num_workers 32 \
     --preprocessing_num_workers 32 \
     --gradient_accumulation_steps 2 \
-    --learning_rate 0.00005 \
+    --learning_rate 0.0005 \
     --warmup_steps 500 \
     --save_total_limit 2 \
     --save_steps 1000 \
