@@ -37,8 +37,7 @@ if [ "$command" == "run_bash" ]; then
 		--service-type=nodeport \
 		--port 31122:22 \
 		--interactive \
-        --node-type G10 \
-		--attach
+        --node-type G10
 	exit 0
 fi
 

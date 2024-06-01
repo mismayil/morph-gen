@@ -172,21 +172,49 @@ def process_wiki_for_btwd(btwd_path):
                 btwd_frequency["meta_morphemes"].update([node[1:]])
             else:
                 btwd_frequency["roots"].update([node])
-    
-        for edge in intersection.edges:
-            derivation = edge[2]
-            morphemes = derivation.split("+")
-            num_meta_morphemes = sum([1 for i in range(2) if edge[i].startswith("+")])
-            morphemes = morphemes[-num_meta_morphemes:]
-            btwd_frequency["morphemes"].update(morphemes)
-            nx.set_edge_attributes(btwd_graph, {edge: {"count": 1}})
+
+        for sample in btwd_data["data"]:
+            meta_morpheme_composition = ""
+            morpheme_composition = ""
+            last_meta_morpheme_node = None
+
+            for j, meta_morpheme, morpheme in enumerate(zip(sample["meta_morphemes"], sample["morphemes"])):
+                meta_morpheme_node = f"+{meta_morpheme}"
+                morpheme_node = f"+{morpheme}"
+
+                if j == 0:
+                    last_meta_morpheme_node = meta_morpheme_node
+                    meta_morpheme_composition += meta_morpheme_node
+                    morpheme_composition += morpheme_node
+                    continue
+                
+                neighbors = list(train_graph.neighbors(last_meta_morpheme_node))
+
+                if meta_morpheme_node in neighbors:
+                    meta_morpheme_composition += meta_morpheme_node
+                    morpheme_composition += morpheme_node
+                    btwd_frequency["meta_morpheme_compositions"].update([meta_morpheme_composition])
+                    edges = train_graph.adj[last_meta_morpheme_node][meta_morpheme_node]
+                    
+                    morpheme_composition_found = False
+                    
+                    for edge_key, _ in edges.items():
+                        if morpheme_composition in edge_key:
+                            btwd_frequency["morpheme_compositions"].update([morpheme_composition])
+                            morpheme_composition_found = True
+                            break
+                            
+                    if not morpheme_composition_found:
+                        break
+                else:
+                    break
+            
+                last_meta_morpheme_node = meta_morpheme_node
         
         if i % 1000 == 0:
             write_json(btwd_frequency, btwd_path.parent / f"{btwd_path.stem}_freq.json")
-            write_morph_graph(btwd_graph, btwd_path.with_suffix(".gml"))
 
     write_json(btwd_frequency, btwd_path.parent / f"{btwd_path.stem}_freq.json")
-    write_morph_graph(btwd_graph, btwd_path.with_suffix(".gml"))
 
 if __name__ == "__main__":
     # preprocessing.run()
