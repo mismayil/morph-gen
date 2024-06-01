@@ -152,7 +152,9 @@ def process_wiki_for_btwd(btwd_path):
     btwd_frequency = {
         "roots": Counter(set([sample["root"] for sample in btwd_data["data"]])),
         "meta_morphemes": Counter(set(list(chain(*[sample["meta_morphemes"] for sample in btwd_data["data"]])))),
-        "morphemes": Counter(set(list(chain(*[sample["morphemes"] for sample in btwd_data["data"]]))))
+        "morphemes": Counter(set(list(chain(*[sample["morphemes"] for sample in btwd_data["data"]])))),
+        "meta_morpheme_compositions": Counter(),
+        "morpheme_compositions": Counter()
     }
 
     train_files = find_files(f"{DUMP_DATA_DIR}/morph_graphs", extension="gml")

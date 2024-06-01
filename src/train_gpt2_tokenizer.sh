@@ -16,7 +16,7 @@ model=gpt2
 
 python train_tokenizer.py \
     -m ${model} \
-    -o /home/azureuser/morph-gen-artifacts/tr_gpt2_tokenizer_v32k \
+    -o /home/azureuser/morph-gen-artifacts/tr_gpt2_tokenizer_v1k \
     -d mismayil/tr_wikipedia \
     -c /home/azureuser/.cache \
-    -v 32000
+    -v 1024

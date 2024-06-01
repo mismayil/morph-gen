@@ -10,12 +10,12 @@ fi
 export WANDB_PROJECT=project-morphgen
 
 model_path=gpt2
-tokenizer_path=${HOME}/morph-gen-artifacts/tr_gpt2_tokenizer_v32k
+tokenizer_path=${HOME}/morph-gen-artifacts/tr_gpt2_tokenizer_v1k
 # tokenizer_path=mismayil/tr_gpt2_tokenizer
 # tokenizer_path=gpt2
 # model_path=${HOME}/tr_gpt2_pretrained
 # output_dir="${MNT_POINT}/nlpdata1/home/ismayilz/project-morphgen/morph-gen-wiki/models/${modelname}"
-output_dir=${HOME}/morph-gen-artifacts/tr_gpt2_pretrained7
+output_dir=${HOME}/morph-gen-artifacts/tr_gpt2_pretrained_v1k
 # cache_dir="${MNT_POINT}/nlpdata1/home/ismayilz/.cache"
 cache_dir=${HOME}/.cache
 
@@ -45,4 +45,5 @@ python run_clm.py \
     --output_dir ${output_dir} \
     --cache_dir ${cache_dir} \
     --report_to wandb \
-    --seed 42
+    --seed 42 \
+    --run_name gpt2-tr-wiki-e1-c256-b64-lr5e-4-ttok-v1k
