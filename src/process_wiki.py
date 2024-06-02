@@ -144,7 +144,7 @@ def process_wiki_for_btwd(btwd_path):
     btwd_data = read_json(btwd_path)
     btwd_graph = create_morph_graph()
 
-    for sample in btwd_data["data"]:
+    for sample in tqdm(btwd_data["data"], desc="Creating BTWD graph"):
         update_morph_graph(btwd_graph, sample["root"], sample["meta_morphemes"], sample["morphemes"], update_stats=False)
     
     write_morph_graph(btwd_graph, btwd_path.with_suffix(".gml"))
@@ -157,11 +157,19 @@ def process_wiki_for_btwd(btwd_path):
         "morpheme_compositions": Counter()
     }
 
-    train_files = find_files(f"{DUMP_DATA_DIR}/morph_graphs", extension="gml")
-    train_files = [file for file in train_files if not any([str(i).zfill(5) in file for i in range(530, 535)])]
+    print("Gathering training morph graphs")
+    train_files_path = pathlib.Path("train_files.txt")
 
-    with open("train_files.txt", "w") as f:
-        f.writelines([file+"\n" for file in train_files])
+    if train_files_path.exists():
+        print("Using cached train files")
+        with open("train_files.txt") as f:
+            train_files = [line.strip() for line in f.readlines()]
+    else:
+        train_files = find_files(f"{DUMP_DATA_DIR}/morph_graphs", extension="gml")
+        train_files = [file for file in train_files if not any([str(i).zfill(5) in file for i in range(530, 535)])]
+
+        with open("train_files.txt", "w") as f:
+            f.writelines([file+"\n" for file in train_files])
 
     for i, train_file in tqdm(enumerate(train_files), total=len(train_files), desc="Processing train files"):
         train_graph = read_morph_graph(train_file)
@@ -178,7 +186,7 @@ def process_wiki_for_btwd(btwd_path):
             morpheme_composition = ""
             last_meta_morpheme_node = None
 
-            for j, meta_morpheme, morpheme in enumerate(zip(sample["meta_morphemes"], sample["morphemes"])):
+            for j, (meta_morpheme, morpheme) in enumerate(zip(sample["meta_morphemes"], sample["morphemes"])):
                 meta_morpheme_node = f"+{meta_morpheme}"
                 morpheme_node = f"+{morpheme}"
 
@@ -188,23 +196,26 @@ def process_wiki_for_btwd(btwd_path):
                     morpheme_composition += morpheme_node
                     continue
                 
-                neighbors = list(train_graph.neighbors(last_meta_morpheme_node))
+                if last_meta_morpheme_node in train_graph.nodes:
+                    neighbors = list(train_graph.neighbors(last_meta_morpheme_node))
 
-                if meta_morpheme_node in neighbors:
-                    meta_morpheme_composition += meta_morpheme_node
-                    morpheme_composition += morpheme_node
-                    btwd_frequency["meta_morpheme_compositions"].update([meta_morpheme_composition])
-                    edges = train_graph.adj[last_meta_morpheme_node][meta_morpheme_node]
-                    
-                    morpheme_composition_found = False
-                    
-                    for edge_key, _ in edges.items():
-                        if morpheme_composition in edge_key:
-                            btwd_frequency["morpheme_compositions"].update([morpheme_composition])
-                            morpheme_composition_found = True
+                    if meta_morpheme_node in neighbors:
+                        meta_morpheme_composition += meta_morpheme_node
+                        morpheme_composition += morpheme_node
+                        btwd_frequency["meta_morpheme_compositions"].update([meta_morpheme_composition])
+                        edges = train_graph.adj[last_meta_morpheme_node][meta_morpheme_node]
+                        
+                        morpheme_composition_found = False
+                        
+                        for edge_key, _ in edges.items():
+                            if morpheme_composition in edge_key:
+                                btwd_frequency["morpheme_compositions"].update([morpheme_composition])
+                                morpheme_composition_found = True
+                                break
+                                
+                        if not morpheme_composition_found:
                             break
-                            
-                    if not morpheme_composition_found:
+                    else:
                         break
                 else:
                     break
