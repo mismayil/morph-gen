@@ -143,9 +143,11 @@ def process_wiki_for_btwd(btwd_path):
     btwd_path = pathlib.Path(btwd_path)
     btwd_data = read_json(btwd_path)
     btwd_graph = create_morph_graph()
+    status_file = "status.txt"
 
     for sample in tqdm(btwd_data["data"], desc="Creating BTWD graph"):
-        update_morph_graph(btwd_graph, sample["root"], sample["meta_morphemes"], sample["morphemes"], update_stats=False)
+        for decomposition in sample["decompositions"]:
+            update_morph_graph(btwd_graph, decomposition["root"], decomposition["meta_morphemes"], decomposition["morphemes"], update_stats=False)
     
     write_morph_graph(btwd_graph, btwd_path.with_suffix(".gml"))
 
@@ -178,15 +180,25 @@ def process_wiki_for_btwd(btwd_path):
         for node in intersection.nodes:
             if node.startswith("+"):
                 btwd_frequency["meta_morphemes"].update([node[1:]])
+                in_edges = train_graph.in_edges(node, keys=True)
+                for in_edge in in_edges:
+                    edge_key = in_edge[2]
+                    last_morpheme = edge_key.split("+")[-1]
+                    btwd_frequency["morphemes"].update([last_morpheme])
             else:
                 btwd_frequency["roots"].update([node])
 
-        for sample in btwd_data["data"]:
+        for edge in intersection.edges:
+            btwd_edge_data = btwd_graph.get_edge_data(*edge)
+            train_edge_data = train_graph.get_edge_data(*edge)
+            nx.set_edge_attributes(btwd_graph, {edge: {"count": btwd_edge_data["count"]+train_edge_data["count"], "leaf": btwd_edge_data["leaf"]+train_edge_data["leaf"]}})
+
+        def _update_freq_for_decomposition(freq_data, meta_morphemes, morphemes, ref_graph):
             meta_morpheme_composition = ""
             morpheme_composition = ""
             last_meta_morpheme_node = None
 
-            for j, (meta_morpheme, morpheme) in enumerate(zip(sample["meta_morphemes"], sample["morphemes"])):
+            for j, (meta_morpheme, morpheme) in enumerate(zip(meta_morphemes, morphemes)):
                 meta_morpheme_node = f"+{meta_morpheme}"
                 morpheme_node = f"+{morpheme}"
 
@@ -196,20 +208,20 @@ def process_wiki_for_btwd(btwd_path):
                     morpheme_composition += morpheme_node
                     continue
                 
-                if last_meta_morpheme_node in train_graph.nodes:
-                    neighbors = list(train_graph.neighbors(last_meta_morpheme_node))
+                if last_meta_morpheme_node in ref_graph.nodes:
+                    neighbors = list(ref_graph.neighbors(last_meta_morpheme_node))
 
                     if meta_morpheme_node in neighbors:
                         meta_morpheme_composition += meta_morpheme_node
                         morpheme_composition += morpheme_node
-                        btwd_frequency["meta_morpheme_compositions"].update([meta_morpheme_composition])
-                        edges = train_graph.adj[last_meta_morpheme_node][meta_morpheme_node]
+                        freq_data["meta_morpheme_compositions"].update([meta_morpheme_composition])
+                        edges = ref_graph.adj[last_meta_morpheme_node][meta_morpheme_node]
                         
                         morpheme_composition_found = False
                         
                         for edge_key, _ in edges.items():
                             if morpheme_composition in edge_key:
-                                btwd_frequency["morpheme_compositions"].update([morpheme_composition])
+                                freq_data["morpheme_compositions"].update([morpheme_composition])
                                 morpheme_composition_found = True
                                 break
                                 
@@ -221,13 +233,27 @@ def process_wiki_for_btwd(btwd_path):
                     break
             
                 last_meta_morpheme_node = meta_morpheme_node
+
+        for sample in btwd_data["data"]:
+            for decomposition in sample["decompositions"]:
+                meta_morphemes = decomposition["meta_morphemes"]
+                morphemes = decomposition["morphemes"]
+
+                for k in range(len(meta_morphemes)):
+                    _update_freq_for_decomposition(btwd_frequency, meta_morphemes[k:], morphemes[k:], train_graph)
         
-        if i % 1000 == 0:
+        if i % 100 == 0:
             write_json(btwd_frequency, btwd_path.parent / f"{btwd_path.stem}_freq.json")
+            write_morph_graph(btwd_graph, btwd_path.with_suffix(".gml"))
+            with open(status_file, "w") as f:
+                f.write(f"{i+1}/{len(train_files)}")
 
     write_json(btwd_frequency, btwd_path.parent / f"{btwd_path.stem}_freq.json")
+    write_morph_graph(btwd_graph, btwd_path.with_suffix(".gml"))
+    with open(status_file, "w") as f:
+        f.write(f"{len(train_files)}/{len(train_files)}")
 
 if __name__ == "__main__":
     # preprocessing.run()
     # morph_segmentation.run()
-    process_wiki_for_btwd("../data/tr/bilkent-turkish-writings/btwd_default_final.json")
+    process_wiki_for_btwd("../data/tr/bilkent-turkish-writings/btwd_default_final_raw.json")
