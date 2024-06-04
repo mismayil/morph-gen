@@ -16,6 +16,7 @@ from datatrove.pipeline.writers.disk_base import DiskWriter
 from datatrove.pipeline.base import PipelineStep
 from datatrove.data import DocumentsPipeline
 from datatrove.pipeline.tokens.counter import TokensCounter
+from datatrove.pipeline.readers.base import BaseDiskReader
 
 from utils import read_json, write_json, find_files
 from morphology import decompose_tr, create_morph_graph, read_morph_graph, write_morph_graph, merge_morph_graphs, update_morph_graph, get_words, infer_best_decompositions_tr, read_tr_dictionary
@@ -253,7 +254,36 @@ def process_wiki_for_btwd(btwd_path):
     with open(status_file, "w") as f:
         f.write(f"{len(train_files)}/{len(train_files)}")
 
+
+
+def generate_btwd_document(filepath: str):
+    data = read_json(filepath)
+    for i, (root, root_data) in enumerate(data["data"].items()):
+        document = Document(text=root, id=i, metadata={"root_data": root_data})
+        yield document
+
+def filter_decompositions(data: DocumentsPipeline, rank: int = 0, world_size: int = 1) -> DocumentsPipeline:
+    for document in data:
+        samples = []
+        for i, (derivation, derivation_data) in enumerate(document.metadata["root_data"].items()):
+            decompositions = infer_best_decompositions_tr(derivation, derivation_data, TR_DICTIONARY)
+            if decompositions:
+                samples.append({"root": document.text, "derivation": derivation, "decompositions": decompositions})
+        write_json({"data": samples}, f"{DUMP_DATA_DIR}/btwd_prep_filtered/{document.id}_{i}.json")
+        yield document
+
+btwd_filtering = LocalPipelineExecutor(
+    pipeline=[
+        generate_btwd_document(f"{MNT_DIR}/nlpdata1/home/ismayilz/project-morphgen/morph-gen/data/tr/bilkent-turkish-writings/btwd_prep.json"),
+        filter_decompositions
+    ],
+    logging_dir=f"{DUMP_DATA_DIR}/btwd_filtering_logs/",
+    tasks=15060,
+    workers=64
+)
+
 if __name__ == "__main__":
     # preprocessing.run()
     # morph_segmentation.run()
-    process_wiki_for_btwd("../data/tr/bilkent-turkish-writings/btwd_default_final_raw.json")
+    # process_wiki_for_btwd("../data/tr/bilkent-turkish-writings/btwd_default_final_raw.json")
+    btwd_filtering.run()
