@@ -11,10 +11,15 @@ from tenacity import (
     retry,
     stop_after_attempt,
     wait_random_exponential,
-    retry_if_exception_type
+    retry_if_exception_type,
+    before_sleep_log
 )
 import asyncio, dataclasses
 from dotenv import load_dotenv
+import logging, sys
+
+logging.basicConfig(stream=sys.stderr, level=logging.WARN)
+logger = logging.getLogger(__name__)
 
 from utils import read_json, write_json, generate_unique_id, MODEL_COSTS, batched
 
@@ -27,8 +32,8 @@ class ModelResponse:
     text: str
     usage: dict
 
-@retry(retry=retry_if_exception_type([APITimeoutError, APIConnectionError, RateLimitError, InternalServerError]), wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(10))
-async def chat_completion(client, messages, model="gpt-3.5-turbo", model_args=None, results=None):
+@retry(retry=retry_if_exception_type((APITimeoutError, APIConnectionError, RateLimitError, InternalServerError)), wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(10), before_sleep=before_sleep_log(logger, logging.DEBUG))
+async def chat_completion(client, messages, model="gpt-3.5-turbo", model_args=None):
     if model_args is None:
         model_args = {}
     
@@ -36,15 +41,10 @@ async def chat_completion(client, messages, model="gpt-3.5-turbo", model_args=No
     text = response.choices[0].message.content.strip()
     usage = response.usage
     
-    model_response = ModelResponse(text, dict(usage))
-    
-    if results is not None:
-        results.append(model_response)
+    return ModelResponse(text, dict(usage))
 
-    return model_response
-
-@retry(retry=retry_if_exception_type([APITimeoutError, APIConnectionError, RateLimitError, InternalServerError]), wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(10))
-async def text_completion(client, prompt, model="text-davinci-003", model_args=None, results=None):
+@retry(retry=retry_if_exception_type((APITimeoutError, APIConnectionError, RateLimitError, InternalServerError)), wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(10), before_sleep=before_sleep_log(logger, logging.DEBUG))
+async def text_completion(client, prompt, model="text-davinci-003", model_args=None):
     if model_args is None:
         model_args = {}
     
@@ -52,12 +52,7 @@ async def text_completion(client, prompt, model="text-davinci-003", model_args=N
     text = response.choices[0].text.strip()
     usage = response.usage
 
-    model_response = ModelResponse(text, dict(usage))
-
-    if results is not None:
-        results.append(model_response)
-    
-    return model_response
+    return ModelResponse(text, dict(usage))
 
 @torch.no_grad()
 def compute_perplexity(text, model, tokenizer, device="cuda"):
@@ -82,6 +77,26 @@ def load_model(model_path="gpt2", tokenizer_path="gpt2", model_args=None, cache_
 def evaluate_lm(prompt, model, tokenizer, model_args=None, device="cuda"):
     perplexity = compute_perplexity(prompt, model, tokenizer, device=device)
     return perplexity
+
+async def batch_chat_completion(client, batch, model, model_args):
+    tasks = []
+    
+    for sample in batch:
+        tasks.append(asyncio.create_task(chat_completion(client, [{"role": "user", "content": sample["prompt"].strip()}], model=model, model_args=model_args)))
+    
+    results = await asyncio.gather(*tasks)
+
+    return results
+
+async def batch_text_completion(client, batch, model, model_args):
+    tasks = []
+    
+    for sample in batch:
+        tasks.append(asyncio.create_task(text_completion(client, sample["prompt"].strip(), model=model, model_args=model_args)))
+    
+    results = await asyncio.gather(*tasks)
+
+    return results
 
 async def main():
     load_dotenv() 
@@ -166,7 +181,7 @@ async def main():
     
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    if args.model_path:
+    if args.model not in API_MODELS and args.model_path:
         model, tokenizer = load_model(model_path=args.model_path, tokenizer_path=args.tokenizer_path, cache_dir=args.cache_dir, device=device)
 
     model_args = {
@@ -197,13 +212,9 @@ async def main():
 
             if args.model in API_MODELS:
                 if args.model in CHAT_COMPLETION_MODELS:
-                    async with asyncio.TaskGroup() as tg:
-                        for sample in filtered_batch:
-                            tg.create_task(chat_completion(client, [{"role": "user", "content": sample["prompt"].strip()}], model=args.model, model_args=model_args, results=results))
+                    results = await batch_chat_completion(client, filtered_batch, args.model, model_args)
                 elif args.model in TEXT_COMPLETION_MODELS:
-                    async with asyncio.TaskGroup() as tg:
-                        for sample in filtered_batch:
-                            tg.create_task(text_completion(client, sample["prompt"].strip(), model=args.model, model_args=model_args, results=results))
+                    results = await batch_text_completion(client, filtered_batch, args.model, model_args)
                 else:
                     raise ValueError(f"Model {args.model} not supported")
 

@@ -1,9 +1,9 @@
 #!/bin/bash
 
 experiment=${1:-"v_sent"}
-model=${2:-"gpt-3.5-turbo"}
-openai_api_key=${3}
-input_dir=${4:-${experiment}}
+model=${2:-"gpt-4"}
+input_dir=${3:-${experiment}}
+openai_api_key=${4}
 data_dir="../experiments/data"
 outputs_dir="../experiments/outputs"
 
@@ -20,14 +20,13 @@ outputs_dir="../experiments/outputs"
 for jsonfile in ${data_dir}/tr/btwd/final/eval/temp_en/${input_dir}/*.json
 do
     echo "Evaluating ${jsonfile}"
-    # python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_en/${experiment} -k ${openai_api_key} -m ${model} -ia > ./logs/$(basename ${jsonfile}).log 2>&1 &
-    python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_en/${experiment} -k ${openai_api_key} -m ${model}
+    python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_en/final/${experiment} -m ${model} -ia -b 4
 done
 
 for jsonfile in ${data_dir}/tr/btwd/final/eval/temp_tr/${input_dir}/*.json
 do
     echo "Evaluating ${jsonfile}"
-    python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_tr/${experiment} -k ${openai_api_key} -m ${model} -ia > ./logs/$(basename ${jsonfile}).log 2>&1 &
+    python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_tr/final/${experiment} -m ${model} -ia -b 4
 done
 
 # for jsonfile in ${data_dir}/tr/sense/eval/temp_en/${input_dir}/*.json

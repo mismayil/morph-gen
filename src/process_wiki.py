@@ -256,25 +256,29 @@ def process_wiki_for_btwd(btwd_path):
 
 
 
-def generate_btwd_document(filepath: str):
+def generate_btwd_documents(filepath: str):
     data = read_json(filepath)
+    documents = []
     for i, (root, root_data) in enumerate(data["data"].items()):
         document = Document(text=root, id=i, metadata={"root_data": root_data})
-        yield document
+        documents.append(document)
+    return documents
 
 def filter_decompositions(data: DocumentsPipeline, rank: int = 0, world_size: int = 1) -> DocumentsPipeline:
+    pathlib.Path(f"{DUMP_DATA_DIR}/btwd_prep_filtered").mkdir(parents=True, exist_ok=True)
+    
     for document in data:
         samples = []
-        for i, (derivation, derivation_data) in enumerate(document.metadata["root_data"].items()):
+        for derivation, derivation_data in tqdm(document.metadaqta["root_data"].items(), total=len(document.metadata["root_data"]), desc=f"Processing data for root {document.text}"):
             decompositions = infer_best_decompositions_tr(derivation, derivation_data, TR_DICTIONARY)
             if decompositions:
                 samples.append({"root": document.text, "derivation": derivation, "decompositions": decompositions})
-        write_json({"data": samples}, f"{DUMP_DATA_DIR}/btwd_prep_filtered/{document.id}_{i}.json")
+        write_json({"data": samples}, f"{DUMP_DATA_DIR}/btwd_prep_filtered/{document.id}.json")
         yield document
 
 btwd_filtering = LocalPipelineExecutor(
     pipeline=[
-        generate_btwd_document(f"{MNT_DIR}/nlpdata1/home/ismayilz/project-morphgen/morph-gen/data/tr/bilkent-turkish-writings/btwd_prep.json"),
+        generate_btwd_documents(f"{MNT_DIR}/nlpdata1/home/ismayilz/project-morphgen/morph-gen/data/tr/bilkent-turkish-writings/btwd_prep.json"),
         filter_decompositions
     ],
     logging_dir=f"{DUMP_DATA_DIR}/btwd_filtering_logs/",
