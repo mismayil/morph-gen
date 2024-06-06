@@ -1,0 +1,2149 @@
+{
+    "metadata": {
+        "datapath": "../experiments/data/tr/btwd/temp_en/v6/btwd_prep_post_sample_morph_eval_morph_gen_en_s5.json",
+        "model": "gpt-4",
+        "temperature": 0.3,
+        "max_tokens": 40,
+        "top_p": 1,
+        "frequency_penalty": 0,
+        "presence_penalty": 0
+    },
+    "metrics": {
+        "usage": {
+            "prompt_tokens": 23506,
+            "completion_tokens": 509,
+            "total_tokens": 24015
+        },
+        "cost": {
+            "input": 0.70518,
+            "output": 0.03054,
+            "total": 0.73572
+        },
+        "accuracy": 0.55,
+        "faithfulness": 0.64,
+        "accuracy_by_suffix_len": {
+            "2": 0.7428571428571429,
+            "3": 0.5526315789473685,
+            "4": 0.46153846153846156,
+            "5": 0.16666666666666666,
+            "6": 0.0
+        },
+        "num_samples_by_suffix_len": {
+            "2": 35,
+            "3": 38,
+            "4": 13,
+            "5": 12,
+            "6": 2
+        }
+    },
+    "data": [
+        {
+            "id": "btwd-0",
+            "root": "dol",
+            "suffixes": [
+                "an",
+                "mış"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: omuz\nSuffixes: 'ı','lar'\nAnswer: omuzları\n\nExample 2:\nWord root: enerji\nSuffixes: 'e','m'\nAnswer: enerjime\n\nExample 3:\nWord root: il\nSuffixes: 'ki','ne'\nAnswer: ilkine\n\nExample 4:\nWord root: tut\nSuffixes: 'u','umuz'\nAnswer: tutumuzu\n\nExample 5:\nWord root: ver\nSuffixes: 'miş','me'\nAnswer: vermemiş\n\nExample 6:\nWord root: dol\nSuffixes: 'mış','an'\nAnswer: ",
+            "reference": "dolanmış",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "dolmuşan",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 209,
+                "total_tokens": 214
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-1",
+            "root": "omuz",
+            "suffixes": [
+                "lar",
+                "ı"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: dol\nSuffixes: 'an','mış'\nAnswer: dolanmış\n\nExample 2:\nWord root: enerji\nSuffixes: 'e','m'\nAnswer: enerjime\n\nExample 3:\nWord root: il\nSuffixes: 'ki','ne'\nAnswer: ilkine\n\nExample 4:\nWord root: tut\nSuffixes: 'umuz','u'\nAnswer: tutumuzu\n\nExample 5:\nWord root: ver\nSuffixes: 'miş','me'\nAnswer: vermemiş\n\nExample 6:\nWord root: omuz\nSuffixes: 'lar','ı'\nAnswer: ",
+            "reference": "omuzları",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "omuzları",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 210,
+                "total_tokens": 213
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-2",
+            "root": "kaldır",
+            "suffixes": [
+                "abil",
+                "mek",
+                "tir"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: koş\nSuffixes: 'tur','um','ur'\nAnswer: koştururum\n\nExample 2:\nWord root: ağabey\nSuffixes: 'i','ler','imiz'\nAnswer: ağabeylerimizi\n\nExample 3:\nWord root: sahil\nSuffixes: 'i','ni','ler'\nAnswer: sahillerini\n\nExample 4:\nWord root: kukla\nSuffixes: 'ydı','ı','lar'\nAnswer: kuklalarıydı\n\nExample 5:\nWord root: kendi\nSuffixes: 'ler','i','dir'\nAnswer: kendileridir\n\nExample 6:\nWord root: kaldır\nSuffixes: 'mek','abil','tir'\nAnswer: ",
+            "reference": "kaldırabilmektir",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "kaldırabiltirmek",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 240,
+                "total_tokens": 247
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-3",
+            "root": "enerji",
+            "suffixes": [
+                "m",
+                "e"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: dol\nSuffixes: 'an','mış'\nAnswer: dolanmış\n\nExample 2:\nWord root: omuz\nSuffixes: 'ı','lar'\nAnswer: omuzları\n\nExample 3:\nWord root: il\nSuffixes: 'ki','ne'\nAnswer: ilkine\n\nExample 4:\nWord root: tut\nSuffixes: 'umuz','u'\nAnswer: tutumuzu\n\nExample 5:\nWord root: ver\nSuffixes: 'me','miş'\nAnswer: vermemiş\n\nExample 6:\nWord root: enerji\nSuffixes: 'e','m'\nAnswer: ",
+            "reference": "enerjime",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "enerjime",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 210,
+                "total_tokens": 213
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-4",
+            "root": "iş",
+            "suffixes": [
+                "le",
+                "me",
+                "ci",
+                "liğ",
+                "i"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: at\nSuffixes: 'yacağ','ma','ı','nı','ıl'\nAnswer: atılmayacağını\n\nExample 2:\nWord root: gel\nSuffixes: 'im','iş','diğ','tir','i'\nAnswer: geliştirdiğimi\n\nExample 3:\nWord root: soru\nSuffixes: 'suz','luk','ı','m','lar'\nAnswer: sorumsuzlukları\n\nExample 4:\nWord root: iste\nSuffixes: 'ni','dik','me','i','ler'\nAnswer: istemediklerini\n\nExample 5:\nWord root: kavra\nSuffixes: 'z','ya','dı','ma','m'\nAnswer: kavrayamazdım\n\nExample 6:\nWord root: iş\nSuffixes: 'le','me','i','ci','liğ'\nAnswer: ",
+            "reference": "işlemeciliği",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "işlemeçiliği",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 271,
+                "total_tokens": 277
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-5",
+            "root": "il",
+            "suffixes": [
+                "ki",
+                "ne"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nAnswer: dolanmış\n\nExample 2:\nWord root: omuz\nSuffixes: 'lar','ı'\nAnswer: omuzları\n\nExample 3:\nWord root: enerji\nSuffixes: 'm','e'\nAnswer: enerjime\n\nExample 4:\nWord root: tut\nSuffixes: 'u','umuz'\nAnswer: tutumuzu\n\nExample 5:\nWord root: ver\nSuffixes: 'me','miş'\nAnswer: vermemiş\n\nExample 6:\nWord root: il\nSuffixes: 'ki','ne'\nAnswer: ",
+            "reference": "ilkine",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "ilkinе",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 211,
+                "total_tokens": 214
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-6",
+            "root": "tut",
+            "suffixes": [
+                "umuz",
+                "u"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nAnswer: dolanmış\n\nExample 2:\nWord root: omuz\nSuffixes: 'ı','lar'\nAnswer: omuzları\n\nExample 3:\nWord root: enerji\nSuffixes: 'm','e'\nAnswer: enerjime\n\nExample 4:\nWord root: il\nSuffixes: 'ne','ki'\nAnswer: ilkine\n\nExample 5:\nWord root: ver\nSuffixes: 'miş','me'\nAnswer: vermemiş\n\nExample 6:\nWord root: tut\nSuffixes: 'u','umuz'\nAnswer: ",
+            "reference": "tutumuzu",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "tutumuzu",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 210,
+                "total_tokens": 214
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-7",
+            "root": "ver",
+            "suffixes": [
+                "me",
+                "miş"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: dol\nSuffixes: 'an','mış'\nAnswer: dolanmış\n\nExample 2:\nWord root: omuz\nSuffixes: 'ı','lar'\nAnswer: omuzları\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nAnswer: enerjime\n\nExample 4:\nWord root: il\nSuffixes: 'ki','ne'\nAnswer: ilkine\n\nExample 5:\nWord root: tut\nSuffixes: 'umuz','u'\nAnswer: tutumuzu\n\nExample 6:\nWord root: ver\nSuffixes: 'miş','me'\nAnswer: ",
+            "reference": "vermemiş",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "vermişme",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 210,
+                "total_tokens": 214
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-8",
+            "root": "koş",
+            "suffixes": [
+                "tur",
+                "ur",
+                "um"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'mek','tir','abil'\nAnswer: kaldırabilmektir\n\nExample 2:\nWord root: ağabey\nSuffixes: 'ler','imiz','i'\nAnswer: ağabeylerimizi\n\nExample 3:\nWord root: sahil\nSuffixes: 'ni','ler','i'\nAnswer: sahillerini\n\nExample 4:\nWord root: kukla\nSuffixes: 'lar','ı','ydı'\nAnswer: kuklalarıydı\n\nExample 5:\nWord root: kendi\nSuffixes: 'i','dir','ler'\nAnswer: kendileridir\n\nExample 6:\nWord root: koş\nSuffixes: 'ur','tur','um'\nAnswer: ",
+            "reference": "koştururum",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "koştururum",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 242,
+                "total_tokens": 247
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-9",
+            "root": "at",
+            "suffixes": [
+                "ıl",
+                "ma",
+                "yacağ",
+                "ı",
+                "nı"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: iş\nSuffixes: 'liğ','me','le','i','ci'\nAnswer: işlemeciliği\n\nExample 2:\nWord root: gel\nSuffixes: 'diğ','im','iş','tir','i'\nAnswer: geliştirdiğimi\n\nExample 3:\nWord root: soru\nSuffixes: 'ı','suz','m','lar','luk'\nAnswer: sorumsuzlukları\n\nExample 4:\nWord root: iste\nSuffixes: 'i','dik','ni','me','ler'\nAnswer: istemediklerini\n\nExample 5:\nWord root: kavra\nSuffixes: 'ya','m','z','ma','dı'\nAnswer: kavrayamazdım\n\nExample 6:\nWord root: at\nSuffixes: 'nı','ı','yacağ','ıl','ma'\nAnswer: ",
+            "reference": "atılmayacağını",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "atılamayacağını",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 269,
+                "total_tokens": 276
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-10",
+            "root": "ağabey",
+            "suffixes": [
+                "ler",
+                "imiz",
+                "i"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'mek','tir','abil'\nAnswer: kaldırabilmektir\n\nExample 2:\nWord root: koş\nSuffixes: 'tur','ur','um'\nAnswer: koştururum\n\nExample 3:\nWord root: sahil\nSuffixes: 'ler','ni','i'\nAnswer: sahillerini\n\nExample 4:\nWord root: kukla\nSuffixes: 'lar','ı','ydı'\nAnswer: kuklalarıydı\n\nExample 5:\nWord root: kendi\nSuffixes: 'dir','i','ler'\nAnswer: kendileridir\n\nExample 6:\nWord root: ağabey\nSuffixes: 'i','imiz','ler'\nAnswer: ",
+            "reference": "ağabeylerimizi",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "ağabeylerimizi",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 240,
+                "total_tokens": 247
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-11",
+            "root": "karşı",
+            "suffixes": [
+                "ya",
+                "dır"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: dol\nSuffixes: 'an','mış'\nAnswer: dolanmış\n\nExample 2:\nWord root: omuz\nSuffixes: 'ı','lar'\nAnswer: omuzları\n\nExample 3:\nWord root: enerji\nSuffixes: 'm','e'\nAnswer: enerjime\n\nExample 4:\nWord root: il\nSuffixes: 'ne','ki'\nAnswer: ilkine\n\nExample 5:\nWord root: tut\nSuffixes: 'u','umuz'\nAnswer: tutumuzu\n\nExample 6:\nWord root: karşı\nSuffixes: 'ya','dır'\nAnswer: ",
+            "reference": "karşıyadır",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "karşıyadır",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 211,
+                "total_tokens": 216
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-12",
+            "root": "gel",
+            "suffixes": [
+                "iş",
+                "tir",
+                "diğ",
+                "im",
+                "i"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: iş\nSuffixes: 'liğ','me','le','ci','i'\nAnswer: işlemeciliği\n\nExample 2:\nWord root: at\nSuffixes: 'yacağ','nı','ma','ıl','ı'\nAnswer: atılmayacağını\n\nExample 3:\nWord root: soru\nSuffixes: 'm','ı','lar','suz','luk'\nAnswer: sorumsuzlukları\n\nExample 4:\nWord root: iste\nSuffixes: 'dik','ni','me','i','ler'\nAnswer: istemediklerini\n\nExample 5:\nWord root: kavra\nSuffixes: 'z','dı','m','ya','ma'\nAnswer: kavrayamazdım\n\nExample 6:\nWord root: gel\nSuffixes: 'i','im','diğ','tir','iş'\nAnswer: ",
+            "reference": "geliştirdiğimi",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "geldiğimi",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 269,
+                "total_tokens": 274
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-13",
+            "root": "sahil",
+            "suffixes": [
+                "ler",
+                "i",
+                "ni"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'tir','abil','mek'\nAnswer: kaldırabilmektir\n\nExample 2:\nWord root: koş\nSuffixes: 'ur','um','tur'\nAnswer: koştururum\n\nExample 3:\nWord root: ağabey\nSuffixes: 'imiz','ler','i'\nAnswer: ağabeylerimizi\n\nExample 4:\nWord root: kukla\nSuffixes: 'lar','ı','ydı'\nAnswer: kuklalarıydı\n\nExample 5:\nWord root: kendi\nSuffixes: 'dir','i','ler'\nAnswer: kendileridir\n\nExample 6:\nWord root: sahil\nSuffixes: 'ni','i','ler'\nAnswer: ",
+            "reference": "sahillerini",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "sahillerini",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 243,
+                "total_tokens": 247
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-14",
+            "root": "soru",
+            "suffixes": [
+                "m",
+                "suz",
+                "luk",
+                "lar",
+                "ı"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: iş\nSuffixes: 'le','me','ci','i','liğ'\nAnswer: işlemeciliği\n\nExample 2:\nWord root: at\nSuffixes: 'yacağ','nı','ma','ı','ıl'\nAnswer: atılmayacağını\n\nExample 3:\nWord root: gel\nSuffixes: 'iş','i','im','tir','diğ'\nAnswer: geliştirdiğimi\n\nExample 4:\nWord root: iste\nSuffixes: 'ler','i','dik','ni','me'\nAnswer: istemediklerini\n\nExample 5:\nWord root: kavra\nSuffixes: 'ma','dı','ya','z','m'\nAnswer: kavrayamazdım\n\nExample 6:\nWord root: soru\nSuffixes: 'ı','m','suz','luk','lar'\nAnswer: ",
+            "reference": "sorumsuzlukları",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "sorusuzluklarım",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 270,
+                "total_tokens": 277
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-15",
+            "root": "gurur",
+            "suffixes": [
+                "un",
+                "un"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: dol\nSuffixes: 'an','mış'\nAnswer: dolanmış\n\nExample 2:\nWord root: omuz\nSuffixes: 'lar','ı'\nAnswer: omuzları\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nAnswer: enerjime\n\nExample 4:\nWord root: il\nSuffixes: 'ne','ki'\nAnswer: ilkine\n\nExample 5:\nWord root: tut\nSuffixes: 'u','umuz'\nAnswer: tutumuzu\n\nExample 6:\nWord root: gurur\nSuffixes: 'un','un'\nAnswer: ",
+            "reference": "gururunun",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "gururunun",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 211,
+                "total_tokens": 216
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-16",
+            "root": "iste",
+            "suffixes": [
+                "me",
+                "dik",
+                "ler",
+                "i",
+                "ni"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: iş\nSuffixes: 'i','ci','me','le','liğ'\nAnswer: işlemeciliği\n\nExample 2:\nWord root: at\nSuffixes: 'ıl','nı','ı','ma','yacağ'\nAnswer: atılmayacağını\n\nExample 3:\nWord root: gel\nSuffixes: 'im','diğ','i','tir','iş'\nAnswer: geliştirdiğimi\n\nExample 4:\nWord root: soru\nSuffixes: 'suz','lar','ı','m','luk'\nAnswer: sorumsuzlukları\n\nExample 5:\nWord root: kavra\nSuffixes: 'z','dı','m','ya','ma'\nAnswer: kavrayamazdım\n\nExample 6:\nWord root: iste\nSuffixes: 'i','ler','me','ni','dik'\nAnswer: ",
+            "reference": "istemediklerini",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "istemedenikleri",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 271,
+                "total_tokens": 275
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-17",
+            "root": "yarım",
+            "suffixes": [
+                "lar",
+                "ımız"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nAnswer: dolanmış\n\nExample 2:\nWord root: omuz\nSuffixes: 'lar','ı'\nAnswer: omuzları\n\nExample 3:\nWord root: enerji\nSuffixes: 'm','e'\nAnswer: enerjime\n\nExample 4:\nWord root: il\nSuffixes: 'ki','ne'\nAnswer: ilkine\n\nExample 5:\nWord root: tut\nSuffixes: 'u','umuz'\nAnswer: tutumuzu\n\nExample 6:\nWord root: yarım\nSuffixes: 'ımız','lar'\nAnswer: ",
+            "reference": "yarımlarımız",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "yarımlarımız",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 212,
+                "total_tokens": 218
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-18",
+            "root": "kukla",
+            "suffixes": [
+                "lar",
+                "ı",
+                "ydı"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'mek','tir','abil'\nAnswer: kaldırabilmektir\n\nExample 2:\nWord root: koş\nSuffixes: 'ur','tur','um'\nAnswer: koştururum\n\nExample 3:\nWord root: ağabey\nSuffixes: 'ler','i','imiz'\nAnswer: ağabeylerimizi\n\nExample 4:\nWord root: sahil\nSuffixes: 'ler','ni','i'\nAnswer: sahillerini\n\nExample 5:\nWord root: kendi\nSuffixes: 'dir','ler','i'\nAnswer: kendileridir\n\nExample 6:\nWord root: kukla\nSuffixes: 'ı','lar','ydı'\nAnswer: ",
+            "reference": "kuklalarıydı",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "kuklalarıydı",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 241,
+                "total_tokens": 248
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-19",
+            "root": "kendi",
+            "suffixes": [
+                "ler",
+                "i",
+                "dir"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'tir','mek','abil'\nAnswer: kaldırabilmektir\n\nExample 2:\nWord root: koş\nSuffixes: 'ur','um','tur'\nAnswer: koştururum\n\nExample 3:\nWord root: ağabey\nSuffixes: 'imiz','i','ler'\nAnswer: ağabeylerimizi\n\nExample 4:\nWord root: sahil\nSuffixes: 'i','ler','ni'\nAnswer: sahillerini\n\nExample 5:\nWord root: kukla\nSuffixes: 'ydı','lar','ı'\nAnswer: kuklalarıydı\n\nExample 6:\nWord root: kendi\nSuffixes: 'dir','ler','i'\nAnswer: ",
+            "reference": "kendileridir",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "kendileridir",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 243,
+                "total_tokens": 248
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-20",
+            "root": "eş",
+            "suffixes": [
+                "in",
+                "in"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: dol\nSuffixes: 'an','mış'\nAnswer: dolanmış\n\nExample 2:\nWord root: omuz\nSuffixes: 'lar','ı'\nAnswer: omuzları\n\nExample 3:\nWord root: enerji\nSuffixes: 'm','e'\nAnswer: enerjime\n\nExample 4:\nWord root: il\nSuffixes: 'ki','ne'\nAnswer: ilkine\n\nExample 5:\nWord root: tut\nSuffixes: 'u','umuz'\nAnswer: tutumuzu\n\nExample 6:\nWord root: eş\nSuffixes: 'in','in'\nAnswer: ",
+            "reference": "eşinin",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "eşinin",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 210,
+                "total_tokens": 213
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-21",
+            "root": "yaz",
+            "suffixes": [
+                "mış",
+                "tı",
+                "m"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'mek','abil','tir'\nAnswer: kaldırabilmektir\n\nExample 2:\nWord root: koş\nSuffixes: 'tur','um','ur'\nAnswer: koştururum\n\nExample 3:\nWord root: ağabey\nSuffixes: 'ler','imiz','i'\nAnswer: ağabeylerimizi\n\nExample 4:\nWord root: sahil\nSuffixes: 'ni','i','ler'\nAnswer: sahillerini\n\nExample 5:\nWord root: kukla\nSuffixes: 'lar','ı','ydı'\nAnswer: kuklalarıydı\n\nExample 6:\nWord root: yaz\nSuffixes: 'tı','m','mış'\nAnswer: ",
+            "reference": "yazmıştım",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "yazmıştım",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 244,
+                "total_tokens": 250
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-22",
+            "root": "hücre",
+            "suffixes": [
+                "miz",
+                "de"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nAnswer: dolanmış\n\nExample 2:\nWord root: omuz\nSuffixes: 'ı','lar'\nAnswer: omuzları\n\nExample 3:\nWord root: enerji\nSuffixes: 'm','e'\nAnswer: enerjime\n\nExample 4:\nWord root: il\nSuffixes: 'ki','ne'\nAnswer: ilkine\n\nExample 5:\nWord root: tut\nSuffixes: 'u','umuz'\nAnswer: tutumuzu\n\nExample 6:\nWord root: hücre\nSuffixes: 'miz','de'\nAnswer: ",
+            "reference": "hücremizde",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "hücremizde",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 212,
+                "total_tokens": 218
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-23",
+            "root": "düzel",
+            "suffixes": [
+                "t",
+                "mek",
+                "te"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'abil','tir','mek'\nAnswer: kaldırabilmektir\n\nExample 2:\nWord root: koş\nSuffixes: 'um','ur','tur'\nAnswer: koştururum\n\nExample 3:\nWord root: ağabey\nSuffixes: 'imiz','ler','i'\nAnswer: ağabeylerimizi\n\nExample 4:\nWord root: sahil\nSuffixes: 'ler','i','ni'\nAnswer: sahillerini\n\nExample 5:\nWord root: kukla\nSuffixes: 'lar','ı','ydı'\nAnswer: kuklalarıydı\n\nExample 6:\nWord root: düzel\nSuffixes: 'te','t','mek'\nAnswer: ",
+            "reference": "düzeltmekte",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "düzeltmekte",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 243,
+                "total_tokens": 248
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-24",
+            "root": "tuğla",
+            "suffixes": [
+                "lar",
+                "ın",
+                "ı"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'abil','mek','tir'\nAnswer: kaldırabilmektir\n\nExample 2:\nWord root: koş\nSuffixes: 'tur','ur','um'\nAnswer: koştururum\n\nExample 3:\nWord root: ağabey\nSuffixes: 'i','ler','imiz'\nAnswer: ağabeylerimizi\n\nExample 4:\nWord root: sahil\nSuffixes: 'i','ni','ler'\nAnswer: sahillerini\n\nExample 5:\nWord root: kukla\nSuffixes: 'ydı','ı','lar'\nAnswer: kuklalarıydı\n\nExample 6:\nWord root: tuğla\nSuffixes: 'lar','ı','ın'\nAnswer: ",
+            "reference": "tuğlalarını",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "tuğlalarının",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 244,
+                "total_tokens": 249
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-25",
+            "root": "bas",
+            "suffixes": [
+                "tır",
+                "dığ",
+                "ı",
+                "nda"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kazan\nSuffixes: 'ıyor','m','dır','du'\nAnswer: kazandırmıyordu\n\nExample 2:\nWord root: etki\nSuffixes: 'i','ydi','yeceğ','le'\nAnswer: etkileyeceğiydi\n\nExample 3:\nWord root: kur\nSuffixes: 'ma','a','z','dı'\nAnswer: kuramazdı\n\nExample 4:\nWord root: birey\nSuffixes: 'ci','sel','i','liğ'\nAnswer: bireyselciliği\n\nExample 5:\nWord root: oluş\nSuffixes: 'im','abil','ir','tur'\nAnswer: oluşturabilirim\n\nExample 6:\nWord root: bas\nSuffixes: 'ı','dığ','nda','tır'\nAnswer: ",
+            "reference": "bastırdığında",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "bastığındadır",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 262,
+                "total_tokens": 267
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-26",
+            "root": "ferah",
+            "suffixes": [
+                "la",
+                "t",
+                "abil",
+                "eceğ",
+                "im",
+                "i"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: de\nSuffixes: 'nden','n','me','e','me','si'\nAnswer: denememesinden\n\nExample 2:\nWord root: ferah\nSuffixes: 'abil','la','im','eceğ','t','i'\nAnswer: ",
+            "reference": "ferahlatabileceğimi",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "ferahlatılabileceğimi",
+            "usage": {
+                "completion_tokens": 9,
+                "prompt_tokens": 133,
+                "total_tokens": 142
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-27",
+            "root": "unut",
+            "suffixes": [
+                "ma",
+                "sınlar"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: dol\nSuffixes: 'an','mış'\nAnswer: dolanmış\n\nExample 2:\nWord root: omuz\nSuffixes: 'ı','lar'\nAnswer: omuzları\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nAnswer: enerjime\n\nExample 4:\nWord root: il\nSuffixes: 'ki','ne'\nAnswer: ilkine\n\nExample 5:\nWord root: tut\nSuffixes: 'umuz','u'\nAnswer: tutumuzu\n\nExample 6:\nWord root: unut\nSuffixes: 'sınlar','ma'\nAnswer: ",
+            "reference": "unutmasınlar",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "unutmasınlar",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 212,
+                "total_tokens": 217
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-28",
+            "root": "bark",
+            "suffixes": [
+                "ın",
+                "dan"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nAnswer: dolanmış\n\nExample 2:\nWord root: omuz\nSuffixes: 'lar','ı'\nAnswer: omuzları\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nAnswer: enerjime\n\nExample 4:\nWord root: il\nSuffixes: 'ki','ne'\nAnswer: ilkine\n\nExample 5:\nWord root: tut\nSuffixes: 'umuz','u'\nAnswer: tutumuzu\n\nExample 6:\nWord root: bark\nSuffixes: 'ın','dan'\nAnswer: ",
+            "reference": "barkından",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "barkından",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 209,
+                "total_tokens": 212
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-29",
+            "root": "yaz",
+            "suffixes": [
+                "ma",
+                "l",
+                "ım"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'mek','tir','abil'\nAnswer: kaldırabilmektir\n\nExample 2:\nWord root: koş\nSuffixes: 'tur','um','ur'\nAnswer: koştururum\n\nExample 3:\nWord root: ağabey\nSuffixes: 'ler','imiz','i'\nAnswer: ağabeylerimizi\n\nExample 4:\nWord root: sahil\nSuffixes: 'i','ler','ni'\nAnswer: sahillerini\n\nExample 5:\nWord root: kukla\nSuffixes: 'ydı','ı','lar'\nAnswer: kuklalarıydı\n\nExample 6:\nWord root: yaz\nSuffixes: 'ım','ma','l'\nAnswer: ",
+            "reference": "yazmalım",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "yazmalım",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 242,
+                "total_tokens": 246
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-30",
+            "root": "kazan",
+            "suffixes": [
+                "dır",
+                "m",
+                "ıyor",
+                "du"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: bas\nSuffixes: 'ı','nda','dığ','tır'\nAnswer: bastırdığında\n\nExample 2:\nWord root: etki\nSuffixes: 'yeceğ','ydi','i','le'\nAnswer: etkileyeceğiydi\n\nExample 3:\nWord root: kur\nSuffixes: 'ma','a','z','dı'\nAnswer: kuramazdı\n\nExample 4:\nWord root: birey\nSuffixes: 'ci','liğ','i','sel'\nAnswer: bireyselciliği\n\nExample 5:\nWord root: oluş\nSuffixes: 'abil','im','tur','ir'\nAnswer: oluşturabilirim\n\nExample 6:\nWord root: kazan\nSuffixes: 'ıyor','dır','m','du'\nAnswer: ",
+            "reference": "kazandırmıyordu",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "kazandırıyormuştur",
+            "usage": {
+                "completion_tokens": 10,
+                "prompt_tokens": 259,
+                "total_tokens": 269
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-31",
+            "root": "büyü",
+            "suffixes": [
+                "ye",
+                "me",
+                "dik"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'abil','mek','tir'\nAnswer: kaldırabilmektir\n\nExample 2:\nWord root: koş\nSuffixes: 'tur','ur','um'\nAnswer: koştururum\n\nExample 3:\nWord root: ağabey\nSuffixes: 'ler','i','imiz'\nAnswer: ağabeylerimizi\n\nExample 4:\nWord root: sahil\nSuffixes: 'ler','ni','i'\nAnswer: sahillerini\n\nExample 5:\nWord root: kukla\nSuffixes: 'ı','lar','ydı'\nAnswer: kuklalarıydı\n\nExample 6:\nWord root: büyü\nSuffixes: 'me','dik','ye'\nAnswer: ",
+            "reference": "büyüyemedik",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "büyümedikçe",
+            "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 245,
+                "total_tokens": 253
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-32",
+            "root": "yaka",
+            "suffixes": [
+                "lar",
+                "ken"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: dol\nSuffixes: 'an','mış'\nAnswer: dolanmış\n\nExample 2:\nWord root: omuz\nSuffixes: 'lar','ı'\nAnswer: omuzları\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nAnswer: enerjime\n\nExample 4:\nWord root: il\nSuffixes: 'ki','ne'\nAnswer: ilkine\n\nExample 5:\nWord root: tut\nSuffixes: 'umuz','u'\nAnswer: tutumuzu\n\nExample 6:\nWord root: yaka\nSuffixes: 'ken','lar'\nAnswer: ",
+            "reference": "yakalarken",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "yakalarıken",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 210,
+                "total_tokens": 215
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-33",
+            "root": "duvar",
+            "suffixes": [
+                "ın",
+                "da",
+                "ki"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'mek','tir','abil'\nAnswer: kaldırabilmektir\n\nExample 2:\nWord root: koş\nSuffixes: 'um','ur','tur'\nAnswer: koştururum\n\nExample 3:\nWord root: ağabey\nSuffixes: 'ler','imiz','i'\nAnswer: ağabeylerimizi\n\nExample 4:\nWord root: sahil\nSuffixes: 'ler','ni','i'\nAnswer: sahillerini\n\nExample 5:\nWord root: kukla\nSuffixes: 'ı','ydı','lar'\nAnswer: kuklalarıydı\n\nExample 6:\nWord root: duvar\nSuffixes: 'ki','da','ın'\nAnswer: ",
+            "reference": "duvarındaki",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "duvardakinin",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 243,
+                "total_tokens": 247
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-34",
+            "root": "kavra",
+            "suffixes": [
+                "ya",
+                "ma",
+                "z",
+                "dı",
+                "m"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: iş\nSuffixes: 'i','me','ci','liğ','le'\nAnswer: işlemeciliği\n\nExample 2:\nWord root: at\nSuffixes: 'ma','ı','yacağ','nı','ıl'\nAnswer: atılmayacağını\n\nExample 3:\nWord root: gel\nSuffixes: 'i','tir','diğ','im','iş'\nAnswer: geliştirdiğimi\n\nExample 4:\nWord root: soru\nSuffixes: 'lar','ı','suz','m','luk'\nAnswer: sorumsuzlukları\n\nExample 5:\nWord root: iste\nSuffixes: 'ni','dik','me','i','ler'\nAnswer: istemediklerini\n\nExample 6:\nWord root: kavra\nSuffixes: 'ya','ma','dı','z','m'\nAnswer: ",
+            "reference": "kavrayamazdım",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "kavramadıysam",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 269,
+                "total_tokens": 276
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-35",
+            "root": "etki",
+            "suffixes": [
+                "le",
+                "yeceğ",
+                "i",
+                "ydi"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: bas\nSuffixes: 'nda','ı','dığ','tır'\nAnswer: bastırdığında\n\nExample 2:\nWord root: kazan\nSuffixes: 'ıyor','m','dır','du'\nAnswer: kazandırmıyordu\n\nExample 3:\nWord root: kur\nSuffixes: 'z','dı','ma','a'\nAnswer: kuramazdı\n\nExample 4:\nWord root: birey\nSuffixes: 'i','liğ','sel','ci'\nAnswer: bireyselciliği\n\nExample 5:\nWord root: oluş\nSuffixes: 'ir','abil','tur','im'\nAnswer: oluşturabilirim\n\nExample 6:\nWord root: etki\nSuffixes: 'i','le','ydi','yeceğ'\nAnswer: ",
+            "reference": "etkileyeceğiydi",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "etkileyebileceğiydi",
+            "usage": {
+                "completion_tokens": 9,
+                "prompt_tokens": 259,
+                "total_tokens": 268
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-36",
+            "root": "somya",
+            "suffixes": [
+                "n",
+                "ın"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nAnswer: dolanmış\n\nExample 2:\nWord root: omuz\nSuffixes: 'lar','ı'\nAnswer: omuzları\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nAnswer: enerjime\n\nExample 4:\nWord root: il\nSuffixes: 'ne','ki'\nAnswer: ilkine\n\nExample 5:\nWord root: tut\nSuffixes: 'u','umuz'\nAnswer: tutumuzu\n\nExample 6:\nWord root: somya\nSuffixes: 'ın','n'\nAnswer: ",
+            "reference": "somyanın",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "somyanın",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 210,
+                "total_tokens": 214
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-37",
+            "root": "kur",
+            "suffixes": [
+                "a",
+                "ma",
+                "z",
+                "dı"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: bas\nSuffixes: 'nda','ı','tır','dığ'\nAnswer: bastırdığında\n\nExample 2:\nWord root: kazan\nSuffixes: 'ıyor','du','m','dır'\nAnswer: kazandırmıyordu\n\nExample 3:\nWord root: etki\nSuffixes: 'yeceğ','i','le','ydi'\nAnswer: etkileyeceğiydi\n\nExample 4:\nWord root: birey\nSuffixes: 'liğ','sel','ci','i'\nAnswer: bireyselciliği\n\nExample 5:\nWord root: oluş\nSuffixes: 'abil','tur','ir','im'\nAnswer: oluşturabilirim\n\nExample 6:\nWord root: kur\nSuffixes: 'z','dı','a','ma'\nAnswer: ",
+            "reference": "kuramazdı",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "kuramazdı",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 262,
+                "total_tokens": 267
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-38",
+            "root": "yer",
+            "suffixes": [
+                "leş",
+                "in"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: dol\nSuffixes: 'an','mış'\nAnswer: dolanmış\n\nExample 2:\nWord root: omuz\nSuffixes: 'lar','ı'\nAnswer: omuzları\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nAnswer: enerjime\n\nExample 4:\nWord root: il\nSuffixes: 'ki','ne'\nAnswer: ilkine\n\nExample 5:\nWord root: tut\nSuffixes: 'umuz','u'\nAnswer: tutumuzu\n\nExample 6:\nWord root: yer\nSuffixes: 'in','leş'\nAnswer: ",
+            "reference": "yerleşin",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "yerleşin",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 210,
+                "total_tokens": 214
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-39",
+            "root": "oku",
+            "suffixes": [
+                "r",
+                "un",
+                "a"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'tir','mek','abil'\nAnswer: kaldırabilmektir\n\nExample 2:\nWord root: koş\nSuffixes: 'ur','um','tur'\nAnswer: koştururum\n\nExample 3:\nWord root: ağabey\nSuffixes: 'imiz','i','ler'\nAnswer: ağabeylerimizi\n\nExample 4:\nWord root: sahil\nSuffixes: 'ler','i','ni'\nAnswer: sahillerini\n\nExample 5:\nWord root: kukla\nSuffixes: 'ı','lar','ydı'\nAnswer: kuklalarıydı\n\nExample 6:\nWord root: oku\nSuffixes: 'r','un','a'\nAnswer: ",
+            "reference": "okuruna",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "okuruna",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 243,
+                "total_tokens": 246
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-40",
+            "root": "birey",
+            "suffixes": [
+                "sel",
+                "ci",
+                "liğ",
+                "i"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: bas\nSuffixes: 'ı','dığ','nda','tır'\nAnswer: bastırdığında\n\nExample 2:\nWord root: kazan\nSuffixes: 'du','dır','m','ıyor'\nAnswer: kazandırmıyordu\n\nExample 3:\nWord root: etki\nSuffixes: 'yeceğ','i','le','ydi'\nAnswer: etkileyeceğiydi\n\nExample 4:\nWord root: kur\nSuffixes: 'a','dı','z','ma'\nAnswer: kuramazdı\n\nExample 5:\nWord root: oluş\nSuffixes: 'abil','im','tur','ir'\nAnswer: oluşturabilirim\n\nExample 6:\nWord root: birey\nSuffixes: 'sel','liğ','ci','i'\nAnswer: ",
+            "reference": "bireyselciliği",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "bireyselciğili",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 260,
+                "total_tokens": 267
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-41",
+            "root": "fincan",
+            "suffixes": [
+                "ın",
+                "da"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nAnswer: dolanmış\n\nExample 2:\nWord root: omuz\nSuffixes: 'ı','lar'\nAnswer: omuzları\n\nExample 3:\nWord root: enerji\nSuffixes: 'm','e'\nAnswer: enerjime\n\nExample 4:\nWord root: il\nSuffixes: 'ne','ki'\nAnswer: ilkine\n\nExample 5:\nWord root: tut\nSuffixes: 'u','umuz'\nAnswer: tutumuzu\n\nExample 6:\nWord root: fincan\nSuffixes: 'ın','da'\nAnswer: ",
+            "reference": "fincanında",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "fincanında",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 210,
+                "total_tokens": 214
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-42",
+            "root": "ağla",
+            "suffixes": [
+                "r",
+                "ı"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nAnswer: dolanmış\n\nExample 2:\nWord root: omuz\nSuffixes: 'ı','lar'\nAnswer: omuzları\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nAnswer: enerjime\n\nExample 4:\nWord root: il\nSuffixes: 'ne','ki'\nAnswer: ilkine\n\nExample 5:\nWord root: tut\nSuffixes: 'umuz','u'\nAnswer: tutumuzu\n\nExample 6:\nWord root: ağla\nSuffixes: 'r','ı'\nAnswer: ",
+            "reference": "ağları",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "ağlarım",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 211,
+                "total_tokens": 215
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-43",
+            "root": "san",
+            "suffixes": [
+                "ıl",
+                "sa"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: dol\nSuffixes: 'an','mış'\nAnswer: dolanmış\n\nExample 2:\nWord root: omuz\nSuffixes: 'ı','lar'\nAnswer: omuzları\n\nExample 3:\nWord root: enerji\nSuffixes: 'm','e'\nAnswer: enerjime\n\nExample 4:\nWord root: il\nSuffixes: 'ki','ne'\nAnswer: ilkine\n\nExample 5:\nWord root: tut\nSuffixes: 'umuz','u'\nAnswer: tutumuzu\n\nExample 6:\nWord root: san\nSuffixes: 'sa','ıl'\nAnswer: ",
+            "reference": "sanılsa",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "sansaıl",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 209,
+                "total_tokens": 212
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-44",
+            "root": "oluş",
+            "suffixes": [
+                "tur",
+                "abil",
+                "ir",
+                "im"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: bas\nSuffixes: 'dığ','ı','nda','tır'\nAnswer: bastırdığında\n\nExample 2:\nWord root: kazan\nSuffixes: 'du','dır','m','ıyor'\nAnswer: kazandırmıyordu\n\nExample 3:\nWord root: etki\nSuffixes: 'le','yeceğ','i','ydi'\nAnswer: etkileyeceğiydi\n\nExample 4:\nWord root: kur\nSuffixes: 'a','z','dı','ma'\nAnswer: kuramazdı\n\nExample 5:\nWord root: birey\nSuffixes: 'sel','ci','i','liğ'\nAnswer: bireyselciliği\n\nExample 6:\nWord root: oluş\nSuffixes: 'ir','abil','tur','im'\nAnswer: ",
+            "reference": "oluşturabilirim",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "oluşturabilirim",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 261,
+                "total_tokens": 266
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-45",
+            "root": "bulun",
+            "suffixes": [
+                "muş",
+                "tur"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: dol\nSuffixes: 'an','mış'\nAnswer: dolanmış\n\nExample 2:\nWord root: omuz\nSuffixes: 'lar','ı'\nAnswer: omuzları\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nAnswer: enerjime\n\nExample 4:\nWord root: il\nSuffixes: 'ne','ki'\nAnswer: ilkine\n\nExample 5:\nWord root: tut\nSuffixes: 'umuz','u'\nAnswer: tutumuzu\n\nExample 6:\nWord root: bulun\nSuffixes: 'muş','tur'\nAnswer: ",
+            "reference": "bulunmuştur",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "bulunmuştur",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 211,
+                "total_tokens": 216
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-46",
+            "root": "kıl",
+            "suffixes": [
+                "mak",
+                "tı"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nAnswer: dolanmış\n\nExample 2:\nWord root: omuz\nSuffixes: 'lar','ı'\nAnswer: omuzları\n\nExample 3:\nWord root: enerji\nSuffixes: 'm','e'\nAnswer: enerjime\n\nExample 4:\nWord root: il\nSuffixes: 'ki','ne'\nAnswer: ilkine\n\nExample 5:\nWord root: tut\nSuffixes: 'u','umuz'\nAnswer: tutumuzu\n\nExample 6:\nWord root: kıl\nSuffixes: 'tı','mak'\nAnswer: ",
+            "reference": "kılmaktı",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "kıltmak",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 211,
+                "total_tokens": 215
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-47",
+            "root": "a",
+            "suffixes": [
+                "n",
+                "laş",
+                "ıl",
+                "dı",
+                "m"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: iş\nSuffixes: 'le','ci','i','me','liğ'\nAnswer: işlemeciliği\n\nExample 2:\nWord root: at\nSuffixes: 'nı','ıl','yacağ','ı','ma'\nAnswer: atılmayacağını\n\nExample 3:\nWord root: gel\nSuffixes: 'iş','diğ','im','i','tir'\nAnswer: geliştirdiğimi\n\nExample 4:\nWord root: soru\nSuffixes: 'ı','lar','m','luk','suz'\nAnswer: sorumsuzlukları\n\nExample 5:\nWord root: iste\nSuffixes: 'i','ni','ler','dik','me'\nAnswer: istemediklerini\n\nExample 6:\nWord root: a\nSuffixes: 'ıl','laş','n','m','dı'\nAnswer: ",
+            "reference": "anlaşıldım",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "alandı",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 269,
+                "total_tokens": 271
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-48",
+            "root": "kır",
+            "suffixes": [
+                "ma",
+                "yın"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nAnswer: dolanmış\n\nExample 2:\nWord root: omuz\nSuffixes: 'lar','ı'\nAnswer: omuzları\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nAnswer: enerjime\n\nExample 4:\nWord root: il\nSuffixes: 'ki','ne'\nAnswer: ilkine\n\nExample 5:\nWord root: tut\nSuffixes: 'umuz','u'\nAnswer: tutumuzu\n\nExample 6:\nWord root: kır\nSuffixes: 'yın','ma'\nAnswer: ",
+            "reference": "kırmayın",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "kırınyınma",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 211,
+                "total_tokens": 217
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-49",
+            "root": "duy",
+            "suffixes": [
+                "ma",
+                "m",
+                "ı"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'abil','mek','tir'\nAnswer: kaldırabilmektir\n\nExample 2:\nWord root: koş\nSuffixes: 'tur','ur','um'\nAnswer: koştururum\n\nExample 3:\nWord root: ağabey\nSuffixes: 'i','imiz','ler'\nAnswer: ağabeylerimizi\n\nExample 4:\nWord root: sahil\nSuffixes: 'ler','ni','i'\nAnswer: sahillerini\n\nExample 5:\nWord root: kukla\nSuffixes: 'lar','ydı','ı'\nAnswer: kuklalarıydı\n\nExample 6:\nWord root: duy\nSuffixes: 'ma','m','ı'\nAnswer: ",
+            "reference": "duymamı",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "duymamı",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 243,
+                "total_tokens": 247
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-50",
+            "root": "iş",
+            "suffixes": [
+                "i",
+                "ni"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nAnswer: dolanmış\n\nExample 2:\nWord root: omuz\nSuffixes: 'ı','lar'\nAnswer: omuzları\n\nExample 3:\nWord root: enerji\nSuffixes: 'm','e'\nAnswer: enerjime\n\nExample 4:\nWord root: il\nSuffixes: 'ki','ne'\nAnswer: ilkine\n\nExample 5:\nWord root: tut\nSuffixes: 'umuz','u'\nAnswer: tutumuzu\n\nExample 6:\nWord root: iş\nSuffixes: 'i','ni'\nAnswer: ",
+            "reference": "işini",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "işini",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 209,
+                "total_tokens": 211
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-51",
+            "root": "in",
+            "suffixes": [
+                "er",
+                "iz"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: dol\nSuffixes: 'an','mış'\nAnswer: dolanmış\n\nExample 2:\nWord root: omuz\nSuffixes: 'lar','ı'\nAnswer: omuzları\n\nExample 3:\nWord root: enerji\nSuffixes: 'm','e'\nAnswer: enerjime\n\nExample 4:\nWord root: il\nSuffixes: 'ki','ne'\nAnswer: ilkine\n\nExample 5:\nWord root: tut\nSuffixes: 'umuz','u'\nAnswer: tutumuzu\n\nExample 6:\nWord root: in\nSuffixes: 'iz','er'\nAnswer: ",
+            "reference": "ineriz",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "inizer",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 209,
+                "total_tokens": 211
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-52",
+            "root": "güven",
+            "suffixes": [
+                "siz",
+                "liğ",
+                "in",
+                "den"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: bas\nSuffixes: 'ı','dığ','tır','nda'\nAnswer: bastırdığında\n\nExample 2:\nWord root: kazan\nSuffixes: 'm','dır','du','ıyor'\nAnswer: kazandırmıyordu\n\nExample 3:\nWord root: etki\nSuffixes: 'i','yeceğ','le','ydi'\nAnswer: etkileyeceğiydi\n\nExample 4:\nWord root: kur\nSuffixes: 'a','ma','z','dı'\nAnswer: kuramazdı\n\nExample 5:\nWord root: birey\nSuffixes: 'liğ','i','sel','ci'\nAnswer: bireyselciliği\n\nExample 6:\nWord root: güven\nSuffixes: 'liğ','siz','den','in'\nAnswer: ",
+            "reference": "güvensizliğinden",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "güvensizliğinden",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 263,
+                "total_tokens": 270
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-53",
+            "root": "sek",
+            "suffixes": [
+                "iz",
+                "e"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nAnswer: dolanmış\n\nExample 2:\nWord root: omuz\nSuffixes: 'ı','lar'\nAnswer: omuzları\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nAnswer: enerjime\n\nExample 4:\nWord root: il\nSuffixes: 'ne','ki'\nAnswer: ilkine\n\nExample 5:\nWord root: tut\nSuffixes: 'u','umuz'\nAnswer: tutumuzu\n\nExample 6:\nWord root: sek\nSuffixes: 'e','iz'\nAnswer: ",
+            "reference": "sekize",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "sekize",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 209,
+                "total_tokens": 211
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-54",
+            "root": "gökdelen",
+            "suffixes": [
+                "ler",
+                "imiz",
+                "e"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'tir','abil','mek'\nAnswer: kaldırabilmektir\n\nExample 2:\nWord root: koş\nSuffixes: 'um','ur','tur'\nAnswer: koştururum\n\nExample 3:\nWord root: ağabey\nSuffixes: 'imiz','ler','i'\nAnswer: ağabeylerimizi\n\nExample 4:\nWord root: sahil\nSuffixes: 'ni','i','ler'\nAnswer: sahillerini\n\nExample 5:\nWord root: kukla\nSuffixes: 'lar','ı','ydı'\nAnswer: kuklalarıydı\n\nExample 6:\nWord root: gökdelen\nSuffixes: 'e','imiz','ler'\nAnswer: ",
+            "reference": "gökdelenlerimize",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "gökdelenlerimize",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 245,
+                "total_tokens": 251
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-55",
+            "root": "gün",
+            "suffixes": [
+                "lük",
+                "ten"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nAnswer: dolanmış\n\nExample 2:\nWord root: omuz\nSuffixes: 'ı','lar'\nAnswer: omuzları\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nAnswer: enerjime\n\nExample 4:\nWord root: il\nSuffixes: 'ki','ne'\nAnswer: ilkine\n\nExample 5:\nWord root: tut\nSuffixes: 'umuz','u'\nAnswer: tutumuzu\n\nExample 6:\nWord root: gün\nSuffixes: 'lük','ten'\nAnswer: ",
+            "reference": "günlükten",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "günlükten",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 210,
+                "total_tokens": 215
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-56",
+            "root": "okul",
+            "suffixes": [
+                "umuz",
+                "a"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: dol\nSuffixes: 'an','mış'\nAnswer: dolanmış\n\nExample 2:\nWord root: omuz\nSuffixes: 'ı','lar'\nAnswer: omuzları\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nAnswer: enerjime\n\nExample 4:\nWord root: il\nSuffixes: 'ki','ne'\nAnswer: ilkine\n\nExample 5:\nWord root: tut\nSuffixes: 'u','umuz'\nAnswer: tutumuzu\n\nExample 6:\nWord root: okul\nSuffixes: 'umuz','a'\nAnswer: ",
+            "reference": "okulumuza",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "okulumuza",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 211,
+                "total_tokens": 215
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-57",
+            "root": "burk",
+            "suffixes": [
+                "ul",
+                "ma",
+                "dan"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'abil','tir','mek'\nAnswer: kaldırabilmektir\n\nExample 2:\nWord root: koş\nSuffixes: 'ur','um','tur'\nAnswer: koştururum\n\nExample 3:\nWord root: ağabey\nSuffixes: 'i','imiz','ler'\nAnswer: ağabeylerimizi\n\nExample 4:\nWord root: sahil\nSuffixes: 'ler','ni','i'\nAnswer: sahillerini\n\nExample 5:\nWord root: kukla\nSuffixes: 'lar','ydı','ı'\nAnswer: kuklalarıydı\n\nExample 6:\nWord root: burk\nSuffixes: 'ul','dan','ma'\nAnswer: ",
+            "reference": "burkulmadan",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "burkulmadan",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 243,
+                "total_tokens": 247
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-58",
+            "root": "çuvalla",
+            "suffixes": [
+                "ma",
+                "mız",
+                "a"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'mek','tir','abil'\nAnswer: kaldırabilmektir\n\nExample 2:\nWord root: koş\nSuffixes: 'um','tur','ur'\nAnswer: koştururum\n\nExample 3:\nWord root: ağabey\nSuffixes: 'imiz','i','ler'\nAnswer: ağabeylerimizi\n\nExample 4:\nWord root: sahil\nSuffixes: 'ler','i','ni'\nAnswer: sahillerini\n\nExample 5:\nWord root: kukla\nSuffixes: 'lar','ydı','ı'\nAnswer: kuklalarıydı\n\nExample 6:\nWord root: çuvalla\nSuffixes: 'ma','a','mız'\nAnswer: ",
+            "reference": "çuvallamamıza",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "çuvallamamızı",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 245,
+                "total_tokens": 252
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-59",
+            "root": "de",
+            "suffixes": [
+                "n",
+                "e",
+                "me",
+                "me",
+                "si",
+                "nden"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: ferah\nSuffixes: 'la','eceğ','abil','i','t','im'\nAnswer: ferahlatabileceğimi\n\nExample 2:\nWord root: de\nSuffixes: 'n','nden','si','e','me','me'\nAnswer: ",
+            "reference": "denememesinden",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "denemedenmeksi",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 136,
+                "total_tokens": 141
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-60",
+            "root": "galaksi",
+            "suffixes": [
+                "n",
+                "in"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nAnswer: dolanmış\n\nExample 2:\nWord root: omuz\nSuffixes: 'ı','lar'\nAnswer: omuzları\n\nExample 3:\nWord root: enerji\nSuffixes: 'm','e'\nAnswer: enerjime\n\nExample 4:\nWord root: il\nSuffixes: 'ne','ki'\nAnswer: ilkine\n\nExample 5:\nWord root: tut\nSuffixes: 'u','umuz'\nAnswer: tutumuzu\n\nExample 6:\nWord root: galaksi\nSuffixes: 'n','in'\nAnswer: ",
+            "reference": "galaksinin",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "galaksinin",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 210,
+                "total_tokens": 213
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-61",
+            "root": "inan",
+            "suffixes": [
+                "ma",
+                "sa",
+                "n"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'abil','tir','mek'\nAnswer: kaldırabilmektir\n\nExample 2:\nWord root: koş\nSuffixes: 'um','ur','tur'\nAnswer: koştururum\n\nExample 3:\nWord root: ağabey\nSuffixes: 'i','imiz','ler'\nAnswer: ağabeylerimizi\n\nExample 4:\nWord root: sahil\nSuffixes: 'i','ni','ler'\nAnswer: sahillerini\n\nExample 5:\nWord root: kukla\nSuffixes: 'lar','ydı','ı'\nAnswer: kuklalarıydı\n\nExample 6:\nWord root: inan\nSuffixes: 'ma','n','sa'\nAnswer: ",
+            "reference": "inanmasan",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "inansamana",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 243,
+                "total_tokens": 247
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-62",
+            "root": "tanı",
+            "suffixes": [
+                "n",
+                "ma",
+                "dığ",
+                "ı"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: bas\nSuffixes: 'tır','ı','nda','dığ'\nAnswer: bastırdığında\n\nExample 2:\nWord root: kazan\nSuffixes: 'du','m','ıyor','dır'\nAnswer: kazandırmıyordu\n\nExample 3:\nWord root: etki\nSuffixes: 'ydi','yeceğ','i','le'\nAnswer: etkileyeceğiydi\n\nExample 4:\nWord root: kur\nSuffixes: 'ma','z','dı','a'\nAnswer: kuramazdı\n\nExample 5:\nWord root: birey\nSuffixes: 'sel','ci','i','liğ'\nAnswer: bireyselciliği\n\nExample 6:\nWord root: tanı\nSuffixes: 'ı','ma','dığ','n'\nAnswer: ",
+            "reference": "tanınmadığı",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "tanımadığını",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 262,
+                "total_tokens": 267
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-63",
+            "root": "çık",
+            "suffixes": [
+                "ma",
+                "yış",
+                "ı"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'mek','tir','abil'\nAnswer: kaldırabilmektir\n\nExample 2:\nWord root: koş\nSuffixes: 'ur','tur','um'\nAnswer: koştururum\n\nExample 3:\nWord root: ağabey\nSuffixes: 'ler','i','imiz'\nAnswer: ağabeylerimizi\n\nExample 4:\nWord root: sahil\nSuffixes: 'ni','ler','i'\nAnswer: sahillerini\n\nExample 5:\nWord root: kukla\nSuffixes: 'ı','lar','ydı'\nAnswer: kuklalarıydı\n\nExample 6:\nWord root: çık\nSuffixes: 'ı','ma','yış'\nAnswer: ",
+            "reference": "çıkmayışı",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "çıkışımı",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 244,
+                "total_tokens": 249
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-64",
+            "root": "pay",
+            "suffixes": [
+                "laş",
+                "tığ",
+                "ı",
+                "nı"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: bas\nSuffixes: 'nda','ı','tır','dığ'\nAnswer: bastırdığında\n\nExample 2:\nWord root: kazan\nSuffixes: 'ıyor','m','du','dır'\nAnswer: kazandırmıyordu\n\nExample 3:\nWord root: etki\nSuffixes: 'le','ydi','i','yeceğ'\nAnswer: etkileyeceğiydi\n\nExample 4:\nWord root: kur\nSuffixes: 'z','ma','dı','a'\nAnswer: kuramazdı\n\nExample 5:\nWord root: birey\nSuffixes: 'i','ci','sel','liğ'\nAnswer: bireyselciliği\n\nExample 6:\nWord root: pay\nSuffixes: 'laş','tığ','nı','ı'\nAnswer: ",
+            "reference": "paylaştığını",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "paylaştığını",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 263,
+                "total_tokens": 268
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-65",
+            "root": "figüran",
+            "suffixes": [
+                "lar",
+                "ın",
+                "dan"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'abil','tir','mek'\nAnswer: kaldırabilmektir\n\nExample 2:\nWord root: koş\nSuffixes: 'tur','um','ur'\nAnswer: koştururum\n\nExample 3:\nWord root: ağabey\nSuffixes: 'i','imiz','ler'\nAnswer: ağabeylerimizi\n\nExample 4:\nWord root: sahil\nSuffixes: 'i','ni','ler'\nAnswer: sahillerini\n\nExample 5:\nWord root: kukla\nSuffixes: 'lar','ı','ydı'\nAnswer: kuklalarıydı\n\nExample 6:\nWord root: figüran\nSuffixes: 'dan','lar','ın'\nAnswer: ",
+            "reference": "figüranlarından",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "figüranlarınдan",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 244,
+                "total_tokens": 250
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-66",
+            "root": "do",
+            "suffixes": [
+                "st",
+                "lar",
+                "ınız"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'tir','abil','mek'\nAnswer: kaldırabilmektir\n\nExample 2:\nWord root: koş\nSuffixes: 'tur','um','ur'\nAnswer: koştururum\n\nExample 3:\nWord root: ağabey\nSuffixes: 'i','ler','imiz'\nAnswer: ağabeylerimizi\n\nExample 4:\nWord root: sahil\nSuffixes: 'i','ler','ni'\nAnswer: sahillerini\n\nExample 5:\nWord root: kukla\nSuffixes: 'lar','ydı','ı'\nAnswer: kuklalarıydı\n\nExample 6:\nWord root: do\nSuffixes: 'lar','ınız','st'\nAnswer: ",
+            "reference": "dostlarınız",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "dostlarınız",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 243,
+                "total_tokens": 248
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-67",
+            "root": "ye",
+            "suffixes": [
+                "r",
+                "i",
+                "nde"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'tir','abil','mek'\nAnswer: kaldırabilmektir\n\nExample 2:\nWord root: koş\nSuffixes: 'tur','um','ur'\nAnswer: koştururum\n\nExample 3:\nWord root: ağabey\nSuffixes: 'i','imiz','ler'\nAnswer: ağabeylerimizi\n\nExample 4:\nWord root: sahil\nSuffixes: 'i','ni','ler'\nAnswer: sahillerini\n\nExample 5:\nWord root: kukla\nSuffixes: 'ydı','lar','ı'\nAnswer: kuklalarıydı\n\nExample 6:\nWord root: ye\nSuffixes: 'nde','i','r'\nAnswer: ",
+            "reference": "yerinde",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "yerinde",
+            "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 242,
+                "total_tokens": 244
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-68",
+            "root": "kusur",
+            "suffixes": [
+                "lar",
+                "ım",
+                "ı"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'abil','mek','tir'\nAnswer: kaldırabilmektir\n\nExample 2:\nWord root: koş\nSuffixes: 'um','ur','tur'\nAnswer: koştururum\n\nExample 3:\nWord root: ağabey\nSuffixes: 'i','imiz','ler'\nAnswer: ağabeylerimizi\n\nExample 4:\nWord root: sahil\nSuffixes: 'ni','i','ler'\nAnswer: sahillerini\n\nExample 5:\nWord root: kukla\nSuffixes: 'lar','ydı','ı'\nAnswer: kuklalarıydı\n\nExample 6:\nWord root: kusur\nSuffixes: 'lar','ım','ı'\nAnswer: ",
+            "reference": "kusurlarımı",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "kusurlarımı",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 244,
+                "total_tokens": 249
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-69",
+            "root": "getir",
+            "suffixes": [
+                "t",
+                "en"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: dol\nSuffixes: 'an','mış'\nAnswer: dolanmış\n\nExample 2:\nWord root: omuz\nSuffixes: 'ı','lar'\nAnswer: omuzları\n\nExample 3:\nWord root: enerji\nSuffixes: 'm','e'\nAnswer: enerjime\n\nExample 4:\nWord root: il\nSuffixes: 'ne','ki'\nAnswer: ilkine\n\nExample 5:\nWord root: tut\nSuffixes: 'u','umuz'\nAnswer: tutumuzu\n\nExample 6:\nWord root: getir\nSuffixes: 't','en'\nAnswer: ",
+            "reference": "getirten",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "getirten",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 210,
+                "total_tokens": 213
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-70",
+            "root": "an",
+            "suffixes": [
+                "laş",
+                "ma",
+                "lar",
+                "a"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: bas\nSuffixes: 'ı','tır','nda','dığ'\nAnswer: bastırdığında\n\nExample 2:\nWord root: kazan\nSuffixes: 'du','m','dır','ıyor'\nAnswer: kazandırmıyordu\n\nExample 3:\nWord root: etki\nSuffixes: 'yeceğ','i','le','ydi'\nAnswer: etkileyeceğiydi\n\nExample 4:\nWord root: kur\nSuffixes: 'ma','a','z','dı'\nAnswer: kuramazdı\n\nExample 5:\nWord root: birey\nSuffixes: 'liğ','ci','i','sel'\nAnswer: bireyselciliği\n\nExample 6:\nWord root: an\nSuffixes: 'ma','lar','a','laş'\nAnswer: ",
+            "reference": "anlaşmalara",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "anlaşmaları",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 261,
+                "total_tokens": 267
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-71",
+            "root": "ek",
+            "suffixes": [
+                "le",
+                "yeceğ",
+                "iz"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'abil','mek','tir'\nAnswer: kaldırabilmektir\n\nExample 2:\nWord root: koş\nSuffixes: 'um','tur','ur'\nAnswer: koştururum\n\nExample 3:\nWord root: ağabey\nSuffixes: 'imiz','ler','i'\nAnswer: ağabeylerimizi\n\nExample 4:\nWord root: sahil\nSuffixes: 'ler','i','ni'\nAnswer: sahillerini\n\nExample 5:\nWord root: kukla\nSuffixes: 'lar','ydı','ı'\nAnswer: kuklalarıydı\n\nExample 6:\nWord root: ek\nSuffixes: 'le','iz','yeceğ'\nAnswer: ",
+            "reference": "ekleyeceğiz",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "ekleyeceğiz",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 244,
+                "total_tokens": 249
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-72",
+            "root": "bisiklet",
+            "suffixes": [
+                "im",
+                "le"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: dol\nSuffixes: 'an','mış'\nAnswer: dolanmış\n\nExample 2:\nWord root: omuz\nSuffixes: 'lar','ı'\nAnswer: omuzları\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nAnswer: enerjime\n\nExample 4:\nWord root: il\nSuffixes: 'ki','ne'\nAnswer: ilkine\n\nExample 5:\nWord root: tut\nSuffixes: 'u','umuz'\nAnswer: tutumuzu\n\nExample 6:\nWord root: bisiklet\nSuffixes: 'im','le'\nAnswer: ",
+            "reference": "bisikletimle",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "bisikletimle",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 211,
+                "total_tokens": 216
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-73",
+            "root": "kok",
+            "suffixes": [
+                "la",
+                "yabil",
+                "iyor",
+                "du",
+                "m"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: iş\nSuffixes: 'liğ','ci','me','le','i'\nAnswer: işlemeciliği\n\nExample 2:\nWord root: at\nSuffixes: 'yacağ','ı','ma','ıl','nı'\nAnswer: atılmayacağını\n\nExample 3:\nWord root: gel\nSuffixes: 'i','tir','im','iş','diğ'\nAnswer: geliştirdiğimi\n\nExample 4:\nWord root: soru\nSuffixes: 'suz','m','lar','ı','luk'\nAnswer: sorumsuzlukları\n\nExample 5:\nWord root: iste\nSuffixes: 'dik','i','ni','ler','me'\nAnswer: istemediklerini\n\nExample 6:\nWord root: kok\nSuffixes: 'la','du','yabil','m','iyor'\nAnswer: ",
+            "reference": "koklayabiliyordum",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "koklayabildiğimi",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 268,
+                "total_tokens": 275
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-74",
+            "root": "yeni",
+            "suffixes": [
+                "len",
+                "me",
+                "ler",
+                "i"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: bas\nSuffixes: 'dığ','nda','ı','tır'\nAnswer: bastırdığında\n\nExample 2:\nWord root: kazan\nSuffixes: 'dır','du','m','ıyor'\nAnswer: kazandırmıyordu\n\nExample 3:\nWord root: etki\nSuffixes: 'yeceğ','i','ydi','le'\nAnswer: etkileyeceğiydi\n\nExample 4:\nWord root: kur\nSuffixes: 'dı','z','a','ma'\nAnswer: kuramazdı\n\nExample 5:\nWord root: birey\nSuffixes: 'ci','i','sel','liğ'\nAnswer: bireyselciliği\n\nExample 6:\nWord root: yeni\nSuffixes: 'len','ler','i','me'\nAnswer: ",
+            "reference": "yenilenmeleri",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "yenilenmeleri",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 260,
+                "total_tokens": 265
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-75",
+            "root": "süpür",
+            "suffixes": [
+                "müş",
+                "tür"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nAnswer: dolanmış\n\nExample 2:\nWord root: omuz\nSuffixes: 'lar','ı'\nAnswer: omuzları\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nAnswer: enerjime\n\nExample 4:\nWord root: il\nSuffixes: 'ne','ki'\nAnswer: ilkine\n\nExample 5:\nWord root: tut\nSuffixes: 'u','umuz'\nAnswer: tutumuzu\n\nExample 6:\nWord root: süpür\nSuffixes: 'tür','müş'\nAnswer: ",
+            "reference": "süpürmüştür",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "süpürmüştür",
+            "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 214,
+                "total_tokens": 222
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-76",
+            "root": "şefi",
+            "suffixes": [
+                "miz",
+                "in"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nAnswer: dolanmış\n\nExample 2:\nWord root: omuz\nSuffixes: 'ı','lar'\nAnswer: omuzları\n\nExample 3:\nWord root: enerji\nSuffixes: 'm','e'\nAnswer: enerjime\n\nExample 4:\nWord root: il\nSuffixes: 'ne','ki'\nAnswer: ilkine\n\nExample 5:\nWord root: tut\nSuffixes: 'u','umuz'\nAnswer: tutumuzu\n\nExample 6:\nWord root: şefi\nSuffixes: 'in','miz'\nAnswer: ",
+            "reference": "şefimizin",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "şefimizin",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 212,
+                "total_tokens": 216
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-77",
+            "root": "konuş",
+            "suffixes": [
+                "abil",
+                "di",
+                "m"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'abil','mek','tir'\nAnswer: kaldırabilmektir\n\nExample 2:\nWord root: koş\nSuffixes: 'um','tur','ur'\nAnswer: koştururum\n\nExample 3:\nWord root: ağabey\nSuffixes: 'i','ler','imiz'\nAnswer: ağabeylerimizi\n\nExample 4:\nWord root: sahil\nSuffixes: 'ler','i','ni'\nAnswer: sahillerini\n\nExample 5:\nWord root: kukla\nSuffixes: 'lar','ydı','ı'\nAnswer: kuklalarıydı\n\nExample 6:\nWord root: konuş\nSuffixes: 'di','abil','m'\nAnswer: ",
+            "reference": "konuşabildim",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "konuşabilmiştim",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 243,
+                "total_tokens": 249
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-78",
+            "root": "toparla",
+            "suffixes": [
+                "ma",
+                "m",
+                "dan"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'mek','abil','tir'\nAnswer: kaldırabilmektir\n\nExample 2:\nWord root: koş\nSuffixes: 'tur','ur','um'\nAnswer: koştururum\n\nExample 3:\nWord root: ağabey\nSuffixes: 'imiz','ler','i'\nAnswer: ağabeylerimizi\n\nExample 4:\nWord root: sahil\nSuffixes: 'ni','ler','i'\nAnswer: sahillerini\n\nExample 5:\nWord root: kukla\nSuffixes: 'ydı','lar','ı'\nAnswer: kuklalarıydı\n\nExample 6:\nWord root: toparla\nSuffixes: 'ma','m','dan'\nAnswer: ",
+            "reference": "toparlamamdan",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "toparlanmadan",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 244,
+                "total_tokens": 249
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-79",
+            "root": "dola",
+            "suffixes": [
+                "n",
+                "abil",
+                "iyor",
+                "um"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: bas\nSuffixes: 'nda','dığ','tır','ı'\nAnswer: bastırdığında\n\nExample 2:\nWord root: kazan\nSuffixes: 'm','dır','ıyor','du'\nAnswer: kazandırmıyordu\n\nExample 3:\nWord root: etki\nSuffixes: 'le','ydi','i','yeceğ'\nAnswer: etkileyeceğiydi\n\nExample 4:\nWord root: kur\nSuffixes: 'a','ma','dı','z'\nAnswer: kuramazdı\n\nExample 5:\nWord root: birey\nSuffixes: 'liğ','i','sel','ci'\nAnswer: bireyselciliği\n\nExample 6:\nWord root: dola\nSuffixes: 'n','um','abil','iyor'\nAnswer: ",
+            "reference": "dolanabiliyorum",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "dolanabiliyorum",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 261,
+                "total_tokens": 267
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-80",
+            "root": "daya",
+            "suffixes": [
+                "t",
+                "ma",
+                "da"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'tir','mek','abil'\nAnswer: kaldırabilmektir\n\nExample 2:\nWord root: koş\nSuffixes: 'tur','ur','um'\nAnswer: koştururum\n\nExample 3:\nWord root: ağabey\nSuffixes: 'i','ler','imiz'\nAnswer: ağabeylerimizi\n\nExample 4:\nWord root: sahil\nSuffixes: 'ni','ler','i'\nAnswer: sahillerini\n\nExample 5:\nWord root: kukla\nSuffixes: 'ı','ydı','lar'\nAnswer: kuklalarıydı\n\nExample 6:\nWord root: daya\nSuffixes: 't','da','ma'\nAnswer: ",
+            "reference": "dayatmada",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "dayatmada",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 243,
+                "total_tokens": 247
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-81",
+            "root": "yelten",
+            "suffixes": [
+                "miş",
+                "ler",
+                "dir"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'abil','mek','tir'\nAnswer: kaldırabilmektir\n\nExample 2:\nWord root: koş\nSuffixes: 'ur','um','tur'\nAnswer: koştururum\n\nExample 3:\nWord root: ağabey\nSuffixes: 'i','imiz','ler'\nAnswer: ağabeylerimizi\n\nExample 4:\nWord root: sahil\nSuffixes: 'i','ni','ler'\nAnswer: sahillerini\n\nExample 5:\nWord root: kukla\nSuffixes: 'ydı','ı','lar'\nAnswer: kuklalarıydı\n\nExample 6:\nWord root: yelten\nSuffixes: 'dir','ler','miş'\nAnswer: ",
+            "reference": "yeltenmişlerdir",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "yeltenmişlerdir",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 245,
+                "total_tokens": 252
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-82",
+            "root": "dinle",
+            "suffixes": [
+                "diğ",
+                "im",
+                "in"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'abil','mek','tir'\nAnswer: kaldırabilmektir\n\nExample 2:\nWord root: koş\nSuffixes: 'ur','tur','um'\nAnswer: koştururum\n\nExample 3:\nWord root: ağabey\nSuffixes: 'ler','i','imiz'\nAnswer: ağabeylerimizi\n\nExample 4:\nWord root: sahil\nSuffixes: 'i','ni','ler'\nAnswer: sahillerini\n\nExample 5:\nWord root: kukla\nSuffixes: 'ydı','ı','lar'\nAnswer: kuklalarıydı\n\nExample 6:\nWord root: dinle\nSuffixes: 'in','im','diğ'\nAnswer: ",
+            "reference": "dinlediğimin",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "dinlediğinim",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 244,
+                "total_tokens": 250
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-83",
+            "root": "do",
+            "suffixes": [
+                "lan",
+                "dı",
+                "m"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'tir','abil','mek'\nAnswer: kaldırabilmektir\n\nExample 2:\nWord root: koş\nSuffixes: 'ur','tur','um'\nAnswer: koştururum\n\nExample 3:\nWord root: ağabey\nSuffixes: 'ler','imiz','i'\nAnswer: ağabeylerimizi\n\nExample 4:\nWord root: sahil\nSuffixes: 'ler','ni','i'\nAnswer: sahillerini\n\nExample 5:\nWord root: kukla\nSuffixes: 'lar','ı','ydı'\nAnswer: kuklalarıydı\n\nExample 6:\nWord root: do\nSuffixes: 'm','lan','dı'\nAnswer: ",
+            "reference": "dolandım",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "domlandı",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 243,
+                "total_tokens": 246
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-84",
+            "root": "yar",
+            "suffixes": [
+                "ış",
+                "ıyor"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: dol\nSuffixes: 'mış','an'\nAnswer: dolanmış\n\nExample 2:\nWord root: omuz\nSuffixes: 'lar','ı'\nAnswer: omuzları\n\nExample 3:\nWord root: enerji\nSuffixes: 'm','e'\nAnswer: enerjime\n\nExample 4:\nWord root: il\nSuffixes: 'ne','ki'\nAnswer: ilkine\n\nExample 5:\nWord root: tut\nSuffixes: 'u','umuz'\nAnswer: tutumuzu\n\nExample 6:\nWord root: yar\nSuffixes: 'ış','ıyor'\nAnswer: ",
+            "reference": "yarışıyor",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "yarışıyor",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 211,
+                "total_tokens": 215
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-85",
+            "root": "tart",
+            "suffixes": [
+                "ış",
+                "ıl",
+                "mış"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'mek','tir','abil'\nAnswer: kaldırabilmektir\n\nExample 2:\nWord root: koş\nSuffixes: 'um','ur','tur'\nAnswer: koştururum\n\nExample 3:\nWord root: ağabey\nSuffixes: 'imiz','i','ler'\nAnswer: ağabeylerimizi\n\nExample 4:\nWord root: sahil\nSuffixes: 'ni','i','ler'\nAnswer: sahillerini\n\nExample 5:\nWord root: kukla\nSuffixes: 'ydı','lar','ı'\nAnswer: kuklalarıydı\n\nExample 6:\nWord root: tart\nSuffixes: 'ıl','ış','mış'\nAnswer: ",
+            "reference": "tartışılmış",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "tartılmışış",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 243,
+                "total_tokens": 249
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-86",
+            "root": "an",
+            "suffixes": [
+                "la",
+                "m",
+                "ıyor",
+                "lar",
+                "dır"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: iş\nSuffixes: 'i','le','liğ','ci','me'\nAnswer: işlemeciliği\n\nExample 2:\nWord root: at\nSuffixes: 'ıl','ı','ma','nı','yacağ'\nAnswer: atılmayacağını\n\nExample 3:\nWord root: gel\nSuffixes: 'i','diğ','tir','im','iş'\nAnswer: geliştirdiğimi\n\nExample 4:\nWord root: soru\nSuffixes: 'suz','luk','m','ı','lar'\nAnswer: sorumsuzlukları\n\nExample 5:\nWord root: iste\nSuffixes: 'ni','dik','ler','me','i'\nAnswer: istemediklerini\n\nExample 6:\nWord root: an\nSuffixes: 'lar','m','la','ıyor','dır'\nAnswer: ",
+            "reference": "anlamıyorlardır",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "anlamıyorlardır",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 269,
+                "total_tokens": 276
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-87",
+            "root": "yaklaş",
+            "suffixes": [
+                "tır",
+                "ma",
+                "dığ",
+                "ım"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: bas\nSuffixes: 'ı','dığ','nda','tır'\nAnswer: bastırdığında\n\nExample 2:\nWord root: kazan\nSuffixes: 'dır','m','du','ıyor'\nAnswer: kazandırmıyordu\n\nExample 3:\nWord root: etki\nSuffixes: 'i','ydi','le','yeceğ'\nAnswer: etkileyeceğiydi\n\nExample 4:\nWord root: kur\nSuffixes: 'a','dı','ma','z'\nAnswer: kuramazdı\n\nExample 5:\nWord root: birey\nSuffixes: 'sel','i','liğ','ci'\nAnswer: bireyselciliği\n\nExample 6:\nWord root: yaklaş\nSuffixes: 'ma','tır','dığ','ım'\nAnswer: ",
+            "reference": "yaklaştırmadığım",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "yaklaştırdığıma",
+            "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 264,
+                "total_tokens": 272
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-88",
+            "root": "alın",
+            "suffixes": [
+                "a",
+                "ma",
+                "yan"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'tir','abil','mek'\nAnswer: kaldırabilmektir\n\nExample 2:\nWord root: koş\nSuffixes: 'tur','ur','um'\nAnswer: koştururum\n\nExample 3:\nWord root: ağabey\nSuffixes: 'i','imiz','ler'\nAnswer: ağabeylerimizi\n\nExample 4:\nWord root: sahil\nSuffixes: 'ni','i','ler'\nAnswer: sahillerini\n\nExample 5:\nWord root: kukla\nSuffixes: 'lar','ydı','ı'\nAnswer: kuklalarıydı\n\nExample 6:\nWord root: alın\nSuffixes: 'ma','yan','a'\nAnswer: ",
+            "reference": "alınamayan",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "alınmayana",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 243,
+                "total_tokens": 247
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-89",
+            "root": "din",
+            "suffixes": [
+                "le",
+                "ye",
+                "me",
+                "me",
+                "ye"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: iş\nSuffixes: 'ci','i','liğ','me','le'\nAnswer: işlemeciliği\n\nExample 2:\nWord root: at\nSuffixes: 'ı','ıl','ma','yacağ','nı'\nAnswer: atılmayacağını\n\nExample 3:\nWord root: gel\nSuffixes: 'im','tir','iş','diğ','i'\nAnswer: geliştirdiğimi\n\nExample 4:\nWord root: soru\nSuffixes: 'ı','luk','m','lar','suz'\nAnswer: sorumsuzlukları\n\nExample 5:\nWord root: iste\nSuffixes: 'ni','me','i','ler','dik'\nAnswer: istemediklerini\n\nExample 6:\nWord root: din\nSuffixes: 'me','ye','le','me','ye'\nAnswer: ",
+            "reference": "dinleyememeye",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "dinelememeye",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 267,
+                "total_tokens": 272
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-90",
+            "root": "hapsol",
+            "suffixes": [
+                "muş",
+                "lar",
+                "dı"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'abil','tir','mek'\nAnswer: kaldırabilmektir\n\nExample 2:\nWord root: koş\nSuffixes: 'ur','um','tur'\nAnswer: koştururum\n\nExample 3:\nWord root: ağabey\nSuffixes: 'i','ler','imiz'\nAnswer: ağabeylerimizi\n\nExample 4:\nWord root: sahil\nSuffixes: 'ni','i','ler'\nAnswer: sahillerini\n\nExample 5:\nWord root: kukla\nSuffixes: 'lar','ı','ydı'\nAnswer: kuklalarıydı\n\nExample 6:\nWord root: hapsol\nSuffixes: 'dı','muş','lar'\nAnswer: ",
+            "reference": "hapsolmuşlardı",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "hapsolmuşlardı",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 246,
+                "total_tokens": 253
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-91",
+            "root": "kamp",
+            "suffixes": [
+                "ım",
+                "dan"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: dol\nSuffixes: 'an','mış'\nAnswer: dolanmış\n\nExample 2:\nWord root: omuz\nSuffixes: 'ı','lar'\nAnswer: omuzları\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nAnswer: enerjime\n\nExample 4:\nWord root: il\nSuffixes: 'ki','ne'\nAnswer: ilkine\n\nExample 5:\nWord root: tut\nSuffixes: 'umuz','u'\nAnswer: tutumuzu\n\nExample 6:\nWord root: kamp\nSuffixes: 'dan','ım'\nAnswer: ",
+            "reference": "kampımdan",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "kampımdan",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 210,
+                "total_tokens": 215
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-92",
+            "root": "gez",
+            "suffixes": [
+                "im",
+                "de",
+                "ki"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'mek','tir','abil'\nAnswer: kaldırabilmektir\n\nExample 2:\nWord root: koş\nSuffixes: 'um','tur','ur'\nAnswer: koştururum\n\nExample 3:\nWord root: ağabey\nSuffixes: 'i','imiz','ler'\nAnswer: ağabeylerimizi\n\nExample 4:\nWord root: sahil\nSuffixes: 'i','ni','ler'\nAnswer: sahillerini\n\nExample 5:\nWord root: kukla\nSuffixes: 'ı','lar','ydı'\nAnswer: kuklalarıydı\n\nExample 6:\nWord root: gez\nSuffixes: 'ki','de','im'\nAnswer: ",
+            "reference": "gezimdeki",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "gezdiğimde",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 242,
+                "total_tokens": 248
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-93",
+            "root": "erte",
+            "suffixes": [
+                "le",
+                "me",
+                "miş"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'mek','abil','tir'\nAnswer: kaldırabilmektir\n\nExample 2:\nWord root: koş\nSuffixes: 'tur','ur','um'\nAnswer: koştururum\n\nExample 3:\nWord root: ağabey\nSuffixes: 'ler','i','imiz'\nAnswer: ağabeylerimizi\n\nExample 4:\nWord root: sahil\nSuffixes: 'ni','i','ler'\nAnswer: sahillerini\n\nExample 5:\nWord root: kukla\nSuffixes: 'lar','ydı','ı'\nAnswer: kuklalarıydı\n\nExample 6:\nWord root: erte\nSuffixes: 'le','me','miş'\nAnswer: ",
+            "reference": "ertelememiş",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "ertelemeiş",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 244,
+                "total_tokens": 248
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-94",
+            "root": "sağ",
+            "suffixes": [
+                "la",
+                "ya",
+                "m",
+                "ıyor",
+                "sa"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: iş\nSuffixes: 'le','ci','liğ','i','me'\nAnswer: işlemeciliği\n\nExample 2:\nWord root: at\nSuffixes: 'nı','ı','ma','yacağ','ıl'\nAnswer: atılmayacağını\n\nExample 3:\nWord root: gel\nSuffixes: 'i','diğ','im','iş','tir'\nAnswer: geliştirdiğimi\n\nExample 4:\nWord root: soru\nSuffixes: 'ı','suz','m','luk','lar'\nAnswer: sorumsuzlukları\n\nExample 5:\nWord root: iste\nSuffixes: 'ni','i','ler','me','dik'\nAnswer: istemediklerini\n\nExample 6:\nWord root: sağ\nSuffixes: 'ya','la','sa','m','ıyor'\nAnswer: ",
+            "reference": "sağlayamıyorsa",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "sağlamıyorsa",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 268,
+                "total_tokens": 275
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-95",
+            "root": "işle",
+            "suffixes": [
+                "yen",
+                "ler",
+                "e"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'tir','mek','abil'\nAnswer: kaldırabilmektir\n\nExample 2:\nWord root: koş\nSuffixes: 'um','ur','tur'\nAnswer: koştururum\n\nExample 3:\nWord root: ağabey\nSuffixes: 'ler','imiz','i'\nAnswer: ağabeylerimizi\n\nExample 4:\nWord root: sahil\nSuffixes: 'i','ni','ler'\nAnswer: sahillerini\n\nExample 5:\nWord root: kukla\nSuffixes: 'ı','ydı','lar'\nAnswer: kuklalarıydı\n\nExample 6:\nWord root: işle\nSuffixes: 'yen','e','ler'\nAnswer: ",
+            "reference": "işleyenlere",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "işleyenler",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 243,
+                "total_tokens": 247
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-96",
+            "root": "yüksel",
+            "suffixes": [
+                "me",
+                "n",
+                "in"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'tir','abil','mek'\nAnswer: kaldırabilmektir\n\nExample 2:\nWord root: koş\nSuffixes: 'ur','um','tur'\nAnswer: koştururum\n\nExample 3:\nWord root: ağabey\nSuffixes: 'ler','imiz','i'\nAnswer: ağabeylerimizi\n\nExample 4:\nWord root: sahil\nSuffixes: 'i','ni','ler'\nAnswer: sahillerini\n\nExample 5:\nWord root: kukla\nSuffixes: 'ı','lar','ydı'\nAnswer: kuklalarıydı\n\nExample 6:\nWord root: yüksel\nSuffixes: 'n','me','in'\nAnswer: ",
+            "reference": "yükselmenin",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "yükselmenin",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 245,
+                "total_tokens": 251
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-97",
+            "root": "kon",
+            "suffixes": [
+                "uş",
+                "ma",
+                "yıp"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kaldır\nSuffixes: 'abil','mek','tir'\nAnswer: kaldırabilmektir\n\nExample 2:\nWord root: koş\nSuffixes: 'um','ur','tur'\nAnswer: koştururum\n\nExample 3:\nWord root: ağabey\nSuffixes: 'i','imiz','ler'\nAnswer: ağabeylerimizi\n\nExample 4:\nWord root: sahil\nSuffixes: 'ni','i','ler'\nAnswer: sahillerini\n\nExample 5:\nWord root: kukla\nSuffixes: 'ı','lar','ydı'\nAnswer: kuklalarıydı\n\nExample 6:\nWord root: kon\nSuffixes: 'ma','yıp','uş'\nAnswer: ",
+            "reference": "konuşmayıp",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "konuşmayıp",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 244,
+                "total_tokens": 249
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-98",
+            "root": "ol",
+            "suffixes": [
+                "duk",
+                "la"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: dol\nSuffixes: 'an','mış'\nAnswer: dolanmış\n\nExample 2:\nWord root: omuz\nSuffixes: 'ı','lar'\nAnswer: omuzları\n\nExample 3:\nWord root: enerji\nSuffixes: 'e','m'\nAnswer: enerjime\n\nExample 4:\nWord root: il\nSuffixes: 'ne','ki'\nAnswer: ilkine\n\nExample 5:\nWord root: tut\nSuffixes: 'umuz','u'\nAnswer: tutumuzu\n\nExample 6:\nWord root: ol\nSuffixes: 'duk','la'\nAnswer: ",
+            "reference": "oldukla",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "oldukla",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 209,
+                "total_tokens": 212
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-99",
+            "root": "anlam",
+            "suffixes": [
+                "lan",
+                "dır",
+                "ma",
+                "mız",
+                "ı"
+            ],
+            "prompt": "You are given a word root and a list of suffixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word.\n\nExample 1:\nWord root: iş\nSuffixes: 'ci','i','le','liğ','me'\nAnswer: işlemeciliği\n\nExample 2:\nWord root: at\nSuffixes: 'nı','yacağ','ı','ıl','ma'\nAnswer: atılmayacağını\n\nExample 3:\nWord root: gel\nSuffixes: 'iş','tir','i','diğ','im'\nAnswer: geliştirdiğimi\n\nExample 4:\nWord root: soru\nSuffixes: 'ı','suz','lar','luk','m'\nAnswer: sorumsuzlukları\n\nExample 5:\nWord root: iste\nSuffixes: 'ler','ni','me','dik','i'\nAnswer: istemediklerini\n\nExample 6:\nWord root: anlam\nSuffixes: 'mız','ma','lan','dır','ı'\nAnswer: ",
+            "reference": "anlamlandırmamızı",
+            "template": "morph_gen_en",
+            "original_root": null,
+            "model_output": "anlamlandırmamızı",
+            "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 270,
+                "total_tokens": 278
+            },
+            "correct": true,
+            "faithful": true
+        }
+    ]
+}

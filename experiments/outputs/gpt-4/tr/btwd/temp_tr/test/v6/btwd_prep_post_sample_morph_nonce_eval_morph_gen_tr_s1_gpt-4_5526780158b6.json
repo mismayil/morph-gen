@@ -1,0 +1,2149 @@
+{
+    "metadata": {
+        "datapath": "../experiments/data/tr/btwd/temp_tr/v6/btwd_prep_post_sample_morph_nonce_eval_morph_gen_tr_s1.json",
+        "model": "gpt-4",
+        "temperature": 0.3,
+        "max_tokens": 40,
+        "top_p": 1,
+        "frequency_penalty": 0,
+        "presence_penalty": 0
+    },
+    "metrics": {
+        "usage": {
+            "prompt_tokens": 22425,
+            "completion_tokens": 555,
+            "total_tokens": 22980
+        },
+        "cost": {
+            "input": 0.6727500000000001,
+            "output": 0.0333,
+            "total": 0.7060500000000001
+        },
+        "accuracy": 0.4,
+        "faithfulness": 0.59,
+        "accuracy_by_suffix_len": {
+            "2": 0.6,
+            "3": 0.42105263157894735,
+            "4": 0.15384615384615385,
+            "5": 0.08333333333333333,
+            "6": 0.0
+        },
+        "num_samples_by_suffix_len": {
+            "2": 35,
+            "3": 38,
+            "4": 13,
+            "5": 12,
+            "6": 2
+        }
+    },
+    "data": [
+        {
+            "id": "btwd-ood-0",
+            "root": "col",
+            "suffixes": [
+                "an",
+                "mış"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: 'ı','lar'\nCevap: akuzları\n\nÖrnek 2:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: 'an','mış'\nCevap: ",
+            "reference": "colanmış",
+            "template": "morph_gen_tr",
+            "original_root": "dol",
+            "model_output": "colanmış",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 212,
+                "total_tokens": 216
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-1",
+            "root": "akuz",
+            "suffixes": [
+                "lar",
+                "ı"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: 'an','mış'\nCevap: colanmış\n\nÖrnek 2:\nKök: akuz\nTanım: 'akuz' Türkçe 'omuz' anlamına gelir.\nEkler: 'lar','ı'\nCevap: ",
+            "reference": "akuzları",
+            "template": "morph_gen_tr",
+            "original_root": "omuz",
+            "model_output": "akuzları",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 213,
+                "total_tokens": 216
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-2",
+            "root": "foyşır",
+            "suffixes": [
+                "abil",
+                "mek",
+                "tir"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: çoş\nTanım: 'çoş' Türkçe 'koş' anlamına gelir.\nEkler: 'tur','um','ur'\nCevap: çoştururum\n\nÖrnek 2:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: 'abil','mek','tir'\nCevap: ",
+            "reference": "foyşırabilmektir",
+            "template": "morph_gen_tr",
+            "original_root": "kaldır",
+            "model_output": "foyşırabiltirmek",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 226,
+                "total_tokens": 233
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-3",
+            "root": "ügüfmi",
+            "suffixes": [
+                "m",
+                "e"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: 'an','mış'\nCevap: colanmış\n\nÖrnek 2:\nKök: ügüfmi\nTanım: 'ügüfmi' Türkçe 'enerji' anlamına gelir.\nEkler: 'm','e'\nCevap: ",
+            "reference": "ügüfmime",
+            "template": "morph_gen_tr",
+            "original_root": "enerji",
+            "model_output": "ügüfmime",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 219,
+                "total_tokens": 224
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-4",
+            "root": "sidiş",
+            "suffixes": [
+                "le",
+                "me",
+                "ci",
+                "liğ",
+                "i"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: mıcat\nTanım: 'mıcat' Türkçe 'at' anlamına gelir.\nEkler: 'ı','nı','yacağ','ma','ıl'\nCevap: mıcatılmayacağını\n\nÖrnek 2:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: 'le','liğ','i','ci','me'\nCevap: ",
+            "reference": "sidişlemeciliği",
+            "template": "morph_gen_tr",
+            "original_root": "iş",
+            "model_output": "sidilmeleciği",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 237,
+                "total_tokens": 243
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-5",
+            "root": "kimil",
+            "suffixes": [
+                "ki",
+                "ne"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: 'an','mış'\nCevap: colanmış\n\nÖrnek 2:\nKök: kimil\nTanım: 'kimil' Türkçe 'il' anlamına gelir.\nEkler: 'ne','ki'\nCevap: ",
+            "reference": "kimilkine",
+            "template": "morph_gen_tr",
+            "original_root": "il",
+            "model_output": "kimilneki",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 212,
+                "total_tokens": 216
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-6",
+            "root": "yut",
+            "suffixes": [
+                "umuz",
+                "u"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: 'an','mış'\nCevap: colanmış\n\nÖrnek 2:\nKök: yut\nTanım: 'yut' Türkçe 'tut' anlamına gelir.\nEkler: 'u','umuz'\nCevap: ",
+            "reference": "yutumuzu",
+            "template": "morph_gen_tr",
+            "original_root": "tut",
+            "model_output": "yutuumuz",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 214,
+                "total_tokens": 218
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-7",
+            "root": "ger",
+            "suffixes": [
+                "me",
+                "miş"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: 'an','mış'\nCevap: colanmış\n\nÖrnek 2:\nKök: ger\nTanım: 'ger' Türkçe 'ver' anlamına gelir.\nEkler: 'me','miş'\nCevap: ",
+            "reference": "germemiş",
+            "template": "morph_gen_tr",
+            "original_root": "ver",
+            "model_output": "germemiş",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 211,
+                "total_tokens": 214
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-8",
+            "root": "çoş",
+            "suffixes": [
+                "tur",
+                "ur",
+                "um"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: 'abil','mek','tir'\nCevap: foyşırabilmektir\n\nÖrnek 2:\nKök: çoş\nTanım: 'çoş' Türkçe 'koş' anlamına gelir.\nEkler: 'tur','um','ur'\nCevap: ",
+            "reference": "çoştururum",
+            "template": "morph_gen_tr",
+            "original_root": "koş",
+            "model_output": "çoştururum",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 228,
+                "total_tokens": 233
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-9",
+            "root": "mıcat",
+            "suffixes": [
+                "ıl",
+                "ma",
+                "yacağ",
+                "ı",
+                "nı"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: 'liğ','me','ci','i','le'\nCevap: sidişlemeciliği\n\nÖrnek 2:\nKök: mıcat\nTanım: 'mıcat' Türkçe 'at' anlamına gelir.\nEkler: 'ma','yacağ','nı','ıl','ı'\nCevap: ",
+            "reference": "mıcatılmayacağını",
+            "template": "morph_gen_tr",
+            "original_root": "at",
+            "model_output": "mıcatılayacağınıma",
+            "usage": {
+                "completion_tokens": 9,
+                "prompt_tokens": 235,
+                "total_tokens": 244
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-10",
+            "root": "umıvey",
+            "suffixes": [
+                "ler",
+                "imiz",
+                "i"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: 'tir','mek','abil'\nCevap: foyşırabilmektir\n\nÖrnek 2:\nKök: umıvey\nTanım: 'umıvey' Türkçe 'ağabey' anlamına gelir.\nEkler: 'i','ler','imiz'\nCevap: ",
+            "reference": "umıveylerimizi",
+            "template": "morph_gen_tr",
+            "original_root": "ağabey",
+            "model_output": "umıveylerimizi",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 232,
+                "total_tokens": 238
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-11",
+            "root": "roprı",
+            "suffixes": [
+                "ya",
+                "dır"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: 'an','mış'\nCevap: colanmış\n\nÖrnek 2:\nKök: roprı\nTanım: 'roprı' Türkçe 'karşı' anlamına gelir.\nEkler: 'dır','ya'\nCevap: ",
+            "reference": "roprıyadır",
+            "template": "morph_gen_tr",
+            "original_root": "karşı",
+            "model_output": "roprıyadır",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 216,
+                "total_tokens": 222
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-12",
+            "root": "pel",
+            "suffixes": [
+                "iş",
+                "tir",
+                "diğ",
+                "im",
+                "i"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: 'ci','i','liğ','le','me'\nCevap: sidişlemeciliği\n\nÖrnek 2:\nKök: pel\nTanım: 'pel' Türkçe 'gel' anlamına gelir.\nEkler: 'diğ','tir','iş','i','im'\nCevap: ",
+            "reference": "peliştirdiğimi",
+            "template": "morph_gen_tr",
+            "original_root": "gel",
+            "model_output": "peldiğimiştirici",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 230,
+                "total_tokens": 237
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-13",
+            "root": "şotil",
+            "suffixes": [
+                "ler",
+                "i",
+                "ni"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: 'mek','tir','abil'\nCevap: foyşırabilmektir\n\nÖrnek 2:\nKök: şotil\nTanım: 'şotil' Türkçe 'sahil' anlamına gelir.\nEkler: 'i','ni','ler'\nCevap: ",
+            "reference": "şotillerini",
+            "template": "morph_gen_tr",
+            "original_root": "sahil",
+            "model_output": "şotillerini",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 230,
+                "total_tokens": 234
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-14",
+            "root": "kısu",
+            "suffixes": [
+                "m",
+                "suz",
+                "luk",
+                "lar",
+                "ı"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: 'ci','i','liğ','le','me'\nCevap: sidişlemeciliği\n\nÖrnek 2:\nKök: kısu\nTanım: 'kısu' Türkçe 'soru' anlamına gelir.\nEkler: 'ı','lar','m','luk','suz'\nCevap: ",
+            "reference": "kısumsuzlukları",
+            "template": "morph_gen_tr",
+            "original_root": "soru",
+            "model_output": "kısusuzlukları",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 235,
+                "total_tokens": 242
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-15",
+            "root": "tarur",
+            "suffixes": [
+                "un",
+                "un"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: 'mış','an'\nCevap: colanmış\n\nÖrnek 2:\nKök: tarur\nTanım: 'tarur' Türkçe 'gurur' anlamına gelir.\nEkler: 'un','un'\nCevap: ",
+            "reference": "tarurunun",
+            "template": "morph_gen_tr",
+            "original_root": "gurur",
+            "model_output": "tarurunun",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 214,
+                "total_tokens": 218
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-16",
+            "root": "öfse",
+            "suffixes": [
+                "me",
+                "dik",
+                "ler",
+                "i",
+                "ni"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: 'i','liğ','ci','le','me'\nCevap: sidişlemeciliği\n\nÖrnek 2:\nKök: öfse\nTanım: 'öfse' Türkçe 'iste' anlamına gelir.\nEkler: 'dik','i','ler','ni','me'\nCevap: ",
+            "reference": "öfsemediklerini",
+            "template": "morph_gen_tr",
+            "original_root": "iste",
+            "model_output": "öfsediklerinime",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 233,
+                "total_tokens": 240
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-17",
+            "root": "zızım",
+            "suffixes": [
+                "lar",
+                "ımız"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: 'mış','an'\nCevap: colanmış\n\nÖrnek 2:\nKök: zızım\nTanım: 'zızım' Türkçe 'yarım' anlamına gelir.\nEkler: 'lar','ımız'\nCevap: ",
+            "reference": "zızımlarımız",
+            "template": "morph_gen_tr",
+            "original_root": "yarım",
+            "model_output": "zızımlarımız",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 216,
+                "total_tokens": 223
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-18",
+            "root": "tıcza",
+            "suffixes": [
+                "lar",
+                "ı",
+                "ydı"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: 'abil','tir','mek'\nCevap: foyşırabilmektir\n\nÖrnek 2:\nKök: tıcza\nTanım: 'tıcza' Türkçe 'kukla' anlamına gelir.\nEkler: 'ydı','lar','ı'\nCevap: ",
+            "reference": "tıczalarıydı",
+            "template": "morph_gen_tr",
+            "original_root": "kukla",
+            "model_output": "tıczaydılar",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 231,
+                "total_tokens": 238
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-19",
+            "root": "şifği",
+            "suffixes": [
+                "ler",
+                "i",
+                "dir"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: 'mek','tir','abil'\nCevap: foyşırabilmektir\n\nÖrnek 2:\nKök: şifği\nTanım: 'şifği' Türkçe 'kendi' anlamına gelir.\nEkler: 'dir','ler','i'\nCevap: ",
+            "reference": "şifğileridir",
+            "template": "morph_gen_tr",
+            "original_root": "kendi",
+            "model_output": "şifğileridir",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 229,
+                "total_tokens": 235
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-20",
+            "root": "nümeş",
+            "suffixes": [
+                "in",
+                "in"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: 'an','mış'\nCevap: colanmış\n\nÖrnek 2:\nKök: nümeş\nTanım: 'nümeş' Türkçe 'eş' anlamına gelir.\nEkler: 'in','in'\nCevap: ",
+            "reference": "nümeşinin",
+            "template": "morph_gen_tr",
+            "original_root": "eş",
+            "model_output": "nümeşinin",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 217,
+                "total_tokens": 222
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-21",
+            "root": "raz",
+            "suffixes": [
+                "mış",
+                "tı",
+                "m"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: 'abil','mek','tir'\nCevap: foyşırabilmektir\n\nÖrnek 2:\nKök: raz\nTanım: 'raz' Türkçe 'yaz' anlamına gelir.\nEkler: 'm','mış','tı'\nCevap: ",
+            "reference": "razmıştım",
+            "template": "morph_gen_tr",
+            "original_root": "yaz",
+            "model_output": "razmıştım",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 227,
+                "total_tokens": 232
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-22",
+            "root": "cöcşe",
+            "suffixes": [
+                "miz",
+                "de"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: 'an','mış'\nCevap: colanmış\n\nÖrnek 2:\nKök: cöcşe\nTanım: 'cöcşe' Türkçe 'hücre' anlamına gelir.\nEkler: 'de','miz'\nCevap: ",
+            "reference": "cöcşemizde",
+            "template": "morph_gen_tr",
+            "original_root": "hücre",
+            "model_output": "cöcşemizde",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 221,
+                "total_tokens": 228
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-23",
+            "root": "pikel",
+            "suffixes": [
+                "t",
+                "mek",
+                "te"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: 'mek','tir','abil'\nCevap: foyşırabilmektir\n\nÖrnek 2:\nKök: pikel\nTanım: 'pikel' Türkçe 'düzel' anlamına gelir.\nEkler: 'te','t','mek'\nCevap: ",
+            "reference": "pikeltmekte",
+            "template": "morph_gen_tr",
+            "original_root": "düzel",
+            "model_output": "pikeltmekte",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 228,
+                "total_tokens": 233
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-24",
+            "root": "rıpga",
+            "suffixes": [
+                "lar",
+                "ın",
+                "ı"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: 'mek','tir','abil'\nCevap: foyşırabilmektir\n\nÖrnek 2:\nKök: rıpga\nTanım: 'rıpga' Türkçe 'tuğla' anlamına gelir.\nEkler: 'lar','ın','ı'\nCevap: ",
+            "reference": "rıpgalarını",
+            "template": "morph_gen_tr",
+            "original_root": "tuğla",
+            "model_output": "rıpgaların",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 230,
+                "total_tokens": 235
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-25",
+            "root": "jas",
+            "suffixes": [
+                "tır",
+                "dığ",
+                "ı",
+                "nda"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: sucan\nTanım: 'sucan' Türkçe 'kazan' anlamına gelir.\nEkler: 'm','dır','du','ıyor'\nCevap: sucandırmıyordu\n\nÖrnek 2:\nKök: jas\nTanım: 'jas' Türkçe 'bas' anlamına gelir.\nEkler: 'dığ','nda','ı','tır'\nCevap: ",
+            "reference": "jastırdığında",
+            "template": "morph_gen_tr",
+            "original_root": "bas",
+            "model_output": "jasdığındatır",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 230,
+                "total_tokens": 236
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-26",
+            "root": "ğümah",
+            "suffixes": [
+                "la",
+                "t",
+                "abil",
+                "eceğ",
+                "im",
+                "i"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: ğe\nTanım: 'ğe' Türkçe 'de' anlamına gelir.\nEkler: 'me','nden','me','si','e','n'\nCevap: ğenememesinden\n\nÖrnek 2:\nKök: ğümah\nTanım: 'ğümah' Türkçe 'ferah' anlamına gelir.\nEkler: 't','im','eceğ','abil','la','i'\nCevap: ",
+            "reference": "ğümahlatabileceğimi",
+            "template": "morph_gen_tr",
+            "original_root": "ferah",
+            "model_output": "ğümahılabileceğim",
+            "usage": {
+                "completion_tokens": 9,
+                "prompt_tokens": 237,
+                "total_tokens": 246
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-27",
+            "root": "ıput",
+            "suffixes": [
+                "ma",
+                "sınlar"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: 'mış','an'\nCevap: colanmış\n\nÖrnek 2:\nKök: ıput\nTanım: 'ıput' Türkçe 'unut' anlamına gelir.\nEkler: 'ma','sınlar'\nCevap: ",
+            "reference": "ıputmasınlar",
+            "template": "morph_gen_tr",
+            "original_root": "unut",
+            "model_output": "ıputmasınlar",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 216,
+                "total_tokens": 221
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-28",
+            "root": "yark",
+            "suffixes": [
+                "ın",
+                "dan"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: 'mış','an'\nCevap: colanmış\n\nÖrnek 2:\nKök: yark\nTanım: 'yark' Türkçe 'bark' anlamına gelir.\nEkler: 'ın','dan'\nCevap: ",
+            "reference": "yarkından",
+            "template": "morph_gen_tr",
+            "original_root": "bark",
+            "model_output": "yarkından",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 213,
+                "total_tokens": 217
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-29",
+            "root": "maz",
+            "suffixes": [
+                "ma",
+                "l",
+                "ım"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: 'tir','abil','mek'\nCevap: foyşırabilmektir\n\nÖrnek 2:\nKök: maz\nTanım: 'maz' Türkçe 'yaz' anlamına gelir.\nEkler: 'ım','ma','l'\nCevap: ",
+            "reference": "mazmalım",
+            "template": "morph_gen_tr",
+            "original_root": "yaz",
+            "model_output": "mazımlamal",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 227,
+                "total_tokens": 233
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-30",
+            "root": "sucan",
+            "suffixes": [
+                "dır",
+                "m",
+                "ıyor",
+                "du"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: jas\nTanım: 'jas' Türkçe 'bas' anlamına gelir.\nEkler: 'tır','dığ','ı','nda'\nCevap: jastırdığında\n\nÖrnek 2:\nKök: sucan\nTanım: 'sucan' Türkçe 'kazan' anlamına gelir.\nEkler: 'ıyor','du','dır','m'\nCevap: ",
+            "reference": "sucandırmıyordu",
+            "template": "morph_gen_tr",
+            "original_root": "kazan",
+            "model_output": "sucandırdıyordu",
+            "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 228,
+                "total_tokens": 236
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-31",
+            "root": "çevü",
+            "suffixes": [
+                "ye",
+                "me",
+                "dik"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: 'mek','abil','tir'\nCevap: foyşırabilmektir\n\nÖrnek 2:\nKök: çevü\nTanım: 'çevü' Türkçe 'büyü' anlamına gelir.\nEkler: 'ye','me','dik'\nCevap: ",
+            "reference": "çevüyemedik",
+            "template": "morph_gen_tr",
+            "original_root": "büyü",
+            "model_output": "çevüyemedik",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 232,
+                "total_tokens": 238
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-32",
+            "root": "joba",
+            "suffixes": [
+                "lar",
+                "ken"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: 'mış','an'\nCevap: colanmış\n\nÖrnek 2:\nKök: joba\nTanım: 'joba' Türkçe 'yaka' anlamına gelir.\nEkler: 'lar','ken'\nCevap: ",
+            "reference": "jobalarken",
+            "template": "morph_gen_tr",
+            "original_root": "yaka",
+            "model_output": "jobalarıken",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 213,
+                "total_tokens": 217
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-33",
+            "root": "jofar",
+            "suffixes": [
+                "ın",
+                "da",
+                "ki"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: 'mek','abil','tir'\nCevap: foyşırabilmektir\n\nÖrnek 2:\nKök: jofar\nTanım: 'jofar' Türkçe 'duvar' anlamına gelir.\nEkler: 'da','ki','ın'\nCevap: ",
+            "reference": "jofarındaki",
+            "template": "morph_gen_tr",
+            "original_root": "duvar",
+            "model_output": "jofarındaki",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 229,
+                "total_tokens": 234
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-34",
+            "root": "juzşa",
+            "suffixes": [
+                "ya",
+                "ma",
+                "z",
+                "dı",
+                "m"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: 'i','liğ','le','ci','me'\nCevap: sidişlemeciliği\n\nÖrnek 2:\nKök: juzşa\nTanım: 'juzşa' Türkçe 'kavra' anlamına gelir.\nEkler: 'dı','z','ma','m','ya'\nCevap: ",
+            "reference": "juzşayamazdım",
+            "template": "morph_gen_tr",
+            "original_root": "kavra",
+            "model_output": "juzşamadızya",
+            "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 236,
+                "total_tokens": 244
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-35",
+            "root": "ijci",
+            "suffixes": [
+                "le",
+                "yeceğ",
+                "i",
+                "ydi"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: jas\nTanım: 'jas' Türkçe 'bas' anlamına gelir.\nEkler: 'tır','dığ','nda','ı'\nCevap: jastırdığında\n\nÖrnek 2:\nKök: ijci\nTanım: 'ijci' Türkçe 'etki' anlamına gelir.\nEkler: 'ydi','le','yeceğ','i'\nCevap: ",
+            "reference": "ijcileyeceğiydi",
+            "template": "morph_gen_tr",
+            "original_root": "etki",
+            "model_output": "ijciyeceğiydi",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 227,
+                "total_tokens": 234
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-36",
+            "root": "yusra",
+            "suffixes": [
+                "n",
+                "ın"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: 'mış','an'\nCevap: colanmış\n\nÖrnek 2:\nKök: yusra\nTanım: 'yusra' Türkçe 'somya' anlamına gelir.\nEkler: 'ın','n'\nCevap: ",
+            "reference": "yusranın",
+            "template": "morph_gen_tr",
+            "original_root": "somya",
+            "model_output": "yusranın",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 214,
+                "total_tokens": 218
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-37",
+            "root": "jur",
+            "suffixes": [
+                "a",
+                "ma",
+                "z",
+                "dı"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: jas\nTanım: 'jas' Türkçe 'bas' anlamına gelir.\nEkler: 'dığ','tır','ı','nda'\nCevap: jastırdığında\n\nÖrnek 2:\nKök: jur\nTanım: 'jur' Türkçe 'kur' anlamına gelir.\nEkler: 'ma','z','dı','a'\nCevap: ",
+            "reference": "juramazdı",
+            "template": "morph_gen_tr",
+            "original_root": "kur",
+            "model_output": "jurmadızdıa",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 222,
+                "total_tokens": 228
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-38",
+            "root": "ger",
+            "suffixes": [
+                "leş",
+                "in"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: 'mış','an'\nCevap: colanmış\n\nÖrnek 2:\nKök: ger\nTanım: 'ger' Türkçe 'yer' anlamına gelir.\nEkler: 'leş','in'\nCevap: ",
+            "reference": "gerleşin",
+            "template": "morph_gen_tr",
+            "original_root": "yer",
+            "model_output": "gerleşin",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 211,
+                "total_tokens": 215
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-39",
+            "root": "ıhu",
+            "suffixes": [
+                "r",
+                "un",
+                "a"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: 'abil','tir','mek'\nCevap: foyşırabilmektir\n\nÖrnek 2:\nKök: ıhu\nTanım: 'ıhu' Türkçe 'oku' anlamına gelir.\nEkler: 'r','un','a'\nCevap: ",
+            "reference": "ıhuruna",
+            "template": "morph_gen_tr",
+            "original_root": "oku",
+            "model_output": "ıhurunA",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 227,
+                "total_tokens": 232
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-40",
+            "root": "nevey",
+            "suffixes": [
+                "sel",
+                "ci",
+                "liğ",
+                "i"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: jas\nTanım: 'jas' Türkçe 'bas' anlamına gelir.\nEkler: 'tır','ı','nda','dığ'\nCevap: jastırdığında\n\nÖrnek 2:\nKök: nevey\nTanım: 'nevey' Türkçe 'birey' anlamına gelir.\nEkler: 'sel','liğ','ci','i'\nCevap: ",
+            "reference": "neveyselciliği",
+            "template": "morph_gen_tr",
+            "original_root": "birey",
+            "model_output": "neveyselcilği",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 226,
+                "total_tokens": 231
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-41",
+            "root": "vezsan",
+            "suffixes": [
+                "ın",
+                "da"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: 'mış','an'\nCevap: colanmış\n\nÖrnek 2:\nKök: vezsan\nTanım: 'vezsan' Türkçe 'fincan' anlamına gelir.\nEkler: 'ın','da'\nCevap: ",
+            "reference": "vezsanında",
+            "template": "morph_gen_tr",
+            "original_root": "fincan",
+            "model_output": "vezsanında",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 214,
+                "total_tokens": 217
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-42",
+            "root": "usma",
+            "suffixes": [
+                "r",
+                "ı"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: 'an','mış'\nCevap: colanmış\n\nÖrnek 2:\nKök: usma\nTanım: 'usma' Türkçe 'ağla' anlamına gelir.\nEkler: 'ı','r'\nCevap: ",
+            "reference": "usmarı",
+            "template": "morph_gen_tr",
+            "original_root": "ağla",
+            "model_output": "usmarı",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 214,
+                "total_tokens": 217
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-43",
+            "root": "pan",
+            "suffixes": [
+                "ıl",
+                "sa"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: 'an','mış'\nCevap: colanmış\n\nÖrnek 2:\nKök: pan\nTanım: 'pan' Türkçe 'san' anlamına gelir.\nEkler: 'sa','ıl'\nCevap: ",
+            "reference": "panılsa",
+            "template": "morph_gen_tr",
+            "original_root": "san",
+            "model_output": "pansail",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 210,
+                "total_tokens": 213
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-44",
+            "root": "acuş",
+            "suffixes": [
+                "tur",
+                "abil",
+                "ir",
+                "im"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: jas\nTanım: 'jas' Türkçe 'bas' anlamına gelir.\nEkler: 'nda','ı','tır','dığ'\nCevap: jastırdığında\n\nÖrnek 2:\nKök: acuş\nTanım: 'acuş' Türkçe 'oluş' anlamına gelir.\nEkler: 'im','abil','ir','tur'\nCevap: ",
+            "reference": "acuşturabilirim",
+            "template": "morph_gen_tr",
+            "original_root": "oluş",
+            "model_output": "acuşabilirimtur",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 224,
+                "total_tokens": 229
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-45",
+            "root": "maşun",
+            "suffixes": [
+                "muş",
+                "tur"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: 'mış','an'\nCevap: colanmış\n\nÖrnek 2:\nKök: maşun\nTanım: 'maşun' Türkçe 'bulun' anlamına gelir.\nEkler: 'tur','muş'\nCevap: ",
+            "reference": "maşunmuştur",
+            "template": "morph_gen_tr",
+            "original_root": "bulun",
+            "model_output": "maşunturmuş",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 216,
+                "total_tokens": 222
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-46",
+            "root": "çıl",
+            "suffixes": [
+                "mak",
+                "tı"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: 'mış','an'\nCevap: colanmış\n\nÖrnek 2:\nKök: çıl\nTanım: 'çıl' Türkçe 'kıl' anlamına gelir.\nEkler: 'tı','mak'\nCevap: ",
+            "reference": "çılmaktı",
+            "template": "morph_gen_tr",
+            "original_root": "kıl",
+            "model_output": "çıltımak",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 214,
+                "total_tokens": 219
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-47",
+            "root": "çava",
+            "suffixes": [
+                "n",
+                "laş",
+                "ıl",
+                "dı",
+                "m"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: 'me','i','ci','le','liğ'\nCevap: sidişlemeciliği\n\nÖrnek 2:\nKök: çava\nTanım: 'çava' Türkçe 'a' anlamına gelir.\nEkler: 'dı','n','ıl','m','laş'\nCevap: ",
+            "reference": "çavanlaşıldım",
+            "template": "morph_gen_tr",
+            "original_root": "a",
+            "model_output": "çavalaşdırılmın",
+            "usage": {
+                "completion_tokens": 9,
+                "prompt_tokens": 232,
+                "total_tokens": 241
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-48",
+            "root": "zır",
+            "suffixes": [
+                "ma",
+                "yın"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: 'mış','an'\nCevap: colanmış\n\nÖrnek 2:\nKök: zır\nTanım: 'zır' Türkçe 'kır' anlamına gelir.\nEkler: 'ma','yın'\nCevap: ",
+            "reference": "zırmayın",
+            "template": "morph_gen_tr",
+            "original_root": "kır",
+            "model_output": "zırmayın",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 214,
+                "total_tokens": 219
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-49",
+            "root": "fuy",
+            "suffixes": [
+                "ma",
+                "m",
+                "ı"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: 'mek','abil','tir'\nCevap: foyşırabilmektir\n\nÖrnek 2:\nKök: fuy\nTanım: 'fuy' Türkçe 'duy' anlamına gelir.\nEkler: 'ma','ı','m'\nCevap: ",
+            "reference": "fuymamı",
+            "template": "morph_gen_tr",
+            "original_root": "duy",
+            "model_output": "fuyamam",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 227,
+                "total_tokens": 231
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-50",
+            "root": "röçiş",
+            "suffixes": [
+                "i",
+                "ni"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: 'mış','an'\nCevap: colanmış\n\nÖrnek 2:\nKök: röçiş\nTanım: 'röçiş' Türkçe 'iş' anlamına gelir.\nEkler: 'ni','i'\nCevap: ",
+            "reference": "röçişini",
+            "template": "morph_gen_tr",
+            "original_root": "iş",
+            "model_output": "röçişi",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 216,
+                "total_tokens": 221
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-51",
+            "root": "fivin",
+            "suffixes": [
+                "er",
+                "iz"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: 'an','mış'\nCevap: colanmış\n\nÖrnek 2:\nKök: fivin\nTanım: 'fivin' Türkçe 'in' anlamına gelir.\nEkler: 'er','iz'\nCevap: ",
+            "reference": "fivineriz",
+            "template": "morph_gen_tr",
+            "original_root": "in",
+            "model_output": "fivineriz",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 214,
+                "total_tokens": 218
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-52",
+            "root": "yifen",
+            "suffixes": [
+                "siz",
+                "liğ",
+                "in",
+                "den"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: jas\nTanım: 'jas' Türkçe 'bas' anlamına gelir.\nEkler: 'dığ','ı','tır','nda'\nCevap: jastırdığında\n\nÖrnek 2:\nKök: yifen\nTanım: 'yifen' Türkçe 'güven' anlamına gelir.\nEkler: 'liğ','in','siz','den'\nCevap: ",
+            "reference": "yifensizliğinden",
+            "template": "morph_gen_tr",
+            "original_root": "güven",
+            "model_output": "yifensizliğinden",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 227,
+                "total_tokens": 234
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-53",
+            "root": "jek",
+            "suffixes": [
+                "iz",
+                "e"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: 'mış','an'\nCevap: colanmış\n\nÖrnek 2:\nKök: jek\nTanım: 'jek' Türkçe 'sek' anlamına gelir.\nEkler: 'e','iz'\nCevap: ",
+            "reference": "jekize",
+            "template": "morph_gen_tr",
+            "original_root": "sek",
+            "model_output": "jekeiz",
+            "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 212,
+                "total_tokens": 215
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-54",
+            "root": "peyhiben",
+            "suffixes": [
+                "ler",
+                "imiz",
+                "e"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: 'tir','mek','abil'\nCevap: foyşırabilmektir\n\nÖrnek 2:\nKök: peyhiben\nTanım: 'peyhiben' Türkçe 'gökdelen' anlamına gelir.\nEkler: 'imiz','e','ler'\nCevap: ",
+            "reference": "peyhibenlerimize",
+            "template": "morph_gen_tr",
+            "original_root": "gökdelen",
+            "model_output": "peyhibenlerimize",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 234,
+                "total_tokens": 240
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-55",
+            "root": "kün",
+            "suffixes": [
+                "lük",
+                "ten"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: 'mış','an'\nCevap: colanmış\n\nÖrnek 2:\nKök: kün\nTanım: 'kün' Türkçe 'gün' anlamına gelir.\nEkler: 'lük','ten'\nCevap: ",
+            "reference": "künlükten",
+            "template": "morph_gen_tr",
+            "original_root": "gün",
+            "model_output": "künlükten",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 214,
+                "total_tokens": 219
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-56",
+            "root": "utul",
+            "suffixes": [
+                "umuz",
+                "a"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: 'an','mış'\nCevap: colanmış\n\nÖrnek 2:\nKök: utul\nTanım: 'utul' Türkçe 'okul' anlamına gelir.\nEkler: 'a','umuz'\nCevap: ",
+            "reference": "utulumuza",
+            "template": "morph_gen_tr",
+            "original_root": "okul",
+            "model_output": "utulumuza",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 214,
+                "total_tokens": 218
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-57",
+            "root": "durk",
+            "suffixes": [
+                "ul",
+                "ma",
+                "dan"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: 'mek','tir','abil'\nCevap: foyşırabilmektir\n\nÖrnek 2:\nKök: durk\nTanım: 'durk' Türkçe 'burk' anlamına gelir.\nEkler: 'dan','ul','ma'\nCevap: ",
+            "reference": "durkulmadan",
+            "template": "morph_gen_tr",
+            "original_root": "burk",
+            "model_output": "durkulmadan",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 227,
+                "total_tokens": 231
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-58",
+            "root": "sıyozza",
+            "suffixes": [
+                "ma",
+                "mız",
+                "a"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: 'tir','mek','abil'\nCevap: foyşırabilmektir\n\nÖrnek 2:\nKök: sıyozza\nTanım: 'sıyozza' Türkçe 'çuvalla' anlamına gelir.\nEkler: 'mız','a','ma'\nCevap: ",
+            "reference": "sıyozzamamıza",
+            "template": "morph_gen_tr",
+            "original_root": "çuvalla",
+            "model_output": "sıyozzamamıza",
+            "usage": {
+                "completion_tokens": 9,
+                "prompt_tokens": 235,
+                "total_tokens": 244
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-59",
+            "root": "ğe",
+            "suffixes": [
+                "n",
+                "e",
+                "me",
+                "me",
+                "si",
+                "nden"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: ğümah\nTanım: 'ğümah' Türkçe 'ferah' anlamına gelir.\nEkler: 'i','abil','t','la','eceğ','im'\nCevap: ğümahlatabileceğimi\n\nÖrnek 2:\nKök: ğe\nTanım: 'ğe' Türkçe 'de' anlamına gelir.\nEkler: 'e','nden','me','n','si','me'\nCevap: ",
+            "reference": "ğenememesinden",
+            "template": "morph_gen_tr",
+            "original_root": "de",
+            "model_output": "ğenendenemesi",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 240,
+                "total_tokens": 245
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-60",
+            "root": "mırısgi",
+            "suffixes": [
+                "n",
+                "in"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: 'an','mış'\nCevap: colanmış\n\nÖrnek 2:\nKök: mırısgi\nTanım: 'mırısgi' Türkçe 'galaksi' anlamına gelir.\nEkler: 'in','n'\nCevap: ",
+            "reference": "mırısginin",
+            "template": "morph_gen_tr",
+            "original_root": "galaksi",
+            "model_output": "mırısginin",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 217,
+                "total_tokens": 222
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-61",
+            "root": "ühan",
+            "suffixes": [
+                "ma",
+                "sa",
+                "n"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: 'abil','mek','tir'\nCevap: foyşırabilmektir\n\nÖrnek 2:\nKök: ühan\nTanım: 'ühan' Türkçe 'inan' anlamına gelir.\nEkler: 'sa','n','ma'\nCevap: ",
+            "reference": "ühanmasan",
+            "template": "morph_gen_tr",
+            "original_root": "inan",
+            "model_output": "ühanmasan",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 226,
+                "total_tokens": 230
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-62",
+            "root": "rodı",
+            "suffixes": [
+                "n",
+                "ma",
+                "dığ",
+                "ı"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: jas\nTanım: 'jas' Türkçe 'bas' anlamına gelir.\nEkler: 'ı','tır','dığ','nda'\nCevap: jastırdığında\n\nÖrnek 2:\nKök: rodı\nTanım: 'rodı' Türkçe 'tanı' anlamına gelir.\nEkler: 'n','ı','dığ','ma'\nCevap: ",
+            "reference": "rodınmadığı",
+            "template": "morph_gen_tr",
+            "original_root": "tanı",
+            "model_output": "rodındığınıma",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 225,
+                "total_tokens": 230
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-63",
+            "root": "lık",
+            "suffixes": [
+                "ma",
+                "yış",
+                "ı"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: 'tir','mek','abil'\nCevap: foyşırabilmektir\n\nÖrnek 2:\nKök: lık\nTanım: 'lık' Türkçe 'çık' anlamına gelir.\nEkler: 'ı','ma','yış'\nCevap: ",
+            "reference": "lıkmayışı",
+            "template": "morph_gen_tr",
+            "original_root": "çık",
+            "model_output": "lıkıyışma",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 227,
+                "total_tokens": 232
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-64",
+            "root": "may",
+            "suffixes": [
+                "laş",
+                "tığ",
+                "ı",
+                "nı"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: jas\nTanım: 'jas' Türkçe 'bas' anlamına gelir.\nEkler: 'ı','nda','dığ','tır'\nCevap: jastırdığında\n\nÖrnek 2:\nKök: may\nTanım: 'may' Türkçe 'pay' anlamına gelir.\nEkler: 'ı','laş','nı','tığ'\nCevap: ",
+            "reference": "maylaştığını",
+            "template": "morph_gen_tr",
+            "original_root": "pay",
+            "model_output": "maylaştığını",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 224,
+                "total_tokens": 229
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-65",
+            "root": "tüğenan",
+            "suffixes": [
+                "lar",
+                "ın",
+                "dan"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: 'mek','tir','abil'\nCevap: foyşırabilmektir\n\nÖrnek 2:\nKök: tüğenan\nTanım: 'tüğenan' Türkçe 'figüran' anlamına gelir.\nEkler: 'dan','ın','lar'\nCevap: ",
+            "reference": "tüğenanlarından",
+            "template": "morph_gen_tr",
+            "original_root": "figüran",
+            "model_output": "tüğenanların",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 232,
+                "total_tokens": 237
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-66",
+            "root": "ko",
+            "suffixes": [
+                "st",
+                "lar",
+                "ınız"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: 'abil','mek','tir'\nCevap: foyşırabilmektir\n\nÖrnek 2:\nKök: ko\nTanım: 'ko' Türkçe 'do' anlamına gelir.\nEkler: 'st','lar','ınız'\nCevap: ",
+            "reference": "kostlarınız",
+            "template": "morph_gen_tr",
+            "original_root": "do",
+            "model_output": "kostlarınız",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 225,
+                "total_tokens": 230
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-67",
+            "root": "ğe",
+            "suffixes": [
+                "r",
+                "i",
+                "nde"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: 'mek','tir','abil'\nCevap: foyşırabilmektir\n\nÖrnek 2:\nKök: ğe\nTanım: 'ğe' Türkçe 'ye' anlamına gelir.\nEkler: 'nde','r','i'\nCevap: ",
+            "reference": "ğerinde",
+            "template": "morph_gen_tr",
+            "original_root": "ye",
+            "model_output": "ğerindei",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 227,
+                "total_tokens": 231
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-68",
+            "root": "ponur",
+            "suffixes": [
+                "lar",
+                "ım",
+                "ı"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: 'tir','mek','abil'\nCevap: foyşırabilmektir\n\nÖrnek 2:\nKök: ponur\nTanım: 'ponur' Türkçe 'kusur' anlamına gelir.\nEkler: 'ım','ı','lar'\nCevap: ",
+            "reference": "ponurlarımı",
+            "template": "morph_gen_tr",
+            "original_root": "kusur",
+            "model_output": "ponurumları",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 227,
+                "total_tokens": 231
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-69",
+            "root": "lübir",
+            "suffixes": [
+                "t",
+                "en"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: 'an','mış'\nCevap: colanmış\n\nÖrnek 2:\nKök: lübir\nTanım: 'lübir' Türkçe 'getir' anlamına gelir.\nEkler: 'en','t'\nCevap: ",
+            "reference": "lübirten",
+            "template": "morph_gen_tr",
+            "original_root": "getir",
+            "model_output": "lübirent",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 215,
+                "total_tokens": 220
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-70",
+            "root": "juğan",
+            "suffixes": [
+                "laş",
+                "ma",
+                "lar",
+                "a"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: jas\nTanım: 'jas' Türkçe 'bas' anlamına gelir.\nEkler: 'tır','ı','dığ','nda'\nCevap: jastırdığında\n\nÖrnek 2:\nKök: juğan\nTanım: 'juğan' Türkçe 'an' anlamına gelir.\nEkler: 'lar','ma','laş','a'\nCevap: ",
+            "reference": "juğanlaşmalara",
+            "template": "morph_gen_tr",
+            "original_root": "an",
+            "model_output": "juğanlaşmalarında",
+            "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 226,
+                "total_tokens": 234
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-71",
+            "root": "ğicek",
+            "suffixes": [
+                "le",
+                "yeceğ",
+                "iz"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: 'tir','abil','mek'\nCevap: foyşırabilmektir\n\nÖrnek 2:\nKök: ğicek\nTanım: 'ğicek' Türkçe 'ek' anlamına gelir.\nEkler: 'le','iz','yeceğ'\nCevap: ",
+            "reference": "ğicekleyeceğiz",
+            "template": "morph_gen_tr",
+            "original_root": "ek",
+            "model_output": "",
+            "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 231,
+                "total_tokens": 239
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-72",
+            "root": "cüpekmet",
+            "suffixes": [
+                "im",
+                "le"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: 'mış','an'\nCevap: colanmış\n\nÖrnek 2:\nKök: cüpekmet\nTanım: 'cüpekmet' Türkçe 'bisiklet' anlamına gelir.\nEkler: 'le','im'\nCevap: ",
+            "reference": "cüpekmetimle",
+            "template": "morph_gen_tr",
+            "original_root": "bisiklet",
+            "model_output": "cüpekmetleim",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 218,
+                "total_tokens": 224
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-73",
+            "root": "vok",
+            "suffixes": [
+                "la",
+                "yabil",
+                "iyor",
+                "du",
+                "m"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: 'liğ','ci','le','i','me'\nCevap: sidişlemeciliği\n\nÖrnek 2:\nKök: vok\nTanım: 'vok' Türkçe 'kok' anlamına gelir.\nEkler: 'la','du','m','yabil','iyor'\nCevap: ",
+            "reference": "voklayabiliyordum",
+            "template": "morph_gen_tr",
+            "original_root": "kok",
+            "model_output": "voklayabiliyordum",
+            "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 231,
+                "total_tokens": 239
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-74",
+            "root": "hüti",
+            "suffixes": [
+                "len",
+                "me",
+                "ler",
+                "i"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: jas\nTanım: 'jas' Türkçe 'bas' anlamına gelir.\nEkler: 'tır','nda','ı','dığ'\nCevap: jastırdığında\n\nÖrnek 2:\nKök: hüti\nTanım: 'hüti' Türkçe 'yeni' anlamına gelir.\nEkler: 'ler','me','i','len'\nCevap: ",
+            "reference": "hütilenmeleri",
+            "template": "morph_gen_tr",
+            "original_root": "yeni",
+            "model_output": "hütülenmeleri",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 226,
+                "total_tokens": 233
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-75",
+            "root": "hiçür",
+            "suffixes": [
+                "müş",
+                "tür"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: 'mış','an'\nCevap: colanmış\n\nÖrnek 2:\nKök: hiçür\nTanım: 'hiçür' Türkçe 'süpür' anlamına gelir.\nEkler: 'tür','müş'\nCevap: ",
+            "reference": "hiçürmüştür",
+            "template": "morph_gen_tr",
+            "original_root": "süpür",
+            "model_output": "hiçürtmüş",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 220,
+                "total_tokens": 227
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-76",
+            "root": "vümi",
+            "suffixes": [
+                "miz",
+                "in"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: 'mış','an'\nCevap: colanmış\n\nÖrnek 2:\nKök: vümi\nTanım: 'vümi' Türkçe 'şefi' anlamına gelir.\nEkler: 'in','miz'\nCevap: ",
+            "reference": "vümimizin",
+            "template": "morph_gen_tr",
+            "original_root": "şefi",
+            "model_output": "vüminmiz",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 217,
+                "total_tokens": 222
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-77",
+            "root": "mukuş",
+            "suffixes": [
+                "abil",
+                "di",
+                "m"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: 'mek','tir','abil'\nCevap: foyşırabilmektir\n\nÖrnek 2:\nKök: mukuş\nTanım: 'mukuş' Türkçe 'konuş' anlamına gelir.\nEkler: 'm','di','abil'\nCevap: ",
+            "reference": "mukuşabildim",
+            "template": "morph_gen_tr",
+            "original_root": "konuş",
+            "model_output": "mukuşabildim",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 229,
+                "total_tokens": 235
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-78",
+            "root": "nılomda",
+            "suffixes": [
+                "ma",
+                "m",
+                "dan"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: 'mek','abil','tir'\nCevap: foyşırabilmektir\n\nÖrnek 2:\nKök: nılomda\nTanım: 'nılomda' Türkçe 'toparla' anlamına gelir.\nEkler: 'm','ma','dan'\nCevap: ",
+            "reference": "nılomdamamdan",
+            "template": "morph_gen_tr",
+            "original_root": "toparla",
+            "model_output": "nılomdamadan",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 232,
+                "total_tokens": 237
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-79",
+            "root": "mıla",
+            "suffixes": [
+                "n",
+                "abil",
+                "iyor",
+                "um"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: jas\nTanım: 'jas' Türkçe 'bas' anlamına gelir.\nEkler: 'ı','tır','nda','dığ'\nCevap: jastırdığında\n\nÖrnek 2:\nKök: mıla\nTanım: 'mıla' Türkçe 'dola' anlamına gelir.\nEkler: 'iyor','um','n','abil'\nCevap: ",
+            "reference": "mılanabiliyorum",
+            "template": "morph_gen_tr",
+            "original_root": "dola",
+            "model_output": "mılayabilirim",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 226,
+                "total_tokens": 231
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-80",
+            "root": "buta",
+            "suffixes": [
+                "t",
+                "ma",
+                "da"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: 'abil','tir','mek'\nCevap: foyşırabilmektir\n\nÖrnek 2:\nKök: buta\nTanım: 'buta' Türkçe 'daya' anlamına gelir.\nEkler: 't','ma','da'\nCevap: ",
+            "reference": "butatmada",
+            "template": "morph_gen_tr",
+            "original_root": "daya",
+            "model_output": "butatmadadır",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 227,
+                "total_tokens": 232
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-81",
+            "root": "fikgen",
+            "suffixes": [
+                "miş",
+                "ler",
+                "dir"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: 'mek','abil','tir'\nCevap: foyşırabilmektir\n\nÖrnek 2:\nKök: fikgen\nTanım: 'fikgen' Türkçe 'yelten' anlamına gelir.\nEkler: 'miş','dir','ler'\nCevap: ",
+            "reference": "fikgenmişlerdir",
+            "template": "morph_gen_tr",
+            "original_root": "yelten",
+            "model_output": "fikgenmişlerdir",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 231,
+                "total_tokens": 238
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-82",
+            "root": "köbce",
+            "suffixes": [
+                "diğ",
+                "im",
+                "in"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: 'abil','mek','tir'\nCevap: foyşırabilmektir\n\nÖrnek 2:\nKök: köbce\nTanım: 'köbce' Türkçe 'dinle' anlamına gelir.\nEkler: 'in','im','diğ'\nCevap: ",
+            "reference": "köbcediğimin",
+            "template": "morph_gen_tr",
+            "original_root": "dinle",
+            "model_output": "köbcediğinim",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 230,
+                "total_tokens": 237
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-83",
+            "root": "lo",
+            "suffixes": [
+                "lan",
+                "dı",
+                "m"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: 'mek','abil','tir'\nCevap: foyşırabilmektir\n\nÖrnek 2:\nKök: lo\nTanım: 'lo' Türkçe 'do' anlamına gelir.\nEkler: 'm','lan','dı'\nCevap: ",
+            "reference": "lolandım",
+            "template": "morph_gen_tr",
+            "original_root": "do",
+            "model_output": "lodulandım",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 225,
+                "total_tokens": 229
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-84",
+            "root": "ğar",
+            "suffixes": [
+                "ış",
+                "ıyor"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: 'mış','an'\nCevap: colanmış\n\nÖrnek 2:\nKök: ğar\nTanım: 'ğar' Türkçe 'yar' anlamına gelir.\nEkler: 'ış','ıyor'\nCevap: ",
+            "reference": "ğarışıyor",
+            "template": "morph_gen_tr",
+            "original_root": "yar",
+            "model_output": "ğarıyorış",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 214,
+                "total_tokens": 218
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-85",
+            "root": "vart",
+            "suffixes": [
+                "ış",
+                "ıl",
+                "mış"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: 'tir','abil','mek'\nCevap: foyşırabilmektir\n\nÖrnek 2:\nKök: vart\nTanım: 'vart' Türkçe 'tart' anlamına gelir.\nEkler: 'mış','ış','ıl'\nCevap: ",
+            "reference": "vartışılmış",
+            "template": "morph_gen_tr",
+            "original_root": "tart",
+            "model_output": "vartılmışış",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 228,
+                "total_tokens": 234
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-86",
+            "root": "rıgan",
+            "suffixes": [
+                "la",
+                "m",
+                "ıyor",
+                "lar",
+                "dır"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: 'me','le','i','liğ','ci'\nCevap: sidişlemeciliği\n\nÖrnek 2:\nKök: rıgan\nTanım: 'rıgan' Türkçe 'an' anlamına gelir.\nEkler: 'lar','la','dır','m','ıyor'\nCevap: ",
+            "reference": "rıganlamıyorlardır",
+            "template": "morph_gen_tr",
+            "original_root": "an",
+            "model_output": "rıganıyorlardır",
+            "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 234,
+                "total_tokens": 242
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-87",
+            "root": "mupdaş",
+            "suffixes": [
+                "tır",
+                "ma",
+                "dığ",
+                "ım"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: jas\nTanım: 'jas' Türkçe 'bas' anlamına gelir.\nEkler: 'ı','dığ','nda','tır'\nCevap: jastırdığında\n\nÖrnek 2:\nKök: mupdaş\nTanım: 'mupdaş' Türkçe 'yaklaş' anlamına gelir.\nEkler: 'ma','tır','ım','dığ'\nCevap: ",
+            "reference": "mupdaştırmadığım",
+            "template": "morph_gen_tr",
+            "original_root": "yaklaş",
+            "model_output": "mupdaştırdığımda",
+            "usage": {
+                "completion_tokens": 9,
+                "prompt_tokens": 232,
+                "total_tokens": 241
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-88",
+            "root": "ıkın",
+            "suffixes": [
+                "a",
+                "ma",
+                "yan"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: 'tir','abil','mek'\nCevap: foyşırabilmektir\n\nÖrnek 2:\nKök: ıkın\nTanım: 'ıkın' Türkçe 'alın' anlamına gelir.\nEkler: 'ma','a','yan'\nCevap: ",
+            "reference": "ıkınamayan",
+            "template": "morph_gen_tr",
+            "original_root": "alın",
+            "model_output": "ıkınmayana",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 228,
+                "total_tokens": 232
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-89",
+            "root": "nin",
+            "suffixes": [
+                "le",
+                "ye",
+                "me",
+                "me",
+                "ye"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: 'ci','i','le','liğ','me'\nCevap: sidişlemeciliği\n\nÖrnek 2:\nKök: nin\nTanım: 'nin' Türkçe 'din' anlamına gelir.\nEkler: 'ye','le','ye','me','me'\nCevap: ",
+            "reference": "ninleyememeye",
+            "template": "morph_gen_tr",
+            "original_root": "din",
+            "model_output": "ninyelememeyi",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 228,
+                "total_tokens": 234
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-90",
+            "root": "şıfmol",
+            "suffixes": [
+                "muş",
+                "lar",
+                "dı"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: 'abil','tir','mek'\nCevap: foyşırabilmektir\n\nÖrnek 2:\nKök: şıfmol\nTanım: 'şıfmol' Türkçe 'hapsol' anlamına gelir.\nEkler: 'muş','dı','lar'\nCevap: ",
+            "reference": "şıfmolmuşlardı",
+            "template": "morph_gen_tr",
+            "original_root": "hapsol",
+            "model_output": "şıfmolmuşlardı",
+            "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 232,
+                "total_tokens": 240
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-91",
+            "root": "çamp",
+            "suffixes": [
+                "ım",
+                "dan"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: 'mış','an'\nCevap: colanmış\n\nÖrnek 2:\nKök: çamp\nTanım: 'çamp' Türkçe 'kamp' anlamına gelir.\nEkler: 'ım','dan'\nCevap: ",
+            "reference": "çampımdan",
+            "template": "morph_gen_tr",
+            "original_root": "kamp",
+            "model_output": "çampımdan",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 213,
+                "total_tokens": 218
+            },
+            "correct": true,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-92",
+            "root": "çez",
+            "suffixes": [
+                "im",
+                "de",
+                "ki"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: 'mek','abil','tir'\nCevap: foyşırabilmektir\n\nÖrnek 2:\nKök: çez\nTanım: 'çez' Türkçe 'gez' anlamına gelir.\nEkler: 'ki','de','im'\nCevap: ",
+            "reference": "çezimdeki",
+            "template": "morph_gen_tr",
+            "original_root": "gez",
+            "model_output": "çezdiğimde",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 227,
+                "total_tokens": 233
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-93",
+            "root": "ivte",
+            "suffixes": [
+                "le",
+                "me",
+                "miş"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: 'abil','mek','tir'\nCevap: foyşırabilmektir\n\nÖrnek 2:\nKök: ivte\nTanım: 'ivte' Türkçe 'erte' anlamına gelir.\nEkler: 'me','le','miş'\nCevap: ",
+            "reference": "ivtelememiş",
+            "template": "morph_gen_tr",
+            "original_root": "erte",
+            "model_output": "ivtelemeiş",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 227,
+                "total_tokens": 231
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-94",
+            "root": "gağ",
+            "suffixes": [
+                "la",
+                "ya",
+                "m",
+                "ıyor",
+                "sa"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: 'i','liğ','ci','le','me'\nCevap: sidişlemeciliği\n\nÖrnek 2:\nKök: gağ\nTanım: 'gağ' Türkçe 'sağ' anlamına gelir.\nEkler: 'ıyor','ya','la','sa','m'\nCevap: ",
+            "reference": "gağlayamıyorsa",
+            "template": "morph_gen_tr",
+            "original_root": "sağ",
+            "model_output": "gağlasayamıyor",
+            "usage": {
+                "completion_tokens": 7,
+                "prompt_tokens": 232,
+                "total_tokens": 239
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-95",
+            "root": "ütke",
+            "suffixes": [
+                "yen",
+                "ler",
+                "e"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: 'tir','mek','abil'\nCevap: foyşırabilmektir\n\nÖrnek 2:\nKök: ütke\nTanım: 'ütke' Türkçe 'işle' anlamına gelir.\nEkler: 'yen','e','ler'\nCevap: ",
+            "reference": "ütkeyenlere",
+            "template": "morph_gen_tr",
+            "original_root": "işle",
+            "model_output": "ütkeyenler",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 228,
+                "total_tokens": 232
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-96",
+            "root": "dibpel",
+            "suffixes": [
+                "me",
+                "n",
+                "in"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: 'abil','tir','mek'\nCevap: foyşırabilmektir\n\nÖrnek 2:\nKök: dibpel\nTanım: 'dibpel' Türkçe 'yüksel' anlamına gelir.\nEkler: 'n','in','me'\nCevap: ",
+            "reference": "dibpelmenin",
+            "template": "morph_gen_tr",
+            "original_root": "yüksel",
+            "model_output": "dibpelinmen",
+            "usage": {
+                "completion_tokens": 5,
+                "prompt_tokens": 230,
+                "total_tokens": 235
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-97",
+            "root": "bon",
+            "suffixes": [
+                "uş",
+                "ma",
+                "yıp"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: foyşır\nTanım: 'foyşır' Türkçe 'kaldır' anlamına gelir.\nEkler: 'tir','abil','mek'\nCevap: foyşırabilmektir\n\nÖrnek 2:\nKök: bon\nTanım: 'bon' Türkçe 'kon' anlamına gelir.\nEkler: 'yıp','uş','ma'\nCevap: ",
+            "reference": "bonuşmayıp",
+            "template": "morph_gen_tr",
+            "original_root": "kon",
+            "model_output": "bonyıpuşma",
+            "usage": {
+                "completion_tokens": 6,
+                "prompt_tokens": 226,
+                "total_tokens": 232
+            },
+            "correct": false,
+            "faithful": true
+        },
+        {
+            "id": "btwd-ood-98",
+            "root": "luşol",
+            "suffixes": [
+                "duk",
+                "la"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: col\nTanım: 'col' Türkçe 'dol' anlamına gelir.\nEkler: 'mış','an'\nCevap: colanmış\n\nÖrnek 2:\nKök: luşol\nTanım: 'luşol' Türkçe 'ol' anlamına gelir.\nEkler: 'la','duk'\nCevap: ",
+            "reference": "luşoldukla",
+            "template": "morph_gen_tr",
+            "original_root": "ol",
+            "model_output": "oluşladuk",
+            "usage": {
+                "completion_tokens": 4,
+                "prompt_tokens": 214,
+                "total_tokens": 218
+            },
+            "correct": false,
+            "faithful": false
+        },
+        {
+            "id": "btwd-ood-99",
+            "root": "ıykam",
+            "suffixes": [
+                "lan",
+                "dır",
+                "ma",
+                "mız",
+                "ı"
+            ],
+            "prompt": "Size Türkçe yeni bir kök, onun tanımlaması ve bir ek listesi (virgülle ayrılmış) verilecek ve sizden bu kökten verilen tüm ekleri kullanarak dilbilgisel olarak doğru bir kelime üretmeniz istenecek. Sadece verilen ekleri kullanabilirsiniz ve her bir ek sadece bir kez kullanılabilir. Sadece üretilen kelimeyi çıktı olarak verin.\n\nÖrnek 1:\nKök: sidiş\nTanım: 'sidiş' Türkçe 'iş' anlamına gelir.\nEkler: 'liğ','i','le','me','ci'\nCevap: sidişlemeciliği\n\nÖrnek 2:\nKök: ıykam\nTanım: 'ıykam' Türkçe 'anlam' anlamına gelir.\nEkler: 'ma','lan','ı','dır','mız'\nCevap: ",
+            "reference": "ıykamlandırmamızı",
+            "template": "morph_gen_tr",
+            "original_root": "anlam",
+            "model_output": "ıykamlanmamızdır",
+            "usage": {
+                "completion_tokens": 9,
+                "prompt_tokens": 236,
+                "total_tokens": 245
+            },
+            "correct": false,
+            "faithful": false
+        }
+    ]
+}

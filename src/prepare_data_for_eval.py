@@ -217,7 +217,7 @@ def prepare_shot_for_morph_disc_mcq(idx, sample, template, language, is_final=Fa
     return shot, answer
 
 def prepare_shots_for_morph_disc(idx, sample, template, language, is_final=False):
-    options = [sample["positive_options"][0]] + sample["negative_options"]
+    options = [sample["positive_options"][0]] + sample["negative_options"][:4]
     options = random.sample(options, len(options))
     suffixes = random.sample(sample["suffixes"], len(sample["suffixes"]))
     template_lang = _get_template_lang(template)
@@ -348,14 +348,15 @@ def main():
 
     shot_samples = input_data["data"][:args.num_shots]
 
-    for sample in tqdm(input_data["data"], desc="Preparing input_data for evaluation"):
-        shot_samples = [shot for shot in input_data["data"] if len(shot["suffixes"]) == len(sample["suffixes"]) and shot["id"] != sample["id"]][:args.num_shots]
-        
+    for sample in tqdm(input_data["data"], desc="Preparing input_data for evaluation"):        
         if sample.get("similar"):
             shot_samples = sample["similar"]
+        else:
+            shot_samples = [shot for shot in input_data["data"] if len(shot["suffixes"]) == len(sample["suffixes"]) and shot["id"] != sample["id"] and not set(shot["suffixes"]).intersection(set(sample["suffixes"]))][:args.num_shots]
 
-        if len(shot_samples) == args.num_shots:
-            eval_data.extend(prepare_sample_for_eval(sample, shot_samples, args.template, input_data["metadata"]["language"]))
+        assert len(shot_samples) == args.num_shots, f"Number of shots is not equal to {args.num_shots} for sample {sample['id']}"
+
+        eval_data.extend(prepare_sample_for_eval(sample, shot_samples, args.template, input_data["metadata"]["language"]))
 
     datapath = pathlib.Path(args.datapath)
     output_dir = pathlib.Path(args.output_dir) if args.output_dir is not None else datapath.parent
@@ -367,7 +368,8 @@ def main():
             "source": args.datapath,
             "template": args.template,
             "language": input_data["metadata"]["language"],
-            "num_shots": args.num_shots
+            "num_shots": args.num_shots,
+            "size": len(eval_data)
         },
         "data": eval_data
     }
