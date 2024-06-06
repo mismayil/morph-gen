@@ -67,3 +67,7 @@ def levenshtein_distance(s, t):
                           d[i - 1][j - 1] + cost) # substitution   
 
     return d[m][n]
+
+def batched(lst, size=4):
+    for i in range(0, len(lst), size):
+        yield lst[i:i + size]

@@ -1,68 +1,63 @@
 import argparse
-import time
-from openai import OpenAI, AzureOpenAI, APITimeoutError, APIConnectionError, RateLimitError, InternalServerError
+import math
+from openai import AsyncOpenAI, AzureOpenAI, AsyncAzureOpenAI, APITimeoutError, APIConnectionError, RateLimitError, InternalServerError
 import os
 from tqdm import tqdm
 import pathlib
 import traceback
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
+from tenacity import (
+    retry,
+    stop_after_attempt,
+    wait_random_exponential,
+    retry_if_exception_type
+)
+import asyncio, dataclasses
+from dotenv import load_dotenv
 
-from utils import read_json, write_json, generate_unique_id, MODEL_COSTS
+from utils import read_json, write_json, generate_unique_id, MODEL_COSTS, batched
 
 CHAT_COMPLETION_MODELS = ["gpt-3.5-turbo", "gpt-4"]
 TEXT_COMPLETION_MODELS = ["text-davinci-003"]
 API_MODELS = CHAT_COMPLETION_MODELS + TEXT_COMPLETION_MODELS
 
-def chat_completion(client, messages, model="gpt-3.5-turbo", return_text=True, return_usage=True, model_args=None):
+@dataclasses.dataclass
+class ModelResponse:
+    text: str
+    usage: dict
+
+@retry(retry=retry_if_exception_type([APITimeoutError, APIConnectionError, RateLimitError, InternalServerError]), wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(10))
+async def chat_completion(client, messages, model="gpt-3.5-turbo", model_args=None, results=None):
     if model_args is None:
         model_args = {}
+    
+    response = await client.chat.completions.create(model=model, messages=messages, **model_args)
+    text = response.choices[0].message.content.strip()
+    usage = response.usage
+    
+    model_response = ModelResponse(text, dict(usage))
+    
+    if results is not None:
+        results.append(model_response)
 
-    while True:
-        try:
-            response = client.chat.completions.create(model=model, messages=messages, **model_args)
-            text = response.choices[0].message.content.strip()
-            usage = response.usage
-            
-            if return_text and return_usage:
-                return text, dict(usage)
-            
-            if return_text:
-                return text
-            
-            if return_usage:
-                return usage
+    return model_response
 
-            return response
-        except (APITimeoutError, APIConnectionError, RateLimitError, InternalServerError) as e:
-            print(f"OpenAI error: {str(e)}. Waiting for 1 minute.")
-            time.sleep(60)
-            continue
-
-def text_completion(client, prompt, model="text-davinci-003", return_text=True, return_usage=True, model_args=None):
+@retry(retry=retry_if_exception_type([APITimeoutError, APIConnectionError, RateLimitError, InternalServerError]), wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(10))
+async def text_completion(client, prompt, model="text-davinci-003", model_args=None, results=None):
     if model_args is None:
         model_args = {}
+    
+    response = client.completions.create(model=model, prompt=prompt, **model_args)
+    text = response.choices[0].text.strip()
+    usage = response.usage
 
-    while True:
-        try:
-            response = client.completions.create(model=model, prompt=prompt, **model_args)
-            text = response.choices[0].text.strip()
-            usage = response.usage
+    model_response = ModelResponse(text, dict(usage))
 
-            if return_text and return_usage:
-                return text, dict(usage)
-            
-            if return_text:
-                return text
-            
-            if return_usage:
-                return usage
-
-            return response
-        except (APITimeoutError, APIConnectionError, RateLimitError, InternalServerError) as e:
-            print(f"OpenAI error: {str(e)}. Waiting for 1 minute.")
-            time.sleep(60)
-            continue
+    if results is not None:
+        results.append(model_response)
+    
+    return model_response
 
 @torch.no_grad()
 def compute_perplexity(text, model, tokenizer, device="cuda"):
@@ -88,7 +83,9 @@ def evaluate_lm(prompt, model, tokenizer, model_args=None, device="cuda"):
     perplexity = compute_perplexity(prompt, model, tokenizer, device=device)
     return perplexity
 
-def main():
+async def main():
+    load_dotenv() 
+
     parser = argparse.ArgumentParser()
     parser.add_argument("-d", "--datapath", type=str, help="Path to evaluation data in json", required=True)
     parser.add_argument("-k", "--openai-key", type=str, help="OpenAI API Key")
@@ -105,19 +102,20 @@ def main():
     parser.add_argument("-c", "--cache-dir", type=str, help="Cache directory for model", default="~/.cache")
     parser.add_argument("-mp", "--model-path", type=str, help="Model path to use for evaluation", default="gpt2")
     parser.add_argument("-tp", "--tokenizer-path", type=str, help="Tokenizer path to use for evaluation", default="gpt2")
+    parser.add_argument("-b", "--batch-size", type=int, help="Batch size for evaluation", default=1)
     
     args = parser.parse_args()
     
     if args.model in API_MODELS:
         if args.is_openai_azure:
-            endpoint = 'https://sigturk-openai.openai.azure.com/'
-            client = AzureOpenAI(
-                api_key = args.openai_key if args.openai_key is not None else os.getenv("AZURE_OPENAI_KEY"),
+            endpoint = os.getenv("AZURE_OPENAI_API_ENDPOINT", "https://sigturk-openai.openai.azure.com/")
+            client = AsyncAzureOpenAI(
+                api_key = args.openai_key if args.openai_key is not None else os.getenv("AZURE_OPENAI_API_KEY"),
                 api_version = '2024-02-15-preview',
                 azure_endpoint=endpoint
             )
         else:
-            client = OpenAI(api_key=args.openai_key if args.openai_key is not None else os.getenv("OPENAI_API_KEY"))
+            client = AsyncOpenAI(api_key=args.openai_key if args.openai_key is not None else os.getenv("OPENAI_API_KEY"))
         
     input_data = read_json(args.datapath)
     data = input_data["data"]
@@ -171,41 +169,50 @@ def main():
     if args.model_path:
         model, tokenizer = load_model(model_path=args.model_path, tokenizer_path=args.tokenizer_path, cache_dir=args.cache_dir, device=device)
 
-    for sample in tqdm(data, total=len(data)):
-        try:
-            if "id" in sample and sample["id"] in ignore_map:
-                ignore_instance = ignore_map[sample["id"]]
-                if "model_output" in ignore_instance:
-                    sample.update(ignore_instance)
-                    continue
-        
-            if "model_output" in sample:
-                continue
+    model_args = {
+        "temperature": args.temperature,
+        "max_tokens": args.max_tokens,
+        "top_p": args.top_p,
+        "frequency_penalty": args.frequency_penalty,
+        "presence_penalty": args.presence_penalty
+    }
 
-            if args.model in CHAT_COMPLETION_MODELS:
-                response, usage = chat_completion(client, [{"role": "user", "content": sample["prompt"].strip()}], model=args.model, return_text=True, return_usage=True, model_args={
-                    "temperature": args.temperature,
-                    "max_tokens": args.max_tokens,
-                    "top_p": args.top_p,
-                    "frequency_penalty": args.frequency_penalty,
-                    "presence_penalty": args.presence_penalty
-                })
-            elif args.model in TEXT_COMPLETION_MODELS:
-                response, usage = text_completion(client, sample["prompt"].strip(), model=args.model, return_text=True, return_usage=True, model_args={
-                    "temperature": args.temperature,
-                    "max_tokens": args.max_tokens,
-                    "top_p": args.top_p,
-                    "frequency_penalty": args.frequency_penalty,
-                    "presence_penalty": args.presence_penalty
-                })
+    for batch in tqdm(batched(data, size=args.batch_size), total=math.ceil(len(data)//args.batch_size)):
+        try:
+            filtered_batch = []
+
+            for sample in batch:
+                if "id" in sample and sample["id"] in ignore_map:
+                    ignore_instance = ignore_map[sample["id"]]
+                    if "model_output" in ignore_instance:
+                        sample.update(ignore_instance)
+                        continue
+                
+                if "model_output" in sample:
+                    continue
+                
+                filtered_batch.append(sample)
+
+            results = []
+
+            if args.model in API_MODELS:
+                if args.model in CHAT_COMPLETION_MODELS:
+                    async with asyncio.TaskGroup() as tg:
+                        for sample in filtered_batch:
+                            tg.create_task(chat_completion(client, [{"role": "user", "content": sample["prompt"].strip()}], model=args.model, model_args=model_args, results=results))
+                elif args.model in TEXT_COMPLETION_MODELS:
+                    async with asyncio.TaskGroup() as tg:
+                        for sample in filtered_batch:
+                            tg.create_task(text_completion(client, sample["prompt"].strip(), model=args.model, model_args=model_args, results=results))
+                else:
+                    raise ValueError(f"Model {args.model} not supported")
+
+                for sample, result in zip(filtered_batch, results):
+                    sample["model_output"] = result.text
+                    sample["usage"] = result.usage
             else:
                 perplexity = evaluate_lm(sample["prompt"], model, tokenizer, device=device)
-                response = None
-                usage = None
                 sample["perplexity"] = perplexity
-
-            sample["model_output"] = response
-            sample["usage"] = usage
             
             write_json(outputs, output_path, ensure_ascii=False)
         except Exception as e:
@@ -225,4 +232,4 @@ def main():
     write_json(outputs, output_path, ensure_ascii=False)
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())
