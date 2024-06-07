@@ -1,6 +1,6 @@
 import argparse
 import math
-from openai import AsyncOpenAI, AzureOpenAI, AsyncAzureOpenAI, APITimeoutError, APIConnectionError, RateLimitError, InternalServerError
+from openai import AsyncOpenAI, AsyncAzureOpenAI, APITimeoutError, APIConnectionError, RateLimitError, InternalServerError
 import os
 from tqdm import tqdm
 import pathlib
@@ -21,7 +21,7 @@ import logging, sys
 logging.basicConfig(stream=sys.stderr, level=logging.WARN)
 logger = logging.getLogger(__name__)
 
-from utils import read_json, write_json, generate_unique_id, MODEL_COSTS, batched
+from utils import read_json, write_json, generate_unique_id, batched
 
 CHAT_COMPLETION_MODELS = ["gpt-3.5-turbo", "gpt-4"]
 TEXT_COMPLETION_MODELS = ["text-davinci-003"]
@@ -231,14 +231,6 @@ async def main():
                 error_file.write(f"Error for sample {sample['id']}: {str(e)}\n")
                 error_file.write(traceback.format_exc())
                 error_file.write("\n")
-
-    if args.model in API_MODELS:
-        outputs["metrics"]["usage"]["prompt_tokens"] = sum([sample["usage"]["prompt_tokens"] for sample in outputs["data"]])
-        outputs["metrics"]["usage"]["completion_tokens"] = sum([sample["usage"]["completion_tokens"] for sample in outputs["data"]])
-        outputs["metrics"]["usage"]["total_tokens"] = outputs["metrics"]["usage"]["prompt_tokens"] + outputs["metrics"]["usage"]["completion_tokens"]
-        outputs["metrics"]["cost"]["input"] = outputs["metrics"]["usage"]["prompt_tokens"] * MODEL_COSTS[args.model]["input"]
-        outputs["metrics"]["cost"]["output"] = outputs["metrics"]["usage"]["completion_tokens"] * MODEL_COSTS[args.model]["output"]
-        outputs["metrics"]["cost"]["total"] = outputs["metrics"]["cost"]["input"] + outputs["metrics"]["cost"]["output"]
 
     write_json(outputs, output_path, ensure_ascii=False)
 

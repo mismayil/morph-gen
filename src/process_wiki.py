@@ -17,6 +17,7 @@ from datatrove.pipeline.base import PipelineStep
 from datatrove.data import DocumentsPipeline
 from datatrove.pipeline.tokens.counter import TokensCounter
 from datatrove.pipeline.readers.base import BaseDiskReader
+from datatrove.utils.logging import logger
 
 from utils import read_json, write_json, find_files
 from morphology import decompose_tr, create_morph_graph, read_morph_graph, write_morph_graph, merge_morph_graphs, update_morph_graph, get_words, infer_best_decompositions_tr, read_tr_dictionary
@@ -129,30 +130,28 @@ morph_segmentation = LocalPipelineExecutor(
     workers=64
 )
 
-# morph_merging = LocalPipelineExecutor(
-#     pipeline=[
-#         JsonlReader(f"{DUMP_DATA_DIR}/morph_graphs", progress=True, glob_pattern="*.jsonl.gz"),
-#         MorphSegmentation(output_folder=f"{DUMP_DATA_DIR}/morph_graphs"),
-#         MorphGraphWriter(f"{DUMP_DATA_DIR}/morph_graphs_merged", "${file_stem}_${rank}.gml")
-#     ],
-#     logging_dir=f"{DUMP_DATA_DIR}/morph_merge_logs/",
-#     tasks=550,
-#     workers=64
-# )
+morph_merging = LocalPipelineExecutor(
+    pipeline=[
+        JsonlReader(f"{DUMP_DATA_DIR}/morph_graphs", progress=True, glob_pattern="*.jsonl.gz"),
+        MorphSegmentation(output_folder=f"{DUMP_DATA_DIR}/morph_graphs"),
+        # MorphGraphWriter(f"{DUMP_DATA_DIR}/morph_graphs_merged", "${file_stem}_${rank}.gml")
+    ],
+    logging_dir=f"{DUMP_DATA_DIR}/morph_merge_logs/",
+    tasks=550,
+    workers=64
+)
 
-def process_wiki_for_btwd(btwd_path):
-    btwd_path = pathlib.Path(btwd_path)
-    btwd_data = read_json(btwd_path)
+def create_btwd_graph(btwd_data):
     btwd_graph = create_morph_graph()
-    status_file = "status.txt"
 
     for sample in tqdm(btwd_data["data"], desc="Creating BTWD graph"):
         for decomposition in sample["decompositions"]:
             update_morph_graph(btwd_graph, decomposition["root"], decomposition["meta_morphemes"], decomposition["morphemes"], update_stats=False)
-    
-    write_morph_graph(btwd_graph, btwd_path.with_suffix(".gml"))
 
-    btwd_frequency = {
+    return btwd_graph
+
+def create_btwd_frequency(btwd_data):
+    return {
         "roots": Counter(set([sample["root"] for sample in btwd_data["data"]])),
         "meta_morphemes": Counter(set(list(chain(*[sample["meta_morphemes"] for sample in btwd_data["data"]])))),
         "morphemes": Counter(set(list(chain(*[sample["morphemes"] for sample in btwd_data["data"]])))),
@@ -160,6 +159,83 @@ def process_wiki_for_btwd(btwd_path):
         "morpheme_compositions": Counter()
     }
 
+def process_single_wiki_for_btwd(btwd_data, train_file, initial_btwd_graph=None, initial_btwd_frequency=None):
+    print(f"Starting BTWD processing for {train_file}")
+    btwd_graph = initial_btwd_graph if initial_btwd_frequency else create_btwd_graph(btwd_data)
+    btwd_frequency = initial_btwd_frequency if initial_btwd_frequency else create_btwd_frequency(btwd_data)
+    
+    print("Processing intersection of BTWD and train graphs")
+    train_graph = read_morph_graph(train_file)
+    intersection = nx.intersection(btwd_graph, train_graph)
+
+    for node in intersection.nodes:
+        if node.startswith("+"):
+            btwd_frequency["meta_morphemes"].update([node[1:]])
+            in_edges = train_graph.in_edges(node, keys=True)
+            for in_edge in in_edges:
+                edge_key = in_edge[2]
+                last_morpheme = edge_key.split("+")[-1]
+                btwd_frequency["morphemes"].update([last_morpheme])
+        else:
+            btwd_frequency["roots"].update([node])
+
+    for edge in intersection.edges:
+        btwd_edge_data = btwd_graph.get_edge_data(*edge)
+        train_edge_data = train_graph.get_edge_data(*edge)
+        nx.set_edge_attributes(btwd_graph, {edge: {"count": btwd_edge_data["count"]+train_edge_data["count"], "leaf": btwd_edge_data["leaf"]+train_edge_data["leaf"]}})
+
+    def _update_freq_for_decomposition(freq_data, meta_morphemes, morphemes, ref_graph):
+        meta_morpheme_composition = ""
+        morpheme_composition = ""
+        last_meta_morpheme_node = None
+
+        for j, (meta_morpheme, morpheme) in enumerate(zip(meta_morphemes, morphemes)):
+            meta_morpheme_node = f"+{meta_morpheme}"
+            morpheme_node = f"+{morpheme}"
+
+            if j == 0:
+                last_meta_morpheme_node = meta_morpheme_node
+                meta_morpheme_composition += meta_morpheme_node
+                morpheme_composition += morpheme_node
+                continue
+            
+            if last_meta_morpheme_node in ref_graph.nodes:
+                neighbors = list(ref_graph.neighbors(last_meta_morpheme_node))
+
+                if meta_morpheme_node in neighbors:
+                    meta_morpheme_composition += meta_morpheme_node
+                    morpheme_composition += morpheme_node
+                    freq_data["meta_morpheme_compositions"].update([meta_morpheme_composition])
+                    edges = ref_graph.adj[last_meta_morpheme_node][meta_morpheme_node]
+                    
+                    morpheme_composition_found = False
+                    
+                    for edge_key, _ in edges.items():
+                        if morpheme_composition in edge_key:
+                            freq_data["morpheme_compositions"].update([morpheme_composition])
+                            morpheme_composition_found = True
+                            break
+                            
+                    if not morpheme_composition_found:
+                        break
+                else:
+                    break
+            else:
+                break
+        
+            last_meta_morpheme_node = meta_morpheme_node
+
+    for sample in tqdm(btwd_data["data"], total=len(btwd_data["data"]), desc="Processing BTWD samples"):
+        for decomposition in sample["decompositions"]:
+            meta_morphemes = decomposition["meta_morphemes"]
+            morphemes = decomposition["morphemes"]
+
+            for k in range(len(meta_morphemes)):
+                _update_freq_for_decomposition(btwd_frequency, meta_morphemes[k:], morphemes[k:], train_graph)
+
+    return btwd_graph, btwd_frequency
+
+def list_train_files():
     print("Gathering training morph graphs")
     train_files_path = pathlib.Path("train_files.txt")
 
@@ -173,76 +249,23 @@ def process_wiki_for_btwd(btwd_path):
 
         with open("train_files.txt", "w") as f:
             f.writelines([file+"\n" for file in train_files])
+    
+    return train_files
+
+def process_wiki_for_btwd(btwd_path):
+    btwd_path = pathlib.Path(btwd_path)
+    btwd_data = read_json(btwd_path)
+    status_file = "status.txt"
+
+    btwd_graph = create_btwd_graph(btwd_data)
+    btwd_frequency = create_btwd_frequency(btwd_data)
+
+    write_morph_graph(btwd_graph, btwd_path.with_suffix(".gml"))
+    train_files = list_train_files()
 
     for i, train_file in tqdm(enumerate(train_files), total=len(train_files), desc="Processing train files"):
-        train_graph = read_morph_graph(train_file)
-        intersection = nx.intersection(btwd_graph, train_graph)
+        btwd_graph, btwd_frequency = process_single_wiki_for_btwd(btwd_data, train_file, initial_btwd_graph=btwd_graph, initial_btwd_frequency=btwd_frequency)
 
-        for node in intersection.nodes:
-            if node.startswith("+"):
-                btwd_frequency["meta_morphemes"].update([node[1:]])
-                in_edges = train_graph.in_edges(node, keys=True)
-                for in_edge in in_edges:
-                    edge_key = in_edge[2]
-                    last_morpheme = edge_key.split("+")[-1]
-                    btwd_frequency["morphemes"].update([last_morpheme])
-            else:
-                btwd_frequency["roots"].update([node])
-
-        for edge in intersection.edges:
-            btwd_edge_data = btwd_graph.get_edge_data(*edge)
-            train_edge_data = train_graph.get_edge_data(*edge)
-            nx.set_edge_attributes(btwd_graph, {edge: {"count": btwd_edge_data["count"]+train_edge_data["count"], "leaf": btwd_edge_data["leaf"]+train_edge_data["leaf"]}})
-
-        def _update_freq_for_decomposition(freq_data, meta_morphemes, morphemes, ref_graph):
-            meta_morpheme_composition = ""
-            morpheme_composition = ""
-            last_meta_morpheme_node = None
-
-            for j, (meta_morpheme, morpheme) in enumerate(zip(meta_morphemes, morphemes)):
-                meta_morpheme_node = f"+{meta_morpheme}"
-                morpheme_node = f"+{morpheme}"
-
-                if j == 0:
-                    last_meta_morpheme_node = meta_morpheme_node
-                    meta_morpheme_composition += meta_morpheme_node
-                    morpheme_composition += morpheme_node
-                    continue
-                
-                if last_meta_morpheme_node in ref_graph.nodes:
-                    neighbors = list(ref_graph.neighbors(last_meta_morpheme_node))
-
-                    if meta_morpheme_node in neighbors:
-                        meta_morpheme_composition += meta_morpheme_node
-                        morpheme_composition += morpheme_node
-                        freq_data["meta_morpheme_compositions"].update([meta_morpheme_composition])
-                        edges = ref_graph.adj[last_meta_morpheme_node][meta_morpheme_node]
-                        
-                        morpheme_composition_found = False
-                        
-                        for edge_key, _ in edges.items():
-                            if morpheme_composition in edge_key:
-                                freq_data["morpheme_compositions"].update([morpheme_composition])
-                                morpheme_composition_found = True
-                                break
-                                
-                        if not morpheme_composition_found:
-                            break
-                    else:
-                        break
-                else:
-                    break
-            
-                last_meta_morpheme_node = meta_morpheme_node
-
-        for sample in btwd_data["data"]:
-            for decomposition in sample["decompositions"]:
-                meta_morphemes = decomposition["meta_morphemes"]
-                morphemes = decomposition["morphemes"]
-
-                for k in range(len(meta_morphemes)):
-                    _update_freq_for_decomposition(btwd_frequency, meta_morphemes[k:], morphemes[k:], train_graph)
-        
         if i % 100 == 0:
             write_json(btwd_frequency, btwd_path.parent / f"{btwd_path.stem}_freq.json")
             write_morph_graph(btwd_graph, btwd_path.with_suffix(".gml"))
@@ -253,8 +276,6 @@ def process_wiki_for_btwd(btwd_path):
     write_morph_graph(btwd_graph, btwd_path.with_suffix(".gml"))
     with open(status_file, "w") as f:
         f.write(f"{len(train_files)}/{len(train_files)}")
-
-
 
 def generate_btwd_documents(filepath: str):
     data = read_json(filepath)
@@ -276,6 +297,99 @@ def filter_decompositions(data: DocumentsPipeline, rank: int = 0, world_size: in
         write_json({"data": samples}, f"{DUMP_DATA_DIR}/btwd_prep_filtered/{document.id}.json")
         yield document
 
+def generate_train_file_documents():
+    train_files = list_train_files()
+    documents = []
+    for i, train_file in enumerate(train_files):
+        document = Document(text=train_file, id=i)
+        documents.append(document)
+    return documents
+
+class FileReader(BaseDiskReader):
+    """Read file and return as document.
+
+    Args:
+        data_folder: the data folder to read from
+        compression: the compression to use (default: "infer")
+        limit: limit the number of JSON lines to read
+        skip: skip the first n rows
+        file_progress: show progress bar for files
+        doc_progress: show progress bar for documents
+        adapter: function to adapt the data dict from the source to a Document.
+            Take as input: data: dict, path: str, id_in_file: int | str
+            Return: a dict with at least a "text" key
+        text_key: key to use for the text in the default adapter (default: "text"). Ignored if you provide your own `adapter`
+        id_key: key to use for the id in the default adapter (default: "id"). Ignored if you provide your own `adapter`
+        default_metadata: default metadata to add to all documents
+        recursive: if True, will read files recursively in subfolders (default: True)
+        glob_pattern: a glob pattern to filter files to read (default: None)
+        shuffle_files: shuffle the files within the returned shard. Mostly used for data viz. purposes, do not use
+            with dedup blocks
+    """
+
+    name = "🐿 File Reader"
+
+    def __init__(
+        self,
+        data_folder: DataFolderLike,
+        compression: str = "infer",
+        limit: int = -1,
+        skip: int = 0,
+        progress: bool = False,
+        adapter: Callable = None,
+        text_key: str = "text",
+        id_key: str = "id",
+        default_metadata: dict = None,
+        recursive: bool = True,
+        glob_pattern: str = None,
+        shuffle_files: bool = False,
+    ):
+        super().__init__(
+            data_folder,
+            limit,
+            skip,
+            progress,
+            adapter,
+            text_key,
+            id_key,
+            default_metadata,
+            recursive,
+            glob_pattern,
+            shuffle_files,
+        )
+        self.compression = compression
+
+    def read_file(self, filepath: str):
+        file = pathlib.Path(filepath)
+        if not any([str(i).zfill(5) in filepath for i in range(530, 535)]):
+            yield Document(text=filepath, id=file.stem)
+        else:
+            yield Document(text="", id=file.stem)
+
+class BTWDProcessor(PipelineStep):
+    name = "🐿 BTWD Processor"
+
+    def __init__(self, btwd_path, output_folder: str = "./outputs"):
+        super().__init__()
+        self.btwd_data = read_json(btwd_path)
+        self.output_dir = pathlib.Path(output_folder)
+        self.output_dir.mkdir(parents=True, exist_ok=True)
+        self.freq_dir = self.output_dir / "freqs"
+        self.graph_dir = self.output_dir / "graphs"
+        self.freq_dir.mkdir(parents=True, exist_ok=True)
+        self.graph_dir.mkdir(parents=True, exist_ok=True)
+
+    def run(self, data: DocumentsPipeline, rank: int = 0, world_size: int = 1) -> DocumentsPipeline:
+        for document in data:
+            with self.track_time():
+                if document.text:
+                    train_subdir = document.text.split("/")[-2]
+                    pathlib.Path(self.freq_dir / train_subdir).mkdir(parents=True, exist_ok=True)
+                    pathlib.Path(self.graph_dir / train_subdir).mkdir(parents=True, exist_ok=True)
+                    btwd_graph, btwd_frequency = process_single_wiki_for_btwd(self.btwd_data, document.text)
+                    write_json(btwd_frequency, self.freq_dir / train_subdir / f"{document.id}_freq.json")
+                    write_morph_graph(btwd_graph, self.graph_dir / train_subdir / f"{document.id}_graph.gml")
+
 btwd_filtering = LocalPipelineExecutor(
     pipeline=[
         generate_btwd_documents(f"{MNT_DIR}/nlpdata1/home/ismayilz/project-morphgen/morph-gen/data/tr/bilkent-turkish-writings/btwd_prep.json"),
@@ -286,8 +400,18 @@ btwd_filtering = LocalPipelineExecutor(
     workers=64
 )
 
+btwd_wiki_processing = LocalPipelineExecutor(
+    pipeline=[
+        FileReader(f"{DUMP_DATA_DIR}/morph_graphs", glob_pattern="**/*.gml", progress=True),
+        BTWDProcessor("../data/tr/bilkent-turkish-writings/btwd_prep_post_raw.json", f"{DUMP_DATA_DIR}/btwd_prep_post_wiki_processed")
+    ],
+    logging_dir=f"{DUMP_DATA_DIR}/btwd_processing_logs/",
+    tasks=530000,
+    workers=64
+)
 if __name__ == "__main__":
     # preprocessing.run()
     # morph_segmentation.run()
     # process_wiki_for_btwd("../data/tr/bilkent-turkish-writings/btwd_default_final_raw.json")
-    btwd_filtering.run()
+    # btwd_filtering.run()
+    btwd_wiki_processing.run()

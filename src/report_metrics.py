@@ -8,7 +8,7 @@ import re
 import numpy as np
 from statistics import mean
 
-from utils import read_json, write_json, find_files, MODEL_COSTS, num_tokens_from_string
+from utils import read_json, write_json, find_files, compute_usage
 
 ANSWER_MAP = {
     "en": {"yes": 1, "no": 0},
@@ -89,37 +89,7 @@ def get_soft_accuracy(result, ref_response, model_response, template):
 
     return 1
 
-def compute_usage(sample, model):
-    if model not in MODEL_COSTS:
-        return None, None
-
-    usage = {
-        "prompt_tokens": 0,
-        "completion_tokens": 0,
-        "total_tokens": 0
-    }
-
-    if "usage" in sample:
-        usage = sample["usage"]
-    else:
-        prompt_tokens = num_tokens_from_string(sample["prompt"], model)
-        completion_tokens = num_tokens_from_string(sample["response"], model)
-        usage = {
-            "prompt_tokens": prompt_tokens,
-            "completion_tokens": completion_tokens,
-            "total_tokens": prompt_tokens + completion_tokens
-        }
-    
-    input_cost = usage["prompt_tokens"] * MODEL_COSTS[model]["input"]
-    output_cost = usage["completion_tokens"] * MODEL_COSTS[model]["output"]
-
-    return usage, {
-        "input": input_cost,
-        "output": output_cost,
-        "total": input_cost + output_cost
-    }
-
-def compute_metrics(results, report_usage=False, separator="", unigram_freq_path=None, suffix_freq_path=None, meta_suffix_freq_path=None):
+def compute_metrics(results, report_usage=True, separator="", unigram_freq_path=None, suffix_freq_path=None, meta_suffix_freq_path=None):
     metrics = {}
     results_by_suffix_len = defaultdict(dict)
 
@@ -421,7 +391,7 @@ def compute_metrics(results, report_usage=False, separator="", unigram_freq_path
 
     return metrics
 
-def report_metrics(results_files, report_usage=False, separator="", unigram_freq_path=None, suffix_freq_path=None, meta_suffix_freq_path=None):
+def report_metrics(results_files, report_usage=True, separator="", unigram_freq_path=None, suffix_freq_path=None, meta_suffix_freq_path=None):
     for results_file in tqdm(results_files, total=len(results_files), desc="Reporting metrics"):
         results = read_json(results_file)
         
@@ -440,7 +410,7 @@ def report_metrics(results_files, report_usage=False, separator="", unigram_freq
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-r", "--results-path", type=str, help="Path to evaluation results file in json or directory", required=True)
-    parser.add_argument("-u", "--report-usage", action="store_true", help="Report usage metrics", default=False)
+    parser.add_argument("-u", "--report-usage", action="store_true", help="Report usage metrics", default=True)
     parser.add_argument("-t", "--separator", type=str, default="", help="Separator to use between morphemes. Defaults to empty string.")
     parser.add_argument("-uf", "--unigram-freq-path", type=str, help="Path to unigram frequency file", default=None)
     parser.add_argument("-sf", "--suffix-freq-path", type=str, help="Path to suffix frequency file", default=None)

@@ -71,3 +71,33 @@ def levenshtein_distance(s, t):
 def batched(lst, size=4):
     for i in range(0, len(lst), size):
         yield lst[i:i + size]
+
+def compute_usage(sample, model):
+    if model not in MODEL_COSTS:
+        return None, None
+
+    usage = {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0
+    }
+
+    if "usage" in sample:
+        usage = sample["usage"]
+    elif "prompt" in sample and "model_output" in sample:
+        prompt_tokens = num_tokens_from_string(sample["prompt"], model)
+        completion_tokens = num_tokens_from_string(sample["model_output"], model)
+        usage = {
+            "prompt_tokens": prompt_tokens,
+            "completion_tokens": completion_tokens,
+            "total_tokens": prompt_tokens + completion_tokens
+        }
+    
+    input_cost = usage["prompt_tokens"] * MODEL_COSTS[model]["input"]
+    output_cost = usage["completion_tokens"] * MODEL_COSTS[model]["output"]
+
+    return usage, {
+        "input": input_cost,
+        "output": output_cost,
+        "total": input_cost + output_cost
+    }
