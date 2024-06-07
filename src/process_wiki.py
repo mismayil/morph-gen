@@ -6,6 +6,7 @@ import hashlib
 from collections import Counter
 from itertools import chain
 from tqdm import tqdm
+import random
 
 from datatrove.io import DataFolderLike
 from datatrove.pipeline.readers import IpcReader, JsonlReader
@@ -151,13 +152,21 @@ def create_btwd_graph(btwd_data):
     return btwd_graph
 
 def create_btwd_frequency(btwd_data):
-    return {
-        "roots": Counter(set([sample["root"] for sample in btwd_data["data"]])),
-        "meta_morphemes": Counter(set(list(chain(*[sample["meta_morphemes"] for sample in btwd_data["data"]])))),
-        "morphemes": Counter(set(list(chain(*[sample["morphemes"] for sample in btwd_data["data"]])))),
+    btwd_freq = {
+        "roots": Counter(),
+        "meta_morphemes": Counter(),
+        "morphemes": Counter(),
         "meta_morpheme_compositions": Counter(),
         "morpheme_compositions": Counter()
     }
+
+    for sample in tqdm(btwd_data["data"], desc="Creating BTWD freq data"):
+        for decomposition in sample["decompositions"]:
+            btwd_freq["roots"].update([decomposition["root"]])
+            btwd_freq["meta_morphemes"].update(decomposition["meta_morphemes"])
+            btwd_freq["morphemes"].update(decomposition["morphemes"])
+    
+    return btwd_freq
 
 def process_single_wiki_for_btwd(btwd_data, train_file, initial_btwd_graph=None, initial_btwd_frequency=None):
     print(f"Starting BTWD processing for {train_file}")
@@ -358,13 +367,36 @@ class FileReader(BaseDiskReader):
             shuffle_files,
         )
         self.compression = compression
+        self.train_files = list_train_files()
+
+    def run(self, data: DocumentsPipeline = None, rank: int = 0, world_size: int = 1) -> DocumentsPipeline:
+        """
+        Will get this rank's shard and sequentially read each file in the shard, yielding Document.
+        Args:
+            data: any existing data from previous pipeline stages
+            rank: rank of the current task
+            world_size: total number of tasks
+
+        Returns:
+
+        """
+        if data:
+            yield from data
+        files_shard = self.train_files[rank::world_size]
+        if len(files_shard) == 0:
+            if rank == 0:
+                raise RuntimeError(f"No files found on {self.data_folder.path}!")
+            # otherwise just a warning
+            logger.warning(f"No files found on {self.data_folder.path} for {rank=}")
+        if self.shuffle_files:
+            random.shuffle(files_shard)
+        for doc in self.read_files_shard(files_shard):
+            self.update_doc_stats(doc)
+            yield doc
 
     def read_file(self, filepath: str):
         file = pathlib.Path(filepath)
-        if not any([str(i).zfill(5) in filepath for i in range(530, 535)]):
-            yield Document(text=filepath, id=file.stem)
-        else:
-            yield Document(text="", id=file.stem)
+        yield Document(text=filepath, id=file.stem)
 
 class BTWDProcessor(PipelineStep):
     name = "🐿 BTWD Processor"
