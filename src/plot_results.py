@@ -55,7 +55,7 @@ def plot_results_by_freq(tab_results, output_dir, output_format="png", language=
 
 def plot_results_id_vs_ood(tab_results, output_dir, output_format="png", language="en", template="en",
                            model="gpt-3.5-turbo", metric="accuracy", task="morph-gen", max_suffix_length=10, num_shots=5):
-    results = tab_results.query(f"task == '{task}' & num_suffixes <= {max_suffix_length} & num_shots == {num_shots}")
+    results = tab_results.query(f"task == '{task}' & num_suffixes <= {max_suffix_length} & num_shots == {num_shots}").copy()
     if len(results) > 0 and any(results[metric] > 0):
         plt.ioff()
         fig, ax = plt.subplots(figsize=(16, 8))
@@ -63,11 +63,29 @@ def plot_results_id_vs_ood(tab_results, output_dir, output_format="png", languag
         ax.set_xlabel("Number of suffixes")
         ax.set_ylabel(metric.capitalize())
         ax.title.set_size(20)
-        sns.barplot(data=results, x="num_suffixes", y=metric, hue="is_ood", ax=ax, errorbar=None, palette="rocket")
+        results["dist"] = results["is_ood"].replace({False: "ID", True: "OOD"})
+        sns.barplot(data=results, x="num_suffixes", y=metric, hue="dist", hue_order=["ID", "OOD"], ax=ax, errorbar=None, palette="rocket")
         plot_path = f"{output_dir}/fig_{ABBR_METRICS[metric]}_{task}_s{num_shots}.{output_format}"
         print(f"Saving figure to {plot_path}")
         plt.savefig(plot_path)
-    
+
+def plot_results_overall(tab_results, output_dir, output_format="png", language="en", template="en",
+                           model="gpt-3.5-turbo", metric="accuracy", task="morph-gen", max_suffix_length=10):
+    results = tab_results.query(f"task == '{task}' & num_suffixes <= {max_suffix_length}").copy()
+    if len(results) > 0 and any(results[metric] > 0):
+        overall_results = results.groupby(["task", "is_ood", "num_shots"]).agg({"accuracy": "mean", "f1": "mean", "coherence": "mean", "faithfulness": "mean"}).reset_index()
+        plt.ioff()
+        fig, ax = plt.subplots(figsize=(16, 8))
+        ax.set_title(f"{metric.capitalize()} \n [lang={language}, temp={template}, model={model}, task={task}]")
+        ax.set_xlabel("Test Distribution")
+        ax.set_ylabel(metric.capitalize())
+        ax.title.set_size(20)
+        overall_results["dist"] = overall_results["is_ood"].replace({False: "ID", True: "OOD"})
+        sns.barplot(data=overall_results, x="dist", y=metric, hue="num_shots", ax=ax, errorbar=None)
+        plot_path = f"{output_dir}/fig_{ABBR_METRICS[metric]}_{task}.{output_format}"
+        print(f"Saving figure to {plot_path}")
+        plt.savefig(plot_path)
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-r", "--tab-results-path", type=str, help="Path to tabulated results file", required=True)
@@ -108,6 +126,15 @@ def main():
                                     task=task,
                                     max_suffix_length=args.max_suffix_length,
                                     num_shots=args.num_shots)
+            plot_results_overall(tab_results,
+                                    output_dir=output_dir,
+                                    output_format=args.output_format,
+                                    language=args.language,
+                                    template=args.template,
+                                    model=args.model,
+                                    metric=metric,
+                                    task=task,
+                                    max_suffix_length=args.max_suffix_length)
             for is_ood in [False, True]:
                 if "freq_bin" in tab_results.columns:
                     keyword = "unigram" 

@@ -116,9 +116,8 @@ RUN chmod +x ./entrypoint.sh
 USER root
 
 RUN echo 'root:root' | chpasswd
+RUN echo -e "\n${USER_NAME} ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
-#USER ${USER_NAME}
+USER ${USER_NAME}
 
-# ENTRYPOINT ["./entrypoint.sh"]
-# ENTRYPOINT [ "sleep", "infinity" ]
-ENTRYPOINT ["/usr/sbin/sshd", "-D"] 
+ENTRYPOINT ["sudo", "/usr/sbin/sshd", "-D"]
