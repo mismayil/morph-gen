@@ -3,7 +3,7 @@
 MY_IMAGE="ic-registry.epfl.ch/nlp/mete/project-morphgen"
 
 arg_job_prefix="project-morphgen"
-arg_job_suffix="wiki-1"
+arg_job_suffix="wiki-0"
 arg_job_name="$arg_job_prefix-$arg_job_suffix"
 
 command=$1
@@ -20,7 +20,7 @@ if [ "$command" == "run" ]; then
 		--gpu $num_gpu \
 		--pvc runai-nlp-ismayilz-nlpdata1:/mnt/nlpdata1 \
 		--pvc runai-nlp-ismayilz-scratch:/mnt/scratch \
-		--command -- su -l -s bash -c "bash entrypoint.sh" ismayilz
+		--command -- bash entrypoint.sh
 	exit 0
 fi
 
