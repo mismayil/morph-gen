@@ -192,7 +192,7 @@ async def main():
         "presence_penalty": args.presence_penalty
     }
 
-    for batch in tqdm(batched(data, size=args.batch_size), total=math.ceil(len(data)//args.batch_size)):
+    for batch in tqdm(batched(data, size=args.batch_size), total=math.ceil(len(data)/args.batch_size)):
         try:
             filtered_batch = []
 

@@ -168,20 +168,15 @@ def prepare_tok_aligned_data_for_tasks(input_data, num_samples=None, separator="
 
             if derivation != ref_derivation:
                 options.add(derivation)
-            
-            if len(options) >= 5:
-                break
 
-        options = random.sample(list(options), len(options))
+        options = sorted(list(options), key=lambda x: levenshtein_distance(x, ref_derivation))[:5]
         tok_aligned_data.append({
             **sample,
             "ref_root": sample["root"],
-            "ref_suffixes": sample["suffixes"],
-            "ref_meta_suffixes": sample.get("meta_morphemes"),
+            "ref_suffixes": sample["suffixes"] if "suffixes" in sample else sample.get("morphemes"),
             "root": root_token,
             "suffixes": tokens[1:],
-            "options": [ref_derivation] + list(options),
-            "answer": 0
+            "negative_options": list(options)
         })
     
     if num_samples is not None:
