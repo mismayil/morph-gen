@@ -89,7 +89,22 @@ def get_soft_accuracy(result, ref_response, model_response, template):
 
     return 1
 
-def compute_metrics(results, report_usage=True, separator="", unigram_freq_path=None, suffix_freq_path=None, meta_suffix_freq_path=None):
+def _normalize_morphemes(morpheme_dict):
+    if morpheme_dict:
+        normalized_dict = {}
+        for k, v in morpheme_dict.items():
+            composition = k.replace("+", "")
+            normalized_dict[composition] = max(v, normalized_dict.get(composition, 0))
+        return normalized_dict
+
+def _merge_morpheme_dicts(dict1, dict2):
+    if dict1 and dict2:
+        merged_dict = dict1.copy()
+        for k, v in dict2.items():
+            merged_dict[k] = max(v, merged_dict.get(k, 0))
+        return merged_dict
+
+def compute_metrics(results, report_usage=True, separator="", frequency_path=None):
     metrics = {}
     results_by_suffix_len = defaultdict(dict)
 
@@ -140,14 +155,11 @@ def compute_metrics(results, report_usage=True, separator="", unigram_freq_path=
     suffix_freqs = None
     meta_suffix_freqs = None
 
-    if unigram_freq_path:
-        unigram_freqs = read_json(unigram_freq_path)
-    
-    if suffix_freq_path:
-        suffix_freqs = read_json(suffix_freq_path)
-    
-    if meta_suffix_freq_path:
-        meta_suffix_freqs = read_json(meta_suffix_freq_path)
+    if frequency_path:
+        frequencies = read_json(frequency_path)
+        unigram_freqs = frequencies.get("roots")
+        suffix_freqs = _merge_morpheme_dicts(_normalize_morphemes(frequencies.get("morpheme_compositions")), frequencies.get("morphemes"))
+        meta_suffix_freqs = _merge_morpheme_dicts(_normalize_morphemes(frequencies.get("meta_morpheme_compositions")), frequencies.get("meta_morphemes"))
 
     def _update_freq_metrics(freq, freq_accuracy, freq_faithful, num_freq_samples, result, suffix_key="suffixes"):
         for freq_bin in freq_bins:
@@ -391,16 +403,13 @@ def compute_metrics(results, report_usage=True, separator="", unigram_freq_path=
 
     return metrics
 
-def report_metrics(results_files, report_usage=True, separator="", unigram_freq_path=None, suffix_freq_path=None, meta_suffix_freq_path=None):
+def report_metrics(results_files, report_usage=True, separator="", frequency_path=None):
     for results_file in tqdm(results_files, total=len(results_files), desc="Reporting metrics"):
         results = read_json(results_file)
         
         try:
             if "data" in results:
-                metrics = compute_metrics(results, report_usage=report_usage, separator=separator,
-                                          unigram_freq_path=unigram_freq_path, 
-                                          suffix_freq_path=suffix_freq_path, 
-                                          meta_suffix_freq_path=meta_suffix_freq_path)
+                metrics = compute_metrics(results, report_usage=report_usage, separator=separator, frequency_path=frequency_path)
                 results["metrics"].update(metrics)
                 write_json(results, results_file, ensure_ascii=False)
         except Exception as e:
@@ -412,9 +421,7 @@ def main():
     parser.add_argument("-r", "--results-path", type=str, help="Path to evaluation results file in json or directory", required=True)
     parser.add_argument("-u", "--report-usage", action="store_true", help="Report usage metrics", default=True)
     parser.add_argument("-t", "--separator", type=str, default="", help="Separator to use between morphemes. Defaults to empty string.")
-    parser.add_argument("-uf", "--unigram-freq-path", type=str, help="Path to unigram frequency file", default=None)
-    parser.add_argument("-sf", "--suffix-freq-path", type=str, help="Path to suffix frequency file", default=None)
-    parser.add_argument("-mf", "--meta-suffix-freq-path", type=str, help="Path to meta suffix frequency file", default=None)
+    parser.add_argument("-f", "--frequency-path", type=str, help="Path to frequency file", default=None)
 
     args = parser.parse_args()
 
@@ -427,7 +434,7 @@ def main():
     else:
         files_to_process.extend(find_files(args.results_path))
 
-    report_metrics(files_to_process, args.report_usage, args.separator, args.unigram_freq_path, args.suffix_freq_path, args.meta_suffix_freq_path)
+    report_metrics(files_to_process, args.report_usage, args.separator, args.frequency_path)
 
 if __name__ == "__main__":
     main()
