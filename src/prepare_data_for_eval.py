@@ -247,10 +247,13 @@ def prepare_shot_for_morph_disc_mcq(idx, sample, template, language, is_final=Fa
 def prepare_shots_for_morph_disc(idx, sample, template, language, is_final=False, shuffle_suffixes=True, fixed_shots=False):
     template_lang = _get_template_lang(template)
     suffixes = sample["suffixes"]
+    negative_suffixes = sample.get("negative_suffixes")
 
     if shuffle_suffixes:
         if is_final or not fixed_shots:
-            suffixes = random.sample(sample["suffixes"], len(sample["suffixes"]))
+            suffixes = random.sample(suffixes, len(suffixes))
+            if negative_suffixes:
+                negative_suffixes = random.sample(negative_suffixes, len(negative_suffixes))
 
     if "positive_options" in sample and "negative_options" in sample:
         options = [sample["positive_options"][0]] + sample["negative_options"][:4]
@@ -258,6 +261,7 @@ def prepare_shots_for_morph_disc(idx, sample, template, language, is_final=False
         options = [sample["derivation"]]
     
     suffixes_str = ", ".join([f"{s}" for s in suffixes])
+    negative_suffixes_str = ", ".join([f"{s}" for s in negative_suffixes]) if negative_suffixes else ""
 
     shots = []
     answers = []
@@ -273,7 +277,7 @@ def prepare_shots_for_morph_disc(idx, sample, template, language, is_final=False
             format_args = {
                 "index": idx+1,
                 "root": sample["root"],
-                "suffixes": suffixes_str,
+                "suffixes": suffixes_str if option in sample["positive_options"] or not negative_suffixes_str else negative_suffixes_str,
                 "derived_word": option,
                 "answer": "" if is_final else answer
             }

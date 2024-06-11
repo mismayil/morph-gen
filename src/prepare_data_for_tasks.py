@@ -114,7 +114,9 @@ def prepare_nonce_data_for_tasks(input_data, num_samples=None, *args, **kwargs):
             "similar": sample.get("similar"),
             "meta_suffixes": sample.get("meta_morphemes") if "meta_morphemes" in sample else sample.get("meta_suffixes"),
             "sentence": sample.get("sentence"),
-            "meaning": sample.get("meaning")
+            "meaning": sample.get("meaning"),
+            "negative_suffixes": sample.get("negative_suffixes"),
+            "negative_meta_suffixes": sample.get("negative_meta_suffixes")
         })
     
     if num_samples is not None:

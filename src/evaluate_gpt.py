@@ -154,6 +154,7 @@ async def main():
     outputs = {
         "metadata": {
             "datapath": args.datapath,
+            "size": len(data),
             "model": args.model,
             "temperature": args.temperature,
             "max_tokens": args.max_tokens,
@@ -161,18 +162,7 @@ async def main():
             "frequency_penalty": args.frequency_penalty,
             "presence_penalty": args.presence_penalty
         },
-        "metrics": {
-            "usage": {
-                "prompt_tokens": 0,
-                "completion_tokens": 0,
-                "total_tokens": 0
-            },
-            "cost": {
-                "input": 0,
-                "output": 0,
-                "total": 0
-            }
-        },
+        "metrics": {},
         "data": data
     }
 
