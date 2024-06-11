@@ -3,3 +3,4 @@ from .sentence import *
 from .sense import *
 from .order import *
 from .mcq import *
+from .cot import *

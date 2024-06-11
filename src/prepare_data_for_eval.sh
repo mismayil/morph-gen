@@ -4,8 +4,8 @@ experiment=${1:-"v_balanced"}
 shots=(1 3 5)
 data_dir="../experiments/data"
 
-for shot in "${shots[@]}"
-do
+# for shot in "${shots[@]}"
+# do
     # # TR in EN template
     # python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1.json -t morph_gen_en -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}
     # python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1.json -t morph_disc_en -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}
@@ -18,17 +18,17 @@ do
     # python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1_nonce.json -t morph_gen_tr -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_tr/${experiment}
     # python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1_nonce.json -t morph_disc_tr -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_tr/${experiment}
 
-    # TR in EN template for sentence completion
-    python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1.json -t morph_gen_sent_en -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}
-    python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1.json -t morph_disc_sent_en -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}
-    python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1_nonce.json -t morph_gen_sent_en -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}
-    python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1_nonce.json -t morph_disc_sent_en -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}
+    # # TR in EN template for sentence completion
+    # python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1.json -t morph_gen_sent_en -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}
+    # python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1.json -t morph_disc_sent_en -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}
+    # python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1_nonce.json -t morph_gen_sent_en -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}
+    # python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1_nonce.json -t morph_disc_sent_en -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}
 
-    # TR in TR template for sentence completion
-    python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1.json -t morph_gen_sent_tr -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_tr/${experiment}
-    python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1.json -t morph_disc_sent_tr -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_tr/${experiment}
-    python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1_nonce.json -t morph_gen_sent_tr -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_tr/${experiment}
-    python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1_nonce.json -t morph_disc_sent_tr -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_tr/${experiment}
+    # # TR in TR template for sentence completion
+    # python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1.json -t morph_gen_sent_tr -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_tr/${experiment}
+    # python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1.json -t morph_disc_sent_tr -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_tr/${experiment}
+    # python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1_nonce.json -t morph_gen_sent_tr -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_tr/${experiment}
+    # python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1_nonce.json -t morph_disc_sent_tr -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_tr/${experiment}
 
     # TR in EN template for sense understanding
     # python prepare_data_for_eval.py -d ${data_dir}/tr/sense/balanced/words_prep_balanced_sample_sense.json -t morph_gen_sense_en -n ${shot} -o ${data_dir}/tr/sense/eval/temp_en/${experiment}
@@ -61,4 +61,10 @@ do
     # TR in EN template for pp experiment
     # python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_id_morph.json -t morph_disc_pp_en -n 0 -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}
     # python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_ood_morph.json -t morph_disc_pp_en -n 0 -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}
-done
+# done
+
+# TR in EN template for CoT
+python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1.json -t morph_gen_cot_en -n 1 -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment} -sp ${data_dir}/tr/btwd/final/default/shots/morph_gen_cot_en.json
+python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1.json -t morph_disc_cot_en -n 1 -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment} -sp ${data_dir}/tr/btwd/final/default/shots/morph_disc_cot_en.json
+python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1_nonce.json -t morph_gen_cot_en -n 1 -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment} -sp ${data_dir}/tr/btwd/final/default/shots/morph_gen_cot_en_nonce.json
+python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1_nonce.json -t morph_disc_cot_en -n 1 -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment} -sp ${data_dir}/tr/btwd/final/default/shots/morph_disc_cot_en_nonce.json
