@@ -17,16 +17,23 @@ outputs_dir="../experiments/outputs"
     # python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/gpt-2-ttok/tr/btwd/temp_en/${experiment} -m gpt-2 -mp /home/azureuser/morph-gen-artifacts/tr_gpt2_pretrained6 -tp /home/azureuser/morph-gen-artifacts/tr_gpt2_pretrained6
 # done
 
+# for jsonfile in ${data_dir}/tr/btwd/final/eval/temp_en/${input_dir}/*.json
+# do
+#     echo "Evaluating ${jsonfile}"
+#     python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_en/final/${experiment} -m ${model} -ia -b 2
+# done
+
+# for jsonfile in ${data_dir}/tr/btwd/final/eval/temp_tr/${input_dir}/*.json
+# do
+#     echo "Evaluating ${jsonfile}"
+#     python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_tr/final/${experiment} -m ${model} -ia -b 2
+# done
+
+# cot experiments
 for jsonfile in ${data_dir}/tr/btwd/final/eval/temp_en/${input_dir}/*.json
 do
     echo "Evaluating ${jsonfile}"
-    python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_en/final/${experiment} -m ${model} -ia -b 2
-done
-
-for jsonfile in ${data_dir}/tr/btwd/final/eval/temp_tr/${input_dir}/*.json
-do
-    echo "Evaluating ${jsonfile}"
-    python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_tr/final/${experiment} -m ${model} -ia -b 2
+    python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_en/final/${experiment} -m ${model} -ia -b 1 --max-tokens None
 done
 
 # for jsonfile in ${data_dir}/tr/sense/eval/temp_en/${input_dir}/*.json

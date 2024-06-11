@@ -98,6 +98,11 @@ async def batch_text_completion(client, batch, model, model_args):
 
     return results
 
+def none_or_int(value):
+    if value.lower() == "none":
+        return None
+    return int(value)
+
 async def main():
     load_dotenv() 
 
@@ -107,7 +112,7 @@ async def main():
     parser.add_argument("-ia", "--is-openai-azure", action="store_true", help="If OpenAI on Azure")
     parser.add_argument("-m", "--model", type=str, help="Model to use for evaluation", default="gpt-4")
     parser.add_argument("-t", "--temperature", type=float, help="Temperature for generation", default=0.0)
-    parser.add_argument("-g", "--max-tokens", type=int, help="Max tokens for generation", default=40)
+    parser.add_argument("-g", "--max-tokens", type=none_or_int, help="Max tokens for generation", default=40)
     parser.add_argument("-p", "--top-p", type=float, help="Top p for generation", default=1)
     parser.add_argument("-fp", "--frequency-penalty", type=float, help="Frequency penalty for generation", default=0)
     parser.add_argument("-pp", "--presence-penalty", type=float, help="Presence penalty for generation", default=0)
