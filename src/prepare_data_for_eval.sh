@@ -64,7 +64,7 @@ data_dir="../experiments/data"
 # done
 
 # TR in EN template for CoT
-python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1.json -t morph_gen_cot_en -n 1 -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment} -sp ${data_dir}/tr/btwd/final/default/shots/morph_gen_cot_en.json
-python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1.json -t morph_disc_cot_en -n 1 -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment} -sp ${data_dir}/tr/btwd/final/default/shots/morph_disc_cot_en.json
-python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1_nonce.json -t morph_gen_cot_en -n 1 -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment} -sp ${data_dir}/tr/btwd/final/default/shots/morph_gen_cot_en_nonce.json
-python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1_nonce.json -t morph_disc_cot_en -n 1 -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment} -sp ${data_dir}/tr/btwd/final/default/shots/morph_disc_cot_en_nonce.json
+python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_sample.json -t morph_gen_cot_en -n 1 -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment} -sp ${data_dir}/tr/btwd/final/default/shots/morph_gen_cot_en.json
+python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_sample.json -t morph_disc_cot_en -n 1 -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment} -sp ${data_dir}/tr/btwd/final/default/shots/morph_disc_cot_en.json
+python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_sample_nonce.json -t morph_gen_cot_en -n 1 -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment} -sp ${data_dir}/tr/btwd/final/default/shots/morph_gen_cot_en_nonce.json
+python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_sample_nonce.json -t morph_disc_cot_en -n 1 -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment} -sp ${data_dir}/tr/btwd/final/default/shots/morph_disc_cot_en_nonce.json

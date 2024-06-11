@@ -8,7 +8,7 @@ arg_job_name="$arg_job_prefix-$arg_job_suffix"
 
 command=$1
 num_cpu=${2:-8}
-num_gpu=${3:-1}
+num_gpu=${3:-0}
 
 # Run this for train mode
 if [ "$command" == "run" ]; then
