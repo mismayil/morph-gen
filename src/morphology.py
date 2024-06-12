@@ -28,44 +28,45 @@ POS_MAP = {
     "Conj": "conjunction",
     "Pron": "pronoun",
     "Postp": "postposition",
-    "Det": "determiner"
+    "Det": "determiner",
 }
 
 # https://gist.github.com/yasinkuyu/07d4afc0665421c5f3b0
 TURKISH_LETTER_FREQ = {
-	'A': 11.92,
-	'B': 2.844,
-	'C': 0.963,
-	'Ç': 1.156,
-	'D': 4.706,
-	'E': 8.912,
-	'F': 0.461,
-	'G': 1.253,
-	'Ğ': 1.125,
-	'H': 1.212,
-	'I': 5.114,
-	'İ': 8.6,
-	'J': 0.034,
-	'K': 4.683,
-	'L': 5.922,
-	'M': 3.752,
-	'N': 4.487,
-	'O': 2.476,
-	'Ö': 0.777,
-	'P': 0.886,
-	'R': 6.722,
-	'S': 3.014,
-	'Ş': 1.78,
-	'T': 3.014,
-	'U': 3.235,
-	'Ü': 1.854,
-	'V': 0.959,
-	'Y': 3.336,
-	'Z': 1.5
-};
+    "A": 11.92,
+    "B": 2.844,
+    "C": 0.963,
+    "Ç": 1.156,
+    "D": 4.706,
+    "E": 8.912,
+    "F": 0.461,
+    "G": 1.253,
+    "Ğ": 1.125,
+    "H": 1.212,
+    "I": 5.114,
+    "İ": 8.6,
+    "J": 0.034,
+    "K": 4.683,
+    "L": 5.922,
+    "M": 3.752,
+    "N": 4.487,
+    "O": 2.476,
+    "Ö": 0.777,
+    "P": 0.886,
+    "R": 6.722,
+    "S": 3.014,
+    "Ş": 1.78,
+    "T": 3.014,
+    "U": 3.235,
+    "Ü": 1.854,
+    "V": 0.959,
+    "Y": 3.336,
+    "Z": 1.5,
+}
 
 TR_DICTIONARY_PATH = "../data/tr/tdk/gts.json"
 EN_DICTIONARY_PATH = "../data/en/en_dictionary.txt"
+
 
 def read_tr_dictionary():
     dictionary = []
@@ -76,6 +77,7 @@ def read_tr_dictionary():
             dictionary.append(json_line["madde"])
     return dictionary
 
+
 def read_en_dictionary():
     dictionary = []
     with open(EN_DICTIONARY_PATH, "r") as f:
@@ -83,6 +85,7 @@ def read_en_dictionary():
         for line in lines:
             dictionary.append(line.strip())
     return dictionary
+
 
 class Decomposition:
     def __init__(self, root, pos, meta_morphemes, morphemes=None):
@@ -95,8 +98,8 @@ class Decomposition:
         return f"Decomposition(root={self.root}, pos={self.pos}, meta_morphemes={self.meta_morphemes}, morphemes={self.morphemes})"
 
     def __str__(self):
-        return f"{self.root} + {self.meta_morphemes} = {self.morphemes}" 
-    
+        return f"{self.root} + {self.meta_morphemes} = {self.morphemes}"
+
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, Decomposition):
             return False
@@ -112,6 +115,7 @@ class Decomposition:
             "meta_morphemes": self.meta_morphemes,
             "morphemes": self.morphemes,
         }
+
 
 def decompose_from_analysis_tr(analysis):
     decomposition = decompose.human_readable_analysis(analysis)
@@ -141,9 +145,10 @@ def decompose_from_analysis_tr(analysis):
 
     return Decomposition(root=root, pos=pos, meta_morphemes=morphemes)
 
+
 def surface_tr(morpheme):
     char_sets = []
-    
+
     for i, char in enumerate(morpheme):
         char_set = TURKISH_MORPH_MAP.get(char, [char.lower()])
         if i == len(morpheme) - 1 and char == "k":
@@ -151,6 +156,7 @@ def surface_tr(morpheme):
         char_sets.append(char_set)
 
     return ["".join(char_set) for char_set in list(product(*char_sets))]
+
 
 def decompose_tr(word):
     analyses = analyze.surface_form(word, use_proper_feature=False)
@@ -164,7 +170,7 @@ def decompose_tr(word):
         decomposition = decompose_from_analysis_tr(analysis)
         if decomposition:
             decompositions.add(decomposition)
-    
+
     valid_decompositions = []
 
     for decomposition in decompositions:
@@ -185,10 +191,14 @@ def decompose_tr(word):
 
     return valid_decompositions
 
+
 def get_random_letter_tr(letters, weighted=True):
     if weighted:
-        return random.choices(letters, weights=[TURKISH_LETTER_FREQ[c.upper()] for c in letters])[0]
+        return random.choices(
+            letters, weights=[TURKISH_LETTER_FREQ[c.upper()] for c in letters]
+        )[0]
     return random.choice(letters)
+
 
 def generate_nonce_word_tr(word):
     random.seed(random.randint(1, 100))
@@ -196,14 +206,35 @@ def generate_nonce_word_tr(word):
 
     hard_vowels = ["a", "ı", "o", "u"]
     soft_vowels = ["e", "i", "ö", "ü"]
-    consonants = ["b", "c", "ç", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "r", "s", "ş", "t", "v", "y", "z"]
+    consonants = [
+        "b",
+        "c",
+        "ç",
+        "d",
+        "f",
+        "g",
+        "h",
+        "j",
+        "k",
+        "l",
+        "m",
+        "n",
+        "p",
+        "r",
+        "s",
+        "ş",
+        "t",
+        "v",
+        "y",
+        "z",
+    ]
 
     last_vowel_index = None
 
     for i, char in enumerate(word):
         if char in hard_vowels or char in soft_vowels:
             last_vowel_index = i
-    
+
     immutable_part = word[last_vowel_index:]
     mutable_part = word[:last_vowel_index]
 
@@ -213,34 +244,59 @@ def generate_nonce_word_tr(word):
             if i % 2 == 0:
                 prefix += get_random_letter_tr(consonants)
             else:
-                prefix += get_random_letter_tr(soft_vowels) if immutable_part[0] in soft_vowels else get_random_letter_tr(hard_vowels)
+                prefix += (
+                    get_random_letter_tr(soft_vowels)
+                    if immutable_part[0] in soft_vowels
+                    else get_random_letter_tr(hard_vowels)
+                )
     else:
         prefix = ""
 
         for char in mutable_part:
             if char in hard_vowels:
-                prefix += get_random_letter_tr(list(set(hard_vowels)-set([char])))
+                prefix += get_random_letter_tr(list(set(hard_vowels) - set([char])))
             elif char in soft_vowels:
-                prefix += get_random_letter_tr(list(set(soft_vowels)-set([char])))
+                prefix += get_random_letter_tr(list(set(soft_vowels) - set([char])))
             else:
                 prefix += get_random_letter_tr(consonants)
-    
+
     nonce_word = prefix + immutable_part
     return nonce_word
+
 
 def generate_nonce_word_en(word):
     word = word.lower()
 
     hard_vowels = ["a", "o", "u"]
     soft_vowels = ["e", "i"]
-    consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "r", "s", "t", "v", "w", "y", "z"]
+    consonants = [
+        "b",
+        "c",
+        "d",
+        "f",
+        "g",
+        "h",
+        "j",
+        "k",
+        "l",
+        "m",
+        "n",
+        "p",
+        "r",
+        "s",
+        "t",
+        "v",
+        "w",
+        "y",
+        "z",
+    ]
 
     last_vowel_index = None
 
     for i, char in enumerate(word):
         if char in hard_vowels or char in soft_vowels:
             last_vowel_index = i
-    
+
     immutable_part = word[last_vowel_index:]
     mutable_part = word[:last_vowel_index]
 
@@ -250,36 +306,43 @@ def generate_nonce_word_en(word):
             if i % 2 == 0:
                 prefix += random.choice(consonants)
             else:
-                prefix += random.choice(soft_vowels) if immutable_part[0] in soft_vowels else random.choice(hard_vowels)
+                prefix += (
+                    random.choice(soft_vowels)
+                    if immutable_part[0] in soft_vowels
+                    else random.choice(hard_vowels)
+                )
     else:
         prefix = ""
 
         for char in mutable_part:
             if char in hard_vowels:
-                prefix += random.choice(list(set(hard_vowels)-set([char])))
+                prefix += random.choice(list(set(hard_vowels) - set([char])))
             elif char in soft_vowels:
-                prefix += random.choice(list(set(soft_vowels)-set([char])))
+                prefix += random.choice(list(set(soft_vowels) - set([char])))
             else:
                 prefix += random.choice(consonants)
-    
+
     nonce_word = prefix + immutable_part
     return nonce_word
+
 
 def segment_by_tokenizer(text, model, root, return_tokens=False):
     encoding_name = MODEL_ENCODINGS[model]
     encoding = tiktoken.get_encoding(encoding_name)
     encodings = encoding.encode(text)
-    tokens = [encoding.decode_single_token_bytes(enc).decode("utf-8") for enc in encodings]
+    tokens = [
+        encoding.decode_single_token_bytes(enc).decode("utf-8") for enc in encodings
+    ]
     root_end_idx = 0
     best_diff = len(root)
 
     for i in range(len(tokens)):
-        cand_root = "".join(tokens[:i+1])
+        cand_root = "".join(tokens[: i + 1])
         root_diff = levenshtein_distance(cand_root, root)
         if root_diff < best_diff:
-            root_end_idx = i+1
+            root_end_idx = i + 1
             best_diff = root_diff
-    
+
     segmentation = ["".join(tokens[:root_end_idx])] + tokens[root_end_idx:]
 
     if len(segmentation) == 1:
@@ -287,8 +350,9 @@ def segment_by_tokenizer(text, model, root, return_tokens=False):
 
     if return_tokens:
         return segmentation, tokens
-    
+
     return segmentation
+
 
 def infinitive_tr(verb):
     hard_vowels = ["a", "o", "u"]
@@ -300,71 +364,135 @@ def infinitive_tr(verb):
         if char in soft_vowels:
             return f"{verb}mek"
 
+
 def infer_best_decompositions_tr(word, decompositions, dictionary=None):
     best_decompositions = []
 
-    for decomposition in decompositions:        
-        morpheme_tuples = [(decomposition["meta_morphemes"][i], decomposition["meta_morphemes"][i+1]) for i in range(len(decomposition["meta_morphemes"])-1)]
-        morpheme_triples = [(decomposition["meta_morphemes"][i], decomposition["meta_morphemes"][i+1], decomposition["meta_morphemes"][i+2]) for i in range(len(decomposition["meta_morphemes"])-2)]
+    for decomposition in decompositions:
+        morpheme_tuples = [
+            (decomposition["meta_morphemes"][i], decomposition["meta_morphemes"][i + 1])
+            for i in range(len(decomposition["meta_morphemes"]) - 1)
+        ]
+        morpheme_triples = [
+            (
+                decomposition["meta_morphemes"][i],
+                decomposition["meta_morphemes"][i + 1],
+                decomposition["meta_morphemes"][i + 2],
+            )
+            for i in range(len(decomposition["meta_morphemes"]) - 2)
+        ]
 
         # skip alphabet pronounciations except for o
         if len(decomposition["root"]) == 1:
             if decomposition["root"].lower() != "o":
                 continue
             else:
-                alt_o = any([decomp["root"].lower() != "o" for decomp in decompositions])
+                alt_o = any(
+                    [decomp["root"].lower() != "o" for decomp in decompositions]
+                )
                 if alt_o:
                     continue
-        
+
         # skip alphabet pronounciations except for de, ne, ye
-        if decomposition["root"].lower() in ["be", "ce", "çe", "fe", "ge", "he", "je", "ke", "ka", "le", "me", "pe", "re", "se", "şe", "te", "ve", "ze"]:
+        if decomposition["root"].lower() in [
+            "be",
+            "ce",
+            "çe",
+            "fe",
+            "ge",
+            "he",
+            "je",
+            "ke",
+            "ka",
+            "le",
+            "me",
+            "pe",
+            "re",
+            "se",
+            "şe",
+            "te",
+            "ve",
+            "ze",
+        ]:
             continue
-        
+
         # skip individual s
         if "s" in decomposition["morphemes"]:
             s_index = decomposition["morphemes"].index("s")
             meta_s = decomposition["meta_morphemes"][s_index]
             if meta_s == "sH" or meta_s == "SH":
                 continue
-        
+
         # skip [lar, im, iz] or [lar, in, iz] if possible
-        if ("lAr", "Hm", "YHz") in morpheme_triples or ("lAr", "Hn", "YHz") in morpheme_triples:
-            alt_la = any([("HmHz" in decomp["meta_morphemes"] or "HnHz" in decomp["meta_morphemes"]) for decomp in decompositions])
+        if ("lAr", "Hm", "YHz") in morpheme_triples or (
+            "lAr",
+            "Hn",
+            "YHz",
+        ) in morpheme_triples:
+            alt_la = any(
+                [
+                    (
+                        "HmHz" in decomp["meta_morphemes"]
+                        or "HnHz" in decomp["meta_morphemes"]
+                    )
+                    for decomp in decompositions
+                ]
+            )
             if alt_la:
                 continue
-        
+
         # skip [la, r] or [la, n] or  [la, s] if possible
-        if ("lA", "Hr") in morpheme_tuples or ("lA", "Hn") in morpheme_tuples or ("lA", "Hş") in morpheme_tuples:
-            alt_la = any([("lAr" in decomp["meta_morphemes"] or "lAn" in decomp["meta_morphemes"] or "lAş" in decomp["meta_morphemes"]) for decomp in decompositions])
+        if (
+            ("lA", "Hr") in morpheme_tuples
+            or ("lA", "Hn") in morpheme_tuples
+            or ("lA", "Hş") in morpheme_tuples
+        ):
+            alt_la = any(
+                [
+                    (
+                        "lAr" in decomp["meta_morphemes"]
+                        or "lAn" in decomp["meta_morphemes"]
+                        or "lAş" in decomp["meta_morphemes"]
+                    )
+                    for decomp in decompositions
+                ]
+            )
             if alt_la:
                 continue
-            
+
         # skip individual n if possible
         if "n" in decomposition["morphemes"]:
             n_index = decomposition["morphemes"].index("n")
             if n_index > 1:
-                prev_meta_morpheme = decomposition["meta_morphemes"][n_index-1]
+                prev_meta_morpheme = decomposition["meta_morphemes"][n_index - 1]
                 if prev_meta_morpheme in ["sH", "SH", "YA"]:
                     continue
 
-            if n_index < len(decomposition["meta_morphemes"])-1:
-                next_meta_morpheme = decomposition["meta_morphemes"][n_index+1]
+            if n_index < len(decomposition["meta_morphemes"]) - 1:
+                next_meta_morpheme = decomposition["meta_morphemes"][n_index + 1]
                 if next_meta_morpheme in ["NDA", "NDAn", "NHn", "NA"]:
                     continue
-        
+
         # skip individual si if possible
         if ("sH", "HnHz") in morpheme_tuples or ("SH", "HnHz") in morpheme_tuples:
-            alt_snz = any(["sHnHz" in decomp["meta_morphemes"] for decomp in decompositions])
+            alt_snz = any(
+                ["sHnHz" in decomp["meta_morphemes"] for decomp in decompositions]
+            )
             if alt_snz:
                 continue
-        
+
         # skip duplicates
-        seen_decomps = [decomp for decomp in best_decompositions if decomp["root"] == decomposition["root"] and decomp["morphemes"] == decomposition["morphemes"]]
+        seen_decomps = [
+            decomp
+            for decomp in best_decompositions
+            if decomp["root"] == decomposition["root"]
+            and decomp["morphemes"] == decomposition["morphemes"]
+        ]
         if seen_decomps:
             continue
 
         best_decompositions.append(decomposition)
-    
+
     # check in dictionary
     if dictionary:
         dict_decomps = []
@@ -375,25 +503,29 @@ def infer_best_decompositions_tr(word, decompositions, dictionary=None):
 
             if root in dictionary:
                 dict_decomps.append(decomp)
-            
+
             if infinitive_tr(root) in dictionary:
                 verb_decomps.append(decomp)
-        
+
         if dict_decomps:
             best_decompositions = dict_decomps
-        
+
         # prioritize verbs
         if verb_decomps:
             best_decompositions = verb_decomps
 
     # prioritize shorter roots
-    best_decompositions = sorted(best_decompositions, key=lambda decomp: len(decomp["root"]))
-    
+    best_decompositions = sorted(
+        best_decompositions, key=lambda decomp: len(decomp["root"])
+    )
+
     return best_decompositions
+
 
 def create_morph_graph():
     G = nx.MultiDiGraph(root=False)
     return G
+
 
 def has_edge(G, source, target, edge_key):
     edge_data = G.get_edge_data(source, target)
@@ -401,6 +533,7 @@ def has_edge(G, source, target, edge_key):
         for key, edge in edge_data.items():
             if key == edge_key:
                 return edge
+
 
 def update_morph_graph(G, root, meta_morphemes, morphemes, update_stats=True):
     G.add_node(root, root=True)
@@ -428,6 +561,7 @@ def update_morph_graph(G, root, meta_morphemes, morphemes, update_stats=True):
         last_edge_key = edge_key
         last_node = morph_node
 
+
 def merge_morph_graphs(G, H):
     GH = nx.compose(G, H)
     count_edge_data = {
@@ -440,17 +574,21 @@ def merge_morph_graphs(G, H):
     nx.set_edge_attributes(GH, leaf_edge_data, "leaf")
     return GH
 
+
 def read_morph_graph(path):
     G = nx.read_gml(path)
     return G
 
+
 def write_morph_graph(G, path):
     nx.write_gml(G, path)
+
 
 def get_words(text):
     words = re.findall(r"\b[^\d\W]+\b", text)
     words = [word.lower() for word in words]
     return words
 
+
 def visualize_morph_graph(G):
-    nx.draw(G, with_labels=True, font_weight='bold')
+    nx.draw(G, with_labels=True, font_weight="bold")

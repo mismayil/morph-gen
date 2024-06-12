@@ -3,6 +3,7 @@ import argparse
 from transformers import AutoTokenizer
 from datasets import load_dataset
 
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-m", "--model", type=str, default="gpt2")
@@ -12,11 +13,14 @@ def main():
     parser.add_argument("-v", "--vocab-size", type=int, default=50257)
 
     args = parser.parse_args()
-    
+
     dataset = load_dataset(args.dataset, cache_dir=args.cache_dir)
     tokenizer = AutoTokenizer.from_pretrained(args.model)
-    tokenizer = tokenizer.train_new_from_iterator(dataset["train"]["text"], vocab_size=args.vocab_size)
+    tokenizer = tokenizer.train_new_from_iterator(
+        dataset["train"]["text"], vocab_size=args.vocab_size
+    )
     tokenizer.save_pretrained(args.output)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
