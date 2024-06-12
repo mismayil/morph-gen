@@ -370,6 +370,8 @@ def prepare_sample_for_eval(sample, shot_samples, template, language, shuffle_su
             "id_derivation": sample["id_derivation"] if "id_derivation" in sample else None,
             "sentence": sample.get("sentence", None),
             "meaning": sample.get("meaning", None),
+            "negative_suffixes": sample.get("negative_suffixes"),
+            "negative_meta_suffixes": sample.get("negative_meta_suffixes")
         })
 
     return eval_data
