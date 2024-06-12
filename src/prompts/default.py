@@ -93,7 +93,7 @@ Vastaus: {answer}"""
 
 MORPH_DISC_NONCE_FI_INSTRUCTION_TEMPLATE = "Sinulle annetaan uusi sanavartalo, sen määritelmä sekä pilkulla eroteltu luettelo päätteistä sekä uusi sana kielellä {kieli}, joka on johdettu annetusta sanavartalosta annettujen päätteiden avulla. Tehtäväsi on selvittää, onko johdettu sana kieliopillisesti oikein. Vastaa vain Kyllä tai Ei."
 
-MORPH_DISC_NONCE_EN_SHOT_TEMPLATE = """Esimerkki {index}:
+MORPH_DISC_NONCE_FI_SHOT_TEMPLATE = """Esimerkki {index}:
 SanaVartalo: {root}
 Määritelmä: {root_definition}
 Päätteet: {suffixes}
