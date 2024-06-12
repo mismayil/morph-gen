@@ -142,7 +142,7 @@ def prepare_shot_for_morph_gen(idx, sample, template, language, is_final=False, 
             suffixes = random.sample(sample["suffixes"], len(sample["suffixes"]))
 
     suffixes_str = ", ".join([f"{s}" for s in suffixes])
-    answer = sample["answer"] if _is_cot_task(template) else sample["derivation"]
+    answer = sample["answer"] if _is_cot_task(template) and not is_final else sample["derivation"]
 
     format_args = {
         "index": idx+1,
@@ -267,7 +267,7 @@ def prepare_shots_for_morph_disc(idx, sample, template, language, is_final=False
     answers = []
 
     for option in options:
-        answer = sample["answer"] if _is_cot_task(template) else _get_answer(option, sample["derivation"], template_lang)
+        answer = sample["answer"] if _is_cot_task(template) and not is_final else _get_answer(option, sample["derivation"], template_lang)
         
         if template.startswith("morph_disc_pp"):
             format_args = {
@@ -277,7 +277,7 @@ def prepare_shots_for_morph_disc(idx, sample, template, language, is_final=False
             format_args = {
                 "index": idx+1,
                 "root": sample["root"],
-                "suffixes": suffixes_str if option in sample["positive_options"] or not negative_suffixes_str else negative_suffixes_str,
+                "suffixes": suffixes_str if "positive_options" in sample and option in sample["positive_options"] or not negative_suffixes_str else negative_suffixes_str,
                 "derived_word": option,
                 "answer": "" if is_final else answer
             }

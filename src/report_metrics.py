@@ -19,10 +19,8 @@ def _get_template_lang(template):
     return template.split("_")[-1]
 
 def get_prediction(sample, model_response, template):
-    pred = str(model_response).strip().lower()
-    
     if template.startswith("morph_disc_mcq"):
-        pred = model_response.strip()
+        pred = str(model_response).strip()
         if re.fullmatch(r"\d+\s*\..*", model_response.strip()):
             pred = model_response.split(".")[0].strip()
         return pred
@@ -30,9 +28,19 @@ def get_prediction(sample, model_response, template):
     if template.startswith("morph_disc_pp"):
         return sample["perplexity"]
 
+    if template.startswith("morph_gen_cot") or template.startswith("morph_disc_cot"):
+        preds = re.findall(r"\<(.*?)\>", model_response)
+        if preds:
+            pred = preds[-1].strip("<>").lower()
+            if template.startswith("morph_disc"):
+                return ANSWER_MAP[_get_template_lang(template)][pred]
+            return pred
+
     if template.startswith("morph_disc_bin") or template.startswith("morph_disc"):
+        pred = str(model_response).strip().lower()
         return ANSWER_MAP[_get_template_lang(template)][pred]
 
+    pred = str(model_response).strip().lower()
     return pred
 
 def get_reference(sample, ref_response, template):
@@ -259,6 +267,7 @@ def compute_metrics(results, report_usage=True, separator="", frequency_path=Non
                 results_by_suffix_len[num_suffixes][result["id"]]["predictions"].append(pred)
 
             result["correct"] = ref == pred
+            result["prediction"] = pred
             result["faithful"] = is_faithful(result, result[ref_response_attr], result[model_response_attr], result["template"], separator=separator)
             # result["soft_accuracy"] = get_soft_accuracy(result, result[ref_response_attr], result[model_response_attr], result["template"])
             len_suffix_accuracy[num_suffixes].append(result["correct"])
@@ -400,6 +409,8 @@ def compute_metrics(results, report_usage=True, separator="", frequency_path=Non
     if report_usage:
         metrics["usage"] = usage
         metrics["cost"] = cost
+
+    metrics["num_samples"] = len(results["data"])
 
     return metrics
 
