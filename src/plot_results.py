@@ -15,6 +15,11 @@ ABBR_METRICS = {
     "coherence": "coh"
 }
 
+TASK_TITLE_MAP = {
+    "morph-disc": "Discriminative Task",
+    "morph-gen": "Generative Task"
+}
+
 def plot_results(tab_results, output_dir, output_format="png", language="en", template="en",
                  model="gpt-3.5-turbo", metric="accuracy", task="morph-gen", is_ood=False, max_suffix_length=10):
     results = tab_results.query(f"is_ood == {is_ood} & task == '{task}' & num_suffixes <= {max_suffix_length}")
@@ -22,8 +27,8 @@ def plot_results(tab_results, output_dir, output_format="png", language="en", te
         plt.ioff()
         fig, ax = plt.subplots(figsize=(16, 8))
         ax.set_title(f"{metric.capitalize()} \n [lang={language}, temp={template}, model={model}, dist={'OOD' if is_ood else 'ID'}, task={task}]")
-        ax.set_xlabel("Number of suffixes")
-        ax.set_ylabel(metric.capitalize())
+        ax.set_xlabel("Number of suffixes", size=12)
+        ax.set_ylabel(metric.capitalize(), size=12)
         ax.title.set_size(20)
         sns.barplot(data=results, x="num_suffixes", y=metric, hue="num_shots", ax=ax, errorbar=None)
         plot_path = f"{output_dir}/fig_{ABBR_METRICS[metric]}_{task}_{'ood' if is_ood else 'id'}.{output_format}"
@@ -75,13 +80,17 @@ def plot_results_overall(tab_results, output_dir, output_format="png", language=
     if len(results) > 0 and any(results[metric] > 0):
         overall_results = results.groupby(["task", "is_ood", "num_shots"]).agg({"accuracy": "mean", "f1": "mean", "coherence": "mean", "faithfulness": "mean"}).reset_index()
         plt.ioff()
-        fig, ax = plt.subplots(figsize=(16, 8))
-        ax.set_title(f"{metric.capitalize()} \n [lang={language}, temp={template}, model={model}, task={task}]")
-        ax.set_xlabel("Test Distribution")
-        ax.set_ylabel(metric.capitalize())
-        ax.title.set_size(20)
+        fig, ax = plt.subplots(figsize=(30, 15))
+        # ax.set_title(f"{metric.capitalize()} \n [lang={language}, temp={template}, model={model}, task={task}]")
+        ax.set_title(f"{TASK_TITLE_MAP[task]} - {metric.capitalize()}")
+        ax.set_xlabel("Test Distribution", size=40)
+        ax.set_ylabel(metric.capitalize(), size=40)
+        ax.tick_params(axis='x', labelsize=30)
+        ax.tick_params(axis='y', labelsize=30)
+        ax.title.set_size(50)
         overall_results["dist"] = overall_results["is_ood"].replace({False: "ID", True: "OOD"})
         sns.barplot(data=overall_results, x="dist", y=metric, hue="num_shots", ax=ax, errorbar=None)
+        ax.legend(title="Number of shots", title_fontsize=30, fontsize=25)
         plot_path = f"{output_dir}/fig_{ABBR_METRICS[metric]}_{task}.{output_format}"
         print(f"Saving figure to {plot_path}")
         plt.savefig(plot_path)
@@ -94,7 +103,7 @@ def main():
     parser.add_argument("-t", "--template", type=str, help="Experiment template", required=True)
     parser.add_argument("-m", "--model", type=str, help="Experiment model", required=True)
     parser.add_argument("-e", "--metrics", type=str, choices=METRICS, default=METRICS, help="Metrics to show results for.")
-    parser.add_argument("-f", "--output-format", type=str, choices=["png", "pdf"], default="png", help="Format to save the plots in.")
+    parser.add_argument("-f", "--output-format", type=str, choices=["png", "pdf", "svg"], default="png", help="Format to save the plots in.")
     parser.add_argument("-msl", "--max-suffix-length", type=int, help="Maximum suffix length to consider", default=7)
     parser.add_argument("-ns", "--num-shots", type=int, help="Number of shots to consider", default=5)
 
@@ -111,7 +120,7 @@ def main():
         print(f"Skipping. Tabulated results file not found at {results_path}")
         return
 
-    output_dir = pathlib.Path(args.output_dir) / f"figs_{args.language}_{args.template}_{args.model}"
+    output_dir = pathlib.Path(args.output_dir) / f"{args.output_format}_figs_{args.language}_{args.template}_{args.model}"
     output_dir.mkdir(parents=True, exist_ok=True)
 
     for metric in args.metrics:

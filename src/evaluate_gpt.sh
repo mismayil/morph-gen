@@ -23,12 +23,17 @@ outputs_dir="../experiments/outputs"
 #     python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_en/final/${experiment}/batch1 -m ${model} -ia -b 4
 # done
 
-for jsonfile in ${data_dir}/tr/btwd/final/eval/temp_tr/${input_dir}/batch1/*.json
+# for jsonfile in ${data_dir}/tr/btwd/final/eval/temp_tr/${input_dir}/batch1/*.json
+# do
+#     echo "Evaluating ${jsonfile}"
+#     python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_tr/final/${experiment}/batch1 -m ${model} -ia -b 4
+# done
+
+for jsonfile in ${data_dir}/tr/btwd/test/eval/temp_tr/${input_dir}/*.json
 do
     echo "Evaluating ${jsonfile}"
-    python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_tr/final/${experiment}/batch1 -m ${model} -ia -b 4
+    python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_tr/test/${experiment} -m ${model} -ia -b 4
 done
-
 # cot experiments
 # for jsonfile in ${data_dir}/tr/btwd/final/eval/temp_en/${input_dir}/*.json
 # do
