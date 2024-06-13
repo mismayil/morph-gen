@@ -32,7 +32,7 @@ outputs_dir="../experiments/outputs"
 for jsonfile in ${data_dir}/tr/btwd/test/eval/temp_tr/${input_dir}/*.json
 do
     echo "Evaluating ${jsonfile}"
-    python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_tr/test/${experiment} -m ${model} -ia -b 4
+    python evaluate_gpt.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_tr/test/${experiment} -m ${model} -ia -b 4 -t 0.3
 done
 # cot experiments
 # for jsonfile in ${data_dir}/tr/btwd/final/eval/temp_en/${input_dir}/*.json
