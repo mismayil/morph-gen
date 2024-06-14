@@ -20,24 +20,70 @@ TASK_TITLE_MAP = {
     "morph-gen": "Generative Task"
 }
 
-def plot_results(tab_results, output_dir, output_format="png", language="en", template="en",
-                 model="gpt-3.5-turbo", metric="accuracy", task="morph-gen", is_ood=False, max_suffix_length=10):
-    results = tab_results.query(f"is_ood == {is_ood} & task == '{task}' & num_suffixes <= {max_suffix_length}")
+FIG_SIZE = (40, 40)
+XLABEL_SIZE = 80
+YLABEL_SIZE = 80
+TITLE_SIZE = 100
+TICK_SIZE = 60
+LEGEND_TITLE_SIZE = 70
+LEGEND_SIZE = 60
+Y_LIM_MIN = 0.0
+Y_LIM_MAX = 1.0
+
+def _get_language(tab_results):
+    if "language" in tab_results.columns:
+        return tab_results["language"].values[0]
+    return "tr"
+
+def _get_template(tab_results):
+    if "template" in tab_results.columns:
+        return tab_results["template"].values[0].split("_")[-1]
+    return "en"
+
+def _get_model(tab_results):
+    if "model" in tab_results.columns:
+        return tab_results["model"].values[0]
+    return "gpt-4"
+
+def plot_results(tab_results_lst, output_dir, output_format="png", metric="accuracy", task="morph-gen", is_ood=False, max_suffix_length=10):
+    results = tab_results_lst[0]
+    language = _get_language(results)
+    template = _get_template(results)
+    model = _get_model(results)
+
+    output_dir = pathlib.Path(output_dir) / f"{output_format}_figs_{language}_{template}_{model}"
+    output_dir.mkdir(parents=True, exist_ok=True)
+    
+    results = results.query(f"is_ood == {is_ood} & task == '{task}' & num_suffixes <= {max_suffix_length}")
+    
     if len(results) > 0 and any(results[metric] > 0):
         plt.ioff()
-        fig, ax = plt.subplots(figsize=(16, 8))
-        ax.set_title(f"{metric.capitalize()} \n [lang={language}, temp={template}, model={model}, dist={'OOD' if is_ood else 'ID'}, task={task}]")
-        ax.set_xlabel("Number of suffixes", size=12)
-        ax.set_ylabel(metric.capitalize(), size=12)
-        ax.title.set_size(20)
+        fig, ax = plt.subplots(figsize=FIG_SIZE)
+        # ax.set_title(f"{metric.capitalize()} \n [lang={language}, temp={template}, model={model}, dist={'OOD' if is_ood else 'ID'}, task={task}]")
+        ax.set_title(f"{TASK_TITLE_MAP[task]} - {metric.capitalize()}")
+        ax.set_xlabel("Number of suffixes", size=XLABEL_SIZE)
+        ax.set_ylabel(metric.capitalize(), size=YLABEL_SIZE)
+        ax.tick_params(axis='x', labelsize=TICK_SIZE)
+        ax.tick_params(axis='y', labelsize=TICK_SIZE)
+        ax.set_ylim(Y_LIM_MIN, Y_LIM_MAX)
+        ax.title.set_size(TITLE_SIZE)
         sns.barplot(data=results, x="num_suffixes", y=metric, hue="num_shots", ax=ax, errorbar=None)
+        ax.legend(title="Number of shots", title_fontsize=LEGEND_TITLE_SIZE, fontsize=LEGEND_SIZE)
         plot_path = f"{output_dir}/fig_{ABBR_METRICS[metric]}_{task}_{'ood' if is_ood else 'id'}.{output_format}"
         print(f"Saving figure to {plot_path}")
         plt.savefig(plot_path)
 
-def plot_results_by_freq(tab_results, output_dir, output_format="png", language="en", template="en",
-                         model="gpt-3.5-turbo", metric="accuracy", task="morph-gen", is_ood=False, keyword="unigram", max_suffix_length=10):
-    results = tab_results.query(f"is_ood == {is_ood} & task == '{task}' & num_suffixes <= {max_suffix_length}")
+def plot_results_by_freq(tab_results_lst, output_dir, output_format="png", metric="accuracy", task="morph-gen", is_ood=False, keyword="unigram", max_suffix_length=10):
+    results = tab_results_lst[0]
+    language = _get_language(results)
+    template = _get_template(results)
+    model = _get_model(results)
+
+    output_dir = pathlib.Path(output_dir) / f"{output_format}_figs_{language}_{template}_{model}"
+    output_dir.mkdir(parents=True, exist_ok=True)
+    
+    results = results.query(f"is_ood == {is_ood} & task == '{task}' & num_suffixes <= {max_suffix_length}")
+    
     if len(results) > 0 and any(results[metric] > 0):
         plt.ioff()
         fig, axes = plt.subplots(figsize=(16, 8), nrows=1, ncols=2)
@@ -58,50 +104,95 @@ def plot_results_by_freq(tab_results, output_dir, output_format="png", language=
         print(f"Saving figure to {plot_path}")
         plt.savefig(plot_path)
 
-def plot_results_id_vs_ood(tab_results, output_dir, output_format="png", language="en", template="en",
-                           model="gpt-3.5-turbo", metric="accuracy", task="morph-gen", max_suffix_length=10, num_shots=5):
-    results = tab_results.query(f"task == '{task}' & num_suffixes <= {max_suffix_length} & num_shots == {num_shots}").copy()
+def plot_results_id_vs_ood(tab_results_lst, output_dir, output_format="png", metric="accuracy", task="morph-gen", max_suffix_length=10, num_shots=5):
+    results = tab_results_lst[0]
+    language = _get_language(results)
+    template = _get_template(results)
+    model = _get_model(results)
+
+    output_dir = pathlib.Path(output_dir) / f"{output_format}_figs_{language}_{template}_{model}"
+    output_dir.mkdir(parents=True, exist_ok=True)
+    
+    results = results.query(f"task == '{task}' & num_suffixes <= {max_suffix_length} & num_shots == {num_shots}").copy()
+    
     if len(results) > 0 and any(results[metric] > 0):
         plt.ioff()
-        fig, ax = plt.subplots(figsize=(16, 8))
-        ax.set_title(f"{metric.capitalize()} \n [lang={language}, temp={template}, model={model}, num_shots={num_shots}, task={task}]")
-        ax.set_xlabel("Number of suffixes")
-        ax.set_ylabel(metric.capitalize())
-        ax.title.set_size(20)
+        fig, ax = plt.subplots(figsize=FIG_SIZE)
+        # ax.set_title(f"{metric.capitalize()} \n [lang={language}, temp={template}, model={model}, num_shots={num_shots}, task={task}]")
+        ax.set_title(f"{TASK_TITLE_MAP[task]} - {metric.capitalize()}")
+        ax.set_xlabel("Number of suffixes", size=XLABEL_SIZE)
+        ax.set_ylabel(metric.capitalize(), size=YLABEL_SIZE)
+        ax.tick_params(axis='x', labelsize=TICK_SIZE)
+        ax.tick_params(axis='y', labelsize=TICK_SIZE)
+        ax.set_ylim(Y_LIM_MIN, Y_LIM_MAX)
+        ax.title.set_size(TITLE_SIZE)
         results["dist"] = results["is_ood"].replace({False: "ID", True: "OOD"})
         sns.barplot(data=results, x="num_suffixes", y=metric, hue="dist", hue_order=["ID", "OOD"], ax=ax, errorbar=None, palette="rocket")
+        ax.legend(title="Test Distribution", title_fontsize=LEGEND_TITLE_SIZE, fontsize=LEGEND_SIZE)
         plot_path = f"{output_dir}/fig_{ABBR_METRICS[metric]}_{task}_s{num_shots}.{output_format}"
         print(f"Saving figure to {plot_path}")
         plt.savefig(plot_path)
 
-def plot_results_overall(tab_results, output_dir, output_format="png", language="en", template="en",
-                           model="gpt-3.5-turbo", metric="accuracy", task="morph-gen", max_suffix_length=10):
-    results = tab_results.query(f"task == '{task}' & num_suffixes <= {max_suffix_length}").copy()
+def plot_results_overall(tab_results_lst, output_dir, output_format="png", metric="accuracy", task="morph-gen", max_suffix_length=10):
+    results = tab_results_lst[0]
+    language = _get_language(results)
+    template = _get_template(results)
+    model = _get_model(results)
+
+    output_dir = pathlib.Path(output_dir) / f"{output_format}_figs_{language}_{template}_{model}"
+    output_dir.mkdir(parents=True, exist_ok=True)
+    
+    results = results.query(f"task == '{task}' & num_suffixes <= {max_suffix_length}").copy()
+    
     if len(results) > 0 and any(results[metric] > 0):
         overall_results = results.groupby(["task", "is_ood", "num_shots"]).agg({"accuracy": "mean", "f1": "mean", "coherence": "mean", "faithfulness": "mean"}).reset_index()
         plt.ioff()
-        fig, ax = plt.subplots(figsize=(30, 15))
+        fig, ax = plt.subplots(figsize=FIG_SIZE)
         # ax.set_title(f"{metric.capitalize()} \n [lang={language}, temp={template}, model={model}, task={task}]")
         ax.set_title(f"{TASK_TITLE_MAP[task]} - {metric.capitalize()}")
-        ax.set_xlabel("Test Distribution", size=40)
-        ax.set_ylabel(metric.capitalize(), size=40)
-        ax.tick_params(axis='x', labelsize=30)
-        ax.tick_params(axis='y', labelsize=30)
-        ax.title.set_size(50)
+        ax.set_xlabel("Test Distribution", size=XLABEL_SIZE)
+        ax.set_ylabel(metric.capitalize(), size=YLABEL_SIZE)
+        ax.tick_params(axis='x', labelsize=TICK_SIZE)
+        ax.tick_params(axis='y', labelsize=TICK_SIZE)
+        ax.set_ylim(Y_LIM_MIN, Y_LIM_MAX)
+        ax.title.set_size(TITLE_SIZE)
         overall_results["dist"] = overall_results["is_ood"].replace({False: "ID", True: "OOD"})
         sns.barplot(data=overall_results, x="dist", y=metric, hue="num_shots", ax=ax, errorbar=None)
-        ax.legend(title="Number of shots", title_fontsize=30, fontsize=25)
+        ax.legend(title="Number of shots", title_fontsize=LEGEND_TITLE_SIZE, fontsize=LEGEND_SIZE)
         plot_path = f"{output_dir}/fig_{ABBR_METRICS[metric]}_{task}.{output_format}"
         print(f"Saving figure to {plot_path}")
         plt.savefig(plot_path)
 
+def plot_results_by_lang(tab_results_lst, output_dir, output_format="png", metric="accuracy", task="morph-gen", max_suffix_length=10, num_shots=5):
+    templates = [_get_template(tab_results) for tab_results in tab_results_lst]
+    
+    for tab_results, template in zip(tab_results_lst, templates):
+        tab_results["template"] = template
+
+    merged_results = pd.concat(tab_results_lst)
+
+    results = merged_results.query(f"task == '{task}' & num_suffixes <= {max_suffix_length} & num_shots == {num_shots}")
+    overall_results = results.groupby(["is_ood", "template"]).agg({"accuracy": "mean", "f1": "mean", "coherence": "mean", "faithfulness": "mean"}).reset_index().copy()
+    overall_results["dist"] = overall_results["is_ood"].replace({False: "ID", True: "OOD"})
+
+    fig, ax = plt.subplots(figsize=FIG_SIZE)
+    ax.set_title(f"{TASK_TITLE_MAP[task]} - {metric.capitalize()}")
+    ax.set_xlabel("Test Distribution", size=XLABEL_SIZE)
+    ax.set_ylabel(metric.capitalize(), size=YLABEL_SIZE)
+    ax.tick_params(axis='x', labelsize=TICK_SIZE)
+    ax.tick_params(axis='y', labelsize=TICK_SIZE)
+    ax.set_ylim(Y_LIM_MIN, Y_LIM_MAX)
+    ax.title.set_size(TITLE_SIZE)
+    sns.barplot(data=overall_results, x="dist", y=metric, hue="template", ax=ax, errorbar=None, palette="rocket")
+    ax.legend(title="Instruction lang", title_fontsize=LEGEND_TITLE_SIZE, fontsize=LEGEND_SIZE)
+    plot_path = f"{output_dir}/fig_{ABBR_METRICS[metric]}_{task}_s{num_shots}_{'_vs_'.join(templates)}.{output_format}"
+    print(f"Saving figure to {plot_path}")
+    plt.savefig(plot_path)
+
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("-r", "--tab-results-path", type=str, help="Path to tabulated results file", required=True)
+    parser.add_argument("-r", "--tab-results-paths", type=str, nargs="+", help="Path to tabulated results file(s)", required=True)
     parser.add_argument("-o", "--output-dir", type=str, help="Output directory to save plots", default="../figures")
-    parser.add_argument("-l", "--language", type=str, help="Experiment language", required=True)
-    parser.add_argument("-t", "--template", type=str, help="Experiment template", required=True)
-    parser.add_argument("-m", "--model", type=str, help="Experiment model", required=True)
     parser.add_argument("-e", "--metrics", type=str, choices=METRICS, default=METRICS, help="Metrics to show results for.")
     parser.add_argument("-f", "--output-format", type=str, choices=["png", "pdf", "svg"], default="png", help="Format to save the plots in.")
     parser.add_argument("-msl", "--max-suffix-length", type=int, help="Maximum suffix length to consider", default=7)
@@ -109,71 +200,69 @@ def main():
 
     args = parser.parse_args()
 
-    results_path = pathlib.Path(args.tab_results_path)
+    tab_results_lst = []
 
-    try:
-        if results_path.suffix == ".csv":
-            tab_results = pd.read_csv(results_path)
-        else:
-            raise ValueError("Tabulated results extension not supported.")
-    except FileNotFoundError:
-        print(f"Skipping. Tabulated results file not found at {results_path}")
-        return
+    for tab_results_path in args.tab_results_paths:
+        results_path = pathlib.Path(tab_results_path)
 
-    output_dir = pathlib.Path(args.output_dir) / f"{args.output_format}_figs_{args.language}_{args.template}_{args.model}"
-    output_dir.mkdir(parents=True, exist_ok=True)
+        try:
+            if results_path.suffix == ".csv":
+                tab_results = pd.read_csv(results_path)
+                tab_results_lst.append(tab_results)
+            else:
+                raise ValueError("Tabulated results extension not supported.")
+        except FileNotFoundError:
+            print(f"Skipping. Tabulated results file not found at {results_path}")
+            return
 
     for metric in args.metrics:
         for task in ["morph-disc", "morph-gen"]:
-            plot_results_id_vs_ood(tab_results,
-                                    output_dir=output_dir,
+            if len(tab_results_lst) > 1:
+                plot_results_by_lang(tab_results_lst,
+                                    output_dir=args.output_dir,
                                     output_format=args.output_format,
-                                    language=args.language,
-                                    template=args.template,
-                                    model=args.model,
                                     metric=metric,
                                     task=task,
                                     max_suffix_length=args.max_suffix_length,
                                     num_shots=args.num_shots)
-            plot_results_overall(tab_results,
-                                    output_dir=output_dir,
+            else:
+                plot_results_id_vs_ood(tab_results_lst,
+                                    output_dir=args.output_dir,
                                     output_format=args.output_format,
-                                    language=args.language,
-                                    template=args.template,
-                                    model=args.model,
+                                    metric=metric,
+                                    task=task,
+                                    max_suffix_length=args.max_suffix_length,
+                                    num_shots=args.num_shots)
+                plot_results_overall(tab_results_lst,
+                                    output_dir=args.output_dir,
+                                    output_format=args.output_format,
                                     metric=metric,
                                     task=task,
                                     max_suffix_length=args.max_suffix_length)
-            for is_ood in [False, True]:
-                if "freq_bin" in tab_results.columns:
-                    keyword = "unigram" 
-                    if "meta_suffix" in results_path.name:
-                        keyword = "meta suffix"
-                    elif "suffix" in results_path.name:
-                        keyword = "suffix"
+                for is_ood in [False, True]:
+                    if "freq_bin" in tab_results.columns:
+                        keyword = "unigram" 
+                        if "meta_suffix" in results_path.name:
+                            keyword = "meta suffix"
+                        elif "suffix" in results_path.name:
+                            keyword = "suffix"
 
-                    plot_results_by_freq(tab_results, 
-                                         output_dir=output_dir, 
-                                         output_format=args.output_format, 
-                                         language=args.language, 
-                                         template=args.template,
-                                         model=args.model,
-                                         metric=metric,
-                                         task=task,
-                                         is_ood=is_ood,
-                                         keyword=keyword,
-                                         max_suffix_length=args.max_suffix_length)
-                else:
-                    plot_results(tab_results, 
-                             output_dir=output_dir, 
-                             output_format=args.output_format, 
-                             language=args.language, 
-                             template=args.template,
-                             model=args.model,
-                             metric=metric,
-                             task=task,
-                             is_ood=is_ood,
-                             max_suffix_length=args.max_suffix_length)
+                        plot_results_by_freq(tab_results_lst, 
+                                            output_dir=args.output_dir, 
+                                            output_format=args.output_format, 
+                                            metric=metric,
+                                            task=task,
+                                            is_ood=is_ood,
+                                            keyword=keyword,
+                                            max_suffix_length=args.max_suffix_length)
+                    else:
+                        plot_results(tab_results_lst, 
+                                output_dir=args.output_dir, 
+                                output_format=args.output_format,
+                                metric=metric,
+                                task=task,
+                                is_ood=is_ood,
+                                max_suffix_length=args.max_suffix_length)
 
 if __name__ == "__main__":
     main()

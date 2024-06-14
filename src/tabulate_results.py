@@ -19,6 +19,9 @@ def tabulate_results(results_files):
                 task = "morph-gen" if "_morph_gen_" in results_file else "morph-disc"
                 is_ood = "_nonce_" in results_file
                 num_shots = int(re.search(r"_s(\d+)_", results_file).group(1))
+                language = results["metadata"].get("language", results["data"][0]["id"].split("-")[0])
+                template = results["metadata"].get("template", results["data"][0]["template"])
+                model = results["metadata"]["model"]
                 
                 accuracy_metrics = results["metrics"]["accuracy_by_suffix_len"]
                 faithful_metrics = results["metrics"]["faithfulness_by_suffix_len"]
@@ -41,6 +44,9 @@ def tabulate_results(results_files):
                     for freq_bin, freq_res in num_samples_by_freq.items():
                         for suffix_len, num_samples_by_slen in freq_res.items():
                             results_by_freq.append({
+                                "language": language,
+                                "template": template,
+                                "model": model,
                                 "task": task,
                                 "is_ood": is_ood,
                                 "num_shots": num_shots,
@@ -53,6 +59,9 @@ def tabulate_results(results_files):
 
                 for suffix_len in accuracy_metrics.keys():
                     tab_results.append({
+                        "language": language,
+                        "template": template,
+                        "model": model,
                         "task": task,
                         "is_ood": is_ood,
                         "num_shots": num_shots,

@@ -153,14 +153,17 @@ async def main():
 
     outputs = {
         "metadata": {
-            "datapath": args.datapath,
+            **input_data["metadata"],
+            "source": args.datapath,
             "size": len(data),
             "model": args.model,
-            "temperature": args.temperature,
-            "max_tokens": args.max_tokens,
-            "top_p": args.top_p,
-            "frequency_penalty": args.frequency_penalty,
-            "presence_penalty": args.presence_penalty
+            "model_args": {
+                "temperature": args.temperature,
+                "max_tokens": args.max_tokens,
+                "top_p": args.top_p,
+                "frequency_penalty": args.frequency_penalty,
+                "presence_penalty": args.presence_penalty
+            }
         },
         "metrics": {},
         "data": data
