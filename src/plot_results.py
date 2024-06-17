@@ -189,6 +189,26 @@ def plot_results_by_lang(tab_results_lst, output_dir, output_format="png", metri
     print(f"Saving figure to {plot_path}")
     plt.savefig(plot_path)
 
+def plot_results_tok_aligned(tab_results_lst, output_dir, output_format="png", metric="accuracy", task="morph-gen", max_suffix_length=10, num_shots=5):
+    tab_results_lst[0]["tok_aligned"] = "Yes"
+    tab_results_lst[1]["tok_aligned"] = "No"
+
+    merged_results = pd.concat(tab_results_lst)
+
+    results = merged_results.query(f"task == '{task}' & is_ood == False & num_suffixes <= {max_suffix_length} & num_shots == {num_shots}")
+    fig, ax = plt.subplots(figsize=FIG_SIZE)
+    ax.set_title(f"{TASK_TITLE_MAP[task]} - {metric.capitalize()}")
+    ax.set_xlabel("Number of suffixes", size=XLABEL_SIZE)
+    ax.set_ylabel(metric.capitalize(), size=YLABEL_SIZE)
+    ax.tick_params(axis='x', labelsize=TICK_SIZE)
+    ax.tick_params(axis='y', labelsize=TICK_SIZE)
+    ax.title.set_size(TITLE_SIZE)
+    sns.barplot(data=results, x="num_suffixes", y=metric, hue="tok_aligned", ax=ax, errorbar=None, palette="rocket")
+    ax.legend(title="Tokenizer aligned", title_fontsize=LEGEND_TITLE_SIZE, fontsize=LEGEND_SIZE)
+    plot_path = f"{output_dir}/fig_{ABBR_METRICS[metric]}_{task}_s{num_shots}_tok_vs_morph_aligned.{output_format}"
+    print(f"Saving figure to {plot_path}")
+    plt.savefig(plot_path)
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-r", "--tab-results-paths", type=str, nargs="+", help="Path to tabulated results file(s)", required=True)
@@ -197,7 +217,8 @@ def main():
     parser.add_argument("-f", "--output-format", type=str, choices=["png", "pdf", "svg"], default="png", help="Format to save the plots in.")
     parser.add_argument("-msl", "--max-suffix-length", type=int, help="Maximum suffix length to consider", default=7)
     parser.add_argument("-ns", "--num-shots", type=int, help="Number of shots to consider", default=5)
-
+    parser.add_argument("-p", "--plot-types", type=str, nargs="+", choices=["main", "by_freq", "overall", "by_dist", "by_lang", "by_alignment"], default=["main", "overall", "by_dist"], help="Type of plots to generate")
+    
     args = parser.parse_args()
 
     tab_results_lst = []
@@ -217,7 +238,7 @@ def main():
 
     for metric in args.metrics:
         for task in ["morph-disc", "morph-gen"]:
-            if len(tab_results_lst) > 1:
+            if len(tab_results_lst) > 1 and "by_lang" in args.plot_types:
                 plot_results_by_lang(tab_results_lst,
                                     output_dir=args.output_dir,
                                     output_format=args.output_format,
@@ -226,21 +247,23 @@ def main():
                                     max_suffix_length=args.max_suffix_length,
                                     num_shots=args.num_shots)
             else:
-                plot_results_id_vs_ood(tab_results_lst,
-                                    output_dir=args.output_dir,
-                                    output_format=args.output_format,
-                                    metric=metric,
-                                    task=task,
-                                    max_suffix_length=args.max_suffix_length,
-                                    num_shots=args.num_shots)
-                plot_results_overall(tab_results_lst,
-                                    output_dir=args.output_dir,
-                                    output_format=args.output_format,
-                                    metric=metric,
-                                    task=task,
-                                    max_suffix_length=args.max_suffix_length)
+                if "by_dist" in args.plot_types:
+                    plot_results_id_vs_ood(tab_results_lst,
+                                        output_dir=args.output_dir,
+                                        output_format=args.output_format,
+                                        metric=metric,
+                                        task=task,
+                                        max_suffix_length=args.max_suffix_length,
+                                        num_shots=args.num_shots)
+                if "overall" in args.plot_types:
+                    plot_results_overall(tab_results_lst,
+                                        output_dir=args.output_dir,
+                                        output_format=args.output_format,
+                                        metric=metric,
+                                        task=task,
+                                        max_suffix_length=args.max_suffix_length)
                 for is_ood in [False, True]:
-                    if "freq_bin" in tab_results.columns:
+                    if "by_freq" in args.plot_types and "freq_bin" in tab_results.columns:
                         keyword = "unigram" 
                         if "meta_suffix" in results_path.name:
                             keyword = "meta suffix"
@@ -255,7 +278,7 @@ def main():
                                             is_ood=is_ood,
                                             keyword=keyword,
                                             max_suffix_length=args.max_suffix_length)
-                    else:
+                    elif "main" in args.plot_types:
                         plot_results(tab_results_lst, 
                                 output_dir=args.output_dir, 
                                 output_format=args.output_format,
