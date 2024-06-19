@@ -1,15 +1,17 @@
-import sys
 import argparse
 import pathlib
-from tqdm import tqdm
 import random
+import sys
 
-from utils import read_json, write_json
+from tqdm import tqdm
+
 from prompts import *
+from utils import read_json, write_json
 
 LANGUAGE_MAP = {
-    "tr": {"en": "Turkish", "tr": "Türkçe"},
-    "en": {"en": "English", "tr": "İngilizce"},
+    "tr": {"en": "Turkish", "tr": "Türkçe", "fi": "turkki"},
+    "en": {"en": "English", "tr": "İngilizce", "fi": "englanti"},
+    "fi": {"en": "Finnish", "tr": "Fince", "fi": "suomi"},
 }
 
 INSTRUCTION_TEMPLATES = {
@@ -52,6 +54,11 @@ INSTRUCTION_TEMPLATES = {
     "nonce_morph_gen_cot_en": MORPH_GEN_NONCE_COT_EN_INSTRUCTION_TEMPLATE,
     "nonce_morph_disc_cot_tr": MORPH_DISC_NONCE_COT_TR_INSTRUCTION_TEMPLATE,
     "nonce_morph_gen_cot_tr": MORPH_GEN_NONCE_COT_TR_INSTRUCTION_TEMPLATE,
+    # Finnish
+    "morph_gen_fi": MORPH_GEN_FI_INSTRUCTION_TEMPLATE,
+    "morph_disc_fi": MORPH_DISC_FI_INSTRUCTION_TEMPLATE,
+    "nonce_morph_gen_fi": MORPH_GEN_NONCE_FI_INSTRUCTION_TEMPLATE,
+    "nonce_morph_disc_fi": MORPH_DISC_NONCE_FI_INSTRUCTION_TEMPLATE,
 }
 
 SHOT_TEMPLATES = {
@@ -94,6 +101,11 @@ SHOT_TEMPLATES = {
     "nonce_morph_gen_cot_en": MORPH_GEN_NONCE_COT_EN_SHOT_TEMPLATE,
     "nonce_morph_disc_cot_tr": MORPH_DISC_NONCE_COT_TR_SHOT_TEMPLATE,
     "nonce_morph_gen_cot_tr": MORPH_GEN_NONCE_COT_TR_SHOT_TEMPLATE,
+    # Finnish
+    "morph_gen_fi": MORPH_GEN_FI_SHOT_TEMPLATE,
+    "morph_disc_fi": MORPH_DISC_FI_SHOT_TEMPLATE,
+    "nonce_morph_disc_fi": MORPH_DISC_NONCE_FI_SHOT_TEMPLATE,
+    "nonce_morph_gen_fi": MORPH_GEN_NONCE_FI_SHOT_TEMPLATE,
 }
 
 
@@ -130,6 +142,7 @@ def _get_template_lang(template):
 
 def _get_answer(option, reference, template_lang):
     correct = option == reference
+
     if template_lang == "en":
         return "Yes" if correct else "No"
     elif template_lang == "tr":
@@ -189,6 +202,7 @@ def prepare_shot_for_morph_gen_order(idx, sample, template, language, is_final=F
     answer = ",".join(
         [
             str(idx[1])
+
             for idx in sorted(
                 zip([i_s[0] for i_s in suffixes], range(1, len(suffixes) + 1)),
                 key=lambda x: x[0],
@@ -289,6 +303,7 @@ def prepare_shots_for_morph_disc(
     if shuffle_suffixes:
         if is_final or not fixed_shots:
             suffixes = random.sample(suffixes, len(suffixes))
+
             if negative_suffixes:
                 negative_suffixes = random.sample(
                     negative_suffixes, len(negative_suffixes)
@@ -310,6 +325,7 @@ def prepare_shots_for_morph_disc(
     for option in options:
         answer = (
             sample["answer"]
+
             if _is_cot_task(template)
             else _get_answer(option, sample["derivation"], template_lang)
         )
@@ -322,6 +338,7 @@ def prepare_shots_for_morph_disc(
                 "root": sample["root"],
                 "suffixes": (
                     suffixes_str
+
                     if option in sample["positive_options"] or not negative_suffixes_str
                     else negative_suffixes_str
                 ),
@@ -374,6 +391,7 @@ def _choose_shot_based_on_answer(shots, answers, chosen_answer):
     for shot, answer in zip(shots, answers):
         if answer == chosen_answer:
             return shot, answer
+
     return shots[0], answers[0]
 
 
@@ -384,6 +402,7 @@ def prepare_sample_for_eval(
         template,
         (
             SHOT_PROCESSORS["default_gen"]
+
             if template.startswith("morph_gen")
             else SHOT_PROCESSORS["default_disc"]
         ),
@@ -393,6 +412,7 @@ def prepare_sample_for_eval(
     )
 
     shots = []
+
     for idx, shot_sample in enumerate(shot_samples):
         shot, answer = shot_processor(
             idx,
@@ -402,6 +422,7 @@ def prepare_sample_for_eval(
             shuffle_suffixes=shuffle_suffixes,
             fixed_shots=fixed_shots,
         )
+
         if isinstance(shot, list):
             chosen_answer = _choose_answer_based_on_template(
                 _get_template_lang(template), idx
@@ -508,7 +529,9 @@ def main():
         if shot_data:
             shot_samples = [
                 shot
+
                 for shot in shot_data["data"]
+
                 if len(shot["suffixes"]) == len(sample["suffixes"])
             ][: args.num_shots]
         else:
@@ -517,7 +540,9 @@ def main():
             else:
                 shot_samples = [
                     shot
+
                     for shot in input_data["data"]
+
                     if len(shot["suffixes"]) == len(sample["suffixes"])
                     and shot["id"] != sample["id"]
                     and not set(shot["suffixes"]).intersection(set(sample["suffixes"]))
@@ -541,6 +566,7 @@ def main():
     datapath = pathlib.Path(args.datapath)
     output_dir = (
         pathlib.Path(args.output_dir)
+
         if args.output_dir is not None
         else datapath.parent
     )
