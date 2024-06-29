@@ -1,6 +1,8 @@
-import sys
 import argparse
 import pathlib
+import random
+from itertools import permutations, product
+
 from tqdm import tqdm
 import random
 from itertools import permutations
@@ -16,21 +18,40 @@ NONCE_GENERATOR = {
 
 def prepare_sample_for_tasks(sample, separator="", language="tr", verbose=False, no_nonce=False):
     dictionary = read_en_dictionary()
+    prefixes = sample.get("prefixes", [])
     suffixes = sample["morphemes"] if "morphemes" in sample else sample["suffixes"]
-    ref_derivation = sample["root"] + separator + separator.join(suffixes)
+    ref_derivation = sample["derivation"]
+
+    prefix_perms = []
+    suffix_perms = []
+    affix_perms = []
+
+    if prefixes:
+        prefix_perms = list(permutations(prefixes))
     
     if len(suffixes) > 0:
         suffix_perms = list(permutations(suffixes))
-        options = set()
+    
+    if suffix_perms and prefix_perms:
+        affix_perms = product(prefix_perms, suffix_perms)
+    elif suffix_perms:
+        affix_perms = [((), suffix_perm) for suffix_perm in suffix_perms]
+    elif prefix_perms:
+        affix_perms = [(prefix_perm, ()) for prefix_perm in prefix_perms]
 
-        for suffix_perm in suffix_perms:
-            derivation = sample["root"] + separator + separator.join(suffix_perm)
+    if affix_perms:
+        negative_options = set()
+        
+        for prefix_perm, suffix_perm in affix_perms:
+            derivation = separator.join(prefix_perm) + separator + sample["root"] + separator + separator.join(suffix_perm)
 
             if derivation != ref_derivation:
-                options.add(derivation)
+                negative_options.add(derivation)
 
-        # options = random.sample(list(options), min(len(options), 5))
-        options = sorted(list(options), key=lambda x: levenshtein_distance(x, ref_derivation))[:5]
+        # negative_options = random.sample(list(negative_options), min(len(negative_options), 5))
+        negative_options = sorted(
+            list(negative_options), key=lambda x: levenshtein_distance(x, ref_derivation)
+        )[:5]
         sentence = sample.get("sentence")
 
         attempt = 0
@@ -56,19 +77,27 @@ def prepare_sample_for_tasks(sample, separator="", language="tr", verbose=False,
             "ood_root": nonce_word,
             "root": sample["root"],
             "pos": sample["pos"],
+            "prefixes": prefixes,
             "suffixes": suffixes,
             "derivation": ref_derivation,
             "positive_options": [ref_derivation],
-            "negative_options": list(options),
+            "negative_options": list(negative_options),
             "answer": 0,
             "meta_suffixes": sample.get("meta_morphemes"),
             "sentence": sentence.lower().replace(ref_derivation, "___") if sentence else None,
             "meaning": sample.get("meaning"),
         }
-    
-    return None
 
-def prepare_data_for_tasks(input_data, num_samples=None, separator="", verbose=False, no_nonce=False, *args, **kwargs):
+
+def prepare_data_for_tasks(
+    input_data,
+    num_samples=None,
+    separator="",
+    verbose=False,
+    no_nonce=False,
+    *args,
+    **kwargs,
+):
     data = input_data["data"]
     language = input_data["metadata"]["language"]
 
@@ -231,11 +260,29 @@ def main():
     output_dir.mkdir(parents=True, exist_ok=True)
     morph_data_path_stem = output_dir / f"{datapath.stem}{DATA_PROCESSOR_MAP[args.processor][1]}{args.suffix}"
 
+    size_by_affix_len = {}
+    size_by_prefix_len = {}
+    size_by_suffix_len = {}
+
+    for sample in morph_data:
+        prefix_len = len(sample.get("prefixes", []))
+        suffix_len = len(sample.get("suffixes", []))
+        affix_len = prefix_len + suffix_len
+        size_by_prefix_len[prefix_len] = size_by_prefix_len.get(prefix_len, 0) + 1
+        size_by_suffix_len[suffix_len] = size_by_suffix_len.get(suffix_len, 0) + 1
+        size_by_affix_len[affix_len] = size_by_affix_len.get(affix_len, 0) + 1
+
+    
+    morph_data = sorted(morph_data, key=lambda x: len(x.get("prefixes", [])) + len(x.get("suffixes", [])))
+
     output_data = {
         "metadata": {
             "source": args.datapath,
             "processor": args.processor,
-            "language": input_data["metadata"]["language"]
+            "language": input_data["metadata"]["language"],
+            "size_by_affix_len": {i: size_by_affix_len.get(i, 0) for i in range(max(size_by_affix_len.keys()) + 1)},
+            "size_by_prefix_len": {i: size_by_prefix_len.get(i, 0) for i in range(max(size_by_prefix_len.keys()) + 1)},
+            "size_by_suffix_len": {i: size_by_suffix_len.get(i, 0) for i in range(max(size_by_suffix_len.keys()) + 1)}
         },
         "data": morph_data
     }

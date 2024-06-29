@@ -1,36 +1,36 @@
 ############################### Prompt templates in English ###############################
-MORPH_GEN_SENT_EN_INSTRUCTION_TEMPLATE = "You are given a word root, a list of suffixes (separated by comma) and a sentence with a blank (___) in {language} and your task is to fill in the blank by generating a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word."
+MORPH_GEN_SENT_EN_INSTRUCTION_TEMPLATE = "You are given a word root, a list of affixes (separated by comma) and a sentence with a blank (___) in {language} and your task is to fill in the blank by generating a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word."
 
 MORPH_GEN_SENT_EN_SHOT_TEMPLATE = """Example {index}:
 Word root: {root}
-Suffixes: {suffixes}
+Affixes: {affixes}
 Sentence: {sentence}
 Answer: {answer}"""
 
-MORPH_DISC_SENT_EN_INSTRUCTION_TEMPLATE = "You are given a word root, a list of suffixes (separated by comma), a sentence with a blank (___) and a word in {language} that is derived from the given word root using the given suffixes. Your task is to determine whether the derived word is the correct option to fill in the blank. Answer only with Yes or No."
+MORPH_DISC_SENT_EN_INSTRUCTION_TEMPLATE = "You are given a word root, a list of affixes (separated by comma), a sentence with a blank (___) and a word in {language} that is derived from the given word root using the given affixes. Your task is to determine whether the derived word is the correct option to fill in the blank. Answer only with Yes or No."
 
 MORPH_DISC_SENT_EN_SHOT_TEMPLATE = """Example {index}:
 Word root: {root}
-Suffixes: {suffixes}
+Affixes: {affixes}
 Sentence: {sentence}
 Derived word: {derived_word}
 Answer: {answer}"""
 
-MORPH_GEN_NONCE_SENT_EN_INSTRUCTION_TEMPLATE = "You are given a novel word root with its definition, a list of suffixes (separated by comma) and a sentence with a blank (___) in {language} and your task is to fill in the blank by generating a grammatically correct word from this root using all the given suffixes. You are allowed to use only the given suffixes and each suffix only once. Answer with only the generated word."
+MORPH_GEN_NONCE_SENT_EN_INSTRUCTION_TEMPLATE = "You are given a novel word root with its definition, a list of affixes (separated by comma) and a sentence with a blank (___) in {language} and your task is to fill in the blank by generating a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word."
 
 MORPH_GEN_NONCE_SENT_EN_SHOT_TEMPLATE = """Example {index}:
 Word root: {root}
 Definition: {root_definition}
-Suffixes: {suffixes}
+Affixes: {affixes}
 Sentence: {sentence}
 Answer: {answer}"""
 
-MORPH_DISC_NONCE_SENT_EN_INSTRUCTION_TEMPLATE = "You are given a novel word root with its definition, a list of suffixes (separated by comma), a sentence with a blank (___) and a word in {language} that is derived from the given word root using the given suffixes. Your task is to determine whether the derived word is the correct option to fill in the blank. Answer only with Yes or No."
+MORPH_DISC_NONCE_SENT_EN_INSTRUCTION_TEMPLATE = "You are given a novel word root with its definition, a list of affixes (separated by comma), a sentence with a blank (___) and a word in {language} that is derived from the given word root using the given affixes. Your task is to determine whether the derived word is the correct option to fill in the blank. Answer only with Yes or No."
 
 MORPH_DISC_NONCE_SENT_EN_SHOT_TEMPLATE = """Example {index}:
 Word root: {root}
 Definition: {root_definition}
-Suffixes: {suffixes}
+Affixes: {affixes}
 Sentence: {sentence}
 Derived word: {derived_word}
 Answer: {answer}"""
@@ -41,7 +41,7 @@ MORPH_GEN_SENT_TR_INSTRUCTION_TEMPLATE = "Size {language} bir kök, bir ek liste
 
 MORPH_GEN_SENT_TR_SHOT_TEMPLATE = """Örnek {index}:
 Kök: {root}
-Ekler: {suffixes}
+Ekler: {affixes}
 Cümle: {sentence}
 Cevap: {answer}"""
 
@@ -49,7 +49,7 @@ MORPH_DISC_SENT_TR_INSTRUCTION_TEMPLATE = "Size {language} bir kök, bir ek list
 
 MORPH_DISC_SENT_TR_SHOT_TEMPLATE = """Örnek {index}:
 Kök: {root}
-Ekler: {suffixes}
+Ekler: {affixes}
 Cümle: {sentence}
 Türetilmiş kelime: {derived_word}
 Cevap: {answer}"""
@@ -59,7 +59,7 @@ MORPH_GEN_NONCE_SENT_TR_INSTRUCTION_TEMPLATE = "Size {language} yeni bir kök, o
 MORPH_GEN_NONCE_SENT_TR_SHOT_TEMPLATE = """Örnek {index}:
 Kök: {root}
 Tanım: {root_definition}
-Ekler: {suffixes}
+Ekler: {affixes}
 Cümle: {sentence}
 Cevap: {answer}"""
 
@@ -68,7 +68,7 @@ MORPH_DISC_NONCE_SENT_TR_INSTRUCTION_TEMPLATE = "Size {language} yeni bir kök, 
 MORPH_DISC_NONCE_SENT_TR_SHOT_TEMPLATE = """Örnek {index}:
 Kök: {root}
 Tanım: {root_definition}
-Ekler: {suffixes}
+Ekler: {affixes}
 Cümle: {sentence}
 Türetilmiş kelime: {derived_word}
 Cevap: {answer}"""

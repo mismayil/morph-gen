@@ -1,6 +1,12 @@
 import sys
 import argparse
 import pathlib
+import random
+import re
+from collections import defaultdict
+import hashlib
+
+import pandas as pd
 from tqdm import tqdm
 import pandas as pd
 import random
@@ -11,7 +17,7 @@ import re
 from utils import read_json, write_json, concatenate, read_jsonl
 from morphology import decompose_tr, infer_best_decompositions_tr, read_tr_dictionary, read_en_dictionary
 
-LANGUAGES = ["tr", "en"]
+LANGUAGES = ["tr", "en", "fi"]
 
 def prepare_tr_btwd_json_data(datapath, num_samples=None):
     data = pd.read_csv(datapath)
@@ -359,8 +365,32 @@ def prepare_tr_btwd_final_data(datapath, btwd_datapath):
             print(f"Could not find sentence for sample: {sample}")
 
         final_data[len(sample["morphemes"])].append(sample)
+
+    return concatenate([final_data[i + 1] for i in range(10)])
+
+def preprocess_fi_data(datapath, num_samples=None):
+    data = read_json(datapath)
+    seen_words = set()
+
+    for sample in tqdm(data["data"], total=len(data["data"]), desc="Preprocessing FI data"):
+        sample["sentence"] = sample["sentence"].lower().strip()
+        sample["word"] = sample["word"].lower().strip()
+        assert not any([prefix.strip() == "" for prefix in sample.get("prefixes", [])]), f"Empty prefix in sample: {sample}"
+        assert not any([suffix.strip() == "" for suffix in sample.get("suffixes", [])]), f"Empty suffix in sample: {sample}"
+        assert sample["word"] not in seen_words, f"Duplicate sample: {sample}"
+        assert sample["sentence"].count(sample["word"]) == 1, f"Duplicate or non-existent word in sentence: {sample}"
+        if "".join(sample["prefixes"]) + sample["root"] + "".join(sample["suffixes"]) != sample["word"]:
+            print(f"Potentially invalid morphological decomposition: {sample}")
+            print()
+
+        seen_words.add(sample["word"])
+
+        if "id" not in sample:
+            sample["id"] = "fi-" + hashlib.md5(sample["word"].encode()).hexdigest()[:8]
+        
+        sample["derivation"] = sample["word"]
     
-    return concatenate([final_data[i+1] for i in range(10)])
+    return data["data"]
 
 DATA_PROCESSOR_MAP = {
     "tr_btwd_json": (prepare_tr_btwd_json_data, ""), 
@@ -372,7 +402,8 @@ DATA_PROCESSOR_MAP = {
     "en_morpholex_balanced": (prepare_en_morpholex_balanced_data, "_balanced"),
     "tr_gts_prep": (preprocess_tr_gts_data, "_prep"),
     "tr_gts_balanced": (prepare_tr_gts_balanced_data, "_balanced"),
-    "tr_btwd_final": (prepare_tr_btwd_final_data, "_final")
+    "tr_btwd_final": (prepare_tr_btwd_final_data, "_final"),
+    "fi_prep": (preprocess_fi_data, "_prep")
 }
 
 def main():

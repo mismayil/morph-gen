@@ -6,7 +6,11 @@ import networkx as nx
 import re
 import matplotlib.pyplot as plt
 
-from turkish_morphology import decompose, analyze
+try:    
+    from turkish_morphology import decompose, analyze
+except ImportError:
+    print("turkish-morphology package not installed. Skipping import.")
+
 from utils import MODEL_ENCODINGS, levenshtein_distance
 
 TURKISH_MORPH_MAP = {

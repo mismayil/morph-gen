@@ -4,8 +4,8 @@ experiment=${1:-"v_balanced"}
 shots=(1 3 5)
 data_dir="../experiments/data"
 
-# for shot in "${shots[@]}"
-# do
+for shot in "${shots[@]}"
+do
     # # TR in EN template
     # python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1.json -t morph_gen_en -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}
     # python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1.json -t morph_disc_en -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}
@@ -74,7 +74,13 @@ data_dir="../experiments/data"
     # python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1_suffix1_nonce.json -t morph_gen_tr -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_tr/${experiment}/batch1
     # python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1_suffix1_nonce.json -t morph_disc_tr -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_tr/${experiment}/batch1
 
-# done
+    # FI in EN template
+    python prepare_data_for_eval.py -d ${data_dir}/fi/test/finnish-data-v3_prep_morph.json -t morph_gen_en -n ${shot} -o ${data_dir}/fi/test/eval/temp_en/${experiment}
+    python prepare_data_for_eval.py -d ${data_dir}/fi/test/finnish-data-v3_prep_morph.json -t morph_disc_en -n ${shot} -o ${data_dir}/fi/test/eval/temp_en/${experiment}
+    # python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1_nonce.json -t morph_gen_en -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}
+    # python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1_nonce.json -t morph_disc_en -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}
+
+done
 
 # TR in EN template for CoT
 # python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_sample.json -t morph_gen_cot_en -n 1 -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}/sample -sp ${data_dir}/tr/btwd/final/default/shots/morph_gen_cot_en.json

@@ -133,22 +133,35 @@ def _get_answer(option, reference, template_lang):
     elif template_lang == "tr":
         return "Evet" if correct else "Hayır"
 
-def prepare_shot_for_morph_gen(idx, sample, template, language, is_final=False, shuffle_suffixes=True, fixed_shots=False):
+def _get_affixes(sample):
+    return sample.get("prefixes", []) + sample.get("suffixes", [])
+
+def prepare_shot_for_morph_gen(
+    idx,
+    sample,
+    template,
+    language,
+    is_final=False,
+    shuffle_affixes=True,
+    fixed_shots=False,
+):
     template_lang = _get_template_lang(template)
-    suffixes = sample["suffixes"]
+    prefixes = sample.get("prefixes", [])
+    suffixes = sample.get("suffixes", [])
+    affixes = prefixes + suffixes
 
-    if shuffle_suffixes:
+    if shuffle_affixes:
         if is_final or not fixed_shots:
-            suffixes = random.sample(sample["suffixes"], len(sample["suffixes"]))
+            affixes = random.sample(affixes, len(affixes))
 
-    suffixes_str = ", ".join([f"{s}" for s in suffixes])
-    answer = sample["answer"] if _is_cot_task(template) and not is_final else sample["derivation"]
+    affixes_str = ", ".join([f"{s}" for s in affixes])
+    answer = sample["answer"] if _is_cot_task(template) else sample["derivation"]
 
     format_args = {
         "index": idx+1,
         "root": sample["root"],
-        "suffixes": suffixes_str,
-        "answer": "" if is_final else answer
+        "affixes": affixes_str,
+        "answer": "" if is_final else answer,
     }
     shot_template = SHOT_TEMPLATES[template]
     
@@ -170,15 +183,29 @@ def prepare_shot_for_morph_gen(idx, sample, template, language, is_final=False, 
 
 def prepare_shot_for_morph_gen_order(idx, sample, template, language, is_final=False):
     template_lang = _get_template_lang(template)
-    suffixes = random.sample([(i, s) for i, s in enumerate(sample["suffixes"])], len(sample["suffixes"]))
-    suffixes_str = ", ".join([f"{i+1}. {s[1]}" for i, s in enumerate(suffixes)])
-    answer = ",".join([str(idx[1]) for idx in sorted(zip([i_s[0] for i_s in suffixes], range(1, len(suffixes)+1)), key=lambda x: x[0])])
+    prefixes = sample.get("prefixes", [])
+    suffixes = sample.get("suffixes", [])
+    affixes = prefixes + suffixes
+    affixes = random.sample(
+        [(i, s) for i, s in enumerate(affixes)], len(affixes)
+    )
+    affixes_str = ", ".join([f"{i+1}. {s[1]}" for i, s in enumerate(affixes)])
+    answer = ",".join(
+        [
+            str(idx[1])
+
+            for idx in sorted(
+                zip([i_s[0] for i_s in affixes], range(1, len(affixes) + 1)),
+                key=lambda x: x[0],
+            )
+        ]
+    )
 
     format_args = {
         "index": idx+1,
         "root": sample["root"],
-        "suffixes": suffixes_str,
-        "answer": "" if is_final else answer
+        "affixes": affixes_str,
+        "answer": "" if is_final else answer,
     }
     shot_template = SHOT_TEMPLATES[template]
 
@@ -207,22 +234,29 @@ def prepare_instruction_for_morph_gen_disc(sample, template, language):
 
     return instruction_template.format(language=LANGUAGE_MAP[language][template_lang])
 
-def prepare_shot_for_morph_disc_mcq(idx, sample, template, language, is_final=False, shuffle_suffixes=True):
-    options = random.sample(sample["options"], len(sample["options"]))
-    suffixes = sample["suffixes"]
 
-    if shuffle_suffixes:
-        suffixes = random.sample(sample["suffixes"], len(sample["suffixes"]))
+def prepare_shot_for_morph_disc_mcq(
+    idx, sample, template, language, is_final=False, shuffle_affixes=True
+):
+    options = random.sample(sample["options"], len(sample["options"]))
+    prefixes = sample.get("prefixes", [])
+    suffixes = sample.get("suffixes", [])
+    affixes = prefixes + suffixes
+
+    if shuffle_affixes:
+        affixes = random.sample(affixes, len(affixes))
 
     template_lang = _get_template_lang(template)
-    suffixes_str = ",".join([f"{s}" for s in suffixes])
-    options_str = "\n".join([f"{o_index+1}. {option}" for o_index, option in enumerate(options)])
-    answer = options.index(sample["derivation"])+1
+    affixes_str = ",".join([f"{s}" for s in affixes])
+    options_str = "\n".join(
+        [f"{o_index+1}. {option}" for o_index, option in enumerate(options)]
+    )
+    answer = options.index(sample["derivation"]) + 1
 
     format_args = {
         "index": idx+1,
         "root": sample["root"],
-        "suffixes": suffixes_str,
+        "affixes": affixes_str,
         "options": options_str,
         "answer": "" if is_final else answer
     }
@@ -244,31 +278,53 @@ def prepare_shot_for_morph_disc_mcq(idx, sample, template, language, is_final=Fa
     
     return shot, answer
 
-def prepare_shots_for_morph_disc(idx, sample, template, language, is_final=False, shuffle_suffixes=True, fixed_shots=False):
-    template_lang = _get_template_lang(template)
-    suffixes = sample["suffixes"]
-    negative_suffixes = sample.get("negative_suffixes")
 
-    if shuffle_suffixes:
+def prepare_shots_for_morph_disc(
+    idx,
+    sample,
+    template,
+    language,
+    is_final=False,
+    shuffle_affixes=True,
+    fixed_shots=False,
+):
+    template_lang = _get_template_lang(template)
+    prefixes = sample.get("prefixes", [])
+    suffixes = sample.get("suffixes", [])
+    affixes = prefixes + suffixes
+    negative_prefixes = sample.get("negative_prefixes", [])
+    negative_suffixes = sample.get("negative_suffixes", [])
+    negative_affixes = negative_prefixes + negative_suffixes
+
+    if shuffle_affixes:
         if is_final or not fixed_shots:
-            suffixes = random.sample(suffixes, len(suffixes))
-            if negative_suffixes:
-                negative_suffixes = random.sample(negative_suffixes, len(negative_suffixes))
+            affixes = random.sample(affixes, len(affixes))
+
+            if negative_affixes:
+                negative_affixes = random.sample(
+                    negative_affixes, len(negative_affixes)
+                )
 
     if "positive_options" in sample and "negative_options" in sample:
         options = [sample["positive_options"][0]] + sample["negative_options"][:4]
     else:
         options = [sample["derivation"]]
-    
-    suffixes_str = ", ".join([f"{s}" for s in suffixes])
-    negative_suffixes_str = ", ".join([f"{s}" for s in negative_suffixes]) if negative_suffixes else ""
+
+    affixes_str = ", ".join([f"{s}" for s in affixes])
+    negative_affixes_str = (
+        ", ".join([f"{s}" for s in negative_affixes]) if negative_affixes else ""
+    )
 
     shots = []
     answers = []
 
     for option in options:
-        answer = sample["answer"] if _is_cot_task(template) and not is_final else _get_answer(option, sample["derivation"], template_lang)
-        
+        answer = (
+            sample["answer"]
+            if _is_cot_task(template)
+            else _get_answer(option, sample["derivation"], template_lang)
+        )
+
         if template.startswith("morph_disc_pp"):
             format_args = {
                 "text": option
@@ -277,7 +333,11 @@ def prepare_shots_for_morph_disc(idx, sample, template, language, is_final=False
             format_args = {
                 "index": idx+1,
                 "root": sample["root"],
-                "suffixes": suffixes_str if "positive_options" in sample and option in sample["positive_options"] or not negative_suffixes_str else negative_suffixes_str,
+                "affixes": (
+                    affixes_str
+                    if option in sample["positive_options"] or not negative_affixes_str
+                    else negative_affixes_str
+                ),
                 "derived_word": option,
                 "answer": "" if is_final else answer
             }
@@ -325,14 +385,35 @@ def _choose_shot_based_on_answer(shots, answers, chosen_answer):
         if answer == chosen_answer:
             return shot, answer
     return shots[0], answers[0]
- 
-def prepare_sample_for_eval(sample, shot_samples, template, language, shuffle_suffixes=True, fixed_shots=False):
-    shot_processor = SHOT_PROCESSORS.get(template, SHOT_PROCESSORS["default_gen"] if template.startswith("morph_gen") else SHOT_PROCESSORS["default_disc"])
-    instruction_processor = INSTRUCTION_PROCESSORS.get(template, INSTRUCTION_PROCESSORS["default"])
+
+
+def prepare_sample_for_eval(
+    sample, shot_samples, template, language, shuffle_affixes=True, fixed_shots=False
+):
+    shot_processor = SHOT_PROCESSORS.get(
+        template,
+        (
+            SHOT_PROCESSORS["default_gen"]
+
+            if template.startswith("morph_gen")
+            else SHOT_PROCESSORS["default_disc"]
+        ),
+    )
+    instruction_processor = INSTRUCTION_PROCESSORS.get(
+        template, INSTRUCTION_PROCESSORS["default"]
+    )
 
     shots = []
     for idx, shot_sample in enumerate(shot_samples):
-        shot, answer = shot_processor(idx, shot_sample, template, language, shuffle_suffixes=shuffle_suffixes, fixed_shots=fixed_shots)
+        shot, answer = shot_processor(
+            idx,
+            shot_sample,
+            template,
+            language,
+            shuffle_affixes=shuffle_affixes,
+            fixed_shots=fixed_shots,
+        )
+
         if isinstance(shot, list):
             chosen_answer = _choose_answer_based_on_template(_get_template_lang(template), idx)
             chosen_shot, _ = _choose_shot_based_on_answer(shot, answer, chosen_answer)
@@ -342,8 +423,15 @@ def prepare_sample_for_eval(sample, shot_samples, template, language, shuffle_su
 
     shots_prompt = "\n\n".join(shots)
 
-    final_shot, final_answer = shot_processor(len(shot_samples), sample, template, language, is_final=True, shuffle_suffixes=shuffle_suffixes)
-    
+    final_shot, final_answer = shot_processor(
+        len(shot_samples),
+        sample,
+        template,
+        language,
+        is_final=True,
+        shuffle_affixes=shuffle_affixes,
+    )
+
     if not isinstance(final_shot, list):
         final_shot = [final_shot]
     
@@ -357,22 +445,30 @@ def prepare_sample_for_eval(sample, shot_samples, template, language, shuffle_su
 
         prompt = f"{instruction}\n\n{shots_prompt}\n\n{final_sh}"
 
-        eval_data.append({
-            "id": sample["id"],
-            "root": sample["root"],
-            "suffixes": sample["suffixes"],
-            "meta_suffixes": sample.get("meta_suffixes", None),
-            "derivation": sample["derivation"],
-            "prompt": prompt.strip(),
-            "reference": final_ans,
-            "template": template,
-            "id_root": sample["id_root"] if "id_root" in sample else None,
-            "id_derivation": sample["id_derivation"] if "id_derivation" in sample else None,
-            "sentence": sample.get("sentence", None),
-            "meaning": sample.get("meaning", None),
-            "negative_suffixes": sample.get("negative_suffixes"),
-            "negative_meta_suffixes": sample.get("negative_meta_suffixes")
-        })
+        eval_data.append(
+            {
+                "id": sample["id"],
+                "root": sample["root"],
+                "prefixes": sample.get("prefixes", []),
+                "suffixes": sample.get("suffixes", []),
+                "meta_prefixes": sample.get("meta_prefixes", []),
+                "meta_suffixes": sample.get("meta_suffixes", []),
+                "derivation": sample["derivation"],
+                "prompt": prompt.strip(),
+                "reference": final_ans,
+                "template": template,
+                "id_root": sample["id_root"] if "id_root" in sample else None,
+                "id_derivation": (
+                    sample["id_derivation"] if "id_derivation" in sample else None
+                ),
+                "sentence": sample.get("sentence"),
+                "meaning": sample.get("meaning"),
+                "negative_prefixes": sample.get("negative_prefixes", []),
+                "negative_suffixes": sample.get("negative_suffixes", []),
+                "negative_meta_prefixes": sample.get("negative_meta_prefixes", []),
+                "negative_meta_suffixes": sample.get("negative_meta_suffixes", []),
+            }
+        )
 
     return eval_data
 
@@ -381,10 +477,29 @@ def main():
     parser.add_argument("-d", "--datapath", type=str, help="Path to eval data in json", required=True)
     parser.add_argument("-t", "--template", type=str, default="morph_gen_en", help="Template name")
     parser.add_argument("-n", "--num-shots", type=int, default=1)
-    parser.add_argument("-s", "--suffix", type=str, default="", help="Custom suffix for output file path.")
-    parser.add_argument("-o", "--output-dir", type=str, default=None, help="Output directory path. Defaults to input directory path.")
-    parser.add_argument("-sp", "--shot-path", type=str, default=None, help="Path to shot data in json")
-    parser.add_argument("-ns", "--no-shuffle", action="store_true", help="Do not shuffle the suffix order")
+    parser.add_argument(
+        "-s",
+        "--suffix",
+        type=str,
+        default="",
+        help="Custom suffix for output file path.",
+    )
+    parser.add_argument(
+        "-o",
+        "--output-dir",
+        type=str,
+        default=None,
+        help="Output directory path. Defaults to input directory path.",
+    )
+    parser.add_argument(
+        "-sp", "--shot-path", type=str, default=None, help="Path to shot data in json"
+    )
+    parser.add_argument(
+        "-ns",
+        "--no-shuffle",
+        action="store_true",
+        help="Do not shuffle the affix order",
+    )
 
     args = parser.parse_args()
     input_data = read_json(args.datapath)
@@ -400,16 +515,39 @@ def main():
 
     for sample in tqdm(input_data["data"], desc="Preparing input_data for evaluation"):        
         if shot_data:
-            shot_samples = [shot for shot in shot_data["data"] if len(shot["suffixes"]) == len(sample["suffixes"])][:args.num_shots]
+            shot_samples = [
+                shot
+                for shot in shot_data["data"]
+                if len(_get_affixes(shot)) == len(_get_affixes(sample))
+            ][: args.num_shots]
         else:
             if sample.get("similar"):
                 shot_samples = sample["similar"]
             else:
-                shot_samples = [shot for shot in input_data["data"] if len(shot["suffixes"]) == len(sample["suffixes"]) and shot["id"] != sample["id"] and not set(shot["suffixes"]).intersection(set(sample["suffixes"]))][:args.num_shots]
+                shot_samples = [
+                    shot
+                    for shot in input_data["data"]
+                    if len(_get_affixes(shot)) == len(_get_affixes(sample))
+                    and shot["id"] != sample["id"]
+                ]
+                # Order by the number of common affixes (prefer no overlap)
+                shot_samples = sorted(shot_samples, key=lambda x: len(set(_get_affixes(x)).intersection(set(_get_affixes(sample)))))
+                shot_samples = shot_samples[:args.num_shots]
 
-        assert len(shot_samples) == args.num_shots, f"Number of shots is not equal to {args.num_shots} for sample {sample['id']}"
+        assert (
+            len(shot_samples) == args.num_shots
+        ), f"Number of shots is not equal to {args.num_shots} for sample {sample['id']}"
 
-        eval_data.extend(prepare_sample_for_eval(sample, shot_samples, template=args.template, language=input_data["metadata"]["language"], shuffle_suffixes=not args.no_shuffle, fixed_shots=fixed_shots))
+        eval_data.extend(
+            prepare_sample_for_eval(
+                sample,
+                shot_samples,
+                template=args.template,
+                language=input_data["metadata"]["language"],
+                shuffle_affixes=not args.no_shuffle,
+                fixed_shots=fixed_shots,
+            )
+        )
 
     datapath = pathlib.Path(args.datapath)
     output_dir = pathlib.Path(args.output_dir) if args.output_dir is not None else datapath.parent
@@ -426,7 +564,12 @@ def main():
         },
         "data": eval_data
     }
-    write_json(output_data, eval_data_path_stem.with_suffix(".json"), ensure_ascii=False)
+    write_json(
+        output_data, eval_data_path_stem.with_suffix(".json"), ensure_ascii=False
+    )
+
+    print(f"Output data saved to {eval_data_path_stem.with_suffix('.json')}")
+
 
 if __name__ == "__main__":
     main()
