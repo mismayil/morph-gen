@@ -8,15 +8,11 @@ from utils import read_json, write_json
 from prompts import *
 
 LANGUAGE_MAP = {
-    "tr": {
-        "en": "Turkish",
-        "tr": "Türkçe"
-    },
-    "en": {
-        "en": "English",
-        "tr": "İngilizce"
-    }
+    "tr": {"en": "Turkish", "tr": "Türkçe", "fi": "turkki"},
+    "en": {"en": "English", "tr": "İngilizce", "fi": "englanti"},
+    "fi": {"en": "Finnish", "tr": "Fince", "fi": "suomi"},
 }
+
 
 INSTRUCTION_TEMPLATES = {
     "morph_gen_en": MORPH_GEN_EN_INSTRUCTION_TEMPLATE,
@@ -57,7 +53,11 @@ INSTRUCTION_TEMPLATES = {
     "nonce_morph_disc_cot_en": MORPH_DISC_NONCE_COT_EN_INSTRUCTION_TEMPLATE,
     "nonce_morph_gen_cot_en": MORPH_GEN_NONCE_COT_EN_INSTRUCTION_TEMPLATE,
     "nonce_morph_disc_cot_tr": MORPH_DISC_NONCE_COT_TR_INSTRUCTION_TEMPLATE,
-    "nonce_morph_gen_cot_tr": MORPH_GEN_NONCE_COT_TR_INSTRUCTION_TEMPLATE
+    "nonce_morph_gen_cot_tr": MORPH_GEN_NONCE_COT_TR_INSTRUCTION_TEMPLATE,
+    "morph_gen_fi": MORPH_GEN_FI_INSTRUCTION_TEMPLATE,
+    "morph_disc_fi": MORPH_DISC_FI_INSTRUCTION_TEMPLATE,
+    "nonce_morph_gen_fi": MORPH_GEN_NONCE_FI_INSTRUCTION_TEMPLATE,
+    "nonce_morph_disc_fi": MORPH_DISC_NONCE_FI_INSTRUCTION_TEMPLATE,
 }
 
 SHOT_TEMPLATES = {
@@ -99,7 +99,11 @@ SHOT_TEMPLATES = {
     "nonce_morph_disc_cot_en": MORPH_DISC_NONCE_COT_EN_SHOT_TEMPLATE,
     "nonce_morph_gen_cot_en": MORPH_GEN_NONCE_COT_EN_SHOT_TEMPLATE,
     "nonce_morph_disc_cot_tr": MORPH_DISC_NONCE_COT_TR_SHOT_TEMPLATE,
-    "nonce_morph_gen_cot_tr": MORPH_GEN_NONCE_COT_TR_SHOT_TEMPLATE
+    "nonce_morph_gen_cot_tr": MORPH_GEN_NONCE_COT_TR_SHOT_TEMPLATE,
+    "morph_gen_fi": MORPH_GEN_FI_SHOT_TEMPLATE,
+    "morph_disc_fi": MORPH_DISC_FI_SHOT_TEMPLATE,
+    "nonce_morph_disc_fi": MORPH_DISC_NONCE_FI_SHOT_TEMPLATE,
+    "nonce_morph_gen_fi": MORPH_GEN_NONCE_FI_SHOT_TEMPLATE,
 }
 
 def _is_ood_sample(sample):
