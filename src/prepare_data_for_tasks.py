@@ -103,7 +103,7 @@ def prepare_data_for_tasks(
 
     morph_data = []
 
-    for i, sample in tqdm(enumerate(data), total=len(data), desc="Preparing data TR for Morph tasks"):
+    for i, sample in tqdm(enumerate(data), total=len(data), desc="Preparing data for Morph tasks"):
         morph_sample = prepare_sample_for_tasks(sample, separator, language=language, verbose=verbose, no_nonce=no_nonce)
         if morph_sample is not None:
             morph_data.append(morph_sample)
@@ -117,35 +117,25 @@ def prepare_nonce_data_for_tasks(input_data, num_samples=None, *args, **kwargs):
     data = input_data["data"]
     nonce_data = []
 
-    for i, sample in tqdm(enumerate(data), total=len(data), desc="Preparing TR nonce data for Morph tasks"):
+    for i, sample in tqdm(enumerate(data), total=len(data), desc="Preparing nonce data for Morph tasks"):
         id_root = sample["id_root"]
-        pos = sample["pos"]
-        suffixes = sample["morphemes"] if "morphemes" in sample else sample["suffixes"]
-        derivation = sample["derivation"]
+        id_derivation = sample["derivation"]
         positive_options = sample["positive_options"]
         negative_options = sample["negative_options"]
         ood_root = sample["ood_root"]
 
-        nonce_derivation = derivation.replace(id_root, ood_root, 1)
+        nonce_derivation = id_derivation.replace(id_root, ood_root, 1)
 
         nonce_data.append({
+            **sample,
             "id": f"{sample['id']}-ood",
             "id_root": sample["id_root"],
-            "id_derivation": derivation,
+            "id_derivation": id_derivation,
             "ood_root": ood_root,
             "root": ood_root,
-            "pos": pos,
-            "suffixes": suffixes,
             "derivation": nonce_derivation,
             "positive_options": [option.replace(id_root, ood_root, 1) for option in positive_options],
             "negative_options": [option.replace(id_root, ood_root, 1) for option in negative_options],
-            "answer": 0,
-            "similar": sample.get("similar"),
-            "meta_suffixes": sample.get("meta_morphemes") if "meta_morphemes" in sample else sample.get("meta_suffixes"),
-            "sentence": sample.get("sentence"),
-            "meaning": sample.get("meaning"),
-            "negative_suffixes": sample.get("negative_suffixes"),
-            "negative_meta_suffixes": sample.get("negative_meta_suffixes")
         })
     
     if num_samples is not None:
@@ -271,7 +261,6 @@ def main():
         size_by_prefix_len[prefix_len] = size_by_prefix_len.get(prefix_len, 0) + 1
         size_by_suffix_len[suffix_len] = size_by_suffix_len.get(suffix_len, 0) + 1
         size_by_affix_len[affix_len] = size_by_affix_len.get(affix_len, 0) + 1
-
     
     morph_data = sorted(morph_data, key=lambda x: len(x.get("prefixes", [])) + len(x.get("suffixes", [])))
 

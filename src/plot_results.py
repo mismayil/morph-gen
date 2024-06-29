@@ -45,7 +45,7 @@ def _get_model(tab_results):
         return tab_results["model"].values[0]
     return "gpt-4"
 
-def plot_results(tab_results_lst, output_dir, output_format="png", metric="accuracy", task="morph-gen", is_ood=False, max_suffix_length=10):
+def plot_results(tab_results_lst, output_dir, output_format="png", metric="accuracy", task="morph-gen", is_ood=False, max_affix_length=10):
     results = tab_results_lst[0]
     language = _get_language(results)
     template = _get_template(results)
@@ -54,7 +54,7 @@ def plot_results(tab_results_lst, output_dir, output_format="png", metric="accur
     output_dir = pathlib.Path(output_dir) / f"{output_format}_figs_{language}_{template}_{model}"
     output_dir.mkdir(parents=True, exist_ok=True)
     
-    results = results.query(f"is_ood == {is_ood} & task == '{task}' & num_suffixes <= {max_suffix_length}")
+    results = results.query(f"is_ood == {is_ood} & task == '{task}' & num_affixes <= {max_affix_length}")
     
     if len(results) > 0 and any(results[metric] > 0):
         plt.ioff()
@@ -67,13 +67,13 @@ def plot_results(tab_results_lst, output_dir, output_format="png", metric="accur
         ax.tick_params(axis='y', labelsize=TICK_SIZE)
         ax.set_ylim(Y_LIM_MIN, Y_LIM_MAX)
         ax.title.set_size(TITLE_SIZE)
-        sns.barplot(data=results, x="num_suffixes", y=metric, hue="num_shots", ax=ax, errorbar=None)
+        sns.barplot(data=results, x="num_affixes", y=metric, hue="num_shots", ax=ax, errorbar=None)
         ax.legend(title="Number of shots", title_fontsize=LEGEND_TITLE_SIZE, fontsize=LEGEND_SIZE)
         plot_path = f"{output_dir}/fig_{ABBR_METRICS[metric]}_{task}_{'ood' if is_ood else 'id'}.{output_format}"
         print(f"Saving figure to {plot_path}")
         plt.savefig(plot_path)
 
-def plot_results_by_freq(tab_results_lst, output_dir, output_format="png", metric="accuracy", task="morph-gen", is_ood=False, keyword="unigram", max_suffix_length=10):
+def plot_results_by_freq(tab_results_lst, output_dir, output_format="png", metric="accuracy", task="morph-gen", is_ood=False, keyword="unigram", max_affix_length=10):
     results = tab_results_lst[0]
     language = _get_language(results)
     template = _get_template(results)
@@ -82,7 +82,7 @@ def plot_results_by_freq(tab_results_lst, output_dir, output_format="png", metri
     output_dir = pathlib.Path(output_dir) / f"{output_format}_figs_{language}_{template}_{model}"
     output_dir.mkdir(parents=True, exist_ok=True)
     
-    results = results.query(f"is_ood == {is_ood} & task == '{task}' & num_suffixes <= {max_suffix_length}")
+    results = results.query(f"is_ood == {is_ood} & task == '{task}' & num_suffixes <= {max_affix_length}")
     
     if len(results) > 0 and any(results[metric] > 0):
         plt.ioff()
@@ -104,7 +104,7 @@ def plot_results_by_freq(tab_results_lst, output_dir, output_format="png", metri
         print(f"Saving figure to {plot_path}")
         plt.savefig(plot_path)
 
-def plot_results_id_vs_ood(tab_results_lst, output_dir, output_format="png", metric="accuracy", task="morph-gen", max_suffix_length=10, num_shots=5):
+def plot_results_id_vs_ood(tab_results_lst, output_dir, output_format="png", metric="accuracy", task="morph-gen", max_affix_length=10, num_shots=5):
     results = tab_results_lst[0]
     language = _get_language(results)
     template = _get_template(results)
@@ -113,7 +113,7 @@ def plot_results_id_vs_ood(tab_results_lst, output_dir, output_format="png", met
     output_dir = pathlib.Path(output_dir) / f"{output_format}_figs_{language}_{template}_{model}"
     output_dir.mkdir(parents=True, exist_ok=True)
     
-    results = results.query(f"task == '{task}' & num_suffixes <= {max_suffix_length} & num_shots == {num_shots}").copy()
+    results = results.query(f"task == '{task}' & num_affixes <= {max_affix_length} & num_shots == {num_shots}").copy()
     
     if len(results) > 0 and any(results[metric] > 0):
         plt.ioff()
@@ -127,13 +127,13 @@ def plot_results_id_vs_ood(tab_results_lst, output_dir, output_format="png", met
         ax.set_ylim(Y_LIM_MIN, Y_LIM_MAX)
         ax.title.set_size(TITLE_SIZE)
         results["dist"] = results["is_ood"].replace({False: "ID", True: "OOD"})
-        sns.barplot(data=results, x="num_suffixes", y=metric, hue="dist", hue_order=["ID", "OOD"], ax=ax, errorbar=None, palette="rocket")
+        sns.barplot(data=results, x="num_affixes", y=metric, hue="dist", hue_order=["ID", "OOD"], ax=ax, errorbar=None, palette="rocket")
         ax.legend(title="Test Distribution", title_fontsize=LEGEND_TITLE_SIZE, fontsize=LEGEND_SIZE)
         plot_path = f"{output_dir}/fig_{ABBR_METRICS[metric]}_{task}_s{num_shots}.{output_format}"
         print(f"Saving figure to {plot_path}")
         plt.savefig(plot_path)
 
-def plot_results_overall(tab_results_lst, output_dir, output_format="png", metric="accuracy", task="morph-gen", max_suffix_length=10):
+def plot_results_overall(tab_results_lst, output_dir, output_format="png", metric="accuracy", task="morph-gen", max_affix_length=10):
     results = tab_results_lst[0]
     language = _get_language(results)
     template = _get_template(results)
@@ -142,7 +142,7 @@ def plot_results_overall(tab_results_lst, output_dir, output_format="png", metri
     output_dir = pathlib.Path(output_dir) / f"{output_format}_figs_{language}_{template}_{model}"
     output_dir.mkdir(parents=True, exist_ok=True)
     
-    results = results.query(f"task == '{task}' & num_suffixes <= {max_suffix_length}").copy()
+    results = results.query(f"task == '{task}' & num_affixes <= {max_affix_length}").copy()
     
     if len(results) > 0 and any(results[metric] > 0):
         overall_results = results.groupby(["task", "is_ood", "num_shots"]).agg({"accuracy": "mean", "f1": "mean", "coherence": "mean", "faithfulness": "mean"}).reset_index()
@@ -163,7 +163,7 @@ def plot_results_overall(tab_results_lst, output_dir, output_format="png", metri
         print(f"Saving figure to {plot_path}")
         plt.savefig(plot_path)
 
-def plot_results_by_lang(tab_results_lst, output_dir, output_format="png", metric="accuracy", task="morph-gen", max_suffix_length=10, num_shots=5):
+def plot_results_by_lang(tab_results_lst, output_dir, output_format="png", metric="accuracy", task="morph-gen", max_affix_length=10, num_shots=5):
     templates = [_get_template(tab_results) for tab_results in tab_results_lst]
     
     for tab_results, template in zip(tab_results_lst, templates):
@@ -171,7 +171,7 @@ def plot_results_by_lang(tab_results_lst, output_dir, output_format="png", metri
 
     merged_results = pd.concat(tab_results_lst)
 
-    results = merged_results.query(f"task == '{task}' & num_suffixes <= {max_suffix_length} & num_shots == {num_shots}")
+    results = merged_results.query(f"task == '{task}' & num_affixes <= {max_affix_length} & num_shots == {num_shots}")
     overall_results = results.groupby(["is_ood", "template"]).agg({"accuracy": "mean", "f1": "mean", "coherence": "mean", "faithfulness": "mean"}).reset_index().copy()
     overall_results["dist"] = overall_results["is_ood"].replace({False: "ID", True: "OOD"})
 
@@ -189,13 +189,13 @@ def plot_results_by_lang(tab_results_lst, output_dir, output_format="png", metri
     print(f"Saving figure to {plot_path}")
     plt.savefig(plot_path)
 
-def plot_results_tok_aligned(tab_results_lst, output_dir, output_format="png", metric="accuracy", task="morph-gen", max_suffix_length=10, num_shots=5):
+def plot_results_tok_aligned(tab_results_lst, output_dir, output_format="png", metric="accuracy", task="morph-gen", max_affix_length=10, num_shots=5):
     tab_results_lst[0]["tok_aligned"] = "Yes"
     tab_results_lst[1]["tok_aligned"] = "No"
 
     merged_results = pd.concat(tab_results_lst)
 
-    results = merged_results.query(f"task == '{task}' & is_ood == False & num_suffixes <= {max_suffix_length} & num_shots == {num_shots}")
+    results = merged_results.query(f"task == '{task}' & is_ood == False & num_affixes <= {max_affix_length} & num_shots == {num_shots}")
     fig, ax = plt.subplots(figsize=FIG_SIZE)
     ax.set_title(f"{TASK_TITLE_MAP[task]} - {metric.capitalize()}")
     ax.set_xlabel("Number of suffixes", size=XLABEL_SIZE)
@@ -203,7 +203,7 @@ def plot_results_tok_aligned(tab_results_lst, output_dir, output_format="png", m
     ax.tick_params(axis='x', labelsize=TICK_SIZE)
     ax.tick_params(axis='y', labelsize=TICK_SIZE)
     ax.title.set_size(TITLE_SIZE)
-    sns.barplot(data=results, x="num_suffixes", y=metric, hue="tok_aligned", ax=ax, errorbar=None, palette="rocket")
+    sns.barplot(data=results, x="num_affixes", y=metric, hue="tok_aligned", ax=ax, errorbar=None, palette="rocket")
     ax.legend(title="Tokenizer aligned", title_fontsize=LEGEND_TITLE_SIZE, fontsize=LEGEND_SIZE)
     plot_path = f"{output_dir}/fig_{ABBR_METRICS[metric]}_{task}_s{num_shots}_tok_vs_morph_aligned.{output_format}"
     print(f"Saving figure to {plot_path}")
@@ -215,7 +215,7 @@ def main():
     parser.add_argument("-o", "--output-dir", type=str, help="Output directory to save plots", default="../figures")
     parser.add_argument("-e", "--metrics", type=str, choices=METRICS, default=METRICS, help="Metrics to show results for.")
     parser.add_argument("-f", "--output-format", type=str, choices=["png", "pdf", "svg"], default="png", help="Format to save the plots in.")
-    parser.add_argument("-msl", "--max-suffix-length", type=int, help="Maximum suffix length to consider", default=7)
+    parser.add_argument("-mal", "--max-affix-length", type=int, help="Maximum affix length to consider", default=7)
     parser.add_argument("-ns", "--num-shots", type=int, help="Number of shots to consider", default=5)
     parser.add_argument("-p", "--plot-types", type=str, nargs="+", choices=["main", "by_freq", "overall", "by_dist", "by_lang", "by_alignment"], default=["main", "overall", "by_dist"], help="Type of plots to generate")
     
@@ -244,7 +244,7 @@ def main():
                                     output_format=args.output_format,
                                     metric=metric,
                                     task=task,
-                                    max_suffix_length=args.max_suffix_length,
+                                    max_affix_length=args.max_affix_length,
                                     num_shots=args.num_shots)
             else:
                 if "by_dist" in args.plot_types:
@@ -253,7 +253,7 @@ def main():
                                         output_format=args.output_format,
                                         metric=metric,
                                         task=task,
-                                        max_suffix_length=args.max_suffix_length,
+                                        max_affix_length=args.max_affix_length,
                                         num_shots=args.num_shots)
                 if "overall" in args.plot_types:
                     plot_results_overall(tab_results_lst,
@@ -261,7 +261,7 @@ def main():
                                         output_format=args.output_format,
                                         metric=metric,
                                         task=task,
-                                        max_suffix_length=args.max_suffix_length)
+                                        max_affix_length=args.max_affix_length)
                 for is_ood in [False, True]:
                     if "by_freq" in args.plot_types and "freq_bin" in tab_results.columns:
                         keyword = "unigram" 
@@ -277,7 +277,7 @@ def main():
                                             task=task,
                                             is_ood=is_ood,
                                             keyword=keyword,
-                                            max_suffix_length=args.max_suffix_length)
+                                            max_affix_length=args.max_affix_length)
                     elif "main" in args.plot_types:
                         plot_results(tab_results_lst, 
                                 output_dir=args.output_dir, 
@@ -285,7 +285,7 @@ def main():
                                 metric=metric,
                                 task=task,
                                 is_ood=is_ood,
-                                max_suffix_length=args.max_suffix_length)
+                                max_affix_length=args.max_affix_length)
 
 if __name__ == "__main__":
     main()
