@@ -6,7 +6,7 @@ from itertools import permutations, product
 from tqdm import tqdm
 import random
 from itertools import permutations
-import json
+import re
 
 from utils import read_json, write_json, levenshtein_distance
 from morphology import generate_nonce_word_tr, generate_nonce_word_en, segment_by_tokenizer, read_en_dictionary
@@ -16,7 +16,45 @@ NONCE_GENERATOR = {
     "en": generate_nonce_word_en
 }
 
-def prepare_sample_for_tasks(sample, separator="", language="tr", verbose=False, no_nonce=False):
+def check_if_has_double_vowel(word):
+    vowels = ["a", "ı", "o", "u", "e", "i", "ö", "ü"]
+    vowels_str = ''.join(vowels)
+    vowel_re = re.compile(f"[{vowels_str}][{vowels_str}]")
+    return re.search(vowel_re, word)
+
+def select_negative_options(negative_options, ref_option, root, strategy="lev", num_options=4):
+    if strategy == "lev":
+        return sorted(
+            list(negative_options), key=lambda x: levenshtein_distance(x, ref_option)
+        )[:num_options]
+    elif strategy == "random":
+        return random.sample(list(negative_options), min(len(negative_options), num_options))
+    elif strategy == "no_double_vowel":
+        double_vowel_options = []
+        no_double_vowel_options = []
+        for option in negative_options:
+            # assume no prefixes
+            suffix = option.replace(root, "", 1)
+            if check_if_has_double_vowel(suffix):
+                double_vowel_options.append(option)
+            else:
+                no_double_vowel_options.append(option)
+        
+        # prefer no double vowel options
+        options = sorted(
+            list(no_double_vowel_options), key=lambda x: levenshtein_distance(x, ref_option)
+        )[:num_options]
+
+        # fill the rest with double vowel options
+        if len(options) < num_options:
+            double_vowel_options = sorted(list(double_vowel_options), key=lambda x: levenshtein_distance(x, ref_option))
+            options += double_vowel_options[:num_options - len(options)]
+        
+        return options
+    else:
+        raise ValueError(f"Invalid strategy: {strategy}")
+
+def prepare_sample_for_tasks(sample, separator="", language="tr", verbose=False, no_nonce=False, option_strategy="lev", num_options=4):
     dictionary = read_en_dictionary()
     prefixes = sample.get("prefixes", [])
     suffixes = sample["morphemes"] if "morphemes" in sample else sample["suffixes"]
@@ -48,10 +86,7 @@ def prepare_sample_for_tasks(sample, separator="", language="tr", verbose=False,
             if derivation != ref_derivation:
                 negative_options.add(derivation)
 
-        # negative_options = random.sample(list(negative_options), min(len(negative_options), 5))
-        negative_options = sorted(
-            list(negative_options), key=lambda x: levenshtein_distance(x, ref_derivation)
-        )[:5]
+        negative_options = select_negative_options(negative_options, ref_derivation, sample["root"], strategy=option_strategy, num_options=num_options)
         sentence = sample.get("sentence")
 
         attempt = 0
@@ -82,7 +117,6 @@ def prepare_sample_for_tasks(sample, separator="", language="tr", verbose=False,
             "derivation": ref_derivation,
             "positive_options": [ref_derivation],
             "negative_options": list(negative_options),
-            "answer": 0,
             "meta_suffixes": sample.get("meta_morphemes"),
             "sentence": sentence.lower().replace(ref_derivation, "___") if sentence else None,
             "meaning": sample.get("meaning"),
@@ -95,6 +129,8 @@ def prepare_data_for_tasks(
     separator="",
     verbose=False,
     no_nonce=False,
+    option_strategy="lev",
+    num_options=4,
     *args,
     **kwargs,
 ):
@@ -104,7 +140,7 @@ def prepare_data_for_tasks(
     morph_data = []
 
     for i, sample in tqdm(enumerate(data), total=len(data), desc="Preparing data for Morph tasks"):
-        morph_sample = prepare_sample_for_tasks(sample, separator, language=language, verbose=verbose, no_nonce=no_nonce)
+        morph_sample = prepare_sample_for_tasks(sample, separator, language=language, verbose=verbose, no_nonce=no_nonce, option_strategy=option_strategy, num_options=num_options)
         if morph_sample is not None:
             morph_data.append(morph_sample)
     
@@ -173,7 +209,7 @@ def prepare_tr_comp_data_for_tasks(input_data, num_samples=None, separator="", *
 
     return morph_data
 
-def prepare_tok_aligned_data_for_tasks(input_data, num_samples=None, separator="", model="gpt-4", *args, **kwargs):
+def prepare_tok_aligned_data_for_tasks(input_data, num_samples=None, separator="", model="gpt-4", option_strategy="lev", num_options=4, *args, **kwargs):
     data = input_data["data"]
     tok_aligned_data = []
 
@@ -182,22 +218,22 @@ def prepare_tok_aligned_data_for_tasks(input_data, num_samples=None, separator="
         tokens = segment_by_tokenizer(ref_derivation, model, sample["root"])
         root_token = tokens[0]
         token_perms = permutations(tokens[1:])
-        options = set()
+        negative_options = set()
 
         for token_perm in token_perms:
             derivation = root_token + separator + separator.join(token_perm)
 
             if derivation != ref_derivation:
-                options.add(derivation)
+                negative_options.add(derivation)
 
-        options = sorted(list(options), key=lambda x: levenshtein_distance(x, ref_derivation))[:5]
+        negative_options = select_negative_options(negative_options, ref_derivation, sample["root"], strategy=option_strategy, num_options=num_options)
         tok_aligned_data.append({
             **sample,
             "ref_root": sample["root"],
             "ref_suffixes": sample["suffixes"] if "suffixes" in sample else sample.get("morphemes"),
             "root": root_token,
             "suffixes": tokens[1:],
-            "negative_options": list(options)
+            "negative_options": list(negative_options)
         })
     
     if num_samples is not None:
@@ -222,12 +258,78 @@ def prepare_tr_sense_data_for_tasks(input_data, num_samples=None, separator="", 
 
     return morph_data
 
+def update_neg_sample_for_tasks(sample, separator="", language="tr", option_strategy="no_double_vowel", num_options=4, *args, **kwargs):
+    prefixes = sample.get("prefixes", [])
+    suffixes = sample["morphemes"] if "morphemes" in sample else sample["suffixes"]
+    ref_derivation = sample["derivation"]
+
+    prefix_perms = []
+    suffix_perms = []
+    affix_perms = []
+
+    if prefixes:
+        prefix_perms = list(permutations(prefixes))
+    
+    if len(suffixes) > 0:
+        suffix_perms = list(permutations(suffixes))
+    
+    if suffix_perms and prefix_perms:
+        affix_perms = product(prefix_perms, suffix_perms)
+    elif suffix_perms:
+        affix_perms = [((), suffix_perm) for suffix_perm in suffix_perms]
+    elif prefix_perms:
+        affix_perms = [(prefix_perm, ()) for prefix_perm in prefix_perms]
+
+    if affix_perms:
+        if len(affix_perms) == 1:
+            return sample
+
+        negative_options = set()
+        
+        for prefix_perm, suffix_perm in affix_perms:
+            derivation = separator.join(prefix_perm) + separator + sample["root"] + separator + separator.join(suffix_perm)
+
+            if derivation != ref_derivation:
+                negative_options.add(derivation)
+
+        negative_options = select_negative_options(negative_options, ref_derivation, sample["root"], strategy=option_strategy, num_options=num_options)
+    
+        return {
+            **sample,
+            "negative_options": list(negative_options)
+        }
+
+def update_neg_data_for_tasks(
+    input_data,
+    num_samples=None,
+    separator="",
+    option_strategy="no_double_vowel",
+    num_options=4,
+    *args,
+    **kwargs,
+):
+    data = input_data["data"]
+    language = input_data["metadata"]["language"]
+
+    morph_data = []
+
+    for i, sample in tqdm(enumerate(data), total=len(data), desc="Preparing data for Morph tasks"):
+        morph_sample = update_neg_sample_for_tasks(sample, separator, language=language, option_strategy=option_strategy, num_options=num_options)
+        if morph_sample is not None:
+            morph_data.append(morph_sample)
+    
+    if num_samples is not None:
+        morph_data = random.sample(morph_data, num_samples)
+
+    return morph_data
+
 DATA_PROCESSOR_MAP = {
     "morph": (prepare_data_for_tasks, "_morph"),
     "morph_nonce": (prepare_nonce_data_for_tasks, "_nonce"),
     "tr_comp_morph": (prepare_tr_comp_data_for_tasks, "_morph"),
     "tok_aligned": (prepare_tok_aligned_data_for_tasks, "_tok_aligned"),
-    "tr_sense": (prepare_tr_sense_data_for_tasks, "_sense")
+    "tr_sense": (prepare_tr_sense_data_for_tasks, "_sense"),
+    "update_neg_data": (update_neg_data_for_tasks, "_updated_neg"),
 }
 
 def main():
@@ -240,10 +342,13 @@ def main():
     parser.add_argument("-t", "--separator", type=str, default="", help="Separator to use between morphemes. Defaults to empty string.")
     parser.add_argument("-v", "--verbose", action="store_true", help="Verbose mode")
     parser.add_argument("-nn", "--no-nonce", action="store_true", help="Do not generate nonce words")
+    parser.add_argument("-os", "--option-strategy", type=str, default="lev", help="Strategy to select negative options")
+    parser.add_argument("-no", "--num-options", type=int, default=4, help="Number of negative options to select")
 
     args = parser.parse_args()
     input_data = read_json(args.datapath)
-    morph_data = DATA_PROCESSOR_MAP[args.processor][0](input_data, args.num_samples, separator=args.separator, verbose=args.verbose, no_nonce=args.no_nonce)
+    morph_data = DATA_PROCESSOR_MAP[args.processor][0](input_data, args.num_samples, separator=args.separator, verbose=args.verbose,
+                                                       no_nonce=args.no_nonce, option_strategy=args.option_strategy, num_options=args.num_options)
 
     datapath = pathlib.Path(args.datapath)
     output_dir = pathlib.Path(args.output_dir) if args.output_dir is not None else datapath.parent
