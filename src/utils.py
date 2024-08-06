@@ -7,6 +7,7 @@ import glob
 MODEL_COSTS = {
     "gpt-3.5-turbo": {'input': 0.0000015, 'output': 0.000002},
     "gpt-4": {'input': 0.00003, 'output': 0.00006},
+    "gpt-4-0125-preview": {'input': 0.00001, 'output': 0.00003},
     "text-davinci-003": {'input': 0.00002, 'output': 0.00002},
 }
 
