@@ -383,14 +383,15 @@ def compute_metrics(results, report_usage=True, separator="", frequency_path=Non
         metrics["precision"] = mean(metrics["precision_by_affix_len"].values())
         metrics["f1"] = mean(metrics["f1_by_affix_len"].values())
 
-        metrics["recall_by_ood_bin_by_affix_len"] = {affix_len: _aggregate_by_ood_bin(recall_by_affix_len[affix_len]) for affix_len in recall_by_affix_len}
-        metrics["recall_by_ood_bin_by_affix_len"] = _sort_by_key(metrics["recall_by_ood_bin_by_affix_len"])
+        if results["data"][0].get("ood_pct") is not None:
+            metrics["recall_by_ood_bin_by_affix_len"] = {affix_len: _aggregate_by_ood_bin(recall_by_affix_len[affix_len]) for affix_len in recall_by_affix_len}
+            metrics["recall_by_ood_bin_by_affix_len"] = _sort_by_key(metrics["recall_by_ood_bin_by_affix_len"])
 
-        metrics["precision_by_ood_bin_by_affix_len"] = {affix_len: _aggregate_by_ood_bin(precision_by_affix_len[affix_len]) for affix_len in precision_by_affix_len}
-        metrics["precision_by_ood_bin_by_affix_len"] = _sort_by_key(metrics["precision_by_ood_bin_by_affix_len"])
+            metrics["precision_by_ood_bin_by_affix_len"] = {affix_len: _aggregate_by_ood_bin(precision_by_affix_len[affix_len]) for affix_len in precision_by_affix_len}
+            metrics["precision_by_ood_bin_by_affix_len"] = _sort_by_key(metrics["precision_by_ood_bin_by_affix_len"])
 
-        metrics["f1_by_ood_bin_by_affix_len"] = {affix_len: _aggregate_by_ood_bin(f1_by_affix_len[affix_len]) for affix_len in f1_by_affix_len}
-        metrics["f1_by_ood_bin_by_affix_len"] = _sort_by_key(metrics["f1_by_ood_bin_by_affix_len"])
+            metrics["f1_by_ood_bin_by_affix_len"] = {affix_len: _aggregate_by_ood_bin(f1_by_affix_len[affix_len]) for affix_len in f1_by_affix_len}
+            metrics["f1_by_ood_bin_by_affix_len"] = _sort_by_key(metrics["f1_by_ood_bin_by_affix_len"])
 
         metrics["coherence_by_affix_len"] = {affix_len: _compute_coherence(results_by_affix_len[affix_len]) for affix_len in results_by_affix_len}
         metrics["coherence_by_affix_len"] = _sort_by_key(metrics["coherence_by_affix_len"])
@@ -434,7 +435,7 @@ def report_metrics(results_files, report_usage=True, separator="", frequency_pat
         try:
             if "data" in results:
                 metrics = compute_metrics(results, report_usage=report_usage, separator=separator, frequency_path=frequency_path)
-                results["metrics"].update(metrics)
+                results["metrics"] = metrics
                 write_json(results, results_file, ensure_ascii=False)
         except Exception as e:
             print(results_file)
