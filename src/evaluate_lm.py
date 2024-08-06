@@ -17,42 +17,92 @@ from tenacity import (
 import asyncio, dataclasses
 from dotenv import load_dotenv
 import logging, sys
+import google.generativeai as genai
 
 logging.basicConfig(stream=sys.stderr, level=logging.WARN)
 logger = logging.getLogger(__name__)
 
 from utils import read_json, write_json, generate_unique_id, batched
 
-CHAT_COMPLETION_MODELS = ["gpt-3.5-turbo", "gpt-4"]
-TEXT_COMPLETION_MODELS = ["text-davinci-003"]
-API_MODELS = CHAT_COMPLETION_MODELS + TEXT_COMPLETION_MODELS
+OPENAI_CHAT_COMPLETION_MODELS = ["gpt-3.5-turbo", "gpt-4"]
+OPENAI_TEXT_COMPLETION_MODELS = ["text-davinci-003"]
+OPENAI_MODELS = OPENAI_CHAT_COMPLETION_MODELS + OPENAI_TEXT_COMPLETION_MODELS
+GOOGLE_CHAT_COMPLETION_MODELS = ["gemini-1.5-flash", "gemini-1.5-pro"]
+GOOGLE_MODELS = GOOGLE_CHAT_COMPLETION_MODELS
+CHAT_COMPLETION_MODELS = OPENAI_CHAT_COMPLETION_MODELS + GOOGLE_CHAT_COMPLETION_MODELS
+TEXT_COMPLETION_MODELS = OPENAI_TEXT_COMPLETION_MODELS
+API_MODELS = OPENAI_MODELS + GOOGLE_MODELS
 
 @dataclasses.dataclass
 class ModelResponse:
     text: str
     usage: dict
 
+def get_openai_model_args(model_args):
+    openai_model_args = {}
+
+    if model_args is not None:
+        if "temperature" in model_args:
+            openai_model_args["temperature"] = model_args["temperature"]
+        if "max_tokens" in model_args:
+            openai_model_args["max_tokens"] = model_args["max_tokens"]
+        if "top_p" in model_args:
+            openai_model_args["top_p"] = model_args["top_p"]
+        if "frequency_penalty" in model_args:
+            openai_model_args["frequency_penalty"] = model_args["frequency_penalty"]
+        if "presence_penalty" in model_args:
+            openai_model_args["presence_penalty"] = model_args["presence_penalty"]
+
+    return openai_model_args
+
 @retry(retry=retry_if_exception_type((APITimeoutError, APIConnectionError, RateLimitError, InternalServerError)), wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(10), before_sleep=before_sleep_log(logger, logging.DEBUG))
-async def chat_completion(client, messages, model="gpt-3.5-turbo", model_args=None):
-    if model_args is None:
-        model_args = {}
-    
-    response = await client.chat.completions.create(model=model, messages=messages, **model_args)
+async def openai_chat_completion(client, messages, model="gpt-3.5-turbo", model_args=None):
+    openai_model_args = get_openai_model_args(model_args)
+    response = await client.chat.completions.create(model=model, messages=messages, **openai_model_args)
     text = response.choices[0].message.content.strip()
     usage = response.usage
     
     return ModelResponse(text, dict(usage))
 
 @retry(retry=retry_if_exception_type((APITimeoutError, APIConnectionError, RateLimitError, InternalServerError)), wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(10), before_sleep=before_sleep_log(logger, logging.DEBUG))
-async def text_completion(client, prompt, model="text-davinci-003", model_args=None):
-    if model_args is None:
-        model_args = {}
-    
-    response = client.completions.create(model=model, prompt=prompt, **model_args)
+async def openai_text_completion(client, prompt, model="text-davinci-003", model_args=None):
+    openai_model_args = get_openai_model_args(model_args)
+    response = client.completions.create(model=model, prompt=prompt, **openai_model_args)
     text = response.choices[0].text.strip()
     usage = response.usage
 
     return ModelResponse(text, dict(usage))
+
+async def openai_completion(client, prompt, model, model_args=None):
+    if model in OPENAI_CHAT_COMPLETION_MODELS:
+        return await openai_chat_completion(client, [{"role": "user", "content": prompt.strip()}], model=model, model_args=model_args)
+    elif model in OPENAI_TEXT_COMPLETION_MODELS:
+        return await openai_text_completion(client, prompt.strip(), model=model, model_args=model_args)
+    
+    raise ValueError(f"Model {model} not supported")
+
+def get_google_model_args(model_args):
+    google_model_args = {}
+
+    if model_args is not None:
+        if "temperature" in model_args:
+            google_model_args["temperature"] = model_args["temperature"]
+        if "max_tokens" in model_args:
+            google_model_args["max_output_tokens"] = model_args["max_tokens"]
+        if "top_p" in model_args:
+            google_model_args["top_p"] = model_args["top_p"]
+        if "top_k" in model_args:
+            google_model_args["top_k"] = model_args["top_k"]
+
+    return google_model_args
+
+async def google_completion(client, prompt, model, model_args=None):
+    model = genai.GenerativeModel(model)
+    google_model_args = get_google_model_args(model_args)
+    config = genai.GenerativeConfig(**google_model_args)
+    response = model.generate_content(prompt.strip(), generation_config=config)
+    text = response.text.strip()
+    return ModelResponse(text, None)
 
 @torch.no_grad()
 def compute_perplexity(text, model, tokenizer, device="cuda"):
@@ -74,29 +124,41 @@ def load_model(model_path="gpt2", tokenizer_path="gpt2", model_args=None, cache_
     model.eval()
     return model, tokenizer
 
-def evaluate_lm(prompt, model, tokenizer, model_args=None, device="cuda"):
+def evaluate_hf(prompt, model, tokenizer, model_args=None, device="cuda"):
     perplexity = compute_perplexity(prompt, model, tokenizer, device=device)
     return perplexity
 
-async def batch_chat_completion(client, batch, model, model_args):
+async def batch_completion(client, batch, model, model_args):
     tasks = []
     
     for sample in batch:
-        tasks.append(asyncio.create_task(chat_completion(client, [{"role": "user", "content": sample["prompt"].strip()}], model=model, model_args=model_args)))
+        if model in OPENAI_MODELS:
+            tasks.append(asyncio.create_task(openai_completion(client, sample["prompt"], model=model, model_args=model_args)))
+        elif model in GOOGLE_MODELS:
+            tasks.append(asyncio.create_task(google_completion(client, sample["prompt"], model=model, model_args=model_args)))
+        else:
+            raise ValueError(f"Model {model} not supported")
     
     results = await asyncio.gather(*tasks)
 
     return results
 
-async def batch_text_completion(client, batch, model, model_args):
-    tasks = []
+def configure_openai_client(api_key, is_openai_azure):
+    if is_openai_azure:
+        endpoint = os.getenv("AZURE_OPENAI_API_ENDPOINT", "https://sigturk-openai.openai.azure.com/")
+        client = AsyncAzureOpenAI(
+            api_key = api_key if api_key is not None else os.getenv("AZURE_OPENAI_API_KEY"),
+            api_version = '2024-02-15-preview',
+            azure_endpoint=endpoint
+        )
+    else:
+        client = AsyncOpenAI(api_key=api_key if api_key is not None else os.getenv("OPENAI_API_KEY"))
     
-    for sample in batch:
-        tasks.append(asyncio.create_task(text_completion(client, sample["prompt"].strip(), model=model, model_args=model_args)))
-    
-    results = await asyncio.gather(*tasks)
+    return client
 
-    return results
+def configure_google_client(api_key):
+    genai.configure(api_key=api_key if api_key is not None else os.getenv("GOOGLE_API_KEY"))
+    return None
 
 def none_or_int(value):
     if value.lower() == "none":
@@ -108,12 +170,13 @@ async def main():
 
     parser = argparse.ArgumentParser()
     parser.add_argument("-d", "--datapath", type=str, help="Path to evaluation data in json", required=True)
-    parser.add_argument("-k", "--openai-key", type=str, help="OpenAI API Key")
-    parser.add_argument("-ia", "--is-openai-azure", action="store_true", help="If OpenAI on Azure")
+    parser.add_argument("-a", "--api-key", type=str, help="Model API Key")
+    parser.add_argument("-oa", "--openai-azure", action="store_true", help="If OpenAI on Azure")
     parser.add_argument("-m", "--model", type=str, help="Model to use for evaluation", default="gpt-4")
     parser.add_argument("-t", "--temperature", type=float, help="Temperature for generation", default=0.0)
     parser.add_argument("-g", "--max-tokens", type=none_or_int, help="Max tokens for generation", default=40)
-    parser.add_argument("-p", "--top-p", type=float, help="Top p for generation", default=1)
+    parser.add_argument("-p", "--top-p", type=float, help="Top-p for generation", default=1)
+    parser.add_argument("-k", "--top-k", type=float, help="Top-k for generation", default=None)
     parser.add_argument("-fp", "--frequency-penalty", type=float, help="Frequency penalty for generation", default=0)
     parser.add_argument("-pp", "--presence-penalty", type=float, help="Presence penalty for generation", default=0)
     parser.add_argument("-o", "--output-dir", type=str, help="Output directory for evaluation results", default="outputs")
@@ -125,17 +188,13 @@ async def main():
     parser.add_argument("-b", "--batch-size", type=int, help="Batch size for evaluation", default=1)
     
     args = parser.parse_args()
-    
+    client = None
+
     if args.model in API_MODELS:
-        if args.is_openai_azure:
-            endpoint = os.getenv("AZURE_OPENAI_API_ENDPOINT", "https://sigturk-openai.openai.azure.com/")
-            client = AsyncAzureOpenAI(
-                api_key = args.openai_key if args.openai_key is not None else os.getenv("AZURE_OPENAI_API_KEY"),
-                api_version = '2024-02-15-preview',
-                azure_endpoint=endpoint
-            )
-        else:
-            client = AsyncOpenAI(api_key=args.openai_key if args.openai_key is not None else os.getenv("OPENAI_API_KEY"))
+        if args.model in OPENAI_MODELS:
+            client = configure_openai_client(args.api_key, args.openai_azure)
+        elif args.model in GOOGLE_MODELS:
+            client = configure_google_client(args.api_key)
         
     input_data = read_json(args.datapath)
     data = input_data["data"]
@@ -161,6 +220,7 @@ async def main():
                 "temperature": args.temperature,
                 "max_tokens": args.max_tokens,
                 "top_p": args.top_p,
+                "top_k": args.top_k,
                 "frequency_penalty": args.frequency_penalty,
                 "presence_penalty": args.presence_penalty
             }
@@ -186,6 +246,7 @@ async def main():
         "temperature": args.temperature,
         "max_tokens": args.max_tokens,
         "top_p": args.top_p,
+        "top_k": args.top_k,
         "frequency_penalty": args.frequency_penalty,
         "presence_penalty": args.presence_penalty
     }
@@ -209,18 +270,13 @@ async def main():
             results = []
 
             if args.model in API_MODELS:
-                if args.model in CHAT_COMPLETION_MODELS:
-                    results = await batch_chat_completion(client, filtered_batch, args.model, model_args)
-                elif args.model in TEXT_COMPLETION_MODELS:
-                    results = await batch_text_completion(client, filtered_batch, args.model, model_args)
-                else:
-                    raise ValueError(f"Model {args.model} not supported")
+                results = await batch_completion(client, filtered_batch, args.model, model_args)
 
                 for sample, result in zip(filtered_batch, results):
                     sample["model_output"] = result.text
                     sample["usage"] = result.usage
             else:
-                perplexity = evaluate_lm(sample["prompt"], model, tokenizer, device=device)
+                perplexity = evaluate_hf(sample["prompt"], model, tokenizer, device=device)
                 sample["perplexity"] = perplexity
             
             write_json(outputs, output_path, ensure_ascii=False)
