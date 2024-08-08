@@ -9,6 +9,8 @@ MODEL_COSTS = {
     "gpt-4": {'input': 0.00003, 'output': 0.00006},
     "gpt-4-0125-preview": {'input': 0.00001, 'output': 0.00003},
     "text-davinci-003": {'input': 0.00002, 'output': 0.00002},
+    "gemini-1.5-flash": {'input': 3.5e-7, 'output': 1.05e-6},
+    "gemini-1.5-pro": {'input': 3.5e-6, 'output': 10.5e-6},
 }
 
 MODEL_ENCODINGS = {

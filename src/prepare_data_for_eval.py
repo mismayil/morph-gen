@@ -293,11 +293,11 @@ def prepare_shots_for_morph_disc(
     fixed_shots=False,
 ):
     template_lang = _get_template_lang(template)
-    prefixes = sample.get("prefixes", [])
-    suffixes = sample.get("suffixes", [])
+    prefixes = sample.get("prefixes", []) or []
+    suffixes = sample.get("suffixes", []) or []
     affixes = prefixes + suffixes
-    negative_prefixes = sample.get("negative_prefixes", [])
-    negative_suffixes = sample.get("negative_suffixes", [])
+    negative_prefixes = sample.get("negative_prefixes", []) or []
+    negative_suffixes = sample.get("negative_suffixes", []) or []
     negative_affixes = negative_prefixes + negative_suffixes
 
     if shuffle_affixes:
