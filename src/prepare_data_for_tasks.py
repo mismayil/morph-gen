@@ -55,12 +55,7 @@ def select_negative_options(negative_options, ref_option, root, strategy="lev", 
     else:
         raise ValueError(f"Invalid strategy: {strategy}")
 
-def prepare_sample_for_tasks(sample, separator="", language="tr", verbose=False, no_nonce=False, option_strategy="lev", num_options=4):
-    dictionary = read_en_dictionary()
-    prefixes = sample.get("prefixes", [])
-    suffixes = sample["morphemes"] if "morphemes" in sample else sample["suffixes"]
-    ref_derivation = sample["derivation"]
-
+def get_negative_options(root, prefixes, suffixes, ref_derivation, negative_prefixes=None, negative_suffixes=None, separator=""):
     prefix_perms = []
     suffix_perms = []
     affix_perms = []
@@ -68,7 +63,7 @@ def prepare_sample_for_tasks(sample, separator="", language="tr", verbose=False,
     if prefixes:
         prefix_perms = list(permutations(prefixes))
     
-    if len(suffixes) > 0:
+    if suffixes:
         suffix_perms = list(permutations(suffixes))
     
     if suffix_perms and prefix_perms:
@@ -78,50 +73,75 @@ def prepare_sample_for_tasks(sample, separator="", language="tr", verbose=False,
     elif prefix_perms:
         affix_perms = [(prefix_perm, ()) for prefix_perm in prefix_perms]
 
+    negative_options = set()
+
     if affix_perms:
-        negative_options = set()
-        
         for prefix_perm, suffix_perm in affix_perms:
-            derivation = separator.join(prefix_perm) + separator + sample["root"] + separator + separator.join(suffix_perm)
+            derivation = separator.join(prefix_perm) + separator + root + separator + separator.join(suffix_perm)
 
             if derivation != ref_derivation:
                 negative_options.add(derivation)
 
-        negative_options = select_negative_options(negative_options, ref_derivation, sample["root"], strategy=option_strategy, num_options=num_options)
-        sentence = sample.get("sentence")
+    if not negative_options:
+        if negative_prefixes:
+            derivation = separator.join(negative_prefixes) + separator + root
+            if derivation != ref_derivation:
+                negative_options.add(derivation)
+        
+        if negative_suffixes:
+            derivation = root + separator + separator.join(negative_suffixes)
+            if derivation != ref_derivation:
+                negative_options.add(derivation)
+            
+    return negative_options
 
-        attempt = 0
-        nonce_word = None
+def prepare_sample_for_tasks(sample, separator="", language="tr", verbose=False, no_nonce=False, option_strategy="lev", num_options=4):
+    dictionary = read_en_dictionary()
+    prefixes = sample.get("prefixes", [])
+    suffixes = sample["morphemes"] if "morphemes" in sample else sample["suffixes"]
+    negative_prefixes = sample.get("negative_prefixes", []) or []
+    negative_suffixes = sample.get("negative_suffixes", []) or []
+    ref_derivation = sample["derivation"]
 
-        if not no_nonce:
-            while True:
-                if verbose:
-                    print(f"Generating nonce word for {sample['root']}")
-                
-                nonce_generator = NONCE_GENERATOR[language]
-                nonce_word = nonce_generator(sample["root"])
-                if nonce_word not in dictionary:
-                    break
-                attempt += 1
-                
-                if verbose:
-                    print(f"Attempt {attempt} failed. Trying again.")
-    
-        return {
-            "id": sample["id"],
-            "id_root": sample["root"],
-            "ood_root": nonce_word,
-            "root": sample["root"],
-            "pos": sample.get("pos"),
-            "prefixes": prefixes,
-            "suffixes": suffixes,
-            "derivation": ref_derivation,
-            "positive_options": [ref_derivation],
-            "negative_options": list(negative_options),
-            "meta_suffixes": sample.get("meta_morphemes"),
-            "sentence": sentence.lower().replace(ref_derivation, "___") if sentence else None,
-            "meaning": sample.get("meaning"),
-        }
+    negative_options = get_negative_options(sample["root"], prefixes, suffixes, ref_derivation, 
+                                            negative_prefixes=negative_prefixes, negative_suffixes=negative_suffixes,
+                                            separator=separator)
+
+    negative_options = select_negative_options(negative_options, ref_derivation, sample["root"], strategy=option_strategy, num_options=num_options)
+    sentence = sample.get("sentence")
+
+    attempt = 0
+    nonce_word = None
+
+    if not no_nonce:
+        while True:
+            if verbose:
+                print(f"Generating nonce word for {sample['root']}")
+            
+            nonce_generator = NONCE_GENERATOR[language]
+            nonce_word = nonce_generator(sample["root"])
+            if nonce_word not in dictionary:
+                break
+            attempt += 1
+            
+            if verbose:
+                print(f"Attempt {attempt} failed. Trying again.")
+
+    return {
+        "id": sample["id"],
+        "id_root": sample["root"],
+        "ood_root": nonce_word,
+        "root": sample["root"],
+        "pos": sample.get("pos"),
+        "prefixes": prefixes,
+        "suffixes": suffixes,
+        "derivation": ref_derivation,
+        "positive_options": [ref_derivation],
+        "negative_options": list(negative_options),
+        "meta_suffixes": sample.get("meta_morphemes"),
+        "sentence": sentence.lower().replace(ref_derivation, "___") if sentence else None,
+        "meaning": sample.get("meaning"),
+    }
 
 
 def prepare_data_for_tasks(
@@ -216,18 +236,17 @@ def prepare_tok_aligned_data_for_tasks(input_data, num_samples=None, separator="
 
     for i, sample in tqdm(enumerate(data), total=len(data), desc="Preparing tokenization aligned data for tasks"):
         ref_derivation = sample["derivation"]
+        negative_prefixes = sample.get("negative_prefixes", []) or []
+        negative_suffixes = sample.get("negative_suffixes", []) or []
         tokens = segment_by_tokenizer(ref_derivation, model, sample["root"])
         root_token = tokens[0]
-        token_perms = permutations(tokens[1:])
-        negative_options = set()
+        suffixes = tokens[1:]
 
-        for token_perm in token_perms:
-            derivation = root_token + separator + separator.join(token_perm)
+        negative_options = get_negative_options(root_token, [], suffixes, ref_derivation, 
+                                                negative_prefixes=negative_prefixes, negative_suffixes=negative_suffixes,
+                                                separator=separator)
 
-            if derivation != ref_derivation:
-                negative_options.add(derivation)
-
-        negative_options = select_negative_options(negative_options, ref_derivation, sample["root"], strategy=option_strategy, num_options=num_options)
+        negative_options = select_negative_options(negative_options, ref_derivation, root_token, strategy=option_strategy, num_options=num_options)
         tok_aligned_data.append({
             **sample,
             "ref_root": sample["root"],
@@ -263,42 +282,19 @@ def update_neg_sample_for_tasks(sample, separator="", language="tr", option_stra
     prefixes = sample.get("prefixes", [])
     suffixes = sample["morphemes"] if "morphemes" in sample else sample["suffixes"]
     ref_derivation = sample["derivation"]
+    negative_prefixes = sample.get("negative_prefixes", []) or []
+    negative_suffixes = sample.get("negative_suffixes", []) or []
 
-    prefix_perms = []
-    suffix_perms = []
-    affix_perms = []
+    negative_options = get_negative_options(sample["root"], prefixes, suffixes, ref_derivation, 
+                                            negative_prefixes=negative_prefixes, negative_suffixes=negative_suffixes,
+                                            separator=separator)
 
-    if prefixes:
-        prefix_perms = list(permutations(prefixes))
-    
-    if len(suffixes) > 0:
-        suffix_perms = list(permutations(suffixes))
-    
-    if suffix_perms and prefix_perms:
-        affix_perms = product(prefix_perms, suffix_perms)
-    elif suffix_perms:
-        affix_perms = [((), suffix_perm) for suffix_perm in suffix_perms]
-    elif prefix_perms:
-        affix_perms = [(prefix_perm, ()) for prefix_perm in prefix_perms]
+    negative_options = select_negative_options(negative_options, ref_derivation, sample["root"], strategy=option_strategy, num_options=num_options)
 
-    if affix_perms:
-        if len(affix_perms) == 1:
-            return sample
-
-        negative_options = set()
-        
-        for prefix_perm, suffix_perm in affix_perms:
-            derivation = separator.join(prefix_perm) + separator + sample["root"] + separator + separator.join(suffix_perm)
-
-            if derivation != ref_derivation:
-                negative_options.add(derivation)
-
-        negative_options = select_negative_options(negative_options, ref_derivation, sample["root"], strategy=option_strategy, num_options=num_options)
-    
-        return {
-            **sample,
-            "negative_options": list(negative_options)
-        }
+    return {
+        **sample,
+        "negative_options": list(negative_options)
+    }
 
 def update_neg_data_for_tasks(
     input_data,

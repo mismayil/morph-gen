@@ -99,7 +99,7 @@ def get_google_model_args(model_args):
 async def google_completion(client, prompt, model, model_args=None):
     model = genai.GenerativeModel(model)
     google_model_args = get_google_model_args(model_args)
-    config = genai.GenerativeConfig(**google_model_args)
+    config = genai.GenerationConfig(**google_model_args)
     response = model.generate_content(prompt.strip(), generation_config=config)
     text = response.text.strip()
     return ModelResponse(text, None)

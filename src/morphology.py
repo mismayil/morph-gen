@@ -286,6 +286,7 @@ def segment_by_tokenizer(text, model, root, return_tokens=False):
             best_diff = root_diff
     
     segmentation = ["".join(tokens[:root_end_idx])] + tokens[root_end_idx:]
+    segmentation = [tok for tok in segmentation if tok]
 
     if len(segmentation) == 1:
         segmentation = tokens
