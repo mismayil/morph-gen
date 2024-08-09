@@ -9,11 +9,12 @@ from itertools import permutations
 import re
 
 from utils import read_json, write_json, levenshtein_distance
-from morphology import generate_nonce_word_tr, generate_nonce_word_en, segment_by_tokenizer, read_en_dictionary
+from morphology import generate_nonce_word_tr, generate_nonce_word_en, segment_by_tokenizer, read_en_dictionary, generate_nonce_word_fi
 
 NONCE_GENERATOR = {
     "tr": generate_nonce_word_tr,
-    "en": generate_nonce_word_en
+    "en": generate_nonce_word_en,
+    "fi": generate_nonce_word_fi
 }
 
 def check_if_has_double_vowel(word):
@@ -111,7 +112,7 @@ def prepare_sample_for_tasks(sample, separator="", language="tr", verbose=False,
             "id_root": sample["root"],
             "ood_root": nonce_word,
             "root": sample["root"],
-            "pos": sample["pos"],
+            "pos": sample.get("pos"),
             "prefixes": prefixes,
             "suffixes": suffixes,
             "derivation": ref_derivation,
