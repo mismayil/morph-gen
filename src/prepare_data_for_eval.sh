@@ -55,8 +55,8 @@ do
     # python prepare_data_for_eval.py -d ${data_dir}/en/morpholex/MorphoLEX_en_prep_balanced_sample_morph_nonce.json -t morph_disc_tr -n ${shot} -o ${data_dir}/en/morpholex/temp_tr/${experiment}
 
     # TR in EN template for tokenizer aligned
-    python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/tok_aligned/btwd_default_final_morph_batch1_tok_aligned.json -t morph_gen_en -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}
-    python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/tok_aligned/btwd_default_final_morph_batch1_tok_aligned.json -t morph_disc_en -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}
+    python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/tok_aligned/btwd_default_final_morph_batch1_tok_aligned_gpt-4.json -t morph_gen_en -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}/batch1
+    python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/tok_aligned/btwd_default_final_morph_batch1_tok_aligned_gpt-4.json -t morph_disc_en -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}/batch1
 
     # TR in EN template for pp experiment
     # python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_id_morph.json -t morph_disc_pp_en -n 0 -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}

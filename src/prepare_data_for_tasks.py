@@ -242,19 +242,20 @@ def prepare_tok_aligned_data_for_tasks(input_data, num_samples=None, separator="
         root_token = tokens[0]
         suffixes = tokens[1:]
 
-        negative_options = get_negative_options(root_token, [], suffixes, ref_derivation, 
-                                                negative_prefixes=negative_prefixes, negative_suffixes=negative_suffixes,
-                                                separator=separator)
+        if suffixes:
+            negative_options = get_negative_options(root_token, [], suffixes, ref_derivation, 
+                                                    negative_prefixes=negative_prefixes, negative_suffixes=negative_suffixes,
+                                                    separator=separator)
 
-        negative_options = select_negative_options(negative_options, ref_derivation, root_token, strategy=option_strategy, num_options=num_options)
-        tok_aligned_data.append({
-            **sample,
-            "ref_root": sample["root"],
-            "ref_suffixes": sample["suffixes"] if "suffixes" in sample else sample.get("morphemes"),
-            "root": root_token,
-            "suffixes": tokens[1:],
-            "negative_options": list(negative_options)
-        })
+            negative_options = select_negative_options(negative_options, ref_derivation, root_token, strategy=option_strategy, num_options=num_options)
+            tok_aligned_data.append({
+                **sample,
+                "ref_root": sample["root"],
+                "ref_suffixes": sample["suffixes"] if "suffixes" in sample else sample.get("morphemes"),
+                "root": root_token,
+                "suffixes": suffixes,
+                "negative_options": list(negative_options)
+            })
     
     if num_samples is not None:
         tok_aligned_data = random.sample(tok_aligned_data, num_samples)
