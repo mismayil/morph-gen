@@ -236,16 +236,27 @@ def main():
             print(f"Skipping. Tabulated results file not found at {results_path}")
             return
 
+    pathlib.Path(args.output_dir).mkdir(parents=True, exist_ok=True)
+
     for metric in args.metrics:
         for task in ["morph-disc", "morph-gen"]:
-            if len(tab_results_lst) > 1 and "by_lang" in args.plot_types:
-                plot_results_by_lang(tab_results_lst,
-                                    output_dir=args.output_dir,
-                                    output_format=args.output_format,
-                                    metric=metric,
-                                    task=task,
-                                    max_affix_length=args.max_affix_length,
-                                    num_shots=args.num_shots)
+            if len(tab_results_lst) > 1:
+                if "by_lang" in args.plot_types:
+                    plot_results_by_lang(tab_results_lst,
+                                        output_dir=args.output_dir,
+                                        output_format=args.output_format,
+                                        metric=metric,
+                                        task=task,
+                                        max_affix_length=args.max_affix_length,
+                                        num_shots=args.num_shots)
+                elif "by_alignment" in args.plot_types:
+                    plot_results_tok_aligned(tab_results_lst,
+                                        output_dir=args.output_dir,
+                                        output_format=args.output_format,
+                                        metric=metric,
+                                        task=task,
+                                        max_affix_length=args.max_affix_length,
+                                        num_shots=args.num_shots)
             else:
                 if "by_dist" in args.plot_types:
                     plot_results_id_vs_ood(tab_results_lst,

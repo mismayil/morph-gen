@@ -8,6 +8,7 @@ MODEL_COSTS = {
     "gpt-3.5-turbo": {'input': 0.0000015, 'output': 0.000002},
     "gpt-4": {'input': 0.00003, 'output': 0.00006},
     "gpt-4-0125-preview": {'input': 0.00001, 'output': 0.00003},
+    "gpt-4o-2024-08-06": {'input': 2.5e-6, 'output': 10e-6},
     "text-davinci-003": {'input': 0.00002, 'output': 0.00002},
     "gemini-1.5-flash": {'input': 3.5e-7, 'output': 1.05e-6},
     "gemini-1.5-pro": {'input': 3.5e-6, 'output': 10.5e-6},
@@ -20,6 +21,8 @@ MODEL_ENCODINGS = {
 }
 
 def num_tokens_from_string(text, model):
+    if model not in MODEL_ENCODINGS:
+        return 0
     encoding_name = MODEL_ENCODINGS[model]
     encoding = tiktoken.get_encoding(encoding_name)
     num_tokens = len(encoding.encode(text))
@@ -85,9 +88,9 @@ def compute_usage(sample, model):
         "total_tokens": 0
     }
 
-    if "usage" in sample:
-        usage = sample["usage"]
-    elif "prompt" in sample and "model_output" in sample:
+    usage = sample.get("usage")
+
+    if not usage and "prompt" in sample and "model_output" in sample:
         prompt_tokens = num_tokens_from_string(sample["prompt"], model)
         completion_tokens = num_tokens_from_string(sample["model_output"], model)
         usage = {
