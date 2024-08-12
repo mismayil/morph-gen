@@ -24,7 +24,7 @@ logger = logging.getLogger(__name__)
 
 from utils import read_json, write_json, generate_unique_id, batched
 
-OPENAI_CHAT_COMPLETION_MODELS = ["gpt-3.5-turbo", "gpt-4", "gpt-4-0125-preview"]
+OPENAI_CHAT_COMPLETION_MODELS = ["gpt-3.5-turbo", "gpt-4", "gpt-4-0125-preview", "gpt-4o-2024-08-06"]
 OPENAI_TEXT_COMPLETION_MODELS = ["text-davinci-003"]
 OPENAI_MODELS = OPENAI_CHAT_COMPLETION_MODELS + OPENAI_TEXT_COMPLETION_MODELS
 GOOGLE_CHAT_COMPLETION_MODELS = ["gemini-1.5-flash", "gemini-1.5-pro"]
