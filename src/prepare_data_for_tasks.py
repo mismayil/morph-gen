@@ -342,11 +342,12 @@ def main():
     parser.add_argument("-nn", "--no-nonce", action="store_true", help="Do not generate nonce words")
     parser.add_argument("-os", "--option-strategy", type=str, default="lev", help="Strategy to select negative options")
     parser.add_argument("-no", "--num-options", type=int, default=4, help="Number of negative options to select")
+    parser.add_argument("-m", "--model", type=str, default="gpt-4", help="Tokenizer model to use for tokenization aligned data")
 
     args = parser.parse_args()
     input_data = read_json(args.datapath)
     morph_data = DATA_PROCESSOR_MAP[args.processor][0](input_data, args.num_samples, separator=args.separator, verbose=args.verbose,
-                                                       no_nonce=args.no_nonce, option_strategy=args.option_strategy, num_options=args.num_options)
+                                                       no_nonce=args.no_nonce, option_strategy=args.option_strategy, num_options=args.num_options, model=args.model)
 
     datapath = pathlib.Path(args.datapath)
     output_dir = pathlib.Path(args.output_dir) if args.output_dir is not None else datapath.parent

@@ -17,7 +17,8 @@ MODEL_COSTS = {
 MODEL_ENCODINGS = {
     "gpt-3.5-turbo": "cl100k_base",
     "gpt-4": "cl100k_base",
-    "text-davinci-003": "p50k_base"
+    "text-davinci-003": "p50k_base",
+    "gpt-4o": "o200k_base"
 }
 
 def num_tokens_from_string(text, model):

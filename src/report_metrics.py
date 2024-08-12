@@ -3,7 +3,7 @@ from sklearn.metrics import recall_score, precision_score, f1_score
 from tqdm import tqdm
 import pathlib
 from itertools import permutations, product
-from collections import defaultdict
+from collections import defaultdict, Counter
 import re
 import numpy as np
 from statistics import mean
@@ -128,6 +128,11 @@ def _merge_morpheme_dicts(dict1, dict2):
 def compute_metrics(results, report_usage=True, separator="", frequency_path=None):
     metrics = {}
     results_by_affix_len = defaultdict(dict)
+    accuracy_by_affix_len = defaultdict(list)
+    faithful_by_affix_len = defaultdict(list)
+
+    random_accuracy_by_affix_len = defaultdict(list)
+    majority_accuracy_by_affix_len = defaultdict(list)
 
     usage = {
         "prompt_tokens": 0,
@@ -141,8 +146,6 @@ def compute_metrics(results, report_usage=True, separator="", frequency_path=Non
         "total": 0
     }
 
-    len_affix_accuracy = defaultdict(list)
-    len_affix_faithful = defaultdict(list)
     freq_bins = [(0, 10), (10, 100), (100, 1000), (1000,)]
     ood_bins = [(0, 25), (25, 50), (50, 75), (75, 100)]
     
@@ -262,29 +265,36 @@ def compute_metrics(results, report_usage=True, separator="", frequency_path=Non
 
     template = results["data"][0]["template"]
     result_map = {}
+    ref_response_attr = "reference"
+    model_response_attr = "model_output"
+    majority_pred = 0
 
     for result in results["data"]:
         num_affixes = len(_get_affixes(result))
-        ref_response_attr = "reference"
-        model_response_attr = "model_output"
         result_map[result["id"]] = result
 
         if model_response_attr in result:
             ref = get_reference(result, result[ref_response_attr], result["template"])
             pred = get_prediction(result, result[model_response_attr], result["template"])
+            random_pred = np.random.choice([0, 1])
             
             if result["template"].startswith("morph_disc") and not result["template"].startswith("morph_disc_mcq"):
                 if result["id"] not in results_by_affix_len[num_affixes]:
-                    results_by_affix_len[num_affixes][result["id"]] = {"references": [], "predictions": []}
+                    results_by_affix_len[num_affixes][result["id"]] = {"references": [], "predictions": [],
+                                                                       "random_predictions": [], "majority_predictions": []}
                 results_by_affix_len[num_affixes][result["id"]]["references"].append(ref)
                 results_by_affix_len[num_affixes][result["id"]]["predictions"].append(pred)
+                results_by_affix_len[num_affixes][result["id"]]["random_predictions"].append(random_pred)
+                results_by_affix_len[num_affixes][result["id"]]["majority_predictions"].append(majority_pred)
 
             result["correct"] = ref == pred
             result["prediction"] = pred
             result["faithful"] = is_faithful(result, result[ref_response_attr], result[model_response_attr], result["template"], separator=separator)
             # result["soft_accuracy"] = get_soft_accuracy(result, result[ref_response_attr], result[model_response_attr], result["template"])
-            len_affix_accuracy[num_affixes].append(result["correct"])
-            len_affix_faithful[num_affixes].append(result["faithful"])
+            accuracy_by_affix_len[num_affixes].append(result["correct"])
+            faithful_by_affix_len[num_affixes].append(result["faithful"])
+            random_accuracy_by_affix_len[num_affixes].append(ref == random_pred)
+            majority_accuracy_by_affix_len[num_affixes].append(ref == majority_pred)
 
             if unigram_freqs and result.get("root"):
                 word_freq = unigram_freqs.get("".join([result["root"]]+result["suffixes"]), 0)
@@ -315,20 +325,17 @@ def compute_metrics(results, report_usage=True, separator="", frequency_path=Non
                     cost["output"] += sample_cost["output"]
                     cost["total"] += sample_cost["total"]
 
-    metrics["accuracy"] = sum([1 for result in results["data"] if result.get("correct")]) / len(results["data"])
-    metrics["faithfulness"] = sum([1 for result in results["data"] if result.get("faithful")]) / len(results["data"])
-
-    def _compute_metric(results_by_id, metric):
+    def _compute_metric(results_by_id, metric, pred_attr="predictions"):
         result_by_id_metrics = {}
 
         for result_id, result in results_by_id.items():
             references = result["references"]
-            predictions = result["predictions"]
+            predictions = result[pred_attr]
             ood_bin = ood_bins[0]
 
             if template.startswith("morph_disc_pp"):
                 predictions = [0] * len(references)
-                min_pp_index = np.argmin(result["predictions"])
+                min_pp_index = np.argmin(result[pred_attr])
                 predictions[min_pp_index] = 1
                 full_result = result_map[result_id]
                 ood_pct = full_result.get("ood_pct", 0)
@@ -339,16 +346,16 @@ def compute_metrics(results, report_usage=True, separator="", frequency_path=Non
         
         return result_by_id_metrics
 
-    def _compute_coherence(results_by_id):
+    def _compute_coherence(results_by_id, pred_attr="predictions"):
         coherence = {}
 
         for result_id, result in results_by_id.items():
             references = result["references"]
-            predictions = result["predictions"]
+            predictions = result[pred_attr]
     
             if template.startswith("morph_disc_pp"):
                 predictions = [0] * len(references)
-                min_pp_index = np.argmin(result["predictions"])
+                min_pp_index = np.argmin(result[pred_attr])
                 predictions[min_pp_index] = 1
 
             coherence[result_id] = int(references == predictions)
@@ -365,47 +372,66 @@ def compute_metrics(results, report_usage=True, separator="", frequency_path=Non
     def _sort_by_key(results_by_key):
         return dict(sorted(results_by_key.items(), key=lambda item: item[0]))
 
-    if results_by_affix_len:
-        recall_by_affix_len = {affix_len: _compute_metric(results_by_affix_len[affix_len], recall_score) for affix_len in results_by_affix_len}
-        precision_by_affix_len = {affix_len: _compute_metric(results_by_affix_len[affix_len], precision_score) for affix_len in results_by_affix_len}
-        f1_by_affix_len = {affix_len: _compute_metric(results_by_affix_len[affix_len], f1_score) for affix_len in results_by_affix_len}
+    def _compute_f1_metrics(results, results_by_affix_len, pred_attr="predictions"):
+        f1_metrics = {}
+        recall_by_affix_len = {affix_len: _compute_metric(results_by_affix_len[affix_len], recall_score, pred_attr=pred_attr) for affix_len in results_by_affix_len}
+        precision_by_affix_len = {affix_len: _compute_metric(results_by_affix_len[affix_len], precision_score, pred_attr=pred_attr) for affix_len in results_by_affix_len}
+        f1_by_affix_len = {affix_len: _compute_metric(results_by_affix_len[affix_len], f1_score, pred_attr=pred_attr) for affix_len in results_by_affix_len}
         
-        metrics["recall_by_affix_len"] = {affix_len: mean(recall_by_affix_len[affix_len].values()) for affix_len in recall_by_affix_len}
-        metrics["recall_by_affix_len"] = _sort_by_key(metrics["recall_by_affix_len"])
+        f1_metrics["recall_by_affix_len"] = {affix_len: mean(recall_by_affix_len[affix_len].values()) for affix_len in recall_by_affix_len}
+        f1_metrics["recall_by_affix_len"] = _sort_by_key(f1_metrics["recall_by_affix_len"])
         
-        metrics["precision_by_affix_len"] = {affix_len: mean(precision_by_affix_len[affix_len].values()) for affix_len in precision_by_affix_len}
-        metrics["precision_by_affix_len"] = _sort_by_key(metrics["precision_by_affix_len"])
+        f1_metrics["precision_by_affix_len"] = {affix_len: mean(precision_by_affix_len[affix_len].values()) for affix_len in precision_by_affix_len}
+        f1_metrics["precision_by_affix_len"] = _sort_by_key(f1_metrics["precision_by_affix_len"])
         
-        metrics["f1_by_affix_len"] = {affix_len: mean(f1_by_affix_len[affix_len].values()) for affix_len in f1_by_affix_len}
-        metrics["f1_by_affix_len"] = _sort_by_key(metrics["f1_by_affix_len"])
+        f1_metrics["f1_by_affix_len"] = {affix_len: mean(f1_by_affix_len[affix_len].values()) for affix_len in f1_by_affix_len}
+        f1_metrics["f1_by_affix_len"] = _sort_by_key(f1_metrics["f1_by_affix_len"])
 
-        metrics["recall"] = mean(metrics["recall_by_affix_len"].values())
-        metrics["precision"] = mean(metrics["precision_by_affix_len"].values())
-        metrics["f1"] = mean(metrics["f1_by_affix_len"].values())
+        f1_metrics["recall"] = mean(f1_metrics["recall_by_affix_len"].values())
+        f1_metrics["precision"] = mean(f1_metrics["precision_by_affix_len"].values())
+        f1_metrics["f1"] = mean(f1_metrics["f1_by_affix_len"].values())
+
+        f1_metrics["coherence_by_affix_len"] = {affix_len: _compute_coherence(results_by_affix_len[affix_len], pred_attr=pred_attr) for affix_len in results_by_affix_len}
+        f1_metrics["coherence_by_affix_len"] = _sort_by_key(f1_metrics["coherence_by_affix_len"])
+        f1_metrics["coherence"] = mean(f1_metrics["coherence_by_affix_len"].values())
 
         if results["data"][0].get("ood_pct") is not None:
-            metrics["recall_by_ood_bin_by_affix_len"] = {affix_len: _aggregate_by_ood_bin(recall_by_affix_len[affix_len]) for affix_len in recall_by_affix_len}
-            metrics["recall_by_ood_bin_by_affix_len"] = _sort_by_key(metrics["recall_by_ood_bin_by_affix_len"])
+            f1_metrics["recall_by_ood_bin_by_affix_len"] = {affix_len: _aggregate_by_ood_bin(recall_by_affix_len[affix_len]) for affix_len in recall_by_affix_len}
+            f1_metrics["recall_by_ood_bin_by_affix_len"] = _sort_by_key(f1_metrics["recall_by_ood_bin_by_affix_len"])
 
-            metrics["precision_by_ood_bin_by_affix_len"] = {affix_len: _aggregate_by_ood_bin(precision_by_affix_len[affix_len]) for affix_len in precision_by_affix_len}
-            metrics["precision_by_ood_bin_by_affix_len"] = _sort_by_key(metrics["precision_by_ood_bin_by_affix_len"])
+            f1_metrics["precision_by_ood_bin_by_affix_len"] = {affix_len: _aggregate_by_ood_bin(precision_by_affix_len[affix_len]) for affix_len in precision_by_affix_len}
+            f1_metrics["precision_by_ood_bin_by_affix_len"] = _sort_by_key(f1_metrics["precision_by_ood_bin_by_affix_len"])
 
-            metrics["f1_by_ood_bin_by_affix_len"] = {affix_len: _aggregate_by_ood_bin(f1_by_affix_len[affix_len]) for affix_len in f1_by_affix_len}
-            metrics["f1_by_ood_bin_by_affix_len"] = _sort_by_key(metrics["f1_by_ood_bin_by_affix_len"])
+            f1_metrics["f1_by_ood_bin_by_affix_len"] = {affix_len: _aggregate_by_ood_bin(f1_by_affix_len[affix_len]) for affix_len in f1_by_affix_len}
+            f1_metrics["f1_by_ood_bin_by_affix_len"] = _sort_by_key(f1_metrics["f1_by_ood_bin_by_affix_len"])
+    
+        return f1_metrics
 
-        metrics["coherence_by_affix_len"] = {affix_len: _compute_coherence(results_by_affix_len[affix_len]) for affix_len in results_by_affix_len}
-        metrics["coherence_by_affix_len"] = _sort_by_key(metrics["coherence_by_affix_len"])
-        metrics["coherence"] = mean(metrics["coherence_by_affix_len"].values())
+    metrics["random_baseline"] = {}
+    metrics["majority_baseline"] = {}
+
+    if results_by_affix_len:
+        metrics.update(_compute_f1_metrics(results, results_by_affix_len))
+
+        metrics["random_baseline"].update(_compute_f1_metrics(results, results_by_affix_len, pred_attr="random_predictions"))
+        metrics["majority_baseline"].update(_compute_f1_metrics(results, results_by_affix_len, pred_attr="majority_predictions"))
 
     # metrics["soft_accuracy"] = sum([result.get("soft_accuracy", 0) for result in results["data"]]) / len(results["data"])
     
-    len_affix_accuracy = dict(sorted(len_affix_accuracy.items(), key=lambda item: item[0]))
-    len_affix_faithful = dict(sorted(len_affix_faithful.items(), key=lambda item: item[0]))
+    accuracy_by_affix_len = _sort_by_key(accuracy_by_affix_len)
+    faithful_by_affix_len = _sort_by_key(faithful_by_affix_len)
+    random_accuracy_by_affix_len = _sort_by_key(random_accuracy_by_affix_len)
+    majority_accuracy_by_affix_len = _sort_by_key(majority_accuracy_by_affix_len)
     
-    metrics["accuracy_by_affix_len"] = {k: sum(v) / len(v) for k, v in len_affix_accuracy.items()}
-    metrics["faithfulness_by_affix_len"] = {k: sum(v) / len(v) for k, v in len_affix_faithful.items()}
-    # metrics["soft_accuracy_by_suffix_len"] = {k: sum([result.get("soft_accuracy", 0) for result in results["data"] if len(result["suffixes"]) == k]) / len([result for result in results["data"] if len(result["suffixes"]) == k]) for k in len_affix_accuracy}
-    metrics["num_samples_by_affix_len"] = {k: len(v) for k, v in len_affix_accuracy.items()}
+    metrics["accuracy_by_affix_len"] = {k: sum(v) / len(v) for k, v in accuracy_by_affix_len.items()}
+    metrics["faithfulness_by_affix_len"] = {k: sum(v) / len(v) for k, v in faithful_by_affix_len.items()}
+    metrics["accuracy"] = mean(metrics["accuracy_by_affix_len"].values())
+    metrics["faithfulness"] = mean(metrics["faithfulness_by_affix_len"].values())
+    # metrics["soft_accuracy_by_suffix_len"] = {k: sum([result.get("soft_accuracy", 0) for result in results["data"] if len(result["suffixes"]) == k]) / len([result for result in results["data"] if len(result["suffixes"]) == k]) for k in accuracy_by_affix_len}
+    metrics["num_samples_by_affix_len"] = {k: len(v) for k, v in accuracy_by_affix_len.items()}
+
+    metrics["random_baseline"]["accuracy_by_affix_len"] = {k: sum(v) / len(v) for k, v in random_accuracy_by_affix_len.items()}
+    metrics["majority_baseline"]["accuracy_by_affix_len"] = {k: sum(v) / len(v) for k, v in majority_accuracy_by_affix_len.items()}
     
     if unigram_freqs:
         _add_freq_metrics(metrics, unigram_freq_accuracy, unigram_freq_faithful, num_unigram_freq_samples, keyword="unigram")
