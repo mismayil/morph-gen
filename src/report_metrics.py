@@ -22,6 +22,7 @@ def _get_affixes(sample):
     return sample.get("prefixes", []) + sample.get("suffixes", [])
 
 def get_prediction(sample, model_response, template):
+    lang = _get_template_lang(template)
     if template.startswith("morph_disc_mcq"):
         pred = str(model_response).strip()
         if re.fullmatch(r"\d+\s*\..*", model_response.strip()):
@@ -36,12 +37,12 @@ def get_prediction(sample, model_response, template):
         if preds:
             pred = preds[-1].strip("<>").lower()
             if template.startswith("morph_disc"):
-                return ANSWER_MAP[_get_template_lang(template)][pred]
+                return ANSWER_MAP[lang].get(pred, 0)
             return pred
 
     if template.startswith("morph_disc_bin") or template.startswith("morph_disc"):
         pred = str(model_response).strip().lower()
-        return ANSWER_MAP[_get_template_lang(template)][pred]
+        return ANSWER_MAP[lang].get(pred, 0)
 
     pred = str(model_response).strip().lower()
     return pred
