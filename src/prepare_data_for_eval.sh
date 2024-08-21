@@ -30,33 +30,15 @@ do
     # python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1_nonce.json -t morph_gen_sent_tr -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_tr/${experiment}
     # python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1_nonce.json -t morph_disc_sent_tr -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_tr/${experiment}
 
-    # TR in EN template for sense understanding
-    # python prepare_data_for_eval.py -d ${data_dir}/tr/sense/balanced/words_prep_balanced_sample_sense.json -t morph_gen_sense_en -n ${shot} -o ${data_dir}/tr/sense/eval/temp_en/${experiment}
-    # python prepare_data_for_eval.py -d ${data_dir}/tr/sense/balanced/words_prep_balanced_sample_sense.json -t morph_disc_sense_en -n ${shot} -o ${data_dir}/tr/sense/eval/temp_en/${experiment}
-    # python prepare_data_for_eval.py -d ${data_dir}/tr/sense/balanced/words_prep_balanced_sample_sense_nonce.json -t morph_gen_sense_en -n ${shot} -o ${data_dir}/tr/sense/eval/temp_en/${experiment}
-    # python prepare_data_for_eval.py -d ${data_dir}/tr/sense/balanced/words_prep_balanced_sample_sense_nonce.json -t morph_disc_sense_en -n ${shot} -o ${data_dir}/tr/sense/eval/temp_en/${experiment}
-
-    # # TR in TR template for sense understanding
-    # python prepare_data_for_eval.py -d ${data_dir}/tr/sense/balanced/words_prep_balanced_sample_sense.json -t morph_gen_sense_tr -n ${shot} -o ${data_dir}/tr/sense/eval/temp_tr/${experiment}
-    # python prepare_data_for_eval.py -d ${data_dir}/tr/sense/balanced/words_prep_balanced_sample_sense.json -t morph_disc_sense_tr -n ${shot} -o ${data_dir}/tr/sense/eval/temp_tr/${experiment}
-    # python prepare_data_for_eval.py -d ${data_dir}/tr/sense/balanced/words_prep_balanced_sample_sense_nonce.json -t morph_gen_sense_tr -n ${shot} -o ${data_dir}/tr/sense/eval/temp_tr/${experiment}
-    # python prepare_data_for_eval.py -d ${data_dir}/tr/sense/balanced/words_prep_balanced_sample_sense_nonce.json -t morph_disc_sense_tr -n ${shot} -o ${data_dir}/tr/sense/eval/temp_tr/${experiment}
-
-    # EN in EN template
-    # python prepare_data_for_eval.py -d ${data_dir}/en/morpholex/MorphoLEX_en_prep_balanced_sample_morph.json -t morph_gen_en -n ${shot} -o ${data_dir}/en/morpholex/temp_en/${experiment}
-    # python prepare_data_for_eval.py -d ${data_dir}/en/morpholex/MorphoLEX_en_prep_balanced_sample_morph.json -t morph_disc_en -n ${shot} -o ${data_dir}/en/morpholex/temp_en/${experiment}
-    # python prepare_data_for_eval.py -d ${data_dir}/en/morpholex/MorphoLEX_en_prep_balanced_sample_morph_nonce.json -t morph_gen_en -n ${shot} -o ${data_dir}/en/morpholex/temp_en/${experiment}
-    # python prepare_data_for_eval.py -d ${data_dir}/en/morpholex/MorphoLEX_en_prep_balanced_sample_morph_nonce.json -t morph_disc_en -n ${shot} -o ${data_dir}/en/morpholex/temp_en/${experiment}
-    
-    # EN in TR template
-    # python prepare_data_for_eval.py -d ${data_dir}/en/morpholex/MorphoLEX_en_prep_balanced_sample_morph.json -t morph_gen_tr -n ${shot} -o ${data_dir}/en/morpholex/temp_tr/${experiment}
-    # python prepare_data_for_eval.py -d ${data_dir}/en/morpholex/MorphoLEX_en_prep_balanced_sample_morph.json -t morph_disc_tr -n ${shot} -o ${data_dir}/en/morpholex/temp_tr/${experiment}
-    # python prepare_data_for_eval.py -d ${data_dir}/en/morpholex/MorphoLEX_en_prep_balanced_sample_morph_nonce.json -t morph_gen_tr -n ${shot} -o ${data_dir}/en/morpholex/temp_tr/${experiment}
-    # python prepare_data_for_eval.py -d ${data_dir}/en/morpholex/MorphoLEX_en_prep_balanced_sample_morph_nonce.json -t morph_disc_tr -n ${shot} -o ${data_dir}/en/morpholex/temp_tr/${experiment}
-
     # TR in EN template for tokenizer aligned
-    python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/tok_aligned/btwd_default_final_morph_batch1_tok_aligned_gpt-4o.json -t morph_gen_en -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}/batch1
-    python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/tok_aligned/btwd_default_final_morph_batch1_tok_aligned_gpt-4o.json -t morph_disc_en -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}/batch1
+    # python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/tok_aligned/btwd_default_final_morph_batch1_tok_aligned_gpt-4o.json -t morph_gen_en -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}/batch1
+    # python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/tok_aligned/btwd_default_final_morph_batch1_tok_aligned_gpt-4o.json -t morph_disc_en -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}/batch1
+
+    # TR in EN template for non-shuffled affix order
+    python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1.json -t morph_gen_en -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}/batch1 -ns
+    python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1.json -t morph_disc_en -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}/batch1 -ns
+    python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1_nonce.json -t morph_gen_en -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}/batch1 -ns
+    python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1_nonce.json -t morph_disc_en -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}/batch1 -ns
 
     # TR in EN template for pp experiment
     # python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_id_morph.json -t morph_disc_pp_en -n 0 -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}
