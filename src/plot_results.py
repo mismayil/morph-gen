@@ -68,6 +68,15 @@ def plot_results(tab_results_lst, output_dir, output_format="png", metric="accur
         ax.set_ylim(Y_LIM_MIN, Y_LIM_MAX)
         ax.title.set_size(TITLE_SIZE)
         sns.barplot(data=results, x="num_affixes", y=metric, hue="num_shots", ax=ax, errorbar=None)
+        
+        # random baseline
+        if f"random_{metric}" in results.columns:
+            sns.barplot(data=results, x="num_affixes", y=f"random_{metric}", hue="num_shots", ax=ax, errorbar=None, legend=False)
+        
+        # majority baseline
+        if f"majority_{metric}" in results.columns:
+            sns.barplot(data=results, x="num_affixes", y=f"majority_{metric}", hue="num_shots", ax=ax, errorbar=None, legend=False)
+
         ax.legend(title="Number of shots", title_fontsize=LEGEND_TITLE_SIZE, fontsize=LEGEND_SIZE)
         plot_path = f"{output_dir}/fig_{ABBR_METRICS[metric]}_{task}_{'ood' if is_ood else 'id'}.{output_format}"
         print(f"Saving figure to {plot_path}")
@@ -128,6 +137,15 @@ def plot_results_id_vs_ood(tab_results_lst, output_dir, output_format="png", met
         ax.title.set_size(TITLE_SIZE)
         results["dist"] = results["is_ood"].replace({False: "ID", True: "OOD"})
         sns.barplot(data=results, x="num_affixes", y=metric, hue="dist", hue_order=["ID", "OOD"], ax=ax, errorbar=None, palette="rocket")
+
+        # random baseline
+        if f"random_{metric}" in results.columns:
+            sns.barplot(data=results, x="num_affixes", y=f"random_{metric}", hue="dist", hue_order=["ID", "OOD"], ax=ax, errorbar=None, palette="rocket", legend=False)
+        
+        # majority baseline
+        if f"majority_{metric}" in results.columns:
+            sns.barplot(data=results, x="num_affixes", y=f"majority_{metric}", hue="dist", hue_order=["ID", "OOD"], ax=ax, errorbar=None, palette="rocket", legend=False)
+
         ax.legend(title="Test Distribution", title_fontsize=LEGEND_TITLE_SIZE, fontsize=LEGEND_SIZE)
         plot_path = f"{output_dir}/fig_{ABBR_METRICS[metric]}_{task}_s{num_shots}.{output_format}"
         print(f"Saving figure to {plot_path}")
@@ -145,7 +163,15 @@ def plot_results_overall(tab_results_lst, output_dir, output_format="png", metri
     results = results.query(f"task == '{task}' & num_affixes <= {max_affix_length}").copy()
     
     if len(results) > 0 and any(results[metric] > 0):
-        overall_results = results.groupby(["task", "is_ood", "num_shots"]).agg({"accuracy": "mean", "f1": "mean", "coherence": "mean", "faithfulness": "mean"}).reset_index()
+        agg_dict = {"accuracy": "mean", "f1": "mean", "coherence": "mean", "faithfulness": "mean"}
+
+        if f"random_{metric}" in results.columns:
+            agg_dict[f"random_{metric}"] = "mean"
+        
+        if f"majority_{metric}" in results.columns:
+            agg_dict[f"majority_{metric}"] = "mean"
+
+        overall_results = results.groupby(["task", "is_ood", "num_shots"]).agg(agg_dict).reset_index()
         plt.ioff()
         fig, ax = plt.subplots(figsize=FIG_SIZE)
         # ax.set_title(f"{metric.capitalize()} \n [lang={language}, temp={template}, model={model}, task={task}]")
@@ -158,6 +184,15 @@ def plot_results_overall(tab_results_lst, output_dir, output_format="png", metri
         ax.title.set_size(TITLE_SIZE)
         overall_results["dist"] = overall_results["is_ood"].replace({False: "ID", True: "OOD"})
         sns.barplot(data=overall_results, x="dist", y=metric, hue="num_shots", ax=ax, errorbar=None)
+
+        # random baseline
+        if f"random_{metric}" in results.columns:
+            sns.barplot(data=overall_results, x="dist", y=f"random_{metric}", hue="num_shots", ax=ax, errorbar=None, legend=False)
+        
+        # majority baseline
+        if f"majority_{metric}" in results.columns:
+            sns.barplot(data=overall_results, x="dist", y=f"majority_{metric}", hue="num_shots", ax=ax, errorbar=None, legend=False)
+
         ax.legend(title="Number of shots", title_fontsize=LEGEND_TITLE_SIZE, fontsize=LEGEND_SIZE)
         plot_path = f"{output_dir}/fig_{ABBR_METRICS[metric]}_{task}.{output_format}"
         print(f"Saving figure to {plot_path}")

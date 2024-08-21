@@ -7,6 +7,7 @@ from collections import defaultdict, Counter
 import re
 import numpy as np
 from statistics import mean
+import random
 
 from utils import read_json, write_json, find_files, compute_usage
 
@@ -326,7 +327,7 @@ def compute_metrics(results, report_usage=True, separator="", frequency_path=Non
                     cost["output"] += sample_cost["output"]
                     cost["total"] += sample_cost["total"]
 
-    def _compute_metric(results_by_id, metric, pred_attr="predictions"):
+    def _compute_metric(results_by_id, metric, pred_attr="predictions", strategy="normal", n=None):
         result_by_id_metrics = {}
 
         for result_id, result in results_by_id.items():
@@ -343,8 +344,22 @@ def compute_metrics(results, report_usage=True, separator="", frequency_path=Non
                 ood_bin_index = [obin[0] <= ood_pct <= obin[1] for obin in ood_bins].index(True)
                 ood_bin = ood_bins[ood_bin_index]
 
-            result_by_id_metrics[(result_id, str(ood_bin))] = metric(references, predictions, average="macro", zero_division=0)
-        
+            if strategy == "normal":
+                result_by_id_metrics[(result_id, str(ood_bin))] = metric(references, predictions, average="macro", zero_division=0)
+            elif strategy == "two_way":
+                pos_ref_index = references.index(1)
+                if n is None or n <= 0 or n > len(references)-1:
+                    n = len(references)-1
+                neg_ref_indices = random.sample([i for i, ref in enumerate(references) if ref == 0], n)
+                two_way_results = []
+                
+                for i in neg_ref_indices:
+                    two_way_results.append(metric([references[pos_ref_index], references[i]], [predictions[pos_ref_index], predictions[i]], average="macro", zero_division=0))
+
+                result_by_id_metrics[(result_id, str(ood_bin))] = mean(two_way_results) if two_way_results else metric(references, predictions, average="macro", zero_division=0)
+            else:
+                raise ValueError("Invalid strategy")
+
         return result_by_id_metrics
 
     def _compute_coherence(results_by_id, pred_attr="predictions"):
@@ -373,11 +388,11 @@ def compute_metrics(results, report_usage=True, separator="", frequency_path=Non
     def _sort_by_key(results_by_key):
         return dict(sorted(results_by_key.items(), key=lambda item: item[0]))
 
-    def _compute_f1_metrics(results, results_by_affix_len, pred_attr="predictions"):
+    def _compute_f1_metrics(results, results_by_affix_len, pred_attr="predictions", strategy="normal", n=None):
         f1_metrics = {}
-        recall_by_affix_len = {affix_len: _compute_metric(results_by_affix_len[affix_len], recall_score, pred_attr=pred_attr) for affix_len in results_by_affix_len}
-        precision_by_affix_len = {affix_len: _compute_metric(results_by_affix_len[affix_len], precision_score, pred_attr=pred_attr) for affix_len in results_by_affix_len}
-        f1_by_affix_len = {affix_len: _compute_metric(results_by_affix_len[affix_len], f1_score, pred_attr=pred_attr) for affix_len in results_by_affix_len}
+        recall_by_affix_len = {affix_len: _compute_metric(results_by_affix_len[affix_len], recall_score, pred_attr=pred_attr, strategy=strategy, n=n) for affix_len in results_by_affix_len}
+        precision_by_affix_len = {affix_len: _compute_metric(results_by_affix_len[affix_len], precision_score, pred_attr=pred_attr, strategy=strategy, n=n) for affix_len in results_by_affix_len}
+        f1_by_affix_len = {affix_len: _compute_metric(results_by_affix_len[affix_len], f1_score, pred_attr=pred_attr, strategy=strategy, n=n) for affix_len in results_by_affix_len}
         
         f1_metrics["recall_by_affix_len"] = {affix_len: mean(recall_by_affix_len[affix_len].values()) for affix_len in recall_by_affix_len}
         f1_metrics["recall_by_affix_len"] = _sort_by_key(f1_metrics["recall_by_affix_len"])
@@ -410,12 +425,17 @@ def compute_metrics(results, report_usage=True, separator="", frequency_path=Non
 
     metrics["random_baseline"] = {}
     metrics["majority_baseline"] = {}
+    metrics["random_two_way"] = {}
+    metrics["average_two_way"] = {}
 
     if results_by_affix_len:
         metrics.update(_compute_f1_metrics(results, results_by_affix_len))
 
         metrics["random_baseline"].update(_compute_f1_metrics(results, results_by_affix_len, pred_attr="random_predictions"))
         metrics["majority_baseline"].update(_compute_f1_metrics(results, results_by_affix_len, pred_attr="majority_predictions"))
+
+        metrics["random_two_way"].update(_compute_f1_metrics(results, results_by_affix_len, pred_attr="predictions", strategy="two_way", n=1))
+        metrics["average_two_way"].update(_compute_f1_metrics(results, results_by_affix_len, pred_attr="predictions", strategy="two_way", n=None))
 
     # metrics["soft_accuracy"] = sum([result.get("soft_accuracy", 0) for result in results["data"]]) / len(results["data"])
     
