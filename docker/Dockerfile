@@ -120,4 +120,6 @@ RUN echo -e "\n${USER_NAME} ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 USER ${USER_NAME}
 
-ENTRYPOINT ["sudo", "/usr/sbin/sshd", "-D"]
+ENTRYPOINT ["sleep", "infinity"]
+
+# ENTRYPOINT ["sudo", "/usr/sbin/sshd", "-D"]

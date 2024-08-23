@@ -17,7 +17,7 @@ tokenizer_path=${HOME}/morph-gen-artifacts/tr_gpt2_tokenizer_v1k
 # output_dir="${MNT_POINT}/nlpdata1/home/ismayilz/project-morphgen/morph-gen-wiki/models/${modelname}"
 output_dir=${HOME}/morph-gen-artifacts/tr_gpt2_pretrained_v1k
 # cache_dir="${MNT_POINT}/nlpdata1/home/ismayilz/.cache"
-cache_dir=${HOME}/.cache
+cache_dir=${HOME}/.cache/huggingface/hub
 
 python run_clm.py \
     --model_name_or_path ${model_path} \
