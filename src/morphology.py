@@ -35,6 +35,40 @@ POS_MAP = {
     "Det": "determiner"
 }
 
+# Finnish letter frequency based on flores devtest
+FINNISH_LETTER_FREQ = {
+        "a": 15225,
+        "å": 1, # smoothing
+        "ä": 4980,
+        "b": 209,
+        "c": 177,
+        "d": 1166,
+        "e": 9682,
+        "f": 164,
+        "g": 380,
+        "h": 2161,
+        "i": 13658,
+        "j": 2576,
+        "k": 6003,
+        "l": 6938,
+        "m": 3866,
+        "n": 9937,
+        "o": 6378,
+        "ö": 568,
+        "p": 2218,
+        "q": 121,
+        "r": 3048,
+        "s": 9177,
+        "t": 11858,
+        "u": 5886,
+        "v": 3052,
+        "w": 64,
+        "x": 13,
+        "y": 2148,
+        "z": 36
+}
+
+
 # https://gist.github.com/yasinkuyu/07d4afc0665421c5f3b0
 TURKISH_LETTER_FREQ = {
 	'A': 11.92,
@@ -193,6 +227,94 @@ def get_random_letter_tr(letters, weighted=True):
     if weighted:
         return random.choices(letters, weights=[TURKISH_LETTER_FREQ[c.upper()] for c in letters])[0]
     return random.choice(letters)
+
+
+def get_random_letter_fi(letters, weighted=True):
+    if weighted:
+        weights = [FINNISH_LETTER_FREQ[c] for c in letters]
+        return random.choices(letters, weights=weights)[0]
+    else:
+        return random.choice(letters)
+
+def generate_nonce_word_fi(target_word, seed=None):
+    if seed:
+        random.seed(seed)
+    else:
+        random.seed(random.randint(1, 100))
+
+    target_word = target_word.lower()
+
+    finnish_alphabet = "abcdefghijklmnopqrstuvwxyzåäö"
+    vowels = "aeiouyåäö"
+
+    finnish_alphabet_set = set(finnish_alphabet)
+    vowels_set = set(vowels)
+    consonants_set = finnish_alphabet_set - vowels_set
+
+    back_vowels_set = set(["a", "o", "u"])
+    front_vowels_set = set(["ä", "ö", "y"])
+    mid_vowels_set = set(["e", "i"])
+
+    back_vowels = list(back_vowels_set)
+    front_vowels = list(front_vowels_set)
+    mid_vowels = list(mid_vowels_set)
+    consonants = list(consonants_set)
+
+    last_vowel_index = None
+
+    for i, char in enumerate(target_word):
+        if char in vowels_set:
+            last_vowel_index = i
+
+    # split target word at the last vowel and mutate the first part
+    mutable_part = target_word[:last_vowel_index]
+    immutable_part = target_word[last_vowel_index:]
+
+    last_vowel = immutable_part[0]
+
+    # if the mutable part is less than 2 characters, just generate a random prefix
+    # XYZ where X is a consonant, Y is a vowel and Z is a consonant
+    if len(mutable_part) < 2:
+        
+        C1 = get_random_letter_fi(consonants)
+
+        if last_vowel in front_vowels:
+            V = get_random_letter_fi(front_vowels)
+        elif last_vowel in back_vowels:
+            V = get_random_letter_fi(back_vowels)
+        elif last_vowel in mid_vowels:
+            V = get_random_letter_fi(mid_vowels)
+
+        C2 = get_random_letter_fi(consonants)
+
+        prefix_tokens = [C1, V, C2]
+
+    # otherwise generate a prefix based on the mutable part
+    else:
+        prefix_tokens = []
+
+        # for each character in the mutable part, generate a random character of the same type that is not the same as the character
+        for char in mutable_part:
+            if char in back_vowels:
+                # letter_pool = list(back_vowels_set - set(char))
+                letter_pool = back_vowels
+            elif char in front_vowels:
+                # letter_pool = list(front_vowels_set - set(char))
+                letter_pool = front_vowels
+            elif char in mid_vowels:
+                # letter_pool = list(mid_vowels_set - set(char))
+                letter_pool = mid_vowels
+            else:
+                letter_pool = consonants
+
+            random_token = get_random_letter_fi(letter_pool)
+            prefix_tokens.append(random_token)
+    
+    prefix = "".join(prefix_tokens)
+    nonce_word = prefix + immutable_part
+
+    return nonce_word
+
 
 def generate_nonce_word_tr(target_word):
     random.seed(random.randint(1, 100))
@@ -460,118 +582,3 @@ def get_words(text):
 
 def visualize_morph_graph(G):
     nx.draw(G, with_labels=True, font_weight='bold')
-
-def generate_nonce_word_fi(target_word):
-    random.seed(random.randint(1, 100))
-    front_vowels = {"i", "ä", "ö", "y"}
-    back_vowels = {"u", "a", "o"}
-    neutral_vowels = {"e"}
-    vowels = list(front_vowels | back_vowels | neutral_vowels)
-
-    neutral_diphthongs = [
-        "ee",
-        "ei",
-        "eu",
-        "ey",
-    ]
-    front_diphthongs = [
-        "ää",
-        "äi",
-        "äy",
-        "ii",
-        "iy",
-        "iu",
-        "öi",
-        "öö",
-        "öy",
-        "yi",
-        "yy",
-    ]
-    back_diphthongs = [
-        "aa",
-        "ai",
-        "au",
-        "oi",
-        "oo",
-        "ou",
-        "ui",
-        "uu",
-    ]
-    consonants = "ktpnsmlrhjv"
-    syllable_patterns = ["v", "vv", "kv", "vk", "kvk"]
-    syllable_pattern_weights = [0.1, 0.2, 0.2, 0.4, 0.1]
-
-    word_syllables = []
-    syllable_count = random.choice([2, 3, 4])
-
-    vowel_type = random.choice(["front", "back", "neutral"])
-
-    for syllable_id in range(syllable_count):
-
-        if syllable_id != syllable_count - 1:
-            patterns_to_choose_from = syllable_patterns
-            syllable_pattern_weights = syllable_pattern_weights
-        else:
-            patterns_to_choose_from = ["k", "v"]
-            syllable_pattern_weights = [0.5, 0.5]
-
-        pattern = random.choices(
-            patterns_to_choose_from, weights=syllable_pattern_weights, k=1
-        )[0]
-        syllable = ""
-
-        for char in pattern:
-            if char == "v":
-
-                vowels_to_choose_from = list(
-                    {
-                        "front": front_vowels,
-                        "back": back_vowels,
-                        "neutral": neutral_vowels,
-                    }[vowel_type]
-                )
-
-                # cannot choose sam vowel as previous syllable ends with
-
-                if syllable_id > 0:
-                    remove_this = word_syllables[syllable_id - 1][-1]
-                    vowels_to_choose_from = [
-                        v for v in vowels_to_choose_from if v != remove_this
-                    ]
-
-                    if len(vowels_to_choose_from) == 0:
-                        vowels_to_choose_from = list(
-                            {
-                                "front": front_vowels,
-                                "back": back_vowels,
-                                "neutral": neutral_vowels,
-                            }[vowel_type]
-                        )
-
-                diphthongs_to_choose_from = list(
-                    {
-                        "front": front_diphthongs,
-                        "back": back_diphthongs,
-                        "neutral": neutral_diphthongs,
-                    }[vowel_type]
-                )
-
-                if random.random() < 0.1:
-                    syllable += random.choice(diphthongs_to_choose_from)
-                else:
-                    syllable += random.choice(vowels_to_choose_from)
-            else:
-                syllable += random.choice(consonants)
-
-        word_syllables.append(syllable)
-
-    candidate_word = "".join(word_syllables)
-
-    # if word contains triple vowel, redo the call to this function
-    conditions = [re.search(r"[aeiouyäö]{3}", candidate_word)]
-
-    if any(conditions):
-        return generate_nonce_word_fi(target_word)
-
-    else:
-        return candidate_word
