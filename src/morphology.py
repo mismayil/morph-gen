@@ -4,12 +4,13 @@ import tiktoken
 import json
 import networkx as nx
 import re
+import sys
 import matplotlib.pyplot as plt
 
 try:    
     from turkish_morphology import decompose, analyze
 except ImportError:
-    print("turkish-morphology package not installed. Skipping import.")
+    print("turkish-morphology package not installed. Skipping import.", file=sys.stderr)
 
 from utils import MODEL_ENCODINGS, levenshtein_distance
 
@@ -297,17 +298,17 @@ def generate_nonce_word_fi(target_word, seed=None):
         for char in mutable_part:
             if char in back_vowels:
                 # letter_pool = list(back_vowels_set - set(char))
-                letter_pool = back_vowels
+                inventory = back_vowels
             elif char in front_vowels:
                 # letter_pool = list(front_vowels_set - set(char))
-                letter_pool = front_vowels
+                inventory = front_vowels
             elif char in mid_vowels:
                 # letter_pool = list(mid_vowels_set - set(char))
-                letter_pool = mid_vowels
+                inventory = mid_vowels
             else:
-                letter_pool = consonants
+                inventory = consonants
 
-            random_token = get_random_letter_fi(letter_pool)
+            random_token = get_random_letter_fi(inventory)
             prefix_tokens.append(random_token)
     
     prefix = "".join(prefix_tokens)
