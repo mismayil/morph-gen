@@ -200,7 +200,16 @@ def plot_results_overall(tab_results_lst, output_dir, output_format="png", metri
 
 def plot_results_by_lang(tab_results_lst, output_dir, output_format="png", metric="accuracy", task="morph-gen", max_affix_length=10, num_shots=5):
     templates = [_get_template(tab_results) for tab_results in tab_results_lst]
-    
+    models = [_get_model(tab_results) for tab_results in tab_results_lst]
+    languages = [_get_language(tab_results) for tab_results in tab_results_lst]
+
+    assert len(set(languages)) == 1, "All tabulated results must be for the same language."
+    assert len(set(templates)) == 1, "All tabulated results must be for the same template."
+    assert len(set(models)) == 1, "All tabulated results must be for the same model."
+
+    output_dir = pathlib.Path(output_dir) / f"{output_format}_figs_{languages[0]}_{templates[0]}_{models[0]}"
+    output_dir.mkdir(parents=True, exist_ok=True)
+
     for tab_results, template in zip(tab_results_lst, templates):
         tab_results["template"] = template
 
@@ -225,6 +234,17 @@ def plot_results_by_lang(tab_results_lst, output_dir, output_format="png", metri
     plt.savefig(plot_path)
 
 def plot_results_tok_aligned(tab_results_lst, output_dir, output_format="png", metric="accuracy", task="morph-gen", max_affix_length=10, num_shots=5):
+    templates = [_get_template(tab_results) for tab_results in tab_results_lst]
+    models = [_get_model(tab_results) for tab_results in tab_results_lst]
+    languages = [_get_language(tab_results) for tab_results in tab_results_lst]
+
+    assert len(set(languages)) == 1, "All tabulated results must be for the same language."
+    assert len(set(templates)) == 1, "All tabulated results must be for the same template."
+    assert len(set(models)) == 1, "All tabulated results must be for the same model."
+
+    output_dir = pathlib.Path(output_dir) / f"{output_format}_figs_{languages[0]}_{templates[0]}_{models[0]}"
+    output_dir.mkdir(parents=True, exist_ok=True)
+
     tab_results_lst[0]["tok_aligned"] = "Yes"
     tab_results_lst[1]["tok_aligned"] = "No"
 
@@ -292,6 +312,8 @@ def main():
                                         task=task,
                                         max_affix_length=args.max_affix_length,
                                         num_shots=args.num_shots)
+                else:
+                    raise ValueError("Invalid plot type for multiple tabulated results.")
             else:
                 if "by_dist" in args.plot_types:
                     plot_results_id_vs_ood(tab_results_lst,

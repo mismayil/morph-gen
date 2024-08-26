@@ -32,6 +32,8 @@ GOOGLE_MODELS = GOOGLE_CHAT_COMPLETION_MODELS
 CHAT_COMPLETION_MODELS = OPENAI_CHAT_COMPLETION_MODELS + GOOGLE_CHAT_COMPLETION_MODELS
 TEXT_COMPLETION_MODELS = OPENAI_TEXT_COMPLETION_MODELS
 API_MODELS = OPENAI_MODELS + GOOGLE_MODELS
+PERPLEXITY_MODELS = ["gpt-2"]
+LLAMA_MODELS = ["tr-llama-8b"]
 
 @dataclasses.dataclass
 class ModelResponse:
@@ -120,13 +122,71 @@ def compute_perplexity(text, model, tokenizer, device="cuda"):
 
 def load_model(model_path="gpt2", tokenizer_path="gpt2", model_args=None, cache_dir=None, device="cuda"):
     tokenizer = AutoTokenizer.from_pretrained(tokenizer_path, cache_dir=cache_dir)
-    model = AutoModelForCausalLM.from_pretrained(model_path, cache_dir=cache_dir).to(device)
+    model = AutoModelForCausalLM.from_pretrained(model_path, 
+                                                 cache_dir=cache_dir,
+                                                 torch_dtype=torch.bfloat16).to(device)
     model.eval()
     return model, tokenizer
 
-def evaluate_hf(prompt, model, tokenizer, model_args=None, device="cuda"):
+def evaluate_perplexity_model(prompt, model, tokenizer, model_args=None, device="cuda"):
     perplexity = compute_perplexity(prompt, model, tokenizer, device=device)
     return perplexity
+
+def get_llama_model_args(model_args):
+    llama_model_args = {}
+
+    if model_args is not None:
+        if "temperature" in model_args:
+            llama_model_args["temperature"] = model_args["temperature"]
+        if "max_tokens" in model_args:
+            llama_model_args["max_new_tokens"] = model_args["max_tokens"]
+        if "top_p" in model_args:
+            llama_model_args["top_p"] = model_args["top_p"]
+        if "top_k" in model_args:
+            llama_model_args["top_k"] = model_args["top_k"]
+        if "frequency_penalty" in model_args:
+            llama_model_args["frequency_penalty"] = model_args["frequency_penalty"]
+        if "presence_penalty" in model_args:
+            llama_model_args["presence_penalty"] = model_args["presence_penalty"]
+        if llama_model_args["top_p"] == 1 and llama_model_args["top_k"] is None:
+            llama_model_args["do_sample"] = False
+        else:
+            llama_model_args["do_sample"] = True
+    return llama_model_args
+
+def evaluate_llama_model(prompts, model, tokenizer, model_args=None, device="cuda"):
+    terminators = [
+        tokenizer.eos_token_id,
+        tokenizer.convert_tokens_to_ids("<|eot_id|>")
+    ]
+    llama_model_args = get_llama_model_args(model_args)
+
+    responses = []
+
+    for prompt in prompts:
+        messages = [{"role": "user", "content": prompt}]
+
+        input_ids = tokenizer.apply_chat_template(
+            messages,
+            add_generation_prompt=True,
+            return_tensors="pt",
+        ).to(device)
+
+        outputs = model.generate(
+            input_ids,
+            eos_token_id=terminators,
+            **llama_model_args
+        )
+        response = outputs[0][input_ids.shape[-1]:]
+        responses.append(ModelResponse(text=tokenizer.decode(response, skip_special_tokens=True)))
+    
+    return responses
+
+def evaluate_model(prompts, model, tokenizer, model_args=None, device="cuda"):
+    if model in LLAMA_MODELS:
+        return evaluate_llama_model(prompts, model, tokenizer, model_args=model_args, device=device)
+    else:
+        raise ValueError(f"Model {model} not supported")
 
 async def batch_completion(client, batch, model, model_args):
     tasks = []
@@ -216,6 +276,13 @@ async def main():
             "source": args.datapath,
             "size": len(data),
             "model": args.model,
+            "model_path": args.model_path,
+            "tokenizer_path": args.tokenizer_path,
+            "cache_dir": args.cache_dir,
+            "ignore_path": args.ignore_path,
+            "batch_size": args.batch_size,
+            "openai_azure": args.openai_azure,
+            "num_samples": args.num_samples,
             "model_args": {
                 "temperature": args.temperature,
                 "max_tokens": args.max_tokens,
@@ -275,9 +342,14 @@ async def main():
                 for sample, result in zip(filtered_batch, results):
                     sample["model_output"] = result.text
                     sample["usage"] = result.usage
-            else:
-                perplexity = evaluate_hf(sample["prompt"], model, tokenizer, device=device)
+            elif args.model in PERPLEXITY_MODELS:
+                perplexity = evaluate_perplexity_model(sample["prompt"], model, tokenizer, device=device)
                 sample["perplexity"] = perplexity
+            else:
+                results = evaluate_model([sample["prompt"] for sample in filtered_batch], model, tokenizer, model_args=model_args, device=device)
+
+                for sample, result in zip(filtered_batch, results):
+                    sample["model_output"] = result.text
             
             write_json(outputs, output_path, ensure_ascii=False)
         except Exception as e:
