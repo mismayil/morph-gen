@@ -38,7 +38,7 @@ LLAMA_MODELS = ["tr-llama-8b"]
 @dataclasses.dataclass
 class ModelResponse:
     text: str
-    usage: dict
+    usage: dict = None
 
 def get_openai_model_args(model_args):
     openai_model_args = {}
@@ -144,11 +144,7 @@ def get_llama_model_args(model_args):
             llama_model_args["top_p"] = model_args["top_p"]
         if "top_k" in model_args:
             llama_model_args["top_k"] = model_args["top_k"]
-        if "frequency_penalty" in model_args:
-            llama_model_args["frequency_penalty"] = model_args["frequency_penalty"]
-        if "presence_penalty" in model_args:
-            llama_model_args["presence_penalty"] = model_args["presence_penalty"]
-        if llama_model_args["top_p"] == 1 and llama_model_args["top_k"] is None:
+        if llama_model_args["top_p"] == 1 and not llama_model_args.get("top_k"):
             llama_model_args["do_sample"] = False
         else:
             llama_model_args["do_sample"] = True
@@ -175,6 +171,7 @@ def evaluate_llama_model(prompts, model, tokenizer, model_args=None, device="cud
         outputs = model.generate(
             input_ids,
             eos_token_id=terminators,
+            pad_token_id=tokenizer.eos_token_id,
             **llama_model_args
         )
         response = outputs[0][input_ids.shape[-1]:]
@@ -182,11 +179,11 @@ def evaluate_llama_model(prompts, model, tokenizer, model_args=None, device="cud
     
     return responses
 
-def evaluate_model(prompts, model, tokenizer, model_args=None, device="cuda"):
-    if model in LLAMA_MODELS:
+def evaluate_model(prompts, model_name, model, tokenizer, model_args=None, device="cuda"):
+    if model_name in LLAMA_MODELS:
         return evaluate_llama_model(prompts, model, tokenizer, model_args=model_args, device=device)
     else:
-        raise ValueError(f"Model {model} not supported")
+        raise ValueError(f"Model {model_name} not supported")
 
 async def batch_completion(client, batch, model, model_args):
     tasks = []
@@ -243,8 +240,8 @@ async def main():
     parser.add_argument("-n", "--num-samples", type=int, help="Number of samples to evaluate", default=0)
     parser.add_argument("-i", "--ignore-path", type=str, help="Path to already evaluated data", default=None)
     parser.add_argument("-c", "--cache-dir", type=str, help="Cache directory for model", default="~/.cache")
-    parser.add_argument("-mp", "--model-path", type=str, help="Model path to use for evaluation", default="gpt2")
-    parser.add_argument("-tp", "--tokenizer-path", type=str, help="Tokenizer path to use for evaluation", default="gpt2")
+    parser.add_argument("-mp", "--model-path", type=str, help="Model path to use for evaluation", default=None)
+    parser.add_argument("-tp", "--tokenizer-path", type=str, help="Tokenizer path to use for evaluation", default=None)
     parser.add_argument("-b", "--batch-size", type=int, help="Batch size for evaluation", default=1)
     
     args = parser.parse_args()
@@ -346,7 +343,7 @@ async def main():
                 perplexity = evaluate_perplexity_model(sample["prompt"], model, tokenizer, device=device)
                 sample["perplexity"] = perplexity
             else:
-                results = evaluate_model([sample["prompt"] for sample in filtered_batch], model, tokenizer, model_args=model_args, device=device)
+                results = evaluate_model([sample["prompt"] for sample in filtered_batch], args.model, model, tokenizer, model_args=model_args, device=device)
 
                 for sample, result in zip(filtered_batch, results):
                     sample["model_output"] = result.text
