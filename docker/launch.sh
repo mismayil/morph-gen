@@ -29,28 +29,31 @@ if [ "$command" == "run_bash" ]; then
 	echo "Job [$arg_job_name]"
 
 	# IC RunAI
+	# runai submit $arg_job_name \
+	# 	-i $MY_IMAGE \
+	# 	--cpu $num_cpu \
+	# 	--cpu-limit $num_cpu \
+	# 	--memory 64G \
+	# 	--memory-limit 64G \
+	# 	--gpu $num_gpu \
+	# 	--pvc runai-nlp-ismayilz-nlpdata1:/mnt/nlpdata1 \
+	# 	--pvc runai-nlp-ismayilz-scratch:/mnt/scratch \
+	# 	--interactive \
+	# 	--attach \
+	# 	--command -- "/bin/bash"
+
+	# RCP RunAI
 	runai submit $arg_job_name \
 		-i $MY_IMAGE \
 		--cpu $num_cpu \
 		--cpu-limit $num_cpu \
 		--memory 64G \
 		--memory-limit 64G \
-		--gpu $num_gpu \
-		--pvc runai-nlp-ismayilz-nlpdata1:/mnt/nlpdata1 \
-		--pvc runai-nlp-ismayilz-scratch:/mnt/scratch \
+		--gpu-memory 80G \
+		--pvc nlp-scratch:/mnt/scratch \
 		--interactive \
 		--attach \
 		--command -- "/bin/bash"
-
-	# RCP RunAI
-	# runai submit $arg_job_name \
-	# 	-i $MY_IMAGE \
-	# 	--cpu $num_cpu \
-	# 	--gpu $num_gpu \
-	# 	--pvc nlp-scratch:/mnt/scratch \
-	# 	--interactive \
-	# 	--attach \
-	# 	--command -- "/bin/bash"
 	exit 0
 fi
 

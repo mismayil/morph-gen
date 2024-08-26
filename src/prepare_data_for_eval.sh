@@ -67,10 +67,16 @@ do
     # python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1_no_dv_nonce.json -t morph_disc_tr -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_tr/${experiment}/batch1
 
     # FI in EN template
-    python prepare_data_for_eval.py -d ${data_dir}/fi/final/default/finnish_default_final_morph.json -t morph_gen_en -n ${shot} -o ${data_dir}/fi/final/eval/temp_en/${experiment}
-    python prepare_data_for_eval.py -d ${data_dir}/fi/final/default/finnish_default_final_morph.json -t morph_disc_en -n ${shot} -o ${data_dir}/fi/final/eval/temp_en/${experiment}
-    python prepare_data_for_eval.py -d ${data_dir}/fi/final/default/finnish_default_final_morph_nonce.json -t morph_gen_en -n ${shot} -o ${data_dir}/fi/final/eval/temp_en/${experiment}
-    python prepare_data_for_eval.py -d ${data_dir}/fi/final/default/finnish_default_final_morph_nonce.json -t morph_disc_en -n ${shot} -o ${data_dir}/fi/final/eval/temp_en/${experiment}
+    # python prepare_data_for_eval.py -d ${data_dir}/fi/final/default/finnish_default_final_morph.json -t morph_gen_en -n ${shot} -o ${data_dir}/fi/final/eval/temp_en/${experiment}
+    # python prepare_data_for_eval.py -d ${data_dir}/fi/final/default/finnish_default_final_morph.json -t morph_disc_en -n ${shot} -o ${data_dir}/fi/final/eval/temp_en/${experiment}
+    # python prepare_data_for_eval.py -d ${data_dir}/fi/final/default/finnish_default_final_morph_nonce.json -t morph_gen_en -n ${shot} -o ${data_dir}/fi/final/eval/temp_en/${experiment}
+    # python prepare_data_for_eval.py -d ${data_dir}/fi/final/default/finnish_default_final_morph_nonce.json -t morph_disc_en -n ${shot} -o ${data_dir}/fi/final/eval/temp_en/${experiment}
+
+    # FI in FI template
+    python prepare_data_for_eval.py -d ${data_dir}/fi/final/default/finnish_default_final_morph.json -t morph_gen_fi -n ${shot} -o ${data_dir}/fi/final/eval/temp_fi/${experiment}
+    python prepare_data_for_eval.py -d ${data_dir}/fi/final/default/finnish_default_final_morph.json -t morph_disc_fi -n ${shot} -o ${data_dir}/fi/final/eval/temp_fi/${experiment}
+    python prepare_data_for_eval.py -d ${data_dir}/fi/final/default/finnish_default_final_morph_nonce.json -t morph_gen_fi -n ${shot} -o ${data_dir}/fi/final/eval/temp_fi/${experiment}
+    python prepare_data_for_eval.py -d ${data_dir}/fi/final/default/finnish_default_final_morph_nonce.json -t morph_disc_fi -n ${shot} -o ${data_dir}/fi/final/eval/temp_fi/${experiment}
 
 done
 
