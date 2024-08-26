@@ -38,35 +38,35 @@ POS_MAP = {
 
 # Finnish letter frequency based on flores devtest
 FINNISH_LETTER_FREQ = {
-        "a": 15225,
-        "å": 1, # smoothing
-        "ä": 4980,
-        "b": 209,
-        "c": 177,
-        "d": 1166,
-        "e": 9682,
-        "f": 164,
-        "g": 380,
-        "h": 2161,
-        "i": 13658,
-        "j": 2576,
-        "k": 6003,
-        "l": 6938,
-        "m": 3866,
-        "n": 9937,
-        "o": 6378,
-        "ö": 568,
-        "p": 2218,
-        "q": 121,
-        "r": 3048,
-        "s": 9177,
-        "t": 11858,
-        "u": 5886,
-        "v": 3052,
-        "w": 64,
-        "x": 13,
-        "y": 2148,
-        "z": 36
+    "a": 15225,
+    "å": 1, # smoothing
+    "ä": 4980,
+    "b": 209,
+    "c": 177,
+    "d": 1166,
+    "e": 9682,
+    "f": 164,
+    "g": 380,
+    "h": 2161,
+    "i": 13658,
+    "j": 2576,
+    "k": 6003,
+    "l": 6938,
+    "m": 3866,
+    "n": 9937,
+    "o": 6378,
+    "ö": 568,
+    "p": 2218,
+    "q": 121,
+    "r": 3048,
+    "s": 9177,
+    "t": 11858,
+    "u": 5886,
+    "v": 3052,
+    "w": 64,
+    "x": 13,
+    "y": 2148,
+    "z": 36
 }
 
 
@@ -232,7 +232,7 @@ def get_random_letter_tr(letters, weighted=True):
 
 def get_random_letter_fi(letters, weighted=True):
     if weighted:
-        weights = [FINNISH_LETTER_FREQ[c] for c in letters]
+        weights = [FINNISH_LETTER_FREQ[c.lower()] for c in letters]
         return random.choices(letters, weights=weights)[0]
     else:
         return random.choice(letters)

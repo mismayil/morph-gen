@@ -17,11 +17,11 @@ outputs_dir="../experiments/outputs"
     # python evaluate_lm.py -d ${jsonfile} -o ${outputs_dir}/gpt-2-ttok/tr/btwd/temp_en/${experiment} -m gpt-2 -mp /home/azureuser/morph-gen-artifacts/tr_gpt2_pretrained6 -tp /home/azureuser/morph-gen-artifacts/tr_gpt2_pretrained6
 # done
 
-for jsonfile in ${data_dir}/tr/btwd/final/eval/temp_en/${input_dir}/batch1/*.json
-do
-    echo "Evaluating ${jsonfile}"
-    python evaluate_lm.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_en/final/${experiment}/batch1 -m ${model} -b 4 -oa
-done
+# for jsonfile in ${data_dir}/tr/btwd/final/eval/temp_en/${input_dir}/batch1/*.json
+# do
+#     echo "Evaluating ${jsonfile}"
+#     python evaluate_lm.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_en/final/${experiment}/batch1 -m ${model} -b 4 -oa
+# done
 
 # for jsonfile in ${data_dir}/tr/btwd/final/eval/temp_tr/${input_dir}/batch1/*.json
 # do
@@ -69,8 +69,8 @@ done
 #     python evaluate_lm.py -d ${jsonfile} -o ${outputs_dir}/${model}/en/morpholex/temp_tr/${experiment} -k ${openai_api_key} -m ${model} -ia
 # done
 
-# for jsonfile in ${data_dir}/fi/test/eval/temp_en/${input_dir}/*.json
-# do
-#     echo "Evaluating ${jsonfile}"
-#     python evaluate_lm.py -d ${jsonfile} -o ${outputs_dir}/${model}/fi/test/temp_en/${experiment} -m ${model} -ia -b 4
-# done
+for jsonfile in ${data_dir}/fi/final/eval/temp_en/${input_dir}/*.json
+do
+    echo "Evaluating ${jsonfile}"
+    python evaluate_lm.py -d ${jsonfile} -o ${outputs_dir}/${model}/fi/final/temp_en/${experiment} -m ${model} -ia -b 8 -oa
+done
