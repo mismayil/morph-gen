@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 nvidia/cuda:12.2.2-runtime-ubuntu22.04
+FROM --platform=linux/amd64 nvidia/cuda:11.8.0-runtime-ubuntu18.04
 
 
 # Set default shell to /bin/bash
@@ -14,11 +14,11 @@ ENV CONDA_ENV=morphgen
 WORKDIR /
 
 # Install dependencies
-RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/3bf863cc.pub
+RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/3bf863cc.pub
 RUN apt update && apt install -y --allow-downgrades --allow-change-held-packages --no-install-recommends \
         build-essential \
-        gcc \
-        g++ \
+        gcc-8 \
+        g++-8 \
         cmake \
         git \
         curl \
@@ -36,6 +36,15 @@ RUN apt update && apt install -y --allow-downgrades --allow-change-held-packages
         apt-transport-https \
         gnupg \
         protobuf-compiler
+
+# Set up bazel
+RUN curl -fsSL https://bazel.build/bazel-release.pub.gpg | gpg --dearmor >bazel-archive-keyring.gpg
+RUN mv bazel-archive-keyring.gpg /usr/share/keyrings
+RUN echo "deb [arch=amd64 signed-by=/usr/share/keyrings/bazel-archive-keyring.gpg] https://storage.googleapis.com/bazel-apt stable jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list
+RUN apt update && apt install bazel-5.4.1
+RUN ln -sf /usr/bin/bazel-5.4.1 /usr/bin/bazel
+RUN ln -sf /usr/bin/gcc-8 /usr/bin/gcc
+RUN ln -sf /usr/bin/g++-8 /usr/bin/g++
 
 # Set up user
 RUN --mount=type=secret,id=my_env source /run/secrets/my_env && \
@@ -75,7 +84,27 @@ RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -
 RUN bash miniconda.sh -b -p ${CONDA_PREFIX}
 RUN ${CONDA} config --set auto_activate_base false
 RUN ${CONDA} init bash
-RUN ${CONDA} create -y --name ${CONDA_ENV} python=3.10
+RUN ${CONDA} create -y --name ${CONDA_ENV} python=3.9
+
+# Set up turkish morphology repo
+# modified MANIFEST.in
+RUN git clone https://github.com/mismayil/turkish-morphology.git
+WORKDIR ${HOME}/turkish-morphology
+RUN ${CONDA} run -n ${CONDA_ENV} bazel build //...
+RUN ${CONDA} run -n ${CONDA_ENV} bazel-bin/setup install
+
+WORKDIR ${HOME}
+
+# Check if turkish morphology correctly installed
+RUN ${CONDA} run -n ${CONDA_ENV} python -c "from turkish_morphology import decompose, analyze"
+
+# Set up datatrove
+# downgraded to 3.9
+RUN git clone https://github.com/mismayil/datatrove.git
+WORKDIR ${HOME}/datatrove
+RUN ${CONDA} run -n ${CONDA_ENV} pip install -e ".[dev]"
+
+WORKDIR ${HOME}
 
 # Setup github repo dependencies
 COPY --chown=${USER_NAME} ./requirements.txt .
@@ -92,6 +121,6 @@ RUN echo -e "\n${USER_NAME} ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 USER ${USER_NAME}
 
-ENTRYPOINT ["/bin/bash"]
+ENTRYPOINT ["sleep", "infinity"]
 
 # ENTRYPOINT ["sudo", "/usr/sbin/sshd", "-D"]

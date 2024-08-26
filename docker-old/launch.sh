@@ -1,14 +1,14 @@
 #!/bin/bash
 
-MY_IMAGE="ic-registry.epfl.ch/nlp/mete/project-morphgen-base"
+MY_IMAGE="ic-registry.epfl.ch/nlp/mete/project-morphgen"
 
-arg_job_prefix="project-morphgen-base"
-arg_job_suffix="0"
+arg_job_prefix="project-morphgen"
+arg_job_suffix="wiki-0"
 arg_job_name="$arg_job_prefix-$arg_job_suffix"
 
 command=$1
-num_cpu=${2:-4}
-num_gpu=${3:-1}
+num_cpu=${2:-8}
+num_gpu=${3:-0}
 
 # Run this for train mode
 if [ "$command" == "run" ]; then
@@ -28,29 +28,16 @@ fi
 if [ "$command" == "run_bash" ]; then
 	echo "Job [$arg_job_name]"
 
-	# IC RunAI
 	runai submit $arg_job_name \
 		-i $MY_IMAGE \
 		--cpu $num_cpu \
-		--cpu-limit $num_cpu \
-		--memory 64G \
-		--memory-limit 64G \
 		--gpu $num_gpu \
 		--pvc runai-nlp-ismayilz-nlpdata1:/mnt/nlpdata1 \
 		--pvc runai-nlp-ismayilz-scratch:/mnt/scratch \
+		--service-type=nodeport \
+		--port 31122:22 \
 		--interactive \
-		--attach \
-		--command -- "/bin/bash"
-
-	# RCP RunAI
-	# runai submit $arg_job_name \
-	# 	-i $MY_IMAGE \
-	# 	--cpu $num_cpu \
-	# 	--gpu $num_gpu \
-	# 	--pvc nlp-scratch:/mnt/scratch \
-	# 	--interactive \
-	# 	--attach \
-	# 	--command -- "/bin/bash"
+        --node-type G10
 	exit 0
 fi
 
