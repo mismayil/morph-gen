@@ -72,8 +72,5 @@ outputs_dir="../experiments/outputs"
 # for jsonfile in ${data_dir}/fi/final/eval/temp_en/${input_dir}/*.json
 # do
 #     echo "Evaluating ${jsonfile}"
-#     python evaluate_lm.py -d ${jsonfile} -o ${outputs_dir}/${model}/fi/final/temp_en/${experiment} -m ${model} -b 8 -oa
+#     python evaluate_lm.py -d ${jsonfile} -o ${outputs_dir}/${model}/fi/temp_en/final/${experiment} -m ${model} -b 8 -oa
 # done
-
-python evaluate_lm.py -d ../experiments/data/fi/final/eval/temp_en/v_final_default/finnish_default_final_morph_nonce_eval_morph_gen_en_s3.json -o ${outputs_dir}/${model}/fi/final/temp_en/${experiment} -m ${model} -b 8 -oa
-python evaluate_lm.py -d ../experiments/data/fi/final/eval/temp_en/v_final_default/finnish_default_final_morph_nonce_eval_morph_gen_en_s5.json -o ${outputs_dir}/${model}/fi/final/temp_en/${experiment} -m ${model} -b 8 -oa
