@@ -34,6 +34,7 @@ TEXT_COMPLETION_MODELS = OPENAI_TEXT_COMPLETION_MODELS
 API_MODELS = OPENAI_MODELS + GOOGLE_MODELS
 PERPLEXITY_MODELS = ["gpt-2"]
 LLAMA_MODELS = ["tr-llama-8b"]
+PORO_MODELS = ["poro-34b"]
 
 @dataclasses.dataclass
 class ModelResponse:
@@ -132,7 +133,7 @@ def evaluate_perplexity_model(prompt, model, tokenizer, model_args=None, device=
     perplexity = compute_perplexity(prompt, model, tokenizer, device=device)
     return perplexity
 
-def get_llama_model_args(model_args):
+def get_hf_model_args(model_args):
     llama_model_args = {}
 
     if model_args is not None:
@@ -155,7 +156,7 @@ def evaluate_llama_model(prompts, model, tokenizer, model_args=None, device="cud
         tokenizer.eos_token_id,
         tokenizer.convert_tokens_to_ids("<|eot_id|>")
     ]
-    llama_model_args = get_llama_model_args(model_args)
+    llama_model_args = get_hf_model_args(model_args)
 
     responses = []
 
@@ -179,9 +180,39 @@ def evaluate_llama_model(prompts, model, tokenizer, model_args=None, device="cud
     
     return responses
 
+def evaluate_poro_model(prompts, model, tokenizer, model_args=None, device="cuda"):
+    terminators = [
+        tokenizer.eos_token_id,
+        tokenizer.convert_tokens_to_ids("<|im_end|>")
+    ]
+    llama_model_args = get_hf_model_args(model_args)
+
+    responses = []
+
+    for prompt in prompts:
+        messages = [{"role": "user", "content": prompt}]
+
+        input_ids = tokenizer.apply_chat_template(
+            messages,
+            add_generation_prompt=True,
+            return_tensors="pt",
+        ).to(device)
+
+        outputs = model.generate(
+            input_ids,
+            eos_token_id=terminators,
+            **llama_model_args
+        )
+        response = outputs[0][input_ids.shape[-1]:]
+        responses.append(ModelResponse(text=tokenizer.decode(response, skip_special_tokens=True)))
+    
+    return responses
+
 def evaluate_model(prompts, model_name, model, tokenizer, model_args=None, device="cuda"):
     if model_name in LLAMA_MODELS:
         return evaluate_llama_model(prompts, model, tokenizer, model_args=model_args, device=device)
+    elif model_name in PORO_MODELS:
+        return evaluate_poro_model(prompts, model, tokenizer, model_args=model_args, device=device)
     else:
         raise ValueError(f"Model {model_name} not supported")
 
