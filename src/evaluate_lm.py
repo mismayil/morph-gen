@@ -231,7 +231,7 @@ async def batch_completion(client, batch, model, model_args):
 
     return results
 
-def configure_openai_client(api_key, is_openai_azure):
+def configure_openai_client(api_key, is_openai_azure=False):
     if is_openai_azure:
         endpoint = os.getenv("AZURE_OPENAI_API_ENDPOINT", "https://sigturk-openai.openai.azure.com/")
         client = AsyncAzureOpenAI(
