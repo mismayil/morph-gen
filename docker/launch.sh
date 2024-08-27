@@ -1,23 +1,109 @@
 #!/bin/bash
 
-MY_IMAGE="ic-registry.epfl.ch/nlp/mete/project-morphgen-base"
+IMAGE="ic-registry.epfl.ch/nlp/mete/project-morphgen-base"
+COMMAND=$1
+CLUSTER=ic
+N_GPUS=1
+N_CPUS=4
+JOB_PREFIX="project-morphgen-base"
+JOB_SUFFIX="0"
+MEMORY="64G"
+GPU_MEMORY="32G"
+VERBOSE=0
+RUN_COMMAND="/bin/bash"
+N_GPUS_SET=1
+shift 1
 
-arg_job_prefix="project-morphgen-base"
-arg_job_suffix="0"
-arg_job_name="$arg_job_prefix-$arg_job_suffix"
+while getopts m:l:c:g:p:s:u:v opt; do
+	case ${opt} in
+		m)
+			MEMORY=${OPTARG}
+			;;
+		l)
+			CLUSTER=${OPTARG}
+			;;
+		c)
+			N_CPUS=${OPTARG}
+			;;
+		g)
+			number_re='^[0-9]+$'
+			if [[ ${OPTARG} =~ $number_re ]] ; then
+				N_GPUS=${OPTARG}
+			else
+				GPU_MEMORY=${OPTARG}
+				N_GPUS_SET=0
+			fi
+			;;
+		p)
+			JOB_PREFIX=${OPTARG}
+			;;
+		s)
+			JOB_SUFFIX=${OPTARG}
+			;;
+		u)
+			GPU_MEMORY=${OPTARG}
+			;;
+		r)
+			RUN_COMMAND=${OPTARG}
+			;;
+		v)
+			VERBOSE=1
+			;;
+		?)
+			echo unexpected option: ${opt}
+			;;
+	esac
+done
 
-command=$1
-num_cpu=${2:-4}
-num_gpu=${3:-1}
+JOB_SUFFIX=${CLUSTER}-${JOB_SUFFIX}
+JOB_NAME=${JOB_PREFIX}-${JOB_SUFFIX}
+
+if [ "$VERBOSE" == 1 ]; then
+	echo main command: ${COMMAND}
+	echo image: ${IMAGE}
+	echo cluster: ${CLUSTER}
+	echo job name: ${JOB_NAME}
+	echo "--------------------------------"
+	
+	echo cpus: ${N_CPUS}
+	echo memory: ${MEMORY}
+
+ 	if [ "$N_GPUS_SET" == 1 ]; then
+		echo gpus: ${N_GPUS}
+	else
+		echo gpu memory: ${GPU_MEMORY}
+	fi
+	echo "--------------------------------"
+fi
+
+if [ "$CLUSTER" == "ic" ]; then
+    echo "using cluster: IC"
+    runai config cluster ic-caas
+else
+    echo "using cluster: RCP"
+    runai config cluster rcp-caas-prod
+fi
+
+echo "--------------------------------"
+
+GPU_ARGS=""
+if [ "$N_GPUS_SET" == 1 ]; then
+	GPU_ARGS="--gpu $N_GPUS"
+else
+	GPU_ARGS="--gpu-memory $GPU_MEMORY"
+fi
 
 # Run this for train mode
-if [ "$command" == "run" ]; then
-	echo "Job [$arg_job_name]"
+if [ "$COMMAND" == "run" ]; then
+	echo "Job [$JOB_NAME]"
 
-	runai submit $arg_job_name \
-		-i $MY_IMAGE \
-		--cpu $num_cpu \
-		--gpu $num_gpu \
+	runai submit $JOB_NAME \
+		-i $IMAGE \
+		--cpu $N_CPUS \
+		--cpu-limit $N_CPUS \
+		--memory $MEMORY \
+		--memory-limit $MEMORY \
+		$GPU_ARGS \
 		--pvc runai-nlp-ismayilz-nlpdata1:/mnt/nlpdata1 \
 		--pvc runai-nlp-ismayilz-scratch:/mnt/scratch \
 		--command -- bash entrypoint.sh
@@ -25,50 +111,51 @@ if [ "$command" == "run" ]; then
 fi
 
 # Run this for interactive mode
-if [ "$command" == "run_bash" ]; then
-	echo "Job [$arg_job_name]"
+if [ "$COMMAND" == "run_bash" ]; then
+	echo "Job [$JOB_NAME]"
 
-	# IC RunAI
-	# runai submit $arg_job_name \
-	# 	-i $MY_IMAGE \
-	# 	--cpu $num_cpu \
-	# 	--cpu-limit $num_cpu \
-	# 	--memory 64G \
-	# 	--memory-limit 64G \
-	# 	--gpu $num_gpu \
-	# 	--pvc runai-nlp-ismayilz-nlpdata1:/mnt/nlpdata1 \
-	# 	--pvc runai-nlp-ismayilz-scratch:/mnt/scratch \
-	# 	--interactive \
-	# 	--attach \
-	# 	--command -- "/bin/bash"
+	if [ "$CLUSTER" == "ic" ]; then
+		# IC RunAI
+		runai submit $JOB_NAME \
+			-i $IMAGE \
+			--cpu $N_CPUS \
+			--cpu-limit $N_CPUS \
+			--memory $MEMORY \
+			--memory-limit $MEMORY \
+			$GPU_ARGS \
+			--pvc runai-nlp-ismayilz-nlpdata1:/mnt/nlpdata1 \
+			--pvc runai-nlp-ismayilz-scratch:/mnt/scratch \
+			--interactive \
+			--command -- $RUN_COMMAND
+		exit 0
+	else
+		# RCP RunAI
+		runai submit $JOB_NAME \
+			-i $IMAGE \
+			--cpu $N_CPUS \
+			--cpu-limit $N_CPUS \
+			--memory $MEMORY \
+			--memory-limit $MEMORY \
+			$GPU_ARGS \
+			--pvc nlp-scratch:/mnt/scratch \
+			--interactive \
+			--command -- $RUN_COMMAND
+		exit 0
+	fi
+fi
 
-	# RCP RunAI
-	runai submit $arg_job_name \
-		-i $MY_IMAGE \
-		--cpu $num_cpu \
-		--cpu-limit $num_cpu \
-		--memory 64G \
-		--memory-limit 64G \
-		--gpu-memory 80G \
-		--pvc nlp-scratch:/mnt/scratch \
-		--interactive \
-		--attach \
-		--command -- "/bin/bash"
+if [ "$COMMAND" == "log" ]; then
+	runai logs $JOB_NAME -f
 	exit 0
 fi
 
-if [ "$command" == "log" ]; then
-	runai logs $arg_job_name -f
+if [ "$COMMAND" == "stat" ]; then
+	runai describe job $JOB_NAME 
 	exit 0
 fi
 
-if [ "$command" == "stat" ]; then
-	runai describe job $arg_job_name 
-	exit 0
-fi
-
-if [ "$command" == "del" ]; then
-	runai delete job $arg_job_name
+if [ "$COMMAND" == "del" ]; then
+	runai delete job $JOB_NAME
 	exit 0
 fi
 
