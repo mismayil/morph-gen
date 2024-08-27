@@ -159,7 +159,7 @@ def prepare_shot_for_morph_gen(
             affixes = random.sample(affixes, len(affixes))
 
     affixes_str = ", ".join([f"{s}" for s in affixes])
-    answer = sample["answer"] if _is_cot_task(template) else sample["derivation"]
+    answer = sample["cot_answer"] if _is_cot_task(template) and "cot_answer" in sample else sample["derivation"]
 
     format_args = {
         "index": idx+1,
@@ -324,8 +324,8 @@ def prepare_shots_for_morph_disc(
 
     for option in options:
         answer = (
-            sample["answer"]
-            if _is_cot_task(template)
+            sample["cot_answer"]
+            if _is_cot_task(template) and "cot_answer" in sample
             else _get_answer(option, sample["derivation"], template_lang)
         )
 
@@ -447,7 +447,10 @@ def prepare_sample_for_eval(
     for final_sh, final_ans in zip(final_shot, final_answer):
         instruction = instruction_processor(sample, template, language)
 
-        prompt = f"{instruction}\n\n{shots_prompt}\n\n{final_sh}"
+        if shots_prompt:
+            prompt = f"{instruction}\n\n{shots_prompt}\n\n{final_sh}"
+        else:
+            prompt = f"{instruction}\n\n{final_sh}"
 
         eval_data.append(
             {
