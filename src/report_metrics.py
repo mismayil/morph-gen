@@ -34,9 +34,9 @@ def get_prediction(sample, model_response, template):
         return sample["perplexity"]
 
     if template.startswith("morph_gen_cot") or template.startswith("morph_disc_cot"):
-        preds = re.findall(r"\<(.*?)\>", model_response)
+        preds = re.findall("<.*>(?P<pred>.*)</.*>", model_response)
         if preds:
-            pred = preds[-1].strip("<>").lower()
+            pred = preds[-1].strip().lower()
             if template.startswith("morph_disc"):
                 return ANSWER_MAP[lang].get(pred, 0)
             return pred
