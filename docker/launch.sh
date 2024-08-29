@@ -126,6 +126,7 @@ if [ "$COMMAND" == "run_bash" ]; then
 			--pvc runai-nlp-ismayilz-nlpdata1:/mnt/nlpdata1 \
 			--pvc runai-nlp-ismayilz-scratch:/mnt/scratch \
 			--interactive \
+			--attach \
 			--command -- $RUN_COMMAND
 		exit 0
 	else
@@ -139,6 +140,7 @@ if [ "$COMMAND" == "run_bash" ]; then
 			$GPU_ARGS \
 			--pvc nlp-scratch:/mnt/scratch \
 			--interactive \
+			--attach \
 			--command -- $RUN_COMMAND
 		exit 0
 	fi
