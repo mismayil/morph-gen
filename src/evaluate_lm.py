@@ -126,7 +126,8 @@ def load_model(model_path="gpt2", tokenizer_path="gpt2", model_args=None, cache_
     tokenizer = AutoTokenizer.from_pretrained(tokenizer_path, cache_dir=cache_dir)
     model = AutoModelForCausalLM.from_pretrained(model_path, 
                                                  cache_dir=cache_dir,
-                                                 torch_dtype=torch.bfloat16).to(device)
+                                                 device_map=device,
+                                                 torch_dtype=torch.bfloat16)
     model.eval()
     return model, tokenizer
 
