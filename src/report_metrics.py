@@ -8,6 +8,7 @@ import re
 import numpy as np
 from statistics import mean
 import random
+from string import punctuation
 
 from utils import read_json, write_json, find_files, compute_usage
 
@@ -37,16 +38,16 @@ def get_prediction(sample, model_response, template):
     if template.startswith("morph_gen_cot") or template.startswith("morph_disc_cot"):
         preds = re.findall("<.*>(?P<pred>.*)</.*>", model_response)
         if preds:
-            pred = preds[-1].strip().lower()
+            pred = preds[-1].strip().lower().strip(punctuation)
             if template.startswith("morph_disc"):
                 return ANSWER_MAP[lang].get(pred, 0)
             return pred
 
     if template.startswith("morph_disc_bin") or template.startswith("morph_disc"):
-        pred = str(model_response).strip().lower()
+        pred = str(model_response).strip().lower().strip(punctuation)
         return ANSWER_MAP[lang].get(pred, 0)
 
-    pred = str(model_response).strip().lower()
+    pred = str(model_response).strip().lower().strip(punctuation)
     return pred
 
 def get_reference(sample, ref_response, template):
