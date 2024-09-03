@@ -306,7 +306,8 @@ def none_or_int(value):
 def _write_error(error_path, sample, exception):
     with open(error_path, "a") as error_file:
         error_file.write(f"Error for sample {sample['id']}: {str(exception)}\n")
-        error_file.write(traceback.format_exception(type(exception), value=exception, tb=exception.__traceback__))
+        error = "".join(traceback.format_exception(type(exception), value=exception, tb=exception.__traceback__))
+        error_file.write(error)
         error_file.write("\n")
     
 async def main():
