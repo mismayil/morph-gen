@@ -123,6 +123,10 @@ def _get_root_definition(sample, language, template, template_lang):
         return f"{sample['root']} means {sample['id_root']} in {LANGUAGE_MAP[language][template_lang]}."
     elif template_lang == "tr":
         return f"{sample['root']} {LANGUAGE_MAP[language][template_lang]} {sample['id_root']} anlamına gelir."
+    elif template_lang == "fi":
+        return f"{sample['root']} tarkoittaa {sample['id_root']} kielellä {LANGUAGE_MAP[language][template_lang]}."
+    else:
+        raise ValueError(f"Unknown language or template: {language}, {template_lang}")
 
 def _get_target_definition(sample, language, template, template_lang):
     return sample.get("meaning", None)
@@ -136,6 +140,10 @@ def _get_answer(option, reference, template_lang):
         return "Yes" if correct else "No"
     elif template_lang == "tr":
         return "Evet" if correct else "Hayır"
+    elif template_lang == "fi":
+        return "Kyllä" if correct else "Ei"
+    else:
+        raise ValueError(f"Unknown template language: {template_lang}")
 
 def _get_affixes(sample):
     return sample.get("prefixes", []) + sample.get("suffixes", [])
@@ -383,6 +391,10 @@ def _choose_answer_based_on_template(template_lang, idx):
         return ["Yes", "No"][idx%2]
     elif template_lang == "tr":
         return ["Evet", "Hayır"][idx%2]
+    elif template_lang == "fi":
+        return ["Kyllä", "Ei"][idx%2]
+    else:
+        raise ValueError(f"Unknown template language: {template_lang}")
 
 def _choose_shot_based_on_answer(shots, answers, chosen_answer):
     for shot, answer in zip(shots, answers):

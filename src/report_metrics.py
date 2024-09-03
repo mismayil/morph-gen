@@ -13,7 +13,8 @@ from utils import read_json, write_json, find_files, compute_usage
 
 ANSWER_MAP = {
     "en": {"yes": 1, "no": 0},
-    "tr": {"evet": 1, "hayır": 0}
+    "tr": {"evet": 1, "hayır": 0},
+    "fi": {"kyllä": 1, "ei": 0},
 }
 
 def _get_template_lang(template):
