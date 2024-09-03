@@ -41,6 +41,7 @@ AYA_MODELS = ["aya-23-8b", "aya-23-35b"]
 class ModelResponse:
     text: str
     usage: dict = None
+    exception: Exception = None
 
 def get_openai_model_args(model_args):
     openai_model_args = {}
@@ -62,20 +63,34 @@ def get_openai_model_args(model_args):
 @retry(retry=retry_if_exception_type((APITimeoutError, APIConnectionError, RateLimitError, InternalServerError)), wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(10), before_sleep=before_sleep_log(logger, logging.DEBUG))
 async def openai_chat_completion(client, messages, model="gpt-3.5-turbo", model_args=None):
     openai_model_args = get_openai_model_args(model_args)
-    response = await client.chat.completions.create(model=model, messages=messages, **openai_model_args)
-    text = response.choices[0].message.content.strip()
-    usage = response.usage
+    exception = None
+
+    try:
+        response = await client.chat.completions.create(model=model, messages=messages, **openai_model_args)
+        text = response.choices[0].message.content.strip()
+        usage = response.usage
+    except (AttributeError, ValueError) as e:
+        text = ""
+        usage = {}
+        exception = e
     
-    return ModelResponse(text, dict(usage))
+    return ModelResponse(text, dict(usage), exception)
 
 @retry(retry=retry_if_exception_type((APITimeoutError, APIConnectionError, RateLimitError, InternalServerError)), wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(10), before_sleep=before_sleep_log(logger, logging.DEBUG))
 async def openai_text_completion(client, prompt, model="text-davinci-003", model_args=None):
     openai_model_args = get_openai_model_args(model_args)
-    response = client.completions.create(model=model, prompt=prompt, **openai_model_args)
-    text = response.choices[0].text.strip()
-    usage = response.usage
+    exception = None
 
-    return ModelResponse(text, dict(usage))
+    try:
+        response = client.completions.create(model=model, prompt=prompt, **openai_model_args)
+        text = response.choices[0].text.strip()
+        usage = response.usage
+    except (AttributeError, ValueError) as e:
+        text = ""
+        usage = {}
+        exception = e
+
+    return ModelResponse(text, dict(usage), exception)
 
 async def openai_completion(client, prompt, model, model_args=None):
     if model in OPENAI_CHAT_COMPLETION_MODELS:
@@ -101,12 +116,19 @@ def get_google_model_args(model_args):
     return google_model_args
 
 async def google_completion(client, prompt, model, model_args=None):
-    model = genai.GenerativeModel(model)
-    google_model_args = get_google_model_args(model_args)
-    config = genai.GenerationConfig(**google_model_args)
-    response = model.generate_content(prompt.strip(), generation_config=config)
-    text = response.text.strip()
-    return ModelResponse(text, None)
+    exception = None
+
+    try:
+        model = genai.GenerativeModel(model)
+        google_model_args = get_google_model_args(model_args)
+        config = genai.GenerationConfig(**google_model_args)
+        response = model.generate_content(prompt.strip(), generation_config=config)
+        text = response.text.strip()
+    except (AttributeError, ValueError) as e:
+        text = ""
+        exception = e
+
+    return ModelResponse(text, None, exception)
 
 @torch.no_grad()
 def compute_perplexity(text, model, tokenizer, device="cuda"):
@@ -281,6 +303,12 @@ def none_or_int(value):
         return None
     return int(value)
 
+def _write_error(error_path, sample, exception):
+    with open(error_path, "a") as error_file:
+        error_file.write(f"Error for sample {sample['id']}: {str(exception)}\n")
+        error_file.write(traceback.format_exception(type(exception), value=exception, tb=exception.__traceback__))
+        error_file.write("\n")
+    
 async def main():
     load_dotenv() 
 
@@ -397,6 +425,9 @@ async def main():
                 for sample, result in zip(filtered_batch, results):
                     sample["model_output"] = result.text
                     sample["usage"] = result.usage
+                    if result.exception is not None:
+                        sample["exception"] = str(result.exception)
+                        _write_error(error_path, sample, result.exception)
             elif args.model in PERPLEXITY_MODELS:
                 perplexity = evaluate_perplexity_model(sample["prompt"], model, tokenizer, device=device)
                 sample["perplexity"] = perplexity
@@ -407,10 +438,7 @@ async def main():
             
             write_json(outputs, output_path, ensure_ascii=False)
         except Exception as e:
-            with open(error_path, "a") as error_file:
-                error_file.write(f"Error for sample {sample['id']}: {str(e)}\n")
-                error_file.write(traceback.format_exc())
-                error_file.write("\n")
+            _write_error(error_path, sample, e)
 
     write_json(outputs, output_path, ensure_ascii=False)
 
