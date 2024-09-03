@@ -18,6 +18,7 @@ import asyncio, dataclasses
 from dotenv import load_dotenv
 import logging, sys
 import google.generativeai as genai
+from google.api_core.exceptions import ResourceExhausted, ServiceUnavailable, DeadlineExceeded
 
 logging.basicConfig(stream=sys.stderr, level=logging.WARN)
 logger = logging.getLogger(__name__)
@@ -115,6 +116,7 @@ def get_google_model_args(model_args):
 
     return google_model_args
 
+@retry(retry=retry_if_exception_type((ResourceExhausted, ServiceUnavailable, DeadlineExceeded)), wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(10), before_sleep=before_sleep_log(logger, logging.DEBUG))
 async def google_completion(client, prompt, model, model_args=None):
     exception = None
 
