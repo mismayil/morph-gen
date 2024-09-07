@@ -64,42 +64,27 @@ def get_openai_model_args(model_args):
 @retry(retry=retry_if_exception_type((APITimeoutError, APIConnectionError, RateLimitError, InternalServerError)), wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(10), before_sleep=before_sleep_log(logger, logging.DEBUG))
 async def openai_chat_completion(client, messages, model="gpt-3.5-turbo", model_args=None):
     openai_model_args = get_openai_model_args(model_args)
+    text = ""
     exception = None
-
-    try:
-        response = await client.chat.completions.create(model=model, messages=messages, **openai_model_args)
-        text = response.choices[0].message.content.strip()
-        usage = response.usage
-    except (AttributeError, ValueError) as e:
-        text = ""
-        usage = {}
-        exception = e
+    response = await client.chat.completions.create(model=model, messages=messages, **openai_model_args)
+    content = response.choices[0].message.content
     
-    return ModelResponse(text, dict(usage), exception)
-
-@retry(retry=retry_if_exception_type((APITimeoutError, APIConnectionError, RateLimitError, InternalServerError)), wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(10), before_sleep=before_sleep_log(logger, logging.DEBUG))
-async def openai_text_completion(client, prompt, model="text-davinci-003", model_args=None):
-    openai_model_args = get_openai_model_args(model_args)
-    exception = None
-
-    try:
-        response = client.completions.create(model=model, prompt=prompt, **openai_model_args)
-        text = response.choices[0].text.strip()
-        usage = response.usage
-    except (AttributeError, ValueError) as e:
-        text = ""
-        usage = {}
-        exception = e
-
+    if content is None:
+        exception = f"Finish reason: {response.choices[0].finish_reason}"
+    else:
+        text = content.strip()
+    
+    usage = response.usage
+    
     return ModelResponse(text, dict(usage), exception)
 
 async def openai_completion(client, prompt, model, model_args=None):
-    if model in OPENAI_CHAT_COMPLETION_MODELS:
-        return await openai_chat_completion(client, [{"role": "user", "content": prompt.strip()}], model=model, model_args=model_args)
-    elif model in OPENAI_TEXT_COMPLETION_MODELS:
-        return await openai_text_completion(client, prompt.strip(), model=model, model_args=model_args)
-    
-    raise ValueError(f"Model {model} not supported")
+    try:
+        if model in OPENAI_CHAT_COMPLETION_MODELS:
+            return await openai_chat_completion(client, [{"role": "user", "content": prompt.strip()}], model=model, model_args=model_args)
+        raise ValueError(f"Model {model} not supported")
+    except Exception as e:
+        return ModelResponse("", None, e)
 
 def get_google_model_args(model_args):
     google_model_args = {}
@@ -118,17 +103,18 @@ def get_google_model_args(model_args):
 
 @retry(retry=retry_if_exception_type((ResourceExhausted, ServiceUnavailable, DeadlineExceeded)), wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(10), before_sleep=before_sleep_log(logger, logging.DEBUG))
 async def google_completion(client, prompt, model, model_args=None):
+    text = ""
     exception = None
 
+    model = genai.GenerativeModel(model)
+    google_model_args = get_google_model_args(model_args)
+    config = genai.GenerationConfig(**google_model_args)
+    response = model.generate_content(prompt.strip(), generation_config=config)
+    
     try:
-        model = genai.GenerativeModel(model)
-        google_model_args = get_google_model_args(model_args)
-        config = genai.GenerationConfig(**google_model_args)
-        response = model.generate_content(prompt.strip(), generation_config=config)
         text = response.text.strip()
-    except (AttributeError, ValueError) as e:
-        text = ""
-        exception = e
+    except ValueError as e:
+        exception = f"Finish reason: {str(response.candidates[0].finish_reason)}"
 
     return ModelResponse(text, None, exception)
 
@@ -430,7 +416,7 @@ async def main():
                     sample["usage"] = result.usage
                     if result.exception is not None:
                         sample["exception"] = str(result.exception)
-                        _write_error(error_path, sample, result.exception)
+                        # _write_error(error_path, sample, result.exception)
             elif args.model in PERPLEXITY_MODELS:
                 perplexity = evaluate_perplexity_model(sample["prompt"], model, tokenizer, device=device)
                 sample["perplexity"] = perplexity

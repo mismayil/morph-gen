@@ -267,7 +267,7 @@ def plot_results_tok_aligned(tab_results_lst, output_dir, output_format="png", m
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-r", "--tab-results-paths", type=str, nargs="+", help="Path to tabulated results file(s)", required=True)
-    parser.add_argument("-o", "--output-dir", type=str, help="Output directory to save plots", default="../figures")
+    parser.add_argument("-o", "--output-dir", type=str, help="Output directory to save plots", default=None)
     parser.add_argument("-e", "--metrics", type=str, choices=METRICS, default=METRICS, help="Metrics to show results for.")
     parser.add_argument("-f", "--output-format", type=str, choices=["png", "pdf", "svg"], default="png", help="Format to save the plots in.")
     parser.add_argument("-mal", "--max-affix-length", type=int, help="Maximum affix length to consider", default=7)
@@ -291,14 +291,19 @@ def main():
             print(f"Skipping. Tabulated results file not found at {results_path}")
             return
 
-    pathlib.Path(args.output_dir).mkdir(parents=True, exist_ok=True)
+    output_dir = args.output_dir
+
+    if output_dir is None:
+        output_dir = results_path.parent / "figures"
+    
+    pathlib.Path(output_dir).mkdir(parents=True, exist_ok=True)
 
     for metric in args.metrics:
         for task in ["morph-disc", "morph-gen"]:
             if len(tab_results_lst) > 1:
                 if "by_lang" in args.plot_types:
                     plot_results_by_lang(tab_results_lst,
-                                        output_dir=args.output_dir,
+                                        output_dir=output_dir,
                                         output_format=args.output_format,
                                         metric=metric,
                                         task=task,
@@ -306,7 +311,7 @@ def main():
                                         num_shots=args.num_shots)
                 elif "by_alignment" in args.plot_types:
                     plot_results_tok_aligned(tab_results_lst,
-                                        output_dir=args.output_dir,
+                                        output_dir=output_dir,
                                         output_format=args.output_format,
                                         metric=metric,
                                         task=task,
@@ -317,7 +322,7 @@ def main():
             else:
                 if "by_dist" in args.plot_types:
                     plot_results_id_vs_ood(tab_results_lst,
-                                        output_dir=args.output_dir,
+                                        output_dir=output_dir,
                                         output_format=args.output_format,
                                         metric=metric,
                                         task=task,
@@ -325,7 +330,7 @@ def main():
                                         num_shots=args.num_shots)
                 if "overall" in args.plot_types:
                     plot_results_overall(tab_results_lst,
-                                        output_dir=args.output_dir,
+                                        output_dir=output_dir,
                                         output_format=args.output_format,
                                         metric=metric,
                                         task=task,
@@ -339,7 +344,7 @@ def main():
                             keyword = "suffix"
 
                         plot_results_by_freq(tab_results_lst, 
-                                            output_dir=args.output_dir, 
+                                            output_dir=output_dir, 
                                             output_format=args.output_format, 
                                             metric=metric,
                                             task=task,
@@ -348,7 +353,7 @@ def main():
                                             max_affix_length=args.max_affix_length)
                     elif "main" in args.plot_types:
                         plot_results(tab_results_lst, 
-                                output_dir=args.output_dir, 
+                                output_dir=output_dir, 
                                 output_format=args.output_format,
                                 metric=metric,
                                 task=task,
