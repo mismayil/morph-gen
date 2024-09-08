@@ -68,14 +68,14 @@ Cevap: {answer}"""
 ####################################################################################################################################
 
 ##################################### Prompt templates in Finnish #####################################
-MORPH_GEN_FI_INSTRUCTION_TEMPLATE = "Sinulle annetaan sanan sanavartalo ja luettelo pilkulla erotettuja päätteitä kielellä {language}. Tehtäväsi on luoda tästä juuresta kieliopillisesti oikea sana käyttämällä kaikkia annettuja päätteitä. Voit käyttää vain annettuja päätteitä ja kutakin päätettä vain kerran. Vastaa vain luodulla sanalla."
+MORPH_GEN_FI_INSTRUCTION_TEMPLATE = "Sinulle annetaan sanan sananvartalo ja luettelo pilkulla erotettuja päätteitä kielellä {language}. Tehtäväsi on luoda tästä juuresta kieliopillisesti oikea sana käyttämällä kaikkia annettuja päätteitä. Voit käyttää vain annettuja päätteitä ja kutakin päätettä vain kerran. Vastaa vain luodulla sanalla."
 
 MORPH_GEN_FI_SHOT_TEMPLATE = """Esimerkki {index}:
 Sanavartalo: {root}
 Päätteet: {affixes}
 Vastaus: {answer}"""
 
-MORPH_DISC_FI_INSTRUCTION_TEMPLATE = "Sinulle annetaan sanavartalo, pilkulla eroteltu luettelo päätteistä sekä annettuja päätteitä käyttämällä vartalosta johdettu sana kielellä {language}. Tehtäväsi on selvittää, onko johdettu sana kieliopillisesti oikein. Vastaa vain Kyllä tai Ei."
+MORPH_DISC_FI_INSTRUCTION_TEMPLATE = "Sinulle annetaan sananvartalo, pilkulla eroteltu luettelo päätteistä sekä annettuja päätteitä käyttämällä vartalosta johdettu sana kielellä {language}. Tehtäväsi on selvittää, onko johdettu sana kieliopillisesti oikein. Vastaa vain Kyllä tai Ei."
 
 MORPH_DISC_FI_SHOT_TEMPLATE = """Esimerkki {index}:
 Sanavartalo: {root}
@@ -83,7 +83,7 @@ Päätteet: {affixes}
 Johdettu sana: {derived_word}
 Vastaus: {answer}"""
 
-MORPH_GEN_NONCE_FI_INSTRUCTION_TEMPLATE = "Sinulle annetaan uusi sanavartalo, sen määritelmä sekä pilkulla eroteltu luettelo päätteitä kielellä {language}. Tehtäväsi on luoda juuresta kieliopillisesti oikea sana käyttämällä kaikkia annettuja päätteitä. Käyttä vain annettuja päätteitä ja kutakin päätettä vain kerran. Vastaa vain luodulla sanalla."
+MORPH_GEN_NONCE_FI_INSTRUCTION_TEMPLATE = "Sinulle annetaan uusi sananvartalo, sen määritelmä sekä pilkulla eroteltu luettelo päätteitä kielellä {language}. Tehtäväsi on luoda juuresta kieliopillisesti oikea sana käyttämällä kaikkia annettuja päätteitä. Käyttä vain annettuja päätteitä ja kutakin päätettä vain kerran. Vastaa vain luodulla sanalla."
 
 MORPH_GEN_NONCE_FI_SHOT_TEMPLATE = """Esimerkki {index}:
 Sanavartalo: {root}
@@ -91,7 +91,7 @@ Määritelmä: {root_definition}
 Päätteet: {affixes}
 Vastaus: {answer}"""
 
-MORPH_DISC_NONCE_FI_INSTRUCTION_TEMPLATE = "Sinulle annetaan uusi sanavartalo, sen määritelmä sekä pilkulla eroteltu luettelo päätteistä sekä uusi sana kielellä {language}, joka on johdettu annetusta sanavartalosta annettujen päätteiden avulla. Tehtäväsi on selvittää, onko johdettu sana kieliopillisesti oikein. Vastaa vain Kyllä tai Ei."
+MORPH_DISC_NONCE_FI_INSTRUCTION_TEMPLATE = "Sinulle annetaan uusi sananvartalo, sen määritelmä sekä pilkulla eroteltu luettelo päätteistä sekä uusi sana kielellä {language}, joka on johdettu annetusta sananvartalosta annettujen päätteiden avulla. Tehtäväsi on selvittää, onko johdettu sana kieliopillisesti oikein. Vastaa vain Kyllä tai Ei."
 
 MORPH_DISC_NONCE_FI_SHOT_TEMPLATE = """Esimerkki {index}:
 SanaVartalo: {root}

@@ -69,7 +69,7 @@ Cevap: {answer}"""
 
 ##################################### Prompt templates in Finnish #####################################
 MORPH_GEN_COT_FI_INSTRUCTION_TEMPLATE = """
-Sinulle annetaan sanavartalo, sen määritelmä sekä pilkulla eroteltu luettelo päätteitä kielellä {language}. Tehtäväsi on luoda juuresta kieliopillisesti oikea sana käyttämällä päätteitä. Käytä vain annettuja päätteitä. Käytä kutakin päätettä vain kerran. Kun olet generoinut uuden sanan, luettele jokainen pääte, jota käytit sanan luomiseen varmistaaksesi, että noudatat sääntöjä. Varmista luettelon perusteella seuraavat asiat: jokaista päätettä käytetään tasan kerran, yhtään päätettä ei jätetä käyttämättä, eikä vastaus sisällä ylimääräisiä päätteitä. Ajattele askel/asia kerrallaan ja anna lopullinen vastauksesi tägeissä <Vastaus>oikea sana</Vastaus>.
+Sinulle annetaan sananvartalo, sen määritelmä sekä pilkulla eroteltu luettelo päätteitä kielellä {language}. Tehtäväsi on luoda juuresta kieliopillisesti oikea sana käyttämällä päätteitä. Käytä vain annettuja päätteitä. Käytä kutakin päätettä vain kerran. Kun olet generoinut uuden sanan, luettele jokainen pääte, jota käytit sanan luomiseen varmistaaksesi, että noudatat sääntöjä. Varmista luettelon perusteella seuraavat asiat: jokaista päätettä käytetään tasan kerran, yhtään päätettä ei jätetä käyttämättä, eikä vastaus sisällä ylimääräisiä päätteitä. Ajattele askel/asia kerrallaan ja anna lopullinen vastauksesi tägeissä <Vastaus>oikea sana</Vastaus>.
 """
 
 MORPH_GEN_COT_FI_SHOT_TEMPLATE = """
@@ -80,7 +80,7 @@ Vastaus: {answer}
 """.strip()
 
 MORPH_DISC_COT_FI_INSTRUCTION_TEMPLATE = """
-Sinulle annetaan sanavartalo, pilkulla eroteltu luettelo päätteistä sekä annettuja päätteitä käyttämällä vartalosta johdettu sana kielellä {language}. Tehtäväsi on selvittää, onko johdettu sana kieliopillisesti oikein. Analysoi ensiksi miten päätteet vaikuttavat sananvartaloon. Arvioi sitten, ovatko päätteet kieliopillisesti oikeassa järjestyksessä. Ajattele askel/asia kerrallaan ja anna lopullinen vastauksesi tägeissä <Vastaus>Kyllä/Ei</Vastaus>.
+Sinulle annetaan sananvartalo, pilkulla eroteltu luettelo päätteistä sekä annettuja päätteitä käyttämällä vartalosta johdettu sana kielellä {language}. Tehtäväsi on selvittää, onko johdettu sana kieliopillisesti oikein. Analysoi ensiksi miten päätteet vaikuttavat sananvartaloon. Arvioi sitten, ovatko päätteet kieliopillisesti oikeassa järjestyksessä. Ajattele askel/asia kerrallaan ja anna lopullinen vastauksesi tägeissä <Vastaus>Kyllä/Ei</Vastaus>.
 """.strip()
 
 MORPH_DISC_COT_FI_SHOT_TEMPLATE = """
@@ -92,7 +92,7 @@ Vastaus: {answer}
 """.strip()
 
 MORPH_GEN_NONCE_COT_FI_INSTRUCTION_TEMPLATE = """
-Sinulle annetaan uusi sanavartalo, sen määritelmä sekä pilkulla eroteltu luettelo päätteitä kielellä {language}. Tehtäväsi on luoda juuresta kieliopillisesti oikea sana käyttämällä päätteitä. Käytä vain annettuja päätteitä. Käytä kutakin päätettä vain kerran. Kun olet generoinut uuden sanan, luettele jokainen pääte, jota käytit sanan luomiseen varmistaaksesi, että noudatat sääntöjä. Varmista luettelon perusteella seuraavat asiat: jokaista päätettä käytetään tasan kerran, yhtään päätettä ei jätetä käyttämättä, eikä vastaus sisällä ylimääräisiä päätteitä. Ajattele askel/asia kerrallaan ja anna lopullinen vastauksesi tägeissä <Vastaus>oikea sana</Vastaus>.
+Sinulle annetaan uusi sananvartalo, sen määritelmä sekä pilkulla eroteltu luettelo päätteitä kielellä {language}. Tehtäväsi on luoda juuresta kieliopillisesti oikea sana käyttämällä päätteitä. Käytä vain annettuja päätteitä. Käytä kutakin päätettä vain kerran. Kun olet generoinut uuden sanan, luettele jokainen pääte, jota käytit sanan luomiseen varmistaaksesi, että noudatat sääntöjä. Varmista luettelon perusteella seuraavat asiat: jokaista päätettä käytetään tasan kerran, yhtään päätettä ei jätetä käyttämättä, eikä vastaus sisällä ylimääräisiä päätteitä. Ajattele askel/asia kerrallaan ja anna lopullinen vastauksesi tägeissä <Vastaus>oikea sana</Vastaus>.
 """.strip()
 
 MORPH_GEN_NONCE_COT_FI_SHOT_TEMPLATE = """
@@ -104,7 +104,7 @@ Vastaus: {answer}
 """.strip()
 
 MORPH_DISC_NONCE_COT_FI_INSTRUCTION_TEMPLATE = """
-Sinulle annetaan uusi sanavartalo, pilkulla eroteltu luettelo päätteistä sekä annettuja päätteitä käyttämällä vartalosta johdettu sana kielellä {language}. Tehtäväsi on selvittää, onko johdettu sana kieliopillisesti oikein. Analysoi ensiksi miten päätteet vaikuttavat sananvartaloon. Arvioi sitten, ovatko päätteet kieliopillisesti oikeassa järjestyksessä. Ajattele askel/asia kerrallaan ja anna lopullinen vastauksesi tägeissä <Vastaus>Kyllä/Ei</Vastaus>.
+Sinulle annetaan uusi sananvartalo, pilkulla eroteltu luettelo päätteistä sekä annettuja päätteitä käyttämällä vartalosta johdettu sana kielellä {language}. Tehtäväsi on selvittää, onko johdettu sana kieliopillisesti oikein. Analysoi ensiksi miten päätteet vaikuttavat sananvartaloon. Arvioi sitten, ovatko päätteet kieliopillisesti oikeassa järjestyksessä. Ajattele askel/asia kerrallaan ja anna lopullinen vastauksesi tägeissä <Vastaus>Kyllä/Ei</Vastaus>.
 """.strip()
 
 MORPH_DISC_NONCE_COT_FI_SHOT_TEMPLATE = """
