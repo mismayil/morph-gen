@@ -66,3 +66,53 @@ Ekler: {affixes}
 Türetilmiş kelime: {derived_word}
 Cevap: {answer}"""
 ####################################################################################################################################
+
+##################################### Prompt templates in Finnish #####################################
+MORPH_GEN_COT_FI_INSTRUCTION_TEMPLATE = """
+Sinulle annetaan sananvartalo, sen määritelmä sekä pilkulla eroteltu luettelo päätteitä kielellä {language}. Tehtäväsi on luoda juuresta kieliopillisesti oikea sana käyttämällä päätteitä. Käytä vain annettuja päätteitä. Käytä kutakin päätettä vain kerran. Kun olet generoinut uuden sanan, luettele jokainen pääte, jota käytit sanan luomiseen varmistaaksesi, että noudatat sääntöjä. Varmista luettelon perusteella seuraavat asiat: jokaista päätettä käytetään tasan kerran, yhtään päätettä ei jätetä käyttämättä, eikä vastaus sisällä ylimääräisiä päätteitä. Ajattele askel/asia kerrallaan ja anna lopullinen vastauksesi tägeissä <Vastaus>oikea sana</Vastaus>.
+"""
+
+MORPH_GEN_COT_FI_SHOT_TEMPLATE = """
+Esimerkki {index}:
+Sananvartalo: {root}
+Päätteet: {affixes}
+Vastaus: {answer}
+""".strip()
+
+MORPH_DISC_COT_FI_INSTRUCTION_TEMPLATE = """
+Sinulle annetaan sananvartalo, pilkulla eroteltu luettelo päätteistä sekä annettuja päätteitä käyttämällä vartalosta johdettu sana kielellä {language}. Tehtäväsi on selvittää, onko johdettu sana kieliopillisesti oikein. Analysoi ensiksi miten päätteet vaikuttavat sananvartaloon. Arvioi sitten, ovatko päätteet kieliopillisesti oikeassa järjestyksessä. Ajattele askel/asia kerrallaan ja anna lopullinen vastauksesi tägeissä <Vastaus>Kyllä/Ei</Vastaus>.
+""".strip()
+
+MORPH_DISC_COT_FI_SHOT_TEMPLATE = """
+Esimerkki {index}:
+Sananvartalo: {root}
+Päätteet: {affixes}
+Johdettu sana: {derived_word}
+Vastaus: {answer}
+""".strip()
+
+MORPH_GEN_NONCE_COT_FI_INSTRUCTION_TEMPLATE = """
+Sinulle annetaan uusi sananvartalo, sen määritelmä sekä pilkulla eroteltu luettelo päätteitä kielellä {language}. Tehtäväsi on luoda juuresta kieliopillisesti oikea sana käyttämällä päätteitä. Käytä vain annettuja päätteitä. Käytä kutakin päätettä vain kerran. Kun olet generoinut uuden sanan, luettele jokainen pääte, jota käytit sanan luomiseen varmistaaksesi, että noudatat sääntöjä. Varmista luettelon perusteella seuraavat asiat: jokaista päätettä käytetään tasan kerran, yhtään päätettä ei jätetä käyttämättä, eikä vastaus sisällä ylimääräisiä päätteitä. Ajattele askel/asia kerrallaan ja anna lopullinen vastauksesi tägeissä <Vastaus>oikea sana</Vastaus>.
+""".strip()
+
+MORPH_GEN_NONCE_COT_FI_SHOT_TEMPLATE = """
+Esimerkki {index}:
+Sananvartalo: {root}
+Määritelmä: {root_definition}
+Päätteet: {affixes}
+Vastaus: {answer}
+""".strip()
+
+MORPH_DISC_NONCE_COT_FI_INSTRUCTION_TEMPLATE = """
+Sinulle annetaan uusi sananvartalo, pilkulla eroteltu luettelo päätteistä sekä annettuja päätteitä käyttämällä vartalosta johdettu sana kielellä {language}. Tehtäväsi on selvittää, onko johdettu sana kieliopillisesti oikein. Analysoi ensiksi miten päätteet vaikuttavat sananvartaloon. Arvioi sitten, ovatko päätteet kieliopillisesti oikeassa järjestyksessä. Ajattele askel/asia kerrallaan ja anna lopullinen vastauksesi tägeissä <Vastaus>Kyllä/Ei</Vastaus>.
+""".strip()
+
+MORPH_DISC_NONCE_COT_FI_SHOT_TEMPLATE = """
+Esimerkki {index}:
+Sananvartalo: {root}
+Määritelmä: {root_definition}
+Päätteet: {affixes}
+Johdettu sana: {derived_word}
+Vastaus: {answer}
+"""
+############################################################################################

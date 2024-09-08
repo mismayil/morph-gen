@@ -73,3 +73,53 @@ Cümle: {sentence}
 Türetilmiş kelime: {derived_word}
 Cevap: {answer}"""
 #############################################################################################
+
+############################### Prompt templates in Finnish #################################################
+MORPH_DISC_NONCE_SENT_FI_INSTRUCTION_TEMPLATE = "Allaolevassa lauseessa on tyhjä kohta (___) joka tulee täyttää kieliopillisesti oikealla sanalla. Alla on myös sananvartalo, sen määritelmä, pilkulla eroteltu luettelo päätteistä sekä niitä käyttäen annetusta vartalosta johdettu sana kielellä {kieli}. Tehtäväsi on päätellä, onko johdettu sana kieliopillisesti oikein, jos sen asettaa lauseen tyhjään kohtaan eli onko sana kieliopillisesti oikein taivutetu asiayhteys/konteksti huomioonottaen. Vastaa joko Kyllä tai Ei."
+
+MORPH_DISC_NONCE_SENT_FI_SHOT_TEMPLATE = \
+"""
+Esimerkki {index}:
+Sananvartalo: {root}
+Määritelmä: {root_definition}
+Päätteet: {affixes}
+Lause: {sentence}
+Johdettu sana: {derived_word}
+Vastaus: {answer}
+""".strip()
+
+MORPH_DISC_SENT_FI_INSTRUCTION_TEMPLATE = "Allaolevassa lauseessa on tyhjä kohta (___) joka tulee täyttää kieliopillisesti oikealla sanalla. Alla on myös sananvartalo, pilkulla eroteltu luettelo päätteistä sekä niitä käyttäen annetusta vartalosta johdettu sana kielellä {kieli}. Tehtäväsi on päätellä, onko johdettu sana kieliopillisesti oikein, jos sen asettaa lauseen tyhjään kohtaan eli onko sana kieliopillisesti oikein taivutetu asiayhteys/konteksti huomioonottaen. Vastaa joko Kyllä tai Ei."
+
+MORPH_DISC_SENT_FI_SHOT_TEMPLATE: = \
+"""
+Esimerkki {index}:
+Sananvartalo: {root}
+Päätteet: {affixes}
+Lause: {sentence}
+Johdettu sana: {derived_word}
+Vastaus: {answer}
+""".strip()
+
+MORPH_GEN_NONCE_SENT_FI_INSTRUCTION_TEMPLATE = "Allaolevassa lauseessa (kirjoitettu kielellä {language}) on tyhjä kohta (___) joka tulee täyttää kieliopillisesti oikealla sanalla. Alla on myös uusi sananvartalo, sen määritelmä sekä pilkulla eroteltu luettelo päätteistä. Tehtäväsi on käyttää vartaloa sekä päätteitä ja johtaa niistä kieliopillisesti oikein taivutetu sana joka sopii tyhjään kohtaan lausessaa asiayhteys/konteksti huomioonottaen. Käytä jokaista päätettä vain kerran. Vastaa vain generoidulla sanalla, älä sano mitään muuta."
+
+MORPH_GEN_NONCE_SENT_FI_SHOT_TEMPLATE = \
+"""
+Esimerkki {index}:
+Sananvartalo: {root}
+Määritelmä: {root_definition}
+Päätteet: {affixes}
+Lause: {sentence}
+Vastaus: {answer}
+""".strip()
+
+MORPH_GEN_SENT_FI_INSTRUCTION_TEMPLATE = "Allaolevassa lauseessa (kirjoitettu kielellä {language}) on tyhjä kohta (___) joka tulee täyttää kieliopillisesti oikealla sanalla. Alla on myös sananvartalo sekä pilkulla eroteltu luettelo päätteistä. Tehtäväsi on käyttää vartaloa sekä päätteitä ja johtaa niistä kieliopillisesti oikein taivutetu sana joka sopii tyhjään kohtaan lausessaa asiayhteys/konteksti huomioonottaen. Käytä jokaista päätettä vain kerran. Vastaa vain generoidulla sanalla, älä sano mitään muuta."
+
+MORPH_GEN_SENT_FI_SHOT_TEMPLATE = \
+"""
+Esimerkki {index}:
+Sananvartalo: {root}
+Päätteet: {affixes}
+Lause: {sentence}
+Vastaus: {answer}
+""".strip()
+#############################################################################################
