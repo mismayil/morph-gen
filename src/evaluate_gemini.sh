@@ -21,16 +21,30 @@ outputs_dir="../experiments/outputs"
 #     python evaluate_lm.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_tr/final/${experiment}/batch1 -m ${model} -b 8
 # done
 
-# fi default experiments (temp_en)
-for jsonfile in ${data_dir}/fi/final/eval/temp_en/${input_dir}/*.json
+# tr cot experiments (temp_en)
+for jsonfile in ${data_dir}/tr/btwd/final/eval/temp_en/${input_dir}/batch1/*.json
 do
     echo "Evaluating ${jsonfile}"
-    python evaluate_lm.py -d ${jsonfile} -o ${outputs_dir}/${model}/fi/temp_en/final/${experiment} -m ${model} -b 8
+    python evaluate_lm.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_en/final/${experiment}/batch1 -m ${model} -b 4 -oa -g None
 done
 
-# fi default experiments (temp_fi)
-for jsonfile in ${data_dir}/fi/final/eval/temp_fi/${input_dir}/*.json
+# tr cot experiments (temp_tr)
+for jsonfile in ${data_dir}/tr/btwd/final/eval/temp_tr/${input_dir}/batch1/*.json
 do
     echo "Evaluating ${jsonfile}"
-    python evaluate_lm.py -d ${jsonfile} -o ${outputs_dir}/${model}/fi/temp_fi/final/${experiment} -m ${model} -b 8
+    python evaluate_lm.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_tr/final/${experiment}/batch1 -m ${model} -b 4 -oa -g None
 done
+
+# fi default experiments (temp_en)
+# for jsonfile in ${data_dir}/fi/final/eval/temp_en/${input_dir}/*.json
+# do
+#     echo "Evaluating ${jsonfile}"
+#     python evaluate_lm.py -d ${jsonfile} -o ${outputs_dir}/${model}/fi/temp_en/final/${experiment} -m ${model} -b 8
+# done
+
+# fi default experiments (temp_fi)
+# for jsonfile in ${data_dir}/fi/final/eval/temp_fi/${input_dir}/*.json
+# do
+#     echo "Evaluating ${jsonfile}"
+#     python evaluate_lm.py -d ${jsonfile} -o ${outputs_dir}/${model}/fi/temp_fi/final/${experiment} -m ${model} -b 8
+# done
