@@ -12,25 +12,27 @@ def main(input_file):
 
     data = pd.read_json(input_file, lines=True)
     words = data.word.tolist()
-    prefixes = data.prefix.tolist()
+    prefixes = data.prefixes.tolist()
     lemmas = data.lemma.tolist()
-    suffixes = data.suffix.tolist()
+    suffixes = data.suffixes.tolist()
     roots = data.root.tolist()
 
     sentences = data.sentence.tolist()
 
     json_lines = []
 
-    for word, prefix, lemma, suffix, root, sentence in zip(
+    for word, prefix_list, lemma, suffix_list, root, sentence in zip(
         words, prefixes, lemmas, suffixes, roots, sentences
     ):
         json_line_dict = {
             "derivation": word,
-            "morphemes": segment_list,
+            "morphemes": prefix_list + [root] + suffix_list,
+            "prefixes": prefix_list,
+            "suffixes": suffix_list,
             "meta_morphemes": [],
             "sentence": sentence,
             "root": lemma,
-            "pos": pos_tag,
+            "pos": None
         }
         json_lines.append(json_line_dict)
 
