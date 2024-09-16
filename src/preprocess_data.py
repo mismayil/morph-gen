@@ -376,6 +376,9 @@ def preprocess_fi_data(datapath, num_samples=None):
         derivation_attr = "word" if "word" in sample else "derivation"
         sample["sentence"] = sample["sentence"].lower().strip()
         sample[derivation_attr] = sample[derivation_attr].lower().strip()
+        sample["prefixes"] = [prefix.lower().strip() for prefix in sample.get("prefixes", [])]
+        sample["suffixes"] = [suffix.lower().strip() for suffix in sample.get("suffixes", [])]
+        sample["root"] = sample["root"].lower().strip()
         assert not any([prefix.strip() == "" for prefix in sample.get("prefixes", [])]), f"Empty prefix in sample: {sample}"
         assert not any([suffix.strip() == "" for suffix in sample.get("suffixes", [])]), f"Empty suffix in sample: {sample}"
         assert sample[derivation_attr] not in seen_words, f"Duplicate sample: {sample}"
