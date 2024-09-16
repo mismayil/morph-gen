@@ -98,7 +98,7 @@ def get_negative_options(root, prefixes, suffixes, ref_derivation, negative_pref
 def prepare_sample_for_tasks(sample, separator="", language="tr", verbose=False, no_nonce=False, option_strategy="lev", num_options=4):
     dictionary = read_en_dictionary()
     prefixes = sample.get("prefixes", [])
-    suffixes = sample["morphemes"] if "morphemes" in sample else sample["suffixes"]
+    suffixes = sample["suffixes"]
     negative_prefixes = sample.get("negative_prefixes", []) or []
     negative_suffixes = sample.get("negative_suffixes", []) or []
     ref_derivation = sample["derivation"]
@@ -251,7 +251,7 @@ def prepare_tok_aligned_data_for_tasks(input_data, num_samples=None, separator="
             tok_aligned_data.append({
                 **sample,
                 "ref_root": sample["root"],
-                "ref_suffixes": sample["suffixes"] if "suffixes" in sample else sample.get("morphemes"),
+                "ref_suffixes": sample["suffixes"],
                 "root": root_token,
                 "suffixes": suffixes,
                 "negative_options": list(negative_options)
@@ -281,7 +281,7 @@ def prepare_tr_sense_data_for_tasks(input_data, num_samples=None, separator="", 
 
 def update_neg_sample_for_tasks(sample, separator="", language="tr", option_strategy="no_double_vowel", num_options=4, *args, **kwargs):
     prefixes = sample.get("prefixes", [])
-    suffixes = sample["morphemes"] if "morphemes" in sample else sample["suffixes"]
+    suffixes = sample["suffixes"]
     ref_derivation = sample["derivation"]
     negative_prefixes = sample.get("negative_prefixes", []) or []
     negative_suffixes = sample.get("negative_suffixes", []) or []
