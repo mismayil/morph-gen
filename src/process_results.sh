@@ -11,4 +11,4 @@ python tabulate_results.py -r ${experiment_dir}
 python plot_results.py -r ${experiment_dir}/tab_results.csv -o ${figures_dir}/tr/final/${experiment_name}/batch1
 
 # plot FI results
-# python plot_results.py -r ${experiment_dir}/tab_results.csv -o ${figures_dir}/fi/final/${experiment_name}
+# python plot_results.py -r ${experiment_dir}/tab_results.csv -o ${figures_dir}/fi/v3/${experiment_name}

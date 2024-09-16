@@ -373,22 +373,23 @@ def preprocess_fi_data(datapath, num_samples=None):
     seen_words = set()
 
     for sample in tqdm(data["data"], total=len(data["data"]), desc="Preprocessing FI data"):
+        derivation_attr = "word" if "word" in sample else "derivation"
         sample["sentence"] = sample["sentence"].lower().strip()
-        sample["word"] = sample["word"].lower().strip()
+        sample[derivation_attr] = sample[derivation_attr].lower().strip()
         assert not any([prefix.strip() == "" for prefix in sample.get("prefixes", [])]), f"Empty prefix in sample: {sample}"
         assert not any([suffix.strip() == "" for suffix in sample.get("suffixes", [])]), f"Empty suffix in sample: {sample}"
-        assert sample["word"] not in seen_words, f"Duplicate sample: {sample}"
-        assert sample["sentence"].count(sample["word"]) == 1, f"Duplicate or non-existent word in sentence: {sample}"
-        if "".join(sample["prefixes"]) + sample["root"] + "".join(sample["suffixes"]) != sample["word"]:
+        assert sample[derivation_attr] not in seen_words, f"Duplicate sample: {sample}"
+        assert sample["sentence"].count(sample[derivation_attr]) == 1, f"Duplicate or non-existent word in sentence: {sample}"
+        if "".join(sample["prefixes"]) + sample["root"] + "".join(sample["suffixes"]) != sample[derivation_attr]:
             print(f"Potentially invalid morphological decomposition: {sample}")
             print()
 
-        seen_words.add(sample["word"])
+        seen_words.add(sample[derivation_attr])
 
         if "id" not in sample:
-            sample["id"] = "fi-" + hashlib.md5(sample["word"].encode()).hexdigest()[:8]
+            sample["id"] = "fi-" + hashlib.md5(sample[derivation_attr].encode()).hexdigest()[:8]
         
-        sample["derivation"] = sample["word"]
+        sample["derivation"] = sample[derivation_attr]
     
     return data["data"]
 

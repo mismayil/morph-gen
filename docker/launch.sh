@@ -88,7 +88,9 @@ echo "--------------------------------"
 
 GPU_ARGS=""
 if [ "$N_GPUS_SET" == 1 ]; then
-	GPU_ARGS="--gpu $N_GPUS"
+	if [ "$N_GPUS" > 0 ]; then
+		GPU_ARGS="--gpu $N_GPUS"
+	fi
 else
 	GPU_ARGS="--gpu-memory $GPU_MEMORY"
 fi
