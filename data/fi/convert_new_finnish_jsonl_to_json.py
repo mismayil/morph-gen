@@ -31,7 +31,7 @@ def main(input_file):
             "suffixes": suffix_list,
             "meta_morphemes": [],
             "sentence": sentence,
-            "root": lemma,
+            "root": root,
             "pos": None
         }
         json_lines.append(json_line_dict)
