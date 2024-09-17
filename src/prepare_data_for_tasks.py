@@ -9,12 +9,18 @@ from itertools import permutations
 import re
 
 from utils import read_json, write_json, levenshtein_distance
-from morphology import generate_nonce_word_tr, generate_nonce_word_en, segment_by_tokenizer, read_en_dictionary, generate_nonce_word_fi
+from morphology import generate_nonce_word_tr, generate_nonce_word_en, segment_by_tokenizer, read_en_dictionary, read_tr_dictionary, generate_nonce_word_fi
 
 NONCE_GENERATOR = {
     "tr": generate_nonce_word_tr,
     "en": generate_nonce_word_en,
     "fi": generate_nonce_word_fi
+}
+
+DICTIONARY_FN_MAP = {
+    "tr": read_tr_dictionary,
+    "en": read_en_dictionary,
+    "fi": lambda: None
 }
 
 def check_if_has_double_vowel(word):
@@ -96,7 +102,7 @@ def get_negative_options(root, prefixes, suffixes, ref_derivation, negative_pref
     return negative_options
 
 def prepare_sample_for_tasks(sample, separator="", language="tr", verbose=False, no_nonce=False, option_strategy="lev", num_options=4):
-    dictionary = read_en_dictionary()
+    dictionary = DICTIONARY_FN_MAP[language]()
     prefixes = sample.get("prefixes", [])
     suffixes = sample["suffixes"]
     negative_prefixes = sample.get("negative_prefixes", []) or []
@@ -120,7 +126,7 @@ def prepare_sample_for_tasks(sample, separator="", language="tr", verbose=False,
             
             nonce_generator = NONCE_GENERATOR[language]
             nonce_word = nonce_generator(sample["root"])
-            if nonce_word not in dictionary:
+            if not dictionary or nonce_word not in dictionary:
                 break
             attempt += 1
             
@@ -341,13 +347,13 @@ def main():
     parser.add_argument("-v", "--verbose", action="store_true", help="Verbose mode")
     parser.add_argument("-nn", "--no-nonce", action="store_true", help="Do not generate nonce words")
     parser.add_argument("-os", "--option-strategy", type=str, default="lev", help="Strategy to select negative options")
-    parser.add_argument("-no", "--num-options", type=int, default=4, help="Number of negative options to select")
+    parser.add_argument("-ng", "--num-neg-options", type=int, default=4, help="Number of negative options to select")
     parser.add_argument("-m", "--model", type=str, default="gpt-4", help="Tokenizer model to use for tokenization aligned data")
 
     args = parser.parse_args()
     input_data = read_json(args.datapath)
     morph_data = DATA_PROCESSOR_MAP[args.processor][0](input_data, args.num_samples, separator=args.separator, verbose=args.verbose,
-                                                       no_nonce=args.no_nonce, option_strategy=args.option_strategy, num_options=args.num_options, model=args.model)
+                                                       no_nonce=args.no_nonce, option_strategy=args.option_strategy, num_options=args.num_neg_options, model=args.model)
 
     datapath = pathlib.Path(args.datapath)
     output_dir = pathlib.Path(args.output_dir) if args.output_dir is not None else datapath.parent
@@ -375,7 +381,7 @@ def main():
             "language": input_data["metadata"]["language"],
             "no_nonce": args.no_nonce,
             "option_strategy": args.option_strategy,
-            "num_options": args.num_options,
+            "num_neg_options": args.num_neg_options,
             "separator": args.separator,
             "tokenizer_model": args.model,
             "size_by_affix_len": {i: size_by_affix_len.get(i, 0) for i in range(max(size_by_affix_len.keys()) + 1)},

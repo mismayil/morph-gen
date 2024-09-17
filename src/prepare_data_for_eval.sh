@@ -49,42 +49,42 @@ do
     # python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1_no_dv_neg_nonce.json -t morph_disc_tr -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_tr/${experiment}/batch1
 
     # TR in EN template for random_neg experiments
-    python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1_random_neg.json -t morph_disc_en -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}/batch1
-    python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1_random_neg_nonce.json -t morph_disc_en -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}/batch1
+    # python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1_random_neg.json -t morph_disc_en -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}/batch1
+    # python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1_random_neg_nonce.json -t morph_disc_en -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}/batch1
 
     # TR in TR template for random_neg experiments
-    python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1_random_neg.json -t morph_disc_tr -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_tr/${experiment}/batch1
-    python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1_random_neg_nonce.json -t morph_disc_tr -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_tr/${experiment}/batch1
+    # python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1_random_neg.json -t morph_disc_tr -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_tr/${experiment}/batch1
+    # python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1_random_neg_nonce.json -t morph_disc_tr -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_tr/${experiment}/batch1
 
     # FI in EN template
-    # python prepare_data_for_eval.py -d ${data_dir}/fi/v3/default/finnish_default_final_morph.json -t morph_gen_en -n ${shot} -o ${data_dir}/fi/v3/eval/temp_en/${experiment}
-    # python prepare_data_for_eval.py -d ${data_dir}/fi/v3/default/finnish_default_final_morph.json -t morph_disc_en -n ${shot} -o ${data_dir}/fi/v3/eval/temp_en/${experiment}
-    # python prepare_data_for_eval.py -d ${data_dir}/fi/v3/default/finnish_default_final_morph_nonce.json -t morph_gen_en -n ${shot} -o ${data_dir}/fi/v3/eval/temp_en/${experiment}
-    # python prepare_data_for_eval.py -d ${data_dir}/fi/v3/default/finnish_default_final_morph_nonce.json -t morph_disc_en -n ${shot} -o ${data_dir}/fi/v3/eval/temp_en/${experiment}
+    python prepare_data_for_eval.py -d ${data_dir}/fi/v4/default/finnish_v4_default_final_morph.json -t morph_gen_en -n ${shot} -o ${data_dir}/fi/v4/eval/temp_en/${experiment}
+    python prepare_data_for_eval.py -d ${data_dir}/fi/v4/default/finnish_v4_default_final_morph.json -t morph_disc_en -n ${shot} -o ${data_dir}/fi/v4/eval/temp_en/${experiment}
+    python prepare_data_for_eval.py -d ${data_dir}/fi/v4/default/finnish_v4_default_final_morph_nonce.json -t morph_gen_en -n ${shot} -o ${data_dir}/fi/v4/eval/temp_en/${experiment}
+    python prepare_data_for_eval.py -d ${data_dir}/fi/v4/default/finnish_v4_default_final_morph_nonce.json -t morph_disc_en -n ${shot} -o ${data_dir}/fi/v4/eval/temp_en/${experiment}
 
     # FI in FI template
-    # python prepare_data_for_eval.py -d ${data_dir}/fi/v3/default/finnish_default_final_morph.json -t morph_gen_fi -n ${shot} -o ${data_dir}/fi/v3/eval/temp_fi/${experiment}
-    # python prepare_data_for_eval.py -d ${data_dir}/fi/v3/default/finnish_default_final_morph.json -t morph_disc_fi -n ${shot} -o ${data_dir}/fi/v3/eval/temp_fi/${experiment}
-    # python prepare_data_for_eval.py -d ${data_dir}/fi/v3/default/finnish_default_final_morph_nonce.json -t morph_gen_fi -n ${shot} -o ${data_dir}/fi/v3/eval/temp_fi/${experiment}
-    # python prepare_data_for_eval.py -d ${data_dir}/fi/v3/default/finnish_default_final_morph_nonce.json -t morph_disc_fi -n ${shot} -o ${data_dir}/fi/v3/eval/temp_fi/${experiment}
+    python prepare_data_for_eval.py -d ${data_dir}/fi/v4/default/finnish_v4_default_final_morph.json -t morph_gen_fi -n ${shot} -o ${data_dir}/fi/v4/eval/temp_fi/${experiment}
+    python prepare_data_for_eval.py -d ${data_dir}/fi/v4/default/finnish_v4_default_final_morph.json -t morph_disc_fi -n ${shot} -o ${data_dir}/fi/v4/eval/temp_fi/${experiment}
+    python prepare_data_for_eval.py -d ${data_dir}/fi/v4/default/finnish_v4_default_final_morph_nonce.json -t morph_gen_fi -n ${shot} -o ${data_dir}/fi/v4/eval/temp_fi/${experiment}
+    python prepare_data_for_eval.py -d ${data_dir}/fi/v4/default/finnish_v4_default_final_morph_nonce.json -t morph_disc_fi -n ${shot} -o ${data_dir}/fi/v4/eval/temp_fi/${experiment}
 
-    # FI in EN template for sentence completion
-    # python prepare_data_for_eval.py -d ${data_dir}/fi/v3/default/finnish_default_final_morph.json -t morph_gen_sent_en -n ${shot} -o ${data_dir}/fi/v3/eval/temp_en/${experiment}
-    # python prepare_data_for_eval.py -d ${data_dir}/fi/v3/default/finnish_default_final_morph.json -t morph_disc_sent_en -n ${shot} -o ${data_dir}/fi/v3/eval/temp_en/${experiment}
-    # python prepare_data_for_eval.py -d ${data_dir}/fi/v3/default/finnish_default_final_morph_nonce.json -t morph_gen_sent_en -n ${shot} -o ${data_dir}/fi/v3/eval/temp_en/${experiment}
-    # python prepare_data_for_eval.py -d ${data_dir}/fi/v3/default/finnish_default_final_morph_nonce.json -t morph_disc_sent_en -n ${shot} -o ${data_dir}/fi/v3/eval/temp_en/${experiment}
+    # # FI in EN template for sentence completion
+    # python prepare_data_for_eval.py -d ${data_dir}/fi/v4/default/finnish_v4_default_final_morph.json -t morph_gen_sent_en -n ${shot} -o ${data_dir}/fi/v4/eval/temp_en/${experiment}
+    # python prepare_data_for_eval.py -d ${data_dir}/fi/v4/default/finnish_v4_default_final_morph.json -t morph_disc_sent_en -n ${shot} -o ${data_dir}/fi/v4/eval/temp_en/${experiment}
+    # python prepare_data_for_eval.py -d ${data_dir}/fi/v4/default/finnish_v4_default_final_morph_nonce.json -t morph_gen_sent_en -n ${shot} -o ${data_dir}/fi/v4/eval/temp_en/${experiment}
+    # python prepare_data_for_eval.py -d ${data_dir}/fi/v4/default/finnish_v4_default_final_morph_nonce.json -t morph_disc_sent_en -n ${shot} -o ${data_dir}/fi/v4/eval/temp_en/${experiment}
 
-    # FI in FI template for sentence completion
-    # python prepare_data_for_eval.py -d ${data_dir}/fi/v3/default/finnish_default_final_morph.json -t morph_gen_sent_fi -n ${shot} -o ${data_dir}/fi/v3/eval/temp_fi/${experiment}
-    # python prepare_data_for_eval.py -d ${data_dir}/fi/v3/default/finnish_default_final_morph.json -t morph_disc_sent_fi -n ${shot} -o ${data_dir}/fi/v3/eval/temp_fi/${experiment}
-    # python prepare_data_for_eval.py -d ${data_dir}/fi/v3/default/finnish_default_final_morph_nonce.json -t morph_gen_sent_fi -n ${shot} -o ${data_dir}/fi/v3/eval/temp_fi/${experiment}
-    # python prepare_data_for_eval.py -d ${data_dir}/fi/v3/default/finnish_default_final_morph_nonce.json -t morph_disc_sent_fi -n ${shot} -o ${data_dir}/fi/v3/eval/temp_fi/${experiment}
+    # # FI in FI template for sentence completion
+    # python prepare_data_for_eval.py -d ${data_dir}/fi/v4/default/finnish_v4_default_final_morph.json -t morph_gen_sent_fi -n ${shot} -o ${data_dir}/fi/v4/eval/temp_fi/${experiment}
+    # python prepare_data_for_eval.py -d ${data_dir}/fi/v4/default/finnish_v4_default_final_morph.json -t morph_disc_sent_fi -n ${shot} -o ${data_dir}/fi/v4/eval/temp_fi/${experiment}
+    # python prepare_data_for_eval.py -d ${data_dir}/fi/v4/default/finnish_v4_default_final_morph_nonce.json -t morph_gen_sent_fi -n ${shot} -o ${data_dir}/fi/v4/eval/temp_fi/${experiment}
+    # python prepare_data_for_eval.py -d ${data_dir}/fi/v4/default/finnish_v4_default_final_morph_nonce.json -t morph_disc_sent_fi -n ${shot} -o ${data_dir}/fi/v4/eval/temp_fi/${experiment}
 
-    # FI in EN template for non-shuffled affix order
-    # python prepare_data_for_eval.py -d ${data_dir}/fi/v3/default/finnish_default_final_morph.json -t morph_gen_en -n ${shot} -o ${data_dir}/fi/v3/eval/temp_en/${experiment} -ns
-    # python prepare_data_for_eval.py -d ${data_dir}/fi/v3/default/finnish_default_final_morph.json -t morph_disc_en -n ${shot} -o ${data_dir}/fi/v3/eval/temp_en/${experiment} -ns
-    # python prepare_data_for_eval.py -d ${data_dir}/fi/v3/default/finnish_default_final_morph_nonce.json -t morph_gen_en -n ${shot} -o ${data_dir}/fi/v3/eval/temp_en/${experiment} -ns
-    # python prepare_data_for_eval.py -d ${data_dir}/fi/v3/default/finnish_default_final_morph_nonce.json -t morph_disc_en -n ${shot} -o ${data_dir}/fi/v3/eval/temp_en/${experiment} -ns
+    # # FI in EN template for non-shuffled affix order
+    # python prepare_data_for_eval.py -d ${data_dir}/fi/v4/default/finnish_v4_default_final_morph.json -t morph_gen_en -n ${shot} -o ${data_dir}/fi/v4/eval/temp_en/${experiment} -ns
+    # python prepare_data_for_eval.py -d ${data_dir}/fi/v4/default/finnish_v4_default_final_morph.json -t morph_disc_en -n ${shot} -o ${data_dir}/fi/v4/eval/temp_en/${experiment} -ns
+    # python prepare_data_for_eval.py -d ${data_dir}/fi/v4/default/finnish_v4_default_final_morph_nonce.json -t morph_gen_en -n ${shot} -o ${data_dir}/fi/v4/eval/temp_en/${experiment} -ns
+    # python prepare_data_for_eval.py -d ${data_dir}/fi/v4/default/finnish_v4_default_final_morph_nonce.json -t morph_disc_en -n ${shot} -o ${data_dir}/fi/v4/eval/temp_en/${experiment} -ns
 done
 
 # TR in EN template for CoT
@@ -106,13 +106,13 @@ done
 # python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1_nonce.json -t morph_disc_cot_tr -n 0 -o ${data_dir}/tr/btwd/final/eval/temp_tr/${experiment}/batch1
 
 # FI in EN template for CoT (zero-shot)
-# python prepare_data_for_eval.py -d ${data_dir}/fi/v3/default/finnish_default_final_morph.json -t morph_gen_cot_en -n 0 -o ${data_dir}/fi/v3/eval/temp_en/${experiment}
-# python prepare_data_for_eval.py -d ${data_dir}/fi/v3/default/finnish_default_final_morph.json -t morph_disc_cot_en -n 0 -o ${data_dir}/fi/v3/eval/temp_en/${experiment}
-# python prepare_data_for_eval.py -d ${data_dir}/fi/v3/default/finnish_default_final_morph_nonce.json -t morph_gen_cot_en -n 0 -o ${data_dir}/fi/v3/eval/temp_en/${experiment}
-# python prepare_data_for_eval.py -d ${data_dir}/fi/v3/default/finnish_default_final_morph_nonce.json -t morph_disc_cot_en -n 0 -o ${data_dir}/fi/v3/eval/temp_en/${experiment}
+# python prepare_data_for_eval.py -d ${data_dir}/fi/v4/default/finnish_v4_default_final_morph.json -t morph_gen_cot_en -n 0 -o ${data_dir}/fi/v4/eval/temp_en/${experiment}
+# python prepare_data_for_eval.py -d ${data_dir}/fi/v4/default/finnish_v4_default_final_morph.json -t morph_disc_cot_en -n 0 -o ${data_dir}/fi/v4/eval/temp_en/${experiment}
+# python prepare_data_for_eval.py -d ${data_dir}/fi/v4/default/finnish_v4_default_final_morph_nonce.json -t morph_gen_cot_en -n 0 -o ${data_dir}/fi/v4/eval/temp_en/${experiment}
+# python prepare_data_for_eval.py -d ${data_dir}/fi/v4/default/finnish_v4_default_final_morph_nonce.json -t morph_disc_cot_en -n 0 -o ${data_dir}/fi/v4/eval/temp_en/${experiment}
 
 # FI in FI template for CoT (zero-shot)
-# python prepare_data_for_eval.py -d ${data_dir}/fi/v3/default/finnish_default_final_morph.json -t morph_gen_cot_fi -n 0 -o ${data_dir}/fi/v3/eval/temp_fi/${experiment}
-# python prepare_data_for_eval.py -d ${data_dir}/fi/v3/default/finnish_default_final_morph.json -t morph_disc_cot_fi -n 0 -o ${data_dir}/fi/v3/eval/temp_fi/${experiment}
-# python prepare_data_for_eval.py -d ${data_dir}/fi/v3/default/finnish_default_final_morph_nonce.json -t morph_gen_cot_fi -n 0 -o ${data_dir}/fi/v3/eval/temp_fi/${experiment}
-# python prepare_data_for_eval.py -d ${data_dir}/fi/v3/default/finnish_default_final_morph_nonce.json -t morph_disc_cot_fi -n 0 -o ${data_dir}/fi/v3/eval/temp_fi/${experiment}
+# python prepare_data_for_eval.py -d ${data_dir}/fi/v4/default/finnish_v4_default_final_morph.json -t morph_gen_cot_fi -n 0 -o ${data_dir}/fi/v4/eval/temp_fi/${experiment}
+# python prepare_data_for_eval.py -d ${data_dir}/fi/v4/default/finnish_v4_default_final_morph.json -t morph_disc_cot_fi -n 0 -o ${data_dir}/fi/v4/eval/temp_fi/${experiment}
+# python prepare_data_for_eval.py -d ${data_dir}/fi/v4/default/finnish_v4_default_final_morph_nonce.json -t morph_gen_cot_fi -n 0 -o ${data_dir}/fi/v4/eval/temp_fi/${experiment}
+# python prepare_data_for_eval.py -d ${data_dir}/fi/v4/default/finnish_v4_default_final_morph_nonce.json -t morph_disc_cot_fi -n 0 -o ${data_dir}/fi/v4/eval/temp_fi/${experiment}

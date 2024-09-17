@@ -507,6 +507,34 @@ def prepare_sample_for_eval(
 
     return eval_data
 
+def validate_eval_input_data(input_data):
+    derivations = set()
+
+    for sample in tqdm(input_data, desc="Validating eval input data"):
+        assert "id" in sample, "Sample id is missing: {}".format(sample)
+        assert "root" in sample, "Root is missing: {}".format(sample)
+        assert "id_root" in sample, "ID root is missing: {}".format(sample)
+        assert "ood_root" in sample, "OOD root is missing: {}".format(sample)
+        assert "prefixes" in sample, "Prefixes are missing: {}".format(sample)
+        assert "suffixes" in sample, "Suffixes are missing: {}".format(sample)
+        assert "derivation" in sample, "Derivation is missing: {}".format(sample)
+        assert "positive_options" in sample, "Positive options are missing: {}".format(sample)
+        assert "negative_options" in sample, "Negative options are missing: {}".format(sample)
+        assert "sentence" in sample, "Sentence is missing: {}".format(sample)
+        assert sample["root"].strip(), "Root is empty: {}".format(sample)
+        assert sample["id_root"].strip(), "id root is empty: {}".format(sample)
+        assert sample["ood_root"].strip(), "ood root is empty: {}".format(sample)
+        assert sample["root"] == sample["id_root"] or sample["root"] == sample["ood_root"], "Root is not equal to id root or ood root: {}".format(sample)
+        assert sample["prefixes"] or sample["suffixes"], "Prefixes and suffixes are empty: {}".format(sample)
+        assert sample["derivation"].strip(), "Derivation is empty: {}".format(sample)
+        assert sample["positive_options"], "Positive options are empty: {}".format(sample)
+        assert sample["negative_options"], "Negative options are empty: {}".format(sample)
+        assert sample["sentence"].strip(), "Sentence is empty: {}".format(sample)
+        assert sample["sentence"].count("___") == 1, "Sentence does not contain or contains more than one ___: {}".format(sample)
+        assert set(sample["positive_options"]).intersection(set(sample["negative_options"])) == set(), "Positive and negative options overlap: {}".format(sample)
+        assert sample["derivation"] not in derivations, "Derivation is repeated: {}".format(sample)
+        derivations.add(sample["derivation"])
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-d", "--datapath", type=str, help="Path to eval data in json", required=True)
@@ -544,6 +572,8 @@ def main():
     shot_samples = []
     shot_data = None
     fixed_shots = False
+
+    validate_eval_input_data(input_data["data"])
 
     if args.shot_path is not None:
         shot_data = read_json(args.shot_path)
@@ -599,6 +629,11 @@ def main():
             "template": args.template,
             "language": input_data["metadata"]["language"],
             "num_shots": args.num_shots,
+            "suffix": args.suffix,
+            "max_affix_length": args.max_affix_length,
+            "shot_path": args.shot_path,
+            "no_shuffle": args.no_shuffle,
+            "output_dir": str(output_dir),
             "size": len(eval_data)
         },
         "data": eval_data
