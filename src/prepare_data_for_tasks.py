@@ -373,6 +373,11 @@ def main():
             "source": args.datapath,
             "processor": args.processor,
             "language": input_data["metadata"]["language"],
+            "no_nonce": args.no_nonce,
+            "option_strategy": args.option_strategy,
+            "num_options": args.num_options,
+            "separator": args.separator,
+            "tokenizer_model": args.model,
             "size_by_affix_len": {i: size_by_affix_len.get(i, 0) for i in range(max(size_by_affix_len.keys()) + 1)},
             "size_by_prefix_len": {i: size_by_prefix_len.get(i, 0) for i in range(max(size_by_prefix_len.keys()) + 1)},
             "size_by_suffix_len": {i: size_by_suffix_len.get(i, 0) for i in range(max(size_by_suffix_len.keys()) + 1)}
