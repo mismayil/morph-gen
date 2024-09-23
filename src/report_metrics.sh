@@ -4,8 +4,8 @@ model=${1:-"gpt-4"}
 experiment=${2:-"v_balanced"}
 
 # Default experiments
-python report_metrics.py -r ../experiments/outputs/${model}/tr/btwd/temp_en/final/${experiment} -f ../data/tr/bilkent-turkish-writings/btwd_default_final_raw_freq.json
-python report_metrics.py -r ../experiments/outputs/${model}/tr/btwd/temp_tr/final/${experiment} -f ../data/tr/bilkent-turkish-writings/btwd_default_final_raw_freq.json
+python report_metrics.py -r ../experiments/outputs/${model}/tr/btwd/temp_en/final/${experiment}
+python report_metrics.py -r ../experiments/outputs/${model}/tr/btwd/temp_tr/final/${experiment}
 
 # python report_metrics.py -r ../experiments/outputs/${model}/en/morpholex/temp_en/${experiment}
 # python report_metrics.py -r ../experiments/outputs/${model}/en/morpholex/temp_tr/${experiment}

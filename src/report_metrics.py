@@ -332,6 +332,14 @@ def compute_metrics(results, report_usage=True, separator="", frequency_path=Non
     def _compute_metric(results_by_id, metric, pred_attr="predictions", strategy="normal", n=None):
         result_by_id_metrics = {}
 
+        if strategy == "global":
+            global_refs = []
+            global_preds = []
+            for result in results_by_id.values():
+                global_refs.extend(result["references"])
+                global_preds.extend(result[pred_attr])
+            return {"global": metric(global_refs, global_preds, average="macro", zero_division=0)}
+
         for result_id, result in results_by_id.items():
             references = result["references"]
             predictions = result[pred_attr]
@@ -422,16 +430,18 @@ def compute_metrics(results, report_usage=True, separator="", frequency_path=Non
 
             f1_metrics["f1_by_ood_bin_by_affix_len"] = {affix_len: _aggregate_by_ood_bin(f1_by_affix_len[affix_len]) for affix_len in f1_by_affix_len}
             f1_metrics["f1_by_ood_bin_by_affix_len"] = _sort_by_key(f1_metrics["f1_by_ood_bin_by_affix_len"])
-    
+
         return f1_metrics
 
     metrics["random_baseline"] = {}
     metrics["majority_baseline"] = {}
     metrics["random_two_way"] = {}
     metrics["average_two_way"] = {}
+    metrics["global"] = {}
 
     if results_by_affix_len:
         metrics.update(_compute_f1_metrics(results, results_by_affix_len))
+        metrics["global"].update(_compute_f1_metrics(results, results_by_affix_len, pred_attr="predictions", strategy="global"))
 
         metrics["random_baseline"].update(_compute_f1_metrics(results, results_by_affix_len, pred_attr="random_predictions"))
         metrics["majority_baseline"].update(_compute_f1_metrics(results, results_by_affix_len, pred_attr="majority_predictions"))
