@@ -63,9 +63,9 @@ outputs_dir="../experiments/outputs"
 #     python evaluate_lm.py -d ${jsonfile} -o ${outputs_dir}/${model}/fi/temp_fi/v4/${experiment} -m ${model} -b 4 -oa -g None
 # done
 
-# tr cot experiments (temp_en) batch2 sample10
-for jsonfile in ${data_dir}/tr/btwd/final/eval/temp_en/${input_dir}/batch2_sample10/*.json
+# tr cot experiments (temp_en) batch2 suffix6
+for jsonfile in ${data_dir}/tr/btwd/final/eval/temp_en/${input_dir}/batch2_suffix6/*.json
 do
     echo "Evaluating ${jsonfile}"
-    python evaluate_lm.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_en/final/${experiment}/batch2_sample10 -m ${model} -b 4 -oa -g None
+    python evaluate_lm.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_en/final/${experiment}/batch2_suffix6 -m ${model} -b 4 -oa -g None
 done
