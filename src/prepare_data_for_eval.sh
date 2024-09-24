@@ -117,8 +117,6 @@ data_dir="../experiments/data"
 # python prepare_data_for_eval.py -d ${data_dir}/fi/v4/default/finnish_v4_default_final_morph_nonce.json -t morph_gen_cot_fi -n 0 -o ${data_dir}/fi/v4/eval/temp_fi/${experiment}
 # python prepare_data_for_eval.py -d ${data_dir}/fi/v4/default/finnish_v4_default_final_morph_nonce.json -t morph_disc_cot_fi -n 0 -o ${data_dir}/fi/v4/eval/temp_fi/${experiment}
 
-# TR in EN template for CoT (zero-shot) for batch2 sample10
-python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch2_sample10.json -t morph_gen_cot_en -n 0 -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}/batch2_sample10
-python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch2_sample10.json -t morph_disc_cot_en -n 0 -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}/batch2_sample10
-python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch2_sample10_nonce.json -t morph_gen_cot_en -n 0 -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}/batch2_sample10
-python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch2_sample10_nonce.json -t morph_disc_cot_en -n 0 -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}/batch2_sample10
+# TR in EN template for CoT (zero-shot) for batch2 suffix6
+python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch2_suffix6.json -t morph_gen_cot_en -n 0 -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}/batch2_suffix6
+python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch2_suffix6_nonce.json -t morph_gen_cot_en -n 0 -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}/batch2_suffix6
