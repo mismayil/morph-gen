@@ -1,9 +1,9 @@
 #!/bin/bash
 
 experiment=${1:-"v_final_default"}
-model=${2:-"aya-23-8b"}
-model_path=${3:-"CohereForAI/aya-23-8b"}
-tokenizer_path=${3:-"CohereForAI/aya-23-8b"}
+model=${2:-"aya-23-35b"}
+model_path=${3:-"CohereForAI/aya-23-35b"}
+tokenizer_path=${3:-"CohereForAI/aya-23-35b"}
 cache_dir=${4:-"/mnt/scratch/home/ismayilz/.cache/huggingface/hub"}
 input_dir=${5:-${experiment}}
 data_dir="../experiments/data"
