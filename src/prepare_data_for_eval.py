@@ -363,7 +363,7 @@ def prepare_shots_for_morph_disc(
                 "root": sample["root"],
                 "affixes": (
                     affixes_str
-                    if option in sample["positive_options"] or not negative_affixes_str
+                    if not "positive_options" in sample or option in sample["positive_options"] or not negative_affixes_str
                     else negative_affixes_str
                 ),
                 "derived_word": option,
