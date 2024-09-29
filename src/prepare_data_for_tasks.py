@@ -248,7 +248,7 @@ def prepare_tok_aligned_data_for_tasks(input_data, num_samples=None, separator="
         root_token = tokens[0]
         suffixes = tokens[1:]
 
-        if suffixes:
+        if suffixes and len(suffixes) <= 7:
             negative_options = get_negative_options(root_token, [], suffixes, ref_derivation, 
                                                     negative_prefixes=negative_prefixes, negative_suffixes=negative_suffixes,
                                                     separator=separator)
