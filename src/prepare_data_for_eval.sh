@@ -56,6 +56,10 @@ do
     # python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1_random_neg.json -t morph_disc_tr -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_tr/${experiment}/batch1
     # python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1_random_neg_nonce.json -t morph_disc_tr -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_tr/${experiment}/batch1
 
+    # # TR in EN template for no affix
+    python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1.json -t morph_disc_no_affix_en -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}/batch1
+    python prepare_data_for_eval.py -d ${data_dir}/tr/btwd/final/default/btwd_default_final_morph_batch1_nonce.json -t morph_disc_no_affix_en -n ${shot} -o ${data_dir}/tr/btwd/final/eval/temp_en/${experiment}/batch1
+
     # # FI in EN template
     # python prepare_data_for_eval.py -d ${data_dir}/fi/v4/default/finnish_v4_default_final_morph.json -t morph_gen_en -n ${shot} -o ${data_dir}/fi/v4/eval/temp_en/${experiment}
     # python prepare_data_for_eval.py -d ${data_dir}/fi/v4/default/finnish_v4_default_final_morph.json -t morph_disc_en -n ${shot} -o ${data_dir}/fi/v4/eval/temp_en/${experiment}
@@ -87,8 +91,8 @@ do
     # python prepare_data_for_eval.py -d ${data_dir}/fi/v4/default/finnish_v4_default_final_morph_nonce.json -t morph_disc_en -n ${shot} -o ${data_dir}/fi/v4/eval/temp_en/${experiment} -ns
 
     # FI in EN template for random_neg
-    python prepare_data_for_eval.py -d ${data_dir}/fi/v4/default/finnish_v4_default_final_morph_random_neg.json -t morph_disc_en -n ${shot} -o ${data_dir}/fi/v4/eval/temp_en/${experiment}
-    python prepare_data_for_eval.py -d ${data_dir}/fi/v4/default/finnish_v4_default_final_morph_random_neg_nonce.json -t morph_disc_en -n ${shot} -o ${data_dir}/fi/v4/eval/temp_en/${experiment}
+    # python prepare_data_for_eval.py -d ${data_dir}/fi/v4/default/finnish_v4_default_final_morph_random_neg.json -t morph_disc_en -n ${shot} -o ${data_dir}/fi/v4/eval/temp_en/${experiment}
+    # python prepare_data_for_eval.py -d ${data_dir}/fi/v4/default/finnish_v4_default_final_morph_random_neg_nonce.json -t morph_disc_en -n ${shot} -o ${data_dir}/fi/v4/eval/temp_en/${experiment}
 done
 
 # TR in EN template for CoT (5-shot)

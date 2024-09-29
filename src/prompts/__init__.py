@@ -4,3 +4,4 @@ from .sense import *
 from .order import *
 from .mcq import *
 from .cot import *
+from .no_affix import *
