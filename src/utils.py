@@ -108,3 +108,6 @@ def compute_usage(sample, model):
         "output": output_cost,
         "total": input_cost + output_cost
     }
+
+def rreplace(s, oldval, newval):
+    return newval.join(s.rsplit(oldval, 1))

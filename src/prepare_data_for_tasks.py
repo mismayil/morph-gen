@@ -8,7 +8,7 @@ import random
 from itertools import permutations
 import re
 
-from utils import read_json, write_json, levenshtein_distance
+from utils import read_json, write_json, levenshtein_distance, rreplace
 from morphology import generate_nonce_word_tr, generate_nonce_word_en, segment_by_tokenizer, read_en_dictionary, read_tr_dictionary, generate_nonce_word_fi
 
 NONCE_GENERATOR = {
@@ -189,6 +189,16 @@ def prepare_nonce_data_for_tasks(input_data, num_samples=None, *args, **kwargs):
 
         nonce_derivation = id_derivation.replace(id_root, ood_root, 1)
 
+        positive_options = [option.replace(id_root, ood_root, 1) for option in positive_options]
+        negative_options = [option.replace(id_root, ood_root, 1) for option in negative_options]
+
+        if sample["root"] != id_root:
+            if id_root in sample["root"]:
+                ood_root = sample["root"].replace(id_root, ood_root)
+            else:
+                ending = id_root.replace(sample["root"], "")
+                ood_root = rreplace(ood_root, ending, "")
+
         nonce_data.append({
             **sample,
             "id": f"{sample['id']}-ood",
@@ -197,8 +207,8 @@ def prepare_nonce_data_for_tasks(input_data, num_samples=None, *args, **kwargs):
             "ood_root": ood_root,
             "root": ood_root,
             "derivation": nonce_derivation,
-            "positive_options": [option.replace(id_root, ood_root, 1) for option in positive_options],
-            "negative_options": [option.replace(id_root, ood_root, 1) for option in negative_options],
+            "positive_options": positive_options,
+            "negative_options": negative_options,
         })
     
     if num_samples is not None:

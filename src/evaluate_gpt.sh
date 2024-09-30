@@ -8,11 +8,11 @@ data_dir="../experiments/data"
 outputs_dir="../experiments/outputs"
 
 # tr default experiments (temp_en)
-# for jsonfile in ${data_dir}/tr/btwd/final/eval/temp_en/${input_dir}/batch1/*.json
-# do
-#     echo "Evaluating ${jsonfile}"
-#     python evaluate_lm.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_en/final/${experiment}/batch1 -m ${model} -b 4 -oa
-# done
+for jsonfile in ${data_dir}/tr/btwd/final/eval/temp_en/${input_dir}/batch1/*.json
+do
+    echo "Evaluating ${jsonfile}"
+    python evaluate_lm.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_en/final/${experiment}/batch1 -m ${model} -b 4 -oa
+done
 
 # tr default experiments (temp_tr)
 # for jsonfile in ${data_dir}/tr/btwd/final/eval/temp_tr/${input_dir}/batch1/*.json
@@ -21,12 +21,12 @@ outputs_dir="../experiments/outputs"
 #     python evaluate_lm.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_tr/final/${experiment}/batch1 -m ${model} -b 4
 # done
 
-# tr cot experiments (temp_en)
-for jsonfile in ${data_dir}/tr/btwd/final/eval/temp_en/${input_dir}/batch1/*.json
-do
-    echo "Evaluating ${jsonfile}"
-    python evaluate_lm.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_en/final/${experiment}/batch1 -m ${model} -b 2 -oa -g None
-done
+# # tr cot experiments (temp_en)
+# for jsonfile in ${data_dir}/tr/btwd/final/eval/temp_en/${input_dir}/batch1/*.json
+# do
+#     echo "Evaluating ${jsonfile}"
+#     python evaluate_lm.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_en/final/${experiment}/batch1 -m ${model} -b 2 -oa -g None
+# done
 
 # tr cot experiments (temp_tr)
 # for jsonfile in ${data_dir}/tr/btwd/final/eval/temp_tr/${input_dir}/batch1/*.json
