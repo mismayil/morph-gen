@@ -511,6 +511,47 @@ def prepare_sample_for_eval(
 
     return eval_data
 
+def prepare_sample_for_human_eval(sample, template, language, shuffle_affixes=True):
+    eval_data = []
+    eval_sample = {
+        "sample_id": sample["id"],
+        "root": sample["root"]
+    }
+    affixes = (sample.get("prefixes", []) or []) + (sample.get("suffixes", []) or [])
+    negative_affixes = (sample.get("negative_prefixes", []) or []) + (sample.get("negative_suffixes", []) or [])
+
+    if shuffle_affixes:
+        affixes = random.sample(affixes, len(affixes))
+        negative_affixes = random.sample(negative_affixes, len(negative_affixes))
+
+    eval_sample["affixes"] = affixes
+
+    if _is_ood_sample(sample):
+        eval_sample["definition"] = sample["id_root"]
+
+    if _is_sent_task(template):
+        eval_sample["sentence"] = sample["sentence"]
+
+    if "morph_gen" in template:
+        eval_sample["answer"] = sample["derivation"]
+        return [eval_sample]
+    
+    eval_data.append({
+        **eval_sample,
+        "derivation": sample["derivation"],
+        "answer": "Yes"
+    })
+
+    for negative_option in sample["negative_options"][:4]:
+        eval_data.append({
+            **eval_sample,
+            "affixes": negative_affixes if negative_affixes else affixes,
+            "derivation": negative_option,
+            "answer": "No"
+        })
+
+    return eval_data
+
 def validate_eval_input_data(input_data):
     derivations = set()
 
@@ -585,41 +626,51 @@ def main():
     for sample in tqdm(input_data["data"], desc="Preparing input_data for evaluation"):
         num_affixes = len(_get_affixes(sample))
 
-        if num_affixes <= args.max_affix_length:       
-            if shot_data:
-                shot_samples = [
-                    shot
-                    for shot in shot_data["data"]
-                    if len(_get_affixes(shot)) == len(_get_affixes(sample))
-                ][: args.num_shots]
+        if num_affixes <= args.max_affix_length: 
+            if "human" in args.template:
+                eval_data.extend(
+                    prepare_sample_for_human_eval(
+                        sample,
+                        template=args.template,
+                        language=input_data["metadata"]["language"],
+                        shuffle_affixes=not args.no_shuffle,
+                    )
+                )
             else:
-                if sample.get("similar"):
-                    shot_samples = sample["similar"]
-                else:
+                if shot_data:
                     shot_samples = [
                         shot
-                        for shot in input_data["data"]
+                        for shot in shot_data["data"]
                         if len(_get_affixes(shot)) == len(_get_affixes(sample))
-                        and shot["id"] != sample["id"]
-                    ]
-                    # Order by the number of common affixes (prefer no overlap)
-                    shot_samples = sorted(shot_samples, key=lambda x: len(set(_get_affixes(x)).intersection(set(_get_affixes(sample)))))
-                    shot_samples = shot_samples[:args.num_shots]
+                    ][: args.num_shots]
+                else:
+                    if sample.get("similar"):
+                        shot_samples = sample["similar"]
+                    else:
+                        shot_samples = [
+                            shot
+                            for shot in input_data["data"]
+                            if len(_get_affixes(shot)) == len(_get_affixes(sample))
+                            and shot["id"] != sample["id"]
+                        ]
+                        # Order by the number of common affixes (prefer no overlap)
+                        shot_samples = sorted(shot_samples, key=lambda x: len(set(_get_affixes(x)).intersection(set(_get_affixes(sample)))))
+                        shot_samples = shot_samples[:args.num_shots]
 
-            assert (
-                len(shot_samples) == args.num_shots
-            ), f"Number of shots is not equal to {args.num_shots} for sample {sample['id']}"
+                assert (
+                    len(shot_samples) == args.num_shots
+                ), f"Number of shots is not equal to {args.num_shots} for sample {sample['id']}"
 
-            eval_data.extend(
-                prepare_sample_for_eval(
-                    sample,
-                    shot_samples,
-                    template=args.template,
-                    language=input_data["metadata"]["language"],
-                    shuffle_affixes=not args.no_shuffle,
-                    fixed_shots=fixed_shots,
+                eval_data.extend(
+                    prepare_sample_for_eval(
+                        sample,
+                        shot_samples,
+                        template=args.template,
+                        language=input_data["metadata"]["language"],
+                        shuffle_affixes=not args.no_shuffle,
+                        fixed_shots=fixed_shots,
+                    )
                 )
-            )
 
     datapath = pathlib.Path(args.datapath)
     output_dir = pathlib.Path(args.output_dir) if args.output_dir is not None else datapath.parent
