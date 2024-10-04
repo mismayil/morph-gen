@@ -51,15 +51,24 @@ def get_prediction(sample, model_response, template):
     return pred
 
 def get_reference(sample, ref_response, template):
-    ref = str(ref_response).strip().lower()
-    
-    if template.startswith("morph_disc_mcq"):
-        return ref
+    responses = []
 
-    if template.startswith("morph_disc_bin") or template.startswith("morph_disc"):
-        return ANSWER_MAP[_get_template_lang(template)][ref]
+    if isinstance(ref_response, list):
+        responses = ref_response
+    else:
+        responses = [ref_response]
 
-    return ref
+    refs = []
+
+    for res in responses:
+        ref = str(res).strip().lower()
+
+        if template.startswith("morph_disc_bin") or template.startswith("morph_disc"):
+            ref = ANSWER_MAP[_get_template_lang(template)][ref]
+
+        refs.append(ref)
+
+    return refs
 
 def is_faithful(result, ref_response, model_response, template, separator=""):
     if template.startswith("morph_disc"):
@@ -278,7 +287,7 @@ def compute_metrics(results, report_usage=True, separator="", frequency_path=Non
         result_map[result["id"]] = result
 
         if model_response_attr in result:
-            ref = get_reference(result, result[ref_response_attr], result["template"])
+            refs = get_reference(result, result[ref_response_attr], result["template"])
             pred = get_prediction(result, result[model_response_attr], result["template"])
             random_pred = np.random.choice([0, 1])
             
@@ -286,19 +295,19 @@ def compute_metrics(results, report_usage=True, separator="", frequency_path=Non
                 if result["id"] not in results_by_affix_len[num_affixes]:
                     results_by_affix_len[num_affixes][result["id"]] = {"references": [], "predictions": [],
                                                                        "random_predictions": [], "majority_predictions": []}
-                results_by_affix_len[num_affixes][result["id"]]["references"].append(ref)
+                results_by_affix_len[num_affixes][result["id"]]["references"].append(refs[0])
                 results_by_affix_len[num_affixes][result["id"]]["predictions"].append(pred)
                 results_by_affix_len[num_affixes][result["id"]]["random_predictions"].append(random_pred)
                 results_by_affix_len[num_affixes][result["id"]]["majority_predictions"].append(majority_pred)
 
-            result["correct"] = ref == pred
+            result["correct"] = (pred in refs)
             result["prediction"] = pred
             result["faithful"] = is_faithful(result, result[ref_response_attr], result[model_response_attr], result["template"], separator=separator)
             # result["soft_accuracy"] = get_soft_accuracy(result, result[ref_response_attr], result[model_response_attr], result["template"])
             accuracy_by_affix_len[num_affixes].append(result["correct"])
             faithful_by_affix_len[num_affixes].append(result["faithful"])
-            random_accuracy_by_affix_len[num_affixes].append(ref == random_pred)
-            majority_accuracy_by_affix_len[num_affixes].append(ref == majority_pred)
+            random_accuracy_by_affix_len[num_affixes].append((random_pred in refs))
+            majority_accuracy_by_affix_len[num_affixes].append((majority_pred in refs))
 
             if unigram_freqs and result.get("root"):
                 word_freq = unigram_freqs.get("".join([result["root"]]+result["suffixes"]), 0)
