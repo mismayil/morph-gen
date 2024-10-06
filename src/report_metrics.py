@@ -144,9 +144,6 @@ def compute_metrics(results, report_usage=True, separator="", frequency_path=Non
     accuracy_by_affix_len = defaultdict(list)
     faithful_by_affix_len = defaultdict(list)
 
-    random_accuracy_by_affix_len = defaultdict(list)
-    majority_accuracy_by_affix_len = defaultdict(list)
-
     usage = {
         "prompt_tokens": 0,
         "completion_tokens": 0,
@@ -280,7 +277,6 @@ def compute_metrics(results, report_usage=True, separator="", frequency_path=Non
     result_map = {}
     ref_response_attr = "reference"
     model_response_attr = "model_output"
-    majority_pred = 0
 
     for result in results["data"]:
         num_affixes = len(_get_affixes(result))
@@ -289,16 +285,12 @@ def compute_metrics(results, report_usage=True, separator="", frequency_path=Non
         if model_response_attr in result:
             refs = get_reference(result, result[ref_response_attr], result["template"])
             pred = get_prediction(result, result[model_response_attr], result["template"])
-            random_pred = np.random.choice([0, 1])
             
             if result["template"].startswith("morph_disc") and not result["template"].startswith("morph_disc_mcq"):
                 if result["id"] not in results_by_affix_len[num_affixes]:
-                    results_by_affix_len[num_affixes][result["id"]] = {"references": [], "predictions": [],
-                                                                       "random_predictions": [], "majority_predictions": []}
+                    results_by_affix_len[num_affixes][result["id"]] = {"references": [], "predictions": []}
                 results_by_affix_len[num_affixes][result["id"]]["references"].append(refs[0])
                 results_by_affix_len[num_affixes][result["id"]]["predictions"].append(pred)
-                results_by_affix_len[num_affixes][result["id"]]["random_predictions"].append(random_pred)
-                results_by_affix_len[num_affixes][result["id"]]["majority_predictions"].append(majority_pred)
 
             result["correct"] = (pred in refs)
             result["prediction"] = pred
@@ -306,8 +298,6 @@ def compute_metrics(results, report_usage=True, separator="", frequency_path=Non
             # result["soft_accuracy"] = get_soft_accuracy(result, result[ref_response_attr], result[model_response_attr], result["template"])
             accuracy_by_affix_len[num_affixes].append(result["correct"])
             faithful_by_affix_len[num_affixes].append(result["faithful"])
-            random_accuracy_by_affix_len[num_affixes].append((random_pred in refs))
-            majority_accuracy_by_affix_len[num_affixes].append((majority_pred in refs))
 
             if unigram_freqs and result.get("root"):
                 word_freq = unigram_freqs.get("".join([result["root"]]+result["suffixes"]), 0)
@@ -442,8 +432,6 @@ def compute_metrics(results, report_usage=True, separator="", frequency_path=Non
 
         return f1_metrics
 
-    metrics["random_baseline"] = {}
-    metrics["majority_baseline"] = {}
     metrics["random_two_way"] = {}
     metrics["average_two_way"] = {}
     metrics["global"] = {}
@@ -452,9 +440,6 @@ def compute_metrics(results, report_usage=True, separator="", frequency_path=Non
         metrics.update(_compute_f1_metrics(results, results_by_affix_len))
         metrics["global"].update(_compute_f1_metrics(results, results_by_affix_len, pred_attr="predictions", strategy="global"))
 
-        metrics["random_baseline"].update(_compute_f1_metrics(results, results_by_affix_len, pred_attr="random_predictions"))
-        metrics["majority_baseline"].update(_compute_f1_metrics(results, results_by_affix_len, pred_attr="majority_predictions"))
-
         metrics["random_two_way"].update(_compute_f1_metrics(results, results_by_affix_len, pred_attr="predictions", strategy="two_way", n=1))
         metrics["average_two_way"].update(_compute_f1_metrics(results, results_by_affix_len, pred_attr="predictions", strategy="two_way", n=None))
 
@@ -462,8 +447,6 @@ def compute_metrics(results, report_usage=True, separator="", frequency_path=Non
     
     accuracy_by_affix_len = _sort_by_key(accuracy_by_affix_len)
     faithful_by_affix_len = _sort_by_key(faithful_by_affix_len)
-    random_accuracy_by_affix_len = _sort_by_key(random_accuracy_by_affix_len)
-    majority_accuracy_by_affix_len = _sort_by_key(majority_accuracy_by_affix_len)
     
     metrics["accuracy_by_affix_len"] = {k: sum(v) / len(v) for k, v in accuracy_by_affix_len.items()}
     metrics["faithfulness_by_affix_len"] = {k: sum(v) / len(v) for k, v in faithful_by_affix_len.items()}
@@ -471,9 +454,6 @@ def compute_metrics(results, report_usage=True, separator="", frequency_path=Non
     metrics["faithfulness"] = mean(metrics["faithfulness_by_affix_len"].values())
     # metrics["soft_accuracy_by_suffix_len"] = {k: sum([result.get("soft_accuracy", 0) for result in results["data"] if len(result["suffixes"]) == k]) / len([result for result in results["data"] if len(result["suffixes"]) == k]) for k in accuracy_by_affix_len}
     metrics["num_samples_by_affix_len"] = {k: len(v) for k, v in accuracy_by_affix_len.items()}
-
-    metrics["random_baseline"]["accuracy_by_affix_len"] = {k: sum(v) / len(v) for k, v in random_accuracy_by_affix_len.items()}
-    metrics["majority_baseline"]["accuracy_by_affix_len"] = {k: sum(v) / len(v) for k, v in majority_accuracy_by_affix_len.items()}
     
     if unigram_freqs:
         _add_freq_metrics(metrics, unigram_freq_accuracy, unigram_freq_faithful, num_unigram_freq_samples, keyword="unigram")

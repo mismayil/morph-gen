@@ -28,16 +28,6 @@ def tabulate_results(results_files):
                 f1_metrics = results["metrics"].get("f1_by_affix_len")
                 coherence_metrics = results["metrics"].get("coherence_by_affix_len")
                 
-                if "random_baseline" in results["metrics"]:
-                    random_accuracy_metrics = results["metrics"]["random_baseline"].get("accuracy_by_affix_len")
-                    random_f1_metrics = results["metrics"]["random_baseline"].get("f1_by_affix_len")
-                    random_coherence_metrics = results["metrics"]["random_baseline"].get("coherence_by_affix_len")
-                
-                if "majority_baseline" in results["metrics"]:
-                    majority_accuracy_metrics = results["metrics"]["majority_baseline"].get("accuracy_by_affix_len")
-                    majority_f1_metrics = results["metrics"]["majority_baseline"].get("f1_by_affix_len")
-                    majority_coherence_metrics = results["metrics"]["majority_baseline"].get("coherence_by_affix_len")
-                
                 accuracy_by_unigram_freq = results["metrics"].get("accuracy_by_unigram_freq")
                 faithful_by_unigram_freq = results["metrics"].get("faithfulness_by_unigram_freq")
                 num_samples_by_unigram_freq = results["metrics"].get("num_samples_by_unigram_freq")
@@ -79,13 +69,7 @@ def tabulate_results(results_files):
                         "accuracy": accuracy_metrics[affix_len],
                         "faithfulness": faithful_metrics[affix_len],
                         "f1": f1_metrics[affix_len] if f1_metrics else 0,
-                        "coherence": coherence_metrics[affix_len] if coherence_metrics else 0,
-                        "random_accuracy": random_accuracy_metrics[affix_len] if random_accuracy_metrics else 0,
-                        "random_f1": random_f1_metrics[affix_len] if random_f1_metrics else 0,
-                        "random_coherence": random_coherence_metrics[affix_len] if random_coherence_metrics else 0,
-                        "majority_accuracy": majority_accuracy_metrics[affix_len] if majority_accuracy_metrics else 0,
-                        "majority_f1": majority_f1_metrics[affix_len] if majority_f1_metrics else 0,
-                        "majority_coherence": majority_coherence_metrics[affix_len] if majority_coherence_metrics else 0
+                        "coherence": coherence_metrics[affix_len] if coherence_metrics else 0
                     })
                 
                 if accuracy_by_unigram_freq:

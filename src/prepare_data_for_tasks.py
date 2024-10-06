@@ -9,7 +9,7 @@ from itertools import permutations
 import re
 
 from utils import read_json, write_json, levenshtein_distance, rreplace
-from morphology import generate_nonce_word_tr, generate_nonce_word_en, segment_by_tokenizer, read_en_dictionary, read_tr_dictionary, generate_nonce_word_fi
+from morphology import generate_nonce_word_tr, generate_nonce_word_en, segment_by_tokenizer, read_en_dictionary, read_tr_dictionary, generate_nonce_word_fi, get_letter_change_map
 
 NONCE_GENERATOR = {
     "tr": generate_nonce_word_tr,
@@ -176,8 +176,30 @@ def prepare_data_for_tasks(
 
     return morph_data
 
+def replace_root(root, derivation, repl_root, language="tr"):
+    letter_change_map = get_letter_change_map(language)
+
+    if root not in derivation:
+        if letter_change_map:
+            last_letter = root[-1]
+            new_letter = letter_change_map.get(last_letter)
+            if new_letter:
+                new_root = rreplace(root, last_letter, new_letter)
+                new_repl_root = rreplace(repl_root, last_letter, new_letter)
+                if new_root in derivation:
+                    return derivation.replace(new_root, new_repl_root, 1)
+                else:
+                    raise ValueError(f"New root {new_root} not in derivation {derivation}.")
+            else:
+                raise ValueError(f"Last letter {last_letter} not in derivation {derivation}.")
+        else:
+            raise ValueError(f"Letter change map not found for {language}. Root {root} not in derivation {derivation}.")
+    else:
+        return derivation.replace(root, repl_root, 1)
+
 def prepare_nonce_data_for_tasks(input_data, num_samples=None, *args, **kwargs):
     data = input_data["data"]
+    language = input_data["metadata"]["language"]
     nonce_data = []
 
     for i, sample in tqdm(enumerate(data), total=len(data), desc="Preparing nonce data for Morph tasks"):
@@ -187,10 +209,10 @@ def prepare_nonce_data_for_tasks(input_data, num_samples=None, *args, **kwargs):
         negative_options = sample["negative_options"]
         ood_root = sample["ood_root"]
 
-        nonce_derivation = id_derivation.replace(id_root, ood_root, 1)
+        nonce_derivation = replace_root(id_root, id_derivation, ood_root, language)
 
-        positive_options = [option.replace(id_root, ood_root, 1) for option in positive_options]
-        negative_options = [option.replace(id_root, ood_root, 1) for option in negative_options]
+        positive_options = [replace_root(id_root, option, ood_root, language) for option in positive_options]
+        negative_options = [replace_root(id_root, option, ood_root, language) for option in negative_options]
 
         if sample["root"] != id_root:
             if id_root in sample["root"]:

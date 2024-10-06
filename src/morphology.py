@@ -101,7 +101,16 @@ TURKISH_LETTER_FREQ = {
 	'V': 0.959,
 	'Y': 3.336,
 	'Z': 1.5
-};
+}
+
+TURKISH_VOICELESS_CONSONANTS = ["ç", "f", "h", "k", "p", "s", "ş", "t"]
+TURKISH_VOICED_CONSONANTS = ["b", "c", "d", "g", "ğ", "j", "l", "m", "n", "r", "v", "y", "z"]
+TURKISH_VOICELESS_TO_VOICED = {
+    "ç": "c",
+    "k": "ğ",
+    "p": "b",
+    "t": "d"
+}
 
 TR_DICTIONARY_PATH = "../data/tr/tdk/gts.json"
 EN_DICTIONARY_PATH = "../data/en/en_dictionary.txt"
@@ -583,3 +592,8 @@ def get_words(text):
 
 def visualize_morph_graph(G):
     nx.draw(G, with_labels=True, font_weight='bold')
+
+def get_letter_change_map(language):
+    if language == "tr":
+        return TURKISH_VOICELESS_TO_VOICED
+    return None
