@@ -37,6 +37,9 @@ PERPLEXITY_MODELS = ["gpt-2"]
 LLAMA_MODELS = ["tr-llama-8b"]
 PORO_MODELS = ["poro-34b"]
 AYA_MODELS = ["aya-23-8b", "aya-23-35b"]
+AHMA_MODELS = ["ahma-3b", "ahma-7b"]
+GEMMA_MODELS = ["gemma-2-2b", "gemma-2-9b", "gemma-2-27b"]
+HF_MODELS = LLAMA_MODELS + PORO_MODELS + AYA_MODELS + AHMA_MODELS + GEMMA_MODELS
 
 @dataclasses.dataclass
 class ModelResponse:
@@ -163,65 +166,8 @@ def get_hf_model_args(model_args):
             hf_model_args["do_sample"] = True
     return hf_model_args
 
-def evaluate_llama_model(prompts, model, tokenizer, model_args=None, device="cuda"):
-    terminators = [
-        tokenizer.eos_token_id,
-        tokenizer.convert_tokens_to_ids("<|eot_id|>")
-    ]
-    llama_model_args = get_hf_model_args(model_args)
-
-    responses = []
-
-    for prompt in prompts:
-        messages = [{"role": "user", "content": prompt}]
-
-        input_ids = tokenizer.apply_chat_template(
-            messages,
-            add_generation_prompt=True,
-            return_tensors="pt",
-        ).to(device)
-
-        outputs = model.generate(
-            input_ids,
-            eos_token_id=terminators,
-            pad_token_id=tokenizer.eos_token_id,
-            **llama_model_args
-        )
-        response = outputs[0][input_ids.shape[-1]:]
-        responses.append(ModelResponse(text=tokenizer.decode(response, skip_special_tokens=True)))
-    
-    return responses
-
-def evaluate_poro_model(prompts, model, tokenizer, model_args=None, device="cuda"):
-    terminators = [
-        tokenizer.eos_token_id,
-        tokenizer.convert_tokens_to_ids("<|im_end|>")
-    ]
-    poro_model_args = get_hf_model_args(model_args)
-
-    responses = []
-
-    for prompt in prompts:
-        messages = [{"role": "user", "content": prompt}]
-
-        input_ids = tokenizer.apply_chat_template(
-            messages,
-            add_generation_prompt=True,
-            return_tensors="pt",
-        ).to(device)
-
-        outputs = model.generate(
-            input_ids,
-            eos_token_id=terminators,
-            **poro_model_args
-        )
-        response = outputs[0][input_ids.shape[-1]:]
-        responses.append(ModelResponse(text=tokenizer.decode(response, skip_special_tokens=True)))
-    
-    return responses
-
-def evaluate_aya_model(prompts, model, tokenizer, model_args=None, device="cuda"):
-    aya_model_args = get_hf_model_args(model_args)
+def evaluate_hf_model(prompts, model, tokenizer, model_args=None, device="cuda"):
+    hf_model_args = get_hf_model_args(model_args)
 
     responses = []
 
@@ -237,7 +183,7 @@ def evaluate_aya_model(prompts, model, tokenizer, model_args=None, device="cuda"
         outputs = model.generate(
             input_ids,
             pad_token_id=tokenizer.eos_token_id,
-            **aya_model_args
+            **hf_model_args
         )
         response = outputs[0][input_ids.shape[-1]:]
         responses.append(ModelResponse(text=tokenizer.decode(response, skip_special_tokens=True)))
@@ -245,12 +191,8 @@ def evaluate_aya_model(prompts, model, tokenizer, model_args=None, device="cuda"
     return responses
 
 def evaluate_model(prompts, model_name, model, tokenizer, model_args=None, device="cuda"):
-    if model_name in LLAMA_MODELS:
-        return evaluate_llama_model(prompts, model, tokenizer, model_args=model_args, device=device)
-    elif model_name in PORO_MODELS:
-        return evaluate_poro_model(prompts, model, tokenizer, model_args=model_args, device=device)
-    elif model_name in AYA_MODELS:
-        return evaluate_aya_model(prompts, model, tokenizer, model_args=model_args, device=device)
+    if model_name in HF_MODELS:
+        return evaluate_hf_model(prompts, model, tokenizer, model_args=model_args, device=device)
     else:
         raise ValueError(f"Model {model_name} not supported")
 
