@@ -53,7 +53,7 @@ def process_results(results_file, reference_file):
             **ref_sample,
             "id": ref_sample["sample_id"],
             "reference": ref_sample["answer"],
-            "model_output": answer,
+            "model_output": answer.split(",") if isinstance(answer, str) and "," in answer else answer,
             "template": reference["metadata"]["template"]
         }
 
