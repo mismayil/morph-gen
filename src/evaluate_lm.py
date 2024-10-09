@@ -39,7 +39,8 @@ PORO_MODELS = ["poro-34b"]
 AYA_MODELS = ["aya-23-8b", "aya-23-35b"]
 AHMA_MODELS = ["ahma-3b", "ahma-7b"]
 GEMMA_MODELS = ["gemma-2-2b", "gemma-2-9b", "gemma-2-27b"]
-HF_MODELS = LLAMA_MODELS + PORO_MODELS + AYA_MODELS + AHMA_MODELS + GEMMA_MODELS
+QWEN_MODELS = ["qwen-2.5-7b", "qwen-2.5-14b", "qwen-2.5-32b"]
+HF_MODELS = LLAMA_MODELS + PORO_MODELS + AYA_MODELS + AHMA_MODELS + GEMMA_MODELS + QWEN_MODELS
 
 @dataclasses.dataclass
 class ModelResponse:
