@@ -25,30 +25,37 @@ def _get_affixes(sample):
     return sample.get("prefixes", []) + sample.get("suffixes", [])
 
 def get_prediction(sample, model_response, template):
-    lang = _get_template_lang(template)
-    if template.startswith("morph_disc_mcq"):
-        pred = str(model_response).strip()
-        if re.fullmatch(r"\d+\s*\..*", model_response.strip()):
-            pred = model_response.split(".")[0].strip()
-        return pred
+    responses = []
+
+    if isinstance(model_response, list):
+        responses = model_response
+    else:
+        responses = [model_response]
+
+    preds = []
+
+    for res in responses:
+        lang = _get_template_lang(template)
+        if template.startswith("morph_disc_mcq"):
+            pred = str(res).strip()
+            if re.fullmatch(r"\d+\s*\..*", res.strip()):
+                pred = res.split(".")[0].strip()
+        elif template.startswith("morph_disc_pp"):
+            pred = sample["perplexity"]
+        elif template.startswith("morph_gen_cot") or template.startswith("morph_disc_cot"):
+            preds = re.findall("<.*>(?P<pred>.*)</.*>", res)
+            if preds:
+                pred = preds[-1].strip().lower().strip(punctuation)
+                if template.startswith("morph_disc"):
+                    pred = ANSWER_MAP[lang].get(pred, 0)
+        elif template.startswith("morph_disc_bin") or template.startswith("morph_disc"):
+            pred = str(res).strip().lower().strip(punctuation)
+            pred = ANSWER_MAP[lang].get(pred, 0)
+        else:
+            pred = str(res).strip().lower().strip(punctuation)
+        preds.append(pred)
     
-    if template.startswith("morph_disc_pp"):
-        return sample["perplexity"]
-
-    if template.startswith("morph_gen_cot") or template.startswith("morph_disc_cot"):
-        preds = re.findall("<.*>(?P<pred>.*)</.*>", model_response)
-        if preds:
-            pred = preds[-1].strip().lower().strip(punctuation)
-            if template.startswith("morph_disc"):
-                return ANSWER_MAP[lang].get(pred, 0)
-            return pred
-
-    if template.startswith("morph_disc_bin") or template.startswith("morph_disc"):
-        pred = str(model_response).strip().lower().strip(punctuation)
-        return ANSWER_MAP[lang].get(pred, 0)
-
-    pred = str(model_response).strip().lower().strip(punctuation)
-    return pred
+    return preds
 
 def get_reference(sample, ref_response, template):
     responses = []
@@ -71,37 +78,42 @@ def get_reference(sample, ref_response, template):
     return refs
 
 def is_faithful(result, ref_response, model_response, template, separator=""):
-    if template.startswith("morph_disc"):
-        if model_response and re.fullmatch(r"\d+", model_response.strip()):
-            return True
-        return False
+    responses = []
+
+    if isinstance(model_response, list):
+        responses = model_response
+    else:
+        responses = [model_response]
     
-    if template.startswith("morph_gen_order"):
-        if model_response and re.fullmatch(r"(\d+,\s*)+\d+", model_response.strip()):
-            return True
-        return False
-
-    if template.startswith("morph_gen"):
-        if model_response and len(model_response) != len(ref_response):
-            return False
-        
-        prefixes = result.get("prefixes", [])
-        suffixes = result.get("suffixes", [])
-        prefix_perms = list(permutations(prefixes))
-        suffix_perms = list(permutations(suffixes))
-
-        if prefix_perms and suffix_perms:
-            affix_perms = product(prefix_perms, suffix_perms)
-        elif prefix_perms:
-            affix_perms = prefix_perms
-        elif suffix_perms:
-            affix_perms = suffix_perms
-        
-        for prefix_perm, suffix_perm in affix_perms:
-            root_derivation = separator.join(prefix_perm) + separator + result["root"] + separator + separator.join(suffix_perm)
-            if root_derivation == model_response:
+    for res in responses:
+        if template.startswith("morph_disc"):
+            if model_response and re.fullmatch(r"\d+", res.strip()):
                 return True
-    
+        
+        if template.startswith("morph_gen_order"):
+            if model_response and re.fullmatch(r"(\d+,\s*)+\d+", res.strip()):
+                return True
+
+        if template.startswith("morph_gen"):
+            if not res or not isinstance(res, str) or len(res) != len(ref_response):
+                continue
+            
+            prefixes = result.get("prefixes", [])
+            suffixes = result.get("suffixes", [])
+            prefix_perms = list(permutations(prefixes))
+            suffix_perms = list(permutations(suffixes))
+
+            if prefix_perms and suffix_perms:
+                affix_perms = product(prefix_perms, suffix_perms)
+            elif prefix_perms:
+                affix_perms = prefix_perms
+            elif suffix_perms:
+                affix_perms = suffix_perms
+            
+            for prefix_perm, suffix_perm in affix_perms:
+                root_derivation = separator.join(prefix_perm) + separator + result["root"] + separator + separator.join(suffix_perm)
+                if root_derivation == model_response:
+                    return True
     return False
 
 def get_soft_accuracy(result, ref_response, model_response, template):
@@ -284,16 +296,16 @@ def compute_metrics(results, report_usage=True, separator="", frequency_path=Non
 
         if model_response_attr in result:
             refs = get_reference(result, result[ref_response_attr], result["template"])
-            pred = get_prediction(result, result[model_response_attr], result["template"])
+            preds = get_prediction(result, result[model_response_attr], result["template"])
             
             if result["template"].startswith("morph_disc") and not result["template"].startswith("morph_disc_mcq"):
                 if result["id"] not in results_by_affix_len[num_affixes]:
                     results_by_affix_len[num_affixes][result["id"]] = {"references": [], "predictions": []}
                 results_by_affix_len[num_affixes][result["id"]]["references"].append(refs[0])
-                results_by_affix_len[num_affixes][result["id"]]["predictions"].append(pred)
+                results_by_affix_len[num_affixes][result["id"]]["predictions"].append(preds[0])
 
-            result["correct"] = (pred in refs)
-            result["prediction"] = pred
+            result["correct"] = any([pred in refs for pred in preds])
+            result["prediction"] = preds
             result["faithful"] = is_faithful(result, result[ref_response_attr], result[model_response_attr], result["template"], separator=separator)
             # result["soft_accuracy"] = get_soft_accuracy(result, result[ref_response_attr], result[model_response_attr], result["template"])
             accuracy_by_affix_len[num_affixes].append(result["correct"])
