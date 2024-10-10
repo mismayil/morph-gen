@@ -102,7 +102,7 @@ def main():
                 if f"{ref_path.stem}_results" == res_path.stem:
                     res_ref_pairs.append((res_file, ref_file))
                     break
-    
+
     for res_file, ref_file in res_ref_pairs:
         outputs = process_results(res_file, ref_file)
         res_path = pathlib.Path(res_file)

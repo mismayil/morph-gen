@@ -517,13 +517,17 @@ def prepare_sample_for_human_eval(sample, template, language, shuffle_affixes=Tr
         "sample_id": sample["id"],
         "root": sample["root"]
     }
-    affixes = (sample.get("prefixes", []) or []) + (sample.get("suffixes", []) or [])
+    prefixes = sample.get("prefixes", []) or []
+    suffixes = sample.get("suffixes", []) or []
+    affixes = prefixes + suffixes
     negative_affixes = (sample.get("negative_prefixes", []) or []) + (sample.get("negative_suffixes", []) or [])
 
     if shuffle_affixes:
         affixes = random.sample(affixes, len(affixes))
         negative_affixes = random.sample(negative_affixes, len(negative_affixes))
 
+    eval_sample["prefixes"] = prefixes
+    eval_sample["suffixes"] = suffixes
     eval_sample["affixes"] = affixes
 
     if _is_ood_sample(sample):
