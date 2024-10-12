@@ -61,7 +61,7 @@ def select_negative_options(negative_options, ref_option, root, strategy="lev", 
     else:
         raise ValueError(f"Invalid strategy: {strategy}")
 
-def get_negative_options(root, prefixes, suffixes, ref_derivation, negative_prefixes=None, negative_suffixes=None, separator=""):
+def get_negative_options(root, prefixes, suffixes, ref_derivations, negative_prefixes=None, negative_suffixes=None, separator=""):
     prefix_perms = []
     suffix_perms = []
     affix_perms = []
@@ -85,18 +85,18 @@ def get_negative_options(root, prefixes, suffixes, ref_derivation, negative_pref
         for prefix_perm, suffix_perm in affix_perms:
             derivation = separator.join(prefix_perm) + separator + root + separator + separator.join(suffix_perm)
 
-            if derivation != ref_derivation:
+            if derivation not in ref_derivations:
                 negative_options.add(derivation)
 
     if not negative_options:
         if negative_prefixes:
             derivation = separator.join(negative_prefixes) + separator + root
-            if derivation != ref_derivation:
+            if derivation not in ref_derivations:
                 negative_options.add(derivation)
         
         if negative_suffixes:
             derivation = root + separator + separator.join(negative_suffixes)
-            if derivation != ref_derivation:
+            if derivation not in ref_derivations:
                 negative_options.add(derivation)
             
     return negative_options
@@ -107,13 +107,14 @@ def prepare_sample_for_tasks(sample, separator="", language="tr", verbose=False,
     suffixes = sample["suffixes"]
     negative_prefixes = sample.get("negative_prefixes", []) or []
     negative_suffixes = sample.get("negative_suffixes", []) or []
-    ref_derivation = sample["derivation"]
+    positive_options = sample.get("positive_options", [])
+    ref_derivations = positive_options if positive_options else [sample["derivation"]]
 
-    negative_options = get_negative_options(sample["root"], prefixes, suffixes, ref_derivation, 
+    negative_options = get_negative_options(sample["root"], prefixes, suffixes, ref_derivations, 
                                             negative_prefixes=negative_prefixes, negative_suffixes=negative_suffixes,
                                             separator=separator)
 
-    negative_options = select_negative_options(negative_options, ref_derivation, sample["root"], strategy=option_strategy, num_options=num_options)
+    negative_options = select_negative_options(negative_options, ref_derivations[0], sample["root"], strategy=option_strategy, num_options=num_options)
     sentence = sample.get("sentence")
 
     attempt = 0
@@ -320,15 +321,16 @@ def prepare_tr_sense_data_for_tasks(input_data, num_samples=None, separator="", 
 def update_neg_sample_for_tasks(sample, separator="", language="tr", option_strategy="no_double_vowel", num_options=4, *args, **kwargs):
     prefixes = sample.get("prefixes", [])
     suffixes = sample["suffixes"]
-    ref_derivation = sample["derivation"]
     negative_prefixes = sample.get("negative_prefixes", []) or []
     negative_suffixes = sample.get("negative_suffixes", []) or []
+    positive_options = sample.get("positive_options", [])
+    ref_derivations = positive_options if positive_options else [sample["derivation"]]
 
-    negative_options = get_negative_options(sample["root"], prefixes, suffixes, ref_derivation, 
+    negative_options = get_negative_options(sample["root"], prefixes, suffixes, ref_derivations, 
                                             negative_prefixes=negative_prefixes, negative_suffixes=negative_suffixes,
                                             separator=separator)
 
-    negative_options = select_negative_options(negative_options, ref_derivation, sample["root"], strategy=option_strategy, num_options=num_options)
+    negative_options = select_negative_options(negative_options, ref_derivations[0], sample["root"], strategy=option_strategy, num_options=num_options)
 
     return {
         **sample,

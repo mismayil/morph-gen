@@ -4,7 +4,12 @@
         "template": "morph_gen_en",
         "language": "tr",
         "num_shots": 1,
-        "size": 1049
+        "output_suffix": "",
+        "max_affix_length": 7,
+        "shot_path": null,
+        "no_shuffle": true,
+        "output_dir": "../experiments/data/tr/btwd/final/eval/temp_en/v_final_default_no_shuffle/batch1",
+        "size": 1048
     },
     "data": [
         {
@@ -7614,32 +7619,6 @@
             "negative_meta_suffixes": []
         },
         {
-            "id": "tr-btwd-e8bcf8d4",
-            "root": "uğraş",
-            "prefixes": [],
-            "suffixes": [
-                "ın",
-                "ın"
-            ],
-            "meta_prefixes": [],
-            "meta_suffixes": [
-                "Hn",
-                "Hn"
-            ],
-            "derivation": "uğraşının",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: kal\nAffixes: an, lar\nAnswer: kalanlar\n\nExample 2:\nWord root: uğraş\nAffixes: ın, ın\nAnswer:",
-            "reference": "uğraşının",
-            "template": "morph_gen_en",
-            "id_root": "uğraş",
-            "id_derivation": null,
-            "sentence": "bu ___ sonunda kısa bir an gelir; kalbin durması, nefesin kesilmesiyle yaşam sona erer",
-            "meaning": null,
-            "negative_prefixes": [],
-            "negative_suffixes": [],
-            "negative_meta_prefixes": [],
-            "negative_meta_suffixes": []
-        },
-        {
             "id": "tr-btwd-ba110787",
             "root": "vurgu",
             "prefixes": [],
@@ -8123,7 +8102,7 @@
                 "NDAn"
             ],
             "derivation": "küçüklüğümüzden",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: üniversite\nAffixes: de, yse, niz\nAnswer: üniversitedeyseniz\n\nExample 2:\nWord root: küçük\nAffixes: lüğ, ümüz, den\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: üniversite\nAffixes: de, yse, niz\nAnswer: ['üniversitedeyseniz', 'üniversitenizdeyse']\n\nExample 2:\nWord root: küçük\nAffixes: lüğ, ümüz, den\nAnswer:",
             "reference": "küçüklüğümüzden",
             "template": "morph_gen_en",
             "id_root": "küçük",
@@ -8152,7 +8131,10 @@
             ],
             "derivation": "üniversitedeyseniz",
             "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: küçük\nAffixes: lüğ, ümüz, den\nAnswer: küçüklüğümüzden\n\nExample 2:\nWord root: üniversite\nAffixes: de, yse, niz\nAnswer:",
-            "reference": "üniversitedeyseniz",
+            "reference": [
+                "üniversitedeyseniz",
+                "üniversitenizdeyse"
+            ],
             "template": "morph_gen_en",
             "id_root": "üniversite",
             "id_derivation": null,
@@ -8432,7 +8414,10 @@
             ],
             "derivation": "göğüsleyebilme",
             "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: küçük\nAffixes: lüğ, ümüz, den\nAnswer: küçüklüğümüzden\n\nExample 2:\nWord root: göğüs\nAffixes: le, yebil, me\nAnswer:",
-            "reference": "göğüsleyebilme",
+            "reference": [
+                "göğüsleyebilme",
+                "göğüslemeyebil"
+            ],
             "template": "morph_gen_en",
             "id_root": "göğüs",
             "id_derivation": null,
@@ -8459,7 +8444,7 @@
                 "DAn"
             ],
             "derivation": "gelirlilerden",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: üniversite\nAffixes: de, yse, niz\nAnswer: üniversitedeyseniz\n\nExample 2:\nWord root: gelir\nAffixes: li, ler, den\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: üniversite\nAffixes: de, yse, niz\nAnswer: ['üniversitedeyseniz', 'üniversitenizdeyse']\n\nExample 2:\nWord root: gelir\nAffixes: li, ler, den\nAnswer:",
             "reference": "gelirlilerden",
             "template": "morph_gen_en",
             "id_root": "gelir",
@@ -8656,7 +8641,10 @@
             ],
             "derivation": "kurcalamamaya",
             "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: küçük\nAffixes: lüğ, ümüz, den\nAnswer: küçüklüğümüzden\n\nExample 2:\nWord root: kurcala\nAffixes: ma, ma, ya\nAnswer:",
-            "reference": "kurcalamamaya",
+            "reference": [
+                "kurcalamamaya",
+                "kurcalayamama"
+            ],
             "template": "morph_gen_en",
             "id_root": "kurcala",
             "id_derivation": null,
@@ -8768,7 +8756,10 @@
             ],
             "derivation": "oynardık",
             "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: küçük\nAffixes: lüğ, ümüz, den\nAnswer: küçüklüğümüzden\n\nExample 2:\nWord root: oyna\nAffixes: r, dı, k\nAnswer:",
-            "reference": "oynardık",
+            "reference": [
+                "oynardık",
+                "oynakdır"
+            ],
             "template": "morph_gen_en",
             "id_root": "oyna",
             "id_derivation": null,
@@ -9832,7 +9823,10 @@
             ],
             "derivation": "bırakmamıza",
             "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: küçük\nAffixes: lüğ, ümüz, den\nAnswer: küçüklüğümüzden\n\nExample 2:\nWord root: bırak\nAffixes: ma, mız, a\nAnswer:",
-            "reference": "bırakmamıza",
+            "reference": [
+                "bırakmamıza",
+                "bırakamamız"
+            ],
             "template": "morph_gen_en",
             "id_root": "bırak",
             "id_derivation": null,
@@ -10028,7 +10022,10 @@
             ],
             "derivation": "güzelleştirmek",
             "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: küçük\nAffixes: lüğ, ümüz, den\nAnswer: küçüklüğümüzden\n\nExample 2:\nWord root: güzel\nAffixes: leş, tir, mek\nAnswer:",
-            "reference": "güzelleştirmek",
+            "reference": [
+                "güzelleştirmek",
+                "güzelleşmektir"
+            ],
             "template": "morph_gen_en",
             "id_root": "güzel",
             "id_derivation": null,
@@ -10167,8 +10164,11 @@
                 "NDAn"
             ],
             "derivation": "gemilerimden",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: üniversite\nAffixes: de, yse, niz\nAnswer: üniversitedeyseniz\n\nExample 2:\nWord root: gemi\nAffixes: ler, im, den\nAnswer:",
-            "reference": "gemilerimden",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: üniversite\nAffixes: de, yse, niz\nAnswer: ['üniversitedeyseniz', 'üniversitenizdeyse']\n\nExample 2:\nWord root: gemi\nAffixes: ler, im, den\nAnswer:",
+            "reference": [
+                "gemilerimden",
+                "gemilerdenim"
+            ],
             "template": "morph_gen_en",
             "id_root": "gemi",
             "id_derivation": null,
@@ -10559,7 +10559,7 @@
                 "NDAn"
             ],
             "derivation": "yüreklerinizden",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: üniversite\nAffixes: de, yse, niz\nAnswer: üniversitedeyseniz\n\nExample 2:\nWord root: yürek\nAffixes: ler, iniz, den\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: üniversite\nAffixes: de, yse, niz\nAnswer: ['üniversitedeyseniz', 'üniversitenizdeyse']\n\nExample 2:\nWord root: yürek\nAffixes: ler, iniz, den\nAnswer:",
             "reference": "yüreklerinizden",
             "template": "morph_gen_en",
             "id_root": "yürek",
@@ -10672,7 +10672,10 @@
             ],
             "derivation": "eskilerdeki",
             "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: küçük\nAffixes: lüğ, ümüz, den\nAnswer: küçüklüğümüzden\n\nExample 2:\nWord root: eski\nAffixes: ler, de, ki\nAnswer:",
-            "reference": "eskilerdeki",
+            "reference": [
+                "eskilerdeki",
+                "eskidekiler"
+            ],
             "template": "morph_gen_en",
             "id_root": "eski",
             "id_derivation": null,
@@ -10727,7 +10730,7 @@
                 "DAn"
             ],
             "derivation": "güzelliklerden",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: üniversite\nAffixes: de, yse, niz\nAnswer: üniversitedeyseniz\n\nExample 2:\nWord root: güzel\nAffixes: lik, ler, den\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: üniversite\nAffixes: de, yse, niz\nAnswer: ['üniversitedeyseniz', 'üniversitenizdeyse']\n\nExample 2:\nWord root: güzel\nAffixes: lik, ler, den\nAnswer:",
             "reference": "güzelliklerden",
             "template": "morph_gen_en",
             "id_root": "güzel",
@@ -10755,7 +10758,7 @@
                 "YA"
             ],
             "derivation": "bütünlüğüne",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: üniversite\nAffixes: de, yse, niz\nAnswer: üniversitedeyseniz\n\nExample 2:\nWord root: bütün\nAffixes: lüğ, ün, e\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: üniversite\nAffixes: de, yse, niz\nAnswer: ['üniversitedeyseniz', 'üniversitenizdeyse']\n\nExample 2:\nWord root: bütün\nAffixes: lüğ, ün, e\nAnswer:",
             "reference": "bütünlüğüne",
             "template": "morph_gen_en",
             "id_root": "bütün",
@@ -10896,7 +10899,10 @@
             ],
             "derivation": "zamanlarımızda",
             "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: küçük\nAffixes: lüğ, ümüz, den\nAnswer: küçüklüğümüzden\n\nExample 2:\nWord root: zaman\nAffixes: lar, ımız, da\nAnswer:",
-            "reference": "zamanlarımızda",
+            "reference": [
+                "zamanlarımızda",
+                "zamanımızdalar"
+            ],
             "template": "morph_gen_en",
             "id_root": "zaman",
             "id_derivation": null,
@@ -11091,7 +11097,7 @@
                 "NDAn"
             ],
             "derivation": "bebekliğinden",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: üniversite\nAffixes: de, yse, niz\nAnswer: üniversitedeyseniz\n\nExample 2:\nWord root: bebek\nAffixes: liğ, in, den\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: üniversite\nAffixes: de, yse, niz\nAnswer: ['üniversitedeyseniz', 'üniversitenizdeyse']\n\nExample 2:\nWord root: bebek\nAffixes: liğ, in, den\nAnswer:",
             "reference": "bebekliğinden",
             "template": "morph_gen_en",
             "id_root": "bebek",
@@ -11176,7 +11182,10 @@
             ],
             "derivation": "tüketmişlerdi",
             "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: küçük\nAffixes: lüğ, ümüz, den\nAnswer: küçüklüğümüzden\n\nExample 2:\nWord root: tüket\nAffixes: miş, ler, di\nAnswer:",
-            "reference": "tüketmişlerdi",
+            "reference": [
+                "tüketmişlerdi",
+                "tüketmişdiler"
+            ],
             "template": "morph_gen_en",
             "id_root": "tüket",
             "id_derivation": null,
@@ -11736,7 +11745,10 @@
             ],
             "derivation": "nefeslerinizde",
             "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: küçük\nAffixes: lüğ, ümüz, den\nAnswer: küçüklüğümüzden\n\nExample 2:\nWord root: nefes\nAffixes: ler, iniz, de\nAnswer:",
-            "reference": "nefeslerinizde",
+            "reference": [
+                "nefeslerinizde",
+                "nefesinizdeler"
+            ],
             "template": "morph_gen_en",
             "id_root": "nefes",
             "id_derivation": null,
@@ -11875,7 +11887,7 @@
                 "NH"
             ],
             "derivation": "üstünlüğümü",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: üniversite\nAffixes: de, yse, niz\nAnswer: üniversitedeyseniz\n\nExample 2:\nWord root: üstün\nAffixes: lüğ, üm, ü\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: üniversite\nAffixes: de, yse, niz\nAnswer: ['üniversitedeyseniz', 'üniversitenizdeyse']\n\nExample 2:\nWord root: üstün\nAffixes: lüğ, üm, ü\nAnswer:",
             "reference": "üstünlüğümü",
             "template": "morph_gen_en",
             "id_root": "üstün",
@@ -12155,7 +12167,7 @@
                 "NDAn"
             ],
             "derivation": "bizimkilerden",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: üniversite\nAffixes: de, yse, niz\nAnswer: üniversitedeyseniz\n\nExample 2:\nWord root: bizim\nAffixes: ki, ler, den\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: üniversite\nAffixes: de, yse, niz\nAnswer: ['üniversitedeyseniz', 'üniversitenizdeyse']\n\nExample 2:\nWord root: bizim\nAffixes: ki, ler, den\nAnswer:",
             "reference": "bizimkilerden",
             "template": "morph_gen_en",
             "id_root": "bizim",
@@ -12240,7 +12252,10 @@
             ],
             "derivation": "kahramanlarımızdır",
             "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: küçük\nAffixes: lüğ, ümüz, den\nAnswer: küçüklüğümüzden\n\nExample 2:\nWord root: kahraman\nAffixes: lar, ımız, dır\nAnswer:",
-            "reference": "kahramanlarımızdır",
+            "reference": [
+                "kahramanlarımızdır",
+                "kahramanımızdırlar"
+            ],
             "template": "morph_gen_en",
             "id_root": "kahraman",
             "id_derivation": null,
@@ -12626,7 +12641,10 @@
             ],
             "derivation": "kendisininkiyle",
             "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: karış\nAffixes: ma, sa, ydı, k\nAnswer: karışmasaydık\n\nExample 2:\nWord root: kendi\nAffixes: si, nin, ki, yle\nAnswer:",
-            "reference": "kendisininkiyle",
+            "reference": [
+                "kendisininkiyle",
+                "kendininkisiyle"
+            ],
             "template": "morph_gen_en",
             "id_root": "kendi",
             "id_derivation": null,
@@ -13256,7 +13274,10 @@
             ],
             "derivation": "uyarlandığını",
             "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: karış\nAffixes: ma, sa, ydı, k\nAnswer: karışmasaydık\n\nExample 2:\nWord root: uyarla\nAffixes: n, dığ, ı, nı\nAnswer:",
-            "reference": "uyarlandığını",
+            "reference": [
+                "uyarlandığını",
+                "uyarladığının"
+            ],
             "template": "morph_gen_en",
             "id_root": "uyarla",
             "id_derivation": null,
@@ -13586,7 +13607,10 @@
             ],
             "derivation": "getiremeyeceğim",
             "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: karış\nAffixes: ma, sa, ydı, k\nAnswer: karışmasaydık\n\nExample 2:\nWord root: getir\nAffixes: e, me, yeceğ, im\nAnswer:",
-            "reference": "getiremeyeceğim",
+            "reference": [
+                "getiremeyeceğim",
+                "getirmeyeceğime"
+            ],
             "template": "morph_gen_en",
             "id_root": "getir",
             "id_derivation": null,
@@ -14276,7 +14300,10 @@
             ],
             "derivation": "saklandığımızı",
             "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: karış\nAffixes: ma, sa, ydı, k\nAnswer: karışmasaydık\n\nExample 2:\nWord root: sakla\nAffixes: n, dığ, ımız, ı\nAnswer:",
-            "reference": "saklandığımızı",
+            "reference": [
+                "saklandığımızı",
+                "sakladığımızın"
+            ],
             "template": "morph_gen_en",
             "id_root": "sakla",
             "id_derivation": null,
@@ -14906,7 +14933,10 @@
             ],
             "derivation": "dinlemeselerdi",
             "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: karış\nAffixes: ma, sa, ydı, k\nAnswer: karışmasaydık\n\nExample 2:\nWord root: dinle\nAffixes: me, se, ler, di\nAnswer:",
-            "reference": "dinlemeselerdi",
+            "reference": [
+                "dinlemeselerdi",
+                "dinlemedilerse"
+            ],
             "template": "morph_gen_en",
             "id_root": "dinle",
             "id_derivation": null,
@@ -15566,7 +15596,10 @@
             ],
             "derivation": "önceliklerimin",
             "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: karış\nAffixes: ma, sa, ydı, k\nAnswer: karışmasaydık\n\nExample 2:\nWord root: önce\nAffixes: lik, ler, im, in\nAnswer:",
-            "reference": "önceliklerimin",
+            "reference": [
+                "önceliklerimin",
+                "önceliklerinim"
+            ],
             "template": "morph_gen_en",
             "id_root": "önce",
             "id_derivation": null,
@@ -15746,7 +15779,10 @@
             ],
             "derivation": "geliştirmediği",
             "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: karış\nAffixes: ma, sa, ydı, k\nAnswer: karışmasaydık\n\nExample 2:\nWord root: geliş\nAffixes: tir, me, diğ, i\nAnswer:",
-            "reference": "geliştirmediği",
+            "reference": [
+                "geliştirmediği",
+                "geliştirdiğime"
+            ],
             "template": "morph_gen_en",
             "id_root": "geliş",
             "id_derivation": null,
@@ -16016,7 +16052,10 @@
             ],
             "derivation": "süründürten",
             "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: karış\nAffixes: ma, sa, ydı, k\nAnswer: karışmasaydık\n\nExample 2:\nWord root: sür\nAffixes: ün, dür, t, en\nAnswer:",
-            "reference": "süründürten",
+            "reference": [
+                "süründürten",
+                "sürtündüren"
+            ],
             "template": "morph_gen_en",
             "id_root": "sür",
             "id_derivation": null,
@@ -16706,7 +16745,10 @@
             ],
             "derivation": "izlenmesini",
             "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: karış\nAffixes: ma, sa, ydı, k\nAnswer: karışmasaydık\n\nExample 2:\nWord root: izle\nAffixes: n, me, si, ni\nAnswer:",
-            "reference": "izlenmesini",
+            "reference": [
+                "izlenmesini",
+                "izlemesinin"
+            ],
             "template": "morph_gen_en",
             "id_root": "izle",
             "id_derivation": null,
@@ -17724,7 +17766,10 @@
             ],
             "derivation": "mırıldanmalarınızı",
             "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: aktar\nAffixes: ıl, abil, me, si, nden\nAnswer: aktarılabilmesinden\n\nExample 2:\nWord root: mırılda\nAffixes: n, ma, lar, ınız, ı\nAnswer:",
-            "reference": "mırıldanmalarınızı",
+            "reference": [
+                "mırıldanmalarınızı",
+                "mırıldamalarınızın"
+            ],
             "template": "morph_gen_en",
             "id_root": "mırılda",
             "id_derivation": null,
@@ -17852,7 +17897,10 @@
             ],
             "derivation": "kazanamayacağımız",
             "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: aktar\nAffixes: ıl, abil, me, si, nden\nAnswer: aktarılabilmesinden\n\nExample 2:\nWord root: kazan\nAffixes: a, ma, yacağ, ım, ız\nAnswer:",
-            "reference": "kazanamayacağımız",
+            "reference": [
+                "kazanamayacağımız",
+                "kazanmayacağımıza"
+            ],
             "template": "morph_gen_en",
             "id_root": "kazan",
             "id_derivation": null,
@@ -19836,7 +19884,10 @@
             ],
             "derivation": "yabancılaşmamıza",
             "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: aktar\nAffixes: ıl, abil, me, si, nden\nAnswer: aktarılabilmesinden\n\nExample 2:\nWord root: yabancı\nAffixes: laş, ma, m, ız, a\nAnswer:",
-            "reference": "yabancılaşmamıza",
+            "reference": [
+                "yabancılaşmamıza",
+                "yabancılaşamamız"
+            ],
             "template": "morph_gen_en",
             "id_root": "yabancı",
             "id_derivation": null,
@@ -21629,7 +21680,7 @@
                 "ki"
             ],
             "derivation": "gerçekleşmemesindeki",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: gerçek\nAffixes: leş, me, me, si, nde, ki\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: gerçek\nAffixes: leş, me, me, si, nde, ki\nAnswer:",
             "reference": "gerçekleşmemesindeki",
             "template": "morph_gen_en",
             "id_root": "gerçek",
@@ -21663,7 +21714,7 @@
                 "YHz"
             ],
             "derivation": "yetinemezsiniz",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: yet\nAffixes: in, e, me, z, sin, iz\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: yet\nAffixes: in, e, me, z, sin, iz\nAnswer:",
             "reference": "yetinemezsiniz",
             "template": "morph_gen_en",
             "id_root": "yet",
@@ -21698,7 +21749,10 @@
             ],
             "derivation": "yakıştıramadığımız",
             "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: gerçek\nAffixes: leş, me, me, si, nde, ki\nAnswer: gerçekleşmemesindeki\n\nExample 2:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer:",
-            "reference": "yakıştıramadığımız",
+            "reference": [
+                "yakıştıramadığımız",
+                "yakıştırmadığımıza"
+            ],
             "template": "morph_gen_en",
             "id_root": "yakış",
             "id_derivation": null,
@@ -21765,7 +21819,7 @@
                 "sHn"
             ],
             "derivation": "gerçekleştiremezsin",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: gerçek\nAffixes: leş, tir, e, me, z, sin\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: gerçek\nAffixes: leş, tir, e, me, z, sin\nAnswer:",
             "reference": "gerçekleştiremezsin",
             "template": "morph_gen_en",
             "id_root": "gerçek",
@@ -21799,8 +21853,11 @@
                 "YAn"
             ],
             "derivation": "sahiplendirilemeyen",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: sahip\nAffixes: len, dir, il, e, me, yen\nAnswer:",
-            "reference": "sahiplendirilemeyen",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: sahip\nAffixes: len, dir, il, e, me, yen\nAnswer:",
+            "reference": [
+                "sahiplendirilemeyen",
+                "sahiplendirilmeyene"
+            ],
             "template": "morph_gen_en",
             "id_root": "sahip",
             "id_derivation": null,
@@ -22105,7 +22162,7 @@
                 "NDA"
             ],
             "derivation": "değerlendirilmesinde",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: değer\nAffixes: len, dir, il, me, si, nde\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: değer\nAffixes: len, dir, il, me, si, nde\nAnswer:",
             "reference": "değerlendirilmesinde",
             "template": "morph_gen_en",
             "id_root": "değer",
@@ -22139,7 +22196,7 @@
                 "NH"
             ],
             "derivation": "etkileyemeyeceğini",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: etki\nAffixes: le, ye, me, yeceğ, i, ni\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: etki\nAffixes: le, ye, me, yeceğ, i, ni\nAnswer:",
             "reference": "etkileyemeyeceğini",
             "template": "morph_gen_en",
             "id_root": "etki",
@@ -22207,7 +22264,7 @@
                 "DHr"
             ],
             "derivation": "getirilemeyeceğidir",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: getir\nAffixes: il, e, me, yeceğ, i, dir\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: getir\nAffixes: il, e, me, yeceğ, i, dir\nAnswer:",
             "reference": "getirilemeyeceğidir",
             "template": "morph_gen_en",
             "id_root": "getir",
@@ -22479,7 +22536,7 @@
                 "NA"
             ],
             "derivation": "getirilememesine",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: getir\nAffixes: il, e, me, me, si, ne\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: getir\nAffixes: il, e, me, me, si, ne\nAnswer:",
             "reference": "getirilememesine",
             "template": "morph_gen_en",
             "id_root": "getir",
@@ -22513,7 +22570,7 @@
                 "YHz"
             ],
             "derivation": "gerçekleştirmezsiniz",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: gerçek\nAffixes: leş, tir, me, z, sin, iz\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: gerçek\nAffixes: leş, tir, me, z, sin, iz\nAnswer:",
             "reference": "gerçekleştirmezsiniz",
             "template": "morph_gen_en",
             "id_root": "gerçek",
@@ -22581,7 +22638,7 @@
                 "NH"
             ],
             "derivation": "şekillendirmediğini",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: şekil\nAffixes: len, dir, me, diğ, in, i\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: şekil\nAffixes: len, dir, me, diğ, in, i\nAnswer:",
             "reference": "şekillendirmediğini",
             "template": "morph_gen_en",
             "id_root": "şekil",
@@ -22853,8 +22910,11 @@
                 "NH"
             ],
             "derivation": "istenmediklerini",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: iste\nAffixes: n, me, dik, ler, in, i\nAnswer:",
-            "reference": "istenmediklerini",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: iste\nAffixes: n, me, dik, ler, in, i\nAnswer:",
+            "reference": [
+                "istenmediklerini",
+                "istemediklerinin"
+            ],
             "template": "morph_gen_en",
             "id_root": "iste",
             "id_derivation": null,
@@ -22989,7 +23049,7 @@
                 "NHn"
             ],
             "derivation": "ateşleyemediğinin",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: ateş\nAffixes: le, ye, me, diğ, in, in\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: ateş\nAffixes: le, ye, me, diğ, in, in\nAnswer:",
             "reference": "ateşleyemediğinin",
             "template": "morph_gen_en",
             "id_root": "ateş",
@@ -23159,7 +23219,7 @@
                 "k"
             ],
             "derivation": "güzelleştiremesek",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: güzel\nAffixes: leş, tir, e, me, se, k\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: güzel\nAffixes: leş, tir, e, me, se, k\nAnswer:",
             "reference": "güzelleştiremesek",
             "template": "morph_gen_en",
             "id_root": "güzel",
@@ -23227,7 +23287,7 @@
                 "DHr"
             ],
             "derivation": "gerçekleştirmişsinizdir",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: gerçek\nAffixes: leş, tir, miş, sin, iz, dir\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: gerçek\nAffixes: leş, tir, miş, sin, iz, dir\nAnswer:",
             "reference": "gerçekleştirmişsinizdir",
             "template": "morph_gen_en",
             "id_root": "gerçek",
@@ -23261,7 +23321,7 @@
                 "DHr"
             ],
             "derivation": "genişletilmesidir",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: geniş\nAffixes: le, t, il, me, si, dir\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: geniş\nAffixes: le, t, il, me, si, dir\nAnswer:",
             "reference": "genişletilmesidir",
             "template": "morph_gen_en",
             "id_root": "geniş",
@@ -23295,7 +23355,7 @@
                 "YHz"
             ],
             "derivation": "sevilmeyebilirsiniz",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: sev\nAffixes: il, me, yebil, ir, sin, iz\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: sev\nAffixes: il, me, yebil, ir, sin, iz\nAnswer:",
             "reference": "sevilmeyebilirsiniz",
             "template": "morph_gen_en",
             "id_root": "sev",
@@ -23329,7 +23389,7 @@
                 "YA"
             ],
             "derivation": "şairlerininkilere",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: şair\nAffixes: ler, in, in, ki, ler, e\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: şair\nAffixes: ler, in, in, ki, ler, e\nAnswer:",
             "reference": "şairlerininkilere",
             "template": "morph_gen_en",
             "id_root": "şair",
@@ -23397,7 +23457,7 @@
                 "NH"
             ],
             "derivation": "yenilemeyeceğini",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: yen\nAffixes: il, e, me, yeceğ, i, ni\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: yen\nAffixes: il, e, me, yeceğ, i, ni\nAnswer:",
             "reference": "yenilemeyeceğini",
             "template": "morph_gen_en",
             "id_root": "yen",
@@ -23533,7 +23593,7 @@
                 "NH"
             ],
             "derivation": "biriktiremediklerini",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: biriktir\nAffixes: e, me, dik, ler, i, ni\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: biriktir\nAffixes: e, me, dik, ler, i, ni\nAnswer:",
             "reference": "biriktiremediklerini",
             "template": "morph_gen_en",
             "id_root": "biriktir",
@@ -23670,7 +23730,10 @@
             ],
             "derivation": "yakıştıramayacağımız",
             "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: gerçek\nAffixes: leş, me, me, si, nde, ki\nAnswer: gerçekleşmemesindeki\n\nExample 2:\nWord root: yakış\nAffixes: tır, a, ma, yacağ, ım, ız\nAnswer:",
-            "reference": "yakıştıramayacağımız",
+            "reference": [
+                "yakıştıramayacağımız",
+                "yakıştırmayacağımıza"
+            ],
             "template": "morph_gen_en",
             "id_root": "yakış",
             "id_derivation": null,
@@ -23805,7 +23868,7 @@
                 "YA"
             ],
             "derivation": "başkalarınınkilere",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: başka\nAffixes: lar, ı, nın, ki, ler, e\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: başka\nAffixes: lar, ı, nın, ki, ler, e\nAnswer:",
             "reference": "başkalarınınkilere",
             "template": "morph_gen_en",
             "id_root": "başka",
@@ -23941,7 +24004,7 @@
                 "ki"
             ],
             "derivation": "direnişlerindeki",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: dire\nAffixes: n, iş, ler, in, de, ki\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: dire\nAffixes: n, iş, ler, in, de, ki\nAnswer:",
             "reference": "direnişlerindeki",
             "template": "morph_gen_en",
             "id_root": "dire",
@@ -24043,7 +24106,7 @@
                 "DHr"
             ],
             "derivation": "özgürleştirmeleridir",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: özgür\nAffixes: leş, tir, me, ler, i, dir\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: özgür\nAffixes: leş, tir, me, ler, i, dir\nAnswer:",
             "reference": "özgürleştirmeleridir",
             "template": "morph_gen_en",
             "id_root": "özgür",
@@ -24077,7 +24140,7 @@
                 "YHz"
             ],
             "derivation": "mükemmelleştirebileceğimiz",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: mükemmel\nAffixes: leş, tir, ebil, eceğ, im, iz\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: mükemmel\nAffixes: leş, tir, ebil, eceğ, im, iz\nAnswer:",
             "reference": "mükemmelleştirebileceğimiz",
             "template": "morph_gen_en",
             "id_root": "mükemmel",
@@ -24519,7 +24582,7 @@
                 "DHr"
             ],
             "derivation": "verememişsinizdir",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: ver\nAffixes: e, me, miş, sin, iz, dir\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: ver\nAffixes: e, me, miş, sin, iz, dir\nAnswer:",
             "reference": "verememişsinizdir",
             "template": "morph_gen_en",
             "id_root": "ver",
@@ -24655,7 +24718,7 @@
                 "DHr"
             ],
             "derivation": "deneyimlemediklerimizdir",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: deneyim\nAffixes: le, me, dik, ler, imiz, dir\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: deneyim\nAffixes: le, me, dik, ler, imiz, dir\nAnswer:",
             "reference": "deneyimlemediklerimizdir",
             "template": "morph_gen_en",
             "id_root": "deneyim",
@@ -24859,7 +24922,7 @@
                 "NDAn"
             ],
             "derivation": "değerlendirilmesinden",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: değer\nAffixes: len, dir, il, me, si, nden\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: değer\nAffixes: len, dir, il, me, si, nden\nAnswer:",
             "reference": "değerlendirilmesinden",
             "template": "morph_gen_en",
             "id_root": "değer",
@@ -24927,7 +24990,7 @@
                 "NDAn"
             ],
             "derivation": "geçirememesinden",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: geç\nAffixes: ir, e, me, me, si, nden\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: geç\nAffixes: ir, e, me, me, si, nden\nAnswer:",
             "reference": "geçirememesinden",
             "template": "morph_gen_en",
             "id_root": "geç",
@@ -24995,7 +25058,7 @@
                 "NA"
             ],
             "derivation": "iyileştirilmesine",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: iyi\nAffixes: leş, tir, il, me, si, ne\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: iyi\nAffixes: leş, tir, il, me, si, ne\nAnswer:",
             "reference": "iyileştirilmesine",
             "template": "morph_gen_en",
             "id_root": "iyi",
@@ -25063,7 +25126,7 @@
                 "YlA"
             ],
             "derivation": "nitelendirmelerimizle",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: nitele\nAffixes: n, dir, me, ler, imiz, le\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: nitele\nAffixes: n, dir, me, ler, imiz, le\nAnswer:",
             "reference": "nitelendirmelerimizle",
             "template": "morph_gen_en",
             "id_root": "nitele",
@@ -25165,7 +25228,7 @@
                 "YHz"
             ],
             "derivation": "inceleyemeyeceğimiz",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: ince\nAffixes: le, ye, me, yeceğ, im, iz\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: ince\nAffixes: le, ye, me, yeceğ, im, iz\nAnswer:",
             "reference": "inceleyemeyeceğimiz",
             "template": "morph_gen_en",
             "id_root": "ince",
@@ -25301,7 +25364,7 @@
                 "YAcAk"
             ],
             "derivation": "cinsiyetleştirilemeyecek",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: cinsiyet\nAffixes: leş, tir, il, e, me, yecek\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: cinsiyet\nAffixes: leş, tir, il, e, me, yecek\nAnswer:",
             "reference": "cinsiyetleştirilemeyecek",
             "template": "morph_gen_en",
             "id_root": "cinsiyet",
@@ -25437,7 +25500,7 @@
                 "NHn"
             ],
             "derivation": "dinlettirememenin",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: dinle\nAffixes: t, tir, e, me, me, nin\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: dinle\nAffixes: t, tir, e, me, me, nin\nAnswer:",
             "reference": "dinlettirememenin",
             "template": "morph_gen_en",
             "id_root": "dinle",
@@ -25539,7 +25602,7 @@
                 "NH"
             ],
             "derivation": "kabullenemediğini",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: kabul\nAffixes: len, e, me, diğ, in, i\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: kabul\nAffixes: len, e, me, diğ, in, i\nAnswer:",
             "reference": "kabullenemediğini",
             "template": "morph_gen_en",
             "id_root": "kabul",
@@ -25777,7 +25840,7 @@
                 "NDAn"
             ],
             "derivation": "bölüştürülmesinden",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: böl\nAffixes: üş, tür, ül, me, si, nden\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: böl\nAffixes: üş, tür, ül, me, si, nden\nAnswer:",
             "reference": "bölüştürülmesinden",
             "template": "morph_gen_en",
             "id_root": "böl",
@@ -25811,7 +25874,7 @@
                 "nHz"
             ],
             "derivation": "getirmemişlerdenseniz",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: getir\nAffixes: me, miş, ler, den, se, niz\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: getir\nAffixes: me, miş, ler, den, se, niz\nAnswer:",
             "reference": "getirmemişlerdenseniz",
             "template": "morph_gen_en",
             "id_root": "getir",
@@ -25845,7 +25908,7 @@
                 "NH"
             ],
             "derivation": "eleştirilemeyeceğini",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: eleştir\nAffixes: il, e, me, yeceğ, i, ni\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: eleştir\nAffixes: il, e, me, yeceğ, i, ni\nAnswer:",
             "reference": "eleştirilemeyeceğini",
             "template": "morph_gen_en",
             "id_root": "eleştir",
@@ -25913,7 +25976,7 @@
                 "NH"
             ],
             "derivation": "genelleyemediğimizi",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: genel\nAffixes: le, ye, me, diğ, imiz, i\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: genel\nAffixes: le, ye, me, diğ, imiz, i\nAnswer:",
             "reference": "genelleyemediğimizi",
             "template": "morph_gen_en",
             "id_root": "genel",
@@ -25947,7 +26010,7 @@
                 "YHz"
             ],
             "derivation": "zenginleştirebilmemiz",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: zengin\nAffixes: leş, tir, ebil, me, m, iz\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: zengin\nAffixes: leş, tir, ebil, me, m, iz\nAnswer:",
             "reference": "zenginleştirebilmemiz",
             "template": "morph_gen_en",
             "id_root": "zengin",
@@ -26015,7 +26078,7 @@
                 "NDAn"
             ],
             "derivation": "vazgeçilmezlerinden",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: vazgeç\nAffixes: il, me, z, ler, in, den\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: vazgeç\nAffixes: il, me, z, ler, in, den\nAnswer:",
             "reference": "vazgeçilmezlerinden",
             "template": "morph_gen_en",
             "id_root": "vazgeç",
@@ -26049,7 +26112,7 @@
                 "NA"
             ],
             "derivation": "nitelendirilmesine",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: nitele\nAffixes: n, dir, il, me, si, ne\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: nitele\nAffixes: n, dir, il, me, si, ne\nAnswer:",
             "reference": "nitelendirilmesine",
             "template": "morph_gen_en",
             "id_root": "nitele",
@@ -26185,7 +26248,7 @@
                 "NH"
             ],
             "derivation": "indirgenemeyeceğini",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: indirge\nAffixes: n, e, me, yeceğ, i, ni\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: indirge\nAffixes: n, e, me, yeceğ, i, ni\nAnswer:",
             "reference": "indirgenemeyeceğini",
             "template": "morph_gen_en",
             "id_root": "indirge",
@@ -26220,7 +26283,10 @@
             ],
             "derivation": "somutlaştıramadığımız",
             "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: gerçek\nAffixes: leş, me, me, si, nde, ki\nAnswer: gerçekleşmemesindeki\n\nExample 2:\nWord root: somut\nAffixes: laş, tır, a, ma, dığ, ımız\nAnswer:",
-            "reference": "somutlaştıramadığımız",
+            "reference": [
+                "somutlaştıramadığımız",
+                "somutlaştırmadığımıza"
+            ],
             "template": "morph_gen_en",
             "id_root": "somut",
             "id_derivation": null,
@@ -26253,7 +26319,7 @@
                 "YHz"
             ],
             "derivation": "bitiremezsiniz",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: bit\nAffixes: ir, e, me, z, sin, iz\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: bit\nAffixes: ir, e, me, z, sin, iz\nAnswer:",
             "reference": "bitiremezsiniz",
             "template": "morph_gen_en",
             "id_root": "bit",
@@ -26287,7 +26353,7 @@
                 "HlH"
             ],
             "derivation": "örtüştürülmemeli",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: ört\nAffixes: üş, tür, ül, me, me, li\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: ört\nAffixes: üş, tür, ül, me, me, li\nAnswer:",
             "reference": "örtüştürülmemeli",
             "template": "morph_gen_en",
             "id_root": "ört",
@@ -26559,7 +26625,7 @@
                 "NDAn"
             ],
             "derivation": "kirletilmesinden",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: kir\nAffixes: le, t, il, me, si, nden\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: kir\nAffixes: le, t, il, me, si, nden\nAnswer:",
             "reference": "kirletilmesinden",
             "template": "morph_gen_en",
             "id_root": "kir",
@@ -26593,7 +26659,7 @@
                 "YsA"
             ],
             "derivation": "biçimlendiremezse",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: biçim\nAffixes: len, dir, e, me, z, se\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: biçim\nAffixes: len, dir, e, me, z, se\nAnswer:",
             "reference": "biçimlendiremezse",
             "template": "morph_gen_en",
             "id_root": "biçim",
@@ -26627,7 +26693,7 @@
                 "NA"
             ],
             "derivation": "gerçekleştirebilmesine",
-            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: yakıştıramadığımız\n\nExample 2:\nWord root: gerçek\nAffixes: leş, tir, ebil, me, si, ne\nAnswer:",
+            "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: yakış\nAffixes: tır, a, ma, dığ, ım, ız\nAnswer: ['yakıştıramadığımız', 'yakıştırmadığımıza']\n\nExample 2:\nWord root: gerçek\nAffixes: leş, tir, ebil, me, si, ne\nAnswer:",
             "reference": "gerçekleştirebilmesine",
             "template": "morph_gen_en",
             "id_root": "gerçek",
@@ -26662,7 +26728,10 @@
             ],
             "derivation": "sıfırlandıramayacağım",
             "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: gerçek\nAffixes: leş, me, me, si, nde, ki\nAnswer: gerçekleşmemesindeki\n\nExample 2:\nWord root: sıfır\nAffixes: lan, dır, a, ma, yacağ, ım\nAnswer:",
-            "reference": "sıfırlandıramayacağım",
+            "reference": [
+                "sıfırlandıramayacağım",
+                "sıfırlandırmayacağıma"
+            ],
             "template": "morph_gen_en",
             "id_root": "sıfır",
             "id_derivation": null,
@@ -28604,7 +28673,10 @@
             ],
             "derivation": "dönüştüremediğimiz",
             "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: ol\nAffixes: uş, tur, a, ma, ma, sı, ndan\nAnswer: oluşturamamasından\n\nExample 2:\nWord root: dön\nAffixes: üş, tür, e, me, diğ, im, iz\nAnswer:",
-            "reference": "dönüştüremediğimiz",
+            "reference": [
+                "dönüştüremediğimiz",
+                "dönüştürmediğimize"
+            ],
             "template": "morph_gen_en",
             "id_root": "dön",
             "id_derivation": null,
@@ -28856,7 +28928,10 @@
             ],
             "derivation": "gerçekleştiremediğiniz",
             "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: ol\nAffixes: uş, tur, a, ma, ma, sı, ndan\nAnswer: oluşturamamasından\n\nExample 2:\nWord root: gerçek\nAffixes: leş, tir, e, me, diğ, in, iz\nAnswer:",
-            "reference": "gerçekleştiremediğiniz",
+            "reference": [
+                "gerçekleştiremediğiniz",
+                "gerçekleştirmediğinize"
+            ],
             "template": "morph_gen_en",
             "id_root": "gerçek",
             "id_derivation": null,
@@ -29072,7 +29147,10 @@
             ],
             "derivation": "değiştirilemeyeceğimiz",
             "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: ol\nAffixes: uş, tur, a, ma, ma, sı, ndan\nAnswer: oluşturamamasından\n\nExample 2:\nWord root: değiş\nAffixes: tir, il, e, me, yeceğ, im, iz\nAnswer:",
-            "reference": "değiştirilemeyeceğimiz",
+            "reference": [
+                "değiştirilemeyeceğimiz",
+                "değiştirilmeyeceğimize"
+            ],
             "template": "morph_gen_en",
             "id_root": "değiş",
             "id_derivation": null,
@@ -31484,7 +31562,10 @@
             ],
             "derivation": "evcilleştirilemeyen",
             "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: ol\nAffixes: uş, tur, a, ma, ma, sı, ndan\nAnswer: oluşturamamasından\n\nExample 2:\nWord root: ev\nAffixes: cil, leş, tir, il, e, me, yen\nAnswer:",
-            "reference": "evcilleştirilemeyen",
+            "reference": [
+                "evcilleştirilemeyen",
+                "evcilleştirilmeyene"
+            ],
             "template": "morph_gen_en",
             "id_root": "ev",
             "id_derivation": null,
@@ -31916,7 +31997,10 @@
             ],
             "derivation": "değerlendiremediğimiz",
             "prompt": "You are given a word root and a list of affixes (separated by comma) in Turkish and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word.\n\nExample 1:\nWord root: ol\nAffixes: uş, tur, a, ma, ma, sı, ndan\nAnswer: oluşturamamasından\n\nExample 2:\nWord root: değer\nAffixes: len, dir, e, me, diğ, im, iz\nAnswer:",
-            "reference": "değerlendiremediğimiz",
+            "reference": [
+                "değerlendiremediğimiz",
+                "değerlendirmediğimize"
+            ],
             "template": "morph_gen_en",
             "id_root": "değer",
             "id_derivation": null,

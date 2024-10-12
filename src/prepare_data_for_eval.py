@@ -155,7 +155,7 @@ def _get_template_lang(template):
     return template.split("_")[-1]
 
 def _get_answer(option, reference, template_lang):
-    correct = option == reference
+    correct = option in reference
     if template_lang == "en":
         return "Yes" if correct else "No"
     elif template_lang == "tr":
@@ -187,7 +187,10 @@ def prepare_shot_for_morph_gen(
             affixes = random.sample(affixes, len(affixes))
 
     affixes_str = ", ".join([f"{s}" for s in affixes])
-    answer = sample["cot_answer"] if _is_cot_task(template) and "cot_answer" in sample else sample["derivation"]
+    answer = sample["derivation"] if _is_sent_task(template) or len(sample["positive_options"]) == 1 else sample["positive_options"]
+
+    if _is_cot_task(template) and "cot_answer" in sample:
+        answer = sample["cot_answer"]
 
     format_args = {
         "index": idx+1,
@@ -197,50 +200,6 @@ def prepare_shot_for_morph_gen(
     }
     shot_template = SHOT_TEMPLATES[template]
     
-    if _is_ood_sample(sample):
-        definition = _get_root_definition(sample, language, template, template_lang)
-        format_args["root_definition"] = definition
-        shot_template = SHOT_TEMPLATES[f"nonce_{template}"]
-
-    if _is_sent_task(template):
-        format_args["sentence"] = sample["sentence"]
-
-    if _is_sense_task(template):
-        definition = _get_target_definition(sample, language, template, template_lang)
-        format_args["target_definition"] = definition
-
-    shot = shot_template.format(**format_args)
-    
-    return shot, answer
-
-def prepare_shot_for_morph_gen_order(idx, sample, template, language, is_final=False):
-    template_lang = _get_template_lang(template)
-    prefixes = sample.get("prefixes", [])
-    suffixes = sample.get("suffixes", [])
-    affixes = prefixes + suffixes
-    affixes = random.sample(
-        [(i, s) for i, s in enumerate(affixes)], len(affixes)
-    )
-    affixes_str = ", ".join([f"{i+1}. {s[1]}" for i, s in enumerate(affixes)])
-    answer = ",".join(
-        [
-            str(idx[1])
-
-            for idx in sorted(
-                zip([i_s[0] for i_s in affixes], range(1, len(affixes) + 1)),
-                key=lambda x: x[0],
-            )
-        ]
-    )
-
-    format_args = {
-        "index": idx+1,
-        "root": sample["root"],
-        "affixes": affixes_str,
-        "answer": "" if is_final else answer,
-    }
-    shot_template = SHOT_TEMPLATES[template]
-
     if _is_ood_sample(sample):
         definition = _get_root_definition(sample, language, template, template_lang)
         format_args["root_definition"] = definition
@@ -327,6 +286,8 @@ def prepare_shots_for_morph_disc(
     negative_prefixes = sample.get("negative_prefixes", []) or []
     negative_suffixes = sample.get("negative_suffixes", []) or []
     negative_affixes = negative_prefixes + negative_suffixes
+    reference = [sample["derivation"]]
+    options = [sample["derivation"]]
 
     if shuffle_affixes:
         if is_final or not fixed_shots:
@@ -338,9 +299,12 @@ def prepare_shots_for_morph_disc(
                 )
 
     if "positive_options" in sample and "negative_options" in sample:
-        options = [sample["positive_options"][0]] + sample["negative_options"][:4]
-    else:
-        options = [sample["derivation"]]
+        if _is_sent_task(template):
+            reference = [sample["positive_options"][0]]
+            options = [sample["positive_options"][0]] + sample["negative_options"][:4]
+        else:
+            reference = sample["positive_options"]
+            options = sample["positive_options"] + sample["negative_options"][:4]
 
     affixes_str = ", ".join([f"{s}" for s in affixes])
     negative_affixes_str = (
@@ -354,7 +318,7 @@ def prepare_shots_for_morph_disc(
         answer = (
             sample["cot_answer"]
             if _is_cot_task(template) and "cot_answer" in sample
-            else _get_answer(option, sample["derivation"], template_lang)
+            else _get_answer(option, reference, template_lang)
         )
 
         if template.startswith("morph_disc_pp"):
@@ -401,7 +365,6 @@ INSTRUCTION_PROCESSORS = {
 SHOT_PROCESSORS = {
     "default_gen": prepare_shot_for_morph_gen,
     "default_disc": prepare_shots_for_morph_disc,
-    "morph_gen_order_en": prepare_shot_for_morph_gen_order,
     "morph_disc_mcq_en": prepare_shot_for_morph_disc_mcq,
     "morph_disc_mcq_tr": prepare_shot_for_morph_disc_mcq
 }
@@ -470,8 +433,6 @@ def prepare_sample_for_eval(
 
     if not isinstance(final_shot, list):
         final_shot = [final_shot]
-    
-    if not isinstance(final_answer, list):
         final_answer = [final_answer]
     
     eval_data = []
@@ -590,7 +551,7 @@ def main():
     parser.add_argument("-n", "--num-shots", type=int, default=1)
     parser.add_argument(
         "-s",
-        "--suffix",
+        "--output-suffix",
         type=str,
         default="",
         help="Custom suffix for output file path.",
@@ -679,7 +640,7 @@ def main():
     datapath = pathlib.Path(args.datapath)
     output_dir = pathlib.Path(args.output_dir) if args.output_dir is not None else datapath.parent
     output_dir.mkdir(parents=True, exist_ok=True)
-    eval_data_path_stem = output_dir / f"{datapath.stem}_eval_{args.template}_s{args.num_shots}{args.suffix}"
+    eval_data_path_stem = output_dir / f"{datapath.stem}_eval_{args.template}_s{args.num_shots}{args.output_suffix}"
 
     output_data = {
         "metadata": {
@@ -687,7 +648,7 @@ def main():
             "template": args.template,
             "language": input_data["metadata"]["language"],
             "num_shots": args.num_shots,
-            "suffix": args.suffix,
+            "output_suffix": args.output_suffix,
             "max_affix_length": args.max_affix_length,
             "shot_path": args.shot_path,
             "no_shuffle": args.no_shuffle,

@@ -155,6 +155,20 @@ def export_to_latex(export_data, output_path, export_type="main"):
                             task_ood = datapoint[task]["OOD"][num_shots]
                             task_id_ood = " & ".join([f"{i} / {o}" for i, o in zip(task_id, task_ood)])
                             f.write(f"\\textbf{{{datapoint['model']}}} & {task_id_ood} \\\\\n")
+    elif export_type == "by_lang":
+        num_shots_lst = sorted(list(export_data[0]["gen-acc"]["ID"].keys()))
+        for num_shots in num_shots_lst:
+            local_output_path = output_path.parent / f"{output_path.stem}_s{num_shots}.tex"
+            with open(output_path, "w") as f:
+                for datapoint in export_data:
+                    if num_shots in datapoint[task]["ID"]:
+                        gen_acc_id = " / ".join(_get_ordered_shot_results(datapoint["gen-acc"]["ID"]))
+                        gen_acc_ood = " / ".join(_get_ordered_shot_results(datapoint["gen-acc"]["OOD"]))
+                        disc_f1_id = " / ".join(_get_ordered_shot_results(datapoint["disc-f1"]["ID"]))
+                        disc_f1_ood = " / ".join(_get_ordered_shot_results(datapoint["disc-f1"]["OOD"]))
+                        disc_coh_id = " / ".join(_get_ordered_shot_results(datapoint["disc-coh"]["ID"]))
+                        disc_coh_ood = " / ".join(_get_ordered_shot_results(datapoint["disc-coh"]["OOD"]))
+                        f.write(f"\\textbf{{{datapoint['model']}}} & {gen_acc_id} & {gen_acc_ood} & {disc_f1_id} & {disc_f1_ood} & {disc_coh_id} & {disc_coh_ood} \\\\\n")
     else:
         raise ValueError("Invalid export type")
 
@@ -165,14 +179,14 @@ def main():
     parser.add_argument("-r", "--results-dirs", type=str, nargs="+", help="Results directories", required=True)
     parser.add_argument("-o", "--output-path", type=str, help="Output path", required=True)
     parser.add_argument("-f", "--format", type=str, choices=["latex"], default="latex", help="Output format")
-    parser.add_argument("-t", "--export-type", type=str, choices=["main", "by_affix"], default="main", help="Export type")
+    parser.add_argument("-t", "--export-type", type=str, choices=["main", "by_affix", "by_lang"], default="main", help="Export type")
 
     args = parser.parse_args()
 
     export_data = []
 
     for result_dir in args.results_dirs:
-        if args.export_type == "main":
+        if args.export_type in ["main", "by_lang"]:
             export_data.append(export_main_results(result_dir))
         elif args.export_type == "by_affix":
             export_data.append(export_by_affix_results(result_dir))
