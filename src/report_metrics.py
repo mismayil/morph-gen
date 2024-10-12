@@ -32,10 +32,11 @@ def get_prediction(sample, model_response, template):
     else:
         responses = [model_response]
 
-    preds = []
+    predictions = []
 
     for res in responses:
         lang = _get_template_lang(template)
+        pred = str(res).strip().lower().strip(punctuation)
         if template.startswith("morph_disc_mcq"):
             pred = str(res).strip()
             if re.fullmatch(r"\d+\s*\..*", res.strip()):
@@ -48,14 +49,16 @@ def get_prediction(sample, model_response, template):
                 pred = preds[-1].strip().lower().strip(punctuation)
                 if template.startswith("morph_disc"):
                     pred = ANSWER_MAP[lang].get(pred, 0)
+            elif template.startswith("morph_disc"):
+                pred = 0
+            else:
+                pred = ""
         elif template.startswith("morph_disc_bin") or template.startswith("morph_disc"):
             pred = str(res).strip().lower().strip(punctuation)
             pred = ANSWER_MAP[lang].get(pred, 0)
-        else:
-            pred = str(res).strip().lower().strip(punctuation)
-        preds.append(pred)
-    
-    return preds
+        predictions.append(pred)
+
+    return predictions
 
 def get_reference(sample, ref_response, template):
     responses = []
@@ -368,16 +371,18 @@ def compute_metrics(results, report_usage=True, separator="", frequency_path=Non
             if strategy == "normal":
                 result_by_id_metrics[(result_id, str(ood_bin))] = metric(references, predictions, average="macro", zero_division=0)
             elif strategy == "two_way":
-                pos_ref_index = references.index(1)
-                if n is None or n <= 0 or n > len(references)-1:
-                    n = len(references)-1
-                neg_ref_indices = random.sample([i for i, ref in enumerate(references) if ref == 0], n)
-                two_way_results = []
-                
-                for i in neg_ref_indices:
-                    two_way_results.append(metric([references[pos_ref_index], references[i]], [predictions[pos_ref_index], predictions[i]], average="macro", zero_division=0))
+                if 1 in references:
+                    pos_ref_index = references.index(1)
+                    if n is None or n <= 0 or n > len(references)-1:
+                        n = len(references)-1
+                    neg_ref_indices = [i for i, ref in enumerate(references) if ref == 0]
+                    neg_ref_indices = random.sample(neg_ref_indices, min(n, len(neg_ref_indices)))
+                    two_way_results = []
+                    
+                    for i in neg_ref_indices:
+                        two_way_results.append(metric([references[pos_ref_index], references[i]], [predictions[pos_ref_index], predictions[i]], average="macro", zero_division=0))
 
-                result_by_id_metrics[(result_id, str(ood_bin))] = mean(two_way_results) if two_way_results else metric(references, predictions, average="macro", zero_division=0)
+                    result_by_id_metrics[(result_id, str(ood_bin))] = mean(two_way_results) if two_way_results else metric(references, predictions, average="macro", zero_division=0)
             else:
                 raise ValueError("Invalid strategy")
 

@@ -187,7 +187,7 @@ def prepare_shot_for_morph_gen(
             affixes = random.sample(affixes, len(affixes))
 
     affixes_str = ", ".join([f"{s}" for s in affixes])
-    answer = sample["derivation"] if _is_sent_task(template) or len(sample["positive_options"]) == 1 else sample["positive_options"]
+    answer = sample["derivation"] if "positive_options" not in sample or _is_sent_task(template) or len(sample["positive_options"]) == 1 else sample["positive_options"]
 
     if _is_cot_task(template) and "cot_answer" in sample:
         answer = sample["cot_answer"]
