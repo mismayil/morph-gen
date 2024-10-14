@@ -82,6 +82,12 @@ def get_reference(sample, ref_response, template):
 
 def is_faithful(result, ref_response, model_response, template, separator=""):
     responses = []
+    ref_responses = []
+
+    if isinstance(ref_response, list):
+        ref_responses = ref_response
+    else:
+        ref_responses = [ref_response]
 
     if isinstance(model_response, list):
         responses = model_response
@@ -90,15 +96,15 @@ def is_faithful(result, ref_response, model_response, template, separator=""):
     
     for res in responses:
         if template.startswith("morph_disc"):
-            if model_response and re.fullmatch(r"\d+", res.strip()):
+            if res and re.fullmatch(r"\d+", res.strip()):
                 return True
         
         if template.startswith("morph_gen_order"):
-            if model_response and re.fullmatch(r"(\d+,\s*)+\d+", res.strip()):
+            if res and re.fullmatch(r"(\d+,\s*)+\d+", res.strip()):
                 return True
 
         if template.startswith("morph_gen"):
-            if not res or not isinstance(res, str) or len(res) != len(ref_response):
+            if not res or not isinstance(res, str) or all([len(res) != len(ref) for ref in ref_responses]):
                 continue
             
             prefixes = result.get("prefixes", [])
@@ -115,7 +121,7 @@ def is_faithful(result, ref_response, model_response, template, separator=""):
             
             for prefix_perm, suffix_perm in affix_perms:
                 root_derivation = separator.join(prefix_perm) + separator + result["root"] + separator + separator.join(suffix_perm)
-                if root_derivation == model_response:
+                if root_derivation == res:
                     return True
     return False
 
