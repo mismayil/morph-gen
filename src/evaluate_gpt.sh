@@ -62,3 +62,23 @@ done
 #     echo "Evaluating ${jsonfile}"
 #     python evaluate_lm.py -d ${jsonfile} -o ${outputs_dir}/${model}/fi/temp_fi/v4/${experiment} -m ${model} -b 4 -oa -g None
 # done
+
+# tr default experiments (temp_en) with temperature sampling
+temperatures=(0.3 0.5 0.7 0.9)
+for temperature in ${temperatures[@]}
+    for jsonfile in ${data_dir}/tr/btwd/final/eval/temp_en/${input_dir}/s5/*.json
+    do
+        echo "Evaluating ${jsonfile}"
+        python evaluate_lm.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_en/final/${experiment}_t${temperature}/s5 -m ${model} -b 4 -t ${temperature} -p 1
+    done
+done
+
+# tr default experiments (temp_en) with top_p sampling
+top_ps=(0.9 0.95)
+for top_p in ${top_ps[@]}
+    for jsonfile in ${data_dir}/tr/btwd/final/eval/temp_en/${input_dir}/s5/*.json
+    do
+        echo "Evaluating ${jsonfile}"
+        python evaluate_lm.py -d ${jsonfile} -o ${outputs_dir}/${model}/tr/btwd/temp_en/final/${experiment}_p${top_p}/s5 -m ${model} -b 4 -p ${top_p} -t 1
+    done
+done

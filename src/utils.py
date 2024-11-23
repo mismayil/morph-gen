@@ -6,8 +6,8 @@ import glob
 
 MODEL_COSTS = {
     "gpt-3.5-turbo": {'input': 0.0000015, 'output': 0.000002},
-    "gpt-4": {'input': 0.00003, 'output': 0.00006},
-    "gpt-4-0125-preview": {'input': 0.00001, 'output': 0.00003},
+    "gpt-4": {'input': 30e-6, 'output': 60e-6},
+    "gpt-4-0125-preview": {'input': 10e-6, 'output': 30e-6},
     "gpt-4o-2024-08-06": {'input': 2.5e-6, 'output': 10e-6},
     "text-davinci-003": {'input': 0.00002, 'output': 0.00002},
     "gemini-1.5-flash": {'input': 3.5e-7, 'output': 1.05e-6},
