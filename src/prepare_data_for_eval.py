@@ -67,7 +67,11 @@ INSTRUCTION_TEMPLATES = {
     "nonce_morph_gen_cot_fi": MORPH_GEN_NONCE_COT_FI_INSTRUCTION_TEMPLATE,
     "nonce_morph_disc_cot_fi": MORPH_DISC_NONCE_COT_FI_INSTRUCTION_TEMPLATE,
     "morph_disc_no_affix_en": MORPH_DISC_NO_AFFIX_EN_INSTRUCTION_TEMPLATE,
-    "nonce_morph_disc_no_affix_en": MORPH_DISC_NONCE_NO_AFFIX_EN_INSTRUCTION_TEMPLATE
+    "nonce_morph_disc_no_affix_en": MORPH_DISC_NONCE_NO_AFFIX_EN_INSTRUCTION_TEMPLATE,
+    "morph_gen_alt_en": MORPH_GEN_ALT_EN_INSTRUCTION_TEMPLATE,
+    "morph_disc_alt_en": MORPH_DISC_ALT_EN_INSTRUCTION_TEMPLATE,
+    "nonce_morph_gen_alt_en": MORPH_GEN_NONCE_ALT_EN_INSTRUCTION_TEMPLATE,
+    "nonce_morph_disc_alt_en": MORPH_DISC_NONCE_ALT_EN_INSTRUCTION_TEMPLATE
 }
 
 SHOT_TEMPLATES = {
@@ -123,7 +127,11 @@ SHOT_TEMPLATES = {
     "nonce_morph_gen_cot_fi": MORPH_GEN_NONCE_COT_FI_SHOT_TEMPLATE,
     "nonce_morph_disc_cot_fi": MORPH_DISC_NONCE_COT_FI_SHOT_TEMPLATE,
     "morph_disc_no_affix_en": MORPH_DISC_NO_AFFIX_EN_SHOT_TEMPLATE,
-    "nonce_morph_disc_no_affix_en": MORPH_DISC_NONCE_NO_AFFIX_EN_SHOT_TEMPLATE
+    "nonce_morph_disc_no_affix_en": MORPH_DISC_NONCE_NO_AFFIX_EN_SHOT_TEMPLATE,
+    "morph_gen_alt_en": MORPH_GEN_EN_SHOT_TEMPLATE,
+    "morph_disc_alt_en": MORPH_DISC_EN_SHOT_TEMPLATE,
+    "nonce_morph_gen_alt_en": MORPH_GEN_NONCE_EN_SHOT_TEMPLATE,
+    "nonce_morph_disc_alt_en": MORPH_DISC_NONCE_EN_SHOT_TEMPLATE
 }
 
 def _is_ood_sample(sample):

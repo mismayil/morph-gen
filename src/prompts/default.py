@@ -1,12 +1,16 @@
 ##################################### Prompt templates in English #####################################
 MORPH_GEN_EN_INSTRUCTION_TEMPLATE = "You are given a word root and a list of affixes (separated by comma) in {language} and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word."
 
+MORPH_GEN_ALT_EN_INSTRUCTION_TEMPLATE = "You are provided with a word root and a set of affixes (comma-separated) in {language}. Your task is to create a grammatically correct word using this root and all the provided affixes. You must use only the given affixes, and each affix can be used only once. Respond with the final word only."
+
 MORPH_GEN_EN_SHOT_TEMPLATE = """Example {index}:
 Word root: {root}
 Affixes: {affixes}
 Answer: {answer}"""
 
 MORPH_DISC_EN_INSTRUCTION_TEMPLATE = "You are given a word root, a list of affixes (separated by comma) and a word in {language} that is derived from the given word root using the given affixes. Your task is to determine whether the derived word is grammatically correct. Answer only with Yes or No."
+
+MORPH_DISC_ALT_EN_INSTRUCTION_TEMPLATE = "You are provided with a word root, a set of affixes (comma-separated), and a word in {language} that is derived from the given root using the provided affixes. Your task is to verify whether the derived word is grammatically correct. Respond with only Yes or No."
 
 MORPH_DISC_EN_SHOT_TEMPLATE = """Example {index}:
 Word root: {root}
@@ -16,6 +20,8 @@ Answer: {answer}"""
 
 MORPH_GEN_NONCE_EN_INSTRUCTION_TEMPLATE = "You are given a novel word root with its definition and a list of affixes (separated by comma) in {language} and your task is to generate a grammatically correct word from this root using all the given affixes. You are allowed to use only the given affixes and each affix only once. Answer with only the generated word."
 
+MORPH_GEN_NONCE_ALT_EN_INSTRUCTION_TEMPLATE = "You are given a new word root along with its definition, and a set of affixes (comma-separated) in {language}. Assuming that the new word root is a valid {language} word, your task is to form a grammatically correct word using this root and all the provided affixes. You must use only the given affixes, and each one can be used just once. Provide only the generated word as your answer."
+
 MORPH_GEN_NONCE_EN_SHOT_TEMPLATE = """Example {index}:
 Word root: {root}
 Definition: {root_definition}
@@ -23,6 +29,8 @@ Affixes: {affixes}
 Answer: {answer}"""
 
 MORPH_DISC_NONCE_EN_INSTRUCTION_TEMPLATE = "You are given a novel word root with its definition, a list of affixes (separated by comma) and a word in {language} that is derived from the given word root using the given affixes. Your task is to determine whether the derived word is grammatically correct. Answer only with Yes or No."
+
+MORPH_DISC_NONCE_ALT_EN_INSTRUCTION_TEMPLATE = "You are provided with a new word root along with its definition, a set of affixes (comma-separated), and a word in {language} that is derived from the given root using the provided affixes. Assuming that the new word root is a valid {language} word, your task is to verify whether the derived word is grammatically correct. Respond with only Yes or No."
 
 MORPH_DISC_NONCE_EN_SHOT_TEMPLATE = """Example {index}:
 Word root: {root}
