@@ -8,7 +8,8 @@ python report_metrics.py -r ${experiment_dir}
 python tabulate_results.py -r ${experiment_dir}
 
 # plot TR results
-python plot_results.py -r ${experiment_dir}/tab_results.csv -o ${figures_dir}/tr/final/${experiment_name}/batch1
+# python plot_results.py -r ${experiment_dir}/tab_results.csv -o ${figures_dir}/tr/final/${experiment_name}/batch1
+python plot_results.py -r ${experiment_dir}/tab_results.csv -o ${figures_dir}/tr/final/${experiment_name}/s5
 
 # plot FI results
 # python plot_results.py -r ${experiment_dir}/tab_results.csv -o ${figures_dir}/fi/v4/${experiment_name}
