@@ -1,25 +1,18 @@
-# Morphological compositional generalization
+# Evaluating Morphological Compositional Generalization in Large Language Models
 
-## Overview
-This is the repo for Morphological Compositional Generalization project. For more project details, check the [Notion page](https://meteis.notion.site/Morphological-compositional-generalization-ba9a542988794c82b9236436be17a172?pvs=4).
+[Paper](https://arxiv.org/abs/2410.12656) | [Download data](data/final_test_suites)
 
-## Experiment Pipeline
-Data is supposed to go through the following pipeline for evaluation:
+This repo contains the code and data used to evaluate morphological compositional generalization in LLMs. Final test suites can be downloaded from [here](data/final_test_suites).
 
-1. Raw Data -->
-
-2. Preprocess Data [`preprocess_data.py`] --> 
-
-3. Prepare Data for Tasks [`prepare_data_for_tasks.py`] --> 
-
-4. Prepare Data for Evaluation [`prepare_data_for_eval.py`] --> 
-
-5. Evaluate Model on Data [`evaluate_gpt.py`] --> 
-
-6. Report Metrics [`report_metrics.py`] --> 
-
-7. Tabulate Results [`tabulate_results.py`] --> 
-
-8. Plot Results [`plot_results.py`]
-
-There are also corresponding bash scripts to automatically run pipeline steps for multiple languages, templates etc. Raw input data resides in the `data` folder. Input data and outputs of models reside in the `experiments/data` and `experiments/outputs` directories respectively.
+## Citation
+```
+@misc{ismayilzada2024morphgen,
+      title={Evaluating Morphological Compositional Generalization in Large Language Models}, 
+      author={Mete Ismayilzada and Defne Circi and Jonne Sälevä and Hale Sirin and Abdullatif Köksal and Bhuwan Dhingra and Antoine Bosselut and Duygu Ataman and Lonneke van der Plas},
+      year={2024},
+      eprint={2410.12656},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2410.12656}, 
+}
+```

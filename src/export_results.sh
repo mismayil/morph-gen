@@ -115,20 +115,20 @@
 #                          -f latex -t by_cot
 
 # tr-en default by-order
-python export_results.py -r ../experiments/outputs/aya-23-8b/tr/btwd/temp_en/final/v_final_default/batch1 \
-                            ../experiments/outputs/aya-23-35b/tr/btwd/temp_en/final/v_final_default/batch1 \
-                            ../experiments/outputs/qwen-2.5-7b/tr/btwd/temp_en/final/v_final_default/batch1 \
-                            ../experiments/outputs/qwen-2.5-32b/tr/btwd/temp_en/final/v_final_default/batch1 \
-                            ../experiments/outputs/gemini-1.5-flash/tr/btwd/temp_en/final/v_final_default/batch1 \
-                            ../experiments/outputs/gpt-4/tr/btwd/temp_en/final/v_final_default/batch1 \
-                            ../experiments/outputs/aya-23-8b/tr/btwd/temp_en/final/v_final_default_no_shuffle/batch1 \
-                            ../experiments/outputs/aya-23-35b/tr/btwd/temp_en/final/v_final_default_no_shuffle/batch1 \
-                            ../experiments/outputs/qwen-2.5-7b/tr/btwd/temp_en/final/v_final_default_no_shuffle/batch1 \
-                            ../experiments/outputs/qwen-2.5-32b/tr/btwd/temp_en/final/v_final_default_no_shuffle/batch1 \
-                            ../experiments/outputs/gemini-1.5-flash/tr/btwd/temp_en/final/v_final_default_no_shuffle/batch1 \
-                            ../experiments/outputs/gpt-4/tr/btwd/temp_en/final/v_final_default_no_shuffle/batch1 \
-                         -o ../experiments/latex/tr/results-tr-en-by-order/results-tr-en-by-order.tex \
-                         -f latex -t by_order
+# python export_results.py -r ../experiments/outputs/aya-23-8b/tr/btwd/temp_en/final/v_final_default/batch1 \
+#                             ../experiments/outputs/aya-23-35b/tr/btwd/temp_en/final/v_final_default/batch1 \
+#                             ../experiments/outputs/qwen-2.5-7b/tr/btwd/temp_en/final/v_final_default/batch1 \
+#                             ../experiments/outputs/qwen-2.5-32b/tr/btwd/temp_en/final/v_final_default/batch1 \
+#                             ../experiments/outputs/gemini-1.5-flash/tr/btwd/temp_en/final/v_final_default/batch1 \
+#                             ../experiments/outputs/gpt-4/tr/btwd/temp_en/final/v_final_default/batch1 \
+#                             ../experiments/outputs/aya-23-8b/tr/btwd/temp_en/final/v_final_default_no_shuffle/batch1 \
+#                             ../experiments/outputs/aya-23-35b/tr/btwd/temp_en/final/v_final_default_no_shuffle/batch1 \
+#                             ../experiments/outputs/qwen-2.5-7b/tr/btwd/temp_en/final/v_final_default_no_shuffle/batch1 \
+#                             ../experiments/outputs/qwen-2.5-32b/tr/btwd/temp_en/final/v_final_default_no_shuffle/batch1 \
+#                             ../experiments/outputs/gemini-1.5-flash/tr/btwd/temp_en/final/v_final_default_no_shuffle/batch1 \
+#                             ../experiments/outputs/gpt-4/tr/btwd/temp_en/final/v_final_default_no_shuffle/batch1 \
+#                          -o ../experiments/latex/tr/results-tr-en-by-order/results-tr-en-by-order.tex \
+#                          -f latex -t by_order
 
 
 # fi-en default by-order
@@ -144,23 +144,29 @@ python export_results.py -r ../experiments/outputs/aya-23-8b/tr/btwd/temp_en/fin
 #                          -f latex -t by_order
 
 # # tr-en default by-negsel
-python export_results.py -r ../experiments/outputs/aya-23-8b/tr/btwd/temp_en/final/v_final_default/batch1 \
-                            ../experiments/outputs/aya-23-35b/tr/btwd/temp_en/final/v_final_default/batch1 \
-                            ../experiments/outputs/qwen-2.5-7b/tr/btwd/temp_en/final/v_final_default/batch1 \
-                            ../experiments/outputs/qwen-2.5-32b/tr/btwd/temp_en/final/v_final_default/batch1 \
-                            ../experiments/outputs/gemini-1.5-flash/tr/btwd/temp_en/final/v_final_default/batch1 \
-                            ../experiments/outputs/gpt-4/tr/btwd/temp_en/final/v_final_default/batch1 \
-                            ../experiments/outputs/aya-23-8b/tr/btwd/temp_en/final/v_final_default_random_neg/batch1 \
-                            ../experiments/outputs/aya-23-35b/tr/btwd/temp_en/final/v_final_default_random_neg/batch1 \
-                            ../experiments/outputs/qwen-2.5-7b/tr/btwd/temp_en/final/v_final_default_random_neg/batch1 \
-                            ../experiments/outputs/qwen-2.5-32b/tr/btwd/temp_en/final/v_final_default_random_neg/batch1 \
-                            ../experiments/outputs/gemini-1.5-flash/tr/btwd/temp_en/final/v_final_default_random_neg/batch1 \
-                            ../experiments/outputs/gpt-4/tr/btwd/temp_en/final/v_final_default_random_neg/batch1 \
-                            ../experiments/outputs/aya-23-8b/tr/btwd/temp_en/final/v_final_default_no_dv_neg/batch1 \
-                            ../experiments/outputs/aya-23-35b/tr/btwd/temp_en/final/v_final_default_no_dv_neg/batch1 \
-                            ../experiments/outputs/qwen-2.5-7b/tr/btwd/temp_en/final/v_final_default_no_dv_neg/batch1 \
-                            ../experiments/outputs/qwen-2.5-32b/tr/btwd/temp_en/final/v_final_default_no_dv_neg/batch1 \
-                            ../experiments/outputs/gemini-1.5-flash/tr/btwd/temp_en/final/v_final_default_no_dv_neg/batch1 \
-                            ../experiments/outputs/gpt-4/tr/btwd/temp_en/final/v_final_default_no_dv_neg/batch1 \
-                         -o ../experiments/latex/tr/results-tr-en-by-negsel/results-tr-en-by-negsel.tex \
-                         -f latex -t by_negsel
+# python export_results.py -r ../experiments/outputs/aya-23-8b/tr/btwd/temp_en/final/v_final_default/batch1 \
+#                             ../experiments/outputs/aya-23-35b/tr/btwd/temp_en/final/v_final_default/batch1 \
+#                             ../experiments/outputs/qwen-2.5-7b/tr/btwd/temp_en/final/v_final_default/batch1 \
+#                             ../experiments/outputs/qwen-2.5-32b/tr/btwd/temp_en/final/v_final_default/batch1 \
+#                             ../experiments/outputs/gemini-1.5-flash/tr/btwd/temp_en/final/v_final_default/batch1 \
+#                             ../experiments/outputs/gpt-4/tr/btwd/temp_en/final/v_final_default/batch1 \
+#                             ../experiments/outputs/aya-23-8b/tr/btwd/temp_en/final/v_final_default_random_neg/batch1 \
+#                             ../experiments/outputs/aya-23-35b/tr/btwd/temp_en/final/v_final_default_random_neg/batch1 \
+#                             ../experiments/outputs/qwen-2.5-7b/tr/btwd/temp_en/final/v_final_default_random_neg/batch1 \
+#                             ../experiments/outputs/qwen-2.5-32b/tr/btwd/temp_en/final/v_final_default_random_neg/batch1 \
+#                             ../experiments/outputs/gemini-1.5-flash/tr/btwd/temp_en/final/v_final_default_random_neg/batch1 \
+#                             ../experiments/outputs/gpt-4/tr/btwd/temp_en/final/v_final_default_random_neg/batch1 \
+#                             ../experiments/outputs/aya-23-8b/tr/btwd/temp_en/final/v_final_default_no_dv_neg/batch1 \
+#                             ../experiments/outputs/aya-23-35b/tr/btwd/temp_en/final/v_final_default_no_dv_neg/batch1 \
+#                             ../experiments/outputs/qwen-2.5-7b/tr/btwd/temp_en/final/v_final_default_no_dv_neg/batch1 \
+#                             ../experiments/outputs/qwen-2.5-32b/tr/btwd/temp_en/final/v_final_default_no_dv_neg/batch1 \
+#                             ../experiments/outputs/gemini-1.5-flash/tr/btwd/temp_en/final/v_final_default_no_dv_neg/batch1 \
+#                             ../experiments/outputs/gpt-4/tr/btwd/temp_en/final/v_final_default_no_dv_neg/batch1 \
+#                          -o ../experiments/latex/tr/results-tr-en-by-negsel/results-tr-en-by-negsel.tex \
+#                          -f latex -t by_negsel
+
+# tr-en default by temp0
+python export_results.py -r ../experiments/outputs/gpt-4/tr/btwd/temp_en/final/v_final_default/batch1 \
+                            ../experiments/outputs/gpt-4-0125-preview/tr/btwd/temp_en/final/v_final_default_t0.3/s5 \
+                         -o ../experiments/latex/tr/results-tr-en-default.tex \
+                         -f latex
